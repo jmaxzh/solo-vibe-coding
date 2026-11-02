@@ -137,7 +137,7 @@ def validate(root=ROOT):
     for field in ("name", "version", "license", "author", "homepage", "repository"):
         if portable.get(field) != claude.get(field):
             errors.append(f"plugin manifest mismatch: {field}")
-    if portable.get("name") != "vibe-dev-skills" or portable.get("license") != "MIT":
+    if portable.get("name") != "solo-vibe-coding" or portable.get("license") != "MIT":
         errors.append("unexpected plugin identity/license")
     if not re.fullmatch(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)", portable.get("version", "")):
         errors.append("plugin version must be a stable semantic version")

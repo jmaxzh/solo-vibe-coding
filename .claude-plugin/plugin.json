@@ -1,17 +1,20 @@
 {
-  "name": "vibe-dev-skills",
-  "version": "0.1.0",
-  "description": "Skills for requirements, technical design, implementation, documentation, UI, MySQL, and CC Connect.",
+  "name": "solo-vibe-coding",
+  "version": "0.2.0",
+  "description": "Agent skills and workflows for solo developers building with AI—from ideas and design to implementation and verification.",
   "author": {
     "name": "jmaxzh"
   },
-  "homepage": "https://github.com/jmaxzh/vibe-dev-skills",
-  "repository": "https://github.com/jmaxzh/vibe-dev-skills",
+  "homepage": "https://github.com/jmaxzh/solo-vibe-coding",
+  "repository": "https://github.com/jmaxzh/solo-vibe-coding",
   "license": "MIT",
   "keywords": [
     "vibe-coding",
-    "sdlc",
+    "solo-developer",
+    "ai-coding",
     "agent-skills",
+    "claude-code",
+    "codex",
     "developer-tools"
   ],
   "skills": "./skills/"

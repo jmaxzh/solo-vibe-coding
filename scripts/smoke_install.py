@@ -56,7 +56,7 @@ def skills_checks(root, work, env, source):
 
 def native_checks(root, work, env):
     results = []
-    plugin = "vibe-dev-skills@vibe-dev-skills"
+    plugin = "solo-vibe-coding@solo-vibe-coding"
     if not shutil.which("codex") or not shutil.which("claude"):
         raise RuntimeError("--native requires codex and claude CLIs")
     run(["codex", "plugin", "marketplace", "add", str(root), "--json"], work, env)

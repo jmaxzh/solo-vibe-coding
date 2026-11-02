@@ -1,11 +1,11 @@
 {
-  "name": "vibe-dev-skills",
+  "name": "solo-vibe-coding",
   "interface": {
-    "displayName": "Vibe Dev Skills"
+    "displayName": "Solo Vibe Coding"
   },
   "plugins": [
     {
-      "name": "vibe-dev-skills",
+      "name": "solo-vibe-coding",
       "source": {
         "source": "local",
         "path": "./"

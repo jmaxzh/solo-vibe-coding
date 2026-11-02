@@ -23,19 +23,29 @@ python3 -B scripts/smoke_install.py --native
 
 ```sh
 codex plugin marketplace add "$CHECKOUT"
-codex plugin add vibe-dev-skills@vibe-dev-skills
+codex plugin add solo-vibe-coding@solo-vibe-coding
 claude plugin marketplace add "$CHECKOUT"
-claude plugin install vibe-dev-skills@vibe-dev-skills
+claude plugin install solo-vibe-coding@solo-vibe-coding
 ```
 
 在新的本地会话确认真实注册名，仅调用工作流完成需求，观察其产出文档时加载文档设计技能，而非全部专项技能。再使用临时的工作流单装环境：代理应识别缺少 `sdlc-instr-doc-design`，暂停依赖的文档任务，解释双技能安装方式，不自行安装。模型表现与 CLI 清单检查分开记录，不为负面测试移除日常使用的文档设计技能。
+
+## 迁移既有安装
+
+版本 `0.2.0` 使用仓库 `jmaxzh/solo-vibe-coding`，插件与市场标识为 `solo-vibe-coding@solo-vibe-coding`。旧安装使用 `vibe-dev-skills@vibe-dev-skills`；仓库改名不会迁移已安装的身份。
+
+先备份本地定制，按上文命令注册新市场并安装新标识，再在新会话中检查五项技能及依赖资料。读取实际注册名称，不假定仍使用旧命名空间。确认新安装后，使用客户端支持的插件管理禁用或移除旧标识，避免重复启用。这些说明不会自动修改既有安装。
+
+单项技能的名称和目录不变，手动安装继续按既有备份及替换方式处理。GitHub 会重定向旧仓库地址，但后续安装和 Git remote 应使用新地址。不要将旧仓库名称用于另一仓库，否则会破坏重定向。
+
+历史验证记录保留当时真实测试的标识和版本，不作为改名后软件包已通过新检查的证据。
 
 ## 发布并检查 GitHub 安装
 
 仅在明确授权后发布已审阅的仓库变更，再运行：
 
 ```sh
-python3 -B scripts/smoke_install.py --source jmaxzh/vibe-dev-skills
+python3 -B scripts/smoke_install.py --source jmaxzh/solo-vibe-coding
 ```
 
 来源须与本地待验证技能一致。发布前远端仍是旧结构，本地冒烟通过不代表远端通过。既有手动安装先备份，再从新 `skills/` 目录更新；移除旧根路径，不保留兼容符号链接。

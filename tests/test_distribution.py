@@ -1,5 +1,6 @@
 """Checks for supported installed combinations and distribution boundaries."""
 from pathlib import Path
+import json
 import shutil
 import sys
 import tempfile
@@ -56,7 +57,9 @@ class DistributionTests(unittest.TestCase):
         fixture = self.work / "source"
         shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns(".git", "dist", "__pycache__"))
         manifest = fixture / ".claude-plugin/plugin.json"
-        manifest.write_text(manifest.read_text().replace('"version": "0.1.0"', '"version": "0.2.0"'))
+        data = json.loads(manifest.read_text())
+        data["version"] = "9.9.9"
+        manifest.write_text(json.dumps(data))
         (fixture / "assets/icon.png").unlink()
         errors = validate.validate(fixture)
         self.assertIn("plugin manifest mismatch: version", errors)

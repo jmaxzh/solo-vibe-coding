@@ -21,19 +21,29 @@ Assign `CHECKOUT` to this checkout's actual absolute directory. These commands c
 
 ```sh
 codex plugin marketplace add "$CHECKOUT"
-codex plugin add vibe-dev-skills@vibe-dev-skills
+codex plugin add solo-vibe-coding@solo-vibe-coding
 claude plugin marketplace add "$CHECKOUT"
-claude plugin install vibe-dev-skills@vibe-dev-skills
+claude plugin install solo-vibe-coding@solo-vibe-coding
 ```
 
 In a fresh local session, verify actual registered skill names and invoke the workflow for requirements only. Confirm that it loads the documentation skill when producing the artifact, without invoking all specialists. Then test a disposable workflow-only installation: the agent should identify missing `sdlc-instr-doc-design`, pause dependent document work, explain the pair installation, and not install anything itself. Record observed behavior separately from CLI inventory checks. Never remove your normal documentation skill to perform this negative test.
+
+## Migrate an existing installation
+
+Version `0.2.0` uses the repository `jmaxzh/solo-vibe-coding` and the plugin/marketplace identity `solo-vibe-coding@solo-vibe-coding`. Earlier installations used `vibe-dev-skills@vibe-dev-skills`; renaming the repository does not migrate that installed identity.
+
+Back up local customizations. Register the new marketplace and install the new identity using the commands above, then verify the five installed skills and required resources in a fresh session. Inspect their actual registered names rather than assuming the old namespace. Once the new installation is verified, disable or remove the old identity using the client's supported plugin management to avoid duplicate activation. These instructions do not automatically change existing installations.
+
+Individual skill names and directories remain unchanged. Manual installations retain their documented backup-and-replacement procedure. GitHub redirects old repository URLs, but use the new address for future installations and Git remotes. Do not reuse the old repository name for another repository, which would break those redirects.
+
+Historical verification records retain the identity and revision they actually tested; they are not evidence that the renamed package passed new checks.
 
 ## Publish and check GitHub installation
 
 Only after explicit authorization, publish the reviewed changes to the repository and rerun:
 
 ```sh
-python3 -B scripts/smoke_install.py --source jmaxzh/vibe-dev-skills
+python3 -B scripts/smoke_install.py --source jmaxzh/solo-vibe-coding
 ```
 
 The source must match the local entries being validated. Before publication the remote repository still has its previous structure; local smoke success does not establish remote success. Existing manually copied installations must be backed up and updated from the new `skills/` directories; old root skill paths are removed without compatibility symlinks.

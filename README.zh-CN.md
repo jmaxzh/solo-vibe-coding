@@ -1,10 +1,12 @@
-# Vibe Dev Skills
+# Solo Vibe Coding
 
-**面向软件开发生命周期的 Agent Skills——从需求、设计到实施、测试与交付。**
+**面向个人开发者的 AI 编程技能与工作流——从想法、设计到实施与验证。**
 
 [English](README.md) | 简体中文
 
-将 Vibe Coding 想法转化为需求、技术方案和具有明确验证要求的实现。套件包含开发工作流，以及文档、UI、MySQL 和 CC Connect 专项技能。
+使用 Claude Code 和 Codex 规划、开发和维护自己的软件。从想法出发，明确需要实现的行为，选择设计方案，并完成具有明确验证要求的实现。五项核心技能包含开发工作流，以及文档、UI、MySQL 和 CC Connect 专项指导。
+
+可以为整个项目或一个限定阶段调用工作流，也可以按任务使用专项技能。这些可复用指令和集成辅助工具不替代编程代理，也不提供应用托管服务。
 
 ## 技能
 
@@ -25,20 +27,20 @@
 ### Codex
 
 ```sh
-codex plugin marketplace add jmaxzh/vibe-dev-skills
+codex plugin marketplace add jmaxzh/solo-vibe-coding
 ```
 
-在受支持的插件界面中，从已配置市场安装 **Vibe Dev Skills**。提供 `plugin add` 的 CLI 版本还支持：
+在受支持的插件界面中，从已配置市场安装 **Solo Vibe Coding**。提供 `plugin add` 的 CLI 版本还支持：
 
 ```sh
-codex plugin add vibe-dev-skills@vibe-dev-skills
+codex plugin add solo-vibe-coding@solo-vibe-coding
 ```
 
 ### Claude Code
 
 ```sh
-claude plugin marketplace add jmaxzh/vibe-dev-skills
-claude plugin install vibe-dev-skills@vibe-dev-skills
+claude plugin marketplace add jmaxzh/solo-vibe-coding
+claude plugin install solo-vibe-coding@solo-vibe-coding
 ```
 
 ### skills CLI
@@ -46,13 +48,13 @@ claude plugin install vibe-dev-skills@vibe-dev-skills
 安装全部五项英文技能，并选择受支持的代理：
 
 ```sh
-npx skills add jmaxzh/vibe-dev-skills --skill '*'
+npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
 
 工作流的最小完整组合为：
 
 ```sh
-npx skills add jmaxzh/vibe-dev-skills \
+npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-workflow \
   --skill sdlc-instr-doc-design
 ```

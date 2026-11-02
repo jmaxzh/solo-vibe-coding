@@ -1,10 +1,12 @@
-# Vibe Dev Skills
+# Solo Vibe Coding
 
-**Agent skills for the software development lifecycle — from requirements and design to implementation, testing, and delivery.**
+**Agent skills and workflows for solo developers building with AI—from ideas and design to implementation and verification.**
 
 English | [简体中文](README.zh-CN.md)
 
-Turn a Vibe Coding idea into requirements, a technical design, and an implementation with explicit verification. The suite combines a development workflow with focused documentation, UI, MySQL, and CC Connect skills.
+Use Claude Code and Codex to plan, build, and maintain your own software. Start with an idea, clarify what it needs to do, choose a design, and implement it with explicit verification. The five core skills combine a development workflow with focused guidance for documentation, UI, MySQL, and CC Connect.
+
+Choose the workflow for a project or a bounded stage, or use a specialist for the task at hand. These are reusable instructions and integration helpers; they do not replace your coding agent or provide hosted application services.
 
 ## Skills
 
@@ -25,20 +27,20 @@ These GitHub commands require the distribution changes to be published to the re
 ### Codex
 
 ```sh
-codex plugin marketplace add jmaxzh/vibe-dev-skills
+codex plugin marketplace add jmaxzh/solo-vibe-coding
 ```
 
-Install **Vibe Dev Skills** from the configured marketplace in the supported plugin UI. CLI versions providing `plugin add` also support:
+Install **Solo Vibe Coding** from the configured marketplace in the supported plugin UI. CLI versions providing `plugin add` also support:
 
 ```sh
-codex plugin add vibe-dev-skills@vibe-dev-skills
+codex plugin add solo-vibe-coding@solo-vibe-coding
 ```
 
 ### Claude Code
 
 ```sh
-claude plugin marketplace add jmaxzh/vibe-dev-skills
-claude plugin install vibe-dev-skills@vibe-dev-skills
+claude plugin marketplace add jmaxzh/solo-vibe-coding
+claude plugin install solo-vibe-coding@solo-vibe-coding
 ```
 
 ### skills CLI
@@ -46,13 +48,13 @@ claude plugin install vibe-dev-skills@vibe-dev-skills
 Install all five English skills and choose a supported agent:
 
 ```sh
-npx skills add jmaxzh/vibe-dev-skills --skill '*'
+npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
 
 The minimum complete workflow combination is:
 
 ```sh
-npx skills add jmaxzh/vibe-dev-skills \
+npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-workflow \
   --skill sdlc-instr-doc-design
 ```

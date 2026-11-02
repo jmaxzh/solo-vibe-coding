@@ -52,7 +52,7 @@ These rules govern chat responses. Document artifacts follow the installed Instr
 
 - Document artifact work requires the installed `sdlc-instr-doc-design` skill. Resolve it through the runtime's skill catalog and load it with the available skill mechanism, using its actual registered name and namespace. Without a skill loader, read the entry and relevant resources at the discovered installed location. Do not assume a checkout path, user directory, or namespace.
 - If the required skill or resource cannot be loaded, identify the missing dependency and pause only work requiring its rules. Continue independent work. Do not claim the rules were applied, silently skip them, or download/install dependencies automatically.
-- Explain that the full Vibe Dev Skills plugin includes this dependency. For skills CLI installations, the minimum combination is `npx skills add jmaxzh/vibe-dev-skills --skill sdlc-workflow --skill sdlc-instr-doc-design`. Present this as installation guidance, not an instruction to run it without authorization.
+- Explain that the full Solo Vibe Coding plugin includes this dependency. For skills CLI installations, the minimum combination is `npx skills add jmaxzh/solo-vibe-coding --skill sdlc-workflow --skill sdlc-instr-doc-design`. Present this as installation guidance, not an instruction to run it without authorization.
 - The UI, MySQL, and CC Connect skills retain their own applicability and activation rules; installing the suite does not activate every skill for every task.
 
 ## Read on demand

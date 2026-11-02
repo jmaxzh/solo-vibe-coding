@@ -1,29 +1,32 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "vibe-dev-skills",
-  "version": "0.1.0",
-  "description": "Skills for requirements, technical design, implementation, documentation, UI, MySQL, and CC Connect.",
+  "name": "solo-vibe-coding",
+  "version": "0.2.0",
+  "description": "Agent skills and workflows for solo developers building with AI—from ideas and design to implementation and verification.",
   "author": {
     "name": "jmaxzh"
   },
-  "homepage": "https://github.com/jmaxzh/vibe-dev-skills",
-  "repository": "https://github.com/jmaxzh/vibe-dev-skills",
+  "homepage": "https://github.com/jmaxzh/solo-vibe-coding",
+  "repository": "https://github.com/jmaxzh/solo-vibe-coding",
   "license": "MIT",
   "keywords": [
     "vibe-coding",
-    "sdlc",
+    "solo-developer",
+    "ai-coding",
     "agent-skills",
+    "claude-code",
+    "codex",
     "developer-tools"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Vibe Dev Skills",
-        "shortDescription": "A practical software development workflow and specialist skills.",
-        "longDescription": "Plan requirements, design solutions, implement and verify changes, and maintain project knowledge. Includes documentation, UI, MySQL, and CC Connect skills.",
+        "displayName": "Solo Vibe Coding",
+        "shortDescription": "Vibe coding skills and workflows for solo developers.",
+        "longDescription": "Build and maintain your own software with Claude Code and Codex. Includes a development workflow and focused skills for documentation, UI, MySQL, and CC Connect, with explicit verification boundaries.",
         "developerName": "jmaxzh",
         "category": "Developer Tools",
-        "websiteURL": "https://github.com/jmaxzh/vibe-dev-skills",
+        "websiteURL": "https://github.com/jmaxzh/solo-vibe-coding",
         "defaultPrompt": [
           "Use sdlc-workflow to turn my feature idea into requirements and acceptance criteria.",
           "Review my MySQL schema and concurrency rules with sdlc-mysql-design."

@@ -54,7 +54,7 @@ license: MIT
 
 - 文档产物任务需要已安装的 `sdlc-instr-doc-design` 技能。通过运行环境的技能目录发现，并使用可用的技能机制加载，采用实际注册名称及命名空间。没有技能加载器时，从发现的安装位置读取入口和相关资料；不预设检出路径、用户目录或命名空间。
 - 无法加载必需技能或资料时，明确缺项，仅暂停依赖其规则的工作，继续独立部分。不宣称已应用规则、不静默跳过，也不自动下载或安装依赖。
-- 说明完整插件已包含此依赖。skills CLI 的最小安装组合为 `npx skills add jmaxzh/vibe-dev-skills --skill sdlc-workflow --skill sdlc-instr-doc-design`；该命令仅为安装说明，不构成未经授权执行的要求。
+- 说明完整插件已包含此依赖。skills CLI 的最小安装组合为 `npx skills add jmaxzh/solo-vibe-coding --skill sdlc-workflow --skill sdlc-instr-doc-design`；该命令仅为安装说明，不构成未经授权执行的要求。
 - UI、MySQL 和 CC Connect 技能保留各自适用范围与启用规则；安装整套技能不等于每项任务都启用全部技能。
 
 ## 按需读取规则

@@ -14,9 +14,19 @@ Verification date: 2026-11-01. Implementation commit `41f0c4e` was reviewed, fas
 | Model execution and dependency compliance | Not run: inventory/file checks do not prove a model loads the dependency or pauses correctly when absent |
 | CC Connect real messaging and desktop behavior | Not run on a deployment target |
 | Remote GitHub installation | GitHub API and HTTPS `ls-remote` confirmed `main` at `41f0c4efc9c63b71406cbbe18d505660942b83be`. The exact skills CLI remote-source smoke check timed out at discovery on two attempts; remote installation is not accepted as passed |
-| CI on GitHub | [Run 41294750749](https://github.com/jmaxzh/vibe-dev-skills/actions/runs/41294750749) completed successfully for implementation commit `41f0c4e` |
+| CI on GitHub | [Run 41294750749](https://github.com/jmaxzh/solo-vibe-coding/actions/runs/41294750749) completed successfully for implementation commit `41f0c4e` |
 | skills.sh / SkillsMP listing | Not submitted or verified for this revision |
 
 Reproduce the automated checks using [distribution instructions](distribution.md). The smoke report distinguishes local CLI installation, namespaced discovery, and missing-dependency file checks from model behavior. Perform the fresh-session positive/negative model checks before claiming behavioral acceptance.
 
 The complete smoke script passed 12 recorded checks, including actual native installs and the Codex namespaced runtime inventory. `dist/install-report.json` contains the machine-readable smoke result.
+
+## Solo Vibe Coding 0.2.0 — local verification, 2026-11-02
+
+The renamed package uses `solo-vibe-coding@solo-vibe-coding`. This change updates the project positioning, manifests, installation sources, and migration guidance; the five core skill names and behaviors are retained. The optional public-update skill and workflow are not included in this release.
+
+Source validation, six distribution tests, and the existing twenty-eight CC Connect tests passed. The manifest-drift test now changes parsed version data so it continues to exercise a mismatch after the version bump.
+
+The isolated smoke report `dist/solo-rebrand-native.json` passed twelve checks: skills CLI discovery and supported installation combinations, actual Codex native plugin installation and app-server discovery of five enabled readable skills, and Claude Code strict manifest validation, native installation, and five-skill inventory. Versions: `codex-cli 0.166.0-alpha.5.1`, Claude Code `2.1.267`. Tests used temporary configurations and did not change normal installations or call a model.
+
+These local results do not establish model dependency compliance, CC Connect target-machine behavior, remote installation, or hosted CI. Historical results above retain their actual earlier identity and revision. Recheck remote sources and CI after publishing the rename.
