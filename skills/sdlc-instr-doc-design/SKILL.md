@@ -43,16 +43,16 @@ Before starting, establish the scope, document purpose, and applicable conventio
 ### Review and revise
 
 - Base changes on identified issues and revision goals; leave useful content unchanged when no change is needed.
-- Keep the original retrievable so changes can be assessed and unsatisfactory edits reversed. Version control or a separate snapshot may serve this purpose.
 - Choose the unit and order of work according to scope, dependencies, and risk. Related documents may be revised together when this helps maintain consistency; no fixed sequence of revision stages is required.
 - Compare the result with the original to assess improvements and regressions. Preserve useful information, necessary explanations, conditions, constraints, and behavioral boundaries; restore or integrate valuable content omitted during revision. A diff supports this assessment but does not replace judgment about meaning and usefulness.
+- As you finish reviewing each revised document, show its before-and-after comparison in a progress update. Cover every revised document, including translations. Name the document and section, pair the original and revised wording for each material change, and explain the practical difference. Identify additions or deletions directly. Show where an important original condition is preserved or why it was removed, and note any regression found and its resolution or current status.
 - Resolve conflicts using document goals, facts, and applicable constraints. Check affected cross-document relationships. If an edit cannot meet the completion criteria, restore the affected content and report the unresolved issue and reason.
 
 ### Completion criteria and reporting
 
 - New artifacts must meet task goals and applicable conventions. Revisions must solve target issues, retain valid original content, and introduce no omissions, ambiguity, contradictions, or redundancy.
 - Removing content with evidence that it is wrong, obsolete, unrelated, or duplicated is not information loss.
-- Briefly report major improvements, strengths retained or integrated through comparison, unresolved issues, and verification limits. Do not claim lossless revision for unverified content.
+- Close with a brief summary of the outcome, unresolved issues, and verification limits. Leave the document comparisons in the progress updates.
 
 ## Review boundaries
 
