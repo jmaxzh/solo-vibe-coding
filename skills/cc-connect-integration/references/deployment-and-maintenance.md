@@ -6,7 +6,7 @@ This reference is for CC Connect integration maintainers. The primary path is me
 
 Inspect installation source, executables, versions, arguments, working directories, authentication backend, configuration, session data, and existing background processes. Prefer installed-version documentation; do not copy another project's identifiers or credentials.
 
-Before configuration, establish the platform, coding tool, allowed users, project directory, and permission mode. Configure model and reasoning effort only when supported and needed. Follow fixed display and Feishu topic rules below. Topic isolation gives topics independent context, with behavior depending on platform and version; do not confuse topic IDs, platform user IDs, and coding-tool session IDs.
+Before configuration, establish the platform, coding tool, allowed users, and project directory. Configure model and reasoning effort only when supported and needed. Follow fixed execution-permission, display, and Feishu topic rules below. Topic isolation gives topics independent context, with behavior depending on platform and version; do not confuse topic IDs, platform user IDs, and coding-tool session IDs.
 
 Choose installation and integrations using version-specific sources, not a historical example's version. This shows structure only, not deployable configuration; verify fields for the selected adapter:
 
@@ -31,8 +31,18 @@ Start with CC Connect's [configuration example](https://github.com/chenhg5/cc-co
 
 ## Fixed configuration
 
+- Configure each execution-side coding tool for full access without per-action approval; disable its execution sandbox where applicable. Messaging-platform allowed users remain independently configured, and desktop copies remain view-only.
 - Set global `[display]` to `mode = "quiet"`. Check project-level settings do not override it with another mode.
 - Feishu groups must use topic mode, with `thread_isolation = true` in the Feishu adapter's `[projects.platforms.options]`. Check group mode and adapter configuration separately; enabling isolation alone does not establish topic mode.
+
+Use these tool-specific values in the execution-side `[projects.agent.options]` table:
+
+| Coding tool | `mode` | Execution permissions |
+| --- | --- | --- |
+| Codex | `"yolo"` | Bypass all approvals and the execution sandbox |
+| Claude Code | `"bypassPermissions"` | Execute tools without per-action approval |
+
+These mappings are documented in CC Connect's [permission modes](https://github.com/chenhg5/cc-connect/blob/v1.5.0/docs/usage.md#permission-modes); verify them against the installed version. Codex `full-auto` retains a sandbox and does not meet this full-access requirement. For other coding tools, use the installed version's supported full-access mode without per-action approval or an execution sandbox.
 
 Merge these fragments into the relevant tables; do not recreate existing tables:
 
@@ -40,13 +50,19 @@ Merge these fragments into the relevant tables; do not recreate existing tables:
 [display]
 mode = "quiet"
 
+# For an execution-side Codex project:
+[projects.agent.options]
+mode = "yolo"
+# For Claude Code, set mode = "bypassPermissions" in its own
+# [projects.agent.options] table instead.
+
 # Inside the relevant Feishu [projects.platforms.options] table:
 # thread_isolation = true
 ```
 
 The official example above is the field reference; still verify installed-version support. If unsupported, report the blocker and address compatibility rather than silently switching modes.
 
-For acceptance, verify Feishu messages are organized by topic, conversations continue within a topic, and different topics have isolated source sessions. Verify `quiet` display without reasoning or tool-progress messages. Other messaging platforms require `quiet`; configure topic isolation according to their requirements.
+For acceptance on every messaging platform, check the effective execution mode (for example, with `/mode` when supported) and actual invocation arguments or backend permission settings. Confirm full-access execution without per-action approval or an execution sandbox; configuration text alone is insufficient. Verify `quiet` display without reasoning or tool-progress messages. For Feishu, also verify messages are organized by topic, conversations continue within a topic, and different topics have isolated source sessions. Configure topic isolation on other messaging platforms according to their requirements.
 
 ## Authentication and session storage
 
@@ -66,10 +82,10 @@ Protect secret-bearing configuration and chat-bearing logs, caches, and database
 ## Initial integration
 
 1. Configure the platform app or bot with version-specific permissions, event subscriptions, receiving method, and allowed users, completing required publication or authorization.
-2. Independently verify the coding tool in the target directory with expected authentication and permission mode.
+2. Independently verify the coding tool in the target directory with expected authentication and the required full-access execution mode.
 3. Write actual CC Connect configuration.
 4. Start one foreground instance and inspect its environment and logs.
-5. In the user-designated test conversation, verify real messaging, directory, model, and topic behavior. Repair authentication or platform-permission failures on the primary path first.
+5. In the user-designated test conversation, verify real messaging, directory, model, effective execution permissions, and topic behavior. Repair authentication or platform-permission failures on the primary path first.
 6. Stop the foreground instance.
 7. Deploy with an appropriate OS service manager. Choose either CC Connect background management or an external manager to avoid duplicates.
 

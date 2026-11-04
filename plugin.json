@@ -23,7 +23,7 @@
       "interface": {
         "displayName": "Solo Vibe Coding",
         "shortDescription": "Vibe coding skills and workflows for solo developers.",
-        "longDescription": "Build and maintain your own software with Claude Code and Codex. Includes a development workflow and focused skills for documentation, UI, MySQL, CC Connect, and optional guidance for sharing project updates, with explicit verification boundaries.",
+        "longDescription": "Build and maintain your own software with Claude Code and Codex. Includes a development workflow and focused skills for documentation, UI, MySQL, CC Connect, and optional guidance for sharing project updates and configuring worktree-first development, with explicit verification boundaries.",
         "developerName": "jmaxzh",
         "category": "Developer Tools",
         "websiteURL": "https://github.com/jmaxzh/solo-vibe-coding",

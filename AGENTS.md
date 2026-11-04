@@ -2,6 +2,10 @@
 
 - When designing, writing, modifying, or reviewing this project's skills and related documentation, read and follow the [Instruction and Documentation Design Principles](skills/sdlc-instr-doc-design/SKILL.md).
 
+## Runtime integrations
+
+- For this project's Feishu resource operations or app identity and authorization troubleshooting, use `lark-cli --profile my-dev-skills`. A request arriving through Feishu alone does not require CLI use.
+
 ## Language and sources
 
 - `skills/` contains the only installable skill edition: English. English files define behavior and constraints. Do not add runtime language selection or translated `SKILL.md` discovery entries.

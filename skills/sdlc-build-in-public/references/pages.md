@@ -38,17 +38,19 @@ Prepare a titled article in the site's supported Markdown or HTML format, includ
 
 ### Worked excerpt
 
-Illustrative input. A workshop exercise asks for a two-sentence summary. Its original worksheet combines the task, answer format and upload instructions in one paragraph. A revision separates them into three labelled blocks. A learner trial is planned.
+Illustrative input. The readers are workshop designers, and the purpose is to provide a reusable worksheet outline. An exercise asks for a two-sentence summary. Its revision separates the task, answer format and upload instructions into labelled blocks. A learner trial will check whether participants can find the submission step before asking for help.
 
-> **Why I separated the task, answer format and submission steps**
+> **A worksheet outline workshop designers can reuse**
 >
-> The worksheet asks learners to summarize a short passage in two sentences. Its instructions also need to tell them what to submit and where to upload it.
+> This summary exercise gives its instructions under three labels, each answering a different question for the learner.
 >
-> I split that paragraph into three labelled blocks. The task describes what to do, the answer format describes what to produce, and the submission block gives the upload steps.
+> - The task block gives the short passage and asks for a summary.
+> - The answer-format block specifies two sentences.
+> - The submission block gives the upload steps.
 >
-> The revised worksheet is ready for a trial. I will check whether learners can find the submission step before asking for help.
+> You can apply these labels to another exercise by filling in its activity, expected answer and submission steps. For this worksheet, the learner trial will check whether participants can find the submission step before asking for help. The results will inform the next layout decision.
 
-Explain the visible change and its rationale before describing how its effect will be tested.
+Show designers what they can reuse, then explain the observation needed to assess the proposed layout.
 
 ### Sources
 

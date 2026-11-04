@@ -10,7 +10,7 @@ import sys
 import tempfile
 from types import SimpleNamespace
 
-from validate import ROOT, CORE_SKILLS, SKILLS, installation_errors
+from validate import ROOT, CORE_SKILLS, SKILLS, DOCUMENT_DEPENDENTS, installation_errors
 
 
 def run(args, cwd, env):
@@ -26,11 +26,12 @@ def skills_checks(root, work, env, source):
     for extra in ([], ["--full-depth"]):
         output = run(cli + ["--list", *extra], work, env)
         if not re.search(rf"Found {len(SKILLS)} skills\b", output):
-            raise RuntimeError("Expected exactly six discovered skills:\n" + output)
-        checks.append("six-skill discovery" + (" (full depth)" if extra else ""))
+            raise RuntimeError(f"Expected exactly {len(SKILLS)} discovered skills:\n" + output)
+        checks.append(f"{len(SKILLS)}-skill discovery" + (" (full depth)" if extra else ""))
     combinations = [("suite", SKILLS), ("core", CORE_SKILLS), ("workflow-pair", {"sdlc-workflow", "sdlc-instr-doc-design"})]
-    combinations += [(name, {name}) for name in sorted(SKILLS - {"sdlc-workflow"})]
-    combinations += [("missing-dependency", {"sdlc-workflow"})]
+    combinations += [("worktree-strategy-pair", {"worktree-first-development", "sdlc-instr-doc-design"})]
+    combinations += [(name, {name}) for name in sorted(SKILLS - DOCUMENT_DEPENDENTS)]
+    combinations += [("missing-dependency-" + name, {name}) for name in sorted(DOCUMENT_DEPENDENTS)]
     for label, names in combinations:
         dest = work / label
         dest.mkdir()
@@ -42,7 +43,7 @@ def skills_checks(root, work, env, source):
         if actual != set(names):
             raise RuntimeError(f"{label}: wrong installed inventory: {actual}")
         errors = installation_errors(container)
-        if label == "missing-dependency":
+        if label.startswith("missing-dependency-"):
             if len(errors) != 1 or "requires sdlc-instr-doc-design" not in errors[0]:
                 raise RuntimeError(f"Missing dependency not detected: {errors}")
         elif errors:
@@ -78,7 +79,7 @@ def native_checks(root, work, env):
         for skill in own:
             if not Path(skill["path"]).is_file():
                 raise RuntimeError("Codex returned an unreadable installed skill")
-        results.append("Codex app-server catalog: six enabled namespaced skills with readable resources")
+        results.append(f"Codex app-server catalog: {len(SKILLS)} enabled namespaced skills with readable resources")
     finally:
         rpc.close()
     for target in (root / ".claude-plugin/plugin.json", root / ".claude-plugin/marketplace.json"):
@@ -88,7 +89,7 @@ def native_checks(root, work, env):
     inventory = run(["claude", "plugin", "details", plugin], work, env)
     if f"Skills ({len(SKILLS)})" not in inventory or any(name not in inventory for name in SKILLS):
         raise RuntimeError("Unexpected Claude Code component inventory:\n" + inventory)
-    results.append("Claude Code strict validation, native installation, and six-skill inventory")
+    results.append(f"Claude Code strict validation, native installation, and {len(SKILLS)}-skill inventory")
     return results
 
 

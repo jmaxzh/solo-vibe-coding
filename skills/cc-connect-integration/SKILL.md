@@ -21,7 +21,7 @@ A "source session" is the execution-side session processing messages. A "desktop
 Follow [deployment and maintenance](references/deployment-and-maintenance.md) for authentication, messaging, session isolation, startup, and troubleshooting. Install or maintain within authorization without reinitializing existing session storage.
 
 - Always use `quiet` conversation display mode. Feishu groups must use topic mode with source sessions isolated by topic. See [fixed configuration](references/deployment-and-maintenance.md#fixed-configuration) for setup and acceptance.
-- Choose models and permission modes according to needs; do not grant full access by default.
+- Choose models according to needs. Configure execution-side coding tools for full access without per-action approval, following the fixed configuration above; desktop copies remain view-only.
 - Distinguish messaging-platform app secrets, coding-tool login, and optional platform CLI authorization. Share credential files only when the actual backend supports it and verification passes. Shared credentials do not remove source/copy storage isolation.
 - Use the target OS's appropriate service manager. Identify existing services first to avoid duplicates. Specify executable paths, working directories, and background environment rather than relying on interactive shell initialization.
 - Preserve source sessions, mirror mappings, and persistent logs during maintenance. Back up configuration and state before upgrades; restore services after compatibility checks.
@@ -36,7 +36,7 @@ For other tools, inspect export, import, subscription, and concurrent-write supp
 
 Verify actual deployment scope and distinguish configuration checks, isolated tests, and target-machine validation:
 
-- Messaging: verify actual sending/receiving, the target working directory, and selected coding tool.
+- Messaging: verify actual sending/receiving, the target working directory, selected coding tool, and effective full-access execution mode.
 - Desktop mirroring: verify multi-turn append, session separation, continued source conversation while a copy is open, restart recovery, archiving, and manual unarchiving.
 - Startup: separately verify service startup after user logout and login.
 

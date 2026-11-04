@@ -24,21 +24,21 @@ Prepare titled, formatted HTML. Review the actual cover, the rendered body and t
 
 ### Ending
 
-Close on what has changed for the project's participants, including an open question that follows from the result. If inviting a response, give the reader something concrete to describe or try. If the article introduces a future test, identify it as the next check. A later article can return to it once evidence arrives.
+Close on what has changed for the project's participants, including an open question that follows from the result. For a trial invitation, say who it is for, how to obtain the materials, what to do and where to return feedback. Use a participation route available to the account. If the article introduces a future test, identify it as the next check. A later article can return to it once evidence arrives.
 
 ### Worked excerpt
 
-Illustrative input. A workshop exercise asks for a two-sentence summary. Its worksheet puts the task, answer format and upload steps in one paragraph. A revised layout separates them into labelled blocks, and a learner trial is planned.
+Illustrative input. The readers are prospective workshop participants, and the purpose is to recruit trial participants. An exercise asks for a two-sentence summary. The author can send the worksheet manually through the official account's conversation and receive answers and feedback there. The trial will observe where participants look for submission instructions and when they ask for help.
 
-> **Separating the exercise from its submission instructions**
+> **Try a two-sentence summary exercise with us**
 >
-> I reviewed a workshop worksheet that asked learners to write a two-sentence summary. The same paragraph also explained the answer format and upload steps.
+> If you want to practise summarizing a short passage, you can help us try a workshop exercise. Read the passage, write a two-sentence summary and follow the worksheet's submission instructions.
 >
-> I separated those instructions into three labelled blocks. A reader can now locate the task, the expected answer and the submission steps under their own headings.
+> We are checking how the instructions work for participants. After trying the exercise, please tell us where you found the submission step and which part needed more explanation.
 >
-> In the learner trial, I want to observe where people look for the upload step and when they ask for help. Those observations will help me decide what the layout needs next.
+> To take part, message this official account asking for the worksheet. I will send the materials. You can return your answer and feedback in the same conversation.
 
-Connect the layout change to a reader's task, and identify the observation needed to evaluate it.
+Give prospective participants a task, a reason to respond and a complete route to obtain materials and return feedback.
 
 ### Sources
 
