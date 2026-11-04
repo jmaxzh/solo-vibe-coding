@@ -2,11 +2,11 @@
 
 ## Writing
 
-Work from the assigned topic and choose the finding, change or observation this post can explain. Use the author's established voice. Let a reader encountering the post on its own understand what happened and why it is worth their attention.
+Work from the assigned topic and choose the finding, change or observation this post can explain. Let a reader encountering the post on its own understand what happened and why it is worth their attention.
 
 ### Opening and evidence
 
-Put a concrete fact or claim early. Name the subject, and use the next sentence to establish its consequence, supporting observation or relevant condition. Replace a vague announcement with the particular thing that changed.
+Lead with a concrete fact or claim and name its subject. Add the supporting observation, consequence or condition needed to understand it. Replace a vague announcement with the particular thing that changed.
 
 Use an actual number only with its supplied basis. Keep an important qualification beside the claim it limits. A link can supply more detail once the text gives readers a reason to open it.
 
@@ -14,7 +14,7 @@ Use an actual number only with its supplied basis. Keep an important qualificati
 
 Use a single post when one development and its significance can be understood together. Use a thread when several connected observations or steps are necessary to explain the subject. X supports threads as connected posts. [X thread guidance](https://help.x.com/en/using-x/create-a-thread)
 
-In a thread, let the first post identify the subject and value of continuing. Give each following post one useful contribution, with a clear relation to the previous one. Retain enough context for a post encountered separately. End when the explanation reaches its result. Use a question or invitation when it serves the stated purpose.
+In a thread, identify the subject and reason to continue in the first post. Advance the explanation through connected observations or steps in the following posts. Retain enough context for a post encountered separately. End when the explanation reaches its result. Use a question or invitation when it serves the stated purpose.
 
 ### Text, media and preview
 
@@ -24,25 +24,25 @@ Check the applicable character limit and counting rules for the account and form
 
 ### Worked posts
 
-The facts are the shared publisher's removal, its former use by eight guides, and the upcoming review of individual delivery methods.
+Illustrative input. A workshop exercise asks for a two-sentence summary. Its worksheet puts the task, answer format and submission instructions in one paragraph. The revision gives each a labelled block. A learner trial will check whether the submission step is easy to find.
 
-A single-post treatment focuses on the concrete change.
+A single post can report the change and the planned check.
 
-> I removed the common sender from a skill that prepares drafts for eight channels. Each channel's delivery rules still need review. The next step is to settle how an approved draft reaches its destination and how we verify that handoff.
+> I split a workshop worksheet into task, answer format and submission blocks. They used to share one paragraph. In the learner trial, I’ll check whether people can find the submission step before asking for help.
 
-A thread treatment develops how that implementation affected the documentation.
+A thread can explain what each block contributes.
 
-> 1/ The eight channel guides in our publishing skill all called the same sender. We were still working out the delivery rules for each channel.
+> 1/ I split a workshop worksheet into three blocks. The original paragraph mixed what learners should do, what they should produce and where to submit it.
 >
-> 2/ I removed that sender and the calls in the guides. Drafting and batch review are now described as instructions, with delivery depending on the method agreed for each channel.
+> 2/ The task block describes the exercise. The answer-format block asks for a two-sentence summary. The submission block gives the upload steps.
 >
-> 3/ The next channel reviews need to answer two questions together. How do we send the approved version to the right account? What receipt proves it arrived?
+> 3/ The next learner trial will check whether the submission step is easy to find. The new layout is a proposal whose effect we still need to observe.
 
-These are alternative treatments for review. Their claims come from the same material. The outcome described is the removal and the review task it leaves.
+Choose the length that lets the reader understand the change and its evidence.
 
-### Sources and adaptation
+### Sources
 
-The specific opening and coherent thread draw on [social's X guidance at revision 88c79f6](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/references/platforms.md#twitterx). This guide adapts those writing ideas to project updates.
+The specific opening and coherent thread draw on [social's X guidance at revision 88c79f6](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/references/platforms.md#twitterx).
 
 ## Delivery
 

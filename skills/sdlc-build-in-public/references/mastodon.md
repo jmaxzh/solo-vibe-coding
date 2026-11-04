@@ -2,7 +2,7 @@
 
 ## Writing
 
-Use the assigned topic to explain an observation or tradeoff to readers on the chosen instance and people seeing a shared post elsewhere. Introduce project terms that this audience may not know, following the author's established voice.
+Use the assigned topic to explain an observation or tradeoff to readers on the chosen instance and people seeing a shared post elsewhere. Explain project terms that these readers may not know.
 
 ### Opening and reasoning
 
@@ -12,7 +12,7 @@ Use enough text to make the reasoning understandable on its own. Separate a resu
 
 ### Community context and media
 
-Choose subject tags that actually describe the post when they help readers find the conversation. Use community vocabulary that is relevant to the topic. A mention should identify someone whose participation is relevant.
+Choose subject tags that actually describe the post when they help readers find the conversation. Use community vocabulary that is relevant to the topic. Mention people when their participation is relevant.
 
 Describe the significant content of attached media. For a comparison, explain what differs between the images. Where the content warrants a content warning, make the warning descriptive of what readers will encounter. Mastodon documents media descriptions, tags and content warnings. [Posting features](https://docs.joinmastodon.org/user/posting/)
 
@@ -24,17 +24,17 @@ End with the implication of the observation or a concrete question for readers w
 
 ### Worked post
 
-The example uses the publisher removal and the instruction to approve exact drafts and accounts. It focuses on where a human review enters the handoff.
+Illustrative input. A workshop uses the same upload page for several exercises. Submission steps can be repeated on each worksheet or maintained in shared instructions.
 
-> I’m writing an agent skill that prepares project updates for eight channels. I removed its common sender while the delivery methods are under review.
+> I’m preparing workshop worksheets with separate task and answer-format blocks. Every exercise uses the same upload page.
 >
-> The instructions require approval of the exact draft and destination account. If you maintain a publishing tool, which part of that handoff needs a human check in your setup?
+> I’m deciding where to put the submission steps. Repeating them beside each task means editing each copy when the destination changes. How do you keep these instructions easy to find in your learning materials?
 
-The post supplies context for readers outside the project, states a real requirement and asks about a specific practice. Media or a subject tag can be added when they support the actual post.
+State how each option affects later updates so readers can offer relevant experience.
 
-### Sources and adaptation
+### Sources
 
-Audience context draws on [social, Before Creating Content](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#before-creating-content). Mastodon's linked documentation establishes the posting features. The narrative and excerpt are this guide's editorial adaptations.
+Audience context draws on [social, Before Creating Content](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#before-creating-content). Mastodon's linked documentation establishes the posting features.
 
 ## Delivery
 

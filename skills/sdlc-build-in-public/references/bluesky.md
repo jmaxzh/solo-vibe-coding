@@ -6,7 +6,7 @@ Use the assigned topic to share an observation that makes sense in a timeline. T
 
 ### Opening and context
 
-Name the project or activity, then say what changed or what you noticed. Add the context needed to understand its significance. Keep one central point in view, and choose words consistent with the author's supplied samples.
+Name the project or activity, then say what changed or what you noticed. Add the context needed to understand its significance. Keep the post focused on that observation.
 
 When the material is a demo, explain what the reader should look at. A short before-and-after description can make a visual change understandable even before the image opens.
 
@@ -18,21 +18,21 @@ For a follow-up, briefly identify the earlier question and what is newly known. 
 
 ### Media, length and ending
 
-Draft the text together with the intended image description or linked material. Mention what a visual demonstrates, and write an image description around its important content. If a native attachment is required, check the intended method's support. Check the final platform limit after including the complete text and links.
+Review the text with its linked material and media descriptions. Describe the important content of a visual so its contribution is understandable. If a native attachment is required, check the intended method's support. Check the final platform limit after including the complete text and links.
 
 When seeking responses, ask a question people can answer from a concrete experience. For a simple progress update, the result can finish the post. Match the interaction to the sharing purpose.
 
 ### Worked post
 
-This example draws on the shared sender's removal and the planned channel reviews. It asks for a reader's experience with a handoff.
+Illustrative input. A workshop worksheet has been revised into separate task, answer-format and submission blocks. The author wants to learn where readers expect submission instructions.
 
-> I removed the shared publisher from our project-writing skill. Each channel's handoff is getting its own review. If you automate publishing, what do you check on screen to tell whether your article was saved as a draft or made public?
+> I split a workshop worksheet into task, answer format and submission blocks. When you open an exercise, where do you first look for the upload instructions?
 
-The opening locates the work. The question is specific enough for someone to describe an experience. A future demo could show the relevant draft or receipt, once one exists.
+Pair the concrete change with a question readers can answer from experience.
 
-### Sources and adaptation
+### Sources
 
-Conversational framing draws on [social, Engagement Strategy](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#engagement-strategy). The Bluesky treatment and example are this guide's editorial adaptations.
+Conversational framing draws on [social, Engagement Strategy](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#engagement-strategy).
 
 ## Delivery
 

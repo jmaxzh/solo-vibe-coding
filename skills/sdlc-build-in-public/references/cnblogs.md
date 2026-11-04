@@ -2,7 +2,7 @@
 
 ## Writing
 
-Turn the assigned topic into a practice other developers can understand or try. Establish the technical situation that makes the experience useful. For a course, research or design project, use the actual tooling or method in the supplied material to explain that connection.
+Explain the assigned topic through a practice other developers can understand or try, including the technical conditions that make it useful. For a course, research or design project, use the actual tooling or method in the supplied material to explain that connection.
 
 ### Title and opening
 
@@ -13,10 +13,10 @@ Start with the concrete problem and the effect it had on the work. Give the prer
 ### Develop the article
 
 - A tutorial gives the starting conditions, key actions, reasoning and a way to check the result. Explain the point at which each setting or step matters.
-- A troubleshooting account connects the symptom, observations, possible causes, checks and supported explanation. Distinguish a cause that was verified from a working hypothesis.
+- A troubleshooting article connects the symptom, observations, possible causes, checks and supported explanation. Distinguish a cause that was verified from a working hypothesis.
 - A review describes the constraint, actual options and selected approach, including the cost accepted. State where the approach was tried and where its applicability remains open.
 
-Use headings to expose the reasoning. Put a necessary command, short code fragment or error message beside its explanation. Name its inputs and the output readers should expect when that evidence exists. Preserve the author's technical terminology while defining unfamiliar concepts.
+Use headings to expose the reasoning. Put a necessary command, short code fragment or error message beside its explanation. State the inputs a command or code example needs. Show observed output when available, and label any expected output. Define unfamiliar technical terms as they arise.
 
 ### Details, images and ending
 
@@ -26,21 +26,21 @@ Conclude with the verified result, applicable conditions and any unresolved caus
 
 ### Worked excerpt
 
-This example uses the actual publisher removal, cleanup of guide references and CI calls, and inspection of the installed skill's files.
+Illustrative input. A CSV exporter writes its header inside the row loop. A test with three input records produces three headers. Moving the header write before the loop produces one header and three data rows for the same input. Other input shapes have not been tested.
 
-> **Checking a skill package after removing its publisher**
+> **Tracing repeated headers in a CSV export**
 >
-> Removing the shared publisher affected more than its Python files. Eight channel guides contained calls to that publisher, and CI contained a test command for it.
+> An export with three records produced a header before each data row. The header write was inside the loop that handled records.
 >
-> I checked the deletion along its consumers. I removed the executable files, searched the guides for their commands and configuration fields, and removed the CI test step. I then inspected an installed copy.
+> I moved the header write before the loop and repeated the test with the same input. The output then contained one header and three data rows.
 >
-> That copy contained the entry, eight channel guides and the license. This checks what the package ships. Each channel's real delivery path still requires its own verification.
+> That check covers the supplied three-record input. Empty input and other record shapes need separate checks.
 
-The example makes the checking method reusable and states what the inspection established. Its conclusion is limited to the package inventory and documentation cleanup.
+Keep the conclusion tied to the case actually tested.
 
-### Sources and adaptation
+### Sources
 
-Concrete claims draw on [copywriting, Drafting Protocol](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/copywriting/SKILL.md#drafting-protocol). The technical reading orders and excerpt are this guide's editorial adaptations.
+The advice on specific, supportable wording draws on [copywriting, Drafting Protocol](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/copywriting/SKILL.md#drafting-protocol).
 
 ## Delivery
 

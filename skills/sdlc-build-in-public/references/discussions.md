@@ -2,7 +2,7 @@
 
 ## Writing
 
-Use the assigned topic and project material to help participants understand a change or contribute to a decision. Consider what the repository's existing readers know, and briefly introduce the work for newcomers. The following are editorial suggestions for preparing a discussion.
+Use the assigned topic and project material to help participants understand a change or contribute to a decision. Consider what the repository's existing readers know, and briefly introduce the work for newcomers. Use the discussion's purpose to decide what participants need.
 
 ### Title and opening
 
@@ -16,29 +16,29 @@ Check the selected category and any repository contribution guidance before shap
 - For feedback, explain the goal, constraints, options actually being considered and the question left open. Show what is already decided so readers can direct their input to the remaining choice.
 - For help, describe the intended result, what was observed, relevant conditions and what has already been tried. Include a small reproduction or concrete example when available.
 
-Give enough information for a useful response in the post itself. Put long logs, complete design records or previous debates behind descriptive links. A screenshot should make a disputed behavior or difference easier to see. Review the title, Markdown body, images and links together.
+Put the information needed to respond in the post, and link longer logs, design records or earlier discussions. A screenshot should make a disputed behavior or difference easier to see. Review the title, Markdown body, images and links together.
 
-### Voice and ending
+### Invitations and ending
 
-Use the project's vocabulary and the author's established voice. Explain terms a new participant needs. Finish a feedback request with a question people can answer from their own experience. Where useful, ask for the conditions of their example or a specific observation. A request to try something should explain the starting point and what feedback to return. An announcement can finish after explaining its practical impact.
+Explain project terms that new participants need. Finish a feedback request with a question people can answer from their own experience. Where useful, ask for the conditions of their example or a specific observation. A request to try something should explain the starting point and what feedback to return. An announcement can finish after explaining its practical impact.
 
 ### Worked excerpt
 
-The material is this skill's removal of its shared publisher while individual channel delivery methods await review. The question below seeks experience with delivery evidence.
+Illustrative input. A workshop has several exercises using the same upload destination. Each worksheet has separate task and answer-format blocks. The author wants feedback on where submission instructions should appear.
 
-> **What evidence do you check after sending a draft through an integration?**
+> **Where should workshop worksheets explain how to submit answers?**
 >
-> This skill prepares independent drafts for eight channels. We removed its shared publisher while the delivery rules for each channel are being reviewed.
+> Each exercise has its own task and answer format, but all answers go to the same upload page.
 >
-> The next decision is what evidence each channel should return to the reviewer. A stored draft and a publicly readable article are different delivery outcomes.
+> I can repeat the submission instructions on every worksheet, or put them once in the workshop introduction and link to them. Repeating them means updating several copies when the destination changes.
 >
-> If you maintain a publishing integration, please describe one handoff you have checked. What did the response identify, and what did you verify in the destination account? That example will help us specify the receipt a channel needs.
+> If you teach or take workshops, where do you look for these instructions? Please describe a worksheet layout you have used and any difficulty finding the submission step.
 
-The post supplies context and narrows the contribution to one real handoff. It invites participants to explain evidence they have seen.
+Give participants the actual choice and ask for an experience that can inform it.
 
-### Sources and adaptation
+### Sources
 
-The focused-question approach follows GitHub's linked guidance. Reader context draws on [copywriting, Before Writing](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/copywriting/SKILL.md#before-writing). The discussion structures and excerpt are adaptations for this skill.
+The focused-question approach follows GitHub's linked guidance. Reader context draws on [copywriting, Before Writing](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/copywriting/SKILL.md#before-writing).
 
 ## Delivery
 
