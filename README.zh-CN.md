@@ -17,8 +17,9 @@
 | [界面与交互设计](translations/zh-CN/skills/sdlc-ui-interaction/SKILL.zh-CN.md) | 桌面、移动与网页设计和行为 | 适用的 UI 任务 |
 | [MySQL 数据表与 SQL 设计](translations/zh-CN/skills/sdlc-mysql-design/SKILL.zh-CN.md) | 建模、SQL、索引、事务与并发 | 必须已明确以 MySQL 为目标数据库 |
 | [CC Connect 集成](translations/zh-CN/skills/cc-connect-integration/SKILL.zh-CN.md) | 消息平台接入本地代理及可选桌面副本 | CC Connect 集成任务 |
+| [公开构建](translations/zh-CN/skills/sdlc-build-in-public/SKILL.zh-CN.md) | 统一选题、按渠道独立成稿、集中审稿与交付指导 | 可选，支持独立安装 |
 
-默认安装完整套件，但不会为每项任务启用全部技能。项目初始化和知识库专项审查仍须明确要求。
+推荐安装五项核心技能，但不会为每项任务启用全部技能。项目初始化和知识库专项审查仍须明确要求。
 
 ## 安装
 
@@ -45,11 +46,13 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-安装全部五项英文技能，并选择受支持的代理：
+安装全部六项英文技能，并选择受支持的代理：
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
+
+仅安装公开构建技能时选择 `--skill sdlc-build-in-public`。
 
 工作流的最小完整组合为：
 
@@ -59,11 +62,11 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-其余四项技能可单独安装。不要把只安装工作流视为文档任务的完整安装；每项技能均保留 MIT 声明。
+五项专项技能可单独安装。不要把只安装工作流视为文档任务的完整安装；每项技能均保留 MIT 声明。
 
 ### 手动安装
 
-将 `skills/` 中五个目录并列复制到代理文档指定的技能目录，保留 `references/`、CC Connect 的 `scripts/` 和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
+将 `skills/` 中选定的技能目录并列复制到代理文档指定的技能目录，保留 `references/`、随技能提供的脚本和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
 
 ## 使用
 
@@ -93,7 +96,7 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 ## 分发与许可证
 
-Codex 与 Claude Code 使用同一个五技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
+Codex 与 Claude Code 使用同一个六技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
 
 采用 [MIT](LICENSE)。所有者已确认改编的 CC Connect 镜像脚本也可按 MIT 分发，见[来源与许可说明](translations/zh-CN/docs/provenance.md)。
 

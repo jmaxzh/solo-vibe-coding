@@ -10,7 +10,7 @@ import sys
 import tempfile
 from types import SimpleNamespace
 
-from validate import ROOT, SKILLS, installation_errors
+from validate import ROOT, CORE_SKILLS, SKILLS, installation_errors
 
 
 def run(args, cwd, env):
@@ -25,10 +25,10 @@ def skills_checks(root, work, env, source):
     cli = ["npx", "--yes", "skills@1.7.4", "add", source]
     for extra in ([], ["--full-depth"]):
         output = run(cli + ["--list", *extra], work, env)
-        if not re.search(r"Found 5 skills\b", output):
-            raise RuntimeError("Expected exactly five discovered skills:\n" + output)
-        checks.append("five-skill discovery" + (" (full depth)" if extra else ""))
-    combinations = [("suite", SKILLS), ("workflow-pair", {"sdlc-workflow", "sdlc-instr-doc-design"})]
+        if not re.search(rf"Found {len(SKILLS)} skills\b", output):
+            raise RuntimeError("Expected exactly six discovered skills:\n" + output)
+        checks.append("six-skill discovery" + (" (full depth)" if extra else ""))
+    combinations = [("suite", SKILLS), ("core", CORE_SKILLS), ("workflow-pair", {"sdlc-workflow", "sdlc-instr-doc-design"})]
     combinations += [(name, {name}) for name in sorted(SKILLS - {"sdlc-workflow"})]
     combinations += [("missing-dependency", {"sdlc-workflow"})]
     for label, names in combinations:
@@ -78,7 +78,7 @@ def native_checks(root, work, env):
         for skill in own:
             if not Path(skill["path"]).is_file():
                 raise RuntimeError("Codex returned an unreadable installed skill")
-        results.append("Codex app-server catalog: five enabled namespaced skills with readable resources")
+        results.append("Codex app-server catalog: six enabled namespaced skills with readable resources")
     finally:
         rpc.close()
     for target in (root / ".claude-plugin/plugin.json", root / ".claude-plugin/marketplace.json"):
@@ -86,9 +86,9 @@ def native_checks(root, work, env):
     run(["claude", "plugin", "marketplace", "add", str(root)], work, env)
     run(["claude", "plugin", "install", plugin], work, env)
     inventory = run(["claude", "plugin", "details", plugin], work, env)
-    if "Skills (5)" not in inventory or any(name not in inventory for name in SKILLS):
+    if f"Skills ({len(SKILLS)})" not in inventory or any(name not in inventory for name in SKILLS):
         raise RuntimeError("Unexpected Claude Code component inventory:\n" + inventory)
-    results.append("Claude Code strict validation, native installation, and five-skill inventory")
+    results.append("Claude Code strict validation, native installation, and six-skill inventory")
     return results
 
 

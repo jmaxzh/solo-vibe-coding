@@ -30,3 +30,13 @@ Source validation, six distribution tests, and the existing twenty-eight CC Conn
 The isolated smoke report `dist/solo-rebrand-native.json` passed twelve checks: skills CLI discovery and supported installation combinations, actual Codex native plugin installation and app-server discovery of five enabled readable skills, and Claude Code strict manifest validation, native installation, and five-skill inventory. Versions: `codex-cli 0.166.0-alpha.5.1`, Claude Code `2.1.267`. Tests used temporary configurations and did not change normal installations or call a model.
 
 These local results do not establish model dependency compliance, CC Connect target-machine behavior, remote installation, or hosted CI. Historical results above retain their actual earlier identity and revision. Recheck remote sources and CI after publishing the rename.
+
+## Build in Public 0.3.0 local verification
+
+The optional sixth skill passed source validation and isolated installation checks. Codex app-server and Claude Code both listed six skills. The five-core combination and the publishing skill alone passed skills CLI installation checks.
+
+An editorial walkthrough used three fixture facts: an observed retry failure, a changed setup screen and feedback about an unclear setup step. For direct drafting, the retry reproduction supplied the article. For topic discovery, the setup demo supported a visual progress update while the feedback supported a separate tester discussion. For a series, a prior report of the failure called for a follow-up with a verified rerun before claiming a fix. This walkthrough evaluated the instructions without a separate model run.
+
+The expanded writing guides were reviewed using the shared-publisher removal material across articles, discussion posts and short updates. A course exercise revision with a proposed trial checked the distinction between a documented change and an outcome still awaiting observation. These were textual walkthroughs. Independent model execution of the writing guides was not tested.
+
+The installable Build in Public skill contains its entry document, eight channel guides and the MIT license. Six distribution tests and twenty-eight CC Connect tests passed. Actual delivery depends on the method and account access available for each channel. Account authorization, public delivery and remote installation remain unverified for this revision.

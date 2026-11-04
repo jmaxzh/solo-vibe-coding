@@ -17,8 +17,9 @@ Choose the workflow for a project or a bounded stage, or use a specialist for th
 | [UI and Interaction Design](skills/sdlc-ui-interaction/SKILL.md) | Desktop, mobile, and web design and behavior | Applicable UI tasks |
 | [MySQL Table and SQL Design](skills/sdlc-mysql-design/SKILL.md) | Models, SQL, indexes, transactions, and concurrency | MySQL must be established as the target database |
 | [CC Connect Integration](skills/cc-connect-integration/SKILL.md) | Messaging-to-local-agent deployment and optional desktop copies | CC Connect integration tasks |
+| [Build in Public](skills/sdlc-build-in-public/SKILL.md) | Shared topic selection, channel-specific drafts, batch review and delivery guidance | Optional, independently installable |
 
-Install the complete suite by default. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
+We recommend the five core skills. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
 
 ## Install
 
@@ -45,11 +46,13 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-Install all five English skills and choose a supported agent:
+Install all six English skills and choose a supported agent:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
+
+To install Build in Public by itself, select `--skill sdlc-build-in-public`.
 
 The minimum complete workflow combination is:
 
@@ -59,11 +62,11 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-The other four skills can be installed individually. Do not treat the workflow alone as a complete installation for document tasks. Each skill carries its own MIT notice.
+The five specialists can be installed individually. Do not treat the workflow alone as a complete installation for document tasks. Each skill carries its own MIT notice.
 
 ### Manual installation
 
-Copy the five directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, CC Connect's `scripts/`, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
+Copy the selected skill directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, any bundled scripts, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
 
 ## Use
 
@@ -93,7 +96,7 @@ Keep corresponding translations synchronized in the same change. Runtime scripts
 
 ## Distribution and license
 
-Codex and Claude Code use the same five-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
+Codex and Claude Code use the same six-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
 
 [MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT; see [source and license notes](docs/provenance.md).
 

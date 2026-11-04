@@ -7,10 +7,12 @@ from pathlib import Path
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = frozenset({
+CORE_SKILLS = frozenset({
     "sdlc-workflow", "sdlc-instr-doc-design", "sdlc-ui-interaction",
     "sdlc-mysql-design", "cc-connect-integration",
 })
+
+SKILLS = CORE_SKILLS | {"sdlc-build-in-public"}
 
 
 def dependency_errors(names):
@@ -95,11 +97,11 @@ def validate(root=ROOT):
     errors = []
     entries = set(root.glob("skills/*/SKILL.md"))
     if {p.parent.name for p in entries} != SKILLS:
-        errors.append("expected exactly five English skill entries")
+        errors.append("expected exactly six English skill entries")
     discovered = {p for p in root.rglob("SKILL.md")
                   if not any(x in p.relative_to(root).parts for x in (".git", "dist", "node_modules"))}
     if entries != discovered:
-        errors.append("discoverable SKILL.md outside the five English skills")
+        errors.append("discoverable SKILL.md outside the six English skills")
     errors.extend(installation_errors(root / "skills"))
     for entry in sorted(entries):
         try:
@@ -180,7 +182,7 @@ def main():
         parser.exit(1, f"Invalid source tree: {exc}\n")
     if errors:
         parser.exit(1, "\n".join(errors) + "\n")
-    print("PASS: five English skills; dependency, notices, manifests, translations and links")
+    print("PASS: six English skills; dependency, notices, manifests, translations and links")
 
 
 if __name__ == "__main__":
