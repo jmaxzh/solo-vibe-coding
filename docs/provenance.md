@@ -1,6 +1,6 @@
 # Source and license notes
 
-The project and all six skill directories are distributed under MIT. Each skill includes a fixed copy of the root license so individual installation retains the notice. Update these copies together if the notice changes.
+The project and all skill directories are distributed under MIT. Each skill includes a fixed copy of the root license so individual installation retains the notice. Update these copies together if the notice changes.
 
 The UI and UX principles use locally written adaptations of selected guidance from [UI UX Pro Max at `713eef5`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/713eef51b04efc98d6fa565323b495f7c9c89fd4), [Taste Skill at `12af471`](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c), and [Impeccable at `9fadc41`](https://github.com/pbakaus/impeccable/tree/9fadc41729c38fd47d7ae622b501558653f9d2e9). Each adapted principle links to the source passage at that fixed revision. The global/page override principle applies to the visual design system. The motion adaptation permits an independent expressive purpose on persuasive or experiential surfaces, while explanatory motion must make cause and effect understandable.
 

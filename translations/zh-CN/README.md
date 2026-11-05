@@ -10,6 +10,7 @@
 | UX 设计 | [译文](skills/sdlc-ux-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-ux-design/SKILL.md) |
 | MySQL 设计 | [译文](skills/sdlc-mysql-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-mysql-design/SKILL.md) |
 | CC Connect 集成 | [译文](skills/cc-connect-integration/SKILL.zh-CN.md) | [原文](../../skills/cc-connect-integration/SKILL.md) |
+| worktree 优先的开发策略 | [译文](skills/worktree-first-development/SKILL.zh-CN.md) | [原文](../../skills/worktree-first-development/SKILL.md) |
 
 英文规则、条件、示例或引用变化时，同一次变更中同步译文。中文提案先落实到英文源，再同步译文；译文不独立定义行为，差异以英文为准。标识符、命令、配置键和协议名称保持一致。
 

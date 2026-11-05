@@ -7,17 +7,21 @@ from pathlib import Path
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = frozenset({
+CORE_SKILLS = frozenset({
     "sdlc-workflow", "sdlc-instr-doc-design", "sdlc-ui-design", "sdlc-ux-design",
     "sdlc-mysql-design", "cc-connect-integration",
 })
 
+SKILLS = CORE_SKILLS | {"sdlc-build-in-public", "worktree-first-development"}
+DOCUMENT_DEPENDENTS = frozenset({"sdlc-workflow", "worktree-first-development"})
+
 
 def dependency_errors(names):
     """Check the documented installation contract; never install anything."""
-    if "sdlc-workflow" in names and "sdlc-instr-doc-design" not in names:
-        return ["sdlc-workflow document work requires sdlc-instr-doc-design; "
-                "install the full suite or both skills; pause dependent work"]
+    if "sdlc-instr-doc-design" not in names:
+        return [f"{name} document work requires sdlc-instr-doc-design; "
+                "install the full suite or both skills; pause dependent work"
+                for name in sorted(DOCUMENT_DEPENDENTS & set(names))]
     return []
 
 
@@ -95,11 +99,11 @@ def validate(root=ROOT):
     errors = []
     entries = set(root.glob("skills/*/SKILL.md"))
     if {p.parent.name for p in entries} != SKILLS:
-        errors.append("expected exactly six English skill entries")
+        errors.append(f"expected exactly {len(SKILLS)} English skill entries")
     discovered = {p for p in root.rglob("SKILL.md")
                   if not any(x in p.relative_to(root).parts for x in (".git", "dist", "node_modules"))}
     if entries != discovered:
-        errors.append("discoverable SKILL.md outside the six English skills")
+        errors.append("discoverable SKILL.md outside the English skill inventory")
     errors.extend(installation_errors(root / "skills"))
     for entry in sorted(entries):
         try:
@@ -180,7 +184,7 @@ def main():
         parser.exit(1, f"Invalid source tree: {exc}\n")
     if errors:
         parser.exit(1, "\n".join(errors) + "\n")
-    print("PASS: six English skills; dependency, notices, manifests, translations and links")
+    print(f"PASS: {len(SKILLS)} English skills; dependency, notices, manifests, translations and links")
 
 
 if __name__ == "__main__":

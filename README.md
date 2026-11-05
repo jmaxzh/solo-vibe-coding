@@ -18,8 +18,10 @@ Choose the workflow for a project or a bounded stage, or use a specialist for th
 | [UX Design](skills/sdlc-ux-design/SKILL.md) | Information organization, interaction, feedback, and recovery | Applicable product task experience work |
 | [MySQL Table and SQL Design](skills/sdlc-mysql-design/SKILL.md) | Models, SQL, indexes, transactions, and concurrency | MySQL must be established as the target database |
 | [CC Connect Integration](skills/cc-connect-integration/SKILL.md) | Messaging-to-local-agent deployment and optional desktop copies | CC Connect integration tasks |
+| [Build in Public](skills/sdlc-build-in-public/SKILL.md) | Shared topic selection, channel-specific drafts, batch review and delivery guidance | Optional, independently installable |
+| [Worktree-first Development Strategy](skills/worktree-first-development/SKILL.md) | Maintain a project's isolated-development strategy in project or project-scoped home instructions | Optional; requires `sdlc-instr-doc-design` |
 
-Install the complete suite by default. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
+We recommend the six core skills. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
 
 ## Install
 
@@ -46,11 +48,13 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-Install all six English skills and choose a supported agent:
+Install all eight English skills and choose a supported agent:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
+
+To install Build in Public by itself, select `--skill sdlc-build-in-public`.
 
 The minimum complete workflow combination is:
 
@@ -60,11 +64,19 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-The other five skills can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. Do not treat the workflow alone as a complete installation for document tasks. Each skill carries its own MIT notice.
+For the worktree strategy without the full plugin, install its documentation dependency too:
+
+```sh
+npx skills add jmaxzh/solo-vibe-coding \
+  --skill worktree-first-development \
+  --skill sdlc-instr-doc-design
+```
+
+The other six specialists can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
 
 ### Manual installation
 
-Copy the six directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, CC Connect's `scripts/`, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
+Copy the selected skill directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, any bundled scripts, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
 
 ## Use
 
@@ -84,7 +96,13 @@ For integration work:
 
 > Use cc-connect-integration to inspect my existing setup. Verify the messaging path before considering optional desktop mirroring.
 
-When needed, the workflow loads the installed documentation skill using the runtime's actual name and namespace. Missing required resources pause dependent work; skills do not silently skip rules or install dependencies automatically. These examples are requests, not completed deployment transcripts.
+For workspace strategy setup:
+
+> Use worktree-first-development to establish this project's strategy. Let me choose between project instructions and project-scoped instructions in my home directory.
+
+The strategy skill offers project-root `AGENTS.md`/`CLAUDE.md` or home-directory `~/AGENTS.md`/`~/CLAUDE.md`; the home option is limited to the chosen project and its derived task directories. It maintains instructions rather than executing synchronization or backup. Home-file automatic loading must be verified separately. Task and backup directories default to visible siblings named `<project-directory-name>-worktrees` and `<project-directory-name>-backups`, with paths resolved from the main workspace.
+
+When needed, the workflow and strategy skills load the installed documentation skill using the runtime's actual name and namespace. Missing required resources pause dependent work; skills do not silently skip rules or install dependencies automatically. These examples are requests, not completed deployment transcripts.
 
 ## Languages and maintenance
 
@@ -94,7 +112,7 @@ Keep corresponding translations synchronized in the same change. Runtime scripts
 
 ## Distribution and license
 
-Codex and Claude Code use the same six-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
+Codex and Claude Code use the same eight-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
 
 [MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT; see [source and license notes](docs/provenance.md).
 

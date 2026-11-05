@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Agent skills and workflows for solo developers building with AI.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "solo-vibe-coding",
       "source": "./",
       "description": "Agent skills and workflows for solo developers building with AI, covering ideas, UI and UX design, implementation, and verification.",
-      "version": "0.2.0"
+      "version": "0.3.0"
     }
   ]
 }

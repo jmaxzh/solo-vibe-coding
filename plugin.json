@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "solo-vibe-coding",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Agent skills and workflows for solo developers building with AI, covering ideas, UI and UX design, implementation, and verification.",
   "author": {
     "name": "jmaxzh"
@@ -23,7 +23,7 @@
       "interface": {
         "displayName": "Solo Vibe Coding",
         "shortDescription": "Vibe coding skills and workflows for solo developers.",
-        "longDescription": "Build and maintain your own software with Claude Code and Codex. Includes a development workflow and focused skills for documentation, UI, UX, MySQL, and CC Connect, with explicit verification boundaries.",
+        "longDescription": "Build and maintain your own software with Claude Code and Codex. Includes a development workflow and focused skills for documentation, UI, UX, MySQL, CC Connect, and optional guidance for sharing project updates and configuring worktree-first development, with explicit verification boundaries.",
         "developerName": "jmaxzh",
         "category": "Developer Tools",
         "websiteURL": "https://github.com/jmaxzh/solo-vibe-coding",

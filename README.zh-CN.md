@@ -18,8 +18,10 @@
 | [UX 设计](translations/zh-CN/skills/sdlc-ux-design/SKILL.zh-CN.md) | 信息组织、交互、反馈与恢复 | 适用的产品内任务体验工作 |
 | [MySQL 数据表与 SQL 设计](translations/zh-CN/skills/sdlc-mysql-design/SKILL.zh-CN.md) | 建模、SQL、索引、事务与并发 | 必须已明确以 MySQL 为目标数据库 |
 | [CC Connect 集成](translations/zh-CN/skills/cc-connect-integration/SKILL.zh-CN.md) | 消息平台接入本地代理及可选桌面副本 | CC Connect 集成任务 |
+| [公开构建](translations/zh-CN/skills/sdlc-build-in-public/SKILL.zh-CN.md) | 统一选题、按渠道独立成稿、集中审稿与交付指导 | 可选，支持独立安装 |
+| [worktree 优先的开发策略](translations/zh-CN/skills/worktree-first-development/SKILL.zh-CN.md) | 在项目级或限定项目的用户主目录指引中维护隔离开发策略 | 可选，需要 `sdlc-instr-doc-design` |
 
-默认安装完整套件，但不会为每项任务启用全部技能。项目初始化和知识库专项审查仍须明确要求。
+推荐安装六项核心技能，但不会为每项任务启用全部技能。项目初始化和知识库专项审查仍须明确要求。
 
 ## 安装
 
@@ -46,11 +48,13 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-安装全部六项英文技能，并选择受支持的代理：
+安装全部八项英文技能，并选择受支持的代理：
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```
+
+仅安装公开构建技能时选择 `--skill sdlc-build-in-public`。
 
 工作流的最小完整组合为：
 
@@ -60,11 +64,19 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-其余五项技能可单独安装。UI 与 UX 均可单装，混合任务可组合使用。不要把只安装工作流视为文档任务的完整安装；每项技能均保留 MIT 声明。
+不安装完整插件、只使用 worktree 策略时，同时安装文档设计依赖：
+
+```sh
+npx skills add jmaxzh/solo-vibe-coding \
+  --skill worktree-first-development \
+  --skill sdlc-instr-doc-design
+```
+
+其余六项专项技能可单独安装。UI 与 UX 均可单装，混合任务可组合使用。工作流与 worktree 策略各自的文档任务都需要文档设计技能；每项技能均保留 MIT 声明。
 
 ### 手动安装
 
-将 `skills/` 中六个目录并列复制到代理文档指定的技能目录，保留 `references/`、CC Connect 的 `scripts/` 和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
+将 `skills/` 中选定的技能目录并列复制到代理文档指定的技能目录，保留 `references/`、随技能提供的脚本和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
 
 ## 使用
 
@@ -84,7 +96,13 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 > 使用 cc-connect-integration，检查既有配置。先验证消息主链路，再考虑可选桌面镜像。
 
-工作流按需通过运行环境实际名称和命名空间加载已安装的文档设计技能。缺少必需资料时暂停依赖部分，不静默跳过规则或自动安装依赖。以上是请求示例，不是已完成部署记录。
+配置工作区策略：
+
+> 使用 worktree-first-development，为当前项目建立策略。让我选择项目级指引，或用户主目录中限定项目的指引。
+
+策略技能提供项目根目录 `AGENTS.md`/`CLAUDE.md` 或用户主目录 `~/AGENTS.md`/`~/CLAUDE.md` 两种位置；用户级内容仅约束所选项目及其派生任务目录。技能维护指引，不执行同步或备份。用户主目录文件的自动加载须单独验证。任务和备份目录默认与项目同级、可见，名称分别为 `<project-directory-name>-worktrees` 和 `<project-directory-name>-backups`，路径从主工作区解析。
+
+工作流与策略技能按需通过运行环境实际名称和命名空间加载已安装的文档设计技能。缺少必需资料时暂停依赖部分，不静默跳过规则或自动安装依赖。以上是请求示例，不是已完成部署记录。
 
 ## 语言与维护
 
@@ -94,7 +112,7 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 ## 分发与许可证
 
-Codex 与 Claude Code 使用同一个六技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
+Codex 与 Claude Code 使用同一个八技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
 
 采用 [MIT](LICENSE)。所有者已确认改编的 CC Connect 镜像脚本也可按 MIT 分发，见[来源与许可说明](translations/zh-CN/docs/provenance.md)。
 
