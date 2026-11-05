@@ -10,4 +10,4 @@
 ## 平台原则
 
 - **响应式布局**：按可用视口和内容重排。支持文字缩放和方向变化。避免整页横向滚动。内容确需二维布局时，将必要的横向滚动限制在该内容区域。
-- **异步布局稳定性**：网页布局应考虑异步内容的加载和更新，避免阅读位置及操作目标意外移动。改写自 [UI UX Pro Max 的异步内容空间指导](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/713eef51b04efc98d6fa565323b495f7c9c89fd4/.claude/skills/ui-ux-pro-max/references/quick-reference.md#L66)。
+- **异步布局稳定性**：网页布局应考虑异步内容的加载和更新，避免阅读位置及操作目标意外移动。[来源上下文](sources.md#异步布局稳定性)。

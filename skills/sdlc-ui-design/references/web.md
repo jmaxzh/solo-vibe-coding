@@ -8,4 +8,4 @@
 ## Platform principles
 
 - **Responsive layout**: reflow for available viewport and content. Support text scaling and orientation changes. Avoid whole-page horizontal scrolling. When content requires a two-dimensional layout, keep necessary horizontal scrolling within that content area.
-- **Asynchronous layout stability**: in web interfaces, account for asynchronous content loading and updates in the layout to avoid unexpected shifts in reading position and interaction targets. Adapted from [UI UX Pro Max, asynchronous content space](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/713eef51b04efc98d6fa565323b495f7c9c89fd4/.claude/skills/ui-ux-pro-max/references/quick-reference.md#L66).
+- **Asynchronous layout stability**: in web interfaces, account for asynchronous content loading and updates in the layout to avoid unexpected shifts in reading position and interaction targets. [Source context](sources.md#asynchronous-layout-stability).

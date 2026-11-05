@@ -10,4 +10,4 @@
 ## 平台原则
 
 - **快捷键与焦点恢复**：按平台惯例提供常用快捷键，避免干扰文字输入。关闭浮层后，将焦点恢复到触发控件或下一步需要的控件。
-- **WPF 动作一致性**：WPF 界面中，在同一上下文内，同一动作的各个入口应采用一致的可执行条件和目标判定。归纳自 [UI UX Pro Max 的 WPF 命令、参数及输入绑定指导](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/713eef51b04efc98d6fa565323b495f7c9c89fd4/src/ui-ux-pro-max/data/stacks/wpf.csv#L28-L32)。
+- **WPF 动作一致性**：WPF 界面中，在同一上下文内，同一动作的各个入口应采用一致的可执行条件和目标判定。[来源上下文](sources.md#wpf-动作一致性)。
