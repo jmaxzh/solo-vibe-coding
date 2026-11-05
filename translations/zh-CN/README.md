@@ -6,7 +6,8 @@
 | --- | --- | --- |
 | SDLC 工作流 | [译文](skills/sdlc-workflow/SKILL.zh-CN.md) | [原文](../../skills/sdlc-workflow/SKILL.md) |
 | 指令与文档设计 | [译文](skills/sdlc-instr-doc-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-instr-doc-design/SKILL.md) |
-| 界面与交互设计 | [译文](skills/sdlc-ui-interaction/SKILL.zh-CN.md) | [原文](../../skills/sdlc-ui-interaction/SKILL.md) |
+| UI 设计 | [译文](skills/sdlc-ui-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-ui-design/SKILL.md) |
+| UX 设计 | [译文](skills/sdlc-ux-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-ux-design/SKILL.md) |
 | MySQL 设计 | [译文](skills/sdlc-mysql-design/SKILL.zh-CN.md) | [原文](../../skills/sdlc-mysql-design/SKILL.md) |
 | CC Connect 集成 | [译文](skills/cc-connect-integration/SKILL.zh-CN.md) | [原文](../../skills/cc-connect-integration/SKILL.md) |
 

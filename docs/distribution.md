@@ -11,7 +11,7 @@ python3 -B -m unittest discover -s skills/cc-connect-integration/scripts -v
 python3 -B scripts/smoke_install.py --native
 ```
 
-The smoke check requires Node/npm, network access for `skills@1.7.4`, and the Codex/Claude CLIs for `--native`. It exercises default/full-depth discovery, the five-skill suite, the workflow pair, four individual specialists, and a deliberately incomplete workflow installation. Its missing-dependency result is a file/composition check, not proof of model compliance. Native checks register and install locally and inspect actual skill inventories. Codex app-server is queried without creating a model turn.
+The smoke check requires Node/npm, network access for `skills@1.7.4`, and the Codex/Claude CLIs for `--native`. It exercises default/full-depth discovery, the six-skill suite, the workflow pair, five individual specialists, and a deliberately incomplete workflow installation. Its missing-dependency result is a file/composition check, not proof of model compliance. Native checks register and install locally and inspect actual skill inventories. Codex app-server is queried without creating a model turn.
 
 The report is written to `dist/install-report.json`. A timeout or unavailable CLI is a failure when `--native` was requested; inspect the report rather than treating skipped or failed execution as passed. GitHub Actions runs the portable checks, script tests, skills CLI smoke check, and installation-report upload; it does not claim to test native clients absent from the runner.
 
@@ -32,9 +32,9 @@ In a fresh local session, verify actual registered skill names and invoke the wo
 
 Version `0.2.0` uses the repository `jmaxzh/solo-vibe-coding` and the plugin/marketplace identity `solo-vibe-coding@solo-vibe-coding`. Earlier installations used `vibe-dev-skills@vibe-dev-skills`; renaming the repository does not migrate that installed identity.
 
-Back up local customizations. Register the new marketplace and install the new identity using the commands above, then verify the five installed skills and required resources in a fresh session. Inspect their actual registered names rather than assuming the old namespace. Once the new installation is verified, disable or remove the old identity using the client's supported plugin management to avoid duplicate activation. These instructions do not automatically change existing installations.
+Back up local customizations. Register the new marketplace and install the new identity using the commands above, then verify the six installed skills and required resources in a fresh session. Inspect their actual registered names rather than assuming the old namespace. Once the new installation is verified, disable or remove the old identity using the client's supported plugin management to avoid duplicate activation. These instructions do not automatically change existing installations.
 
-Individual skill names and directories remain unchanged. Manual installations retain their documented backup-and-replacement procedure. GitHub redirects old repository URLs, but use the new address for future installations and Git remotes. Do not reuse the old repository name for another repository, which would break those redirects.
+The former `sdlc-ui-interaction` entry is replaced by `sdlc-ui-design` for visual presentation and `sdlc-ux-design` for information organization and interaction behavior. Each supports independent installation. Back up manual customizations, replace the old directory with the needed new directories, and verify their registered names and resources before removing the old installation. Update explicit calls to use the appropriate new name. Mixed tasks can use both skills. GitHub redirects old repository URLs, but use the new address for future installations and Git remotes. Do not reuse the old repository name for another repository, which would break those redirects.
 
 Historical verification records retain the identity and revision they actually tested; they are not evidence that the renamed package passed new checks.
 
@@ -48,7 +48,7 @@ python3 -B scripts/smoke_install.py --source jmaxzh/solo-vibe-coding
 
 The source must match the local entries being validated. Before publication the remote repository still has its previous structure; local smoke success does not establish remote success. Existing manually copied installations must be backed up and updated from the new `skills/` directories; old root skill paths are removed without compatibility symlinks.
 
-Use [the project README](../README.md#install) for public commands. Codex and Claude Code install the entire suite. skills CLI also supports the workflow plus its documentation dependency and the four individual specialists. No custom dependency metadata or installer is used.
+Use [the project README](../README.md#install) for public commands. Codex and Claude Code install the entire suite. skills CLI also supports the workflow plus its documentation dependency and the five individual specialists. No custom dependency metadata or installer is used.
 
 skills.sh tracks directory appearances through actual installation telemetry; these verification runs disable telemetry. SkillsMP indexes public GitHub `SKILL.md` files. After publication, check each English source and index link; neither site promises an immediate listing. If missing, use the site's current official feedback channel only when authorized. Do not fabricate rankings or submit duplicate Chinese skills.
 

@@ -4,7 +4,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Use Claude Code and Codex to plan, build, and maintain your own software. Start with an idea, clarify what it needs to do, choose a design, and implement it with explicit verification. The five core skills combine a development workflow with focused guidance for documentation, UI, MySQL, and CC Connect.
+Use Claude Code and Codex to plan, build, and maintain your own software. Start with an idea, clarify what it needs to do, choose a design, and implement it with explicit verification. The six core skills combine a development workflow with focused guidance for documentation, UI, UX, MySQL, and CC Connect.
 
 Choose the workflow for a project or a bounded stage, or use a specialist for the task at hand. These are reusable instructions and integration helpers; they do not replace your coding agent or provide hosted application services.
 
@@ -14,7 +14,8 @@ Choose the workflow for a project or a bounded stage, or use a specialist for th
 | --- | --- | --- |
 | [SDLC Workflow](skills/sdlc-workflow/SKILL.md) | Requirements, technical design, implementation, verification, and knowledge-base maintenance | Explicit invocation; document work requires `sdlc-instr-doc-design` |
 | [Instruction and Documentation Design](skills/sdlc-instr-doc-design/SKILL.md) | Instructions, prompts, skills, and reader-facing documents | Artifact work; usable independently |
-| [UI and Interaction Design](skills/sdlc-ui-interaction/SKILL.md) | Desktop, mobile, and web design and behavior | Applicable UI tasks |
+| [UI Design](skills/sdlc-ui-design/SKILL.md) | Visual hierarchy, typography, color, layout, and motion | Applicable visual interface tasks |
+| [UX Design](skills/sdlc-ux-design/SKILL.md) | Information organization, interaction, feedback, and recovery | Applicable product task experience work |
 | [MySQL Table and SQL Design](skills/sdlc-mysql-design/SKILL.md) | Models, SQL, indexes, transactions, and concurrency | MySQL must be established as the target database |
 | [CC Connect Integration](skills/cc-connect-integration/SKILL.md) | Messaging-to-local-agent deployment and optional desktop copies | CC Connect integration tasks |
 
@@ -45,7 +46,7 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-Install all five English skills and choose a supported agent:
+Install all six English skills and choose a supported agent:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
@@ -59,11 +60,11 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-The other four skills can be installed individually. Do not treat the workflow alone as a complete installation for document tasks. Each skill carries its own MIT notice.
+The other five skills can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. Do not treat the workflow alone as a complete installation for document tasks. Each skill carries its own MIT notice.
 
 ### Manual installation
 
-Copy the five directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, CC Connect's `scripts/`, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
+Copy the six directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, CC Connect's `scripts/`, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
 
 ## Use
 
@@ -93,7 +94,7 @@ Keep corresponding translations synchronized in the same change. Runtime scripts
 
 ## Distribution and license
 
-Codex and Claude Code use the same five-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
+Codex and Claude Code use the same six-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
 
 [MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT; see [source and license notes](docs/provenance.md).
 

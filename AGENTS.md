@@ -13,7 +13,7 @@
 
 - Maintain document and instruction design rules only in `sdlc-instr-doc-design`. Workflow document tasks resolve that installed skill through the runtime's actual skill name and namespace. Preserve section-only reuse for operational and troubleshooting guidance.
 - If required dependency resources are unavailable, report the missing dependency and pause only dependent work. Do not silently bypass rules or automatically install skills.
-- Recommend the five-skill suite. The supported minimum workflow combination includes `sdlc-workflow` and `sdlc-instr-doc-design`. Do not promise that installing only the workflow provides all document rules.
+- Recommend the six-core-skill suite. The supported minimum workflow combination includes `sdlc-workflow` and `sdlc-instr-doc-design`. Do not promise that installing only the workflow provides all document rules.
 - Do not create shared-rule directories, generated rule copies, or a custom dependency installer. Plugin manifests are maintained directly and checked for identity/version/license consistency.
 - Keep MIT notices in each skill for individual installation. Update fixed license copies together with the root license when necessary.
 - Run `python3 -B scripts/validate.py`, distribution tests, and the existing CC Connect tests before delivery. Validate native manifests and installed inventories when the CLIs are available. Distinguish static checks, real local loading, model behavior, and target-machine deployment.

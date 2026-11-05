@@ -4,7 +4,7 @@
 
 [English](README.md) | 简体中文
 
-使用 Claude Code 和 Codex 规划、开发和维护自己的软件。从想法出发，明确需要实现的行为，选择设计方案，并完成具有明确验证要求的实现。五项核心技能包含开发工作流，以及文档、UI、MySQL 和 CC Connect 专项指导。
+使用 Claude Code 和 Codex 规划、开发和维护自己的软件。从想法出发，明确需要实现的行为，选择设计方案，并完成具有明确验证要求的实现。六项核心技能包含开发工作流，以及文档、UI、UX、MySQL 和 CC Connect 专项指导。
 
 可以为整个项目或一个限定阶段调用工作流，也可以按任务使用专项技能。这些可复用指令和集成辅助工具不替代编程代理，也不提供应用托管服务。
 
@@ -14,7 +14,8 @@
 | --- | --- | --- |
 | [SDLC 工作流](translations/zh-CN/skills/sdlc-workflow/SKILL.zh-CN.md) | 需求、技术方案、实施、验证与知识库维护 | 显式调用；文档任务需要 `sdlc-instr-doc-design` |
 | [指令与文档设计](translations/zh-CN/skills/sdlc-instr-doc-design/SKILL.zh-CN.md) | 指令、提示词、技能及面向读者的文档 | 文档产物任务，可独立使用 |
-| [界面与交互设计](translations/zh-CN/skills/sdlc-ui-interaction/SKILL.zh-CN.md) | 桌面、移动与网页设计和行为 | 适用的 UI 任务 |
+| [UI 设计](translations/zh-CN/skills/sdlc-ui-design/SKILL.zh-CN.md) | 视觉层级、排版、颜色、布局与动效 | 适用的视觉界面任务 |
+| [UX 设计](translations/zh-CN/skills/sdlc-ux-design/SKILL.zh-CN.md) | 信息组织、交互、反馈与恢复 | 适用的产品内任务体验工作 |
 | [MySQL 数据表与 SQL 设计](translations/zh-CN/skills/sdlc-mysql-design/SKILL.zh-CN.md) | 建模、SQL、索引、事务与并发 | 必须已明确以 MySQL 为目标数据库 |
 | [CC Connect 集成](translations/zh-CN/skills/cc-connect-integration/SKILL.zh-CN.md) | 消息平台接入本地代理及可选桌面副本 | CC Connect 集成任务 |
 
@@ -45,7 +46,7 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-安装全部五项英文技能，并选择受支持的代理：
+安装全部六项英文技能，并选择受支持的代理：
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
@@ -59,11 +60,11 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-其余四项技能可单独安装。不要把只安装工作流视为文档任务的完整安装；每项技能均保留 MIT 声明。
+其余五项技能可单独安装。UI 与 UX 均可单装，混合任务可组合使用。不要把只安装工作流视为文档任务的完整安装；每项技能均保留 MIT 声明。
 
 ### 手动安装
 
-将 `skills/` 中五个目录并列复制到代理文档指定的技能目录，保留 `references/`、CC Connect 的 `scripts/` 和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
+将 `skills/` 中六个目录并列复制到代理文档指定的技能目录，保留 `references/`、CC Connect 的 `scripts/` 和许可证。替换既有安装前先备份。不要将仓库根目录或维护译文复制到自动发现技能的目录。
 
 ## 使用
 
@@ -93,7 +94,7 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 ## 分发与许可证
 
-Codex 与 Claude Code 使用同一个五技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
+Codex 与 Claude Code 使用同一个六技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
 
 采用 [MIT](LICENSE)。所有者已确认改编的 CC Connect 镜像脚本也可按 MIT 分发，见[来源与许可说明](translations/zh-CN/docs/provenance.md)。
 
