@@ -1,6 +1,6 @@
 ---
 name: instruction-doc-architect
-description: "Write, review, or rewrite AI-facing instruction documents: CLAUDE.md, AGENTS.md, SKILL.md, skill reference docs, system prompts, and project conventions. Organize requirements into atomic, non-overlapping, non-conflicting clauses, layered by abstraction with acyclic dependencies, and express relationships in Mermaid while preserving human readability. Use whenever users mention writing, changing, reviewing, organizing, shortening, or restructuring these documents, skills, rules, principles, instructions, or prompt conventions, or complain that rules are tangled, contradictory, ever-growing, or ignored by Claude, even without an explicit request to review or restructure."
+description: "Write, review, or rewrite AI-facing instruction documents: CLAUDE.md, AGENTS.md, SKILL.md, skill reference docs, system prompts, and project conventions. Organize requirements into atomic, non-overlapping, non-conflicting clauses, layered by abstraction with acyclic dependencies, and express relationships in Mermaid while preserving human readability. Use whenever users mention writing, changing, reviewing, organizing, shortening, or restructuring these documents, skills, rules, principles, instructions, or prompt conventions, or complain that rules are tangled, contradictory, ever-growing, or ignored by an AI assistant, even without an explicit request to review or restructure."
 license: MIT
 ---
 
@@ -8,7 +8,7 @@ license: MIT
 
 ## Purpose (G0)
 
-Keep instruction documents consistent through long-term revision and readable by both people and Claude.
+Keep instruction documents consistent through long-term revision and readable by both people and an AI assistant.
 
 ## Overview
 
@@ -16,7 +16,7 @@ This document follows its own rules. Five principles directly serve its purpose:
 
 ```mermaid
 flowchart BT
-    P1["P1 Consistency before completeness"] --> G0["G0 Lasting consistency; readable by people and Claude"]
+    P1["P1 Consistency before completeness"] --> G0["G0 Lasting consistency; readable by people and an AI assistant"]
     P2["P2 Make relationships explicit in structure"] --> G0
     P3["P3 Reasons before commands"] --> G0
     P4["P4 Minimize reader cost"] --> G0
@@ -36,11 +36,11 @@ flowchart BT
 
 **P2 Make relationships explicit in structure**: Express relationships between clauses through structure, without making readers infer them. Basis: G0.
 
-**P3 Reasons before commands**: Every requirement should answer “why,” so Claude can reason from that rationale in situations not explicitly covered. Basis: G0.
+**P3 Reasons before commands**: Every requirement should answer “why,” so an AI assistant can reason from that rationale in situations not explicitly covered. Basis: G0.
 
-**P4 Minimize reader cost**: Minimize both human reading cost and Claude’s context cost. Basis: G0.
+**P4 Minimize reader cost**: Minimize both human reading cost and the AI assistant’s context cost. Basis: G0.
 
-**P5 Value judgments belong to the user**: The user decides tradeoffs and intent; Claude does not decide on the user’s behalf. Basis: G0.
+**P5 Value judgments belong to the user**: The user decides tradeoffs and intent; the AI assistant does not decide on the user’s behalf. Basis: G0.
 
 ## Rules (L2)
 
@@ -202,11 +202,13 @@ Use this order: purpose (L0) → overview graph → how to read and modify → p
 
 **D3 Length and loading guide**. Basis: R4.3.
 
+Determine loading behavior from the actual runtime’s discovery, activation, and file-loading mechanisms. The table describes typical patterns, not guarantees for every tool.
+
 | Document | Loading | Requirements |
 | --- | --- | --- |
-| CLAUDE.md / AGENTS.md | Persistent in every session | As short as possible; separate project facts from behavioral rules |
-| SKILL.md | Loaded after activation | Body below roughly 500 lines; move L3 to references/ when longer. The frontmatter description triggers activation: state what it does and when to use it, favoring slightly proactive activation |
-| references/*.md | Loaded on demand | In SKILL.md, state when to read each file. Above roughly 300 lines, add a table of contents. One topic per file |
+| CLAUDE.md / AGENTS.md | May load persistently when the runtime discovers and applies the file | As short as possible; separate project facts from behavioral rules |
+| SKILL.md | May load after activation when the runtime supports skills | Body below roughly 500 lines; move L3 to references/ when longer. The frontmatter description guides activation in runtimes that use it: state what it does and when to use it, favoring slightly proactive activation |
+| references/*.md | Loaded on demand when the runtime or AI assistant reads the file | In SKILL.md, state when to read each file. Above roughly 300 lines, add a table of contents. One topic per file |
 
 **D4 Three conflict resolutions**. Basis: R5.1.
 
@@ -248,7 +250,7 @@ flowchart BT
 
 Start from scratch:
 
-1. Clarify L0: who is the reader, and how should Claude behave differently when successful?
+1. Clarify L0: who is the reader, and how should the AI assistant behave differently when successful?
 2. Invite the user to share all ideas in any format.
 3. Assign levels using R2.1, split using R1.1, and merge using R1.2.
 4. Find a basis for each clause; ask under R5.2 when none can be found.
