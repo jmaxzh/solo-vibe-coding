@@ -13,7 +13,7 @@ python3 -B -m unittest discover -s skills/cc-connect-integration/scripts -v
 python3 -B scripts/smoke_install.py --native
 ```
 
-冒烟检查需要 Node/npm、获取 `skills@1.7.4` 的网络连接；`--native` 还需要 Codex 和 Claude CLI。检查默认及完整深度发现、全部八项技能、六项核心技能组合、工作流与文档设计组合、worktree 策略与文档设计组合、六项独立专项技能，以及两项依赖技能各自故意缺少依赖的安装。缺失依赖结果是文件和组合校验，不证明模型遵循指令。原生检查执行本地注册、安装并读取真实技能清单；Codex app-server 查询不创建模型回合。
+冒烟检查需要 Node/npm、获取 `skills@1.7.4` 的网络连接；`--native` 还需要 Codex 和 Claude CLI。检查默认及完整深度发现、全部九项技能、六项核心技能组合、工作流与文档设计组合、worktree 策略与文档设计组合、七项独立专项技能，以及两项依赖技能各自故意缺少依赖的安装。缺失依赖结果是文件和组合校验，不证明模型遵循指令。原生检查执行本地注册、安装并读取真实技能清单；Codex app-server 查询不创建模型回合。
 
 报告写入 `dist/install-report.json`。指定 `--native` 后，超时或 CLI 不可用视为失败，不将跳过或失败记作通过。GitHub Actions 执行便携检查、脚本测试、skills CLI 冒烟检查及安装报告上传，不声称覆盖运行器中不存在的原生客户端。
 
@@ -36,7 +36,7 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 版本 `0.2.0` 使用仓库 `jmaxzh/solo-vibe-coding`，插件与市场标识为 `solo-vibe-coding@solo-vibe-coding`。旧安装使用 `vibe-dev-skills@vibe-dev-skills`；仓库改名不会迁移已安装的身份。
 
-先备份本地定制，按上文命令注册新市场并安装新标识，再在新会话中检查八项技能及依赖资料。读取实际注册名称，不假定仍使用旧命名空间。确认新安装后，使用客户端支持的插件管理禁用或移除旧标识，避免重复启用。这些说明不会自动修改既有安装。
+先备份本地定制，按上文命令注册新市场并安装新标识，再在新会话中检查九项技能及依赖资料。读取实际注册名称，不假定仍使用旧命名空间。确认新安装后，使用客户端支持的插件管理禁用或移除旧标识，避免重复启用。这些说明不会自动修改既有安装。
 
 旧 `sdlc-ui-interaction` 入口由负责视觉呈现的 `sdlc-ui-design` 和负责信息组织与交互行为的 `sdlc-ux-design` 替代，两者均可独立安装。先备份手动定制，用所需的新目录替换旧目录，确认注册名称和资料可读后移除旧安装。显式调用改用适当的新名称，混合任务可同时使用两者。GitHub 会重定向旧仓库地址，但后续安装和 Git remote 应使用新地址。不要将旧仓库名称用于另一仓库，否则会破坏重定向。
 
@@ -52,7 +52,7 @@ python3 -B scripts/smoke_install.py --source jmaxzh/solo-vibe-coding
 
 来源须与本地待验证技能一致。发布前远端仍是旧结构，本地冒烟通过不代表远端通过。既有手动安装先备份，再从新 `skills/` 目录更新；移除旧根路径，不保留兼容符号链接。
 
-公开命令见[项目说明](../../../README.zh-CN.md#安装)。Codex 和 Claude Code 安装整套；skills CLI 也支持工作流或 worktree 策略分别搭配文档设计技能，以及六项独立专项技能。不使用自定义依赖字段或安装器。
+公开命令见[项目说明](../../../README.zh-CN.md#安装)。Codex 和 Claude Code 安装整套；skills CLI 也支持工作流或 worktree 策略分别搭配文档设计技能，以及七项独立专项技能。不使用自定义依赖字段或安装器。
 
 skills.sh 根据实际安装遥测进入目录，本验证禁用遥测。SkillsMP 索引公开 GitHub 的 `SKILL.md`。发布后核对各英文来源与索引链接，不承诺立即收录；缺失时仅在授权后使用平台当前官方反馈渠道，不伪造排名或提交重复中文技能。
 

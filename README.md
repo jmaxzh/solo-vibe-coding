@@ -20,6 +20,7 @@ Choose the workflow for a project or a bounded stage, or use a specialist for th
 | [CC Connect Integration](skills/cc-connect-integration/SKILL.md) | Messaging-to-local-agent deployment and optional desktop copies | CC Connect integration tasks |
 | [Build in Public](skills/sdlc-build-in-public/SKILL.md) | Shared topic selection, channel-specific drafts, batch review and delivery guidance | Optional, independently installable |
 | [Worktree-first Development Strategy](skills/worktree-first-development/SKILL.md) | Maintain a project's isolated-development strategy in project or project-scoped home instructions | Optional; requires `sdlc-instr-doc-design` |
+| [Instruction Document Architect](skills/instruction-doc-architect/SKILL.md) | Atomic instruction clauses, abstraction layers, dependency graphs, reviews, and rewrites | Optional, independently installable; AI-facing instruction document tasks |
 
 We recommend the six core skills. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
 
@@ -48,7 +49,7 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-Install all eight English skills and choose a supported agent:
+Install all nine English skills and choose a supported agent:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
@@ -72,7 +73,7 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-The other six specialists can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
+The other seven specialists can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
 
 ### Manual installation
 
@@ -112,7 +113,7 @@ Keep corresponding translations synchronized in the same change. Runtime scripts
 
 ## Distribution and license
 
-Codex and Claude Code use the same eight-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
+Codex and Claude Code use the same nine-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
 
 [MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT; see [source and license notes](docs/provenance.md).
 

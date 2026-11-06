@@ -12,7 +12,9 @@ CORE_SKILLS = frozenset({
     "sdlc-mysql-design", "cc-connect-integration",
 })
 
-SKILLS = CORE_SKILLS | {"sdlc-build-in-public", "worktree-first-development"}
+SKILLS = CORE_SKILLS | {
+    "sdlc-build-in-public", "worktree-first-development", "instruction-doc-architect",
+}
 DOCUMENT_DEPENDENTS = frozenset({"sdlc-workflow", "worktree-first-development"})
 
 
