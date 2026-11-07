@@ -2,27 +2,13 @@
 
 **Agent skills and workflows for solo developers building with AI—from ideas and design to implementation and verification.**
 
-English | [简体中文](README.zh-CN.md)
+English | [简体中文](translations/zh-CN/README.md)
 
-Use Claude Code and Codex to plan, build, and maintain your own software. Start with an idea, clarify what it needs to do, choose a design, and implement it with explicit verification. The six core skills combine a development workflow with focused guidance for documentation, UI, UX, MySQL, and CC Connect.
+Use Claude Code and Codex to plan, build, and maintain your own software. Start with an idea, clarify what it needs to do, choose a design, and implement it with explicit verification.
 
 Choose the workflow for a project or a bounded stage, or use a specialist for the task at hand. These are reusable instructions and integration helpers; they do not replace your coding agent or provide hosted application services.
 
-## Skills
-
-| Skill | Purpose | Activation and dependencies |
-| --- | --- | --- |
-| [SDLC Workflow](skills/sdlc-workflow/SKILL.md) | Requirements, technical design, implementation, verification, and knowledge-base maintenance | Explicit invocation; document work requires `sdlc-instr-doc-design` |
-| [Instruction and Documentation Design](skills/sdlc-instr-doc-design/SKILL.md) | Instructions, prompts, skills, and reader-facing documents | Artifact work; usable independently |
-| [UI Design](skills/sdlc-ui-design/SKILL.md) | Visual hierarchy, typography, color, layout, and motion | Applicable visual interface tasks |
-| [UX Design](skills/sdlc-ux-design/SKILL.md) | Information organization, interaction, feedback, and recovery | Applicable product task experience work |
-| [MySQL Table and SQL Design](skills/sdlc-mysql-design/SKILL.md) | Models, SQL, indexes, transactions, and concurrency | MySQL must be established as the target database |
-| [CC Connect Integration](skills/cc-connect-integration/SKILL.md) | Messaging-to-local-agent deployment and optional desktop copies | CC Connect integration tasks |
-| [Build in Public](skills/sdlc-build-in-public/SKILL.md) | Shared topic selection, channel-specific drafts, batch review and delivery guidance | Optional, independently installable |
-| [Worktree-first Development Strategy](skills/worktree-first-development/SKILL.md) | Maintain a project's isolated-development strategy in project or project-scoped home instructions | Optional; requires `sdlc-instr-doc-design` |
-| [Instruction Document Architect](skills/instruction-doc-architect/SKILL.md) | Atomic instruction clauses, abstraction layers, dependency graphs, reviews, and rewrites | Optional, independently installable; AI-facing instruction document tasks |
-
-We recommend the six core skills. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
+Browse the [skills directory](skills/) for available skills and their instructions. Installation does not activate all skills for every task. Initialization and dedicated knowledge-base audits still require explicit requests.
 
 ## Install
 
@@ -49,7 +35,7 @@ claude plugin install solo-vibe-coding@solo-vibe-coding
 
 ### skills CLI
 
-Install all nine English skills and choose a supported agent:
+Install all English skills and choose a supported agent:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding --skill '*'
@@ -73,11 +59,7 @@ npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-instr-doc-design
 ```
 
-The other seven specialists can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
-
-### Manual installation
-
-Copy the selected skill directories inside `skills/` together into your agent's documented skill directory. Preserve `references/`, any bundled scripts, and license files. Back up existing installations before replacement. Do not copy the repository root or maintenance translations into an automatically discovered skill directory.
+Skills without required dependencies can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
 
 ## Use
 
@@ -105,21 +87,12 @@ The strategy skill offers project-root `AGENTS.md`/`CLAUDE.md` or home-directory
 
 When needed, the workflow and strategy skills load the installed documentation skill using the runtime's actual name and namespace. Missing required resources pause dependent work; skills do not silently skip rules or install dependencies automatically. These examples are requests, not completed deployment transcripts.
 
-## Languages and maintenance
+## License
 
-English is the only installed instruction edition and the source of truth. [Chinese translations](translations/zh-CN/README.md) help developers understand and maintain the sources; they are not runtime skills. Instructions do not force the language of user conversations or deliverables.
-
-Keep corresponding translations synchronized in the same change. Runtime scripts and tests have one implementation in their owning English skill. Follow [the maintenance rules](AGENTS.md).
-
-## Distribution and license
-
-Codex and Claude Code use the same nine-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills.
-
-[MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT.
+[MIT](LICENSE).
 
 ## Boundaries
 
 - Skills guide an agent; permissions, integrations, and verification determine actual outcomes. They do not provide hosting, CI services, or automatic deployment themselves.
 - MySQL rules include project conventions: no queries in explicit transactions, foreign keys, `CHECK`, or stored procedures. Read them before adoption.
 - CC Connect mirroring is optional and view-only. Its bundled Codex adapter targets legacy sessions and IPC v11, with macOS service deployment. Real messaging, desktop rendering, login recovery, and compatibility require target-machine verification.
-- Existing Chinese title handling and test fixtures remain part of the scripts. English skill instructions do not change runtime strings.

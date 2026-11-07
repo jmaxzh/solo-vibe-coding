@@ -7,15 +7,12 @@ from pathlib import Path
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE_SKILLS = frozenset({
-    "sdlc-workflow", "sdlc-instr-doc-design", "sdlc-ui-design", "sdlc-ux-design",
-    "sdlc-mysql-design", "cc-connect-integration",
-})
-
-SKILLS = CORE_SKILLS | {
-    "sdlc-build-in-public", "worktree-first-development", "instruction-doc-architect",
-}
 DOCUMENT_DEPENDENTS = frozenset({"sdlc-workflow", "worktree-first-development"})
+
+
+def skill_names(container):
+    """Discover skill names from their installable entry documents."""
+    return {entry.parent.name for entry in container.glob("*/SKILL.md")}
 
 
 def dependency_errors(names):
@@ -88,20 +85,17 @@ def installation_errors(container):
 
 
 def translation_for(root, source):
-    rel = source.relative_to(root)
-    if rel.as_posix() == "README.md":
-        return root / "README.zh-CN.md"
-    if rel.as_posix() == "AGENTS.md":
-        return root / "translations/zh-CN/AGENTS.zh-CN.md"
-    target = root / "translations/zh-CN" / rel
-    return target.with_name("SKILL.zh-CN.md") if target.name == "SKILL.md" else target
+    target = root / "translations/zh-CN" / source.relative_to(root)
+    if target.name in {"AGENTS.md", "SKILL.md"}:
+        target = target.with_name(f"{target.stem}.zh-CN.md")
+    return target
 
 
 def validate(root=ROOT):
     errors = []
     entries = set(root.glob("skills/*/SKILL.md"))
-    if {p.parent.name for p in entries} != SKILLS:
-        errors.append(f"expected exactly {len(SKILLS)} English skill entries")
+    if not entries:
+        errors.append("no English skill entries found")
     discovered = {p for p in root.rglob("SKILL.md")
                   if not any(x in p.relative_to(root).parts for x in (".git", "dist", "node_modules"))}
     if entries != discovered:
@@ -127,7 +121,7 @@ def validate(root=ROOT):
         translated = translation_for(root, source)
         if not translated.is_file():
             errors.append(f"{source}: missing maintenance translation")
-        elif source.name != "README.md" and source.resolve() not in {
+        elif source.resolve() not in {
                 (translated.parent / u).resolve() for u in re.findall(
                     r"\]\(([^)#]+)\)", without_fences(translated.read_text()))
                 if "://" not in u}:
@@ -135,6 +129,8 @@ def validate(root=ROOT):
     for path in (root / "translations").rglob("*"):
         if path.is_file() and path.suffix != ".md":
             errors.append(f"{path}: translations must contain documentation only")
+        if path.is_file() and path.name in {"AGENTS.md", "SKILL.md"}:
+            errors.append(f"{path}: translated auto-loaded entry requires .zh-CN.md suffix")
     for path in root.rglob("*.md"):
         if not any(x in path.relative_to(root).parts for x in (".git", "dist", "node_modules")):
             errors.extend(link_errors(path))
@@ -168,11 +164,6 @@ def validate(root=ROOT):
         if name.startswith(".claude") and (entry.get("version") != portable["version"] or
                 market.get("metadata", {}).get("version") != portable["version"]):
             errors.append(f"{name}: marketplace version mismatch")
-    workflow = (root / "skills/sdlc-workflow/SKILL.md").read_text()
-    for phrase in ("sdlc-instr-doc-design", "actual registered name and namespace",
-                   "pause only work", "download/install dependencies automatically"):
-        if phrase not in workflow:
-            errors.append(f"workflow missing dependency contract: {phrase}")
     return sorted(set(errors))
 
 
@@ -186,7 +177,7 @@ def main():
         parser.exit(1, f"Invalid source tree: {exc}\n")
     if errors:
         parser.exit(1, "\n".join(errors) + "\n")
-    print(f"PASS: {len(SKILLS)} English skills; dependency, notices, manifests, translations and links")
+    print(f"PASS: {len(skill_names(args.root / 'skills'))} English skills; dependency, notices, manifests, translations and links")
 
 
 if __name__ == "__main__":

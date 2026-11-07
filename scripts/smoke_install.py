@@ -10,7 +10,7 @@ import sys
 import tempfile
 from types import SimpleNamespace
 
-from validate import ROOT, CORE_SKILLS, SKILLS, DOCUMENT_DEPENDENTS, installation_errors
+from validate import ROOT, DOCUMENT_DEPENDENTS, installation_errors, skill_names
 
 
 def run(args, cwd, env):
@@ -22,16 +22,18 @@ def run(args, cwd, env):
 
 def skills_checks(root, work, env, source):
     checks = []
+    names_in_source = skill_names(root / "skills")
     cli = ["npx", "--yes", "skills@1.7.4", "add", source]
     for extra in ([], ["--full-depth"]):
         output = run(cli + ["--list", *extra], work, env)
-        if not re.search(rf"Found {len(SKILLS)} skills\b", output):
-            raise RuntimeError(f"Expected exactly {len(SKILLS)} discovered skills:\n" + output)
-        checks.append(f"{len(SKILLS)}-skill discovery" + (" (full depth)" if extra else ""))
-    combinations = [("suite", SKILLS), ("core", CORE_SKILLS), ("workflow-pair", {"sdlc-workflow", "sdlc-instr-doc-design"})]
-    combinations += [("worktree-strategy-pair", {"worktree-first-development", "sdlc-instr-doc-design"})]
-    combinations += [(name, {name}) for name in sorted(SKILLS - DOCUMENT_DEPENDENTS)]
-    combinations += [("missing-dependency-" + name, {name}) for name in sorted(DOCUMENT_DEPENDENTS)]
+        if not re.search(rf"Found {len(names_in_source)} skills\b", output):
+            raise RuntimeError(f"Expected exactly {len(names_in_source)} discovered skills:\n" + output)
+        checks.append(f"{len(names_in_source)}-skill discovery" + (" (full depth)" if extra else ""))
+    combinations = [("suite", names_in_source)]
+    combinations += [(name + "-pair", {name, "sdlc-instr-doc-design"})
+                     for name in sorted(DOCUMENT_DEPENDENTS & names_in_source)]
+    combinations += [(name, {name}) for name in sorted(names_in_source - DOCUMENT_DEPENDENTS)]
+    combinations += [("missing-dependency-" + name, {name}) for name in sorted(DOCUMENT_DEPENDENTS & names_in_source)]
     for label, names in combinations:
         dest = work / label
         dest.mkdir()
@@ -57,6 +59,7 @@ def skills_checks(root, work, env, source):
 
 def native_checks(root, work, env):
     results = []
+    names_in_source = skill_names(root / "skills")
     plugin = "solo-vibe-coding@solo-vibe-coding"
     if not shutil.which("codex") or not shutil.which("claude"):
         raise RuntimeError("--native requires codex and claude CLIs")
@@ -74,12 +77,12 @@ def native_checks(root, work, env):
         catalog = rpc.call("skills/list", {"cwds": [str(work)], "forceReload": True}, timeout=20)
         own = [s for group in catalog["data"] for s in group["skills"] if s.get("pluginId") == plugin]
         actual = {s["name"].split(":")[-1] for s in own}
-        if actual != SKILLS or any(not s.get("enabled") for s in own):
+        if actual != names_in_source or any(not s.get("enabled") for s in own):
             raise RuntimeError(f"Unexpected Codex runtime inventory: {actual}")
         for skill in own:
             if not Path(skill["path"]).is_file():
                 raise RuntimeError("Codex returned an unreadable installed skill")
-        results.append(f"Codex app-server catalog: {len(SKILLS)} enabled namespaced skills with readable resources")
+        results.append(f"Codex app-server catalog: {len(names_in_source)} enabled namespaced skills with readable resources")
     finally:
         rpc.close()
     for target in (root / ".claude-plugin/plugin.json", root / ".claude-plugin/marketplace.json"):
@@ -87,9 +90,9 @@ def native_checks(root, work, env):
     run(["claude", "plugin", "marketplace", "add", str(root)], work, env)
     run(["claude", "plugin", "install", plugin], work, env)
     inventory = run(["claude", "plugin", "details", plugin], work, env)
-    if f"Skills ({len(SKILLS)})" not in inventory or any(name not in inventory for name in SKILLS):
+    if f"Skills ({len(names_in_source)})" not in inventory or any(name not in inventory for name in names_in_source):
         raise RuntimeError("Unexpected Claude Code component inventory:\n" + inventory)
-    results.append(f"Claude Code strict validation, native installation, and {len(SKILLS)}-skill inventory")
+    results.append(f"Claude Code strict validation, native installation, and {len(names_in_source)}-skill inventory")
     return results
 
 
