@@ -1,12 +1,19 @@
 ---
 name: instruction-doc-architect
-description: "撰写、审查、改写给 AI 读的指令文档：CLAUDE.md、AGENTS.md、SKILL.md、skill 的 references 文档、system prompt、项目规范。把零散要求整理成原子化、无重叠、无冲突、金字塔分层、依赖有向无环的结构，用 Mermaid 表达关系并保证人类易读。用户提到写、改、审、整理、精简、重构这些文档、skill、规则、原则、指令或 prompt 规范，或抱怨规则太乱、互相打架、越写越长、AI 助手不听话时使用，即使没有明确要求审查或重构。"
+description: "仅在用户显式调用 instruction-doc-architect 时使用；任何智能体均不得因任务匹配、其他技能推荐或引用、自主判断而自动加载或执行。撰写、审查、改写给 AI 读的指令文档：CLAUDE.md、AGENTS.md、SKILL.md、skill 的 references 文档、system prompt、项目规范。把零散要求整理成原子化、无重叠、无冲突、金字塔分层、依赖有向无环的结构，用 Mermaid 表达关系并保证人类易读。"
+disable-model-invocation: true
 license: MIT
 ---
 
 # 指令文档架构师
 
 > 开发者维护译文；[英文源文档](../../../../skills/instruction-doc-architect/SKILL.md)是唯一可安装的规范性版本。
+
+## 调用策略
+
+所有智能体仅可在用户显式调用 instruction-doc-architect 时加载和执行本技能。任务匹配、其他技能推荐或引用、智能体自主判断均不构成启用授权。将该技能作为审查或修改对象提及，不属于调用。
+
+运行时配置在受支持的环境中强化此策略；对于忽略技能声明或不支持调用策略的运行时，这些配置不保证强制执行。
 
 ## 目的（G0）
 

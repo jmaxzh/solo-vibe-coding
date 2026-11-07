@@ -1,10 +1,17 @@
 ---
 name: instruction-doc-architect
-description: "Write, review, or rewrite AI-facing instruction documents: CLAUDE.md, AGENTS.md, SKILL.md, skill reference docs, system prompts, and project conventions. Organize requirements into atomic, non-overlapping, non-conflicting clauses, layered by abstraction with acyclic dependencies, and express relationships in Mermaid while preserving human readability. Use whenever users mention writing, changing, reviewing, organizing, shortening, or restructuring these documents, skills, rules, principles, instructions, or prompt conventions, or complain that rules are tangled, contradictory, ever-growing, or ignored by an AI assistant, even without an explicit request to review or restructure."
+description: "Use only when the user explicitly invokes instruction-doc-architect; no agent may load or execute it automatically based on task relevance, another skill's recommendation or reference, or its own judgment. Write, review, or rewrite AI-facing instruction documents: CLAUDE.md, AGENTS.md, SKILL.md, skill reference docs, system prompts, and project conventions. Organize requirements into atomic, non-overlapping, non-conflicting clauses, layered by abstraction with acyclic dependencies, and express relationships in Mermaid while preserving human readability."
+disable-model-invocation: true
 license: MIT
 ---
 
 # Instruction Document Architect
+
+## Invocation policy
+
+All agents may load and execute this skill only when the user explicitly invokes instruction-doc-architect. Task relevance, another skill's recommendation or reference, and an agent's own judgment do not authorize activation. Mentioning the skill as the subject of a review or edit is not an invocation.
+
+Runtime settings reinforce this policy where supported; they do not guarantee enforcement by runtimes that ignore skill declarations or do not support invocation policies.
 
 ## Purpose (G0)
 
