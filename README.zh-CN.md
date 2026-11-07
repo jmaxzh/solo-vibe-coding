@@ -26,7 +26,7 @@
 
 ## 安装
 
-下列 GitHub 命令需要先将分发改动发布到仓库。测试尚未发布的检出目录时，使用其实际绝对路径作为来源，见[本地验证与分发](translations/zh-CN/docs/distribution.md)。
+下列 GitHub 命令需要先将分发改动发布到仓库。测试尚未发布的检出目录时，使用其实际绝对路径作为来源。
 
 ### Codex
 
@@ -113,9 +113,9 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 ## 分发与许可证
 
-Codex 与 Claude Code 使用同一个九技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。见[分发说明](translations/zh-CN/docs/distribution.md)及[验证记录](translations/zh-CN/docs/verification.md)。
+Codex 与 Claude Code 使用同一个九技能插件；skills.sh 支持 GitHub 安装与发现，SkillsMP 索引公开源技能。
 
-采用 [MIT](LICENSE)。所有者已确认改编的 CC Connect 镜像脚本也可按 MIT 分发，见[来源与许可说明](translations/zh-CN/docs/provenance.md)。
+采用 [MIT](LICENSE)。所有者已确认改编的 CC Connect 镜像脚本也可按 MIT 分发。
 
 ## 能力边界
 

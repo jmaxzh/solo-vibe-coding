@@ -122,7 +122,7 @@ def validate(root=ROOT):
         if (entry.parent / "LICENSE").read_bytes() != (root / "LICENSE").read_bytes():
             errors.append(f"{entry.parent}: license differs from root")
     sources = [root / "README.md", root / "AGENTS.md",
-               *root.glob("skills/**/*.md"), *root.glob("docs/*.md")]
+               *root.glob("skills/**/*.md")]
     for source in sources:
         translated = translation_for(root, source)
         if not translated.is_file():

@@ -26,7 +26,7 @@ We recommend the six core skills. Installation does not activate all skills for 
 
 ## Install
 
-These GitHub commands require the distribution changes to be published to the repository. For an unpublished checkout, use its absolute path as the source; see [local verification and distribution](docs/distribution.md).
+These GitHub commands require the distribution changes to be published to the repository. For an unpublished checkout, use its absolute path as the source.
 
 ### Codex
 
@@ -113,9 +113,9 @@ Keep corresponding translations synchronized in the same change. Runtime scripts
 
 ## Distribution and license
 
-Codex and Claude Code use the same nine-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills. See [distribution](docs/distribution.md) and [verification results](docs/verification.md).
+Codex and Claude Code use the same nine-skill plugin. skills.sh supports GitHub installation and discovery; SkillsMP indexes public source skills.
 
-[MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT; see [source and license notes](docs/provenance.md).
+[MIT](LICENSE). The owner confirmed that the adapted CC Connect mirror scripts may also be distributed under MIT.
 
 ## Boundaries
 
