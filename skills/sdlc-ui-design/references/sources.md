@@ -1,8 +1,6 @@
 # Source Context
 
-These notes map the [local skill](../SKILL.md) and its platform references to selected original passages. They preserve context for consultation; the English skill instructions remain the maintained execution rules. Upstream commands, toolchains, approval steps, style bans, and numeric defaults are not adopted merely by linking to them.
-
-Consult the relevant entry and original passage when assumptions, exceptions, numbers, or adaptation details affect a decision. If a passage is unavailable, identify conclusions that remain unverified rather than inventing missing details. Task authorization, separate design and implementation acceptance, and focused implementation checks are local rules, not an adoption of an upstream playbook.
+These notes map the [local skill](../SKILL.md) and platform references to selected original passages, preserving adaptation context. Source boundaries: entry document P4. Consultation and unavailable passages: R2.4. Numeric verification: R4.3. Task authorization, separate design and implementation acceptance, and focused implementation checks are local rules, not adoption of an upstream playbook.
 
 ## Pinned revisions
 

@@ -6,62 +6,95 @@ license: MIT
 
 # UX Design
 
+## Purpose (G0)
+
+Support requested desktop, mobile, and web product task experiences so users can understand, complete, and recover their tasks.
+
+This skill works independently of the SDLC workflow and can be installed alone.
+
+## Structure and reading
+
+Levels: G0 purpose (L0), P principles (L1), R rules (L2). Each row means “When triggered, must follow the requirement”; criteria test compliance. Bases point upward; diagram arrows mean dependency. Select scope before references. Implementation delivery/acceptance follows task and existing project requirements.
+
+## Principles (L1)
+
+**P1** Requested scope before workflow expansion. Basis: G0.
+
+**P2** Task outcomes before interface simplification. Basis: G0.
+
+**P3** Understandable actions and recoverable task progress. Basis: G0.
+
+**P4** Accessible operation based on actual input capabilities. Basis: G0.
+
+**P5** Factual evidence before unsupported claims. Basis: G0.
+
+```mermaid
+flowchart BT
+    P1 --> G0
+    P2 --> G0
+    P3 --> G0
+    P4 --> G0
+    P5 --> G0
+```
+
 ## Applicability
 
-- Apply to the requested product task experience design, implementation, modification, review, optimization, or principle guidance for desktop, mobile, and web. Backend-only, database-only, and other tasks without user-facing interaction work are outside this skill's scope.
-- This skill works independently of the SDLC workflow and can be installed alone. For tasks that also involve visual hierarchy, typography, color, layout, control geometry, or motion, use available UI guidance such as `sdlc-ui-design` for those decisions.
-- When only principle guidance is requested, give a brief answer at that level rather than expanding into product-specific design, implementation, or acceptance testing.
-- For review-only requests, report findings and recommendations without creating a new design or changing implementation.
-- Design exploration, proposals, concept comparison, and prototype validation create or modify standalone design artifacts only. Change production code only when the request includes implementation.
-- For mixed requests, deliver the design before continuing with the authorized implementation. Deliver and assess each separately; prototype validation does not establish implementation acceptance.
-- For implementation, follow existing project checks. When the current environment supports reproducing a defect, use a focused recheck of that defect; choose checks for other behavior changes according to their risk and scope. Do not set up additional verification environments, produce formal verification reports, or duplicate existing checks solely to satisfy this skill.
-- For implementation results, report checks performed, observations, and unverified scope. Distinguish runtime evidence, code-based inference, and subjective judgment; model self-assessment is not user acceptance.
+| Clause | When | Requirement | Criterion | Basis |
+| --- | --- | --- | --- | --- |
+| **R1.1** | Selecting scope | Apply to requested desktop/mobile/web product task experience design, implementation, modification, review, optimization, or principle guidance. | Exclude backend-only, database-only, and other work without user-facing interaction. | P1 |
+| **R1.2** | Visual work also requested | Use available UI guidance, such as `sdlc-ui-design`, for visual hierarchy, typography, color, layout, control geometry, and motion. | Listed visual decisions covered. | P1 |
+| **R1.3** | Principle guidance only | Answer briefly at principle level. | No product-specific design, implementation, or acceptance testing. | P1 |
+| **R1.4** | Review only | Report findings and recommendations. | No new design or implementation changes. | P1 |
+| **R1.5** | Design exploration, proposals, concept comparison, or prototype validation requested | Create/modify standalone design artifacts only. | Changes confined to design artifacts. | P1 |
+| **R1.6** | Mixed design/implementation request | Deliver design before continuing authorized implementation. | Design delivered first. | P1 |
+| **R1.7** | Mixed design/implementation request | Deliver and assess each separately. | Prototype validation is not implementation acceptance. | P1 |
+| **R1.8** | Implementing | Follow existing project checks. | Project checks followed. | P1 |
+| **R1.9** | Current environment supports defect reproduction | Use a focused defect recheck. | Reproduced defect rechecked. | P1 |
+| **R1.10** | Checking other behavior changes | Select checks by risk and scope. | Affected behavior and risk covered. | P1 |
+| **R1.11** | Implementing | Do not add verification environments, formal verification reports, or duplicate checks solely for this skill. | No skill-only verification work. | P1 |
+| **R1.12** | Reporting implementation | Report performed checks, observations, and unverified scope. | All three reported. | P5 |
+| **R1.13** | Reporting implementation | Distinguish runtime evidence, code-based inference, and subjective judgment. | Evidence types distinguishable. | P5 |
+| **R1.14** | Reporting implementation | Do not equate model self-assessment with user acceptance. | No self-assessment acceptance claim. | P5 |
+| **R1.15** | Changing production code | Require implementation in the request. | Implementation authorized. | P1 |
 
 ## Read on demand
 
-- Follow the shared principles below and read platform references for the actual target and scenario.
-- Desktop: read [desktop principles](references/desktop.md).
-- Mobile: read [mobile principles](references/mobile.md).
-- Web: read [web principles](references/web.md).
-- For mobile web, read both mobile and web principles. For other combinations, load additional references according to the selected documents' conditions.
-- If the platform is unspecified, infer it from the task and project context first. For general advice, use only shared principles. Ask for clarification only if a concrete task still lacks a necessary platform decision.
-- For an adaptation's context or limits, consult its linked entry in [source context](references/sources.md) and, when needed, the original passage. The English instructions in this skill define the local adaptation; consultation does not import upstream workflows or toolchains.
+| Clause | When | Requirement | Criterion | Basis |
+| --- | --- | --- | --- | --- |
+| **R2.1** | Applying this skill | Read/apply relevant [shared rules](references/shared.md) sections for the work, platform, and scenario. | No unrelated requirements imposed. | P1 |
+| **R2.2** | Desktop target | Read [desktop principles](references/desktop.md). | Select by OS, input, window usage. | P1 |
+| **R2.3** | Mobile target | Read [mobile principles](references/mobile.md). | Select by device, OS, grip. | P1 |
+| **R2.4** | Web target | Read [web principles](references/web.md). | Select by browser usage. | P1 |
+| **R2.5** | Combined platform contexts | For mobile web, read mobile and web; otherwise follow selected references’ additional-loading conditions. | All triggered references loaded. | P1 |
+| **R2.6** | Platform unspecified | Infer from task/project context first. | Context consulted first. | P1 |
+| **R2.7** | General advice with unspecified platform | Use shared principles only. | No platform decision required. | P1 |
+| **R2.8** | Platform unspecified | Clarify only if a concrete task still needs a platform decision. | Missing decision blocks concrete task. | P1 |
+| **R2.9** | Adaptation context/limits affect decisions | Consult linked [source context](references/sources.md); consult the original for unresolved assumptions, exceptions, numbers, or adaptation details. | Verify unresolved details or mark unverified. | P5 |
+| **R2.10** | Consulting sources | English skill instructions govern the local adaptation. | No imported upstream workflows/toolchains, commands, approvals, style bans, or numeric defaults. | P5 |
+| **R2.11** | Recommending | Explain recommendation-affecting conditions and tradeoffs. | Conditions/tradeoffs stated. | P1 |
+| **R2.12** | Before numeric recommendations/requirements | Verify source, units, and target-platform applicability. | All three verified before citation. | P5 |
 
 ## Design delivery
 
-Use this section for requested interaction exploration, proposals, concept comparison, or prototype validation, regardless of change size. In mixed tasks, it applies to the design portion; implementation delivery and acceptance follow the task and existing project requirements.
+This section applies only to requested interaction exploration, proposals, concept comparison, or prototype validation, at any change size. “Design task” below means this scope. In mixed requests, apply it only to the design portion.
 
-- Present UX designs as an interactive single-page HTML artifact. Make the main actions, relevant state changes, and necessary return or recovery paths operable in the prototype. Check that controls and feedback demonstrate the intended operation and distinguish relevant states. [Source context](references/sources.md#interactive-prototype).
-- Default to inline CSS and JavaScript so the HTML opens directly. Use local state and clearly identified illustrative data to demonstrate the agreed interaction scope.
-- For combined UI/UX design, use image generation first for the UI proposal and provide an interactive UX HTML prototype. If image generation is unavailable or fails, use one HTML artifact for both. [Source context](references/sources.md#combined-design-format).
-- Inspect the rendered prototype at the intended viewport using actual content where available; otherwise use clearly identified representative content. [Source context](references/sources.md#rendered-prototype).
-- Lead delivery with the interactive preview and openable HTML file. Keep accompanying prose brief and limited to opening instructions, simulation scope, and necessary limitations.
+| Clause | When | Requirement | Criterion | Basis |
+| --- | --- | --- | --- | --- |
+| **R3.1** | Design task | Present interactive single-page HTML. [Source context](references/sources.md#interactive-prototype) | Interactive HTML delivered. | P1 |
+| **R3.2** | Design task | Make main prototype actions operable. | Main controls perform intended actions. | P1 |
+| **R3.3** | Design task | Demonstrate relevant state changes. | Controls/feedback distinguish states. | P1 |
+| **R3.4** | Design task | Make necessary return/recovery paths operable. | Paths reach intended states. | P1 |
+| **R3.5** | Building HTML | Default to inline CSS/JavaScript for direct opening. | Default artifact opens directly. | P1 |
+| **R3.6** | Building HTML | Demonstrate agreed interaction scope with local state. | Agreed scope demonstrated locally. | P1 |
+| **R3.7** | Combined UI/UX design | Use image generation first for UI proposals. [Source context](references/sources.md#combined-design-format) | Image-first unless unavailable/failed. | P1 |
+| **R3.8** | Combined UI/UX design | Provide interactive UX HTML. | Interactive prototype provided. | P1 |
+| **R3.9** | Checking prototypes | Inspect rendered output at the intended viewport. [Source context](references/sources.md#rendered-prototype) | Target rendering inspected. | P1 |
+| **R3.10** | Checking prototypes | Use actual content; if unavailable, clearly labeled representative content. | Content actual or labeled representative. | P1 |
+| **R3.11** | Delivering design | Lead with interactive preview and openable HTML file. | Preview/file lead delivery. | P1 |
+| **R3.12** | Delivering design | Keep prose brief: opening instructions, simulation scope, necessary limitations only. | Only listed explanation types. | P1 |
+| **R3.13** | Checking prototypes | Check controls/feedback demonstrate intended operation and distinguish relevant states. | Operation/state feedback checked. | P1 |
+| **R3.14** | UI image generation unavailable/failed | Use one HTML artifact for UI and UX. | One HTML covers both. | P1 |
 
 ## Shared principles
 
-### Applying the principles
-
-- Apply principles relevant to the requested work, target platform, and scenario.
-- Explain conditions and tradeoffs that affect the recommendation.
-- Before citing numeric requirements or recommendations, verify their source, units, and applicability to the target platform.
-
-### Design principles
-
-- **Tasks and outcomes**: organize the UI by user goals and operation order. Prioritize information and actions needed for the current task. Evaluate each surface by what its users need to accomplish there. [Source context](references/sources.md#tasks-and-outcomes).
-- **Entry points and controls**: make primary entry points discoverable and each control's intended action clear. Use button labels that identify actions and their objects; label ambiguous icons. [Source context](references/sources.md#entry-points-and-controls).
-- **Icon semantics**: determine an icon's semantics from its current use. Hide redundant decorative icons beside visible text from the accessibility tree. Provide a text alternative for meaningful standalone icons. Expose an icon control's accessible name and applicable state. [Source context](references/sources.md#icon-semantics).
-- **Task priority**: on a task-oriented screen, let the question users need answered first determine visual emphasis and reading order. [Source context](references/sources.md#task-priority).
-- **Presentation structure**: let a presentation page's claims and the evidence for them determine which sections it needs and in what order. [Source context](references/sources.md#presentation-structure).
-- **Factual and illustrative content**: base claims and evidence about real products, customers, or business activity on available facts. Clearly identify illustrative content. [Source context](references/sources.md#factual-and-illustrative-content).
-- **Data consistency**: within the same reporting scope, keep the same fact consistent wherever it appears, and keep derived figures consistent with their underlying data. Make differences in scope, time period, or calculation basis clear. [Source context](references/sources.md#data-consistency).
-- **Cognitive load**: present options and context needed for decisions, reduce memorization and repeated input, and let users inspect and change defaults. Reveal complex options as they become relevant. Keep the information needed for a decision available at the point of choice, including when reducing steps. [Source context](references/sources.md#cognitive-load).
-- **Learning**: reduce unnecessary mental effort introduced by the interface. Support the learning that helps users understand and master their task. [Source context](references/sources.md#learning).
-- **Simplification**: judge simplification by the obstacles it removes from the user's task. Preserve necessary functionality, decision-relevant information, and accessibility. [Source context](references/sources.md#simplification).
-- **Consistency**: follow platform interaction conventions and consistent control behavior.
-- **Status and waiting feedback**: show the user's current place in the task or navigation, processing status, and outcomes. Distinguish loading, empty data, and failure. Respond promptly to actions. For long operations, provide reliable status and show actual progress when measurable. Scale feedback to importance without frequent interruption. Align each state's presentation and available actions with its meaning; distinguish read-only, disabled, and in-progress states. [Source context](references/sources.md#status-and-waiting-feedback).
-- **User control**: provide discoverable exit, cancel, and return actions. Support undo and redo where appropriate and clarify which changes they affect. Explain consequences before irreversible actions. Visual transitions must not prevent supported return, switching, or cancellation actions. Distinguish interrupting an animation from cancelling a background operation. [Source context](references/sources.md#user-control).
-- **Modality**: reserve modal interaction for tasks that require interrupting the current work or protecting focus. [Source context](references/sources.md#modality).
-- **Error prevention and recovery**: state input and operation constraints in advance at the point where they apply. Require confirmation when the consequences warrant it. Validate at appropriate times without interrupting incomplete input. On failure, preserve valid input, identify the issue and its location, explain known causes without presenting guesses as facts, and offer a recovery path.
-- **Connectivity and recovery**: for network-dependent tasks, make the capabilities available under limited connectivity clear. Offer fallback or recovery actions that the product actually supports. [Source context](references/sources.md#connectivity-and-recovery).
-- **Interface language**: use language the intended audience understands. Retain familiar domain terms when they convey the intended meaning precisely. [Source context](references/sources.md#interface-language).
-- **Accessible operation**: support keyboard and assistive technology in the target environment, with identifiable control names, states, and focus. Provide equivalent actions for precision input or complex gestures. Choose interaction behavior based on the input capabilities actually available. Make primary actions usable without hover. [Source context](references/sources.md#accessible-operation).
+Under R2.1, read the relevant sections of [shared rules](references/shared.md) for the requested work, platform, and scenario; R4–R8 are this section’s execution clauses.

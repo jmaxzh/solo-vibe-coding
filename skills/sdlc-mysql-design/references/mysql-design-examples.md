@@ -2,6 +2,40 @@
 
 This reference explains the [main skill](../SKILL.md) by topic. Business assumptions in examples do not become constraints elsewhere. SQL uses InnoDB; `:name` illustrates driver-bound parameters, which must use the actual driver's supported syntax. Fragments show relevant fields only, omitting unrelated required fields, and are not complete executable table-creation scripts.
 
+## Contents
+
+- [Row grain](#row-grain)
+- [Relationships and uniqueness](#relationships-and-uniqueness)
+- [Field ownership](#field-ownership)
+- [Referential integrity](#referential-integrity)
+- [Application validation](#application-validation)
+- [Statements inside transactions](#statements-inside-transactions)
+- [Transaction connection](#transaction-connection)
+- [Implicit commits](#implicit-commits)
+- [Failure handling](#failure-handling)
+- [External operations](#external-operations)
+- [Business-conditional updates](#business-conditional-updates)
+- [Timestamp checks](#timestamp-checks)
+- [Concurrent customer-reference maintenance](#concurrent-customer-reference-maintenance)
+- [Update results](#update-results)
+- [Write order](#write-order)
+- [Low-cardinality fields](#low-cardinality-fields)
+- [Prefix indexes](#prefix-indexes)
+- [Composite indexes](#composite-indexes)
+- [Sort cost](#sort-cost)
+- [Indexed columns and expressions](#indexed-columns-and-expressions)
+- [Leading wildcards](#leading-wildcards)
+- [Index reuse and changes](#index-reuse-and-changes)
+- [Batch queries](#batch-queries)
+- [Database-side computation](#database-side-computation)
+- [Multiple detail joins](#multiple-detail-joins)
+- [Pagination with joins](#pagination-with-joins)
+- [Repeated large-field transfer](#repeated-large-field-transfer)
+- [Deferred large-field reads](#deferred-large-field-reads)
+- [Batch writes](#batch-writes)
+- [Classifying complex SQL](#classifying-complex-sql)
+- [Verification using actual data](#verification-using-actual-data)
+
 ## Data modeling
 
 ### Entities, relationships, and field ownership
@@ -9,6 +43,8 @@ This reference explains the [main skill](../SKILL.md) by topic. Business assumpt
 Corresponding rules: [entities, relationships, and field ownership](../SKILL.md#entities-relationships-and-field-ownership). Group names match the main document's rule entries.
 
 #### Row grain
+
+**D01** Basis: R08a. Misreading addressed: “One table may mix row grains.”
 
 ##### Customers, orders, items, and payment attempts
 
@@ -24,6 +60,8 @@ Assume each order belongs to one customer and allows payment retries.
 An order with two items and three payment attempts has one order, two item rows, and three attempt rows. Do not mix payment-attempt-grain records into the order table.
 
 #### Relationships and uniqueness
+
+**D02** Basis: R09a, R09b, R09c, R09d, R09e. Misreading addressed: “A relationship label or surrogate key determines optionality and business uniqueness.”
 
 ##### Cardinality and repetition on both sides
 
@@ -113,6 +151,8 @@ Repeated associations can mean repeated participation, events, or roles. Establi
 
 #### Field ownership
 
+**D03** Basis: R10a, R10b. Misreading addressed: “Current facts and historical snapshots have the same maintenance owner.”
+
 A customer's current name belongs to the customer, a product's current price to the product, and transaction price/quantity to the order item. The following examples derive ownership from meaning and dependencies.
 
 ##### Field ownership and duplicate maintenance: current customer name
@@ -174,6 +214,8 @@ A surrogate key is an additional generated identifier such as auto-increment `id
 
 #### Referential integrity
 
+**D04** Basis: R11a, R11b, R11c. Misreading addressed: “A nonnull reference proves target existence and state.”
+
 ##### Customer existence, state, and deletion
 
 Assume orders may belong only to enabled customers; disabling retains historical orders, and customers with orders cannot be physically deleted:
@@ -196,6 +238,8 @@ Corresponding rules: [keys and constraints](../SKILL.md#keys-and-constraints).
 
 #### Application validation
 
+**D05** Basis: R26a, R26b. Misreading addressed: “Only inserts or changed fields need validation.”
+
 For example, require integer `is_enabled` in {0,1}, valid start/end times, and `ends_at > starts_at`. Validate inserts, changes, and batches in the application outside explicit transactions; reject failures.
 
 Even an `ends_at`-only change must validate against `starts_at`. Protect read-dependent validation and stock deductions with conditional updates or optimistic locking under [concurrency control](../SKILL.md#concurrency-control), ensuring write-time conditions still hold.
@@ -209,6 +253,8 @@ Examples follow the main skill's project bans on foreign keys and stored procedu
 Corresponding rules: [transaction management](../SKILL.md#transaction-management).
 
 #### Statements inside transactions
+
+**D06** Basis: R47a, R47b. Misreading addressed: “Preparation queries or query-bearing writes may run inside explicit transactions.”
 
 Assume product information must be queried and parameters prepared before creating an order and initial items.
 
@@ -225,6 +271,8 @@ Data can change after preparation. Validate stock, enabled customers, and other 
 
 #### Transaction connection
 
+**D07** Basis: R48a. Misreading addressed: “Independent connections can share the required atomic outcome.”
+
 Suppose order and items must succeed together but asynchronous or independent-transaction writes use another connection:
 
 | Step | Connection A | Connection B |
@@ -238,6 +286,8 @@ Without foreign keys, nothing prevents this item insert. The order disappears wh
 Perform both writes in A's same transaction. Pools must retain the connection; check asynchronous tasks and propagation settings do not place required writes in independent transactions.
 
 #### Implicit commits
+
+**D08** Basis: R49a, R49b. Misreading addressed: “Nested starts, autocommit changes, or DDL preserve the rollback boundary.”
 
 Both following fragments are counterexamples; assume their order primary keys do not already exist.
 
@@ -263,6 +313,8 @@ Writes requiring joint success share one transaction boundary; these operations 
 
 #### Failure handling
 
+**D09** Basis: R50a, R50b, R50c, R50d. Misreading addressed: “A failed statement undoes prior writes or makes blind retry safe.”
+
 If an order inserts successfully but a required item insert fails, do not catch and commit. Stop later writes and roll back the entire transaction.
 
 | Failure | InnoDB handling | Application response |
@@ -278,6 +330,8 @@ A disconnect after sending `COMMIT` can leave commit status unknown. Do not assu
 
 #### External operations
 
+**D10** Basis: R51a. Misreading addressed: “Reordering external calls gives local atomicity.”
+
 Corresponding rule: External operations under [transaction management](../SKILL.md#transaction-management). Suppose an operation writes orders and makes external payments:
 
 | Order | Operations | Outcome |
@@ -292,6 +346,8 @@ Both put external calls outside explicit database transactions. Reordering canno
 Corresponding rules: [concurrency control](../SKILL.md#concurrency-control).
 
 #### Business-conditional updates
+
+**D11** Basis: R52a, R52b, R52c. Misreading addressed: “A pre-write read or any state predicate prevents lost updates.”
 
 Assume signed-integer stock `available` starts at 1; requests A and B each deduct 1. This incorrect flow checks only after reading, omitting write-time stock conditions:
 
@@ -326,6 +382,8 @@ These predicates protect write-time business conditions, not proof that the reco
 
 #### Timestamp checks
 
+**D12** Basis: R53a, R53b, R53c. Misreading addressed: “Millisecond timestamps are automatically non-reused versions.”
+
 Assume no suitable business state exists for concurrency checking when changing a customer remark. Define:
 
 ```sql
@@ -350,6 +408,8 @@ Here `.123` and `.124` are milliseconds in the same second. Preserve all three d
 See [automatic timestamp rules](https://dev.mysql.com/doc/refman/8.4/en/timestamp-initialization.html) and [current-time functions](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-functions.html#function_now).
 
 #### Concurrent customer-reference maintenance
+
+**D13** Basis: R11c, R54a. Misreading addressed: “Checking enabled status before insertion coordinates every reference path.”
 
 Continue [customer existence, state, and deletion](#customer-existence-state-and-deletion): create/reassign only to enabled customers, retain existing orders after disabling, and prohibit physical deletion with orders.
 
@@ -413,6 +473,8 @@ On reassignment to the same customer, leave counts unchanged. Otherwise decremen
 
 #### Update results
 
+**D14** Basis: R55a, R55b. Misreading addressed: “Zero changed rows always means an unmet predicate.”
+
 A positive conditional stock deduction necessarily changes stock when matched: one updated row means success, zero does not.
 
 Zero alone cannot distinguish missing stock from insufficient stock. If required:
@@ -425,6 +487,8 @@ This explains current state, not the exact past failure cause or guaranteed next
 Driver counts may mean matched or changed rows; verify configuration. For a table without automatic timestamps, setting an already "Contacted" remark to "Contacted" without other changes may return 1 matched but 0 changed. Thus zero does not universally mean missing record or optimistic-lock conflict. See [affected rows](https://dev.mysql.com/doc/c-api/8.4/en/mysql-affected-rows.html).
 
 #### Write order
+
+**D15** Basis: R56a. Misreading addressed: “Predicate text order guarantees lock order or eliminates every deadlock.”
 
 Assume A and B modify stock rows 1 and 2, holding locks to commit:
 
@@ -460,6 +524,8 @@ First classify under [execution plans and performance verification](../SKILL.md#
 Corresponding rules: [index optimization](../SKILL.md#index-optimization).
 
 #### Low-cardinality fields
+
+**D16** Basis: R61a. Misreading addressed: “Few distinct values always make indexes useless.”
 
 Assume `sales_order` has 1,000,000 rows, primary key `id`, and five `status` values:
 
@@ -580,6 +646,8 @@ Classify under [execution plans and performance verification](../SKILL.md#execut
 
 #### Prefix indexes
 
+**D17** Basis: R62a, R62b. Misreading addressed: “Prefix uniqueness equals full-value uniqueness.”
+
 Corresponding rule: Prefix indexes under [index optimization](../SKILL.md#index-optimization). Assume `code VARCHAR(32) NOT NULL` is unique by full value; both should coexist:
 
 | Full code | First eight characters |
@@ -594,6 +662,8 @@ The complete column is indexable here; `UNIQUE(code)` enforces full-code uniquen
 Nonunique `INDEX(code(8))` narrows candidates without uniqueness, but shared prefixes may still match many full values. Eight is illustrative; compare candidate counts, size, and query costs for actual prefix lengths. See [column indexes](https://dev.mysql.com/doc/refman/8.4/en/column-indexes.html).
 
 #### Composite indexes
+
+**D18** Basis: R63a. Misreading addressed: “Highest selectivity first or one range-position rule optimizes every query.”
 
 Corresponding rule: Composite indexes under [index optimization](../SKILL.md#index-optimization). Assume frequent latest-order retrieval for a tenant, state, and time range:
 
@@ -619,6 +689,8 @@ For frequent queries filtering tenant/time without state, the second may suit be
 
 #### Sort cost
 
+**D19** Basis: R64a. Misreading addressed: “filesort proves poor indexing or disk sorting.”
+
 Corresponding rule: Sort cost under [index optimization](../SKILL.md#index-optimization). Retrieve a tenant's 20 highest-value orders:
 
 ```sql
@@ -639,6 +711,8 @@ For rare queries on a few dozen orders, filtered sorting may be cheap enough wit
 `LIMIT 20` does not bound the first approach to processing 20 rows. Finding highest amounts may read many candidates. Counts are illustrative, not thresholds; `filesort` means extra sorting, not necessarily disk sorting. See [ORDER BY optimization](https://dev.mysql.com/doc/refman/8.4/en/order-by-optimization.html).
 
 #### Indexed columns and expressions
+
+**D20** Basis: R65a, R65b. Misreading addressed: “Every function invalidates every index, or DATE equality implies range access.”
 
 Corresponding rule under [index optimization](../SKILL.md#index-optimization). Assume Beijing-time `created_at`, ordinary `(created_at)`, and a business day of October 16, 2026.
 
@@ -668,6 +742,8 @@ If date-expression filtering is necessary, evaluate a matching `DATE(created_at)
 
 #### Leading wildcards
 
+**D21** Basis: R66a, R66b. Misreading addressed: “A covering scan is range access or full-text search equals substring matching.”
+
 Corresponding rule under [index optimization](../SKILL.md#index-optimization). Assume string `product.name` with ordinary B-tree `(name)`:
 
 ```sql
@@ -689,6 +765,8 @@ These index examples explain principles, not real-MySQL measurements. Classify u
 
 
 #### Index reuse and changes
+
+**D22** Basis: R60a, R60b, R60c. Misreading addressed: “Every new predicate needs an index and a wider index replaces every narrower one.”
 
 Corresponding rule under [index optimization](../SKILL.md#index-optimization). Continue the order table with primary `id` and ordinary `(tenant_id, status, created_at, id)`. Check existing paths before adding SQL/predicates; not every predicate needs an index column.
 
@@ -758,6 +836,8 @@ Corresponding rules: [query optimization](../SKILL.md#query-optimization). Analy
 
 #### Batch queries
 
+**D23** Basis: R59a, R67a, R67b. Misreading addressed: “Parallel sends reduce request count or batching guarantees order and a snapshot.”
+
 Corresponding rules: Batch queries under [query optimization](../SKILL.md#query-optimization), and Request round trips under [performance optimization](../SKILL.md#performance-optimization). Counts mean actual business-statement sends, excluding connection setup and transaction control. Sending concurrently does not reduce request count.
 
 ##### Many-to-one joins instead of per-row enrichment
@@ -812,6 +892,8 @@ WHERE tenant_id = :tenant_id AND id IN (:order_id_1, :order_id_2);
 Chunk large lists or large-field results, binding actual group sizes without broad unscoped queries. More batches add requests but control parameters, result size, and memory. Chunking guarantees no cross-request consistent view and has no universal size.
 
 #### Database-side computation
+
+**D24** Basis: R52a, R52b, R52c, R68a, R68b. Misreading addressed: “Moving reads outside transactions removes races or database computation always reduces requests.”
 
 Corresponding rule under [query optimization](../SKILL.md#query-optimization). These examples reduce read requests or detail transfer, not the database's need to access and compute data.
 
@@ -877,6 +959,8 @@ Classify under [execution plans and performance verification](../SKILL.md#execut
 
 #### Multiple detail joins
 
+**D25** Basis: R69a, R69b. Misreading addressed: “DISTINCT amounts repair independent-detail multiplication.”
+
 Assume order 1001 has two items, each quantity 1 and unit price 10 yuan, plus successful payments of 5 and 15 yuan. Independent item/payment totals should each be 20 yuan.
 
 Directly joining both detail sets before summing is a counterexample:
@@ -930,6 +1014,8 @@ Totals return to 20 each without Cartesian detail combinations. `COALESCE` appli
 Both aggregations restrict `order_id` because only one order is needed. For batches, aggregate required orders rather than the entire detail table mechanically. If item/payment allocation relationships matter, join actual relationships; independent totals are no substitute.
 
 #### Pagination with joins
+
+**D26** Basis: R70a. Misreading addressed: “Paginating joined rows or filtering details after paging preserves order pages.”
 
 Assume pagination by order, at most 20 per page, with all items returned. `sales_order.id` and `order_item.id` are primary keys and order creation times are nonnull.
 
@@ -988,6 +1074,8 @@ Likewise for detail-dependent ordering: compute totals across candidate orders, 
 
 #### Repeated large-field transfer
 
+**D27** Basis: R71a, R71b. Misreading addressed: “Split reads or unchanged order timestamps guarantee whole-order consistency.”
+
 Assume orders have `description TEXT` and `extension JSON`, with multiple items. A page selected by complete criteria is read in one query:
 
 ```sql
@@ -1040,6 +1128,8 @@ This validates selected orders/items, not new orders entering the filter or whet
 This version strategy is optional for strict validation, not a mandate for version columns everywhere or a replacement for business-field-first writes. Order `updated_at` does not automatically cover item changes and cannot alone guarantee a consistent order/items view. Weigh transfer, extra round trips, and consistency-maintenance costs before splitting.
 
 #### Deferred large-field reads
+
+**D28** Basis: R72a, R72b. Misreading addressed: “Dropping large fields before DISTINCT/GROUP BY preserves results.”
 
 Assume filtering only by tenant/state and sorting by creation time/key; descriptions and JSON do not participate. Direct query:
 
@@ -1100,6 +1190,8 @@ Check results first, then classify under [execution plans and performance verifi
 Corresponding rules: [write optimization](../SKILL.md#write-optimization).
 
 #### Batch writes
+
+**D29** Basis: R73a, R73b, R73c, R73d. Misreading addressed: “Larger batches, concurrent sends, or separate commits are always equivalent and faster.”
 
 Assume queries, validation, and parameters are prepared outside transactions for InnoDB batch writes. Omit unrelated required fields and bind all values. See [atomic increment](#atomic-increment-fewer-round-trips-without-lost-updates) for single-record calculations.
 
@@ -1170,6 +1262,8 @@ Corresponding rules: [execution plans and performance verification](../SKILL.md#
 
 #### Classifying complex SQL
 
+**D30** Basis: R74a, R74b, R76a. Misreading addressed: “Statement length, joins, or returned-row bounds determine complexity.”
+
 Assume known schema/indexes; bounded row counts do not imply constant time in all conditions. Reclassify if fields, execution logic, or known load introduce other uncertain costs.
 
 | Example | Known conditions | Reasoning | Dedicated verification? |
@@ -1235,6 +1329,8 @@ Assume primary `id` in each table; count items and all payment attempts per orde
 Without reliable order/item/attempt bounds, schema alone cannot establish work. Inspect join multiplication, deduplication, and sorting. Evaluate independent aggregation under [multiple detail joins](#multiple-detail-joins), but rewriting does not prove performance. This does not use `SUM(DISTINCT amount)`; identity-based counting does not generalize to monetary deduplication.
 
 #### Verification using actual data
+
+**D31** Basis: R77a, R78a, R78b, R79a, R79b, R80a. Misreading addressed: “Tiny samples, index use, or first-row timing prove actual-load performance.”
 
 For example C, ask which path scans less across states/time ranges and meets business targets, then choose data/parameters for that uncertainty:
 
