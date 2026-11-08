@@ -2,7 +2,7 @@
 
 ## Document design and expression
 
-- Follow the installed `sdlc-instr-doc-design` skill (see [dependency resolution](../SKILL.md#skill-dependencies)) when writing, modifying, or reviewing documents. These conventions add knowledge-base-specific organization, sources of truth, and maintenance requirements.
+- Follow the installed `sdlc-document-optimization` skill (see [dependency resolution](../SKILL.md#skill-dependencies)) when writing, modifying, or reviewing documents. These conventions add knowledge-base-specific organization, sources of truth, and maintenance requirements.
 
 - Name code identifiers according to their programming language's conventions, with clear mappings to document terminology.
 - Maintain standard definitions, code names, and necessary aliases in a glossary as needed. Give consistent brief explanations in content where useful; do not create separate definitions.
@@ -91,7 +91,7 @@ Use these examples as guidance and name by project semantics, not by copying the
 - Include facts fitting the document's purpose, subject, and responsibility; remove out-of-responsibility content even if correct.
 - Use non-exhaustive examples for explanation, not as complete inventories.
 - Extract current constraints, necessary rationale, and applicability from evidence by knowledge value, without excluding sources by type. Do not archive raw process materials or automatically create architecture decision records (ADRs) or historical copies. Handle existing archives within task scope; do not automatically delete them.
-- Follow the Revision and review rules in the installed `sdlc-instr-doc-design` skill’s `references/document-design.md` (see [dependency resolution](../SKILL.md#skill-dependencies)) for content changes, cross-document rules, and necessary summaries. The following rules address factual responsibilities and derived content.
+- Follow the Revision and review rules in the installed `sdlc-document-optimization` skill’s `references/document-design.md` (see [dependency resolution](../SKILL.md#skill-dependencies)) for content changes, cross-document rules, and necessary summaries. The following rules address factual responsibilities and derived content.
 - Separate responsibilities of documentation, code, and dedicated contracts. Assign each fact one normative source: the document, code declaration, or dedicated contract that defines it.
 - Define product requirements, user-observable behavior, public constraints, design intent, boundaries, invariants, and stable tradeoffs in documents.
 - Document task goals, necessary operating paths, and usage of public APIs, commands, and configuration.
@@ -125,5 +125,5 @@ Use these examples as guidance and name by project semantics, not by copying the
 
 ## Review entry points
 
-- For wording, structure, or expression review only, use Instruction and Documentation Design Principles and applicable document conventions here, without a dedicated knowledge-base audit.
+- For wording, structure, or expression review only, use Document Optimization and applicable document conventions here, without a dedicated knowledge-base audit.
 - Load [knowledge-base review](project-knowledge-base-review.md) for explicit audit, verification, or review of the knowledge base. Do not trigger it merely for knowledge extraction, filing suggestions, updates, or evidence reading.

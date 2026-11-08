@@ -33,7 +33,7 @@ The following independent, optional capabilities require explicit user requests;
 
 ### Conversational answers
 
-These rules govern chat responses. Document artifacts follow the installed Instruction and Documentation Design Principles under [Read on demand](#read-on-demand).
+These rules govern chat responses. Document and instruction artifacts follow their respective installed optimization skills under [Read on demand](#read-on-demand).
 
 - Use project- or document-defined terms; otherwise use standard industry terms. Use one standard term per concept and one concept per term; clarify ambiguous meanings, boundaries, or conflicting definitions. Explain unfamiliar terms when needed for understanding.
 - Express the intended meaning in standard terms. Make necessary actors, objects, prerequisites, constraints, and outcomes explicit; clarify references and the scope of negation.
@@ -44,20 +44,20 @@ These rules govern chat responses. Document artifacts follow the installed Instr
 
 - Prioritize correctness, completeness, and maintainability of the final deliverable, choosing a reasonable solution directly.
 - Revise existing deliverables incrementally, retaining valid structure and information.
-- For code, configuration, and other non-document artifacts, correct errors within scope; replace obsolete, conflicting, or superseded parts and remove duplicated or unrelated content. Document changes follow Instruction and Documentation Design Principles through the read-on-demand rules.
+- For code, configuration, and other non-document artifacts, correct errors within scope; replace obsolete, conflicting, or superseded parts and remove duplicated or unrelated content. Document and instruction changes follow their respective optimization skills through the read-on-demand rules.
 - Proceed within existing authorization with necessary changes to structure and responsibility boundaries. Ask the user only for decisions that exceed authorization, change requirements, or involve major tradeoffs requiring their judgment.
 - Remove ineffective code, documents, configuration, and tests left by trial and error, misunderstandings, corrections, rollbacks, or abandoned approaches. Retain necessary historical records and verification evidence.
 
 ## Skill dependencies
 
-- Document artifact work requires the installed `sdlc-instr-doc-design` skill. Resolve it through the runtime's skill catalog and load it with the available skill mechanism, using its actual registered name and namespace. Without a skill loader, read the entry and relevant resources at the discovered installed location. Do not assume a checkout path, user directory, or namespace.
+- Reader-facing document work requires `sdlc-document-optimization`; instructions, prompts, skills, and model-execution rules require `sdlc-instruction-optimization`. Mixed artifacts require both, applied to their respective content. Resolve each required skill through the runtime's skill catalog and load it with the available skill mechanism, using its actual registered name and namespace. Without a skill loader, read the entry and relevant resources at the discovered installed location. Do not assume a checkout path, user directory, or namespace.
 - If the required skill or resource cannot be loaded, identify the missing dependency and pause only work requiring its rules. Continue independent work. Do not claim the rules were applied, silently skip them, or download/install dependencies automatically.
-- Explain that the full Solo Vibe Coding plugin includes this dependency. For skills CLI installations, the minimum combination is `npx skills add jmaxzh/solo-vibe-coding --skill sdlc-workflow --skill sdlc-instr-doc-design`. Present this as installation guidance, not an instruction to run it without authorization.
+- Explain that the full Solo Vibe Coding plugin includes these dependencies. For skills CLI installations, the minimum combination is `npx skills add jmaxzh/solo-vibe-coding --skill sdlc-workflow --skill sdlc-document-optimization --skill sdlc-instruction-optimization`. Present this as installation guidance, not an instruction to run it without authorization.
 - The UI, MySQL, and CC Connect skills retain their own applicability and activation rules; installing the suite does not activate every skill for every task.
 
 ## Read on demand
 
-- When designing, writing, modifying, or reviewing document artifacts, resolve and follow the installed `sdlc-instr-doc-design` skill under [Skill dependencies](#skill-dependencies).
-- For operational or troubleshooting answers, locate the installed `sdlc-instr-doc-design` resources under [Skill dependencies](#skill-dependencies) and read only the Operating instructions or Troubleshooting instructions section of its `references/document-design.md` as needed; do not activate its main workflow or full documentation rules.
+- When designing, writing, modifying, or reviewing document or instruction artifacts, select `sdlc-document-optimization` for reader-facing documents and `sdlc-instruction-optimization` for model instructions. For mixed artifacts, apply both to the relevant content; for single-purpose tasks, load only the required skill. Resolve the required skills under [Skill dependencies](#skill-dependencies).
+- For operational or troubleshooting answers, locate the installed `sdlc-document-optimization` resources under [Skill dependencies](#skill-dependencies) and read only the Operating instructions or Troubleshooting instructions section of its `references/document-design.md` as needed; do not activate its main workflow or full documentation rules.
 - Read the user-designated project knowledge base as needed throughout. Determine its location under initialization rules during initialization; otherwise, if needed but unspecified, ask the user to designate it.
 - When using a project knowledge base, read [project knowledge-base conventions](references/project-knowledge-base.md) and apply rules for the actual activity. Follow specific confirmation requirements before changing protected documents.

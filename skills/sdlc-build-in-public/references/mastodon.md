@@ -1,28 +1,80 @@
 # Mastodon
 
-## Writing
+## Reading guidance
 
-Use the assigned topic to explain an observation or tradeoff to readers on the chosen instance and people seeing a shared post elsewhere. Explain project terms that these readers may not know.
+This on-demand channel guide extends the [skill entry](../SKILL.md). G0 and P1–P4 are defined there; shared requirements have one definition in the entry. Channel identifiers mark L2 rules; examples are L3 practices. R4.5–R4.12 govern every remote delivery below.
 
-### Opening and reasoning
+## Rules (L2)
 
-Identify the work and the current finding before explaining the choice it led to. Include the condition that makes the tradeoff meaningful. If the post follows an earlier update, briefly name the unresolved issue and the new observation.
+### Writing
 
-Use enough text to make the reasoning understandable on its own. Separate a result already observed from the next question under examination. A link to the full record can support a reader who wants details.
+**MA1** When opening, must identify the work and finding before explaining the resulting choice.
+Basis: P3. Criterion: The observation and choice are understandable to instance readers and readers of shares elsewhere.
 
-### Community context and media
+**MA2** When explaining a tradeoff, must state the condition that makes it meaningful.
+Basis: P2. Criterion: The tradeoff includes its applicability condition.
 
-Choose subject tags that actually describe the post when they help readers find the conversation. Use community vocabulary that is relevant to the topic. Mention people when their participation is relevant.
+**MA3** When using unfamiliar project terms, must explain them.
+Basis: P1. Criterion: Readers outside the project can interpret the terms.
 
-Describe the significant content of attached media. For a comparison, explain what differs between the images. Where the content warrants a content warning, make the warning descriptive of what readers will encounter. Mastodon documents media descriptions, tags and content warnings. [Posting features](https://docs.joinmastodon.org/user/posting/)
+**MA4** When following up, must identify the earlier unresolved issue and new observation.
+Basis: P1. Criterion: The update connects the earlier question to new evidence.
 
-### Length and ending
+**MA5** When explaining reasoning, must make it understandable without opening a full record.
+Basis: P1. Criterion: The post contains the reasoning; a full record may supply detail; status follows R2.3.
 
-Check the chosen instance's current text and media limits. Review the post including links, media descriptions and any content warning. If a native attachment is needed, confirm support in the intended method.
+**MA6** When adding subject tags, must choose tags describing the post's subject.
+Basis: P3. Criterion: Tags help locate the relevant conversation.
 
-End with the implication of the observation or a concrete question for readers with relevant experience. A follow-up post can add context when the explanation needs more room. Make the connection between posts clear.
+**MA7** When using community vocabulary, must keep it relevant to the topic.
+Basis: P3. Criterion: The vocabulary refers to the post's subject.
 
-### Worked post
+**MA8** When mentioning people, must relate the mention to their participation.
+Basis: P3. Criterion: Each mention has a role in the account.
+
+**MA9** When attaching media, must describe significant content, including differences in comparisons.
+Basis: P3. Criterion: The description identifies what the media adds.
+
+**MA10** When preparing a content warning for a post, must describe what readers will encounter.
+Basis: P3. Criterion: The warning names its content; this rule does not define a new threshold for which content needs warnings.
+
+**MA11** Before delivery, must check the chosen instance's current text and media limits.
+Basis: P4. Criterion: The final post is checked against that instance's limits.
+
+**MA12** When reviewing, must include links, media descriptions and any content warning.
+Basis: P4. Criterion: These appear in R4.1's preview.
+
+**MA13** When native attachments are required, must confirm the method supports them.
+Basis: P4. Criterion: The intended method supports the attachment.
+
+**MA14** When ending, must give the observation's implication or a concrete question for readers with relevant experience.
+Basis: P1. Criterion: The ending serves R3.6.
+
+**MA15** When adding a follow-up post for more space, must make the connection between posts explicit.
+Basis: P1. Criterion: Readers can identify what the follow-up continues.
+
+### Delivery
+
+**MA16** Before posting, must confirm the account's instance and public visibility.
+Basis: P4. Criterion: The target instance and public visibility match the approved destination.
+
+**MA17** When posting through the API, must use a user token with `write:statuses`.
+Basis: P4. Criterion: The authorized token includes that scope.
+
+**MA18** When retrying with an idempotency key, must reuse the original key for that post.
+Basis: P4. Criterion: The same post keeps the same key.
+
+**MA19** When recording delivery under R4.9, must retain the status URL.
+Basis: P4. Criterion: The receipt identifies the status.
+
+**MA20** When checking uncertain delivery under R4.11, must inspect the account on its instance.
+Basis: P4. Criterion: The check uses the confirmed instance.
+
+## Practices (L3)
+
+**MAD1** Basis: MA2, MA14.
+
+Misreading addressed: A tradeoff question can omit how each choice affects later work.
 
 Illustrative input. A workshop uses the same upload page for several exercises. Submission steps can be repeated on each worksheet or maintained in shared instructions.
 
@@ -32,12 +84,52 @@ Illustrative input. A workshop uses the same upload page for several exercises. 
 
 State how each option affects later updates so readers can offer relevant experience.
 
-### Sources
+## Clause dependencies
+
+```mermaid
+flowchart BT
+    MA1["MA1"] --> P3["P3"]
+    MA6["MA6"] --> P3["P3"]
+    MA7["MA7"] --> P3["P3"]
+    MA8["MA8"] --> P3["P3"]
+    MA9["MA9"] --> P3["P3"]
+    MA10["MA10"] --> P3["P3"]
+```
+
+```mermaid
+flowchart BT
+    MA2["MA2"] --> P2["P2"]
+```
+
+```mermaid
+flowchart BT
+    MA3["MA3"] --> P1["P1"]
+    MA4["MA4"] --> P1["P1"]
+    MA5["MA5"] --> P1["P1"]
+    MA14["MA14"] --> P1["P1"]
+    MA15["MA15"] --> P1["P1"]
+```
+
+```mermaid
+flowchart BT
+    MA11["MA11"] --> P4["P4"]
+    MA12["MA12"] --> P4["P4"]
+    MA13["MA13"] --> P4["P4"]
+    MA16["MA16"] --> P4["P4"]
+    MA17["MA17"] --> P4["P4"]
+    MA18["MA18"] --> P4["P4"]
+    MA19["MA19"] --> P4["P4"]
+    MA20["MA20"] --> P4["P4"]
+```
+
+```mermaid
+flowchart BT
+    MAD1["MAD1"] --> MA2["MA2"]
+    MAD1["MAD1"] --> MA14["MA14"]
+```
+
+## Sources
 
 Audience context draws on [social, Before Creating Content](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#before-creating-content). Mastodon's linked documentation establishes the posting features.
 
-## Delivery
-
-Confirm the account’s instance and public visibility. API posting requires a user token with `write:statuses`. If an idempotency key is used, keep the same key for a retry of that post. [Official documentation](https://docs.joinmastodon.org/methods/statuses/)
-
-Retain the status URL. If delivery is uncertain, check the account on that instance before retrying.
+[Posting features](https://docs.joinmastodon.org/user/posting/) · [Official documentation](https://docs.joinmastodon.org/methods/statuses/)

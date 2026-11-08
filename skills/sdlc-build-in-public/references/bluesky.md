@@ -1,28 +1,65 @@
 # Bluesky
 
-## Writing
+## Reading guidance
 
-Use the assigned topic to share an observation that makes sense in a timeline. The reader may first see the text without knowing the project or the surrounding conversation.
+This on-demand channel guide extends the [skill entry](../SKILL.md). G0 and P1–P4 are defined there; shared requirements have one definition in the entry. Channel identifiers mark L2 rules; examples are L3 practices. R4.5–R4.12 govern every remote delivery below.
 
-### Opening and context
+## Rules (L2)
 
-Name the project or activity, then say what changed or what you noticed. Add the context needed to understand its significance. Keep the post focused on that observation.
+### Writing
 
-When the material is a demo, explain what the reader should look at. A short before-and-after description can make a visual change understandable even before the image opens.
+**BS1** When opening a post, must identify the project or activity and one change or observation.
+Basis: P3. Criterion: The timeline text names its subject and focus.
 
-### Explain the observation
+**BS2** When explaining the observation, must supply context and its connection to a decision, consequence or question.
+Basis: P1. Criterion: A newcomer can respond without reading a full external article; a longer method or history may be linked.
 
-Connect the observed change to a decision, consequence or question. Give enough detail for someone to respond without reading an entire external article. A longer record can be linked for the reader who wants the method or history.
+**BS3** When using a demo or visual, must describe the significant content in text.
+Basis: P3. Criterion: The description identifies what to notice; a before-and-after description may explain the change before the image opens.
 
-For a follow-up, briefly identify the earlier question and what is newly known. Link the earlier post when it is available. Preserve a limitation that changes the meaning of the result.
+**BS4** When following up, must name the earlier question and new learning.
+Basis: P1. Criterion: The text distinguishes the earlier question from the update.
 
-### Media, length and ending
+**BS5** When the earlier post is available for a follow-up, must link it.
+Basis: P1. Criterion: The follow-up links the earlier post.
 
-Review the text with its linked material and media descriptions. Describe the important content of a visual so its contribution is understandable. If a native attachment is required, check the intended method's support. Check the final platform limit after including the complete text and links.
+**BS6** When a limitation changes a result's meaning, must retain it.
+Basis: P2. Criterion: The qualification remains beside the result.
 
-When seeking responses, ask a question people can answer from a concrete experience. For a simple progress update, the result can finish the post. Match the interaction to the sharing purpose.
+**BS7** When reviewing the post, must include linked material and media descriptions.
+Basis: P4. Criterion: The preview contains both alongside the text.
 
-### Worked post
+**BS8** When native attachments are required, must check the delivery method's support.
+Basis: P4. Criterion: Support is checked for the intended attachment.
+
+**BS9** When text and links are complete, must check the current platform limit.
+Basis: P4. Criterion: The checked length includes the final text and links.
+
+**BS10** When seeking responses, must ask a question answerable from concrete experience.
+Basis: P1. Criterion: The question asks for an experience rather than unspecified reactions.
+
+### Delivery
+
+**BS11** When writing through AT Protocol, must confirm the account DID and trusted personal data server.
+Basis: P4. Criterion: The write targets the confirmed identity and server.
+
+**BS12** When writing through AT Protocol, must use that account's authenticated session.
+Basis: P4. Criterion: Session identity matches the approved account.
+
+**BS13** When writing through AT Protocol, must include creation time with its time zone.
+Basis: P4. Criterion: The record contains a time-zone-qualified creation timestamp.
+
+**BS14** When recording delivery under R4.9, must retain the AT URI.
+Basis: P4. Criterion: The receipt identifies the new record.
+
+**BS15** When checking uncertain delivery under R4.11, must inspect the account feed.
+Basis: P4. Criterion: The feed is checked before a retry decision.
+
+## Practices (L3)
+
+**BSD1** Basis: BS1, BS10.
+
+Misreading addressed: A feedback post can ask for reactions without a concrete change or answerable question.
 
 Illustrative input. A workshop worksheet has been revised into separate task, answer-format and submission blocks. The author wants to learn where readers expect submission instructions.
 
@@ -30,12 +67,47 @@ Illustrative input. A workshop worksheet has been revised into separate task, an
 
 Pair the concrete change with a question readers can answer from experience.
 
-### Sources
+## Clause dependencies
+
+```mermaid
+flowchart BT
+    BS1["BS1"] --> P3["P3"]
+    BS3["BS3"] --> P3["P3"]
+```
+
+```mermaid
+flowchart BT
+    BS2["BS2"] --> P1["P1"]
+    BS4["BS4"] --> P1["P1"]
+    BS5["BS5"] --> P1["P1"]
+    BS10["BS10"] --> P1["P1"]
+```
+
+```mermaid
+flowchart BT
+    BS6["BS6"] --> P2["P2"]
+```
+
+```mermaid
+flowchart BT
+    BS7["BS7"] --> P4["P4"]
+    BS8["BS8"] --> P4["P4"]
+    BS9["BS9"] --> P4["P4"]
+    BS11["BS11"] --> P4["P4"]
+    BS12["BS12"] --> P4["P4"]
+    BS13["BS13"] --> P4["P4"]
+    BS14["BS14"] --> P4["P4"]
+    BS15["BS15"] --> P4["P4"]
+```
+
+```mermaid
+flowchart BT
+    BSD1["BSD1"] --> BS1["BS1"]
+    BSD1["BSD1"] --> BS10["BS10"]
+```
+
+## Sources
 
 Conversational framing draws on [social, Engagement Strategy](https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/social/SKILL.md#engagement-strategy).
 
-## Delivery
-
-For an AT Protocol write, confirm the account DID and its trusted personal data server. Use an authenticated session for that account and include the post’s creation time with its time zone. [Official documentation](https://atproto.com/guides/writing-data)
-
-Retain the new record’s AT URI. If the response is ambiguous, check the account feed.
+[Official documentation](https://atproto.com/guides/writing-data)

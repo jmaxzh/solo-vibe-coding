@@ -1,4 +1,4 @@
-> 中文维护译文，仅供开发者对照，不是技能安装或执行入口。与[英文原文](../../../../../skills/sdlc-instr-doc-design/references/prompt-design.md)同步，差异以英文为准。
+> 中文维护译文，仅供开发者对照，不是技能安装或执行入口。与[英文原文](../../../../../skills/sdlc-instruction-optimization/references/prompt-design.md)同步，差异以英文为准。
 
 # 提示词设计指导原则
 

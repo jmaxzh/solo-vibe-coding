@@ -38,7 +38,7 @@
 
 ### Preparation and assignments
 
-- This section applies to implementation changes affecting behavior, such as code, configuration, and build scripts. Review documentation-only changes under the installed `sdlc-instr-doc-design` skill (see [dependency resolution](../SKILL.md#skill-dependencies)); apply each rule to the corresponding part of mixed changes.
+- This section applies to implementation changes affecting behavior, such as code, configuration, and build scripts. Review documentation-only changes under the installed `sdlc-document-optimization` skill (see [dependency resolution](../SKILL.md#skill-dependencies)); apply each rule to the corresponding part of mixed changes.
 - Before delivery, review the implementation changes, including new untracked files, against the applicable rules and baseline. Use PR context when available; otherwise use local diffs. Give any assigned reviewers the scope, baseline, rules, and change summary.
 - Choose review depth and assignments according to change risk, responsibility boundaries, and available review capabilities. Use independent reviewers for distinct risks when useful or required by the user or project; a fixed reviewer count is not required.
 - Cover applicable project rules, functional defects, and constraints in code comments. Consult blame, Git history, or related historical PR comments when needed to understand intent or check recurrence of known problems.

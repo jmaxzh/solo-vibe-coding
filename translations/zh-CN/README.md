@@ -48,18 +48,19 @@ npx skills add jmaxzh/solo-vibe-coding --skill '*'
 ```sh
 npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-workflow \
-  --skill sdlc-instr-doc-design
+  --skill sdlc-document-optimization \
+  --skill sdlc-instruction-optimization
 ```
 
-不安装完整插件、只使用 worktree 策略时，同时安装文档设计依赖：
+不安装完整插件、只使用 worktree 策略时，同时安装指令优化依赖：
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding \
   --skill worktree-first-development \
-  --skill sdlc-instr-doc-design
+  --skill sdlc-instruction-optimization
 ```
 
-没有必需依赖的技能可单独安装。UI 与 UX 均可单装，混合任务可组合使用。工作流与 worktree 策略各自的文档任务都需要文档设计技能；每项技能均保留 MIT 声明。
+没有必需依赖的技能可单独安装。UI 与 UX 均可单装，混合任务可组合使用。完整工作流安装包含两个优化技能：读者文档使用文档优化，模型执行规则使用指令优化，按内容用途加载。worktree 策略规则需要指令优化技能。单一用途的任务可单装相应优化技能；混合产物需要两者，缺少必需技能时仅暂停受影响部分。每项技能均保留 MIT 声明。
 
 ## 使用
 
@@ -85,7 +86,7 @@ npx skills add jmaxzh/solo-vibe-coding \
 
 策略技能提供项目根目录 `AGENTS.md`/`CLAUDE.md` 或用户主目录 `~/AGENTS.md`/`~/CLAUDE.md` 两种位置；用户级内容仅约束所选项目及其派生任务目录。技能维护指引，不执行同步或备份。用户主目录文件的自动加载须单独验证。任务和备份目录默认与项目同级、可见，名称分别为 `<project-directory-name>-worktrees` 和 `<project-directory-name>-backups`，路径从主工作区解析。
 
-工作流与策略技能按需通过运行环境实际名称和命名空间加载已安装的文档设计技能。缺少必需资料时暂停依赖部分，不静默跳过规则或自动安装依赖。以上是请求示例，不是已完成部署记录。
+工作流与策略技能按需通过运行环境实际名称和命名空间加载各自依赖的优化技能。缺少必需资料时暂停依赖部分，不静默跳过规则或自动安装依赖。以上是请求示例，不是已完成部署记录。
 
 ## 许可证
 

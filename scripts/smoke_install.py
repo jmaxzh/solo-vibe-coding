@@ -10,7 +10,7 @@ import sys
 import tempfile
 from types import SimpleNamespace
 
-from validate import ROOT, DOCUMENT_DEPENDENTS, installation_errors, skill_names
+from validate import ROOT, SKILL_DEPENDENCIES, dependency_errors, installation_errors, skill_names
 
 
 def run(args, cwd, env):
@@ -30,10 +30,10 @@ def skills_checks(root, work, env, source):
             raise RuntimeError(f"Expected exactly {len(names_in_source)} discovered skills:\n" + output)
         checks.append(f"{len(names_in_source)}-skill discovery" + (" (full depth)" if extra else ""))
     combinations = [("suite", names_in_source)]
-    combinations += [(name + "-pair", {name, "sdlc-instr-doc-design"})
-                     for name in sorted(DOCUMENT_DEPENDENTS & names_in_source)]
-    combinations += [(name, {name}) for name in sorted(names_in_source - DOCUMENT_DEPENDENTS)]
-    combinations += [("missing-dependency-" + name, {name}) for name in sorted(DOCUMENT_DEPENDENTS & names_in_source)]
+    combinations += [(name + "-combination", {name} | SKILL_DEPENDENCIES[name])
+                     for name in sorted(SKILL_DEPENDENCIES.keys() & names_in_source)]
+    combinations += [(name, {name}) for name in sorted(names_in_source - SKILL_DEPENDENCIES.keys())]
+    combinations += [("missing-dependency-" + name, {name}) for name in sorted(SKILL_DEPENDENCIES.keys() & names_in_source)]
     for label, names in combinations:
         dest = work / label
         dest.mkdir()
@@ -46,7 +46,7 @@ def skills_checks(root, work, env, source):
             raise RuntimeError(f"{label}: wrong installed inventory: {actual}")
         errors = installation_errors(container)
         if label.startswith("missing-dependency-"):
-            if len(errors) != 1 or "requires sdlc-instr-doc-design" not in errors[0]:
+            if errors != dependency_errors(names):
                 raise RuntimeError(f"Missing dependency not detected: {errors}")
         elif errors:
             raise RuntimeError("\n".join(errors))

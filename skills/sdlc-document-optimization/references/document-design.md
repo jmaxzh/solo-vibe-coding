@@ -11,7 +11,7 @@ Apply the operating and troubleshooting sections only to the corresponding conte
 - Explain processes and mechanisms in causal order: what causes them, how they work, and what results. Bridge key logical gaps; use plain language and concrete examples as needed.
 - Distinguish facts, assumptions, and conclusions needing confirmation. Preserve necessary evidence, tradeoffs, and uncertainty; do not sacrifice completeness for brevity.
 - Keep content that affects understanding or use; remove filler, unnecessary embellishment, and repetition. Specify format, length, and structure only when required by the document's intended use.
-- Use imperative sentences for actions readers should take, and descriptive sentences for background, principles, and facts. When designing or reviewing model instructions within a document, load the prompt reference through the main skill.
+- Use imperative sentences for actions readers should take, and descriptive sentences for background, principles, and facts. For model-execution rules within a document, follow the applicability boundary in the main skill.
 
 ## Operating instructions
 

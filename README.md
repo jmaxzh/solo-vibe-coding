@@ -48,18 +48,19 @@ The minimum complete workflow combination is:
 ```sh
 npx skills add jmaxzh/solo-vibe-coding \
   --skill sdlc-workflow \
-  --skill sdlc-instr-doc-design
+  --skill sdlc-document-optimization \
+  --skill sdlc-instruction-optimization
 ```
 
-For the worktree strategy without the full plugin, install its documentation dependency too:
+For the worktree strategy without the full plugin, install its instruction optimization dependency too:
 
 ```sh
 npx skills add jmaxzh/solo-vibe-coding \
   --skill worktree-first-development \
-  --skill sdlc-instr-doc-design
+  --skill sdlc-instruction-optimization
 ```
 
-Skills without required dependencies can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The workflow and worktree strategy each require the documentation skill for their document work. Each skill carries its own MIT notice.
+Skills without required dependencies can be installed individually. UI and UX can each be installed alone or combined for mixed tasks. The complete workflow installation includes both optimization skills: document optimization for reader-facing content and instruction optimization for model-execution rules; load each only for its content purpose. The worktree strategy requires instruction optimization for strategy rules. Both optimization skills can be installed individually for single-purpose tasks; mixed artifacts require both, and a missing required skill pauses only the affected work. Each skill carries its own MIT notice.
 
 ## Use
 
@@ -85,7 +86,7 @@ For workspace strategy setup:
 
 The strategy skill offers project-root `AGENTS.md`/`CLAUDE.md` or home-directory `~/AGENTS.md`/`~/CLAUDE.md`; the home option is limited to the chosen project and its derived task directories. It maintains instructions rather than executing synchronization or backup. Home-file automatic loading must be verified separately. Task and backup directories default to visible siblings named `<project-directory-name>-worktrees` and `<project-directory-name>-backups`, with paths resolved from the main workspace.
 
-When needed, the workflow and strategy skills load the installed documentation skill using the runtime's actual name and namespace. Missing required resources pause dependent work; skills do not silently skip rules or install dependencies automatically. These examples are requests, not completed deployment transcripts.
+When needed, the workflow and strategy skills load their respective installed optimization skill using the runtime's actual name and namespace. Missing required resources pause dependent work; skills do not silently skip rules or install dependencies automatically. These examples are requests, not completed deployment transcripts.
 
 ## License
 

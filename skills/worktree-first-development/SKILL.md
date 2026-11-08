@@ -10,7 +10,7 @@ Maintain the strategy instructions; do not execute their Git, backup, or cleanup
 
 ## Dependency
 
-Load the installed `sdlc-instr-doc-design` by its actual registered name and namespace, or read its entry and relevant resources at the discovered installation path. If unavailable, report the missing dependency and pause dependent writing; continue independent inspection without auto-installing dependencies.
+Load the installed `sdlc-instruction-optimization` by its actual registered name and namespace, or read its entry and relevant resources at the discovered installation path. If unavailable, report the missing dependency and pause dependent writing; continue independent inspection without auto-installing dependencies.
 
 Standalone installation requires both skills; the full plugin includes them.
 

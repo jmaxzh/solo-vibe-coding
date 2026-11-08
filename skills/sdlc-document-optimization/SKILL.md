@@ -1,14 +1,15 @@
 ---
-name: sdlc-instr-doc-design
-description: Design, write, revise, and review instructions, prompts, skills, and instructional or explanatory documents. Use for document artifacts, including knowledge-base documents, not ordinary conversational answers. Knowledge-base factual audits follow the applicable knowledge-base rules.
+name: sdlc-document-optimization
+description: Design, write, optimize, and review reader-facing documents for understanding, operation, or troubleshooting, including knowledge-base documents. Not for model-execution rules or ordinary conversational answers. Factual audits follow applicable knowledge-base rules.
 license: MIT
 ---
 
-# Instruction and Documentation Design Principles
+# Document Optimization
 
 ## Applicability
 
-- Apply this skill to designing, writing, modifying, and reviewing instructions, prompts, skills, and document artifacts; not to ordinary conversational answers.
+- Apply to designing, writing, optimizing, and reviewing reader-facing documents for understanding, operation, or troubleshooting, including knowledge-base documents; not to ordinary conversational answers.
+- Instructions, prompts, skills, and execution rules that constrain model behavior belong to `sdlc-instruction-optimization`; imperative wording or operating steps alone do not change the document category. For mixed artifacts, apply both skills to their respective content; do not load both for single-purpose tasks. Resolve the other skill through the runtime's catalog and load it by its actual registered name and namespace, or read its entry and relevant resources at the discovered installation path. If a required skill or resource is unavailable, report the missing dependency and pause only the affected work; continue independent work without silently skipping rules or automatically installing dependencies.
 - Follow the target artifact's established domain rules, format, and maintenance permissions. Do not extend project- or knowledge-base-specific requirements to other artifacts.
 
 ## Shared expression rules
@@ -19,17 +20,15 @@ license: MIT
 - Remove ambiguous references, clarify the scope of negation, and distinguish possible from confirmed causes.
 - Organize content logically, retaining factual accuracy and complete meaning. Do not lose necessary conditions, negation, or causal relationships through compression.
 
-## Read by content purpose
+## Reference
 
-- When designing or reviewing instructions, prompts, skills, or model execution rules within documents, read the [Prompt Design Guidelines](references/prompt-design.md).
-- For documents that help readers understand, operate, or troubleshoot something, read the [Documentation Design Principles](references/document-design.md). Imperative wording or steps alone do not require loading the prompt reference.
-- If a document also contains model instructions that need design or review, combine both references for the relevant content. Do not load all references by default.
+Read the [Documentation Design Principles](references/document-design.md) for tasks within this skill's scope.
 
 ## Working modes
 
 Select a mode from the user's request: create for new artifacts; review only without changing target artifacts when only a review is requested; review and revise for changes to existing artifacts.
 
-Before starting, establish the scope, document purpose, and applicable conventions, then load references by content purpose.
+Before starting, establish the scope, document purpose, and applicable conventions, then read this skill's reference.
 
 ### Create
 
@@ -56,5 +55,5 @@ Before starting, establish the scope, document purpose, and applicable conventio
 
 ## Review boundaries
 
-- Use the prompt reference's final checklist for prompt reviews and the documentation reference for reader-facing document reviews. Do not force prompt dimensions onto the latter.
-- For knowledge-base expression reviews, select references by content purpose and follow target-document conventions; do not automatically expand into factual audits. For dedicated knowledge-base audits, follow the applicable knowledge-base rules for sources of truth, content ownership, implementation status, and cross-document consistency.
+- Use the documentation reference for reader-facing content; do not force prompt dimensions onto it.
+- For knowledge-base expression reviews, follow target-document conventions without automatically expanding into factual audits. For dedicated audits, follow applicable knowledge-base rules for sources of truth, content ownership, implementation status, and cross-document consistency.

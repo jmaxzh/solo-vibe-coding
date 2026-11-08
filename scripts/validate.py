@@ -7,7 +7,10 @@ from pathlib import Path
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCUMENT_DEPENDENTS = frozenset({"sdlc-workflow", "worktree-first-development"})
+SKILL_DEPENDENCIES = {
+    "sdlc-workflow": frozenset({"sdlc-document-optimization", "sdlc-instruction-optimization"}),
+    "worktree-first-development": frozenset({"sdlc-instruction-optimization"}),
+}
 
 
 def skill_names(container):
@@ -17,11 +20,11 @@ def skill_names(container):
 
 def dependency_errors(names):
     """Check the documented installation contract; never install anything."""
-    if "sdlc-instr-doc-design" not in names:
-        return [f"{name} document work requires sdlc-instr-doc-design; "
-                "install the full suite or both skills; pause dependent work"
-                for name in sorted(DOCUMENT_DEPENDENTS & set(names))]
-    return []
+    return [f"{name} artifact work requires {required}; "
+            "install the full suite or the required combination; pause dependent work"
+            for name, dependencies in sorted(SKILL_DEPENDENCIES.items())
+            for required in sorted(dependencies)
+            if name in names and required not in names]
 
 
 def metadata(text):

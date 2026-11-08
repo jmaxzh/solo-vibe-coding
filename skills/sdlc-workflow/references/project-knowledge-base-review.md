@@ -1,7 +1,7 @@
 # Knowledge-Base Review
 
 - Limit this review to systematic checking of content ownership, factual accuracy, normative sources, and cross-document consistency within the designated scope, distinct from routine update checks.
-- Use the installed `sdlc-instr-doc-design` skill (see [dependency resolution](../SKILL.md#skill-dependencies)) for content design and expression, and [project knowledge-base conventions](project-knowledge-base.md) for knowledge-base rules. This file defines evidence checking and dedicated review procedures. Do not trigger it for expression review alone.
+- Use the installed `sdlc-document-optimization` skill (see [dependency resolution](../SKILL.md#skill-dependencies)) for content design and expression, and [project knowledge-base conventions](project-knowledge-base.md) for knowledge-base rules. This file defines evidence checking and dedicated review procedures. Do not trigger it for expression review alone.
 
 ## Lock the scope
 
@@ -14,7 +14,7 @@
 ## Operating boundaries
 
 - For review-only requests, report issues and suggestions without editing files.
-- With revision authorization, first reach evidence-supported conclusions, then revise, compare, integrate, and verify the affected content under the installed `sdlc-instr-doc-design` skill (see [dependency resolution](../SKILL.md#skill-dependencies)). Do not repeat authorization requests within the existing scope.
+- With revision authorization, first reach evidence-supported conclusions, then revise, compare, integrate, and verify the affected content under the installed `sdlc-document-optimization` skill (see [dependency resolution](../SKILL.md#skill-dependencies)). Do not repeat authorization requests within the existing scope.
 - Handle confirmation under Updates and rule changes and Human acceptance in [project knowledge-base conventions](project-knowledge-base.md).
 
 ## Judgment statuses
