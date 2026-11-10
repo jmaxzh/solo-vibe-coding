@@ -1,0 +1,4 @@
+interface:
+  display_name: "独立开发项目指南"
+  short_description: "为已有成熟想法的独立开发者，按当前任务精准选择设计、营销和素材制作技能与参考资源"
+  default_prompt: "使用 $indie-project-guide，根据当前任务选择专业技能与素材参考，按需远程读取上游指导，并在我指定的范围内提供指导或实现；不安装外部技能。"

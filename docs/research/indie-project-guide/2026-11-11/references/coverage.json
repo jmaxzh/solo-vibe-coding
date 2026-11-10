@@ -1,0 +1,836 @@
+{
+  "research_date": "2026-11-11",
+  "scope": "Conversation candidates, evaluated alternatives, historical names and resource sites. External Skill guidance is read remotely on demand without Skill installation or registration. Source-family observation lists are additionally retained in tasks/deferred.md; records do not imply executable backends or verified effectiveness.",
+  "counts": {
+    "skill": 82,
+    "alias": 38,
+    "discovery": 8,
+    "resource": 34
+  },
+  "records": [
+    {
+      "kind": "resource",
+      "id": "https://reactbits.dev/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://magicui.design/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://ui.aceternity.com/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://motion-primitives.com/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://lottiefiles.com/free-animations",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://rive.app/marketplace/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://community.spline.design/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://gsap.com/showcase/",
+      "reference": "references/resources/animation.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://lucide.dev/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://phosphoricons.com/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://tabler.io/icons",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://icon-sets.iconify.design/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://simpleicons.org/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://lucide-animated.com/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://heroicons.com/",
+      "reference": "references/resources/icons.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.lapa.ninja/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://land-book.com/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://mobbin.com/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.saasframe.io/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.awwwards.com/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://recent.design/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://tympanus.net/codrops/",
+      "reference": "references/resources/inspiration.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://undraw.co/illustrations",
+      "reference": "references/resources/media.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://unsplash.com/",
+      "reference": "references/resources/media.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.pexels.com/videos/",
+      "reference": "references/resources/media.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://mixkit.co/",
+      "reference": "references/resources/media.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.framer.com/marketplace/templates/",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://webflow.com/templates",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://astro.build/themes/",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://21st.dev/",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://www.shadcnblocks.com/",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://ui.shadcn.com/blocks",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://cruip.com/",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "resource",
+      "id": "https://tailwindcss.com/plus/templates",
+      "reference": "references/resources/templates.md"
+    },
+    {
+      "kind": "skill",
+      "id": "vercel-labs/skills@find-skills",
+      "reference": "references/skill-loading.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@social",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@content-strategy",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@launch",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@free-tools",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "samber/developer-relations-skills@build-in-public",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "kostja94/marketing-skills@indie-hacker-strategy",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/makerskills@jab-hook",
+      "reference": "references/tasks/build-in-public.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@customer-research",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@cro",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@analytics",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@marketing-loops",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@brand-guidelines",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "ibelick/ui-skills@baseline-ui",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "ibelick/ui-skills@fixing-accessibility",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "ibelick/ui-skills@fixing-metadata",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@product-marketing-context",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@social-content",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@free-tool-strategy",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@page-cro",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@analytics-tracking",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@launch-strategy",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "coreyhaines31/marketingskills@pricing-strategy",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "google-labs-code/stitch-skills@react:components",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "google-labs-code/stitch-skills@stitch-design",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@high-end-visual-design",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@redesign-existing-projects",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@minimalist-ui",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@full-output-enforcement",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@gpt-taste",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@industrial-brutalist-ui",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@stitch-design-taste",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@brandkit",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@image-to-code",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@imagegen-frontend-web",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@imagegen-frontend-mobile",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@design-taste-frontend-v1",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@design-taste-frontend-v2-experimental",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "leonxlnx/taste-skill@image-taste-frontend",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-cli",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-registry",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-animation",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-core",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-creative",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-keyframes",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@hyperframes-audio",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@general-video",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@product-launch-video",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@faceless-explainer",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@motion-graphics",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "heygen-com/hyperframes@slideshow",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "fal-ai-community/skills@fal-generate",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "jimliu/baoyu-skills@baoyu-imagine",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "alias",
+      "id": "jimliu/baoyu-skills@baoyu-image-cards",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "openai/plugins@remotion-render",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "openai/plugins@remotion-interactivity",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "openai/plugins@gsap",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "nexu-io/open-design@fal-generate",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "nexu-io/open-design@impeccable-design-polish",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "podo/design-agent-skills@impeccable",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "akillness/jeo-skills@image-generation",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "discovery",
+      "id": "haxqer/skills@gemini-imagegen",
+      "reference": "references/tasks/deferred.md"
+    },
+    {
+      "kind": "skill",
+      "id": "openai/skills@imagegen",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@canvas-design",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-image-gen",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-cover-image",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-infographic",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-xhs-images",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-slide-deck",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-article-illustrator",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "jimliu/baoyu-skills@baoyu-comic",
+      "reference": "references/tasks/images.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@frontend-design",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "pbakaus/impeccable@impeccable",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "leonxlnx/taste-skill@design-taste-frontend",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "emilkowalski/skills@emil-design-eng",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "vercel-labs/agent-skills@web-design-guidelines",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@theme-factory",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@web-artifacts-builder",
+      "reference": "references/tasks/interface-design.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-core",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-timeline",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-scrolltrigger",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-react",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-plugins",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-performance",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-utils",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "greensock/gsap-skills@gsap-frameworks",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "lottiefiles/motion-design-skill@motion-design",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "emilkowalski/skills@animate",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "emilkowalski/skills@review-animations",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "emilkowalski/skills@improve-animations",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "emilkowalski/skills@animation-performance",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "anthropics/skills@algorithmic-art",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "mengto/skills@threejs",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "mengto/skills@gsap",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "ibelick/ui-skills@fixing-motion-performance",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "kylezantos/design-motion-principles@design-motion-principles",
+      "reference": "references/tasks/motion.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@product-marketing",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@copywriting",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@copy-editing",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@marketing-psychology",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@marketing-ideas",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "coreyhaines31/marketingskills@offers",
+      "reference": "references/tasks/positioning-copy.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-best-practices",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-create",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-render",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-studio",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-captions",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-markup",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-interactivity",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-multimedia",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-maps",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-saas",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-docs",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-upgrade",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "remotion-dev/skills@remotion-license",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "heygen-com/hyperframes@hyperframes",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "heygen-com/hyperframes@media-use",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "heygen-com/hyperframes@remotion-to-hyperframes",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "fal-ai-community/skills@fal-video-generation",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "fal-ai-community/skills@genmedia",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "fal-ai-community/skills@fal-media",
+      "reference": "references/tasks/video.md"
+    },
+    {
+      "kind": "skill",
+      "id": "mengto/skills@landing-page",
+      "reference": "references/tasks/websites.md"
+    },
+    {
+      "kind": "skill",
+      "id": "google-labs-code/stitch-skills@stitch::generate-design",
+      "reference": "references/tasks/websites.md"
+    },
+    {
+      "kind": "skill",
+      "id": "google-labs-code/stitch-skills@enhance-prompt",
+      "reference": "references/tasks/websites.md"
+    },
+    {
+      "kind": "skill",
+      "id": "google-labs-code/stitch-skills@design-md",
+      "reference": "references/tasks/websites.md"
+    },
+    {
+      "kind": "skill",
+      "id": "google-labs-code/stitch-skills@stitch::react-components",
+      "reference": "references/tasks/websites.md"
+    },
+    {
+      "kind": "skill",
+      "id": "google-labs-code/stitch-skills@stitch-loop",
+      "reference": "references/tasks/websites.md"
+    }
+  ],
+  "resource_aliases": [
+    {
+      "url": "https://godly.website/",
+      "current": "https://recent.design/",
+      "reference": "references/resources/inspiration.md",
+      "status": "redirect-observed"
+    },
+    {
+      "url": "https://spline.design/community",
+      "current": "https://community.spline.design/",
+      "reference": "references/resources/animation.md",
+      "status": "old-path-404"
+    }
+  ]
+}
