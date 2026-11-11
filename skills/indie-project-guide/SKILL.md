@@ -15,6 +15,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 界面审美、设计系统、交互、动效、图片、视频，或寻找案例、模板、图标与媒体素材 | [视觉与交互](references/visual-interaction.md) |
 | 讨论问题与解法、理解反馈、澄清业务术语、确定功能范围和验收条件、维护需求文档 | [需求与沟通](references/requirements.md) |
 | 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束与决策记录 | [架构与技术设计](references/architecture.md) |
+| React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |
 | 确定项目质量指标、建立检查工具与 CI，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
 | 代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
 

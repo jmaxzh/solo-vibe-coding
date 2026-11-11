@@ -25,6 +25,8 @@
 
 选型输出给出适用场景、技术选择及必要理由；认证、部署、后台任务等组件按实际业务需要补充。
 
+选定技术后的实现、框架用法、数据访问、性能与运行指导见[技术栈专项](technology-stack.md)。专项指导沿用这里的技术选择，系统边界与选型取舍仍由本文负责。
+
 ## 可用技能
 
 <!-- skill: anthropics/knowledge-work-plugins@architecture -->

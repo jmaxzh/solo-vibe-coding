@@ -8,8 +8,11 @@
 | 实现明确的功能或修改、行为保持的重构 | UB Mode 主导工程纪律，Ponytail 辅助简化与复用 |
 | 评审变更中的明确 bug 与项目规则违规 | claude-plugins-official 的 code-review；原版面向 GitHub PR |
 | 错误、异常行为、性能或偶发故障 | debugging-strategies |
+| 默认技术栈的实现、性能、安全、数据访问与运行 | [技术栈专项](technology-stack.md) |
 | JS/TS 的异步、Mock、组件与接口测试 | javascript-testing-patterns |
-| 浏览器关键用户路径与不稳定测试 | e2e-testing-patterns |
+| Playwright 测试编写、关键用户路径与不稳定测试 | playwright-best-practices |
+| 已有 Cypress 项目的端到端测试 | e2e-testing-patterns 的 Cypress 部分 |
+| 使用 CLI 操作浏览器、检查页面与复现用户路径 | playwright-cli |
 | 使用说明、API 文档、约束、注意事项与 ADR 的维护 | documentation-and-adrs |
 
 需求或技术方案仍有关键不确定性时，按需引用 [需求与沟通](requirements.md) 或 [架构与技术设计](architecture.md)。文档读写遵循 [根技能的知识库规范](../SKILL.md#项目知识库规范)。
@@ -41,8 +44,14 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 <!-- skill: wshobson/agents@javascript-testing-patterns -->
 - **javascript-testing-patterns**：[原文](https://github.com/wshobson/agents/blob/main/plugins/javascript-typescript/skills/javascript-testing-patterns/SKILL.md)。JS/TS 的 Jest、Vitest、Testing Library、异步、Mock、Fixture、组件与接口测试模式。仅在相关技术栈下使用，示例中的框架配置和数据清理方式需要适配项目实际设施。
 
+<!-- skill: currents-dev/playwright-best-practices-skill@playwright-best-practices -->
+- **playwright-best-practices**：[原文](https://github.com/currents-dev/playwright-best-practices-skill/blob/main/playwright-best-practices/SKILL.md)，[技能页](https://skills.sh/currents-dev/playwright-best-practices-skill/playwright-best-practices)。Playwright 测试的主要指导；按编写、调试、不稳定测试或基础设施问题读取对应引用，覆盖定位与等待、Fixture、认证、Mock、视觉回归及框架适配。组件/API 测试只有项目已选 Playwright 时才采用其对应部分，已有 Jest/Vitest 测试仍由 javascript-testing-patterns 指导；Go 测试见[技术栈专项](technology-stack.md#go-与-gin)。测试目标和覆盖基线沿用项目质量标准。
+
 <!-- skill: wshobson/agents@e2e-testing-patterns -->
-- **e2e-testing-patterns**：[原文](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/e2e-testing-patterns/SKILL.md)。Playwright、Cypress 的浏览器测试，覆盖关键用户路径、页面对象、定位与等待、追踪和不稳定测试排查。适合 Web 端到端验证，按需读取原版引用中的详细模式。
+- **e2e-testing-patterns**：[原文](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/e2e-testing-patterns/SKILL.md)。已有 Cypress 项目的指导入口，读取其 Cypress 模式与相关调试参考。按项目已有框架工作；Playwright 项目使用上方专用入口。
+
+<!-- skill: microsoft/playwright-cli@playwright-cli -->
+- **playwright-cli**：[原文](https://github.com/microsoft/playwright-cli/blob/main/skills/playwright-cli/SKILL.md)，[技能页](https://skills.sh/microsoft/playwright-cli/playwright-cli)。使用浏览器快照、元素引用、表单操作、截图和网络检查复现或验证页面行为。需要实际可用的 CLI 与浏览器；宿主已有适用浏览器工具时沿用其接口。持久测试的设计与实现由 playwright-best-practices 负责，交互操作本身不等于已建立回归测试。Web 浏览器验证不能代替 Tauri 的 Rust/IPC 或 React Native 原生端验证。
 
 ## 文档维护
 

@@ -45,8 +45,8 @@
 <!-- skill: ibelick/ui-skills@baseline-ui -->
 - **baseline-ui**：[原文](https://github.com/ibelick/ui-skills/blob/main/skills/baseline-ui/SKILL.md)。界面实现的基础规范。
 
-<!-- skill: ibelick/ui-skills@fixing-accessibility -->
-- **fixing-accessibility**：[原文](https://github.com/ibelick/ui-skills/blob/main/skills/fixing-accessibility/SKILL.md)。具体可访问性问题。
+<!-- skill: addyosmani/web-quality-skills@accessibility -->
+- **accessibility**：[原文](https://github.com/addyosmani/web-quality-skills/blob/main/skills/accessibility/SKILL.md)，[技能页](https://skills.sh/addyosmani/web-quality-skills/accessibility)。具体无障碍问题与专项审查：键盘、焦点、语义、可访问名称、读屏及对比度。一般界面规范评审先用 web-design-guidelines，发现问题或需要深入验证时读取本项；用实际页面、自动检查和人工交互验证，工具分数不能代替完整无障碍结论。浏览器测试接入见[测试与验证](development.md#测试与验证)。
 
 <!-- skill: ibelick/ui-skills@fixing-metadata -->
 - **fixing-metadata**：[原文](https://github.com/ibelick/ui-skills/blob/main/skills/fixing-metadata/SKILL.md)。页面元数据问题。
