@@ -1,11 +1,12 @@
 # 需求与沟通
 
-用于既有产品方向内的问题讨论、用户反馈理解、方案探索、业务概念澄清、功能范围和验收条件。根据已有上下文补足影响当前任务的信息，区分已确认内容、待决问题与假设。
+用于既有产品方向内的问题讨论、用户反馈理解、方案探索、业务概念澄清、MVP 切分、功能范围和验收条件。根据已有上下文补足影响当前任务的信息，区分已确认内容、待决问题与假设。
 
 | 当前问题 | 可选技能 |
 | --- | --- |
 | 分析访谈、反馈或公开需求信号 | customer-research |
 | 探索问题、比较解法、检验假设 | product-brainstorming |
+| 围绕完整用户路径切分 MVP，区分首版必需与后置能力 | user-story-mapping |
 | 将功能整理为目标、范围、行为与验收条件 | write-spec |
 | 术语冲突、业务概念与关系不清 | domain-modeling |
 
@@ -24,6 +25,13 @@
 
 <!-- skill: mattpocock/skills@domain-modeling -->
 - **domain-modeling**：[原文](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md)。澄清术语、业务概念与关系，用具体场景和现有代码检验理解。原版会主动追问含糊或矛盾的概念并即时更新术语表；适合确需调整领域模型的任务。按项目约定维护词汇与必要 ADR，单纯复用已有术语无需启动领域建模讨论。
+
+## MVP 切分
+
+<!-- skill: deanpeters/product-manager-skills@user-story-mapping -->
+- **user-story-mapping**：[原文](https://github.com/deanpeters/product-manager-skills/blob/main/skills/user-story-mapping/SKILL.md)，[技能页](https://skills.sh/deanpeters/product-manager-skills/user-story-mapping)。将目标用户的任务分解为活动、步骤与任务，再沿完整路径划出首版范围。用于新产品或较大功能需要确定 MVP 范围时；需要结构或示例时读取同目录的 `template.md` 和 `examples/sample.md`，关联的用户画像与 JTBD 技能仅在已有上下文存在相关缺口时补充。
+
+从已知用户、目标与使用场景出发，选择让用户从开始到获得结果、完成一次有价值任务所需的最少能力，包含必要依赖与失败处理。明确首版必需、后置能力及划分理由，为完整路径定义可观察的验收条件；保留范围遵守项目质量标准。映射深度及上游的活动、任务数量按实际流程调整，简单流程可用简短清单或表格表达。确认的范围与验收条件补充到对应 spec，需要时使用 write-spec。
 
 ## 文档协作
 
