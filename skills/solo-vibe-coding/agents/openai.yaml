@@ -1,0 +1,4 @@
+interface:
+  display_name: "Solo Vibe Coding"
+  short_description: "Indie product: acquisition, UX, specs, architecture, development"
+  default_prompt: "Use $solo-vibe-coding to remotely read specialist guidance and asset references as needed for the current task, then advise, review, or implement within the specified scope; follow project knowledge conventions for engineering documents and do not install external skills."
