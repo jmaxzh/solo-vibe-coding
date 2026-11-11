@@ -1,6 +1,6 @@
 ---
 name: solo-vibe-coding
-description: "为已有明确产品方向的独立开发者，按获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量选择专业指导；工程项目优先确定质量指标与自动检查，并统一项目知识库规范。任务可独立进入，不探索创业方向。"
+description: "为已有明确产品方向的独立开发者，按获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布选择专业指导；工程项目优先确定质量指标与自动检查，并统一项目知识库规范。任务可独立进入，不探索创业方向。"
 ---
 
 # Solo Vibe Coding
@@ -18,6 +18,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |
 | 确定项目质量指标、建立检查工具与 CI，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
 | 代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
+| 生产配置、应用打包、单台 VPS 部署、发布验证和回滚 | [生产部署与发布](references/deployment.md) |
 
 ## 工程项目的优先事项
 

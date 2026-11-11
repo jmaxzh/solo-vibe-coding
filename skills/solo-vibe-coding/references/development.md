@@ -14,6 +14,7 @@ Use for implementing changes, reviewing code, troubleshooting faults, selecting 
 | End-to-end tests in an existing Cypress project | The Cypress portion of e2e-testing-patterns |
 | Operate a browser through a CLI, inspect pages, reproduce user journeys | playwright-cli |
 | Maintain usage instructions, API documentation, constraints, cautions, ADRs | documentation-and-adrs |
+| Production deployment, release verification, and rollback | [Production deployment and release](deployment.md) |
 
 When requirements or technical proposals still contain material uncertainty, reference [requirements and communication](requirements.md) or [architecture and technical design](architecture.md) as needed. Follow the [root skill's knowledge conventions](../SKILL.md#project-knowledge-conventions) when reading and writing documents.
 

@@ -33,7 +33,7 @@
 - **constraint-driven-development**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/constraint-driven-development/SKILL.md)。识别项目工具，建立可执行质量标准、测量基线与逐步收紧机制，防止为通过检查而弱化标准。原版的访谈方式和 `CONSTRAINTS.md` 模板按实际信息缺口及项目约定使用；引用的 `interview-me` 仅在确需其访谈方法时按同仓库定位。需要复制判定脚本时读取同版本源码与依赖并验证，不仅复制入口中的命令示例。
 
 <!-- skill: addyosmani/agent-skills@ci-cd-and-automation -->
-- **ci-cd-and-automation**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md)。将项目检查接入流水线，配置触发、缓存、并行、报告与失败反馈。原文示例偏 Node/TypeScript 和 GitHub Actions，按实际语言、平台及版本适配；部署、发布和生产回滚只在相应任务范围内使用。
+- **ci-cd-and-automation**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/ci-cd-and-automation/SKILL.md)。将项目检查接入流水线，配置触发、缓存、并行、报告与失败反馈。原文示例偏 Node/TypeScript 和 GitHub Actions，按实际语言、平台及版本适配；生产部署、发布验证和回滚结合[生产部署与发布](deployment.md)，只在相应任务范围内使用。
 
 <!-- skill: samber/cc-skills-golang@golang-continuous-integration -->
 - **golang-continuous-integration**：[原文](https://github.com/samber/cc-skills-golang/blob/main/skills/golang-continuous-integration/SKILL.md)，[技能页](https://skills.sh/samber/cc-skills-golang/golang-continuous-integration)。Go 项目配置 GitHub Actions 时，优先用本项落实测试、竞态、lint、漏洞扫描和构建；通用 ci-cd-and-automation 用于其他栈或平台及本项未覆盖的问题。工作流共用同一本地检查入口与标准，工具版本按 `go.mod`、现有配置及当前兼容性确定。按需读取上游 `assets/` 模板；GoReleaser、Codecov、依赖机器人和自动评审仅在项目需要时接入，代码评审仍沿用[既有入口](development.md#代码评审与调试)。

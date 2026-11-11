@@ -14,6 +14,7 @@
 | 已有 Cypress 项目的端到端测试 | e2e-testing-patterns 的 Cypress 部分 |
 | 使用 CLI 操作浏览器、检查页面与复现用户路径 | playwright-cli |
 | 使用说明、API 文档、约束、注意事项与 ADR 的维护 | documentation-and-adrs |
+| 生产部署、发布验证和回滚 | [生产部署与发布](deployment.md) |
 
 需求或技术方案仍有关键不确定性时，按需引用 [需求与沟通](requirements.md) 或 [架构与技术设计](architecture.md)。文档读写遵循 [根技能的知识库规范](../SKILL.md#项目知识库规范)。
 

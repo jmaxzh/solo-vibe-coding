@@ -4,7 +4,7 @@
 
 [中文](README.zh-CN.md)
 
-A single Agent Skill for independent developers who already have a clear product direction. It selects specialist guidance for the current task across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, and development and quality.
+A single Agent Skill for independent developers who already have a clear product direction. It selects specialist guidance for the current task across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release.
 
 Engineering projects prioritize quality criteria and automated checks and share project knowledge conventions. Each topic can be entered independently; this skill does not explore startup ideas.
 
@@ -46,7 +46,7 @@ Use $solo-vibe-coding to improve our landing page's message and visual design.
 Keep our existing brand and technology stack.
 ```
 
-The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to seven topic references. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
+The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to eight topic references. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
 ## Languages and layout
 
@@ -58,7 +58,7 @@ LICENSE                                MIT license
 skills/solo-vibe-coding/                Default English skill package
   SKILL.md                             Skill entry point
   agents/openai.yaml                   Host interface metadata
-  references/                          Seven topic references
+  references/                          Eight topic references
   LICENSE.txt                          License carried with the package
 i18n/zh-CN/AGENTS.md                    Chinese repository instructions
 i18n/zh-CN/skills/solo-vibe-coding/      Chinese skill with matching structure

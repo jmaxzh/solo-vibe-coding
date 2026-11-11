@@ -4,7 +4,7 @@
 
 [English](README.md)
 
-为已有明确产品方向的独立开发者提供的单一 Agent Skill，按当前任务选择获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量方面的专业指导。
+为已有明确产品方向的独立开发者提供的单一 Agent Skill，按当前任务选择获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布方面的专业指导。
 
 工程项目优先确定质量指标并建立自动检查，共用项目知识库规范。各范畴可以独立进入，不探索创业方向。
 
@@ -46,7 +46,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 沿用已有品牌和技术栈。
 ```
 
-[技能入口](skills/solo-vibe-coding/SKILL.md) 按任务指向七类参考。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
+[技能入口](skills/solo-vibe-coding/SKILL.md) 按任务指向八类参考。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
 
 ## 语言与目录
 
@@ -58,7 +58,7 @@ LICENSE                                MIT 许可证
 skills/solo-vibe-coding/                默认英文技能包
   SKILL.md                             技能入口
   agents/openai.yaml                   宿主界面元数据
-  references/                          七类参考
+  references/                          八类参考
   LICENSE.txt                          随技能包提供的许可证
 i18n/zh-CN/AGENTS.md                    中文仓库指令
 i18n/zh-CN/skills/solo-vibe-coding/      结构对应的中文技能
