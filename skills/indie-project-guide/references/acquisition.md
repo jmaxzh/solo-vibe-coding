@@ -6,7 +6,8 @@
 | --- | --- |
 | 产品是谁用、解决什么、如何表达价值 | product-marketing、copywriting、copy-editing |
 | 传播方法、交易内容与表达心理 | marketing-ideas、offers、marketing-psychology |
-| 社交帖、开发日志、内容组合与发布 | social、content-strategy、launch、build-in-public |
+| 社交帖、开发日志、内容组合与公开开发 | social、content-strategy；重要发布使用 launch |
+| 公众号草稿与 X 填稿、媒体上传 | baoyu-post-to-wechat、baoyu-post-to-x |
 | 小工具作为传播入口 | free-tools |
 | 官网或落地页的结构与行动入口 | landing-page |
 | 页面转化、埋点归因、营销定时任务 | cro、analytics、marketing-loops |
@@ -37,7 +38,7 @@
 
 ## 内容传播与公开开发
 
-根据实际原型、视觉实验、实现难点或使用证据选择内容；起草、排期与实际发布分别交付。中文平台结合具体语境适配。
+公开开发以 social 负责故事、帖子、平台适配与内容复用，content-strategy 负责主题、选题优先级和内容规划；产品上线、重要功能及阶段成果发布时按需使用 launch。根据实际原型、视觉实验、实现难点或使用证据选择内容；起草、排期与实际发布分别交付。中文平台结合具体语境适配。
 
 <!-- skill: coreyhaines31/marketingskills@social -->
 - **social**：[原文](https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/SKILL.md)，[技能页](https://skills.sh/coreyhaines31/marketingskills/social)。主题、故事、开头、平台适配、内容复用与日程建议，覆盖 X、LinkedIn、Instagram、TikTok、Facebook 等；中文平台按具体语境适配。
@@ -53,8 +54,27 @@
 <!-- skill: coreyhaines31/marketingskills@free-tools -->
 - **free-tools**：[原文](https://github.com/coreyhaines31/marketingskills/blob/main/skills/free-tools/SKILL.md)，[技能页](https://skills.sh/coreyhaines31/marketingskills/free-tools)。Engineering as Marketing：评估检查器、转换器、计算器、生成器等是否提供独立价值、服务同一受众并自然引向主产品。结合维护与传播投入判断，效果由实际线索和试用验证。
 
-<!-- skill: samber/developer-relations-skills@build-in-public -->
-- **build-in-public（samber）**：[原文](https://github.com/samber/developer-relations-skills/blob/main/skills/build-in-public/SKILL.md)，[技能页](https://skills.sh/samber/developer-relations-skills/build-in-public)。适合开源或开发者工具的长期公开实践：分享范围、节奏、平台、边界与效果判断。
+### 渠道选择
+
+按本次目标渠道选择内容指导与制作能力。同一产品进展可复用事实与素材，再按各渠道的受众、语言和形式改编。
+
+| 渠道 | 内容指导 | 制作与发布 |
+| --- | --- | --- |
+| 产品官网 | content-strategy 规划文章与开发记录；copywriting 处理页面价值表达与行动入口 | 页面制作见[界面与审美](visual-interaction.md#界面与审美) |
+| 微信公众号 | content-strategy 规划选题，结合中文长文的叙事与阅读语境 | baoyu-post-to-wechat 排版与写入草稿；配图见[图片与静态素材](visual-interaction.md#图片与静态素材) |
+| 小红书 | social 指导故事与内容复用，结合平台语境改编 | [baoyu-xhs-images](visual-interaction.md#图片与静态素材) 制作系列图卡；账号发布需要另外具备相应能力 |
+| X | social；从代码进展起草时按需读取 ship-post | baoyu-post-to-x 填稿与上传媒体 |
+| YouTube | content-strategy 规划主题与系列 | [video 与视频制作工具](visual-interaction.md#视频与媒体制作) 指导产品演示、讲解和长短视频复用；上传需要相应账号与工具 |
+
+### 公众号与 X 操作
+
+以下技能来自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)。内容起草完成后，实际需要写入平台时再读取；执行需要对应账号、工具和运行环境。
+
+<!-- skill: jimliu/baoyu-skills@baoyu-post-to-wechat -->
+- **baoyu-post-to-wechat**：[原文](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-post-to-wechat/SKILL.md)，[技能页](https://skills.sh/jimliu/baoyu-skills/baoyu-post-to-wechat)。支持 Markdown、HTML 与纯文本文章排版及公众号草稿写入，也支持多图片贴图。API 方式需要公众号凭据与 IP 白名单配置；浏览器方式需要 Chrome 与已登录会话，脚本需要 Bun 或原文支持的运行方式。交付时说明草稿是否已写入，实际群发或公开发布按用户授权执行。
+
+<!-- skill: jimliu/baoyu-skills@baoyu-post-to-x -->
+- **baoyu-post-to-x**：[原文](https://github.com/JimLiu/baoyu-skills/blob/main/skills/baoyu-post-to-x/SKILL.md)，[技能页](https://skills.sh/jimliu/baoyu-skills/baoyu-post-to-x)。通过真实 Chrome 填入文字、图片、视频或长文章；浏览器控制方式按用户要求和当前能力选择，脚本方式需要 Bun 或原文支持的运行方式。需要 X 登录，长文章需要相应账号权益。填稿、上传和实际发布分别报告，发布操作按用户授权执行。
 
 ## 官网与落地页
 

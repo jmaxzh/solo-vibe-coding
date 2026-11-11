@@ -9,7 +9,7 @@
 | Stitch 方案、提示、设计规范与组件实现 | Stitch 界面制作 |
 | 主视觉、海报、封面、图解与连续图卡 | 图片与静态素材：imagegen、canvas-design、baoyu 系列 |
 | 组件动画、滚动、粒子、3D 与性能 | 动效与交互：Emil、GSAP、motion-design、algorithmic-art、threejs |
-| 可导出视频、字幕、配音与媒体后端 | 视频与媒体制作：Remotion、HyperFrames、fal |
+| 产品演示、讲解、可导出视频、字幕、配音与媒体后端 | 视频与媒体制作：video、Remotion、HyperFrames、fal |
 | 找案例、模板、图标或媒体文件 | 灵感与界面、模板与组件、图标、动画与 3D 素材、摄影插画视频与声音素材 |
 
 官网目的、文案和传播见 [获客与转化](acquisition.md)；实现中的排障与通用测试见 [开发与质量](development.md)。每项专业指导与素材只在本文维护，其他范畴按需引用。
@@ -169,6 +169,9 @@ GSAP 官方技能来自 [greensock/gsap-skills](https://github.com/greensock/gsa
 ## 视频与媒体制作
 
 精确展示 UI 与文字可选程序化视频，生成式片段和声音使用实际可用媒体后端。Remotion 来自 [remotion-dev/skills](https://github.com/remotion-dev/skills)，按视频任务选择子技能；预览与导出需要对应工程及渲染环境。已有工程优先沿用。交付实际渲染文件与检查结果，区分源码、预览、静态封面与已导出视频。
+
+<!-- skill: coreyhaines31/marketingskills@video -->
+- **video**：[原文](https://github.com/coreyhaines31/marketingskills/blob/main/skills/video/SKILL.md)，[技能页](https://skills.sh/coreyhaines31/marketingskills/video)。用于产品演示、讲解视频、官网与 YouTube 视频及长视频拆短片；结合现有录屏、截图和产品素材选择录屏、程序化视频、生成片段或数字人等制作方式。选题与传播目标见[获客与转化](acquisition.md#内容传播与公开开发)，具体制作按需组合下方工具。读取指导不代表已具备生成、剪辑或渲染能力，执行时核对所选工具、凭据与费用条件。
 
 <!-- skill: remotion-dev/skills@remotion-best-practices -->
 - **[remotion-best-practices](https://github.com/remotion-dev/skills/blob/main/skills/remotion-best-practices/SKILL.md)**：[技能页](https://skills.sh/remotion-dev/skills/remotion-best-practices)。Remotion 专项指导的路由入口，按当前视频任务选择对应子技能与参考。
