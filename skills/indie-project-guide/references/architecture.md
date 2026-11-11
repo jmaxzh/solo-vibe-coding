@@ -1,26 +1,31 @@
 # 架构与技术设计
 
-用于系统结构、技术选型、容量与扩展、模块和数据边界、架构模式及决策评估。围绕功能需求与非功能约束比较方案，按问题选择相关参考。
+用于新功能设计、技术选择、方案比较，以及现有代码结构诊断。围绕功能需求与非功能约束选择指导，先落实[质量指标与自动检查](quality-and-ci.md)中的适用基线。
 
-| 当前问题 | 可选技能 |
+| 当前问题 | 使用入口 |
 | --- | --- |
-| 系统设计、存储、缓存、消息队列、API、容量与扩展 | senior-architect |
-| 比较具体选项、评估提案、创建或评估 ADR | architecture |
-| 已考虑 Clean Architecture、六边形架构或 DDD 的边界与实现 | architecture-patterns |
+| 新功能设计、技术选择、方案比较、创建或评估 ADR | architecture |
+| 现有代码难改、模块耦合、确定重构优先级 | improve-codebase-architecture |
+| 实际实现和重构时的纪律与验证 | [开发与质量中的 UB Mode](development.md#实现与重构) |
 
-业务概念和需求范围不明确时按需引用 [需求与沟通](requirements.md)。架构说明、功能技术约束和 ADR 遵循 [根技能的知识库规范](../SKILL.md#项目知识库规范)，实现与验证见 [开发与质量](development.md)。
+业务概念和需求范围不明确时按需引用[需求与沟通](requirements.md)。架构说明、功能技术约束和 ADR 遵循[根技能的知识库规范](../SKILL.md#项目知识库规范)。
 
 ## 可用技能
 
-<!-- skill: alirezarezvani/claude-skills@senior-architect -->
-- **senior-architect**：[原文](https://github.com/alirezarezvani/claude-skills/blob/main/engineering-team/skills/senior-architect/SKILL.md)。提供跨语言系统设计、单体与微服务、数据存储、缓存、消息队列、API、容量与扩展参考。按需读取 `references/architecture_patterns.md`、`references/system_design_workflows.md`、`references/tech_decision_guide.md`。原版含分步指南和选型偏好，具体选择仍需结合项目条件；Python 辅助脚本仅在任务确需执行时准备依赖，读取参考不要求运行脚本。
-
 <!-- skill: anthropics/knowledge-work-plugins@architecture -->
-- **architecture**：[原文](https://github.com/anthropics/knowledge-work-plugins/blob/main/engineering/skills/architecture/SKILL.md)。围绕复杂度、成本、可扩展性、团队经验及约束比较方案，创建或评估 ADR。适合具体决策与提案评估；原版提供 ADR 模板，最终记录沿用项目约定，连接器按实际可用能力使用。
+- **architecture**：[原文](https://github.com/anthropics/knowledge-work-plugins/blob/main/engineering/skills/architecture/SKILL.md)。围绕复杂度、成本、可扩展性、团队经验及约束比较方案，设计新组件、评估提案并形成 ADR。入口以决策框架为主；确需深入系统设计时，按原文读取同仓库的 `engineering/skills/system-design/SKILL.md`。输出沿用项目文档约定，连接器按实际可用能力使用。
 
-<!-- skill: wshobson/agents@architecture-patterns -->
-- **architecture-patterns**：[原文](https://github.com/wshobson/agents/blob/main/plugins/backend-development/skills/architecture-patterns/SKILL.md)。提供 Clean Architecture、六边形架构与 DDD 的边界、依赖方向、用例、端口和适配器示例。模式有明确设计约束，适合已经考虑这些方向的复杂业务；采用前判断收益与复杂度，示例语言不决定项目语言。
+<!-- skill: mattpocock/skills@improve-codebase-architecture -->
+- **improve-codebase-architecture**：[原文](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md)。从用户指定范围或近期变更热点探索浅模块、耦合与测试困难，提出用较小接口隐藏更多实现复杂度的重构候选。先展示问题、收益与前后结构，再选择方向深入设计；诊断本身不等于授权实施重构。
+
+Matt 架构诊断的关联指导按阶段读取，均取同仓库同版本：
+
+- 诊断前读取 [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md)，统一深模块、接口与可替换接缝的分析含义。该分析词汇用于解释设计，不替换项目已有业务术语。
+- 报告需要时读取诊断目录中的 `HTML-REPORT.md`；原版将报告写入系统临时目录，报告展示依赖的 CDN 与浏览器能力以实际环境为准。
+- 用户选定候选后读取 [grilling](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md)；只有领域概念确需变化时再引用[现有 domain-modeling](requirements.md#可用技能)。需要比较接口方案时读取 `codebase-design` 的相关引用。
+
+原版包含子代理探索与并行设计；按宿主能力和已有授权执行。无法委派时在当前上下文完成相同分析并说明执行范围，不将读取指导表述为已运行子代理。
 
 ## 文档协作
 
-架构说明描述当前结构与约束，待实现方案标明状态；重要选择通过 ADR 保存背景、备选方案、取舍与后果。更新时延续项目约定，按需参考 [documentation-and-adrs](development.md#文档维护)，避免不同架构技能各建一份同主题记录。
+架构说明描述当前结构与约束，待实现方案标明状态；重要选择通过 ADR 保存背景、备选方案、取舍与后果。更新时延续项目约定，按需参考 [documentation-and-adrs](development.md#文档维护)，共同维护已有文档。
