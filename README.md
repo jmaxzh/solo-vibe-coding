@@ -46,6 +46,22 @@ Use $solo-vibe-coding to improve our landing page's message and visual design.
 Keep our existing brand and technology stack.
 ```
 
+```text
+Use $solo-vibe-coding to build a functional tool page with forms, results, and state feedback.
+Add suitable imagery and motion while retaining our existing technology stack.
+```
+
+```text
+Use $solo-vibe-coding to build a static portfolio page with a particle background
+and scroll-driven storytelling.
+```
+
+```text
+Use $solo-vibe-coding to turn real product screens into a WeChat cover,
+a Xiaohongshu carousel, and a vertical short video. Keep a consistent visual style,
+adapt composition and pacing to each platform, and deliver assets and editable source.
+```
+
 The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to eight topic references. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
 ## Languages and layout

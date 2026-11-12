@@ -56,7 +56,7 @@ For building in public, social handles stories, posts, platform adaptation, and 
 
 ### Channel selection
 
-Select content guidance and production capabilities for the current target channel. Reuse facts and assets about the same product progress, then adapt them to each channel's audience, language, and format.
+Select content guidance and production capabilities for the current target channel. Reuse facts and assets about the same product progress, then adapt them to each channel's audience, language, and format. See [capability combinations by deliverable](visual-interaction.md#combine-capabilities-by-deliverable) for covers, illustrations, posters, carousels, and long- or short-form video; asset-only tasks can start there directly.
 
 | Channel | Content guidance | Production and publication |
 | --- | --- | --- |

@@ -12,7 +12,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 当前问题 | 参考文档 |
 | --- | --- |
 | 产品价值表达、营销文案、内容传播、Build in public、官网与落地页、转化分析 | [获客与转化](references/acquisition.md) |
-| 界面审美、设计系统、交互、动效、图片、视频，或寻找案例、模板、图标与媒体素材 | [视觉与交互](references/visual-interaction.md) |
+| 功能页与静态页的界面审美、设计系统、交互与动效，自媒体图片与视频制作，或寻找案例、模板、图标与媒体素材 | [视觉与交互](references/visual-interaction.md) |
 | 讨论问题与解法、理解反馈、澄清业务术语、MVP 切分、确定功能范围和验收条件、维护需求文档 | [需求与沟通](references/requirements.md) |
 | 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束与决策记录 | [架构与技术设计](references/architecture.md) |
 | React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |

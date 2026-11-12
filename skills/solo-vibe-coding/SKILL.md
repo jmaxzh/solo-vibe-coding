@@ -12,7 +12,7 @@ Select specialist guidance and references according to the current problem, reus
 | Current problem | Reference |
 | --- | --- |
 | Product value proposition, marketing copy, content distribution, building in public, websites and landing pages, conversion analysis | [Acquisition and conversion](references/acquisition.md) |
-| Interface aesthetics, design systems, interaction, motion, images, video, or finding examples, templates, icons, and media assets | [Visual design and interaction](references/visual-interaction.md) |
+| Interface aesthetics, design systems, interaction, and motion for functional and static pages, social media image and video production, or finding examples, templates, icons, and media assets | [Visual design and interaction](references/visual-interaction.md) |
 | Discussing problems and solutions, understanding feedback, clarifying business terms, slicing an MVP, defining feature scope and acceptance criteria, maintaining requirements | [Requirements and communication](references/requirements.md) |
 | System structure, technology selection, module and data boundaries, scaling, architectural patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) |
 | Implementation, performance, and runtime issues in React, Next.js, Tauri/Rust, Go/Gin, MySQL, and React Native | [Technology-specific guidance](references/technology-stack.md) |

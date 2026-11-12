@@ -4,6 +4,9 @@ Use for interface aesthetics, design systems, motion, images, video, and visual 
 
 | Current problem | Location and primary candidates |
 | --- | --- |
+| Functional pages: tools, forms, settings, dashboards, and editors | Combine capabilities by deliverable; interface design and aesthetics, motion and interaction |
+| Static pages: websites, landing pages, portfolios, articles, and event pages | Combine capabilities by deliverable; interface design and aesthetics, images and static assets, motion and interaction |
+| Social media assets: covers, illustrations, posters, carousels, demos, and short videos | Combine capabilities by deliverable; images and static assets, video and media production |
 | New interfaces and visual direction | Interface design and aesthetics: frontend-design, design-taste-frontend, ui-ux-pro-max |
 | Review and polish, interaction feel, interface guidelines | Interface design and aesthetics: impeccable, emil-design-eng, web-design-guidelines |
 | Stitch concepts, prompts, design standards, component implementation | Stitch interface production |
@@ -13,6 +16,20 @@ Use for interface aesthetics, design systems, motion, images, video, and visual 
 | Find examples, templates, icons, or media files | Inspiration and interfaces, templates and components, icons, animation and 3D assets, photography/illustration/video/audio assets |
 
 For website purpose, copy, and distribution, see [acquisition and conversion](acquisition.md); for implementation troubleshooting and general testing, see [development and quality](development.md). Maintain each specialist and asset only here, with other topics referencing them as needed.
+
+## Combine capabilities by deliverable
+
+Visual design, images, motion, and video capabilities apply to functional pages, static pages, and social media assets. Choose a lead guide from the target artifact, reference effects, existing implementation, and available tools, then fill independent gaps; the combinations below are examples.
+
+| Scenario | Capability combinations and use |
+| --- | --- |
+| Functional pages | Use frontend-design or the existing design system for layout and hierarchy; Emil or GSAP for state feedback, transitions, and interaction guidance; image generation, canvas-design, and algorithmic-art for illustrations, empty states, visualizations, or creative canvases. Effects support operation and understanding while retaining required behavior for real data, loading, empty and error states, and keyboard use. Combine implementation and verification with [development and quality](development.md). |
+| Static pages | Use frontend-design for the overall visual direction; imagegen or baoyu-image-gen for hero imagery, canvas-design for static composition; algorithmic-art for particles or flow fields, and gsap-scrolltrigger for scrolling, parallax, and scene changes. Select according to page purpose, adding Remotion or HyperFrames for video content; see [acquisition and conversion](acquisition.md) when structure and copy guidance is needed. |
+| Social media assets | Combine image generation, canvas-design, and the relevant baoyu skills for covers, illustrations, and posters; split carousels according to content structure. Remotion or HyperFrames combines real product screens, images, text, and audio into demos, explainers, or short videos; algorithmic-art and GSAP can supply generative visuals and motion choreography. See [channel selection](acquisition.md#channel-selection) when topic and platform messaging guidance is needed. |
+
+For ready-made effects, select concrete components, templates, or media files from the resource entries below; choose the relevant production guidance for custom effects. Prefer available host tools for image generation; baoyu-image-gen suits multiple providers or batch tasks. Retain existing video projects; for new projects, choose Remotion or HyperFrames according to React component reuse, HTML/GSAP authoring, and the available rendering environment.
+
+When reusing a subject across pages and social media, retain brand, colors, typography, and real product assets while adapting composition, aspect ratio, text density, and pacing to the target medium. Check the actual deliverable: responsive behavior, operable states, and motion fallbacks for pages; dimensions, cropping, and text legibility for images; actual export, audiovisual synchronization, and opening/closing frames for video. Retain editable source or generation parameters needed by the user and identify preview and final-file locations.
 
 ## Interface design and aesthetics
 
