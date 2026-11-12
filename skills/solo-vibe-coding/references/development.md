@@ -1,10 +1,11 @@
 # Development and quality
 
-Use for implementing changes, reviewing code, troubleshooting faults, selecting tests, and verifying results in an existing project. First define and establish the project baseline using [quality criteria and automated checks](quality-and-ci.md), prioritizing existing infrastructure. Choose guidance according to the actual technology stack, implementation, logs, and tests.
+Use for local environment setup and debugging preparation, implementing changes, reviewing code, troubleshooting faults, selecting tests, and verifying results in an existing project. First define and establish the project baseline using [quality criteria and automated checks](quality-and-ci.md), prioritizing existing infrastructure. Choose guidance according to the actual technology stack, implementation, logs, and tests.
 
 | Current problem | Optional skills |
 | --- | --- |
 | Establish quality standards, check tools, CI, or local automated checks | [Quality criteria and automated checks](quality-and-ci.md) |
+| Set up a local environment, start dependency services, initialize data, and prepare debugging | [Local environment and debugging preparation](#local-environment-and-debugging-preparation); docker-patterns for containerized services |
 | Implement a defined feature or change, behavior-preserving refactoring | UB Mode leads engineering discipline; Ponytail supports simplification and reuse |
 | Review concrete bugs and project-rule violations in changes | code-review from claude-plugins-official; the original targets GitHub PRs |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
@@ -17,6 +18,15 @@ Use for implementing changes, reviewing code, troubleshooting faults, selecting 
 | Production deployment, release verification, and rollback | [Production deployment and release](deployment.md) |
 
 When requirements or technical proposals still contain material uncertainty, reference [requirements and communication](requirements.md) or [architecture and technical design](architecture.md) as needed. Follow the [root skill's knowledge conventions](../SKILL.md#project-knowledge-conventions) when reading and writing documents.
+
+## Local environment and debugging preparation
+
+Read the project's setup instructions, runtime constraints, lockfiles, configuration examples, and startup scripts first. Reuse the existing native or containerized workflow. Prepare the required runtimes and dependencies, configure local environment variables, start the services actually needed, run applicable database migrations and development-data initialization, then start the application and verify service connectivity and a critical application path. Preserve existing local data; distinguish first-time initialization from repeatable startup.
+
+<!-- skill: affaan-m/ecc@docker-patterns -->
+- **docker-patterns**: [Source](https://github.com/affaan-m/ecc/blob/main/skills/docker-patterns/SKILL.md), [Skill page](https://skills.sh/affaan-m/ecc/docker-patterns). Docker and Compose guidance for local applications, databases, caches, and other dependency services, covering environment variables, initialization scripts, readiness checks, networking, persistent volumes, hot reload, and debug ports. Read the original instructions when containerized development is needed; adapt example stacks, versions, ports, and commands to the actual project. Use [container build guidance](technology-stack.md#container-builds) for image-build details and [production deployment and release](deployment.md) for production operations.
+
+Maintain repeatable setup, startup, shutdown, and verification commands in the project's existing usage documentation, following [project knowledge conventions](../SKILL.md#project-knowledge-conventions). Report the actual startup and verification results and any missing prerequisites. Once the application runs, use the debugging and testing guidance below to investigate faults and verify changes.
 
 ## Implementation and refactoring
 

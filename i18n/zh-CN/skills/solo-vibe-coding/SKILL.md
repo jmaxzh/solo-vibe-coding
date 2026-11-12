@@ -17,7 +17,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束与决策记录 | [架构与技术设计](references/architecture.md) |
 | React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |
 | 确定项目质量指标、建立检查工具与 CI，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
-| 代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
+| 本地环境搭建与调试准备、代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
 | 生产配置、应用打包、单台 VPS 部署、发布验证和回滚 | [生产部署与发布](references/deployment.md) |
 
 ## 工程项目的优先事项

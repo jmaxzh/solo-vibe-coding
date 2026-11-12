@@ -17,7 +17,7 @@ Select specialist guidance and references according to the current problem, reus
 | System structure, technology selection, module and data boundaries, scaling, architectural patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) |
 | Implementation, performance, and runtime issues in React, Next.js, Tauri/Rust, Go/Gin, MySQL, and React Native | [Technology-specific guidance](references/technology-stack.md) |
 | Defining project quality criteria, establishing check tools and CI, or configuring local automated checks | [Quality criteria and automated checks](references/quality-and-ci.md) |
-| Implementation, code review, troubleshooting, testing, verification, and related usage documentation | [Development and quality](references/development.md) |
+| Local environment setup and debugging preparation, implementation, code review, troubleshooting, testing, verification, and related usage documentation | [Development and quality](references/development.md) |
 | Production configuration, application packaging, single-VPS deployment, release verification, and rollback | [Production deployment and release](references/deployment.md) |
 
 ## Engineering project priorities
