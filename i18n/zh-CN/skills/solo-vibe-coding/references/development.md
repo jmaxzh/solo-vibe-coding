@@ -17,7 +17,7 @@
 | 使用说明、API 文档、约束、注意事项与 ADR 的维护 | documentation-and-adrs |
 | 生产部署、发布验证和回滚 | [生产部署与发布](deployment.md) |
 
-需求或技术方案仍有关键不确定性时，按需引用 [需求与沟通](requirements.md) 或 [架构与技术设计](architecture.md)。文档读写遵循 [根技能的知识库规范](../SKILL.md#项目知识库规范)。
+需求或技术方案仍有关键不确定性时，按需引用 [需求与沟通](requirements.md) 或 [架构与技术设计](architecture.md)。文档读写遵循 [项目知识库规范](project-knowledge.md)。
 
 ## 本地环境与调试准备
 
@@ -26,7 +26,7 @@
 <!-- skill: affaan-m/ecc@docker-patterns -->
 - **docker-patterns**：[原文](https://github.com/affaan-m/ecc/blob/main/skills/docker-patterns/SKILL.md)，[技能页](https://skills.sh/affaan-m/ecc/docker-patterns)。本地应用、数据库、缓存及其他配套服务的 Docker 与 Compose 指导，覆盖环境变量、初始化脚本、就绪检查、网络、持久数据卷、热更新和调试端口。需要容器化开发时读取原文，示例技术栈、版本、端口和命令按实际项目适配。镜像构建细节见[容器构建指导](technology-stack.md#容器构建)，生产操作见[生产部署与发布](deployment.md)。
 
-按[项目知识库规范](../SKILL.md#项目知识库规范)在项目已有使用文档中维护可重复执行的环境搭建、启动、停止和验证命令。如实报告启动与验证结果及缺少的前置条件。应用可运行后，使用下方调试与测试指导排查故障、验证变更。
+按[项目知识库规范](project-knowledge.md)在项目已有使用文档中维护可重复执行的环境搭建、启动、停止和验证命令。如实报告启动与验证结果及缺少的前置条件。应用可运行后，使用下方调试与测试指导排查故障、验证变更。
 
 ## 实现与重构
 
@@ -67,6 +67,6 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 ## 文档维护
 
 <!-- skill: addyosmani/agent-skills@documentation-and-adrs -->
-- **documentation-and-adrs**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)。维护 README、API 说明、已知限制、注意事项和决策依据，强调保留原因、取舍与适用边界。支持沿用现有 ADR 约定；所有持久文档按 [项目知识库规范](../SKILL.md#项目知识库规范) 归位，与其他工程技能共同更新已有文档。
+- **documentation-and-adrs**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)。维护 README、API 说明、已知限制、注意事项和决策依据，强调保留原因、取舍与适用边界。支持沿用现有 ADR 约定；所有持久文档按 [项目知识库规范](project-knowledge.md) 归位，与其他工程技能共同更新已有文档。
 
 根据实际运行的检查报告结果。测试模式落实为项目中的测试代码；行为、接口或操作方法变化时同步相关文档。有复用价值的限制与注意事项写入对应主题，临时评审、排查和失败尝试按任务需要反馈或留档。

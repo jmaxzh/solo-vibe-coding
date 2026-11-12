@@ -17,7 +17,7 @@ Use for local environment setup and debugging preparation, implementing changes,
 | Maintain usage instructions, API documentation, constraints, cautions, ADRs | documentation-and-adrs |
 | Production deployment, release verification, and rollback | [Production deployment and release](deployment.md) |
 
-When requirements or technical proposals still contain material uncertainty, reference [requirements and communication](requirements.md) or [architecture and technical design](architecture.md) as needed. Follow the [root skill's knowledge conventions](../SKILL.md#project-knowledge-conventions) when reading and writing documents.
+When requirements or technical proposals still contain material uncertainty, reference [requirements and communication](requirements.md) or [architecture and technical design](architecture.md) as needed. Follow the [project knowledge conventions](project-knowledge.md) when reading and writing documents.
 
 ## Local environment and debugging preparation
 
@@ -26,7 +26,7 @@ Read the project's setup instructions, runtime constraints, lockfiles, configura
 <!-- skill: affaan-m/ecc@docker-patterns -->
 - **docker-patterns**: [Source](https://github.com/affaan-m/ecc/blob/main/skills/docker-patterns/SKILL.md), [Skill page](https://skills.sh/affaan-m/ecc/docker-patterns). Docker and Compose guidance for local applications, databases, caches, and other dependency services, covering environment variables, initialization scripts, readiness checks, networking, persistent volumes, hot reload, and debug ports. Read the original instructions when containerized development is needed; adapt example stacks, versions, ports, and commands to the actual project. Use [container build guidance](technology-stack.md#container-builds) for image-build details and [production deployment and release](deployment.md) for production operations.
 
-Maintain repeatable setup, startup, shutdown, and verification commands in the project's existing usage documentation, following [project knowledge conventions](../SKILL.md#project-knowledge-conventions). Report the actual startup and verification results and any missing prerequisites. Once the application runs, use the debugging and testing guidance below to investigate faults and verify changes.
+Maintain repeatable setup, startup, shutdown, and verification commands in the project's existing usage documentation, following [project knowledge conventions](project-knowledge.md). Report the actual startup and verification results and any missing prerequisites. Once the application runs, use the debugging and testing guidance below to investigate faults and verify changes.
 
 ## Implementation and refactoring
 
@@ -67,6 +67,6 @@ The original plugin depends on Claude Code agents, model selection, and GitHub t
 ## Documentation maintenance
 
 <!-- skill: addyosmani/agent-skills@documentation-and-adrs -->
-- **documentation-and-adrs**: [Source](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md). Maintain README, API documentation, known limitations, cautions, and decision rationale, emphasizing reasons, tradeoffs, and applicability. Supports existing ADR conventions; organize all persistent documents according to [project knowledge conventions](../SKILL.md#project-knowledge-conventions), updating existing documents together with other engineering skills.
+- **documentation-and-adrs**: [Source](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md). Maintain README, API documentation, known limitations, cautions, and decision rationale, emphasizing reasons, tradeoffs, and applicability. Supports existing ADR conventions; organize all persistent documents according to [project knowledge conventions](project-knowledge.md), updating existing documents together with other engineering skills.
 
 Report results according to checks actually run. Implement test patterns as test code in the project; update related documents when behavior, interfaces, or operating methods change. Write reusable limitations and cautions into the corresponding topic; report or archive temporary review, investigation, and failed attempts according to task needs.

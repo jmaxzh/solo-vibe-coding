@@ -8,7 +8,7 @@
 | 现有代码难改、模块耦合、确定重构优先级 | improve-codebase-architecture |
 | 实际实现和重构时的纪律与验证 | [开发与质量中的 UB Mode](development.md#实现与重构) |
 
-业务概念和需求范围不明确时按需引用[需求与沟通](requirements.md)。架构说明、功能技术约束和 ADR 遵循[根技能的知识库规范](../SKILL.md#项目知识库规范)。
+业务概念和需求范围不明确时按需引用[需求与沟通](requirements.md)。架构说明、功能技术约束和 ADR 遵循[项目知识库规范](project-knowledge.md)。
 
 ## 默认技术栈
 

@@ -8,7 +8,7 @@ Use for new feature design, technology selection, proposal comparisons, and diag
 | Existing code is hard to change, module coupling, identifying refactoring priorities | improve-codebase-architecture |
 | Discipline and verification during implementation and refactoring | [UB Mode in development and quality](development.md#implementation-and-refactoring) |
 
-When business concepts or requirements scope are unclear, reference [requirements and communication](requirements.md) as needed. Architecture documentation, feature-level technical constraints, and ADRs follow the [root skill's knowledge conventions](../SKILL.md#project-knowledge-conventions).
+When business concepts or requirements scope are unclear, reference [requirements and communication](requirements.md) as needed. Architecture documentation, feature-level technical constraints, and ADRs follow the [project knowledge conventions](project-knowledge.md).
 
 ## Default technology stack
 

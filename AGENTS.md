@@ -11,5 +11,7 @@
 
 ## Skill maintenance
 
+- **Structure:** Follow Barbara Minto's Pyramid Principle when maintaining this skill: lead with the conclusion, have each higher-level idea summarize those below it, group related ideas by a consistent criterion, and arrange them in logical order.
+- **Change evaluation:** After every modification, compare the before and after versions across relevant dimensions and assess regressions. Ensure the change is a Pareto improvement: at least one dimension clearly improves, and no other relevant dimension deteriorates.
 - This repository provides the single `solo-vibe-coding` skill. The default English package is in `skills/solo-vibe-coding/`; its Chinese counterpart mirrors the same structure in `i18n/zh-CN/skills/solo-vibe-coding/`.
 - Keep both language versions aligned. Translate content faithfully, preserving capabilities, defaults, requirements, boundaries, source links, and structure. Change skill behavior only when requested; keep publishing instructions in the repository README files.

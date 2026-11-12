@@ -38,4 +38,4 @@
 <!-- skill: samber/cc-skills-golang@golang-continuous-integration -->
 - **golang-continuous-integration**：[原文](https://github.com/samber/cc-skills-golang/blob/main/skills/golang-continuous-integration/SKILL.md)，[技能页](https://skills.sh/samber/cc-skills-golang/golang-continuous-integration)。Go 项目配置 GitHub Actions 时，优先用本项落实测试、竞态、lint、漏洞扫描和构建；通用 ci-cd-and-automation 用于其他栈或平台及本项未覆盖的问题。工作流共用同一本地检查入口与标准，工具版本按 `go.mod`、现有配置及当前兼容性确定。按需读取上游 `assets/` 模板；GoReleaser、Codecov、依赖机器人和自动评审仅在项目需要时接入，代码评审仍沿用[既有入口](development.md#代码评审与调试)。
 
-指标指导负责定义项目标准，CI 指导负责执行与阻断；实现过程遵循[开发与质量](development.md)，文档归位遵循[根技能的知识库规范](../SKILL.md#项目知识库规范)。
+指标指导负责定义项目标准，CI 指导负责执行与阻断；实现过程遵循[开发与质量](development.md)，文档归位遵循[项目知识库规范](project-knowledge.md)。

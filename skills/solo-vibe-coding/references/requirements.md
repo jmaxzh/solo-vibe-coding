@@ -10,7 +10,7 @@ Use for discussing problems, understanding user feedback, exploring solutions, c
 | Organize a feature into goals, scope, behavior, and acceptance criteria | write-spec |
 | Conflicting terms or unclear business concepts and relationships | domain-modeling |
 
-Requirements confirmation establishes shared understanding and remaining uncertainty; the current task determines the discussion method. Maintain requirements and terminology according to the [root skill's knowledge conventions](../SKILL.md#project-knowledge-conventions). Reference [architecture and technical design](architecture.md) for technical feasibility and system constraints.
+Requirements confirmation establishes shared understanding and remaining uncertainty; the current task determines the discussion method. Maintain requirements and terminology according to the [project knowledge conventions](project-knowledge.md). Reference [architecture and technical design](architecture.md) for technical feasibility and system constraints.
 
 ## Available skills
 

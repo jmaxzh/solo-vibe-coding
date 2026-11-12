@@ -60,7 +60,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 保持统一视觉风格，按各平台调整构图与节奏，交付素材与可编辑源文件。
 ```
 
-[技能入口](skills/solo-vibe-coding/SKILL.md) 按任务指向八类参考。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
+[技能入口](skills/solo-vibe-coding/SKILL.md) 指向六类任务主入口和技术、质量两类专项参考，并提供远程读取与项目知识库的共用规范。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
 
 ## 语言与目录
 
@@ -72,7 +72,7 @@ LICENSE                                MIT 许可证
 skills/solo-vibe-coding/                默认英文技能包
   SKILL.md                             技能入口
   agents/openai.yaml                   宿主界面元数据
-  references/                          八类参考
+  references/                          任务、专项与共用规范参考
   LICENSE.txt                          随技能包提供的许可证
 i18n/zh-CN/AGENTS.md                    中文仓库指令
 i18n/zh-CN/skills/solo-vibe-coding/      结构对应的中文技能
