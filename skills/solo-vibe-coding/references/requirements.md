@@ -8,6 +8,7 @@ Use for discussing problems, understanding user feedback, exploring solutions, c
 | Explore problems, compare solutions, test assumptions | product-brainstorming |
 | Slice an MVP around a complete user journey, separating first-release essentials from deferred capabilities | user-story-mapping |
 | Organize a feature into goals, scope, behavior, and acceptance criteria | write-spec |
+| Review requirements and specs before implementation to uncover omitted key decisions and implicit assumptions, aligning implementation expectations through questioning | grill-with-docs |
 | Conflicting terms or unclear business concepts and relationships | domain-modeling |
 
 Requirements confirmation establishes shared understanding and remaining uncertainty; the current task determines the discussion method. Maintain requirements and terminology according to the [project knowledge conventions](project-knowledge.md). Reference [architecture and technical design](architecture.md) for technical feasibility and system constraints.
@@ -22,6 +23,9 @@ Requirements confirmation establishes shared understanding and remaining uncerta
 
 <!-- skill: anthropics/knowledge-work-plugins@product-brainstorming -->
 - **product-brainstorming**: [Source](https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/product-brainstorming/SKILL.md). Explore problems, generate solutions, and challenge assumptions within the existing product direction. Provides first principles, JTBD, opportunity trees, SCAMPER, and other thinking tools; the original includes divergent/convergent session structure and solution-count requirements. Select methods according to the actual exploration need, then move confirmed conclusions into the feature spec.
+
+<!-- skill: mattpocock/skills@grill-with-docs -->
+- **grill-with-docs**: [Source](https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md), [Skill page](https://skills.sh/mattpocock/skills/grill-with-docs). Proactively review existing requirements and specs before implementation to uncover omitted key decisions and implicit assumptions that could change the result, aligning implementation expectations through questioning and concrete scenarios. The entry invokes [grilling](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) and domain-modeling listed on this page; read both dependencies from the same repository and version, reusing original instructions already read.
 
 <!-- skill: mattpocock/skills@domain-modeling -->
 - **domain-modeling**: [Source](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md). Clarify terminology, business concepts, and relationships, testing understanding against concrete scenarios and existing code. The original actively questions vague or contradictory concepts and immediately updates the glossary; use for tasks that actually require domain-model changes. Maintain vocabulary and necessary ADRs according to project conventions; merely reusing existing terms does not require a domain-modeling discussion.

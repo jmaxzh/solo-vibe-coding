@@ -8,6 +8,7 @@ Use for local environment setup and debugging preparation, implementing changes,
 | Set up a local environment, start dependency services, initialize data, and prepare debugging | [Local environment and debugging preparation](#local-environment-and-debugging-preparation); docker-patterns for containerized services |
 | Implement a defined feature or change, behavior-preserving refactoring | UB Mode leads engineering discipline; Ponytail supports simplification and reuse |
 | Review concrete bugs and project-rule violations in changes | code-review from claude-plugins-official; the original targets GitHub PRs |
+| Review excessive implementation, overengineering, or opportunities to reduce code | ponytail-review |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
 | Default-stack implementation, performance, security, data access, operations | [Technology-specific guidance](technology-stack.md) |
 | JS/TS async, mock, component, and API tests | javascript-testing-patterns |
@@ -34,7 +35,7 @@ Maintain repeatable setup, startup, shutdown, and verification commands in the p
 - **UB Mode**: [Source](https://github.com/unclebob/ub-mode/blob/master/SKILL.md). Primary engineering discipline: make behavior correct before improving structure; use failing tests to drive minimal implementation, test public behavior, establish behavior before refactoring, and verify after changes. Organize code using domain data structures, boundary validation, type constraints, idempotence, and shared-state management. When tests are impractical, explain why and use effective alternative verification rather than tests that merely confirm their own implementation.
 
 <!-- skill: DietrichGebert/ponytail@ponytail -->
-- **Ponytail**: [Source](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md). Supports selecting the smallest complete implementation: consider existing project capabilities, then standard library or platform features, then installed dependencies, before writing the minimum necessary code. Check callers, tests, configuration, and exports while preserving error handling, security, and project conventions.
+- **Ponytail**: [Source](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md). Choose the smallest complete implementation and shortest working diff that meet requirements and project quality standards. Prefer existing project capabilities, then standard library or platform features, then installed dependencies, before new code. Check affected callers, tests, configuration, and exports; preserve error handling, security, and conventions.
 
 UB Mode leads verification and engineering discipline; Ponytail focuses on reuse and simplification, without lowering project quality standards for a short diff or small self-test. For an explicit architectural refactor, adjust structure according to the selected proposal, with scope and behavior defined by requirements and acceptance criteria. Upstream modes apply within the current task and user choices.
 
@@ -42,10 +43,15 @@ First check whether UB Mode's `crapper`, `dryer`, and `mutator` tools are actual
 
 ## Code review and debugging
 
-<!-- plugin: anthropics/claude-plugins-official@code-review -->
-- **code-review plugin**: [Source](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md). The shared code-review entry point. The original uses GitHub PR context, independent multi-agent review, and issue verification, focusing on concrete bugs and applicable `CLAUDE.md` rule violations while filtering general style, maintainability, and coverage suggestions; engineering discipline and automated checks handle these routine quality concerns. Report in the terminal by default; posting GitHub comments follows user authorization.
+Before delivering implementation changes, use ponytail-review to compare the final diff with the requirements, agreed proposal, and acceptance criteria: unrequested changes, lines added/removed, and implementation necessity. Review earlier if growth appears. Scale depth to the task. Reuse conclusions only for unchanged requirements, code, and context; review new or affected changes.
 
-The original plugin depends on Claude Code agents, model selection, and GitHub tools. Use it when installed and its capabilities are available; remotely reading its command does not install the plugin. Without a PR, on another host, or without the required tools, read actual files and diffs and complete the feasible review using the same high-confidence issue standard. State scope and verification not performed, without claiming the full plugin workflow ran. Applicable project rules come from the actual host instructions and existing documents.
+<!-- skill: DietrichGebert/ponytail@ponytail-review -->
+- **ponytail-review**: [Source](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md). Read the diff and connected code; apply its Lean checks and verify findings. Cite locations, give concrete smaller complete alternatives, and justify estimated removable lines. Preserve required behavior, correctness, safety, and necessary verification. Read-only review; fixes follow task authorization. Feature acceptance stays separate.
+
+<!-- plugin: anthropics/claude-plugins-official@code-review -->
+- **code-review plugin**: [Source](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md). Concrete bugs and applicable project-rule violations, using independent agents and issue validation. Follow upstream filters for general style, maintainability, and coverage; these apply only to its findings. Engineering discipline and automated checks retain those standards. Default to terminal reports; GitHub comments require user authorization.
+
+Use the installed plugin with its GitHub PR context, Claude Code agents and model selection, and GitHub tools. Without these, review files and diffs under actual host/project rules using the same high-confidence standard; report scope and checks not run. Remote reading does not install the plugin or constitute a full plugin run.
 
 <!-- skill: wshobson/agents@debugging-strategies -->
 - **debugging-strategies**: [Source](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md). Methods for reproduction, evidence collection, hypothesis testing, difference comparison, Git bisect, tracing, performance, and memory investigation. The original has a four-stage framework; choose relevant methods from fault evidence. Read `references/tools-and-techniques.md` for tool selection and advanced techniques. Use actual errors, logs, environment, and change information, distinguishing verified root causes from unverified hypotheses.

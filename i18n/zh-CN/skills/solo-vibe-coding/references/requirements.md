@@ -8,6 +8,7 @@
 | 探索问题、比较解法、检验假设 | product-brainstorming |
 | 围绕完整用户路径切分 MVP，区分首版必需与后置能力 | user-story-mapping |
 | 将功能整理为目标、范围、行为与验收条件 | write-spec |
+| 执行前审查需求与 spec，发现遗漏的关键决策和隐含假设，通过追问对齐实现预期 | grill-with-docs |
 | 术语冲突、业务概念与关系不清 | domain-modeling |
 
 需求确认用于明确共识和剩余不确定性，讨论方式由当前任务决定。需求与术语按 [项目知识库规范](project-knowledge.md) 维护；涉及技术可行性与系统约束时引用 [架构与技术设计](architecture.md)。
@@ -22,6 +23,9 @@
 
 <!-- skill: anthropics/knowledge-work-plugins@product-brainstorming -->
 - **product-brainstorming**：[原文](https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/product-brainstorming/SKILL.md)。在既有产品方向内探索问题、生成解法、挑战假设。提供第一性原理、JTBD、机会树、SCAMPER 等思考工具；原版有发散与收敛的会话结构及方案数量要求。按当前探索需要选择方法，确认的结论再进入功能 spec。
+
+<!-- skill: mattpocock/skills@grill-with-docs -->
+- **grill-with-docs**：[原文](https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md)，[技能页](https://skills.sh/mattpocock/skills/grill-with-docs)。在实现前主动审查已有需求与 spec，发现会改变实现结果的关键决策遗漏和隐含假设，通过追问与具体场景对齐实现预期。入口调用 [grilling](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) 和本页已有的 domain-modeling；按同仓库同版本读取这两项依赖，复用已读原文。
 
 <!-- skill: mattpocock/skills@domain-modeling -->
 - **domain-modeling**：[原文](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md)。澄清术语、业务概念与关系，用具体场景和现有代码检验理解。原版会主动追问含糊或矛盾的概念并即时更新术语表；适合确需调整领域模型的任务。按项目约定维护词汇与必要 ADR，单纯复用已有术语无需启动领域建模讨论。

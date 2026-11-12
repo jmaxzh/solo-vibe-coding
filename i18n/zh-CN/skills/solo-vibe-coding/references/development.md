@@ -8,6 +8,7 @@
 | 搭建本地环境、启动依赖服务、初始化数据与准备调试 | [本地环境与调试准备](#本地环境与调试准备)；容器化服务使用 docker-patterns |
 | 实现明确的功能或修改、行为保持的重构 | UB Mode 主导工程纪律，Ponytail 辅助简化与复用 |
 | 评审变更中的明确 bug 与项目规则违规 | claude-plugins-official 的 code-review；原版面向 GitHub PR |
+| 检查实现是否过重、存在过度设计或可减少的代码 | ponytail-review |
 | 错误、异常行为、性能或偶发故障 | debugging-strategies |
 | 默认技术栈的实现、性能、安全、数据访问与运行 | [技术栈专项](technology-stack.md) |
 | JS/TS 的异步、Mock、组件与接口测试 | javascript-testing-patterns |
@@ -34,7 +35,7 @@
 - **UB Mode**：[原文](https://github.com/unclebob/ub-mode/blob/master/SKILL.md)。主要工程纪律：先使行为正确，再改善结构；以失败测试驱动最小实现，测试公开行为，重构前固定行为并在修改后验证。结合领域数据结构、入口校验、类型约束、幂等与共享状态管理组织代码。测试不可行时说明原因并使用有效的替代验证，不写自证测试。
 
 <!-- skill: DietrichGebert/ponytail@ponytail -->
-- **Ponytail**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md)。辅助选择最小完整实现，依次考虑现有项目能力、标准库或平台、已安装依赖，再写最少必要代码；检查调用方、测试、配置和导出，保留错误处理、安全与项目约定。
+- **Ponytail**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md)。在完整满足需求和项目质量标准的前提下，选择最小完整实现和最短有效 diff。优先采用现有项目能力，其次标准库或平台能力，再考虑已安装依赖，最后编写新代码。检查受影响的调用方、测试、配置与导出，保留错误处理、安全和项目约定。
 
 UB Mode 主导验证与工程纪律，Ponytail 专注复用和简化，不以短 diff 或小自测降低项目质量标准。明确的架构重构按已选方案调整结构，范围和行为由需求及验收条件界定。上游模式的作用范围服从当前任务与用户选择。
 
@@ -42,10 +43,15 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 
 ## 代码评审与调试
 
-<!-- plugin: anthropics/claude-plugins-official@code-review -->
-- **code-review 插件**：[原文](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md)。统一代码评审入口。原版使用 GitHub PR 上下文、多代理独立审查与问题复核，侧重明确 bug 和适用 `CLAUDE.md` 规则违规，过滤一般风格、维护性与覆盖率建议；这些日常质量要求由工程纪律及自动检查承担。默认在终端报告，向 GitHub 发布评论按用户授权执行。
+实现变更交付前，使用 ponytail-review 对照需求、已确认方案和验收条件审查最终 diff，覆盖需求外改动、增删行数与实现必要性。出现膨胀迹象时提前审查，深度与任务规模匹配。只复用需求、代码和上下文未变部分的结论，补查新增或受影响部分。
 
-插件原版依赖 Claude Code 的代理、模型选择和 GitHub 工具。已安装且能力可用时使用插件；本指南远程读取命令并不等于安装插件。没有 PR、使用其他宿主或缺少相应工具时，读取真实文件与 diff，按同样的高置信问题标准完成可执行的评审，说明范围和未执行的复核，不声称运行了完整插件流程。项目规则以实际宿主指令及已有文档为准。
+<!-- skill: DietrichGebert/ponytail@ponytail-review -->
+- **ponytail-review**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md)。先读 diff 与关联代码，再按原文核实 Lean 精简发现并定位。报告更小完整方案及有依据的预计可减少行数，保留所需行为、正确性、安全与必要验证。审查只读，修复按任务授权执行；功能验收仍单独完成。
+
+<!-- plugin: anthropics/claude-plugins-official@code-review -->
+- **code-review 插件**：[原文](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md)。通过独立代理与问题复核检查明确 bug 和适用的项目规则违规，按原文过滤一般风格、维护性与覆盖率建议；这些过滤仅适用于本项，日常质量标准仍由工程纪律与自动检查承担。默认终端报告，GitHub 评论需用户授权。
+
+已安装插件且具备其 GitHub PR 上下文、Claude Code 代理与模型选择、GitHub 工具时使用；否则依据实际宿主与项目规则，读取文件和 diff，按相同高置信标准审查，说明范围与未执行的检查。远程读取不等于安装插件或运行完整插件流程。
 
 <!-- skill: wshobson/agents@debugging-strategies -->
 - **debugging-strategies**：[原文](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md)。提供复现、收集证据、假设验证、差异比较、Git bisect、追踪、性能与内存排查方法。原版有四阶段框架，按故障证据选择相关方法；工具选择与高级技巧可读其 `references/tools-and-techniques.md`。依赖实际错误、日志、环境与变更信息，区分已经验证的根因和待验证推测。
