@@ -22,7 +22,7 @@ Choose the main entry point by the result to achieve; combine other topics as ne
 | Discussing problems and solutions, understanding feedback, clarifying business terms, slicing an MVP, defining feature scope and acceptance criteria, maintaining requirements | [Requirements and communication](references/requirements.md) |
 | System structure, technology selection, module and data boundaries, scaling, architectural patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) |
 | Local environment setup and debugging preparation, implementation, code review, troubleshooting, testing, verification, and related usage documentation | [Development and quality](references/development.md) |
-| Production configuration, application packaging, single-VPS deployment, release verification, and rollback | [Production deployment and release](references/deployment.md) |
+| Production configuration, application packaging, Cloudflare frontend and single-VPS backend deployment, release verification, and rollback | [Production deployment and release](references/deployment.md) |
 
 ### Add guidance for technology and quality needs
 
@@ -31,7 +31,7 @@ Add technology guidance for implementation methods and quality guidance for the 
 | Current problem | Reference |
 | --- | --- |
 | Implementation, performance, and runtime issues in React, Next.js, Tauri/Rust, Go/Gin, MySQL, and React Native | [Technology-specific guidance](references/technology-stack.md) |
-| Defining project quality criteria, establishing check tools and CI, or configuring local automated checks | [Quality criteria and automated checks](references/quality-and-ci.md) |
+| Defining project quality criteria, establishing check tools and GitHub Actions with designated self-hosted runners, or configuring local automated checks | [Quality criteria and automated checks](references/quality-and-ci.md) |
 
 Choose the most relevant specialist guidance, adding capabilities that address independent gaps when necessary. Read skills and assets on demand rather than loading every candidate listed in the same topic.
 

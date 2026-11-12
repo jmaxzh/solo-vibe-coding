@@ -22,7 +22,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 讨论问题与解法、理解反馈、澄清业务术语、MVP 切分、确定功能范围和验收条件、维护需求文档 | [需求与沟通](references/requirements.md) |
 | 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束与决策记录 | [架构与技术设计](references/architecture.md) |
 | 本地环境搭建与调试准备、代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
-| 生产配置、应用打包、单台 VPS 部署、发布验证和回滚 | [生产部署与发布](references/deployment.md) |
+| 生产配置、应用打包、Cloudflare 前端与单台 VPS 后端部署、发布验证和回滚 | [生产部署与发布](references/deployment.md) |
 
 ### 按技术与质量需求补充指导
 
@@ -31,7 +31,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 当前问题 | 参考文档 |
 | --- | --- |
 | React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |
-| 确定项目质量指标、建立检查工具与 CI，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
+| 确定项目质量指标、建立检查工具与使用指定自托管 Runner 的 GitHub Actions，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
 
 选择最贴合任务的专业指导，必要时搭配解决独立缺口的能力。技能与素材按需读取，不因同一范畴收录了多个候选就全部加载。
 
