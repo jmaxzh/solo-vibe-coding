@@ -46,7 +46,7 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 实现变更交付前，使用 ponytail-review 对照需求、已确认方案和验收条件审查最终 diff，覆盖需求外改动、增删行数与实现必要性。出现膨胀迹象时提前审查，深度与任务规模匹配。只复用需求、代码和上下文未变部分的结论，补查新增或受影响部分。
 
 <!-- skill: DietrichGebert/ponytail@ponytail-review -->
-- **ponytail-review**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md)。先读 diff 与关联代码，再按原文核实 Lean 精简发现并定位。报告更小完整方案及有依据的预计可减少行数，保留所需行为、正确性、安全与必要验证。审查只读，修复按任务授权执行；功能验收仍单独完成。
+- **ponytail-review**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md)。先读 diff 与关联代码，再按原文核实 Lean 精简发现。有经核实的精简机会时，定位问题、报告更小完整方案及有依据的预计可减少行数；无发现时简短报告。保留所需行为、正确性、安全与必要验证。审查只读，修复按任务授权执行；功能验收仍单独完成。
 
 <!-- plugin: anthropics/claude-plugins-official@code-review -->
 - **code-review 插件**：[原文](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md)。通过独立代理与问题复核检查明确 bug 和适用的项目规则违规，按原文过滤一般风格、维护性与覆盖率建议；这些过滤仅适用于本项，日常质量标准仍由工程纪律与自动检查承担。默认终端报告，GitHub 评论需用户授权。

@@ -7,7 +7,7 @@
 代码托管与 CI/CD 优先使用 GitHub 和 GitHub Actions。默认在用户指定的 Windows 机器、Mac 或 VPS 上使用自托管 Runner；保留项目明确的托管要求。上游工作流模板及每个任务（包括可复用工作流）均按这一选择适配。
 
 - **目标与环境**：按 GitHub 的 [Runner 安装指导](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)和 [Runner 参考](https://docs.github.com/en/actions/reference/runners/self-hosted-runners)操作。通过 `runs-on` 标签或组匹配指定主机、操作系统和架构；必须使用特定机器时，使用该主机专属标签。核对连通性、在线状态、必要工具、Shell 和启动方式。Docker 容器 Action 与服务容器需要安装 Docker 的 Linux Runner。Runner 主机与应用部署目标分别选择。
-- **成本**：只有当前[计费条件](https://docs.github.com/en/actions/concepts/billing-and-usage)确认所选 Runner 与仓库组合完全免费时，才使用 GitHub 托管 Runner，例如公开仓库的标准 Runner。私有仓库的有限赠送额度不视为无条件免费服务。制品与缓存存储成本单独核对；自托管机器仍有自身运行成本。指定 Runner 不可用时报告排队或环境缺口，不静默切换到付费 Runner。
+- **成本**：只有当前[计费条件](https://docs.github.com/en/actions/concepts/billing-and-usage)确认所选 Runner 与仓库组合完全免费时，才使用 GitHub 托管 Runner，例如公开仓库的标准 Runner。私有仓库的有限赠送额度不视为无条件免费服务。制品与缓存存储成本单独核对；自托管机器仍有自身运行成本。指定 Runner 不可用时报告排队或环境缺口，不静默切换到付费 Runner。已有配置与这些约束冲突时，说明冲突，按当前任务要求处理，不自行更换执行环境或扩大费用授权。
 - **执行边界**：不可信 PR 代码与拥有生产访问权限或部署凭据的持久主机隔离；这类任务选择适当隔离的 Runner 或经核实免费的托管 Runner。部署凭据仅提供给可信发布任务。
 
 ## 建设顺序与交付
