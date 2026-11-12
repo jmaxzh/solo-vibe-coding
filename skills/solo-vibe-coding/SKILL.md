@@ -38,6 +38,7 @@ Choose the most relevant specialist guidance, adding capabilities that address i
 ## Apply guidance to project conditions
 
 - Provide advice, review, or implementation according to the current request, retaining known product facts, brand, aesthetics, technology stack, and code. Fill only information gaps that affect the task.
+- For any requirement, reuse existing work first. For new implementation, prefer suitable, mature open-source foundations, frameworks, components, or templates, writing custom code only for gaps they cannot reasonably cover. When research is needed, use [search-first](https://github.com/affaan-m/ecc/blob/main/skills/search-first/SKILL.md) to assess fit, maintenance, licensing, compatibility, and total cost; scale research to the task and reuse conclusions that remain valid.
 - Adapt upstream default steps, templates, and quantity requirements to user requirements and project conditions. The model chooses professional judgments, methods, and combinations according to the actual task. Style preferences follow the user's and project's existing choices.
 
 ### Engineering project priorities
