@@ -31,6 +31,17 @@
 
 本地保存桌面首页、手机中文首页、桌面示例与手机中文上手页。核对成果是否成为首屏主角、用户目标是否直观、手机操作与长需求是否可读。截图不等于目标用户可用性实验。
 
-## 待补证据
+## 发布证据
 
-本轮独立评审结论、Linux CI和公开HTTP在执行后追加。没有真实目标用户试用、助手端从空项目完成制作的独立评估、搜索平台账号验证、真实用户性能、排名或AI引用数据；不把工程通过写成这些结果已经通过。
+- 官网发布提交：`d6184eadc18e23304aa2f63d84a3e233a0fcac84`，与基线之间的diff为本轮实现。
+- [本轮GitHub Actions](https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43381221238) 成功；Ubuntu标准runner使用Node24.22.2，类型/构建/产物检查通过，匹配的Chromium运行22项检查全部通过（14.0秒），随后部署成功。记录见 [ci-run.json](ci-run.json) 与 [ci-summary.txt](ci-summary.txt)。
+- 公开地址：[英文首页](https://jmaxzh.github.io/solo-vibe-coding/)、[中文首页](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/)、[中文实际示例](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/)。
+- 全部27个公开文件（构建中的`.nojekyll`不作为HTTP资源请求）均返回200，SHA256与本地最终产物逐个一致，包括13个HTML、脚本、样式、字体、许可、分享图与sitemap。未知路径返回自定义404且含有效首页入口；域根robots.txt返回404，未将项目目录文件误当根规则。见 [production-check.json](production-check.json)。
+- 公网Chrome核对双语首页、可操作示例、手机宽度、维护直链边界、完整首次需求、CLI入门入口、两组金额中点、真实CSV/BOM及同一示例语言切换；无页面异常或失败响应。见 [production-browser.json](production-browser.json)。四张截图已从公网刷新，本地预览服务器已停止。
+- 独立评审先判断、后读取自评；交付前结论与发布后复核在 [review.md](review.md) 保存。
+
+发布后的证据补充仅修改研究档案，不更改部署源码；此类提交按既有工作流不触发重新发布。
+
+## 仍未验证
+
+没有真实目标用户试用、助手端从空项目完成制作的独立评估、搜索平台账号验证、真实用户性能、排名或AI引用数据；不把工程与发布通过写成这些结果已经通过。

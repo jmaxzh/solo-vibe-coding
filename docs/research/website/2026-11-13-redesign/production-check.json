@@ -1,0 +1,206 @@
+{
+  "checked_at_utc": "2026-11-13T06:50:59.225644+00:00",
+  "release_commit": "d6184eadc18e23304aa2f63d84a3e233a0fcac84",
+  "workflow_url": "https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43381221238",
+  "base_url": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "files": [
+    {
+      "path": "404.html",
+      "status": 200,
+      "bytes": 3691,
+      "sha256": "b4639f5d29fd83563a964842c4ae9025615c8708a283a65ea1bcedc878e1eafe",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.CnYUepZ6.css",
+      "status": 200,
+      "bytes": 20092,
+      "sha256": "6ed5e3fb6fd94873bc9b68fb9db0a7973db229251ff98908ea616441a8f2a763",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.D6mIYlvl.js",
+      "status": 200,
+      "bytes": 821,
+      "sha256": "1746ae7d9cbe144220c4ef7edbf092975c7a41a17968fe0538d2b412fcf1fcc2",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "status": 200,
+      "bytes": 9601,
+      "sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.CvHOgSBP.woff",
+      "status": 200,
+      "bytes": 13144,
+      "sha256": "328d50b6ece9ca25c46eea3e885ba497f6237f2fb84ef7b92f88e14a1a25e381",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "bytes": 24836,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/first-public-build/",
+      "status": 200,
+      "bytes": 7919,
+      "sha256": "f27598df92982b01e0572fc06e2b56053c43465a26b85f14a23617aee744527b",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/",
+      "status": 200,
+      "bytes": 5505,
+      "sha256": "19ac43de4b62a8d1e3b8894fe7b70d20dad0b66ab5609076ad128350fe8d26e4",
+      "matches_local_build": true
+    },
+    {
+      "path": "examples/quote-calculator/",
+      "status": 200,
+      "bytes": 10825,
+      "sha256": "38af77fb4eb52ddeae6ac9d89b5d5943a205506885df06bb9774a9837d4a7db2",
+      "matches_local_build": true
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "bytes": 266,
+      "sha256": "9b348e21730bab28c90c254ceea33a75bcba6a3edf16d10df86160b7eb34c8e4",
+      "matches_local_build": true
+    },
+    {
+      "path": "getting-started/",
+      "status": 200,
+      "bytes": 14061,
+      "sha256": "b997ef7da391498b46c6217010b2338ee93f306f0843a5f29673c16b28a5cbd9",
+      "matches_local_build": true
+    },
+    {
+      "path": "guides/",
+      "status": 200,
+      "bytes": 14532,
+      "sha256": "68604c2d227faf8c7fd5076d73cb83840cc5cf253e1eaab9cfc7aeb3d8d23417",
+      "matches_local_build": true
+    },
+    {
+      "path": "",
+      "status": 200,
+      "bytes": 16449,
+      "sha256": "3fe328fa309818bc2188e99396b8e8111a1805d30828f64c7ede580d1d3e254e",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/big-js-MIT.txt",
+      "status": 200,
+      "bytes": 1120,
+      "sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/ibm-plex-mono-OFL.txt",
+      "status": 200,
+      "bytes": 5299,
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/manrope-OFL.txt",
+      "status": 200,
+      "bytes": 4383,
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-0.xml",
+      "status": 200,
+      "bytes": 1314,
+      "sha256": "08f39d94f68d9023401ab00e3c3301c4185cf7b10888debf40fd19ad530e4fc9",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-index.xml",
+      "status": 200,
+      "bytes": 204,
+      "sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.png",
+      "status": 200,
+      "bytes": 55611,
+      "sha256": "86914dfb216399abef367c59fbb916ec0a3c871c82d350437469bca9faeb580a",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.svg",
+      "status": 200,
+      "bytes": 1308,
+      "sha256": "8ae1b173c4c8b649de9b885e0e960eb63e8598d7700c54cfa2c36ce6232c4e64",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/first-public-build/",
+      "status": 200,
+      "bytes": 7862,
+      "sha256": "7a4a6734e3a81d83ee48cadce65245b25e33e0811c8915c836a9710344d92ea1",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/",
+      "status": 200,
+      "bytes": 5599,
+      "sha256": "e918653f2181e3cd7501b8092125b60519f7419e94c96ee842a35ac04563c8ac",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/examples/quote-calculator/",
+      "status": 200,
+      "bytes": 10929,
+      "sha256": "c4b7364045d5b90c9a7977f8e40d4614288c24dc24853e0e955fcee0b2d7db95",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/getting-started/",
+      "status": 200,
+      "bytes": 13958,
+      "sha256": "42d962097800c06ee6be400cce48894a6a5ad40cbe87e9f6614bac68377793a9",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/guides/",
+      "status": 200,
+      "bytes": 14571,
+      "sha256": "719f3b1d4c018756ebea6a9ca2690f473ae6f17a0b27519e3f8d77ef9ec0e1a4",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/",
+      "status": 200,
+      "bytes": 16603,
+      "sha256": "672bdeffb930e379e7e23d06d6507dd0bdc462adc06f390ca558d99f0757ba56",
+      "matches_local_build": true
+    }
+  ],
+  "unknown_page": {
+    "status": 404,
+    "custom_page": true,
+    "homepage_link": true
+  },
+  "root_robots": {
+    "status": 404,
+    "body_if_present": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-13T06:50:43.968Z",
+  "baseURL": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "releaseCommit": "d6184eadc18e23304aa2f63d84a3e233a0fcac84",
+  "checks": [
+    "en: homepage, enabled example, viewport, user navigation",
+    "en: first task, CLI setup link, decimal midpoint results, real CSV with BOM, same-example language switch",
+    "zh-CN: homepage, enabled example, viewport, user navigation",
+    "zh-CN: first task, CLI setup link, decimal midpoint results, real CSV with BOM, same-example language switch"
+  ],
+  "pageErrors": [],
+  "failedResponses": []
+}
