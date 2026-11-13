@@ -1,0 +1,20 @@
+{
+  "id": 14085005459,
+  "node_id": "MDg6QXJ0aWZhY3QxNDA4NTAwNTQ1OQ==",
+  "name": "github-pages",
+  "size_in_bytes": 1044181,
+  "url": "https://api.github.com/repos/jmaxzh/solo-vibe-coding/actions/artifacts/14085005459",
+  "archive_download_url": "https://api.github.com/repos/jmaxzh/solo-vibe-coding/actions/artifacts/14085005459/zip",
+  "expired": false,
+  "digest": "sha256:5ab71d693c627bf64d986f8fffb6e14d9cca978d38d90b639ae6d036b20c8632",
+  "created_at": "2026-11-13T23:03:38Z",
+  "updated_at": "2026-11-13T23:03:38Z",
+  "expires_at": "2026-11-14T23:03:37Z",
+  "workflow_run": {
+    "id": 43524039902,
+    "repository_id": 1363779707,
+    "head_repository_id": 1363779707,
+    "head_branch": "main",
+    "head_sha": "2103cfd5551f618e2fb5b440a82275d8c0a553d4"
+  }
+}
