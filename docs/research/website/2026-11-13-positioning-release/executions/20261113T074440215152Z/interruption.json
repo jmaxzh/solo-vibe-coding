@@ -1,0 +1,28 @@
+{
+  "interrupted_at": "2026-11-13T07:59:20.697783+00:00",
+  "execution_id": "20261113T074440215152Z",
+  "original_protocol_commit": "cb154fe",
+  "reason": "Both first-round CLI runs reached 480 seconds after npm-cache permission errors and Chrome sandbox MachPort launch failures. Preserve all observed differences; environment is not asserted to explain all differences. Stop remaining attempts and register a fresh paired cohort with the same environment facts for both conditions.",
+  "first_round": {
+    "01-a": {
+      "timed_out": true,
+      "passed": 9,
+      "total": 9,
+      "usage_available": false
+    },
+    "01-b": {
+      "timed_out": true,
+      "passed": 6,
+      "total": 9,
+      "usage_available": false
+    }
+  },
+  "second_round": {
+    "01-a": "completed normally before cohort interruption: 14/14; 336.89s; CLI usage reported",
+    "01-b": "interrupted, partial source and trace retained"
+  },
+  "remaining_pairs": "See other_started_subjects; all other planned subjects were not started and are not counted as completed.",
+  "other_started_subjects": [
+    "02-b"
+  ]
+}

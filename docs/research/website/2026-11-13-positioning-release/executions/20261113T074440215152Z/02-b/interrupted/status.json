@@ -1,0 +1,9 @@
+[
+  {
+    "round": "round-1",
+    "attempt": "attempt-0",
+    "raw_event_lines": 21,
+    "status": "interrupted after shared environment fault",
+    "usage_available": false
+  }
+]

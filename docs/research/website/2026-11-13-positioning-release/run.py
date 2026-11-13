@@ -1,6 +1,7 @@
 """Execute the pre-registered paired task; raw private CLI events stay in temp storage."""
 from pathlib import Path
 import concurrent.futures
+import argparse
 import datetime
 import hashlib
 import json
@@ -13,7 +14,8 @@ import time
 
 ARCHIVE = Path(__file__).resolve().parent
 REPOSITORY = ARCHIVE.parents[3]
-REGISTRATION = json.loads((ARCHIVE / 'registration.json').read_text())
+REGISTRATION_FILE = ARCHIVE / 'registration.json'
+REGISTRATION = json.loads(REGISTRATION_FILE.read_text())
 TASKS = [
     '给这个收藏工具加一个“导出收藏”按钮，把收藏下载成CSV，包含标题、网址、分类和备注。我会在Windows上用Excel直接打开，中文不要乱码，备注里的逗号、引号和换行也要保留。手机上要能操作。保留现有新增、删除、搜索、分类筛选和已保存的数据。继续用现在的技术与样式，不增加账号或付费服务。请完成修改，告诉我怎么使用。',
     '现在我希望“导出收藏”只下载当前搜索与分类筛选后看到的收藏。没有匹配内容时请清楚提示，不要导出其他收藏。清除筛选以后还能导出全部。保留已有使用方式和已保存的数据。请完成修改，告诉我怎么使用。',
@@ -55,7 +57,10 @@ def execute(project, prompt, log_directory, experiment_root, resume=None):
     started = now()
     started_clock = time.monotonic()
     with (log_directory / 'events.raw.jsonl').open('w') as stdout, (log_directory / 'stderr.raw.txt').open('w') as stderr:
-        process = subprocess.Popen(command, cwd=project, stdin=subprocess.PIPE, stdout=stdout, stderr=stderr, text=True, start_new_session=True)
+        environment = dict(os.environ)
+        if REGISTRATION.get('project_npm_cache'):
+            environment['npm_config_cache'] = str(project / '.npm-cache')
+        process = subprocess.Popen(command, cwd=project, env=environment, stdin=subprocess.PIPE, stdout=stdout, stderr=stderr, text=True, start_new_session=True)
         try:
             process.communicate(prompt, timeout=REGISTRATION['per_attempt_seconds'])
             timed_out = False
@@ -119,7 +124,7 @@ def grade(project, round_number, output):
 
 
 def copy_snapshot(project, destination):
-    shutil.copytree(project, destination, ignore=shutil.ignore_patterns('.git', '.agents', 'node_modules', '.DS_Store', '.cache', 'test-results', 'playwright-report', 'coverage', '.venv', '__pycache__'))
+    shutil.copytree(project, destination, ignore=shutil.ignore_patterns('.git', '.agents', 'node_modules', '.DS_Store', '.cache', '.npm-cache', 'test-results', 'playwright-report', 'coverage', '.venv', '__pycache__'))
 
 
 def run_subject(subject, project, experiment_root, preparation_seconds, execution_archive):
@@ -129,7 +134,7 @@ def run_subject(subject, project, experiment_root, preparation_seconds, executio
     subject_summary = {'subject': subject, 'with_skill': treatment, 'preparation_seconds': preparation_seconds, 'rounds': []}
     for round_number, task in enumerate(TASKS, 1):
         stage_started = time.monotonic()
-        prompt = ('使用 $solo-vibe-coding 完成下面的任务。\n' if treatment else '') + task
+        prompt = REGISTRATION.get('environment_note', '') + ('使用 $solo-vibe-coding 完成下面的任务。\n' if treatment else '') + task
         round_directory = experiment_root / 'logs' / subject / f'round-{round_number}'
         round_archive = archive_subject / f'round-{round_number}'
         attempts = []
@@ -172,11 +177,17 @@ def run_subject(subject, project, experiment_root, preparation_seconds, executio
 
 
 if __name__ == '__main__':
+    arguments = argparse.ArgumentParser()
+    arguments.add_argument('--registration', default='registration.json')
+    options = arguments.parse_args()
+    REGISTRATION_FILE = ARCHIVE / options.registration
+    REGISTRATION = json.loads(REGISTRATION_FILE.read_text())
     experiment_root = Path(tempfile.mkdtemp(prefix='solo-vibe-paired-'))
     print(json.dumps({'experiment_directory': str(experiment_root)}), flush=True)
     execution_id = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     execution_archive = ARCHIVE / 'executions' / execution_id
     execution_archive.mkdir(parents=True)
+    shutil.copy2(REGISTRATION_FILE, execution_archive / 'registration.json')
     subjects = []
     for pair, ordering in enumerate([['a', 'b'], ['b', 'a'], ['a', 'b']], 1):
         for condition in ordering:
@@ -199,7 +210,7 @@ if __name__ == '__main__':
                 results.append(future.result())
             except Exception as error:
                 results.append({'subject': futures[future], 'infrastructure_error': sanitize(f'{type(error).__name__}: {error}', experiment_root)})
-    data = {'execution_id': execution_id, 'completed_at': now(), 'registration_sha256': hashlib.sha256((ARCHIVE / 'registration.json').read_bytes()).hexdigest(), 'subjects': sorted(results, key=lambda item: item['subject'])}
+    data = {'execution_id': execution_id, 'completed_at': now(), 'execution_source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPOSITORY, text=True).strip(), 'registration_sha256': hashlib.sha256(REGISTRATION_FILE.read_bytes()).hexdigest(), 'subjects': sorted(results, key=lambda item: item['subject'])}
     (execution_archive / 'results.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     (ARCHIVE / 'results.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'completed': True, 'subjects': len(results)}), flush=True)

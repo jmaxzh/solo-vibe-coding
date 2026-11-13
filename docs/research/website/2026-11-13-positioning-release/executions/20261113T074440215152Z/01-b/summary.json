@@ -1,0 +1,29 @@
+{
+  "subject": "01-b",
+  "with_skill": true,
+  "preparation_seconds": 0.009762,
+  "rounds": [
+    {
+      "round": 1,
+      "stage_total_seconds": 499.47,
+      "attempts": [
+        {
+          "attempt": 0,
+          "seconds": 480.09,
+          "return_code": -15,
+          "timed_out": true,
+          "usage": [],
+          "usage_available": false,
+          "passed": 6,
+          "total": 9,
+          "failures": [
+            "download-encoding",
+            "csv-fields-and-special-characters",
+            "mobile-layout-and-export"
+          ],
+          "infrastructure_error": null
+        }
+      ]
+    }
+  ]
+}

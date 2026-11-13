@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-13T07:52:59.761Z",
+  "round": 1,
+  "browser": "157.0.8103.51",
+  "checks": [
+    {
+      "id": "saved-data",
+      "passed": true
+    },
+    {
+      "id": "download-encoding",
+      "passed": false,
+      "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+    },
+    {
+      "id": "csv-fields-and-special-characters",
+      "passed": false,
+      "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+    },
+    {
+      "id": "add-and-reload",
+      "passed": true
+    },
+    {
+      "id": "search",
+      "passed": true
+    },
+    {
+      "id": "category-filter",
+      "passed": true
+    },
+    {
+      "id": "delete",
+      "passed": true
+    },
+    {
+      "id": "mobile-layout-and-export",
+      "passed": false,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+    },
+    {
+      "id": "no-script-errors",
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "total": 9,
+  "errors": []
+}

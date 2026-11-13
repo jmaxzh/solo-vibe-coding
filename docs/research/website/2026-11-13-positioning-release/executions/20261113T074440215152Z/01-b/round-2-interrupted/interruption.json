@@ -1,0 +1,114 @@
+[
+  {
+    "attempt": "attempt-0",
+    "commands": [
+      {
+        "command": "/bin/zsh -lc 'cat .agents/skills/solo-vibe-coding/SKILL.md'",
+        "exit_code": 0,
+        "output_sha256": "7cfc9e4651023ad4a72fcf6cf236faa3f346ef27614f53ec4f659e72593f05bf"
+      },
+      {
+        "command": "/bin/zsh -lc 'git status --short && ls -la'",
+        "exit_code": 0,
+        "output_sha256": "7392d8453f8819cfd38aa526e800df83a579bac159ecbdfc503fe28b93c1cf78"
+      },
+      {
+        "command": "/bin/zsh -lc \"pwd && rg --files -g 'AGENTS.md' -g 'package.json' -g '*lock*' -g 'README*' -g '*test*' -g '*spec*' -g '*config*' -g '\"'!node_modules'\"' -g '\"'!vendor'\"' -g '\"'!dist'\"' -g '\"'!build'\"' -g '\"'!package-lock.json'\"' -g '\"'!pnpm-lock.yaml'\"' -g '\"'!yarn.lock'\"'\"",
+        "exit_code": 0,
+        "output_sha256": "51598fce10b06ad26fe4a95e90ea518a3759aa4b68463bf7964c6bc225392d15"
+      },
+      {
+        "command": "/bin/zsh -lc 'cat app.js index.html style.css'",
+        "exit_code": 0,
+        "output_sha256": "aa7bb50f3d783194f59359c07f68dfbb2f8e424ebdd6a80297b81fb266a631c9"
+      },
+      {
+        "command": "/bin/zsh -lc 'cat .agents/skills/solo-vibe-coding/references/development.md .agents/skills/solo-vibe-coding/references/project-knowledge.md .agents/skills/solo-vibe-coding/references/guidance-access.md'",
+        "exit_code": 0,
+        "output_sha256": "021ecfc68acb177242a639d84d4082b1814cbf81e87bec47a3ee90e149f32d1a"
+      },
+      {
+        "command": "/bin/zsh -lc \"cat package.json CONSTRAINTS.md README.md .gitignore tests/app.test.cjs && rg --files -g '\"'!node_modules'\"' -g '\"'!.git'\"' -g '\"'!.agents'\"'\"",
+        "exit_code": 0,
+        "output_sha256": "e98646ef44b28e4a2204435fe6e027ddd120409923c5e69d70adf24a85ac328b"
+      },
+      {
+        "command": "/bin/zsh -lc 'cat .agents/skills/solo-vibe-coding/references/guidance-access.md .agents/skills/solo-vibe-coding/references/quality-and-ci.md'",
+        "exit_code": 0,
+        "output_sha256": "38d97ae7d36a9647dbed0aedaded6ea3facfd902a6d83d0c34a9dd08687b6897"
+      },
+      {
+        "command": "/bin/zsh -lc \"git ls-files && rg --files .agents/skills/solo-vibe-coding -g '*ub*' -g '*ponytail*' -g '*documentation*' && command -v node\"",
+        "exit_code": 1,
+        "output_sha256": "9dd1e1e5e12057fa4bb16f92c5705ba1c6b5d329ca2a97c8db8583c00cfbf0f6"
+      },
+      {
+        "command": "/bin/zsh -lc 'npm run check'",
+        "exit_code": 1,
+        "output_sha256": "d266e8ef96f0d913743d8932800b0624a5e0bb07da3c3ef6e7053bab0f6e3af4"
+      },
+      {
+        "command": "/bin/zsh -lc 'command -v node; command -v playwright; command -v chromium; ls /Applications; ls USER_HOME/Library/Caches/ms-playwright'",
+        "exit_code": 0,
+        "output_sha256": "09fd978d269ea7ef41acebc7d2350c8a59b364bece51ff06bc372f13a909231b"
+      },
+      {
+        "command": "/bin/zsh -lc \"rg -n '导出|export|bookmarks|render|storageKey' app.js index.html README.md CONSTRAINTS.md tests/app.test.cjs\"",
+        "exit_code": 0,
+        "output_sha256": "61abd0c8b5f228289579ecf8991814446e3300ed6b33ff94a9b96ccd655d40d4"
+      },
+      {
+        "command": "/bin/zsh -lc 'node --version && npm root -g && ls node_modules && ls USER_HOME/.npm/_npx'",
+        "exit_code": 0,
+        "output_sha256": "7eef5e13ccbb6257702a776492cccdf8ad320dea139599c7dc55e0f5fc8a7257"
+      },
+      {
+        "command": "/bin/zsh -lc 'npm test'",
+        "exit_code": 1,
+        "output_sha256": "a583b76d9935d5d592713a1d755e3546afc6142a1dd372f6b50a0da39006833f"
+      },
+      {
+        "command": "/bin/zsh -lc 'git diff --check && git diff --stat && git diff -- app.js index.html README.md'",
+        "exit_code": 0,
+        "output_sha256": "cdb57da570e954baab430e6e3f6389b0c01b71fea0c5550b2f4f4c51eb175abf"
+      },
+      {
+        "command": "/bin/zsh -lc \"ls -la node_modules/@playwright && rg --files --hidden --no-ignore USER_HOME/.npm/_npx -g 'package.json' -g '\"'!typescript/**'\"' | rg '/(playwright|playwright-core|@playwright/test)/package.json\"'$'\"'\"",
+        "exit_code": 1,
+        "output_sha256": "66513a6bd79469d29ed6b06f6efcb166263b4e067e1863774efc9c9f65467f44"
+      },
+      {
+        "command": "/bin/zsh -lc 'npm run check'",
+        "exit_code": 0,
+        "output_sha256": "49443032c62f64ee7a01f6fea4c3bad0f76744eaa212236f8cd281ac72b17b5b"
+      },
+      {
+        "command": "/bin/zsh -lc \"python3 - <<'PY'\nimport tempfile\nfrom pathlib import Path\npath = Path(tempfile.mkdtemp(prefix='link-shelf-browser-', dir='/private/tmp'))\nprint(path)\nPY\"",
+        "exit_code": 0,
+        "output_sha256": "bb56700788452f427e37baa5346776a0c5aff316db44b023425b19c009152449"
+      },
+      {
+        "command": "/bin/zsh -lc 'ls USER_HOME/Library/Caches/ms-playwright/chromium_headless_shell-1243 && ls USER_HOME/Library/Caches/ms-playwright/chromium-1243'",
+        "exit_code": 0,
+        "output_sha256": "893b828df168a799c6855e7dc754db8933a5960e14e77f6b7fcc9b3e5069fff8"
+      },
+      {
+        "command": "/bin/zsh -lc 'npm install --prefix /private/tmp/link-shelf-browser-9n7x58d4 --no-package-lock --ignore-scripts playwright-core'",
+        "exit_code": 1,
+        "output_sha256": "400be10c9ea9f8a60dfe95a882d4e61661bc25abe4f59e8872bcb0f36990a8e9"
+      },
+      {
+        "command": "/bin/zsh -lc 'npm install --prefix /private/tmp/link-shelf-browser-9n7x58d4 --cache /private/tmp/link-shelf-browser-9n7x58d4/npm-cache --no-package-lock --ignore-scripts playwright-core'",
+        "exit_code": 0,
+        "output_sha256": "e71f06a0d0d289777b1a0d71858a7128d342ebdd07f9b62fed79ab1907604a77"
+      },
+      {
+        "command": "/bin/zsh -lc 'ls USER_HOME/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64'",
+        "exit_code": 0,
+        "output_sha256": "cbf0c856675de94b1b059627c0e06210667762924bb31c32c926dd26b844718b"
+      }
+    ],
+    "status": "interrupted",
+    "usage_available": false
+  }
+]
