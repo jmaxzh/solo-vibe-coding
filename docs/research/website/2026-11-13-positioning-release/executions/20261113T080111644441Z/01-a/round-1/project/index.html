@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>拾页 · 我的收藏</title><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
+<body><main>
+<header><span class="brand">拾页 / LINK SHELF</span><p>把有用的网页，留给下一次灵感。</p><span class="privacy">只保存在这个浏览器</span></header>
+<div class="layout"><section aria-labelledby="collection-title"><div class="section-title"><h1 id="collection-title">我的收藏</h1><div class="collection-actions"><span id="count"></span><button id="export-bookmarks" class="export" type="button" aria-describedby="export-status">导出收藏</button></div></div>
+<p id="export-status" role="status">导出全部收藏为 CSV，可用 Excel 打开。</p>
+<div class="filters"><label>搜索收藏<input id="search" type="search" placeholder="标题或备注"></label><label>筛选分类<select id="filter" aria-label="筛选分类"><option value="">全部分类</option><option>设计</option><option>开发</option><option>产品</option></select></label></div>
+<div id="list" aria-live="polite"></div></section>
+<section class="new-bookmark" aria-labelledby="add-title"><h2 id="add-title">留下一条好链接</h2><form id="add-form"><label>标题<input id="title" required maxlength="120"></label><label>网址<input id="url" type="url" required placeholder="https://"></label><label>分类<select id="category" aria-label="分类"><option>设计</option><option>开发</option><option>产品</option></select></label><label>备注<textarea id="note" rows="3"></textarea></label><button type="submit">添加收藏</button><p id="status" role="status"></p></form></section></div>
+</main></body></html>

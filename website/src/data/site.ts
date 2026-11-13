@@ -1,5 +1,5 @@
 export type Locale = 'en' | 'zh-CN';
-export type PageName = 'home' | 'getting-started' | 'guides' | 'examples' | 'build-log';
+export type PageName = 'home' | 'getting-started' | 'guides' | 'examples' | 'case-study' | 'build-log';
 
 export const PROJECT = {
   name: 'Solo Vibe Coding',
@@ -14,7 +14,7 @@ export const PROJECT = {
 
 export const PAGE_PATHS: Record<PageName, string> = {
   home: '', 'getting-started': 'getting-started', guides: 'guides',
-  examples: 'examples/quote-calculator', 'build-log': 'build-log',
+  examples: 'examples/quote-calculator', 'case-study': 'case-study/bookmark-export', 'build-log': 'build-log',
 };
 
 export function href(locale: Locale, page = '', hash = '') {
@@ -27,30 +27,25 @@ export const FIRST_PROMPT: Record<Locale, string> = {
 };
 
 const en = {
-  nav: { 'getting-started': 'Get started', guides: 'Ways to use it', examples: 'Try an example', 'build-log': 'Updates', github: 'GitHub' },
+  nav: { 'getting-started': 'Get started', guides: 'Ways to use it', examples: 'Try an example', 'case-study': 'A real task', 'build-log': 'Updates', github: 'GitHub' },
   skip: 'Skip to content', switchLanguage: '切换到中文', language: '中文',
   copy: 'Copy', copied: 'Copied', copyFailed: 'Select and copy the text',
   terminal: 'Terminal', installationCommand: 'Installation command',
-  footer: 'Your ideas deserve a working first version.',
+  footer: 'One skill. Guidance for the work around your code.',
   footerLicense: 'The skill is open source under MIT. Your coding assistant and other services have their own terms.',
   footerSource: 'GitHub', footerTop: 'Back to top',
   hero: {
     context: 'A skill for the AI coding assistant you already use',
-    title: 'Make the thing you have in mind.',
-    description: 'Add Solo Vibe Coding to your AI coding assistant. Turn your idea for a website, tool, or feature into a first version you can open, try, and keep improving.',
-    primary: 'Make your first thing', secondary: 'Try the finished example',
-    note: 'Start with your goal. Work toward something you can use.',
-    request: '“I want a simple tool to estimate a project quote.”',
-    example: 'A working example. Change the numbers and try it.',
+    title: 'Expert methods. One skill for your agent.',
+    description: 'Give your coding assistant reusable guidance for the work around your request: choosing an approach, building on what fits your project, checking the result, and keeping the decisions your next change needs.',
+    primary: 'See a real task', secondary: 'Add it to my agent',
+    note: 'Open source. Works inside the coding assistant you already use.',
+    request: '“Add export to my bookmark tool. Keep what already works.”',
+    example: 'One existing project. Two changes in separate sessions.',
   },
   home: {
-    introTitle: 'You bring the idea. Get help with the rest.',
-    introText: 'You do not need to know every part of building a product. Add this skill to your AI coding assistant and start with the result you want.',
-    principles: [
-      { title: 'Know what to do next.', text: 'Describe what you want. The assistant helps turn it into a manageable first version and recommends how to get there.' },
-      { title: 'See it working.', text: 'Ask for something you can open and try, with checks for the parts that matter to your task.' },
-      { title: 'Keep making it yours.', text: 'Explain what you want to change. Your project keeps its context and important choices so you can continue from there.' },
-    ],
+    introTitle: 'You should not have to plan every professional step.',
+    introText: 'An agent can already write code. This skill adds a reusable set of instructions for choosing relevant guidance, fitting the work to your project, checking it, and continuing later.',
     howTitle: 'From “I wish I had…” to a first version.',
     howText: 'The work happens in your coding assistant, inside your own project.',
     steps: [
@@ -58,14 +53,16 @@ const en = {
       { title: 'Work through the important choices', text: 'The assistant recommends an approach. You confirm the choices that affect the result, cost, or access.' },
       { title: 'Open it, try it, and ask for changes', text: 'Get a first version and instructions to use it. Check what matters to you, then keep improving it.' },
     ],
-    installTitle: 'Start with one small thing you want to make.',
-    installText: 'Follow a short setup guide, then copy a complete request into your coding assistant. You can begin with the quote calculator or bring your own idea.',
-    installLink: 'Walk me through it',
+    installTitle: 'Keep your agent. Add a set of working methods.',
+    installText: 'Follow the setup guide, then describe your own goal. The skill selects relevant guidance for the task and the project you already have.',
+    installLink: 'Add it to my agent',
     faqTitle: 'Before you start.',
     faq: [
       { question: 'Do I need to know how to code?', answer: 'You can start by explaining what you want. The skill helps your coding assistant handle requirements, design, technical choices, implementation, and checks. You still need to set up a supported assistant and confirm the choices that matter to you.' },
       { question: 'What can I make with it?', answer: 'Start with a website, a small tool, or a feature in an existing project. It can also help improve a design, fix a problem, publish a result, or explain your product to other people.' },
-      { question: 'How does this help beyond a normal AI chat?', answer: 'It gives your coding assistant reusable guidance for the work around your request: deciding what to build first, choosing an approach, implementing, checking, and keeping the project context. The assistant can select what is relevant to your goal.' },
+      { question: 'I already have an agent. What does this add?', answer: 'A reusable set of instructions: select relevant specialist guidance and resources, reuse suitable existing work, establish checks appropriate to an engineering task, and maintain the project agreements needed for later changes. These are instructions for your existing agent, not a separate model. The case study shows what happened in an actual task.' },
+      { question: 'How is this different from a long prompt or several skills?', answer: 'A detailed prompt can express similar requirements. Solo Vibe Coding organizes task entry points, original guidance and resources in one install, with shared rules for quality and project context. You can use one task independently; you do not have to run every topic each time.' },
+      { question: 'Will it always be faster or produce better code?', answer: 'We do not promise that. A capable agent may already do these things, and reading guidance takes time and tokens. Judge the task, the result and the extra work together. The case study reports this small comparison and its limits.' },
       { question: 'Where do I use the skill?', answer: 'In an AI coding assistant that supports Agent Skills and can work with your project files and the web. The getting-started guide includes Codex and Claude Code instructions. The example on this website runs directly in your browser.' },
       { question: 'Is it free?', answer: 'The skill itself is free and open source under MIT. Your coding assistant, hosting, APIs, or other services may have their own charges. Ask the assistant to explain any costs before choosing a service.' },
       { question: 'Will it build anything without my involvement?', answer: 'You describe the goal, try the result, and confirm important choices. Some tasks also need accounts, tools, or access that you provide. Start with a small version you can actually use and expand from there.' },
@@ -109,7 +106,7 @@ const en = {
   },
   example: {
     title: 'Try a working quote calculator.',
-    description: 'Try a working quote calculator with editable hours, rates, costs, reserve, and spreadsheet export. Copy the request to make your own with Solo Vibe Coding.',
+    description: 'Try a working quote calculator with editable hours, rates, costs, reserve, and spreadsheet export. This illustrates a possible result; the separate case study examines the skill in use.',
     intro: '“I want a small tool that calculates a project quote and works on my phone.” Here is a working example. Change the values, then download the breakdown.',
     promptTitle: 'Want your own version?',
     promptText: 'Add Solo Vibe Coding to your coding assistant, then send this request. Replace the details with what you need.',
@@ -141,26 +138,21 @@ const en = {
 };
 
 const zh: typeof en = {
-  nav: { 'getting-started': '怎么开始', guides: '使用场景', examples: '实际示例', 'build-log': '最新更新', github: 'GitHub' },
+  nav: { 'getting-started': '怎么开始', guides: '使用场景', examples: '实际示例', 'case-study': '真实任务', 'build-log': '最新更新', github: 'GitHub' },
   skip: '跳到正文', switchLanguage: 'Switch to English', language: 'EN',
   copy: '复制', copied: '已复制', copyFailed: '请选中文字后复制', terminal: '终端', installationCommand: '安装命令',
-  footer: '让你想做的东西，有一个能用的开始。',
+  footer: '一个 Skill，把代码之外的专业工作也考虑进来。',
   footerLicense: 'Skill 采用 MIT 开源许可。编程助手与其他服务按各自条款提供。', footerSource: 'GitHub', footerTop: '回到顶部',
   hero: {
     context: '给你正在用的 AI 编程助手，加一个 Skill',
-    title: '把你想做的，变成能用的。',
-    description: '在你使用的 AI 编程助手中，加入 Solo Vibe Coding，把想做的网站、小工具或功能，推进成可以打开、试用和继续修改的第一版。',
-    primary: '做出你的第一版', secondary: '先试试这个成品', note: '从你的目标开始，一步步做出能用的东西。',
-    request: '“我想做一个能估算项目报价的小工具。”', example: '这是一个能用的示例。改改数字，试试看。',
+    title: '给你的 Agent，一套做产品的专业方法。',
+    description: '在你正在用的编程助手中，加入可复用的专业指导：按任务选方法，考虑项目和合适的现成方案，检查实际成果，把有效约定留给下一次修改。',
+    primary: '看看真实任务', secondary: '加到我的 Agent', note: '开源 Skill，在你已经使用的编程助手中工作。',
+    request: '“给收藏工具加个导出，原来的功能要保留。”', example: '同一个已有项目，两次修改，分别开启新会话。',
   },
   home: {
-    introTitle: '带着想法来，剩下的一起推进。',
-    introText: '你不必先懂产品开发的每个环节。在 AI 编程助手中加入这个 Skill，从自己想要的结果开始。',
-    principles: [
-      { title: '知道下一步该做什么。', text: '说清想做的东西，助手帮助收敛第一版范围，并推荐合适的实现路径。' },
-      { title: '看到它真的能用。', text: '让助手交付可以打开试用的版本，并针对当前任务做好必要检查。' },
-      { title: '接着改成你想要的样子。', text: '继续描述你想改什么。项目保留背景和重要选择，让后续工作接着推进。' },
-    ],
+    introTitle: '专业步骤，不必每次都由你从头组织。',
+    introText: 'Agent 已经能写代码。这个 Skill 补充一套可复用的工作要求：找到相关指导，结合你的项目，做好适当检查，再承接后续修改。',
     howTitle: '从“我想要一个”，到能打开的第一版。',
     howText: '实际制作在你的编程助手中进行，成果留在自己的项目里。',
     steps: [
@@ -168,13 +160,15 @@ const zh: typeof en = {
       { title: '确认真正影响你的选择', text: '助手推荐实现方式。会影响效果、费用或公开范围的选择，由你在理解之后确认。' },
       { title: '打开试试，再继续改', text: '拿到第一版和使用方法，检查自己关心的功能，再继续提出修改。' },
     ],
-    installTitle: '先做一件你真正想做的小事。',
-    installText: '跟着简短的安装步骤，把一段完整需求发给编程助手。可以先做这个报价工具，也可以换成你自己的想法。',
-    installLink: '带我开始', faqTitle: '开始前，你可能想知道。',
+    installTitle: '继续用你的 Agent，加上一套工作方法。',
+    installText: '跟着安装步骤，描述自己想做的事。Skill 根据当前任务和已有项目，选择相关的专业指导。',
+    installLink: '加到我的 Agent', faqTitle: '安装前，把这些说清楚。',
     faq: [
       { question: '需要会写代码吗？', answer: '你可以先说明自己想做什么。这个 Skill 帮助编程助手处理需求、设计、技术选择、实现与检查。你仍需要准备支持的编程助手，并确认真正影响自己的选择。' },
       { question: '可以用它做什么？', answer: '可以从网站、小工具或现有项目的新功能开始，也可以改善界面、修复问题、把成果发布给别人使用，或把产品介绍清楚。' },
-      { question: '和平时直接问 AI 有什么区别？', answer: '它为编程助手补充可复用的专业做法，帮助处理需求背后的工作：先做什么、选择合适方案、实现、检查，以及保留项目上下文。助手根据你的目标选用相关指导。' },
+      { question: '已经有 Agent，加这个 Skill 多了什么？', answer: '多了一套可复用的工作要求：按任务选择专业指导与资源，复用合适的已有实现，为工程任务建立适当检查，并保留后续修改需要的项目约定。它为现有 Agent 提供指导，不是另一个模型。实际任务里发生了什么，可以看案例。' },
+      { question: '和一段长提示词、自己装多个 Skill 有何不同？', answer: '足够详细的提示词也能表达类似要求。Solo Vibe Coding 把任务入口、原始指导与资源整理到一次安装中，并共用质量和项目约定。各类任务可以独立进入，按需要选用。' },
+      { question: '装了就一定更快、代码一定更好吗？', answer: '不作这样的保证。能力强的 Agent 也可能已经做到这些，读取指导也需要时间与用量。应把实际任务结果和增加的工作一起考虑。案例会说明这次小规模比较的结果与范围。' },
       { question: '这个 Skill 在哪里使用？', answer: '在支持 Agent Skills、能操作项目文件和访问网络的 AI 编程助手中使用。上手指南提供 Codex 和 Claude Code 的安装方式。网站上的报价示例可以直接在浏览器试用。' },
       { question: '免费吗？', answer: 'Skill 本身免费、开源，采用 MIT 许可。你使用的编程助手、托管平台、API 或其他服务可能单独收费。可以先让助手说明费用，再选择要使用的服务。' },
       { question: '装上以后，就完全不用我参与了吗？', answer: '你负责描述目标、试用成果，并确认重要选择。有些任务还需要你提供账号、工具或访问条件。适合从一版能实际使用的小成果开始，再逐步扩展。' },
@@ -215,7 +209,7 @@ const zh: typeof en = {
   },
   example: {
     title: '先试试这个报价小工具。',
-    description: '试用能修改工时、单价、费用与预留比例的报价计算器，下载表格明细，再把完整需求发给编程助手，做出自己的版本。',
+    description: '试用报价计算器，修改工时、单价、费用与预留比例并下载明细。它用于体验一种成果；另一个真实任务案例展示 Skill 的实际使用。',
     intro: '“我想做个能计算项目报价的小工具，手机上也能用。”这是一个已经能操作的示例。改改数字，再下载一份明细。',
     promptTitle: '也想做一个自己的版本？',
     promptText: '在编程助手中加入 Solo Vibe Coding，再发送这段需求。可以把内容换成你自己的用途。',
@@ -266,15 +260,17 @@ export const SCENARIOS: Record<Locale, Scenario[]> = {
 export function pageMetadata(locale: Locale, page: PageName) {
   const ui = UI[locale];
   const titles: Record<PageName, string> = {
-    home: `${PROJECT.name} — ${locale === 'en' ? 'Turn your idea into something you can use' : '把想法做成能用的东西'}`,
+    home: `${PROJECT.name} — ${locale === 'en' ? 'Expert methods for your coding agent' : '给你的 Agent，一套做产品的专业方法'}`,
     'getting-started': `${ui.nav['getting-started']} — ${PROJECT.name}`,
     guides: `${ui.nav.guides} — ${PROJECT.name}`,
     examples: `${locale === 'en' ? 'Try the quote calculator' : '试用报价计算器'} — ${PROJECT.name}`,
+    'case-study': `${locale === 'en' ? 'A bookmark tool, two changes' : '给收藏工具加导出，再接着改一次'} — ${PROJECT.name}`,
     'build-log': `${ui.nav['build-log']} — ${PROJECT.name}`,
   };
   const descriptions: Record<PageName, string> = {
-    home: locale === 'en' ? 'Turn a clear idea into a working website, tool, or feature with Solo Vibe Coding, an open-source skill for your AI coding assistant. Try an example and get started.' : '有想做的东西，但不懂每个技术环节？在 AI 编程助手中加入 Solo Vibe Coding，从自己的目标开始，做出可用的网站、小工具或功能。先试用真实示例，再开始第一版。',
+    home: locale === 'en' ? 'One open-source skill for your coding agent: task-specific guidance, reuse of suitable work, appropriate checks and project context. See an actual two-round task and get started.' : '为已有 AI 编程助手补充按任务选用的专业指导、合适方案复用、工程检查和项目约定。查看同一收藏工具两轮修改的真实案例，了解安装这个开源 Skill 增加了什么。',
     'getting-started': ui.getting.description, guides: ui.guides.description, examples: ui.example.description, 'build-log': ui.log.description,
+    'case-study': locale === 'en' ? 'Follow a real bookmark export task and a fresh-session change. See how Solo Vibe Coding was used, what was checked, and the limits of the comparison.' : '查看一次收藏导出和新会话追加修改的真实任务：Solo Vibe Coding 实际用了哪些指导、验证了什么，以及这次对照能说明和不能说明什么。',
   };
   return { title: titles[page], description: descriptions[page] };
 }

@@ -1,0 +1,13 @@
+---
+import { POSITIONING } from '../data/positioning';
+import { PROJECT, PAGE_PATHS, href, type Locale } from '../data/site';
+interface Props { locale: Locale; featured?: boolean; }
+const { locale, featured = false } = Astro.props;
+const ui = POSITIONING[locale].preview;
+---
+<figure class="case-preview" data-case-preview>
+  <div class="case-preview-bar"><span class="case-browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{ui.project}</span><span class="case-label">{ui.label}</span></div>
+  <a class="case-preview-image" href={href(locale, PAGE_PATHS['case-study'])} aria-label={ui.open}><img src={PROJECT.base + 'case-study/bookmarks-round-1.png'} alt={ui.imageAlt} width="1280" height="900" loading={featured ? 'eager' : 'lazy'} /></a>
+  <div class="case-preview-steps"><div><span aria-hidden="true">01</span><p>{ui.first}</p></div><div><span aria-hidden="true">02</span><p>{ui.second}<small>{ui.secondDetail}</small></p></div></div>
+  <figcaption>{ui.caption}</figcaption>
+</figure>

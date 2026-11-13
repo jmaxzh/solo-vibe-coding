@@ -35,7 +35,7 @@ function targetFile(url) {
   return existsSync(index) ? index : null;
 }
 
-check(pages.length >= 13, `Expected bilingual content, a working example and a 404 page, found ${pages.length} HTML files.`);
+check(pages.length >= 17, `Expected bilingual content, a real task, examples, updates and a 404 page, found ${pages.length} HTML files.`);
 for (const file of pages) {
   const document = documents.get(file);
   const label = relative(root, file);

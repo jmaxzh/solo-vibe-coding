@@ -32,6 +32,8 @@ npm run test:e2e
 ## 修改内容与资源
 
 - `src/data/site.ts`：项目事实、导航、双语文案、用户场景、完整首次需求与页面元数据。修改能力、安装、许可或边界时核对 Skill 和仓库 README。
+- `src/data/positioning.ts`、`case-study.ts`、`case-evidence.ts`：定位、案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
+- `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
 - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
 - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
 - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
@@ -42,7 +44,7 @@ npm run test:e2e
 
 ## 用户与维护内容
 
-官网的首页、上手、场景、示例与更新面向产品使用者。维护知识库、ADR、研究与 CI 档案在仓库维护区域保留；网站不将它们作为文章或导航的阅读目标。`verify` 会检查这些已知维护链接是否误入发布页面。
+官网的首页、真实任务、上手、场景、示例与更新面向产品使用者。维护知识库、ADR、研究与 CI 档案在仓库维护区域保留；网站不将它们作为文章或导航的阅读目标。`verify` 会检查这些已知维护链接是否误入发布页面。
 
 更新使用示例时，给出用户想做的事、可操作或可核验的成果、重要条件与开始方式。用户自己的项目上下文可以作为“后续修改接着做”的收益说明，不与本仓库维护知识混用。
 

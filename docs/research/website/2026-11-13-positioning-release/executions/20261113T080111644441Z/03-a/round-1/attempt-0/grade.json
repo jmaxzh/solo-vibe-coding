@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-11-13T08:24:54.245Z",
+  "round": 1,
+  "browser": "157.0.8103.51",
+  "checks": [
+    {
+      "id": "saved-data",
+      "passed": true
+    },
+    {
+      "id": "download-encoding",
+      "passed": true
+    },
+    {
+      "id": "csv-fields-and-special-characters",
+      "passed": true
+    },
+    {
+      "id": "add-and-reload",
+      "passed": true
+    },
+    {
+      "id": "search",
+      "passed": true
+    },
+    {
+      "id": "category-filter",
+      "passed": true
+    },
+    {
+      "id": "delete",
+      "passed": true
+    },
+    {
+      "id": "mobile-layout-and-export",
+      "passed": true
+    },
+    {
+      "id": "no-script-errors",
+      "passed": true
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "errors": []
+}

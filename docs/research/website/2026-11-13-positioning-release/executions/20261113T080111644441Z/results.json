@@ -1,0 +1,362 @@
+{
+  "execution_id": "20261113T080111644441Z",
+  "completed_at": "2026-11-13T08:33:02.686707+00:00",
+  "execution_source_commit": "9c6324d95ac26d1b68d4cbb326c4650fdf47ec36",
+  "registration_sha256": "b56535fe220c891484dfef70388c14f55c5bea1ecb55d61d571df1d99d1c0768",
+  "subjects": [
+    {
+      "subject": "01-a",
+      "with_skill": false,
+      "preparation_seconds": 1e-06,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 289.09,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 282.83,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 189807,
+                  "cached_input_tokens": 167552,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 11463,
+                  "reasoning_output_tokens": 4345
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 230.9,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 222.47,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 228280,
+                  "cached_input_tokens": 204928,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 7538,
+                  "reasoning_output_tokens": 3403
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "01-b",
+      "with_skill": true,
+      "preparation_seconds": 0.008957,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 427.25,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 421.36,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 333181,
+                  "cached_input_tokens": 304896,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 15709,
+                  "reasoning_output_tokens": 7970
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 234.52,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 229.3,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 346843,
+                  "cached_input_tokens": 311424,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 8658,
+                  "reasoning_output_tokens": 4113
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "02-a",
+      "with_skill": false,
+      "preparation_seconds": 1e-06,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 291.58,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 286.46,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 166356,
+                  "cached_input_tokens": 149760,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 12267,
+                  "reasoning_output_tokens": 4822
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 168.85,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 163.44,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 169602,
+                  "cached_input_tokens": 150656,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 6612,
+                  "reasoning_output_tokens": 1873
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "02-b",
+      "with_skill": true,
+      "preparation_seconds": 0.004594,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 435.6,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 432.34,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 793459,
+                  "cached_input_tokens": 753920,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 17447,
+                  "reasoning_output_tokens": 8993
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 274.24,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 265.17,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 518601,
+                  "cached_input_tokens": 476928,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 9059,
+                  "reasoning_output_tokens": 4337
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "03-a",
+      "with_skill": false,
+      "preparation_seconds": 1e-06,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 300.15,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 296.13,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 226746,
+                  "cached_input_tokens": 199168,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 11573,
+                  "reasoning_output_tokens": 5638
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 180.3,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 172.75,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 195709,
+                  "cached_input_tokens": 152064,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 6907,
+                  "reasoning_output_tokens": 2268
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "03-b",
+      "with_skill": true,
+      "preparation_seconds": 0.004957,
+      "rounds": [
+        {
+          "round": 1,
+          "stage_total_seconds": 433.24,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 429.76,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 719984,
+                  "cached_input_tokens": 670208,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 16687,
+                  "reasoning_output_tokens": 8267
+                }
+              ],
+              "usage_available": true,
+              "passed": 9,
+              "total": 9,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "stage_total_seconds": 247.63,
+          "attempts": [
+            {
+              "attempt": 0,
+              "seconds": 242.2,
+              "return_code": 0,
+              "timed_out": false,
+              "usage": [
+                {
+                  "input_tokens": 310190,
+                  "cached_input_tokens": 273792,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 9434,
+                  "reasoning_output_tokens": 4805
+                }
+              ],
+              "usage_available": true,
+              "passed": 14,
+              "total": 14,
+              "failures": [],
+              "infrastructure_error": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

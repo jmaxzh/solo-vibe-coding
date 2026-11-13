@@ -4,15 +4,26 @@ import { readFile } from 'node:fs/promises';
 
 const base = '/solo-vibe-coding/';
 const example = 'examples/quote-calculator/';
+const caseStudy = 'case-study/bookmark-export/';
 
 for (const locale of ['en', 'zh-CN'] as const) {
   const path = locale === 'en' ? base : base + 'zh-CN/';
 
-  test(`${locale}: try a working result and follow a clear start path`, async ({ page }) => {
+  test(`${locale}: understand the added guidance and follow the case and start path`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(path);
     await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('#why-skill .method-item')).toHaveCount(4);
+    await expect(page.locator('[data-case-preview] img')).toBeVisible();
+    await page.locator('[data-case-link]').first().click();
+    await expect(page).toHaveURL(new RegExp(caseStudy + '$'));
+    await expect(page.locator('[data-case-summary]')).not.toBeEmpty();
+    await expect(page.locator('#round-one-title')).toBeVisible();
+    await page.locator('[data-start]').first().click();
+    await expect(page).toHaveURL(new RegExp('/getting-started/$'));
+    await expect(page.locator('#first-task')).toContainText(locale === 'en' ? 'calculator' : '报价');
+    await page.goto(path + example);
     const calculator = page.locator('[data-calculator]');
     await expect(calculator.locator('input[name="hours"]')).toBeEnabled();
     await expect(calculator.locator('[data-total]')).toContainText(locale === 'en' ? '660.00' : '3,960.00');
@@ -25,12 +36,32 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.keyboard.press('Tab');
     await expect(calculator.locator('input[name="rate"]')).toBeFocused();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    await page.locator('[data-start]').first().click();
-    await expect(page).toHaveURL(new RegExp('/getting-started/$'));
-    await expect(page.locator('#first-task')).toContainText(locale === 'en' ? 'calculator' : '报价');
     await page.goto(path + '#task-growth');
     await expect(page.locator('#task-growth')).toBeVisible();
     expect(errors).toEqual([]);
+  });
+
+  test(`${locale}: case explains evidence, keeps its language and supplies a starting project`, async ({ page }) => {
+    await page.goto(path + caseStudy);
+    await expect(page.locator('[data-case-study]')).toBeVisible();
+    await expect(page.locator('.case-finding')).not.toHaveCount(0);
+    await expect(page.locator('[data-case-results] tbody tr')).not.toHaveCount(0);
+    await expect(page.locator('[data-case-cost]')).not.toBeEmpty();
+    await expect(page.locator('[data-case-pilot]')).not.toBeEmpty();
+    await page.locator('.case-method summary').click();
+    await expect(page.locator('.case-method')).toContainText('gpt-6.1-sol');
+    await expect(page.locator('.case-limit')).toContainText(locale === 'en' ? 'not a study with real users' : '尚未进行真实用户研究');
+    const downloaded = page.waitForEvent('download');
+    await page.locator('[data-starter-download]').click();
+    const file = await downloaded;
+    expect(file.suggestedFilename()).toMatch(/\.zip$/);
+    const zip = await readFile((await file.path())!);
+    expect([...zip.subarray(0, 4)]).toEqual([80, 75, 3, 4]);
+    expect(zip.length).toBeGreaterThan(1000);
+    await expect(page.locator('.case-try-prompts code')).toHaveCount(2);
+    await page.locator('[data-language-switch]').click();
+    await expect(page).toHaveURL(new RegExp(`${locale === 'en' ? '/zh-CN' : ''}/${caseStudy}`));
+    await expect(page.locator('html')).toHaveAttribute('lang', locale === 'en' ? 'zh-CN' : 'en');
   });
 
   test(`${locale}: calculator handles errors, cents, export and large values`, async ({ page }) => {
@@ -123,12 +154,12 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path + 'build-log/');
     await page.locator('[data-log-entry]').first().click();
     await expect(page.locator('article')).toBeVisible();
-    await expect(page.locator('article a').filter({ hasText: locale === 'en' ? 'quote calculator' : '报价计算器' })).toBeVisible();
+    await expect(page.locator('article a').filter({ hasText: locale === 'en' ? 'bookmark export case' : '收藏导出案例' })).toBeVisible();
     await expect(page.locator('time')).toHaveAttribute('datetime', /2026-11-13/);
   });
 
   test(`${locale}: pages remain accessible and fit the viewport`, async ({ page }) => {
-    for (const route of ['', 'getting-started/', 'guides/', example, 'build-log/', 'build-log/first-public-build/']) {
+    for (const route of ['', 'getting-started/', 'guides/', example, caseStudy, 'build-log/', 'build-log/first-public-build/', 'build-log/working-methods/']) {
       await page.goto(path + route);
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       expect(results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
@@ -143,14 +174,18 @@ test.describe('without JavaScript', () => {
     for (const prefix of ['', 'zh-CN/']) {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
-      await expect(page.locator('[data-calculator] input[name="hours"]')).toBeDisabled();
-      await expect(page.locator('[data-calculator] [data-total]')).toBeVisible();
-      await expect(page.locator('[data-calculator] noscript')).toBeVisible();
+      await expect(page.locator('#why-skill .method-item')).toHaveCount(4);
+      await page.locator('[data-case-link]').first().click();
+      await expect(page.locator('[data-case-summary]')).toBeVisible();
+      await expect(page.locator('[data-starter-download]')).toBeVisible();
       await page.locator('[data-start]').first().click();
       await expect(page).toHaveURL(/getting-started\/$/);
       await expect(page.locator('#first-task')).toContainText('$solo-vibe-coding');
-      await page.locator('header a[data-page="examples"]').click();
+      await page.locator(`footer a[href="${base + prefix + example}"]`).click();
       await expect(page.locator('[data-calculator]')).toBeVisible();
+      await expect(page.locator('[data-calculator] input[name="hours"]')).toBeDisabled();
+      await expect(page.locator('[data-calculator] [data-total]')).toBeVisible();
+      await expect(page.locator('[data-calculator] noscript')).toBeVisible();
     }
   });
 });

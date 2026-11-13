@@ -1,13 +1,13 @@
 ---
 import QuoteCalculator from './QuoteCalculator.astro';
 import CodeBlock from './CodeBlock.astro';
-import { UI, FIRST_PROMPT, href, type Locale } from '../data/site';
+import { UI, FIRST_PROMPT, PAGE_PATHS, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].example;
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav.examples}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <header class="page-intro"><p class="page-context">{UI[locale].nav.examples}</p><h1>{ui.title}</h1><p>{ui.intro}</p><a class="text-link" href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'See the separate skill comparison case' : '查看另一个有无 Skill 的真实任务案例'}<span aria-hidden="true">↗</span></a></header>
   <div class="example-layout">
     <div><QuoteCalculator locale={locale} id="example-quote" /><p class="example-privacy">{ui.explanation}</p></div>
     <div class="example-details"><h2>{ui.howTitle}</h2><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a class="button button-primary" href={href(locale, 'getting-started')}>{ui.next}<span aria-hidden="true">↗</span></a></div>

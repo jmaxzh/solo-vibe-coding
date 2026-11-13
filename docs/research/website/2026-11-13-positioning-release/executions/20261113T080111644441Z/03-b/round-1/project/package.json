@@ -1,0 +1,11 @@
+{
+  "name": "shiye-bookmarks",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && npm test"
+  },
+  "devDependencies": {
+    "jsdom": "31.0.1"
+  }
+}

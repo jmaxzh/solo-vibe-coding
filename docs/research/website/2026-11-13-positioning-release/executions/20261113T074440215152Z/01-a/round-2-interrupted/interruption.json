@@ -98,7 +98,7 @@
         "output_sha256": "0a2e008a6a1252b80133a9381fc73d7db4951b1de15a81507b2abdf61b3a7972"
       }
     ],
-    "status": "interrupted",
-    "usage_available": false
+    "status": "completed before pause; duplicate snapshot, canonical result is ../round-2",
+    "usage_available": true
   }
 ]

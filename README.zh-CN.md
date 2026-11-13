@@ -1,10 +1,10 @@
 # Solo Vibe Coding
 
-**把你想做的，变成能用的。**
+**给你的 Agent，一套做产品的专业方法。**
 
 [English](README.md)
 
-为目标明确、希望借助 AI 独立做出产品的人提供的单一 Agent Skill。描述想做的网站、工具或功能，编程助手按任务选择相关指导，帮助规划、实现与检查。你可以确认重要选择，无须先掌握每个技术环节。
+为目标明确、希望借助 AI 独立做出产品的人提供的单一 Agent Skill。在现有编程助手中加入可复用的工作方法：按任务选择专业指导，复用合适的已有实现，建立适当的工程检查，并保留后续修改需要的项目约定。你可以确认重要选择，无须先掌握每个技术环节。
 
 专业指导覆盖获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布。
 
@@ -66,7 +66,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 ## 官网
 
-可以先试用[能操作的报价计算器](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/)，或跟着[开始使用指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/)做第一件事。官网提供中英文页面、完整首次需求和按用户目标组织的使用示例。
+查看[收藏工具两轮修改的真实案例](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/case-study/bookmark-export/)，了解同一 Agent 有无 Skill 的实际任务、采用的指导、检查与未验证范围；再跟着[开始使用指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/)用于自己的项目。双语官网另保留[可操作的报价计算器](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/)，用于体验一种可能的成果。
 
 ## 维护这个仓库
 

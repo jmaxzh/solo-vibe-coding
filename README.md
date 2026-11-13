@@ -1,10 +1,10 @@
 # Solo Vibe Coding
 
-**Make the thing you have in mind.**
+**Expert methods. One skill for your agent.**
 
 [中文](README.zh-CN.md)
 
-A single Agent Skill for people building products independently with AI and a clear goal. Describe the website, tool, or feature you want; the coding agent selects relevant guidance to plan, implement, and check it. You can confirm important choices without first mastering every technical discipline.
+A single Agent Skill for people building products independently with AI and a clear goal. Add reusable working methods to your existing coding assistant: select relevant specialist guidance, build on suitable existing work, establish appropriate engineering checks, and keep project agreements for later changes. You can confirm important choices without first mastering every technical discipline.
 
 Guidance covers acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release.
 
@@ -68,7 +68,7 @@ The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task gui
 
 ## Website
 
-Try the [working quote calculator](https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/) or follow the [getting-started walkthrough](https://jmaxzh.github.io/solo-vibe-coding/getting-started/). The website has English and Chinese pages, with a complete first-task request and examples organized around what you want to make.
+See an [actual two-round bookmark task](https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-export/) with and without the skill, including what was used, checked and left unverified. Follow the [getting-started walkthrough](https://jmaxzh.github.io/solo-vibe-coding/getting-started/) to use it in your own project. The bilingual website also includes a [working quote calculator](https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/) as an example of a possible result.
 
 ## Maintaining this repository
 

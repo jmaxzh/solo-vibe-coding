@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-11-13T08:23:32.306287+00:00",
+  "subject": "01-b, round 1, corrected cohort",
+  "records": [
+    {
+      "repository": "DietrichGebert/ponytail",
+      "requested_branch": "main",
+      "path": "skills/ponytail/SKILL.md",
+      "resolved_commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "sha256": "9badd22a32e19cb884e46dfa8d3aae82bb81dfa5484105b8b4f0262df823a509",
+      "matches_observed_command_output": true,
+      "pinned_source": "https://github.com/DietrichGebert/ponytail/blob/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail/SKILL.md"
+    },
+    {
+      "repository": "DietrichGebert/ponytail",
+      "requested_branch": "main",
+      "path": "skills/ponytail-review/SKILL.md",
+      "resolved_commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "sha256": "33fe4ebe22a460924e5d4a261e223df22e409cc94ab76182bee9fb91a3ef022e",
+      "matches_observed_command_output": true,
+      "pinned_source": "https://github.com/DietrichGebert/ponytail/blob/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-review/SKILL.md"
+    },
+    {
+      "repository": "unclebob/ub-mode",
+      "requested_branch": "master",
+      "path": "SKILL.md",
+      "resolved_commit": "3da62bf3fcfd2034de41f30d920d2739e566171f",
+      "sha256": "4120873db2e3681ea9b7de4d7105fc9d3406657c9ada91ce77b9b3c4962f3202",
+      "matches_observed_command_output": true,
+      "pinned_source": "https://github.com/unclebob/ub-mode/blob/3da62bf3fcfd2034de41f30d920d2739e566171f/SKILL.md"
+    }
+  ]
+}

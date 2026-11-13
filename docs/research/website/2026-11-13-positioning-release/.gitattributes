@@ -1,0 +1,2 @@
+# Preserve downloaded CSV evidence verbatim; CRLF is a record separator, not trailing whitespace.
+executions/**/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

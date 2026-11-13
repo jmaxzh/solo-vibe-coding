@@ -1,0 +1,59 @@
+{
+  "subject": "02-b",
+  "with_skill": true,
+  "preparation_seconds": 0.004594,
+  "rounds": [
+    {
+      "round": 1,
+      "stage_total_seconds": 435.6,
+      "attempts": [
+        {
+          "attempt": 0,
+          "seconds": 432.34,
+          "return_code": 0,
+          "timed_out": false,
+          "usage": [
+            {
+              "input_tokens": 793459,
+              "cached_input_tokens": 753920,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 17447,
+              "reasoning_output_tokens": 8993
+            }
+          ],
+          "usage_available": true,
+          "passed": 9,
+          "total": 9,
+          "failures": [],
+          "infrastructure_error": null
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "stage_total_seconds": 274.24,
+      "attempts": [
+        {
+          "attempt": 0,
+          "seconds": 265.17,
+          "return_code": 0,
+          "timed_out": false,
+          "usage": [
+            {
+              "input_tokens": 518601,
+              "cached_input_tokens": 476928,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 9059,
+              "reasoning_output_tokens": 4337
+            }
+          ],
+          "usage_available": true,
+          "passed": 14,
+          "total": 14,
+          "failures": [],
+          "infrastructure_error": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # ADR 0005：以用户成果组织官网，区分产品使用与项目维护
 
-- 状态：已采用
+- 状态：部分替代。首屏报价工具与主要案例以 [ADR 0006](0006-skill-increment-and-case-evidence.md) 为准；目标用户、用户/维护入口边界与实际成果导向继续有效。
 - 日期：2026-11-13
 - 部分替代：[ADR 0002](0002-content-and-languages.md) 的受众、首页入口与公开日志组织；[ADR 0003](0003-visual-and-interaction.md) 的首屏工作台与标签页交互。
 - 延续：GitHub Pages 默认地址、Astro 静态生成、双语路径、基础视觉、质量门槛和既有发布流程。

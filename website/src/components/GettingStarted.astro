@@ -6,7 +6,7 @@ const { locale } = Astro.props;
 const ui = UI[locale].getting;
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p><a class="text-link" href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'See what the skill added in an actual task' : '先看一个真实任务中，Skill 实际增加了什么'}<span aria-hidden="true">↗</span></a></header>
   <div class="document-layout">
     <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">

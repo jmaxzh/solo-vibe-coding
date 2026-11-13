@@ -1,0 +1,55 @@
+{
+  "execution_id": "20261113T080111644441Z",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "groups": {
+    "direct": {
+      "subjects": 3,
+      "rounds": 6,
+      "first_attempt_successes": 6,
+      "behaviour_feedback": 0,
+      "professional_prompts": 0,
+      "agent_seconds_total": 1424.08,
+      "paired_seconds": [
+        505.29999999999995,
+        449.9,
+        468.88
+      ],
+      "median_pair_agent_seconds": 468.88,
+      "usage": {
+        "input_tokens": 1176500,
+        "cached_input_tokens": 1024128,
+        "output_tokens": 56360,
+        "reasoning_output_tokens": 22349
+      },
+      "usage_complete": true,
+      "copy_preparation_seconds": 3e-06
+    },
+    "skill": {
+      "subjects": 3,
+      "rounds": 6,
+      "first_attempt_successes": 6,
+      "behaviour_feedback": 0,
+      "professional_prompts": 0,
+      "agent_seconds_total": 2020.13,
+      "paired_seconds": [
+        650.6600000000001,
+        697.51,
+        671.96
+      ],
+      "median_pair_agent_seconds": 671.96,
+      "usage": {
+        "input_tokens": 3022258,
+        "cached_input_tokens": 2791168,
+        "output_tokens": 76994,
+        "reasoning_output_tokens": 38485
+      },
+      "usage_complete": true,
+      "copy_preparation_seconds": 0.018508
+    }
+  },
+  "interpretation": {
+    "en": "Both conditions passed every first-attempt check; no professional-reminder reduction was observed. The skill group used more reported tokens and agent execution time in this task. Guidance use is observable; general speed, quality and user-burden advantages are not established.",
+    "zh-CN": "两组均首次通过全部共同检查，未观察到专业补救提示减少。此任务中Skill组报告用量与Agent执行时间更高。可以观察指导的实际使用，不能据此建立普遍速度、质量或用户负担优势。"
+  }
+}

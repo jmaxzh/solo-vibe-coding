@@ -1,0 +1,51 @@
+{
+  "capturedAt": "2026-11-13T08:18:50.145Z",
+  "records": [
+    {
+      "round": 1,
+      "subject": "01-b",
+      "condition": "skill-enabled",
+      "execution": "20261113T080111644441Z",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "data": "Three original project defaults",
+      "search": "",
+      "category": "",
+      "publicFile": "bookmarks-round-1.png",
+      "imageSHA256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91",
+      "sourceFiles": {
+        "index.html": "a374a99bcdf9acd3239967c8d157664bda3db8b010f6f758631cda659a48f42d",
+        "style.css": "d96d7d2917bbcc8a0dd46e547bb4e1a47efbf43d2d2b3d4f282fd105e359fd5f",
+        "app.js": "d6b5f613121780d142eab95390a39d051e49ead83f669259ea3c5be8bb1c07f5",
+        "README.md": "f3289a787cfbf0a3dc10b58615e3f140a0764519e296a01d25be8395feb982c4",
+        "CONSTRAINTS.md": "3b1b55a735e9063dd5fcf10f2f04eff6fda090f77f0f4b74773df60aff976eb2",
+        "tests/app.test.cjs": "52e0057c384d850625f469b601939d7abfa91caa50f7545da877a380fc234f29"
+      }
+    },
+    {
+      "round": 2,
+      "subject": "01-b",
+      "condition": "skill-enabled",
+      "execution": "20261113T080111644441Z",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "data": "Three original project defaults",
+      "search": "界面",
+      "category": "设计",
+      "publicFile": "bookmarks-round-2.png",
+      "imageSHA256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94",
+      "sourceFiles": {
+        "index.html": "218890493fcb18291cc00c4e78be2024343400f809bb4f4d6d7fe75f90302fe3",
+        "style.css": "d96d7d2917bbcc8a0dd46e547bb4e1a47efbf43d2d2b3d4f282fd105e359fd5f",
+        "app.js": "46c531bd1749b8394b74149645c3435032c0e4d738261c9064a07437dcbb4d9e",
+        "README.md": "1f0da5d5ed4bfcea01d85765b363afe8ff132f870c55ee9725bc3d5559b0be2a",
+        "CONSTRAINTS.md": "ff19e5ffd30d52393cdf7e1f7e7cf95283a7cd90309877e1f4a3535c2562ab53",
+        "tests/app.test.cjs": "b8559b7db72350013d46c2972516f183efce3053d82299e245f13baa4e868cfe"
+      }
+    }
+  ]
+}

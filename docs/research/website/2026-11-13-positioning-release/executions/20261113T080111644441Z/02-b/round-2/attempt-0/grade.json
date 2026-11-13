@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-11-13T08:21:41.598Z",
+  "round": 2,
+  "browser": "157.0.8103.51",
+  "checks": [
+    {
+      "id": "saved-data",
+      "passed": true
+    },
+    {
+      "id": "download-encoding",
+      "passed": true
+    },
+    {
+      "id": "csv-fields-and-special-characters",
+      "passed": true
+    },
+    {
+      "id": "add-and-reload",
+      "passed": true
+    },
+    {
+      "id": "search",
+      "passed": true
+    },
+    {
+      "id": "category-filter",
+      "passed": true
+    },
+    {
+      "id": "delete",
+      "passed": true
+    },
+    {
+      "id": "search-only-export",
+      "passed": true
+    },
+    {
+      "id": "category-only-export",
+      "passed": true
+    },
+    {
+      "id": "filtered-export",
+      "passed": true
+    },
+    {
+      "id": "empty-filter",
+      "passed": true
+    },
+    {
+      "id": "clear-filter-export",
+      "passed": true
+    },
+    {
+      "id": "mobile-layout-and-export",
+      "passed": true
+    },
+    {
+      "id": "no-script-errors",
+      "passed": true
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "errors": []
+}

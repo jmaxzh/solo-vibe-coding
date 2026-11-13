@@ -6,6 +6,7 @@ import GettingStarted from '../components/GettingStarted.astro';
 import Guides from '../components/Guides.astro';
 import BuildLog from '../components/BuildLog.astro';
 import Example from '../components/Example.astro';
+import CaseStudy from '../components/CaseStudy.astro';
 import { UI, PROJECT, PAGE_PATHS, href, pageMetadata, type Locale, type PageName } from '../data/site';
 import { POSTS, postsFor } from '../data/posts';
 
@@ -28,6 +29,7 @@ const article = post ? { title: post.frontmatter.title, date: post.frontmatter.d
   {page === 'getting-started' && <GettingStarted locale={locale} />}
   {page === 'guides' && <Guides locale={locale} />}
   {page === 'examples' && <Example locale={locale} />}
+  {page === 'case-study' && <CaseStudy locale={locale} />}
   {page === 'build-log' && !post && <BuildLog locale={locale} />}
   {post && Content && <article class="container article-shell"><a class="article-back" href={href(locale, 'build-log')}>← {ui.all}</a><header class="article-header"><h1>{post.frontmatter.title}</h1><p>{post.frontmatter.description}</p><div class="article-meta"><time datetime={post.frontmatter.date}>{new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(post.frontmatter.date + 'T00:00:00Z'))}</time><span>{ui.author} <a href={PROJECT.authorURL}>{PROJECT.author}</a></span></div></header><div class="article-content"><Content /></div><div class="article-bottom"><a class="button button-primary" href={href(locale, 'getting-started')}>{ui.related}<span aria-hidden="true">↗</span></a></div></article>}
 </Layout>
