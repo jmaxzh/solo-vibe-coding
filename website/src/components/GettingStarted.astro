@@ -1,12 +1,15 @@
 ---
 import CodeBlock from './CodeBlock.astro';
-import { PROJECT, UI, FIRST_PROMPT, href, PAGE_PATHS, type Locale } from '../data/site';
+import { PROJECT, UI, href, type Locale } from '../data/site';
+import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].getting;
+const tasks = OUTCOMES[locale];
+const copy = OUTCOME_UI[locale];
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p><a class="text-link" href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'See what the skill added in an actual task' : '先看一个真实任务中，Skill 实际增加了什么'}<span aria-hidden="true">↗</span></a></header>
+  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
   <div class="document-layout">
     <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">
@@ -15,11 +18,53 @@ const ui = UI[locale].getting;
         <details class="setup-option"><summary>{ui.otherAssistant}</summary><p>{ui.claudeText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent claude-code --yes'} install /><CodeBlock locale={locale} code={PROJECT.install} install /></details>
         <details class="setup-option"><summary>{ui.manualTitle}</summary><p>{ui.manualText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent codex --yes'} install /></details>
       </section>
-      <section id="first-task"><h2>{ui.firstTitle}</h2><p>{ui.firstText}</p><CodeBlock locale={locale} code={FIRST_PROMPT[locale]} label={UI[locale].guides.prompt} /></section>
-      <section id="try-your-result"><h2>{ui.reviewTitle}</h2><p>{ui.reviewText}</p><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a href={href(locale, PAGE_PATHS.examples)}>{ui.next}<span aria-hidden="true"> ↗</span></a></section>
+      <section id="first-task" data-task-picker><h2>{ui.firstTitle}</h2><p>{copy.gettingNote} <a href="#installation">{copy.installFirst}</a></p><p>{ui.firstText}</p>
+        <nav class="task-request-nav" aria-label={copy.gettingNav}>{tasks.map((task) => <a href={'#task-' + task.id}>{task.label}</a>)}</nav>
+        <div class="task-requests">{tasks.map((task) => <section class="task-request" id={'task-' + task.id} data-task-request={task.id}><h3>{task.goal}</h3><p>{task.pain}</p><CodeBlock locale={locale} code={task.prompt} label={UI[locale].guides.prompt} /><h4>{copy.checksTitle}</h4><ul class="check-list">{task.checks.map((check) => <li>{check}</li>)}</ul></section>)}</div>
+      </section>
+      <section id="try-your-result"><h2>{ui.reviewTitle}</h2><p>{ui.reviewText}</p><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a href={href(locale, 'guides')}>{ui.next}<span aria-hidden="true"> ↗</span></a></section>
       <section><h2>{ui.continueTitle}</h2><p>{ui.continueText}</p></section>
       <section class="document-callout" id="boundaries"><h2>{ui.troubleTitle}</h2><p>{ui.troubleText}</p><CodeBlock locale={locale} code={ui.troublePrompt} label={UI[locale].guides.prompt} /></section>
       <details class="setup-option"><summary>{ui.sources}</summary><div class="resource-links"><a href="https://learn.chatgpt.com/docs/build-skills">{ui.codexDocs}</a><a href="https://code.claude.com/docs/en/skills">{ui.claudeDocs}</a></div></details>
     </div>
   </div>
 </div>
+
+<style>
+  .task-request-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; padding-block: 17px; border-block: 1px solid var(--line); margin-block: 25px; }
+  .task-request-nav a { text-decoration: none; padding-block: 4px; }
+  .task-request-nav a:hover { text-decoration: underline; }
+  .task-request + .task-request { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 32px; }
+  [data-selected-task="growth"] .task-request:not([data-task-request="growth"]), [data-selected-task="design"] .task-request:not([data-task-request="design"]), [data-selected-task="requirements"] .task-request:not([data-task-request="requirements"]), [data-selected-task="deployment"] .task-request:not([data-task-request="deployment"]) { display: none; }
+  [data-selected-task] .task-request { border: 0; padding-top: 0; margin-top: 0; }
+  .task-request h4 { font-size: .85rem; font-weight: 600; margin: 22px 0 12px; }
+  .task-request .check-list { font-size: .84rem; }
+  .task-request-nav a[aria-current] { text-decoration: underline; text-underline-offset: 6px; }
+</style>
+
+<script>
+  const picker = document.querySelector<HTMLElement>('[data-task-picker]');
+  if (picker) {
+    const requests = [...picker.querySelectorAll<HTMLElement>('[data-task-request]')];
+    const validTask = (value: string | null | undefined) => requests.some((request) => request.dataset.taskRequest === value);
+    const selectTask = () => {
+      const url = new URL(window.location.href);
+      const fragmentTask = url.hash.startsWith('#task-') ? url.hash.slice(6) : null;
+      const queryTask = url.searchParams.get('task');
+      const task = validTask(fragmentTask) ? fragmentTask! : validTask(queryTask) ? queryTask! : picker.dataset.selectedTask ?? requests[0]?.dataset.taskRequest;
+      if (!task) return;
+      picker.dataset.selectedTask = task;
+      for (const link of picker.querySelectorAll<HTMLAnchorElement>('.task-request-nav a')) {
+        if (link.hash === '#task-' + task) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+      if (validTask(fragmentTask) || validTask(queryTask)) {
+        url.searchParams.set('task', task);
+        if (url.href !== window.location.href) history.replaceState(history.state, '', url);
+      }
+    };
+    selectTask();
+    window.addEventListener('hashchange', selectTask);
+    window.addEventListener('popstate', selectTask);
+  }
+</script>

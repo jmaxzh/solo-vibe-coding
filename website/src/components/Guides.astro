@@ -1,14 +1,19 @@
 ---
 import CodeBlock from './CodeBlock.astro';
 import { UI, SCENARIOS, href, type Locale } from '../data/site';
+import { OUTCOMES } from '../data/outcomes';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].guides;
+const scenarios = SCENARIOS[locale].map((scenario) => {
+  const outcome = OUTCOMES[locale].find((item) => item.id === scenario.id);
+  return { ...scenario, ...(outcome ? { title: outcome.goal, summary: outcome.pain, prompt: outcome.prompt, output: outcome.deliverables.join(locale === 'en' ? '; ' : '；'), confirm: outcome.checks.join(' ') } : {}), help: outcome?.help ?? [], situation: outcome?.situation ?? '' };
+});
 ---
 <div class="container document-shell">
   <header class="page-intro"><p class="page-context">{UI[locale].nav.guides}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
   <div class="document-layout"><nav class="on-this-page" aria-label={locale === 'en' ? 'Find your goal' : '找到你的目标'}>{SCENARIOS[locale].map((scenario) => <a href={`#${scenario.id}`}>{scenario.label}</a>)}</nav><div class="document-content task-guide-list">
-    {SCENARIOS[locale].map((scenario) => <section class="task-guide" id={scenario.id} data-guide-task><span class="guide-label">{scenario.label}</span><h2>{scenario.title}</h2><p>{scenario.summary}</p><CodeBlock locale={locale} code={scenario.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.output}</h3><p>{scenario.output}</p></div><div><h3>{ui.confirm}</h3><p>{scenario.confirm}</p></div></div></section>)}
+    {scenarios.map((scenario) => <section class="task-guide" id={scenario.id} data-guide-task><span class="guide-label">{scenario.label}</span><h2>{scenario.title}</h2><p>{scenario.summary}</p>{scenario.situation && <p>{scenario.situation}</p>}{scenario.help.length > 0 && <ul>{scenario.help.map((item) => <li><strong>{item.title}{locale === 'en' ? ': ' : '：'}</strong>{item.text}</li>)}</ul>}<CodeBlock locale={locale} code={scenario.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.output}</h3><p>{scenario.output}</p></div><div><h3>{ui.confirm}</h3><p>{scenario.confirm}</p></div></div></section>)}
     <a class="button button-primary" href={href(locale, 'getting-started')}>{ui.next}<span aria-hidden="true">↗</span></a>
   </div></div>
 </div>

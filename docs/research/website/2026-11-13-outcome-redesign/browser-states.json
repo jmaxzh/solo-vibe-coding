@@ -1,0 +1,146 @@
+[
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "growth",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "design",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "requirements",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "deployment",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "growth",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "design",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "requirements",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "deployment",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "growth",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "design",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "requirements",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "deployment",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "growth",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "design",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "requirements",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "deployment",
+    "status": 200,
+    "overflow": false,
+    "violations": [],
+    "errors": []
+  }
+]

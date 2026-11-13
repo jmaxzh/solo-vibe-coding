@@ -1,26 +1,86 @@
 ---
 import Hero from './Hero.astro';
-import { POSITIONING } from '../data/positioning';
+import { OUTCOME_UI } from '../data/outcomes';
 import { UI, PROJECT, SCENARIOS, href, PAGE_PATHS, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale];
-const positioning = POSITIONING[locale];
+const copy = OUTCOME_UI[locale];
 ---
-<div class="container">
+<div class="container outcome-home">
   <Hero locale={locale} />
 
-  <section class="skill-methods" id="why-skill" aria-labelledby="methods-title"><div class="section-heading"><div><p class="section-eyebrow">{positioning.methodsLabel}</p><h2 id="methods-title">{ui.home.introTitle}</h2></div><p>{ui.home.introText}</p></div><div class="method-list">{positioning.methods.map((method, index) => <div class="method-item"><span class="method-number" aria-hidden="true">0{index + 1}</span><div><h3>{method.title}</h3><p class="method-need">{method.need}</p></div><p class="method-detail">{method.detail}</p></div>)}</div><div class="method-source"><p>{positioning.sourceNote}</p><a href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{positioning.source}<span aria-hidden="true">↗</span></a></div></section>
+  <section class="how-it-helps" id="how-it-helps" aria-labelledby="mechanism-title">
+    <div class="mechanism-introduction"><h2 id="mechanism-title">{copy.mechanismTitle}</h2><p>{copy.mechanismText}</p><a class="text-link" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{copy.source}<span aria-hidden="true">↗</span></a></div>
+    <div class="mechanism-list">{copy.mechanisms.map((item) => <div><h3>{item.title}</h3><p>{item.text}</p></div>)}</div>
+  </section>
 
-  <section class="case-invitation" aria-labelledby="case-title"><div><p class="section-eyebrow">{positioning.preview.label}</p><h2 id="case-title">{positioning.evidenceTitle}</h2><p>{positioning.evidenceText}</p></div><a class="button button-primary" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{positioning.preview.open}<span aria-hidden="true">↗</span></a></section>
+  <section class="real-work" aria-labelledby="evidence-title">
+    <div class="evidence-heading"><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
+    <div class="evidence-links">
+      <article><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 4h18v24H7zM11 9h10M11 14h2m6 0h2m-10 5h2m6 0h2m-10 5h2m6 0h2" /></svg><h3>{copy.exampleTitle}</h3><p>{copy.exampleText}</p><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{copy.exampleLink}<span aria-hidden="true">↗</span></a></article>
+      <article><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 5h20v22H6zM11 11h10M11 16h10M11 21h6" /></svg><h3>{copy.caseTitle}</h3><p>{copy.caseText}</p><a class="text-link" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{copy.caseLink}<span aria-hidden="true">↗</span></a></article>
+    </div>
+  </section>
 
-  <section class="home-scenarios" aria-labelledby="scenarios-title"><div class="section-heading"><h2 id="scenarios-title">{ui.guides.title}</h2><p>{ui.guides.intro}</p></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={`task-${scenario.id}`} href={href(locale, 'guides', scenario.id)}><span>{scenario.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>)}</div></section>
+  <section class="own-task" id="install" aria-labelledby="start-title">
+    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p></div>
+    <a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
+  </section>
 
-  <section class="how-section" aria-labelledby="how-title"><div><h2 id="how-title">{ui.home.howTitle}</h2><p>{ui.home.howText}</p></div><ol class="steps">{ui.home.steps.map((step, index) => <li><span class="step-number" aria-hidden="true">{index + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol></section>
+  <section class="faq-section" aria-labelledby="faq-title"><h2 id="faq-title">{ui.home.faqTitle}</h2><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
 
-  <section class="start-section" id="install" aria-labelledby="start-title"><div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p></div><a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.home.installLink}<span aria-hidden="true">↗</span></a></section>
-
-  <section class="faq-section" aria-labelledby="faq-title"><h2 id="faq-title">{ui.home.faqTitle}</h2><div class="faq-list">{ui.home.faq.map((item, index) => <details open={index === 2}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
-
-  <section class="secondary-example"><div><h2>{positioning.exampleTitle}</h2><p>{positioning.exampleText}</p></div><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{positioning.exampleLink}<span aria-hidden="true">↗</span></a></section>
+  <section class="more-tasks" aria-labelledby="scenarios-title"><h2 id="scenarios-title">{copy.allTasks}</h2><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}><span>{scenario.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>)}</div></section>
 </div>
+
+<style>
+  .how-it-helps { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-block: 65px 80px; border-top: 1px solid var(--line); }
+  .mechanism-introduction h2 { max-width: 19ch; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -.03em; }
+  .mechanism-introduction > p { color: var(--muted); font-size: .94rem; line-height: 1.95; max-width: 47ch; margin-top: 25px; }
+  .mechanism-introduction > a { margin-top: 28px; font-size: .78rem; }
+  .mechanism-list { display: grid; gap: 26px; }
+  .mechanism-list > div + div { border-top: 1px solid var(--line); padding-top: 25px; }
+  .mechanism-list h3 { font-size: 1.08rem; letter-spacing: -.01em; }
+  .mechanism-list p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 10px; }
+  .real-work { border-top: 1px solid var(--line); padding-block: 60px 70px; }
+  .evidence-heading { display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+  .evidence-heading h2 { font-size: 2rem; letter-spacing: -.03em; max-width: 24ch; }
+  .evidence-heading > p { color: var(--muted); font-size: .84rem; max-width: 43ch; }
+  .evidence-links { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin-top: 40px; }
+  .evidence-links article { border-top: 1px solid var(--line); padding-top: 25px; }
+  .evidence-links article > svg { width: 27px; height: 27px; stroke: #627153; stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; margin-bottom: 18px; }
+  .evidence-links h3 { font-size: 1.15rem; letter-spacing: -.02em; }
+  .evidence-links p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 14px; max-width: 58ch; }
+  .evidence-links a { font-size: .79rem; margin-top: 22px; }
+  .own-task { display: flex; align-items: center; justify-content: space-between; gap: 50px; background: var(--panel); color: var(--paper); padding: 45px 48px; border-radius: 14px; margin-block: 5px 65px; }
+  .own-task > div { max-width: 690px; }
+  .own-task h2 { font-size: clamp(1.8rem, 2.7vw, 2.4rem); letter-spacing: -.025em; }
+  .own-task p { color: #c2cdc0; font-size: .88rem; line-height: 1.9; margin-top: 17px; max-width: 58ch; }
+  .own-task > a { flex: none; }
+  .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+  .faq-section { padding-bottom: 65px; }
+  .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
+  .more-tasks h2 { font-size: 1.05rem; letter-spacing: 0; }
+  .more-tasks .scenario-links { margin-top: 12px; }
+  .more-tasks .scenario-links a { font-size: .84rem; font-weight: 500; padding-block: 17px; }
+  @media (max-width: 1100px) { .how-it-helps { gap: 55px; } .own-task { padding: 35px; gap: 30px; } }
+  @media (max-width: 800px) {
+    .how-it-helps { grid-template-columns: 1fr; gap: 35px; padding-block: 44px 52px; }
+    .mechanism-introduction h2 { max-width: 24ch; }
+    .mechanism-introduction > p { max-width: 65ch; }
+    .real-work { padding-block: 44px 50px; }
+    .evidence-heading { flex-direction: column; align-items: start; gap: 20px; }
+    .evidence-heading > p { max-width: 58ch; }
+    .evidence-links { grid-template-columns: 1fr; gap: 30px; margin-top: 28px; }
+    .own-task { flex-direction: column; align-items: start; padding: 32px; gap: 25px; margin-bottom: 45px; }
+    .faq-section { padding-bottom: 45px; }
+    .more-tasks { padding-bottom: 48px; }
+  }
+  @media (max-width: 480px) {
+    .mechanism-introduction h2 { font-size: 1.8rem; }
+    .mechanism-introduction > p { font-size: .88rem; }
+    .evidence-heading h2 { font-size: 1.7rem; }
+    .own-task { padding: 29px 25px; }
+    .own-task p { font-size: .82rem; }
+  }
+</style>

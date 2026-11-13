@@ -1,0 +1,34 @@
+[
+  {
+    "locale": "zh-CN",
+    "javaScriptEnabled": true,
+    "task": "deployment",
+    "result": "passed",
+    "networkRequests": 0,
+    "pageErrors": 0
+  },
+  {
+    "locale": "en",
+    "javaScriptEnabled": true,
+    "task": "deployment",
+    "result": "passed",
+    "networkRequests": 0,
+    "pageErrors": 0
+  },
+  {
+    "locale": "zh-CN",
+    "javaScriptEnabled": false,
+    "task": "deployment",
+    "result": "passed",
+    "networkRequests": 0,
+    "pageErrors": 0
+  },
+  {
+    "locale": "en",
+    "javaScriptEnabled": false,
+    "task": "deployment",
+    "result": "passed",
+    "networkRequests": 0,
+    "pageErrors": 0
+  }
+]
