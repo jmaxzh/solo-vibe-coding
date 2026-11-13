@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { UI, href } from '../data/site';
+const ui = UI.en.notFound;
+---
+<Layout locale="en" page="home" title={ui.title} description={ui.description} route="" noindex>
+  <div class="container not-found"><h1>{ui.title}</h1><p>{ui.text}</p><a class="button button-primary" href={href('en')}>{ui.home}</a></div>
+</Layout>

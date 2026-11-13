@@ -64,6 +64,12 @@ adapt composition and pacing to each platform, and deliver assets and editable s
 
 The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task guides, six catalogs of existing references and assets, and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
+## Website and project knowledge
+
+The project website uses GitHub Pages at [jmaxzh.github.io/solo-vibe-coding](https://jmaxzh.github.io/solo-vibe-coding/), with English and Chinese pages. Its source lives in `website/` and is independent of the installable skill package.
+
+See the [website README](website/README.md) for local development, checks, publishing, and rollback. The [project knowledge index](docs/README.md) links to the architecture, website specification, decision records, and testing guidance. Important decisions and their rationale are maintained alongside the code; complete verification and review records are kept separately in research archives.
+
 ## Languages and layout
 
 ```text
@@ -71,6 +77,11 @@ AGENTS.md                              Repository instructions
 README.md                              English project overview
 README.zh-CN.md                        Chinese project overview
 LICENSE                                MIT license
+CONSTRAINTS.md                         Website quality standards
+website/                               Bilingual static website and checks
+.github/workflows/website.yml          Website checks and Pages publishing
+docs/README.md                         Project knowledge index
+docs/decisions.md                      Decision index and links to ADRs
 skills/solo-vibe-coding/                Default English skill package
   SKILL.md                             Skill entry point
   agents/openai.yaml                   Host interface metadata

@@ -62,6 +62,12 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 [技能入口](skills/solo-vibe-coding/SKILL.md) 指向六类任务指导、六份现成参考与素材目录和技术、质量两类专项参考，并提供远程读取与项目知识库的共用规范。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
 
+## 官网与项目知识库
+
+项目官网使用 GitHub Pages 默认地址 [jmaxzh.github.io/solo-vibe-coding](https://jmaxzh.github.io/solo-vibe-coding/)，提供英文和中文页面。源码位于 `website/`，与可安装的技能包独立维护。
+
+本地开发、检查、发布与回退方法见 [官网 README](website/README.md)。[项目知识库入口](docs/README.md) 汇集架构、官网需求、决策记录与测试说明。重要决策及其依据随代码维护，完整验证与评审记录独立保留在研究档案中。
+
 ## 语言与目录
 
 ```text
@@ -69,6 +75,11 @@ AGENTS.md                              仓库指令
 README.md                              英文项目介绍
 README.zh-CN.md                        中文项目介绍
 LICENSE                                MIT 许可证
+CONSTRAINTS.md                         官网质量标准
+website/                               双语静态官网与检查
+.github/workflows/website.yml          官网检查与 Pages 发布
+docs/README.md                         项目知识库入口
+docs/decisions.md                      决策索引与 ADR 入口
 skills/solo-vibe-coding/                默认英文技能包
   SKILL.md                             技能入口
   agents/openai.yaml                   宿主界面元数据

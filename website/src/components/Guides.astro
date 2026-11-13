@@ -1,0 +1,18 @@
+---
+import CodeBlock from './CodeBlock.astro';
+import { UI, TASKS, source, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const ui = UI[locale].guides;
+---
+<div class="container document-shell">
+  <header class="page-intro"><p class="page-context">{UI[locale].nav.guides}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <div class="document-layout">
+    <nav class="on-this-page" aria-label={locale === 'en' ? 'Task index' : '任务索引'}>{TASKS[locale].map((task) => <a href={`#${task.id}`}>{task.label}</a>)}</nav>
+    <div class="document-content task-guide-list">
+      {TASKS[locale].map((task) => <section class="task-guide" id={task.id} data-guide-task><span class="guide-label">{task.label}</span><h2>{task.title}</h2><p>{task.summary}</p><CodeBlock locale={locale} code={task.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.guidance}</h3><p>{task.guidance}</p></div><div><h3>{ui.output}</h3><ul>{task.deliverables.map((item) => <li>{item}</li>)}</ul></div></div><a href={source(locale, `references/${task.reference}.md`)}>{ui.source}<span aria-hidden="true"> ↗</span></a></section>)}
+      <section><h2>{ui.qualityTitle}</h2><p>{ui.qualityText}</p><div class="resource-links"><a href={source(locale, 'references/quality-and-ci.md')}>{ui.qualityLink}</a><a href={source(locale, 'references/technology-stack.md')}>{ui.technologyLink}</a></div></section>
+      <section class="document-callout"><h2>{ui.knowledgeTitle}</h2><p>{ui.knowledgeText}</p><a href={source(locale, 'references/project-knowledge.md')}>{ui.knowledgeLink}<span aria-hidden="true"> ↗</span></a></section>
+    </div>
+  </div>
+</div>

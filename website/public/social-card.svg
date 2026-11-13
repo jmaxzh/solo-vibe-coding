@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f5ef"/>
+  <rect x="70" y="60" width="48" height="48" rx="13" fill="#202320"/>
+  <path d="m87 75-7 9 7 9m15-18 7 9-7 9m-5-17-5 16" fill="none" stroke="#f7f5ef" stroke-width="2.5" stroke-linecap="round"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#202320">
+    <text x="135" y="93" font-size="25" font-weight="bold">Solo Vibe Coding</text>
+    <text x="70" y="235" font-size="78" font-weight="bold" letter-spacing="-4">Build, ship, and</text>
+    <text x="70" y="330" font-size="78" font-weight="bold" letter-spacing="-4">grow your product.</text>
+    <text x="75" y="410" font-size="25" fill="#5a625c">An open-source Agent Skill for independent developers.</text>
+    <text x="75" y="557" font-size="21" fill="#5a625c">jmaxzh.github.io/solo-vibe-coding</text>
+  </g>
+  <rect x="940" y="65" width="190" height="43" rx="21.5" fill="#dce5d9"/>
+  <text x="1035" y="93" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#202320">Open source / MIT</text>
+  <circle cx="1050" cy="524" r="44" fill="#e4613e"/>
+  <path d="m1034 540 31-31m-26 0h26v26" stroke="#202320" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

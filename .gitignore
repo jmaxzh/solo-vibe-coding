@@ -4,3 +4,8 @@ __pycache__/
 .env
 .env.*
 !.env.example
+node_modules/
+website/.astro/
+website/dist/
+website/playwright-report/
+website/test-results/

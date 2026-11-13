@@ -1,0 +1,21 @@
+---
+import CodeBlock from './CodeBlock.astro';
+import { PROJECT, UI, href, source, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const ui = UI[locale].getting;
+---
+<div class="container document-shell">
+  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <div class="document-layout">
+    <nav class="on-this-page" aria-label={locale === 'en' ? 'On this page' : '本页目录'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#boundaries">{ui.boundariesTitle}</a></nav>
+    <div class="document-content">
+      <section id="requirements"><h2>{ui.beforeTitle}</h2><ul class="check-list">{ui.before.map((item) => <li>{item}</li>)}</ul><a href="https://agentskills.io/specification">{ui.format}<span aria-hidden="true"> ↗</span></a></section>
+      <section id="installation"><h2>{ui.installTitle}</h2><p>{ui.installText}</p><CodeBlock locale={locale} code={PROJECT.install} install /><a href="https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-add">{ui.cli}<span aria-hidden="true"> ↗</span></a></section>
+      <section id="first-task"><h2>{ui.firstTitle}</h2><p>{ui.firstText}</p><CodeBlock locale={locale} code={ui.firstPrompt} /><h3>{ui.reviewTitle}</h3><p>{ui.reviewText}</p></section>
+      <section><h2>{ui.manualTitle}</h2><p>{ui.manualText}</p><a href={source(locale)}>SKILL.md<span aria-hidden="true"> ↗</span></a></section>
+      <section class="document-callout" id="boundaries"><h2>{ui.boundariesTitle}</h2><p>{ui.boundariesText}</p></section>
+      <a class="button button-primary" href={href(locale, 'guides')}>{ui.next}<span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</div>
