@@ -62,7 +62,7 @@ a Xiaohongshu carousel, and a vertical short video. Keep a consistent visual sty
 adapt composition and pacing to each platform, and deliver assets and editable source.
 ```
 
-The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task entry points and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
+The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task guides, six catalogs of existing references and assets, and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
 ## Languages and layout
 
@@ -75,6 +75,7 @@ skills/solo-vibe-coding/                Default English skill package
   SKILL.md                             Skill entry point
   agents/openai.yaml                   Host interface metadata
   references/                          Task, supplementary, and shared references
+    resources/                         Existing examples, templates, source, and assets
   LICENSE.txt                          License carried with the package
 i18n/zh-CN/AGENTS.md                    Chinese repository instructions
 i18n/zh-CN/skills/solo-vibe-coding/      Chinese skill with matching structure

@@ -2,6 +2,8 @@
 
 Use for production configuration, application packaging, deployment, release verification, and rollback. Read the existing deployment configuration, scripts, runbooks, and target-host information before choosing an approach. Use [quality criteria and automated checks](quality-and-ci.md) for project checks and CI execution.
 
+For existing self-hosted services, images, Cloudflare templates, and monitoring dashboards, see [deployment and operations references](resources/deployment.md).
+
 ## Deployment targets
 
 - **Frontend**: deploy all web frontends to Cloudflare. For new static sites and SPAs, prefer Workers Static Assets following current official guidance; retain existing Pages deployments during unrelated maintenance. For SSR and other frontend server-side rendering, verify the framework adapter, runtime compatibility, and dynamic-request costs. Keep business backend services on the VPS below. Native desktop and mobile packages follow their own distribution channels.

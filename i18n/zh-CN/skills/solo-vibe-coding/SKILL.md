@@ -1,6 +1,6 @@
 ---
 name: solo-vibe-coding
-description: "为已有明确产品方向的独立开发者，按获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布选择专业指导；工程项目优先确定质量指标与自动检查，并统一项目知识库规范。任务可独立进入，不探索创业方向。"
+description: "为已有明确产品方向的独立开发者，按获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布选择专业指导；工程项目优先确定质量指标与自动检查，并统一项目知识库规范。按任务查找现成案例、模板、源码与素材。任务可独立进入，不探索创业方向。"
 ---
 
 # Solo Vibe Coding
@@ -11,18 +11,18 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 
 ## 选择任务指导
 
-以当前要达成的结果确定主入口；复合任务按需组合其他范畴，复用项目事实、约束与已有实现。
+按当前目标选择入口，按需组合范畴，复用项目事实、约束与实现。
 
 ### 按任务确定主入口
 
-| 当前问题 | 参考文档 |
-| --- | --- |
-| 产品价值表达、营销文案、内容传播、Build in public、官网与落地页、转化分析 | [获客与转化](references/acquisition.md) |
-| 功能页与静态页的界面审美、设计系统、交互与动效，自媒体图片与视频制作，或寻找案例、模板、图标与媒体素材 | [视觉与交互](references/visual-interaction.md) |
-| 讨论问题与解法、理解反馈、澄清业务术语、MVP 切分、确定功能范围和验收条件、维护需求文档 | [需求与沟通](references/requirements.md) |
-| 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束与决策记录 | [架构与技术设计](references/architecture.md) |
-| 本地环境搭建与调试准备、代码实现、代码评审、故障排查、测试、验证及相关使用说明维护 | [开发与质量](references/development.md) |
-| 生产配置、应用打包、Cloudflare 前端与单台 VPS 后端部署、发布验证和回滚 | [生产部署与发布](references/deployment.md) |
+| 当前问题 | 专业指导 | 现成参考 |
+| --- | --- | --- |
+| 价值表达、营销文案、内容传播、Build in public、官网、落地页、转化分析 | [获客与转化](references/acquisition.md) | [案例](references/resources/acquisition.md) |
+| 界面审美、设计系统、交互与动效、功能页与静态页、自媒体图片与视频、视觉案例与素材 | [视觉与交互](references/visual-interaction.md) | [素材](references/resources/visual.md) |
+| 问题与解法、反馈、业务术语、MVP 切分、功能范围、验收条件、需求文档 | [需求与沟通](references/requirements.md) | [模板](references/resources/requirements.md) |
+| 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束、决策记录 | [架构与技术设计](references/architecture.md) | [案例](references/resources/architecture.md) |
+| 本地环境与调试准备、实现、代码评审、排障、测试、验证、使用说明 | [开发与质量](references/development.md) | [源码与环境](references/resources/development.md) |
+| 生产配置、打包、Cloudflare 前端与单台 VPS 后端部署、发布验证、回滚 | [生产部署与发布](references/deployment.md) | [部署与运行素材](references/resources/deployment.md) |
 
 ### 按技术与质量需求补充指导
 
@@ -33,7 +33,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | React、Next.js、Tauri/Rust、Go/Gin、MySQL、React Native 的实现、性能与运行问题 | [技术栈专项](references/technology-stack.md) |
 | 确定项目质量指标、建立检查工具与使用指定自托管 Runner 的 GitHub Actions，或配置本地自动检查 | [质量指标与自动检查](references/quality-and-ci.md) |
 
-选择最贴合任务的专业指导，必要时搭配解决独立缺口的能力。技能与素材按需读取，不因同一范畴收录了多个候选就全部加载。
+仅按当前任务读取相关指导与资源。只找参考时直接进入右侧资源页，交付现成来源；需要建议、评审、实现或制作时读取专业指导。
 
 ## 结合项目条件应用指导
 
@@ -55,7 +55,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 
 ### 核实交付状态
 
-内容依据真实产品与证据，参考定位到具体页面、截图、组件源码或素材文件，动态效果提供可播放示例。交付状态以实际取得的文件、运行和验证结果为准。
+内容依据真实产品与证据。只找网站时提供现成站点与适用用途；寻找具体案例时定位到原始页面、截图、组件源码或素材文件，动态效果提供可播放示例。交付状态以实际取得的文件、运行和验证结果为准。
 
 ### 项目知识库规范
 

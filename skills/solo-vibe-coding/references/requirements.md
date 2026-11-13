@@ -2,6 +2,8 @@
 
 Use for discussing problems, understanding user feedback, exploring solutions, clarifying business concepts, slicing an MVP, and defining feature scope and acceptance criteria within an existing product direction. Fill information gaps affecting the current task from existing context, distinguishing confirmed content, open decisions, and assumptions.
 
+For existing PRD and user-story-map templates, see [requirements references](resources/requirements.md).
+
 | Current problem | Optional skills |
 | --- | --- |
 | Analyze interviews, feedback, or public demand signals | customer-research |

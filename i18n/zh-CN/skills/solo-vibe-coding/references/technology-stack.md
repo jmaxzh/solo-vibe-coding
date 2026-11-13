@@ -53,6 +53,8 @@
 
 ## Go 与 Gin
 
+现成 Gin 实现示例见 [Gin Examples](resources/development.md#gin-examples)。
+
 以下专项来自 [samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)。按问题读取单项；关联引用只为当前缺口追加。Gin 的路由、中间件、绑定与响应 API 结合项目版本和[官方文档](https://gin-gonic.com/docs/)使用，Go 专项负责其语言与运行基础。
 
 <!-- skill: samber/cc-skills-golang@golang-code-style -->
@@ -85,6 +87,8 @@
 Go 流水线只在[质量指标与自动检查](quality-and-ci.md#上游指导)维护；它执行既定标准，以上专项提供实现及解释方法。
 
 ## MySQL
+
+现成应用数据结构见 [DrawSQL Templates](resources/architecture.md#drawsql-templates)。
 
 <!-- skill: planetscale/database-skills@mysql -->
 - **mysql**：[原文](https://github.com/planetscale/database-skills/blob/main/skills/mysql/SKILL.md)，[技能页](https://skills.sh/planetscale/database-skills/mysql)。MySQL/InnoDB 的表设计、索引、查询计划、事务、锁、复制、连接与迁移；按问题读取其引用，结合数据规模、读写形态和 `EXPLAIN` 等证据验证。托管方式、字符集/排序规则、主键、时间类型和数据模型沿用项目需求与兼容性约束，上游默认推荐用于比较选项。Go 的调用和资源管理见 golang-database。

@@ -1,6 +1,6 @@
 ---
 name: solo-vibe-coding
-description: "Select specialist guidance for independent developers with an established product direction across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release. Prioritize quality criteria and automated checks in engineering projects and unify project knowledge conventions. Tasks can be entered independently; does not explore startup ideas."
+description: "Select specialist guidance for independent developers with an established product direction across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release. Prioritize quality criteria and automated checks in engineering projects and unify project knowledge conventions. Find existing examples, templates, source code, and assets by task. Tasks can be entered independently; does not explore startup ideas."
 ---
 
 # Solo Vibe Coding
@@ -11,18 +11,18 @@ Each task can be entered independently; read guidance and constraints relevant t
 
 ## Select task guidance
 
-Choose the main entry point by the result to achieve; combine other topics as needed for compound tasks, reusing project facts, constraints, and existing implementation.
+Choose by the requested result; combine topics as needed, reusing project facts, constraints, and implementation.
 
 ### Choose the main entry point by task
 
-| Current problem | Reference |
-| --- | --- |
-| Product value proposition, marketing copy, content distribution, building in public, websites and landing pages, conversion analysis | [Acquisition and conversion](references/acquisition.md) |
-| Interface aesthetics, design systems, interaction, and motion for functional and static pages, social media image and video production, or finding examples, templates, icons, and media assets | [Visual design and interaction](references/visual-interaction.md) |
-| Discussing problems and solutions, understanding feedback, clarifying business terms, slicing an MVP, defining feature scope and acceptance criteria, maintaining requirements | [Requirements and communication](references/requirements.md) |
-| System structure, technology selection, module and data boundaries, scaling, architectural patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) |
-| Local environment setup and debugging preparation, implementation, code review, troubleshooting, testing, verification, and related usage documentation | [Development and quality](references/development.md) |
-| Production configuration, application packaging, Cloudflare frontend and single-VPS backend deployment, release verification, and rollback | [Production deployment and release](references/deployment.md) |
+| Current problem | Specialist guidance | Existing references |
+| --- | --- | --- |
+| Value proposition, marketing copy, content distribution, building in public, websites, landing pages, conversion analysis | [Acquisition and conversion](references/acquisition.md) | [Examples](references/resources/acquisition.md) |
+| Interface aesthetics, design systems, interaction and motion, functional/static pages, social images/video, visual examples and assets | [Visual design and interaction](references/visual-interaction.md) | [Assets](references/resources/visual.md) |
+| Problems and solutions, feedback, business terms, MVP slicing, feature scope, acceptance criteria, requirements documents | [Requirements and communication](references/requirements.md) | [Templates](references/resources/requirements.md) |
+| System structure, technology choices, module/data boundaries, scaling, architecture patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) | [Cases](references/resources/architecture.md) |
+| Local setup and debugging preparation, implementation, code review, troubleshooting, tests, verification, usage documentation | [Development and quality](references/development.md) | [Code and setups](references/resources/development.md) |
+| Production configuration, packaging, Cloudflare frontend and single-VPS backend deployment, release verification, rollback | [Production deployment and release](references/deployment.md) | [Deployment assets](references/resources/deployment.md) |
 
 ### Add guidance for technology and quality needs
 
@@ -33,7 +33,7 @@ Add technology guidance for implementation methods and quality guidance for the 
 | Implementation, performance, and runtime issues in React, Next.js, Tauri/Rust, Go/Gin, MySQL, and React Native | [Technology-specific guidance](references/technology-stack.md) |
 | Defining project quality criteria, establishing check tools and GitHub Actions with designated self-hosted runners, or configuring local automated checks | [Quality criteria and automated checks](references/quality-and-ci.md) |
 
-Choose the most relevant specialist guidance, adding capabilities that address independent gaps when necessary. Read skills and assets on demand rather than loading every candidate listed in the same topic.
+Read only guidance and resources relevant to the task. Use the resource column directly for reference-only requests, returning existing sources; use specialist guidance for advice, review, implementation, or production.
 
 ## Apply guidance to project conditions
 
@@ -55,7 +55,7 @@ When this guide does not cover the current need, a candidate is unavailable, or 
 
 ### Verify delivery status
 
-Base content on real products and evidence. References should identify concrete pages, screenshots, component source, or asset files; provide playable examples for dynamic effects. Report delivery status according to files actually obtained, execution, and verification results.
+Base content on real products and evidence. For website discovery, provide existing sites and their relevant uses; for specific examples, identify original pages, screenshots, component source, or asset files, with playable examples for dynamic effects. Report delivery status according to files actually obtained, execution, and verification results.
 
 ### Project knowledge conventions
 

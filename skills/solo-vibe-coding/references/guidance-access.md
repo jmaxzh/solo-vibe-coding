@@ -9,6 +9,10 @@ Read the selected skill's original instructions and necessary references from it
 - Use image/video models, browsers, renderers, MCP, or APIs actually available in the current environment. When tools, accounts, or dependencies are missing, state the specific gap and deliver the guidance, drafts, or source files still possible.
 - When reading fails, check the address, version, or redirects. If it remains unreadable, state that full guidance was not obtained, identify the basis for continuing, and complete what remains possible.
 
+## Use existing resource catalogs
+
+Choose the task-specific resource page from the skill entry point and read only relevant entries. Follow links to actual cases, templates, source repositories, or asset files. Optional discovery skills follow the same source, version, and dependency rules above; reading them does not install a skill, connect an account, or execute a production workflow.
+
 ## Discover supplementary skills
 
 <!-- skill: vercel-labs/skills@find-skills -->

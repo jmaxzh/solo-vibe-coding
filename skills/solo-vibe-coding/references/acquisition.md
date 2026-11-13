@@ -2,6 +2,8 @@
 
 Use for an existing product's value proposition, marketing copy, content distribution, building in public, websites and landing pages, and conversion analysis. Express actual capabilities, progress, and evidence; distinguish qualitative advice from verified effects.
 
+For existing copy, emails, ads, and product journeys, see [acquisition references](resources/acquisition.md).
+
 | Current problem | Optional skills |
 | --- | --- |
 | Who uses the product, what it solves, and how to express its value | product-marketing, copywriting, copy-editing |

@@ -2,6 +2,8 @@
 
 Use for new feature design, technology selection, proposal comparisons, and diagnosis of existing code structure. Select guidance around functional requirements and nonfunctional constraints, first establishing the applicable baseline from [quality criteria and automated checks](quality-and-ci.md).
 
+For existing schemas, application implementations, and architectural cases, see [architecture references](resources/architecture.md).
+
 | Current problem | Entry point |
 | --- | --- |
 | New feature design, technology selection, proposal comparison, creating or evaluating ADRs | architecture |

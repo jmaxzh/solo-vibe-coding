@@ -53,6 +53,8 @@ For visual direction, component motion, and accessibility, see [visual design an
 
 ## Go and Gin
 
+For existing Gin implementation samples, see [Gin Examples](resources/development.md#gin-examples).
+
 The following specialists come from [samber/cc-skills-golang](https://github.com/samber/cc-skills-golang). Read individual skills according to the problem, adding related references only for the current gap. Apply Gin routing, middleware, binding, and response APIs using the project version and [official documentation](https://gin-gonic.com/docs/); Go specialists own language and runtime foundations.
 
 <!-- skill: samber/cc-skills-golang@golang-code-style -->
@@ -85,6 +87,8 @@ The following specialists come from [samber/cc-skills-golang](https://github.com
 Maintain Go pipelines only in [quality criteria and automated checks](quality-and-ci.md#upstream-guidance); pipelines execute established standards, while the specialists above provide implementation and explanation methods.
 
 ## MySQL
+
+For existing application schemas, see [DrawSQL Templates](resources/architecture.md#drawsql-templates).
 
 <!-- skill: planetscale/database-skills@mysql -->
 - **mysql**: [Source](https://github.com/planetscale/database-skills/blob/main/skills/mysql/SKILL.md), [Skill page](https://skills.sh/planetscale/database-skills/mysql). MySQL/InnoDB schema design, indexes, query plans, transactions, locks, replication, connections, and migrations; read references according to the problem and verify using data scale, read/write patterns, and evidence such as `EXPLAIN`. Retain project needs and compatibility constraints for hosting, charset/collation, primary keys, time types, and data models; use upstream defaults to compare options. See golang-database for Go calls and resource management.

@@ -2,6 +2,8 @@
 
 Use for local environment setup and debugging preparation, implementing changes, reviewing code, troubleshooting faults, selecting tests, and verifying results in an existing project. First define and establish the project baseline using [quality criteria and automated checks](quality-and-ci.md), prioritizing existing infrastructure. Choose guidance according to the actual technology stack, implementation, logs, and tests.
 
+For existing open-source products, Gin examples, and local Compose setups, see [development references](resources/development.md).
+
 | Current problem | Optional skills |
 | --- | --- |
 | Establish quality standards, check tools, CI, or local automated checks | [Quality criteria and automated checks](quality-and-ci.md) |
