@@ -15,7 +15,16 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path);
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('#why-skill .method-item')).toHaveCount(4);
-    await expect(page.locator('[data-case-preview] img')).toBeVisible();
+    const preview = page.locator('[data-case-preview]');
+    await expect(preview.locator('.panel-first img')).toBeVisible();
+    await preview.locator(`label[for="case-second-${locale}"]`).click();
+    await expect(preview.locator('.panel-second img')).toBeVisible();
+    await expect(preview.locator('.panel-first')).toBeHidden();
+    await expect(preview.locator('.panel-second')).toContainText(locale === 'en' ? 'filtered bookmarks' : '筛选出来的收藏');
+    await preview.locator('.round-second').focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(preview.locator('.round-first')).toBeChecked();
+    await expect(preview.locator('.panel-first img')).toBeVisible();
     await page.locator('[data-case-link]').first().click();
     await expect(page).toHaveURL(new RegExp(caseStudy + '$'));
     await expect(page.locator('[data-case-summary]')).not.toBeEmpty();
@@ -175,6 +184,10 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('#why-skill .method-item')).toHaveCount(4);
+      const preview = page.locator('[data-case-preview]');
+      await preview.locator(`label[for="case-second-${prefix ? 'zh-CN' : 'en'}"]`).click();
+      await expect(preview.locator('.panel-second img')).toBeVisible();
+      await expect(preview.locator('.panel-first')).toBeHidden();
       await page.locator('[data-case-link]').first().click();
       await expect(page.locator('[data-case-summary]')).toBeVisible();
       await expect(page.locator('[data-starter-download]')).toBeVisible();

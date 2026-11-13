@@ -1,0 +1,62 @@
+{
+  "browser": "157.0.8103.51",
+  "records": [
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1053,
+      "status": 200,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "width": 390,
+      "height": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1053,
+      "status": 200,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "width": 390,
+      "height": 1392,
+      "status": 200,
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "standalonePreviews": [
+    {
+      "locale": "zh-CN",
+      "width": 320,
+      "javaScript": false,
+      "keyboardSkipLink": "local #main",
+      "switchAndKeyboard": "passed",
+      "horizontalOverflow": false,
+      "externalRequests": []
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "javaScript": false,
+      "keyboardSkipLink": "local #main",
+      "switchAndKeyboard": "passed",
+      "horizontalOverflow": false,
+      "externalRequests": []
+    }
+  ],
+  "capture": "Transitions fast-forwarded for stable still images; no changes to the product screenshots."
+}

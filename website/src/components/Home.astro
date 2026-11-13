@@ -1,5 +1,5 @@
 ---
-import CasePreview from './CasePreview.astro';
+import Hero from './Hero.astro';
 import { POSITIONING } from '../data/positioning';
 import { UI, PROJECT, SCENARIOS, href, PAGE_PATHS, type Locale } from '../data/site';
 interface Props { locale: Locale; }
@@ -8,10 +8,7 @@ const ui = UI[locale];
 const positioning = POSITIONING[locale];
 ---
 <div class="container">
-  <section class="hero positioning-hero" aria-labelledby="hero-title">
-    <div class="hero-copy"><p class="hero-context"><span class="context-dot" aria-hidden="true"></span>{ui.hero.context}</p><h1 id="hero-title">{ui.hero.title}</h1><p class="hero-description">{ui.hero.description}</p><div class="hero-actions"><a class="button button-primary" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{ui.hero.primary}<svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="text-link" data-start href={href(locale, 'getting-started')}>{ui.hero.secondary}</a></div><p class="hero-note">{ui.hero.note}</p></div>
-    <div class="hero-example"><p class="example-request-bubble">{ui.hero.request}</p><CasePreview locale={locale} featured /><p class="example-caption">{ui.hero.example}</p></div>
-  </section>
+  <Hero locale={locale} />
 
   <section class="skill-methods" id="why-skill" aria-labelledby="methods-title"><div class="section-heading"><div><p class="section-eyebrow">{positioning.methodsLabel}</p><h2 id="methods-title">{ui.home.introTitle}</h2></div><p>{ui.home.introText}</p></div><div class="method-list">{positioning.methods.map((method, index) => <div class="method-item"><span class="method-number" aria-hidden="true">0{index + 1}</span><div><h3>{method.title}</h3><p class="method-need">{method.need}</p></div><p class="method-detail">{method.detail}</p></div>)}</div><div class="method-source"><p>{positioning.sourceNote}</p><a href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{positioning.source}<span aria-hidden="true">↗</span></a></div></section>
 

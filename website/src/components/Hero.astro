@@ -1,0 +1,80 @@
+---
+import CasePreview from './CasePreview.astro';
+import { UI, PAGE_PATHS, href, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const ui = UI[locale].hero;
+---
+<section class="studio-hero" aria-labelledby="hero-title">
+  <div class="studio-copy">
+    <p class="studio-context"><span aria-hidden="true"></span>{ui.context}</p>
+    <h1 id="hero-title">{ui.title}{' '}<span class="studio-accent">{ui.accent}<svg viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 11C83 2 221 3 395 8M12 15C118 9 273 10 381 13" /></svg></span></h1>
+    <p class="studio-description">{ui.description}</p>
+    <div class="studio-actions">
+      <a class="button button-primary studio-primary" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{ui.primary}<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
+      <a class="studio-install" data-start href={href(locale, 'getting-started')}>{ui.secondary}<span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="studio-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8 3 3 7-7" /></svg>{ui.note}</p>
+  </div>
+  <div class="studio-project">
+    <svg class="studio-spark" viewBox="0 0 100 100" aria-hidden="true"><path d="m50 4 8 31L83 14 69 43l28 7-29 9 17 28-29-19-6 29-9-29-27 18 20-29L5 50l31-8-18-27 26 20z" /></svg>
+    <CasePreview locale={locale} />
+    <p class="studio-aside"><svg viewBox="0 0 74 35" fill="none" aria-hidden="true"><path d="M3 5c11 24 36 30 65 12M52 14l18 1-4 16" /></svg>{ui.example}</p>
+  </div>
+</section>
+
+<style>
+  .studio-hero { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: 70px; padding-block: 80px 85px; }
+  .studio-copy { padding-bottom: 24px; }
+  .studio-context { display: flex; align-items: center; gap: 10px; font-size: .78rem; color: #535d52; margin-bottom: 29px; }
+  .studio-context > span { width: 8px; height: 8px; background: #bd4727; border-radius: 50%; }
+  h1 { font-size: clamp(3.5rem, 5.3vw, 5rem); line-height: 1.08; font-weight: 650; letter-spacing: -.07em; }
+  .studio-accent { position: relative; display: block; width: fit-content; margin-top: 8px; color: #b84427; padding-bottom: 12px; }
+  .studio-accent > svg { position: absolute; width: 100%; height: 13px; bottom: -1px; left: 0; overflow: visible; }
+  .studio-accent path { fill: none; stroke: #e88459; stroke-width: 3; stroke-linecap: round; }
+  :global(:lang(zh-CN)) h1 { font-size: clamp(2.7rem, 4.2vw, 4rem); line-height: 1.28; letter-spacing: -.06em; }
+  .studio-description { margin-top: 29px; max-width: 43ch; font-size: 1.04rem; line-height: 1.85; color: #50584f; }
+  .studio-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 25px; margin-top: 32px; }
+  .studio-primary { border-radius: 8px; min-height: 52px; padding: 15px 21px; gap: 18px; }
+  .studio-primary svg { width: 20px; height: 20px; }
+  .studio-primary path { stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .studio-install { display: inline-flex; align-items: center; gap: 9px; font-size: .87rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid #abb09e; padding-block: 5px; }
+  .studio-install:hover { border-color: #b84427; color: #a13d23; }
+  .studio-note { display: flex; align-items: center; gap: 8px; margin-top: 22px; color: #606858; font-size: .74rem; }
+  .studio-note svg { width: 15px; height: 15px; flex: none; }
+  .studio-note path { stroke: #4c6941; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .studio-project { position: relative; min-width: 0; padding: 15px 0; }
+  .studio-spark { position: absolute; z-index: 1; width: 62px; height: 62px; top: -13px; right: -18px; fill: #e4613e; transform: rotate(10deg); }
+  .studio-aside { display: flex; justify-content: center; align-items: center; gap: 12px; color: #645d4c; font-size: .78rem; margin-top: 22px; transform: rotate(-2deg); }
+  .studio-aside svg { width: 52px; height: 29px; flex: none; }
+  .studio-aside path { stroke: #a04e32; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  @media (max-width: 1100px) {
+    .studio-hero { gap: 35px; padding-block: 64px 68px; }
+    h1 { font-size: 3.7rem; }
+    :global(:lang(zh-CN)) h1 { font-size: 2.75rem; }
+    .studio-description { font-size: .95rem; }
+    .studio-actions { gap: 17px; }
+  }
+  @media (max-width: 800px) {
+    .studio-hero { grid-template-columns: 1fr; gap: 38px; padding-block: 45px 55px; }
+    .studio-copy { max-width: 580px; padding: 0; }
+    h1 { font-size: clamp(3.25rem, 8vw, 4.5rem); }
+    :global(:lang(zh-CN)) h1 { font-size: clamp(2.65rem, 6vw, 3.7rem); }
+    .studio-description { max-width: 48ch; font-size: 1rem; }
+    .studio-project { width: 100%; max-width: 580px; justify-self: center; }
+    .studio-spark { right: -6px; width: 48px; height: 48px; top: -5px; }
+  }
+  @media (max-width: 480px) {
+    .studio-hero { padding-top: 34px; gap: 34px; }
+    .studio-context { font-size: .72rem; margin-bottom: 22px; }
+    h1 { font-size: 3.2rem; }
+    :global(:lang(zh-CN)) h1 { font-size: clamp(2rem, 8.1vw, 2.7rem); }
+    .studio-accent { margin-top: 5px; padding-bottom: 10px; }
+    .studio-description { font-size: .94rem; margin-top: 24px; line-height: 1.85; }
+    .studio-actions { margin-top: 24px; gap: 19px; }
+    .studio-primary { padding: 13px 17px; font-size: .83rem; }
+    .studio-install { font-size: .8rem; }
+    .studio-note { font-size: .7rem; margin-top: 19px; }
+    .studio-aside { font-size: .72rem; gap: 8px; }
+  }
+</style>
