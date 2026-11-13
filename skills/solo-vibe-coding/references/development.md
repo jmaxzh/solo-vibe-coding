@@ -13,6 +13,8 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Review excessive implementation, overengineering, or opportunities to reduce code | ponytail-review |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
 | Default-stack implementation, performance, security, data access, operations | [Technology-specific guidance](technology-stack.md) |
+| High-impact properties that tests struggle to cover, or maintaining existing formal checks | [Formal verification](formal-verification.md) |
+| Properties over generated inputs for serialization, normalization, algorithms, or data structures | property-based-testing |
 | JS/TS async, mock, component, and API tests | javascript-testing-patterns |
 | Playwright test authoring, critical user journeys, flaky tests | playwright-best-practices |
 | End-to-end tests in an existing Cypress project | The Cypress portion of e2e-testing-patterns |
@@ -59,6 +61,9 @@ Use the installed plugin with its GitHub PR context, Claude Code agents and mode
 - **debugging-strategies**: [Source](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md). Methods for reproduction, evidence collection, hypothesis testing, difference comparison, Git bisect, tracing, performance, and memory investigation. The original has a four-stage framework; choose relevant methods from fault evidence. Read `references/tools-and-techniques.md` for tool selection and advanced techniques. Use actual errors, logs, environment, and change information, distinguishing verified root causes from unverified hypotheses.
 
 ## Testing and verification
+
+<!-- skill: trailofbits/skills@property-based-testing -->
+- **property-based-testing**: [Source](https://github.com/trailofbits/skills/blob/main/plugins/property-based-testing/skills/property-based-testing/SKILL.md), [Skill page](https://skills.sh/trailofbits/skills/property-based-testing). Write, review, and triage tests of properties over generated inputs, including roundtrips, idempotence, and domain invariants. Read the relevant generation, review, failure-analysis, or library reference from the same version. Reuse the project's library; choose new dependencies within project requirements and existing authorization. Assert behavior independently of the implementation and check that generated cases exercise it. These tests provide sampled evidence; [formal verification](formal-verification.md) has its own methods and scope guarantees.
 
 <!-- skill: wshobson/agents@javascript-testing-patterns -->
 - **javascript-testing-patterns**: [Source](https://github.com/wshobson/agents/blob/main/plugins/javascript-typescript/skills/javascript-testing-patterns/SKILL.md). JS/TS patterns for Jest, Vitest, Testing Library, async work, mocks, fixtures, component tests, and API tests. Use only for the relevant stack, adapting framework configuration and data cleanup in examples to the project's actual infrastructure.

@@ -29,9 +29,12 @@ When the hosting platform, repository permissions, or runtime environment do not
 | Compilation and build | Applicable compilation, packaging, artifact-integrity checks |
 | Complexity and duplication | Tool-supported complexity and duplication metrics and measurement scope; mutation testing when needed |
 | Architectural dependencies | Confirmed module boundaries, forbidden dependencies, cycle checks; sound design still requires architectural analysis |
+| Critical properties, when warranted | [Formal verification](formal-verification.md): property, code/model coverage, assumptions and bounds, tool version, command, and result interpretation |
 | Other risks | Product-relevant security, performance, size, accessibility, and other executable checks with required runtime environment |
 
 Each standard must point to real commands and decision configuration; explain inapplicable dimensions. Use measured baselines and gradual tightening for existing debt, without mechanically imposing coverage or complexity numbers. Layer fast checks, task-completion checks, and full checks by duration. Local and CI checks share configuration and decision sources; documents reference configuration rather than maintaining a second set of thresholds.
+
+For adopted formal checks, define resource limits and rerun timing for changes to covered code, properties, or assumptions, including review of the model's correspondence with code. Report timeout, unknown, or incomplete exploration as inconclusive. Fit these checks into the existing duration tiers and blocking rules.
 
 Fix the causes of check failures. Changes that reduce assertions, skip tests, expand ignore scopes, or lower thresholds need evidence and explicit reporting. Record justified exceptions with scope, reason, and review conditions. Reports distinguish standards defined, commands run, pipelines executed, and merge gates enforced.
 

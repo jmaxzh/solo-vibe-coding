@@ -4,6 +4,7 @@
 
 - [早期技能研究](indie-project-guide/)：早期技能研究与候选选择。
 - [技能维护档案](solo-vibe-coding/)：技能维护调研与变更评估。
+- 形式化验证：[候选与接入建议](solo-vibe-coding/2026-11-13/formal-verification-selection.md)、[接入评估](solo-vibe-coding/2026-11-13/formal-verification-update.md)、[只读情景走查](solo-vibe-coding/2026-11-13/formal-verification-walkthrough.md)，记录来源核查、双语接入、实现检查与观察边界。
 - 官网初始构建（2026-11-13）：[验证与发布证据](website/2026-11-13/verification.md)、[差异评估](website/2026-11-13/change-evaluation.md)、[独立评审](website/2026-11-13/review.md)。
 - 官网用户导向改版（2026-11-13）：[评审简报](website/2026-11-13-redesign/review-brief.md)、[差异评估](website/2026-11-13-redesign/change-evaluation.md)、[验证与发布证据](website/2026-11-13-redesign/verification.md)、[独立评审](website/2026-11-13-redesign/review.md)。
 - 官网增量价值分析（2026-11-13）：[定位与证据方案](website/2026-11-13-differentiation/proposal.md)、[评估与独立评审](website/2026-11-13-differentiation/review.md)，记录已确认的差异表达诉求及尚待验证的定位建议。

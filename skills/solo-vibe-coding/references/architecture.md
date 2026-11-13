@@ -12,6 +12,8 @@ For existing schemas, application implementations, and architectural cases, see 
 
 When business concepts or requirements scope are unclear, reference [requirements and communication](requirements.md) as needed. Architecture documentation, feature-level technical constraints, and ADRs follow the [project knowledge conventions](project-knowledge.md).
 
+When comparing designs for concurrency, retries, or failure recovery, consider [formal verification](formal-verification.md) for high-impact properties that are hard to test. Make atomic steps, failure assumptions, and consistency guarantees explicit; distinguish design-model results from evidence that the implementation follows the model.
+
 ## Default technology stack
 
 Retain technology choices already established by the user or project. When no convention exists, match business needs to the table below. Adopt the default stack directly when it meets requirements; compare alternatives only when business constraints clearly make it unsuitable, explaining the basis and costs.

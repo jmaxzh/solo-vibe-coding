@@ -15,6 +15,8 @@ For existing PRD and user-story-map templates, see [requirements references](res
 
 Requirements confirmation establishes shared understanding and remaining uncertainty; the current task determines the discussion method. Maintain requirements and terminology according to the [project knowledge conventions](project-knowledge.md). Reference [architecture and technical design](architecture.md) for technical feasibility and system constraints.
 
+For high-impact behavior that ordinary tests struggle to cover, state relevant preconditions, allowed state transitions, and invariants in the feature spec using business terms. These give [formal verification](formal-verification.md) a concrete target, such as one payment event producing at most one ledger entry.
+
 ## Available skills
 
 <!-- skill: coreyhaines31/marketingskills@customer-research -->

@@ -15,6 +15,8 @@
 
 需求确认用于明确共识和剩余不确定性，讨论方式由当前任务决定。需求与术语按 [项目知识库规范](project-knowledge.md) 维护；涉及技术可行性与系统约束时引用 [架构与技术设计](architecture.md)。
 
+对于影响较大、常规测试难覆盖的行为，在功能 spec 中用业务术语明确相关前置条件、允许的状态转换和必须保持的不变量，为[形式化验证](formal-verification.md)提供具体目标，例如同一支付事件最多产生一条记账记录。
+
 ## 可用技能
 
 <!-- skill: coreyhaines31/marketingskills@customer-research -->
