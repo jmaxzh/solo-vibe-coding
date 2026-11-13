@@ -1,0 +1,46 @@
+{
+  "registered_at": "2026-11-13T07:42:58.572124+00:00",
+  "website_baseline": "20d9cc082a806dfa92bf924a8b678d5b9a8102a6",
+  "cli_version": "0.167.0-alpha.4.1",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "global_instructions_sha256": "11e322ffa527c0fbe4ea88b5ed1d3330f14fc48b2e70743c0fa6fa86147e8df4",
+  "protocol_sha256": "a7a49fcac234ee34f5a4c799516663364ff7fd02854e865878bfb20cbb9c0a99",
+  "seed_files": {
+    "README.md": "ba7d6cae5228c36c160cc37e60af06355c4c4bec5dbbda671b38ac8e141773ae",
+    "app.js": "726df6ce41dae520eeebd84fc782a198dd974a63256e61ae590a4fbf529c54d8",
+    "index.html": "4496decacdf522ca17f4ab00acf0a5320c196b21f651d9eb11b250baa13f5008",
+    "style.css": "13494f86c67f056e14e5565521c90363a691436d0545e516429409aa73dfa23b"
+  },
+  "skill_files": {
+    "LICENSE.txt": "f645429a6bf4a032397fd3f4629fdb3cb8819c98c250a68ac1a147341005456b",
+    "SKILL.md": "7cfc9e4651023ad4a72fcf6cf236faa3f346ef27614f53ec4f659e72593f05bf",
+    "agents/openai.yaml": "77f85c2bd044cd1babdc04e97b1677e7e960f14d4ac7876e00651200d6243114",
+    "references/acquisition.md": "71696b02327bf9c3844aa9611aea8058e565ebc28f79a5d964ed3c47e62220e6",
+    "references/architecture.md": "eb8972dd46089121757522eb2f3beda7fa0d5c0374d3056dd2f413a5f11375f7",
+    "references/deployment.md": "7d3699d7b40457731655e5141724bb54a8288baacff93d76db7e442b4a751ba0",
+    "references/development.md": "a0aae0072f799042cf366f84e795ffbfaecd2d1e065a48a18ae999363b46c6b9",
+    "references/guidance-access.md": "26dc834f0612f803a44b33e56b4e8e1fe14b763022492be369eac2bfcfd73b37",
+    "references/project-knowledge.md": "4cdb9195728f8871e6b9383418429eb414edc5f7d077325e1d5d5f1d868002c0",
+    "references/quality-and-ci.md": "9ea548cebfed6da4492a0e5071bc599f2cb115541b0f0c3c7e3176a5364aa017",
+    "references/requirements.md": "5fc6d4c581df8b1096ec5f407e9e569fb6e57ec9670c8e6b8f164552e57d2067",
+    "references/resources/acquisition.md": "89270db147f9393c05396e474ddc1ce33900278fb3cf8006be74a818f1d7c5ab",
+    "references/resources/architecture.md": "7bebd9eb86f5951d00be81077d71b54697537d895f3a3c4caacadcaf2733d51c",
+    "references/resources/deployment.md": "5ed4afe6cc78ac14d334e44912547a43e851c07c802654d6344e7cd1de8c21a6",
+    "references/resources/development.md": "7d5c48297a0f91d4dcd9be6b5bf0abbc32eb21c3aae0b16879de285663bb4b12",
+    "references/resources/requirements.md": "14a2cbcf6fc453e50fba8d919cd9b17b5c2f972382029ad39521a96d732dcfd4",
+    "references/resources/visual.md": "cf9bc2f6b5d30d3c5ede99336521eadc36a08d0ca3175a6a7c373e17fc2c12b0",
+    "references/technology-stack.md": "782c5e56f2fca8a7ed7553fb6d28265b1dfd3ab168451f86ae64f781afa7a451",
+    "references/visual-interaction.md": "1b641e31fc5e88794e7aed555148406c03afcb5f814546373a1652d5db1c89e7"
+  },
+  "samples": 3,
+  "rounds_per_sample": 2,
+  "per_attempt_seconds": 480,
+  "max_parallel_attempts": 2,
+  "execution_files": {
+    "protocol.md": "a7a49fcac234ee34f5a4c799516663364ff7fd02854e865878bfb20cbb9c0a99",
+    "run.py": "085f9155c9ef8655aee5db750cb8ccd3be1a627b147dbacb148b9cc44e7d46e8",
+    "grade.mjs": "1148eb6a81d58de0a7359c93d0ae2fa3f5fa347b9896b8628290113221962e94",
+    "validate-grader.py": "f0a2aa3ecac48b8481f5070471e49ef102bd1ddc8d326454aa3429eebe480e7b"
+  }
+}

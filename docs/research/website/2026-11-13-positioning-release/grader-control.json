@@ -1,0 +1,436 @@
+{
+  "missing-feature": {
+    "checkedAt": "2026-11-13T07:43:16.192Z",
+    "round": 1,
+    "browser": "157.0.8103.51",
+    "checks": [
+      {
+        "id": "saved-data",
+        "passed": true
+      },
+      {
+        "id": "download-encoding",
+        "passed": false,
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+      },
+      {
+        "id": "csv-fields-and-special-characters",
+        "passed": false,
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+      },
+      {
+        "id": "add-and-reload",
+        "passed": true
+      },
+      {
+        "id": "search",
+        "passed": true
+      },
+      {
+        "id": "category-filter",
+        "passed": true
+      },
+      {
+        "id": "delete",
+        "passed": true
+      },
+      {
+        "id": "mobile-layout-and-export",
+        "passed": false,
+        "error": "locator.scrollIntoViewIfNeeded: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /导出收藏/ }).first()\u001b[22m\n"
+      },
+      {
+        "id": "no-script-errors",
+        "passed": true
+      }
+    ],
+    "passed": 6,
+    "total": 9,
+    "errors": []
+  },
+  "valid": {
+    "checkedAt": "2026-11-13T07:43:22.697Z",
+    "round": 2,
+    "browser": "157.0.8103.51",
+    "checks": [
+      {
+        "id": "saved-data",
+        "passed": true
+      },
+      {
+        "id": "download-encoding",
+        "passed": true
+      },
+      {
+        "id": "csv-fields-and-special-characters",
+        "passed": true
+      },
+      {
+        "id": "add-and-reload",
+        "passed": true
+      },
+      {
+        "id": "search",
+        "passed": true
+      },
+      {
+        "id": "category-filter",
+        "passed": true
+      },
+      {
+        "id": "delete",
+        "passed": true
+      },
+      {
+        "id": "search-only-export",
+        "passed": true
+      },
+      {
+        "id": "category-only-export",
+        "passed": true
+      },
+      {
+        "id": "filtered-export",
+        "passed": true
+      },
+      {
+        "id": "empty-filter",
+        "passed": true
+      },
+      {
+        "id": "clear-filter-export",
+        "passed": true
+      },
+      {
+        "id": "mobile-layout-and-export",
+        "passed": true
+      },
+      {
+        "id": "no-script-errors",
+        "passed": true
+      }
+    ],
+    "passed": 14,
+    "total": 14,
+    "errors": []
+  },
+  "ignores-category": {
+    "checkedAt": "2026-11-13T07:43:28.871Z",
+    "round": 2,
+    "browser": "157.0.8103.51",
+    "checks": [
+      {
+        "id": "saved-data",
+        "passed": true
+      },
+      {
+        "id": "download-encoding",
+        "passed": true
+      },
+      {
+        "id": "csv-fields-and-special-characters",
+        "passed": true
+      },
+      {
+        "id": "add-and-reload",
+        "passed": true
+      },
+      {
+        "id": "search",
+        "passed": true
+      },
+      {
+        "id": "category-filter",
+        "passed": true
+      },
+      {
+        "id": "delete",
+        "passed": true
+      },
+      {
+        "id": "search-only-export",
+        "passed": true
+      },
+      {
+        "id": "category-only-export",
+        "passed": false,
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   '[\"中文开发参考\",\"https://example.com/chinese-development\",\"开发\",\"同一个搜索词，不同分类。\"]',\n    '[\"中文，设计 \\\\\"灵感\\\\\"\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 \\\\\"好\\\\\"\"]',\n+   '[\"产品案例\",\"https://example.com/product\",\"产品\",\"看看别人怎么介绍产品。\"]',\n+   '[\"开发手册\",\"https://example.com/development\",\"开发\",\"保留常用操作。\"]',\n    '[\"界面灵感\",\"https://example.com/design\",\"设计\",\"下次做页面时看看。\"]'\n  ]\n"
+      },
+      {
+        "id": "filtered-export",
+        "passed": false,
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   '[\"中文开发参考\",\"https://example.com/chinese-development\",\"开发\",\"同一个搜索词，不同分类。\"]',\n    '[\"中文，设计 \\\\\"灵感\\\\\"\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 \\\\\"好\\\\\"\"]'\n  ]\n"
+      },
+      {
+        "id": "empty-filter",
+        "passed": true
+      },
+      {
+        "id": "clear-filter-export",
+        "passed": true
+      },
+      {
+        "id": "mobile-layout-and-export",
+        "passed": true
+      },
+      {
+        "id": "no-script-errors",
+        "passed": true
+      }
+    ],
+    "passed": 12,
+    "total": 14,
+    "errors": []
+  },
+  "missing-bom": {
+    "checkedAt": "2026-11-13T07:43:32.371Z",
+    "round": 1,
+    "browser": "157.0.8103.51",
+    "checks": [
+      {
+        "id": "saved-data",
+        "passed": true
+      },
+      {
+        "id": "download-encoding",
+        "passed": false,
+        "error": "Expected UTF-8 BOM for the requested Windows Excel use.\n+ actual - expected\n\n  [\n+   34,\n+   230,\n+   160\n-   239,\n-   187,\n-   191\n  ]\n"
+      },
+      {
+        "id": "csv-fields-and-special-characters",
+        "passed": true
+      },
+      {
+        "id": "add-and-reload",
+        "passed": true
+      },
+      {
+        "id": "search",
+        "passed": true
+      },
+      {
+        "id": "category-filter",
+        "passed": true
+      },
+      {
+        "id": "delete",
+        "passed": true
+      },
+      {
+        "id": "mobile-layout-and-export",
+        "passed": true
+      },
+      {
+        "id": "no-script-errors",
+        "passed": true
+      }
+    ],
+    "passed": 8,
+    "total": 9,
+    "errors": []
+  },
+  "broken-escaping": {
+    "checkedAt": "2026-11-13T07:43:35.687Z",
+    "round": 1,
+    "browser": "157.0.8103.51",
+    "checks": [
+      {
+        "id": "saved-data",
+        "passed": true
+      },
+      {
+        "id": "download-encoding",
+        "passed": true
+      },
+      {
+        "id": "csv-fields-and-special-characters",
+        "passed": false,
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    '[\"中文开发参考\",\"https://example.com/chinese-development\",\"开发\",\"同一个搜索词，不同分类。\"]',\n+   '[\"中文，设计 灵感\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 好\"]',\n-   '[\"中文，设计 \\\\\"灵感\\\\\"\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 \\\\\"好\\\\\"\"]',\n    '[\"产品案例\",\"https://example.com/product\",\"产品\",\"看看别人怎么介绍产品。\"]',\n    '[\"开发手册\",\"https://example.com/development\",\"开发\",\"保留常用操作。\"]',\n    '[\"界面灵感\",\"https://example.com/design\",\"设计\",\"下次做页面时看看。\"]'\n  ]\n"
+      },
+      {
+        "id": "add-and-reload",
+        "passed": true
+      },
+      {
+        "id": "search",
+        "passed": true
+      },
+      {
+        "id": "category-filter",
+        "passed": true
+      },
+      {
+        "id": "delete",
+        "passed": true
+      },
+      {
+        "id": "mobile-layout-and-export",
+        "passed": false,
+        "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    '[\"中文开发参考\",\"https://example.com/chinese-development\",\"开发\",\"同一个搜索词，不同分类。\"]',\n+   '[\"中文，设计 灵感\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 好\"]',\n-   '[\"中文，设计 \\\\\"灵感\\\\\"\",\"https://example.com/special?a=1&b=2\",\"设计\",\"第一行,第二列\\\\n他说 \\\\\"好\\\\\"\"]',\n    '[\"产品案例\",\"https://example.com/product\",\"产品\",\"看看别人怎么介绍产品。\"]',\n    '[\"开发手册\",\"https://example.com/development\",\"开发\",\"保留常用操作。\"]',\n    '[\"界面灵感\",\"https://example.com/design\",\"设计\",\"下次做页面时看看。\"]'\n  ]\n"
+      },
+      {
+        "id": "no-script-errors",
+        "passed": true
+      }
+    ],
+    "passed": 7,
+    "total": 9,
+    "errors": []
+  },
+  "infrastructure_faults": {
+    "missing-report": {
+      "checks": [
+        {
+          "id": "saved-data",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "download-encoding",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "csv-fields-and-special-characters",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "add-and-reload",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "search",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "category-filter",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "delete",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "mobile-layout-and-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "no-script-errors",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "search-only-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "category-only-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "filtered-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "empty-filter",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "clear-filter-export",
+          "passed": false,
+          "status": "not-run"
+        }
+      ],
+      "infrastructure_error": "The grader did not complete every expected check.",
+      "total": 14,
+      "passed": 0
+    },
+    "timeout": {
+      "checks": [
+        {
+          "id": "saved-data",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "download-encoding",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "csv-fields-and-special-characters",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "add-and-reload",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "search",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "category-filter",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "delete",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "mobile-layout-and-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "no-script-errors",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "search-only-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "category-only-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "filtered-export",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "empty-filter",
+          "passed": false,
+          "status": "not-run"
+        },
+        {
+          "id": "clear-filter-export",
+          "passed": false,
+          "status": "not-run"
+        }
+      ],
+      "infrastructure_error": "Grader infrastructure failure: TimeoutExpired",
+      "total": 14,
+      "passed": 0
+    }
+  }
+}
