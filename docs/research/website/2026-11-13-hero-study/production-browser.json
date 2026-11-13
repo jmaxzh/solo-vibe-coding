@@ -1,0 +1,111 @@
+{
+  "commit": "ede424ac099219d07561589dfd111332199f3131",
+  "browser": "157.0.8103.51",
+  "base": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "checks": [
+    {
+      "locale": "zh-CN",
+      "width": 1440,
+      "javaScript": true,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": true,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1440,
+      "javaScript": false,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "javaScript": true,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": true,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "javaScript": false,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "skipLink": "local #main",
+      "twoRoundSwitch": "passed",
+      "arrowKeys": "passed",
+      "horizontalOverflow": false,
+      "followedCaseAndSetup": false,
+      "errors": [],
+      "failedResponses": []
+    }
+  ]
+}
