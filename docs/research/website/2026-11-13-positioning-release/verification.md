@@ -2,6 +2,8 @@
 
 实施基线：`20d9cc082a806dfa92bf924a8b678d5b9a8102a6`。用户确认采用定位与证据方案，当前设计与知识规范由ADR0006维护。实验事实与官网工程事实分别记录。
 
+交付状态：新版已发布，本地/CI/公开HTTP与浏览器检查及独立评审通过。对照未证明效果领先，Skill组本次成本更高，公开文案据实呈现。真实用户与搜索等效果边界保持；具体发布SHA和证据位于本文发布部分。
+
 ## 实验准备
 
 本机Codex CLI连接探针成功，仅回复READY；探针13秒，报告输入15,759（含缓存12,288）和输出5 token。未读取或复制认证文件。配置为gpt-6.1-sol/max，两组一致，完整Skill包19文件哈希登记。先用外部Chrome验证评分器正负控制，再由全新上下文只读评审核对公平性。
@@ -39,3 +41,14 @@
 ## 尚未取得的产品证据
 
 没有真实目标用户理解与首用观察，没有真实Windows Excel或实体手机测试，没有真实用户性能、转化、安装量、搜索排名与AI引用数据。工程通过与任务观察不能替代这些结果。
+
+## 发布与公开检查
+
+- 官网发布提交：`6d416e81aa1009ed03009da1350e0f1b9af1d60f`。此前原登记`cb154fe`、共同环境修订`9c6324d`为独立研究提交。
+- [本轮GitHub Actions](https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43396033106)检查与部署成功：Ubuntu26标准runner、Node24.22.2，17HTML/元数据/产物检查通过，26项匹配Chromium检查全部通过（24.1秒）。见 [ci-run.json](ci-run.json)、[ci-summary.txt](ci-summary.txt)。
+- 公开 [中文首页](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/) 和 [中文真实任务](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/case-study/bookmark-export/) 已可访问，保留默认英文及原有页面。
+- 全部34个公开文件（不把`.nojekyll`作为HTTP资源）均返回200，SHA256与本地最终构建逐个一致，包括17HTML、脚本、样式、字体、许可、案例图片/ZIP与sitemap。未知路径返回自定义404且有有效首页入口；域根robots.txt为404。见 [production-check.json](production-check.json)。
+- 公网Chrome复核两种语言首页定位/四方法/真实案例入口，3配对结果与更高用量/时间、先导说明、原文来源、实际ZIP下载且哈希与本地一致、同案例语言切换、安装路径和旧报价半分边界0.15，无页面异常或失败响应。见 [production-browser.json](production-browser.json)。
+- 四张页面截图已从公网刷新；本地预览服务器已停止。发布后证据补充只更改研究区，不重新构建官网。
+
+独立交付前结论与公网末轮复核见 [review.md](review.md)。公开部署及工程验证完成不改变上述产品效果证据缺口。

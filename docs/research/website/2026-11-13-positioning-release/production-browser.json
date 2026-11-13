@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-13T08:52:43.047Z",
+  "baseURL": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "releaseCommit": "6d416e81aa1009ed03009da1350e0f1b9af1d60f",
+  "checks": [
+    "en: positioning, four methods, case preview, viewport, user navigation",
+    "en: all-pair result, extra cost, pilot, original sources, exact ZIP download, same-case language switch",
+    "en: setup path and existing quote calculator",
+    "zh-CN: positioning, four methods, case preview, viewport, user navigation",
+    "zh-CN: all-pair result, extra cost, pilot, original sources, exact ZIP download, same-case language switch",
+    "zh-CN: setup path and existing quote calculator"
+  ],
+  "pageErrors": [],
+  "failedResponses": []
+}

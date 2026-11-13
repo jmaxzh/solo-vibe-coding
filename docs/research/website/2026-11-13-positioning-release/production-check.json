@@ -1,0 +1,255 @@
+{
+  "checked_at_utc": "2026-11-13T08:52:31.837006+00:00",
+  "release_commit": "6d416e81aa1009ed03009da1350e0f1b9af1d60f",
+  "workflow_url": "https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43396033106",
+  "base_url": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "files": [
+    {
+      "path": "404.html",
+      "status": 200,
+      "bytes": 3819,
+      "sha256": "13e47bd8f7079398a56594b737c1ce363cfceb7f6d04537cc78f08bfe09a3245",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.DmzS2wCm.css",
+      "status": 200,
+      "bytes": 27511,
+      "sha256": "53f3368d4fbd539a3f71bad6002e14448b81b759985a7c96a6f72fb02b71222e",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.D6mIYlvl.js",
+      "status": 200,
+      "bytes": 821,
+      "sha256": "1746ae7d9cbe144220c4ef7edbf092975c7a41a17968fe0538d2b412fcf1fcc2",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "status": 200,
+      "bytes": 9601,
+      "sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.CvHOgSBP.woff",
+      "status": 200,
+      "bytes": 13144,
+      "sha256": "328d50b6ece9ca25c46eea3e885ba497f6237f2fb84ef7b92f88e14a1a25e381",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "bytes": 24836,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/first-public-build/",
+      "status": 200,
+      "bytes": 8047,
+      "sha256": "92e4a42da36233fa14b43bec2fa80945590248748ebb5f76b3e4f7995aa33b5d",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/",
+      "status": 200,
+      "bytes": 6067,
+      "sha256": "e432092681314259ac719ada4a6a9f6fbd7017e1b35a9c2410cf1952c703378c",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/working-methods/",
+      "status": 200,
+      "bytes": 7980,
+      "sha256": "19bd8067f1ed388c9de87dbce9bf98d985322e850437d5bbab8690d66ca97714",
+      "matches_local_build": true
+    },
+    {
+      "path": "case-study/bookmark-export/",
+      "status": 200,
+      "bytes": 17410,
+      "sha256": "c74b98d14f74112fb5fde69033fa43230fce53aac82945008fb37c4825776f05",
+      "matches_local_build": true
+    },
+    {
+      "path": "case-study/bookmark-starter.zip",
+      "status": 200,
+      "bytes": 4595,
+      "sha256": "e3c0f346b08271a97435f23a765ab3bf44e7e8791ebb1c6e5fe7d224f0369e84",
+      "matches_local_build": true
+    },
+    {
+      "path": "case-study/bookmarks-round-1.png",
+      "status": 200,
+      "bytes": 71227,
+      "sha256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91",
+      "matches_local_build": true
+    },
+    {
+      "path": "case-study/bookmarks-round-2.png",
+      "status": 200,
+      "bytes": 59632,
+      "sha256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94",
+      "matches_local_build": true
+    },
+    {
+      "path": "examples/quote-calculator/",
+      "status": 200,
+      "bytes": 11204,
+      "sha256": "0730f7cab96c3189852c1d857cc2bfccb500b6566c5c8a7fd16ab81374c7df9e",
+      "matches_local_build": true
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "bytes": 266,
+      "sha256": "9b348e21730bab28c90c254ceea33a75bcba6a3edf16d10df86160b7eb34c8e4",
+      "matches_local_build": true
+    },
+    {
+      "path": "getting-started/",
+      "status": 200,
+      "bytes": 14344,
+      "sha256": "2b3885ac14d653df383a422743a500b51ac5733f632018a75b9186b88087cec4",
+      "matches_local_build": true
+    },
+    {
+      "path": "guides/",
+      "status": 200,
+      "bytes": 14640,
+      "sha256": "f5320715ffe5c2880329a44b534f3f74e411886487efb589c827264e9c467889",
+      "matches_local_build": true
+    },
+    {
+      "path": "",
+      "status": 200,
+      "bytes": 18053,
+      "sha256": "b2d4916d2ef5cd1f4807725df1cd668009fde136221aad54a611457ae07326d5",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/big-js-MIT.txt",
+      "status": 200,
+      "bytes": 1120,
+      "sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/ibm-plex-mono-OFL.txt",
+      "status": 200,
+      "bytes": 5299,
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/manrope-OFL.txt",
+      "status": 200,
+      "bytes": 4383,
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-0.xml",
+      "status": 200,
+      "bytes": 1688,
+      "sha256": "8dde3aa1ca7a11a2007bfed4a659f85a71eb8f325b4d590aef5a4dc2337918fb",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-index.xml",
+      "status": 200,
+      "bytes": 204,
+      "sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.png",
+      "status": 200,
+      "bytes": 59752,
+      "sha256": "4bca570b3a8dfa9f2bf42885b92c4da529b7b8465db0ca5e794edd9293ee3ea9",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.svg",
+      "status": 200,
+      "bytes": 1323,
+      "sha256": "79c491ba5364d8d016426850f5e99542e0c078e1e9d797934115ee6ba7921e15",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/first-public-build/",
+      "status": 200,
+      "bytes": 8004,
+      "sha256": "54345cfca731e4efdc0e5f616febbf37fa90799128e03d17cfb60e98c1eefec4",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/",
+      "status": 200,
+      "bytes": 6198,
+      "sha256": "87e3256f953bed2dd104e1676fa44e01551c7e34fac1b3352c55d8afe75fe1d9",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/working-methods/",
+      "status": 200,
+      "bytes": 7975,
+      "sha256": "73e7c2816a1704ca7ae72b0c1f5e7ec8430f1b7843398af1e7572fef4518ed02",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/case-study/bookmark-export/",
+      "status": 200,
+      "bytes": 16856,
+      "sha256": "7994ab3332640f0d5c372cd1d5596195c5bbf48461d3bd42055ad379f2105476",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/examples/quote-calculator/",
+      "status": 200,
+      "bytes": 11283,
+      "sha256": "62c9fad4e5166768338c33d8339fa49993a9cb4e47a0af9af9eb68edf7f37760",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/getting-started/",
+      "status": 200,
+      "bytes": 14276,
+      "sha256": "087f3f53373a9d31a2885052dacac0ea49fd7db41189b8b7467b7784cc4f3496",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/guides/",
+      "status": 200,
+      "bytes": 14693,
+      "sha256": "c6d373b02716842f3ae6f16498efae0e75f5179f47fe4197b23219982797bce5",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/",
+      "status": 200,
+      "bytes": 18074,
+      "sha256": "1131623dcac3684534a0df576e830287b9c415289d0616c1fc6d6ff8987c30ce",
+      "matches_local_build": true
+    }
+  ],
+  "unknown_page": {
+    "status": 404,
+    "custom_page": true,
+    "homepage_link": true
+  },
+  "root_robots": {
+    "status": 404,
+    "body_if_present": null
+  }
+}
