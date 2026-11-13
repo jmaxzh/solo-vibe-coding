@@ -26,9 +26,10 @@
 
 - 原始提交：`8d4a0aea8fbcbd4acba79709f93c3b54522ff6be`。
 - 使用 `git show <原始提交>:<文件>` 查看原版；新增文件原版不存在。
-- 使用 `git diff HEAD --stat` 与 `git diff HEAD -- <文件>` 查看实际差异。新增文件已加入 intent-to-add，可直接出现在 diff 中。
+- 初审在未提交阶段使用 `git diff HEAD --stat` 与 `git diff HEAD -- <文件>` 查看实际差异；当时新增文件已经加入 intent-to-add。
+- 发布提交为 `db191f244f1226a8443e9c9deb3f319bd61f56e9`。归档后复现完整源码差异，使用 `git diff 8d4a0aea8fbcbd4acba79709f93c3b54522ff6be db191f244f1226a8443e9c9deb3f319bd61f56e9`，不依赖未来的 HEAD。
 - 当前实现位于 `website/`，发布配置位于 `.github/workflows/website.yml`；知识库从 `docs/README.md` 进入。
-- 验证证据见同目录 `verification.md` 和截图。最终浏览器测试正在完成，会在评审期间提供更新。
+- 验证证据见同目录 `verification.md`、原始 JSON、CI 摘要和截图。初审时最终浏览器与生产检查尚在进行，最终结果已在归档中补齐。
 
 ## 评审方法与输出
 

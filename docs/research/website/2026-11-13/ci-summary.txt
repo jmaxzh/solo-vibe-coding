@@ -1,0 +1,8 @@
+Website checks	Set up Node.js	2026-11-13T05:35:49.3683265Z node: v24.22.2
+Website checks	Set up Node.js	2026-11-13T05:35:49.3684188Z npm: 11.19.1
+Website checks	Check types, build, and verify generated pages	2026-11-13T05:35:57.3913113Z - 0 errors
+Website checks	Check types, build, and verify generated pages	2026-11-13T05:35:57.3913478Z - 0 warnings
+Website checks	Check types, build, and verify generated pages	2026-11-13T05:35:57.3913668Z - 0 hints
+Website checks	Check types, build, and verify generated pages	2026-11-13T05:35:58.6407035Z Verified 11 HTML pages, 11 sitemap URLs, all local links and anchors, language pairs, metadata and structured data.
+Website checks	Check types, build, and verify generated pages	2026-11-13T05:35:58.6407921Z JavaScript: 1.7 KiB; complete website: 268.5 KiB.
+Website checks	Verify interactions, accessibility, and mobile layouts	2026-11-13T05:36:28.0196368Z   18 passed (12.4s)

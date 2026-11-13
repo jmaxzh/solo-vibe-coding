@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-13T05:38:54.740Z",
+  "baseURL": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "releaseCommit": "db191f244f1226a8443e9c9deb3f319bd61f56e9",
+  "checks": [
+    "English homepage",
+    "task selection",
+    "Chinese mobile homepage",
+    "localized installation label",
+    "guide navigation",
+    "same-topic language switching"
+  ],
+  "pageErrors": [],
+  "failedResponses": []
+}

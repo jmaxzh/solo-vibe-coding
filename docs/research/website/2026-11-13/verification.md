@@ -49,7 +49,7 @@
 
 ## 尚需独立证据的结果
 
-- 独立只读评审已完成，未发现阻断问题，见 [评审记录](review.md)；实际 GitHub Actions 执行与公开页面 HTTP 验证在完成后追加。
+- 独立只读评审已完成，未发现阻断问题，见 [评审记录](review.md)。实际 GitHub Actions 与公网验证已完成，见本文最终发布结果。
 - 自动化无障碍检查未覆盖所有辅助技术；没有将其报告为完整合规认证。
 - 尚未配置 Google Search Console / Bing Webmaster Tools 的账号验证；未宣称搜索收录、排名、AI 引用或实际安装量。
 - 没有基于真实用户数据的 Core Web Vitals 或转化结果。
@@ -61,3 +61,28 @@ GitHub Actions 权限查询确认 Actions 已启用且允许使用当前工作�
 中文终端和安装命令读屏标签补齐后，`npm run validate` 再次通过：0 错误、0 警告、0 提示，11 个 HTML，静态检查通过。独立代理局部复核未发现新增问题。
 
 Pages 创建接口已成功，配置为 `build_type=workflow`，返回默认项目网址且 `https_enforced=true`。此配置成功不等同网站已经发布，仍等待实际工作流与 HTTP 证据。
+
+## 最终发布结果
+
+发布提交：`db191f244f1226a8443e9c9deb3f319bd61f56e9`。源码提交已推送到 `main`，首次 [Website 工作流](https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43373041892) 的检查与发布 job 均成功。
+
+- Linux CI 使用 Node.js `v24.22.2`、npm `11.19.1` 和对应的 Playwright Chromium。
+- Astro / TypeScript 0 错误、0 警告、0 提示；实际产物验证通过。
+- CI 的18项浏览器检查全部通过，耗时12.4秒。
+- Pages 部署完成时间为 `2026-11-13T05:36:48Z`，默认网址使用 HTTPS。
+- 对公开站点逐一请求23个文件，均返回200，SHA-256均与本地最终构建一致。
+- 不存在的项目页面返回404，并展示项目自定义404与正确的首页链接。
+- 公网 Chrome 验证首页任务切换、中文手机页面、安装读屏名称、指南导航和同主题语言切换，无脚本错误和失败资源响应。
+- 三张截图已更新为实际生产网址的截图。
+- 仓库 About 的 homepage 字段设为已核验的官网网址，便于从代码仓库进入官网；既有仓库描述保持原值。
+
+完整证据：
+
+- [CI 执行状态与步骤](ci-run.json)
+- [CI 关键结果摘要](ci-summary.txt)
+- [公开 HTTP 与内容哈希核验](production-check.json)
+- [公网浏览器检查](production-browser.json)
+
+本次工程与发布验收完成。搜索平台账号验证、收录、排名、AI引用、真实用户性能与实际安装量仍没有测量结果，未纳入“已验证通过”的结论。
+
+这些发布后证据只修改研究档案，不改变官网构建输入，也不需要重新发布相同产物。

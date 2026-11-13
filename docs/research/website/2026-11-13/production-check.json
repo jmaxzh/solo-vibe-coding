@@ -1,0 +1,174 @@
+{
+  "checked_at_utc": "2026-11-13T05:38:49.600743+00:00",
+  "release_commit": "db191f244f1226a8443e9c9deb3f319bd61f56e9",
+  "workflow_url": "https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43373041892",
+  "base_url": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "files": [
+    {
+      "path": "",
+      "status": 200,
+      "bytes": 21676,
+      "sha256": "5c852715c221436dc2c95bddce443248a85a593d71b9b04023d3457781714a38",
+      "matches_local_build": true
+    },
+    {
+      "path": "404.html",
+      "status": 200,
+      "bytes": 4080,
+      "sha256": "eda094af2dac7eb6e07ca7a7892203cb4c1729ab02a9c613046ea119d1402a3b",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.D7DdnBD0.css",
+      "status": 200,
+      "bytes": 19930,
+      "sha256": "096489622f96837940779e1437438f9e11005f1e5b026fe40f6553a19f1d46ab",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.BSGbI1Wl.js",
+      "status": 200,
+      "bytes": 1706,
+      "sha256": "6528fb8c0a26c09fb6f83dd4755bf7d3132a0bad61079902a354d133345e1e42",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.CvHOgSBP.woff",
+      "status": 200,
+      "bytes": 13144,
+      "sha256": "328d50b6ece9ca25c46eea3e885ba497f6237f2fb84ef7b92f88e14a1a25e381",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches_local_build": true
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "bytes": 24836,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/",
+      "status": 200,
+      "bytes": 5947,
+      "sha256": "66c5da74831ce9acc0ff509733508538bff82f6448186f2f978e80c203d60f7f",
+      "matches_local_build": true
+    },
+    {
+      "path": "build-log/first-public-build/",
+      "status": 200,
+      "bytes": 10006,
+      "sha256": "7d337cdaa231789ba7d20c83fecb7f66432371559dc133be4cbb222919fcaf42",
+      "matches_local_build": true
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "bytes": 266,
+      "sha256": "9b348e21730bab28c90c254ceea33a75bcba6a3edf16d10df86160b7eb34c8e4",
+      "matches_local_build": true
+    },
+    {
+      "path": "getting-started/",
+      "status": 200,
+      "bytes": 9645,
+      "sha256": "9a7403f50733d12931bd4de132044d8e3aef77bd072cd1aba8fb07cc0a84a081",
+      "matches_local_build": true
+    },
+    {
+      "path": "guides/",
+      "status": 200,
+      "bytes": 15755,
+      "sha256": "94c9c0d8850931b28387385396b1f3553bb1b036dcfffa2792fe92dfb843037b",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/ibm-plex-mono-OFL.txt",
+      "status": 200,
+      "bytes": 5299,
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+      "matches_local_build": true
+    },
+    {
+      "path": "licenses/manrope-OFL.txt",
+      "status": 200,
+      "bytes": 4383,
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-0.xml",
+      "status": 200,
+      "bytes": 1128,
+      "sha256": "cf1787dce9e9fb1b2970a02df68c1c3ee9355bb7d0535736342354572570d71c",
+      "matches_local_build": true
+    },
+    {
+      "path": "sitemap-index.xml",
+      "status": 200,
+      "bytes": 204,
+      "sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.png",
+      "status": 200,
+      "bytes": 58540,
+      "sha256": "9d1cff423a97a0b18ee1c0b64b76159d2530af49b57e30f376008e706da1b538",
+      "matches_local_build": true
+    },
+    {
+      "path": "social-card.svg",
+      "status": 200,
+      "bytes": 1313,
+      "sha256": "2ccd3f6685bb43419f609c48235f12c33e6db7407d54eb5d4c05e7d8f5b15510",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/",
+      "status": 200,
+      "bytes": 21471,
+      "sha256": "1fb0b6a36340551f5e37b8f18b02264940f64af038ad55307fbafec26dc0947e",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/",
+      "status": 200,
+      "bytes": 6023,
+      "sha256": "a9dd10a2517de5e1ff8334344ba4067bbb717ef4a1160b5ba55d300908d2f385",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/build-log/first-public-build/",
+      "status": 200,
+      "bytes": 9716,
+      "sha256": "416708437c4e69c4f5bc62d1b84a131b312fe4adbb791ed2005a7d3b678f711d",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/getting-started/",
+      "status": 200,
+      "bytes": 9599,
+      "sha256": "0923483449b9bf2c40eb4972aaff99ed6db1b8d38f9aff639d77530e5634b078",
+      "matches_local_build": true
+    },
+    {
+      "path": "zh-CN/guides/",
+      "status": 200,
+      "bytes": 15564,
+      "sha256": "292ca24e0e9524c9fdc7885b623a9a5c8bb0ad81410060301bab419f0bc4e076",
+      "matches_local_build": true
+    }
+  ],
+  "unknown_page": {
+    "status": 404,
+    "custom_page": true,
+    "homepage_link": true
+  }
+}

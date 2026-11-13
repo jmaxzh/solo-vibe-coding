@@ -2,8 +2,8 @@
 
 本目录保留完整调研、历史评估、执行证据与独立评审，供回溯使用。当前操作规范从 [项目知识库](../README.md) 查阅。
 
-- `indie-project-guide/`：早期技能研究与候选选择。
-- `solo-vibe-coding/`：技能维护调研与变更评估。
-- `website/`：官网初始构建的验证、差异评估与独立评审。
+- [早期技能研究](indie-project-guide/)：早期技能研究与候选选择。
+- [技能维护档案](solo-vibe-coding/)：技能维护调研与变更评估。
+- 官网初始构建（2026-11-13）：[验证与发布证据](website/2026-11-13/verification.md)、[差异评估](website/2026-11-13/change-evaluation.md)、[独立评审](website/2026-11-13/review.md)。
 
 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。
