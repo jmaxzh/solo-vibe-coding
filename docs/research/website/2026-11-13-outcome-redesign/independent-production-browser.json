@@ -1,0 +1,82 @@
+{
+  "browserVersion": "157.0.8103.51",
+  "verifiedAt": "2026-11-13T15:13:40.276Z",
+  "records": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "task": "growth",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "task": "design",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "task": "requirements",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "task": "deployment",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "caseZipBytes": 4595,
+      "calculatorTotal": "33.00",
+      "csvExport": "passed",
+      "pageErrors": [],
+      "badResponses": []
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "noJavaScriptTaskSwitchAndPrompt": "passed"
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "task": "growth",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "task": "design",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "task": "requirements",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "task": "deployment",
+      "liveTaskPath": "passed"
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "caseZipBytes": 4595,
+      "calculatorTotal": "33.00",
+      "csvExport": "passed",
+      "pageErrors": [],
+      "badResponses": []
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "noJavaScriptTaskSwitchAndPrompt": "passed"
+    }
+  ]
+}

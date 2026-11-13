@@ -1,0 +1,117 @@
+{
+  "verifiedAt": "2026-11-13T15:18:10.438Z",
+  "browserVersion": "157.0.8103.51",
+  "initialLocale": "zh-CN",
+  "width": 1440,
+  "result": "passed",
+  "stableAssertionWaitMs": 824,
+  "states": [
+    {
+      "step": "deployment-request",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+      "query": "deployment",
+      "hash": "#task-deployment",
+      "lang": "zh-CN",
+      "readyState": "interactive",
+      "selectedTask": "deployment",
+      "visibleTaskIds": [
+        "deployment"
+      ]
+    },
+    {
+      "step": "installation",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#installation",
+      "query": "deployment",
+      "hash": "#installation",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "deployment",
+      "visibleTaskIds": [
+        "deployment"
+      ]
+    },
+    {
+      "step": "return-first-task",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#first-task",
+      "query": "deployment",
+      "hash": "#first-task",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "deployment",
+      "visibleTaskIds": [
+        "deployment"
+      ]
+    },
+    {
+      "step": "reloaded",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#first-task",
+      "query": "deployment",
+      "hash": "#first-task",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "deployment",
+      "visibleTaskIds": [
+        "deployment"
+      ]
+    },
+    {
+      "step": "select-design",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+      "query": "design",
+      "hash": "#task-design",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "design",
+      "visibleTaskIds": [
+        "design"
+      ]
+    },
+    {
+      "step": "back-to-deployment",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#first-task",
+      "query": "deployment",
+      "hash": "#first-task",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "deployment",
+      "visibleTaskIds": [
+        "deployment"
+      ]
+    },
+    {
+      "step": "forward-to-design",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+      "query": "design",
+      "hash": "#task-design",
+      "lang": "zh-CN",
+      "readyState": "complete",
+      "selectedTask": "design",
+      "visibleTaskIds": [
+        "design"
+      ]
+    },
+    {
+      "step": "language-switch-immediate",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/getting-started/?task=design#task-design",
+      "query": "design",
+      "hash": "#task-design",
+      "lang": null,
+      "readyState": "loading",
+      "selectedTask": null,
+      "visibleTaskIds": []
+    },
+    {
+      "step": "language-switch-stable",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/getting-started/?task=design#task-design",
+      "query": "design",
+      "hash": "#task-design",
+      "lang": "en",
+      "readyState": "complete",
+      "selectedTask": "design",
+      "visibleTaskIds": [
+        "design"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

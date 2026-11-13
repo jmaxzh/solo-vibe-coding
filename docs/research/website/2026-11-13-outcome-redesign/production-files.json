@@ -1,0 +1,224 @@
+{
+  "artifactSha256": "992c8a2f7f40d5679797e659c4a1de35568508de627e43c4f434a32683679cb3",
+  "artifactExpectedMatch": true,
+  "files": 36,
+  "liveMatched": 36,
+  "details": [
+    {
+      "file": "build-log/first-public-build/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "0c948d215620fa13d83f849aafd2a6500e78804fa408a91d490804e929a0aac5"
+    },
+    {
+      "file": "build-log/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "edf5b39fac46364ce90d252c2a1c7f898b5f49b0e91e4416e83ad1674c159dfe"
+    },
+    {
+      "file": "build-log/working-methods/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "6be40a3c0cfb3ac3dfb3eff05fc90dafcabba916419ff596f926525828f4fec9"
+    },
+    {
+      "file": "zh-CN/build-log/first-public-build/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "481055acbc38ede9d0710a03559091358619e3f4c69d72b4fd5f95ec58c869ad"
+    },
+    {
+      "file": "zh-CN/build-log/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "1495aa813c91f4e865a52722c61fe3fe724b5d52e9e493036188654dbc94f874"
+    },
+    {
+      "file": "zh-CN/build-log/working-methods/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "420923c1a07f1625e3bc0e84bac6cf7983596a3ffa5ec627ce268ad8954883b7"
+    },
+    {
+      "file": "zh-CN/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "bd968b72dfe4fe5340ccb90f03b841a242462fab9e3a6645c92deb44ed5a7bde"
+    },
+    {
+      "file": "zh-CN/guides/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "fa66050e0f0113175f734b0a4ab3f1499de8e68cb664c9231b0cd104eec451e9"
+    },
+    {
+      "file": "zh-CN/case-study/bookmark-export/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "c63423e462234cc2062396f285264c395e5c7820f64050d3997772e4d205f0f7"
+    },
+    {
+      "file": "zh-CN/getting-started/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "b930bfe36ab3a94d3c4818b2716895c42db54a61765bb5e9241f26bbedad43cc"
+    },
+    {
+      "file": "zh-CN/examples/quote-calculator/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "996d17e92d31f929216c7abb6d7771a49784df2901350c254e04fb68da42e914"
+    },
+    {
+      "file": "sitemap-index.xml",
+      "status": 200,
+      "match": true,
+      "sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f"
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "fc2fd1977cfeb6633c2e31043206111a8aede1e1c1ae4b3572edc059a1b9e2fe"
+    },
+    {
+      "file": "licenses/big-js-MIT.txt",
+      "status": 200,
+      "match": true,
+      "sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932"
+    },
+    {
+      "file": "licenses/ibm-plex-mono-OFL.txt",
+      "status": 200,
+      "match": true,
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f"
+    },
+    {
+      "file": "licenses/manrope-OFL.txt",
+      "status": 200,
+      "match": true,
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30"
+    },
+    {
+      "file": "favicon.svg",
+      "status": 200,
+      "match": true,
+      "sha256": "9b348e21730bab28c90c254ceea33a75bcba6a3edf16d10df86160b7eb34c8e4"
+    },
+    {
+      "file": "guides/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "d42bd4ad4d6bd65d5bfdd1266c035a7ced8589a3936d1ff3e293c015404e37cf"
+    },
+    {
+      "file": "social-card.svg",
+      "status": 200,
+      "match": true,
+      "sha256": "91b45d71864134bf8c291216a289805f86c217cb369d45851b308b0117ddeb3a"
+    },
+    {
+      "file": "404.html",
+      "status": 200,
+      "match": true,
+      "sha256": "20aa83b104212b4e9f7fdcaa6cd033a75f9e0f1ec21026b2b11d73342f2a6cec"
+    },
+    {
+      "file": "case-study/bookmarks-round-1.png",
+      "status": 200,
+      "match": true,
+      "sha256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91"
+    },
+    {
+      "file": "case-study/bookmarks-round-2.png",
+      "status": 200,
+      "match": true,
+      "sha256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94"
+    },
+    {
+      "file": "case-study/bookmark-starter.zip",
+      "status": 200,
+      "match": true,
+      "sha256": "e3c0f346b08271a97435f23a765ab3bf44e7e8791ebb1c6e5fe7d224f0369e84"
+    },
+    {
+      "file": "case-study/bookmark-export/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "d4ef17e7f00ee5b448b01acd52881e166bead198d088aafae9f00c534eb0c2d0"
+    },
+    {
+      "file": "_astro/Layout.astro_astro_type_script_index_0_lang.HqtRVCa7.js",
+      "status": 200,
+      "match": true,
+      "sha256": "c54ecfaa8ea669dbb9351e3b5bdf6f3b31eacb74494ee2204a856306755d7985"
+    },
+    {
+      "file": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "match": true,
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+    },
+    {
+      "file": "_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "status": 200,
+      "match": true,
+      "sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a"
+    },
+    {
+      "file": "_astro/GettingStarted.astro_astro_type_script_index_0_lang.COdBBO_3.js",
+      "status": 200,
+      "match": true,
+      "sha256": "19f115979ab36f64243aa4f5c4befa738fa813a9f193a3d82a24dfe02e54b98f"
+    },
+    {
+      "file": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "match": true,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "file": "_astro/ibm-plex-mono-latin-400-normal.CvHOgSBP.woff",
+      "status": 200,
+      "match": true,
+      "sha256": "328d50b6ece9ca25c46eea3e885ba497f6237f2fb84ef7b92f88e14a1a25e381"
+    },
+    {
+      "file": "_astro/Layout.DmzS2wCm.css",
+      "status": 200,
+      "match": true,
+      "sha256": "53f3368d4fbd539a3f71bad6002e14448b81b759985a7c96a6f72fb02b71222e"
+    },
+    {
+      "file": "_astro/_..BqSkibQp.css",
+      "status": 200,
+      "match": true,
+      "sha256": "9d3ba4cd58ad6360d5680aeaf43674df4fc12a3af5f570688d77dbb8480cfeac"
+    },
+    {
+      "file": "social-card.png",
+      "status": 200,
+      "match": true,
+      "sha256": "5906f3b6b7b600e91975d2c08dc07ba64cd0d3877e990358db864261e4df8037"
+    },
+    {
+      "file": "getting-started/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "8aa260c8adac9f799ba5f4918e025193b16dd472205631b3f84fdf51da0d2dbb"
+    },
+    {
+      "file": "sitemap-0.xml",
+      "status": 200,
+      "match": true,
+      "sha256": "8dde3aa1ca7a11a2007bfed4a659f85a71eb8f325b4d590aef5a4dc2337918fb"
+    },
+    {
+      "file": "examples/quote-calculator/index.html",
+      "status": 200,
+      "match": true,
+      "sha256": "feac4d3950a6499ba18bb1ce0398d46c57abbd686ca370645a13c30f3cf63b0a"
+    }
+  ]
+}
