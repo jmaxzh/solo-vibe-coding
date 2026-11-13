@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "astro": "7.4.11"
+    "astro": "7.4.11",
+    "big.js": "7.0.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
@@ -28,6 +29,7 @@
     "@playwright/test": "1.65.0",
     "linkedom": "0.18.15",
     "sharp": "0.35.5",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "@types/big.js": "7.0.0"
   }
 }

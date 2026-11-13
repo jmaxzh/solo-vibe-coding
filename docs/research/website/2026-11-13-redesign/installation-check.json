@@ -1,0 +1,18 @@
+[
+  {
+    "agent": "codex",
+    "cli_version": "1.8.1",
+    "installed_relative_path": ".agents/skills/solo-vibe-coding",
+    "files_verified": 19,
+    "all_files_match_repository": true,
+    "scope": "isolated temporary project; no global installation"
+  },
+  {
+    "agent": "claude-code",
+    "cli_version": "1.8.1",
+    "installed_relative_path": ".claude/skills/solo-vibe-coding",
+    "files_verified": 19,
+    "all_files_match_repository": true,
+    "scope": "isolated temporary project; no global installation"
+  }
+]

@@ -1,46 +1,33 @@
 ---
-title: "The first public build: a home for Solo Vibe Coding"
-description: "Why this open-source Agent Skill is getting a website, how we chose its first scope, and what we will verify in public."
+title: "Try a quote tool, then make a version of your own"
+description: "Change hours, rates, and costs in a working calculator, download a breakdown, and use the same idea to start your own small project."
 date: "2026-11-13"
 locale: "en"
 slug: "first-public-build"
 ---
 
-Solo Vibe Coding has reached an initial version. Its next step is a place where an independent developer can understand the skill, try it, and follow what happens next.
+A small, useful tool is a good place to start making something with AI. You can describe what it should do, try the result, and ask for changes that matter to you.
 
-This website is our first public build. It introduces the work and records the decisions behind it. It is not a claim that the skill has already produced measured gains in speed, quality, or adoption.
+[Open the quote calculator](/solo-vibe-coding/examples/quote-calculator/) and try it in your browser.
 
-## Begin with a concrete task
+## What you can do
 
-The skill is for developers who already have a product direction. It selects specialist guidance for the current task: acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, or production deployment and release.
+- Enter the hours and hourly rate for a project.
+- Add extra costs and a reserve percentage.
+- See the estimate change as you edit the numbers.
+- Download a breakdown that opens in spreadsheet software.
+- Use the same tool on a phone.
 
-Each topic can be entered independently. Engineering work gives quality criteria and automated checks an early place, and the project keeps the useful knowledge that comes out of the work.
+The calculation happens in your browser. The numbers you enter are not sent to a server.
 
-The website therefore starts with task examples. A developer should be able to recognize a current problem, copy a prompt, and understand the expected deliverable before deciding to install.
+## Make your own version
 
-## Keep the first release small and usable
+The [getting-started walkthrough](/solo-vibe-coding/getting-started/) takes you from adding Solo Vibe Coding to your coding assistant to asking for a first version you can open and try. It includes a complete project request you can copy.
 
-The first scope includes a product homepage, a getting-started guide, six task examples, and this build log. English and Chinese have their own URLs and equivalent content.
+You can change the idea to fit your work. For example, ask for a project name, your brand colours, or a different way to describe the estimate. Explain the result you want and ask the assistant to recommend how to make it happen.
 
-The site uses Astro to generate static HTML and GitHub Pages to publish from the existing public repository. We chose the default GitHub address to start, with no custom domain to buy or configure. GitHub Actions checks and publishes only the generated website files.
+## Check the things that matter to you
 
-The visual direction uses warm white, graphite, and orange, with a dark task workbench. Copyable examples, readable pages, and mobile navigation are the first interactions to get right.
+When the assistant gives you a version, change some numbers and check the total. Try an empty field, open it on a phone, and download the breakdown. If something does not work, describe what you expected and what you saw, then ask the assistant to help fix it.
 
-## Make the decisions inspectable
-
-Project knowledge lives alongside the code. The knowledge index points to the website specification, architecture, decision records, and verification instructions. Public build notes tell the story; maintained documentation describes the current system and how to work on it.
-
-The repository is the place to inspect what was actually implemented and how it was checked:
-
-- [Website source](https://github.com/jmaxzh/solo-vibe-coding/tree/main/website)
-- [Project knowledge](https://github.com/jmaxzh/solo-vibe-coding/blob/main/docs/README.md)
-- [Architecture decisions](https://github.com/jmaxzh/solo-vibe-coding/blob/main/docs/decisions.md)
-- [Build and deployment runs](https://github.com/jmaxzh/solo-vibe-coding/actions)
-
-## Learn from what can be observed
-
-Before publication, we check builds, links, language pairs, metadata, keyboard interaction, mobile layouts, and detectable accessibility issues. Publication itself needs a successful deployment and reachable public pages.
-
-Search indexing, rankings, AI citations, and actual installation numbers need separate evidence after launch. They are observations to collect, not outcomes this first version can promise.
-
-If you try the skill, [open an issue with the task and what happened](https://github.com/jmaxzh/solo-vibe-coding/issues). A concrete result or difficulty is useful material for the next improvement.
+The next step can be small: [choose something you want to make](/solo-vibe-coding/guides/) and start with a first version you can actually use.

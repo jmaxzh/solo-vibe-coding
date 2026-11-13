@@ -5,12 +5,13 @@ import Home from '../components/Home.astro';
 import GettingStarted from '../components/GettingStarted.astro';
 import Guides from '../components/Guides.astro';
 import BuildLog from '../components/BuildLog.astro';
-import { UI, PROJECT, href, pageMetadata, type Locale, type PageName } from '../data/site';
+import Example from '../components/Example.astro';
+import { UI, PROJECT, PAGE_PATHS, href, pageMetadata, type Locale, type PageName } from '../data/site';
 import { POSTS, postsFor } from '../data/posts';
 
 export const getStaticPaths = (() => (['en', 'zh-CN'] as Locale[]).flatMap((locale) => {
   const prefix = locale === 'en' ? '' : 'zh-CN/';
-  const pages = (['home', 'getting-started', 'guides', 'build-log'] as PageName[]).map((page) => ({ params: { path: (prefix + (page === 'home' ? '' : page)).replace(/\/$/, '') || undefined }, props: { locale, page, post: undefined } }));
+  const pages = (Object.keys(PAGE_PATHS) as PageName[]).map((page) => ({ params: { path: (prefix + PAGE_PATHS[page]).replace(/\/$/, '') || undefined }, props: { locale, page, post: undefined } }));
   const posts = postsFor(locale).map((post) => ({ params: { path: prefix + 'build-log/' + post.frontmatter.slug }, props: { locale, page: 'build-log' as PageName, post } }));
   return [...pages, ...posts];
 })) satisfies GetStaticPaths;
@@ -26,6 +27,7 @@ const article = post ? { title: post.frontmatter.title, date: post.frontmatter.d
   {page === 'home' && <Home locale={locale} />}
   {page === 'getting-started' && <GettingStarted locale={locale} />}
   {page === 'guides' && <Guides locale={locale} />}
+  {page === 'examples' && <Example locale={locale} />}
   {page === 'build-log' && !post && <BuildLog locale={locale} />}
   {post && Content && <article class="container article-shell"><a class="article-back" href={href(locale, 'build-log')}>← {ui.all}</a><header class="article-header"><h1>{post.frontmatter.title}</h1><p>{post.frontmatter.description}</p><div class="article-meta"><time datetime={post.frontmatter.date}>{new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(post.frontmatter.date + 'T00:00:00Z'))}</time><span>{ui.author} <a href={PROJECT.authorURL}>{PROJECT.author}</a></span></div></header><div class="article-content"><Content /></div><div class="article-bottom"><a class="button button-primary" href={href(locale, 'getting-started')}>{ui.related}<span aria-hidden="true">↗</span></a></div></article>}
 </Layout>

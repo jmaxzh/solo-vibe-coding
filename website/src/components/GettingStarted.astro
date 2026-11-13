@@ -1,6 +1,6 @@
 ---
 import CodeBlock from './CodeBlock.astro';
-import { PROJECT, UI, href, source, type Locale } from '../data/site';
+import { PROJECT, UI, FIRST_PROMPT, href, PAGE_PATHS, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].getting;
@@ -8,14 +8,18 @@ const ui = UI[locale].getting;
 <div class="container document-shell">
   <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
   <div class="document-layout">
-    <nav class="on-this-page" aria-label={locale === 'en' ? 'On this page' : '本页目录'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#boundaries">{ui.boundariesTitle}</a></nav>
+    <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">
-      <section id="requirements"><h2>{ui.beforeTitle}</h2><ul class="check-list">{ui.before.map((item) => <li>{item}</li>)}</ul><a href="https://agentskills.io/specification">{ui.format}<span aria-hidden="true"> ↗</span></a></section>
-      <section id="installation"><h2>{ui.installTitle}</h2><p>{ui.installText}</p><CodeBlock locale={locale} code={PROJECT.install} install /><a href="https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-add">{ui.cli}<span aria-hidden="true"> ↗</span></a></section>
-      <section id="first-task"><h2>{ui.firstTitle}</h2><p>{ui.firstText}</p><CodeBlock locale={locale} code={ui.firstPrompt} /><h3>{ui.reviewTitle}</h3><p>{ui.reviewText}</p></section>
-      <section><h2>{ui.manualTitle}</h2><p>{ui.manualText}</p><a href={source(locale)}>SKILL.md<span aria-hidden="true"> ↗</span></a></section>
-      <section class="document-callout" id="boundaries"><h2>{ui.boundariesTitle}</h2><p>{ui.boundariesText}</p></section>
-      <a class="button button-primary" href={href(locale, 'guides')}>{ui.next}<span aria-hidden="true">↗</span></a>
+      <section id="requirements"><h2>{ui.beforeTitle}</h2><p>{ui.beforeText}</p><a href="https://learn.chatgpt.com/docs/codex/cli#getting-started">{ui.noAssistant}</a></section>
+      <section id="installation"><h2>{ui.installTitle}</h2><p>{ui.installText}</p><CodeBlock locale={locale} code={ui.setupPrompt} label={UI[locale].guides.prompt} /><p class="activation-help">{ui.activation}</p>
+        <details class="setup-option"><summary>{ui.otherAssistant}</summary><p>{ui.claudeText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent claude-code --yes'} install /><CodeBlock locale={locale} code={PROJECT.install} install /></details>
+        <details class="setup-option"><summary>{ui.manualTitle}</summary><p>{ui.manualText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent codex --yes'} install /></details>
+      </section>
+      <section id="first-task"><h2>{ui.firstTitle}</h2><p>{ui.firstText}</p><CodeBlock locale={locale} code={FIRST_PROMPT[locale]} label={UI[locale].guides.prompt} /></section>
+      <section id="try-your-result"><h2>{ui.reviewTitle}</h2><p>{ui.reviewText}</p><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a href={href(locale, PAGE_PATHS.examples)}>{ui.next}<span aria-hidden="true"> ↗</span></a></section>
+      <section><h2>{ui.continueTitle}</h2><p>{ui.continueText}</p></section>
+      <section class="document-callout" id="boundaries"><h2>{ui.troubleTitle}</h2><p>{ui.troubleText}</p><CodeBlock locale={locale} code={ui.troublePrompt} label={UI[locale].guides.prompt} /></section>
+      <details class="setup-option"><summary>{ui.sources}</summary><div class="resource-links"><a href="https://learn.chatgpt.com/docs/build-skills">{ui.codexDocs}</a><a href="https://code.claude.com/docs/en/skills">{ui.claudeDocs}</a></div></details>
     </div>
   </div>
 </div>

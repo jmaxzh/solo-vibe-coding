@@ -1,6 +1,6 @@
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
-import { copyFile, mkdir } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 await sharp(fileURLToPath(new URL('../public/social-card.svg', import.meta.url)))
   .png()
@@ -12,3 +12,6 @@ for (const [packageName, name] of [['@fontsource-variable/manrope', 'manrope'], 
   await copyFile(new URL(`../node_modules/${packageName}/LICENSE`, import.meta.url), new URL(`../public/licenses/${name}-OFL.txt`, import.meta.url));
 }
 console.log('Copied font licenses for distribution with the self-hosted font files.');
+const decimalLicense = await readFile(new URL('../node_modules/big.js/LICENCE.md', import.meta.url), 'utf8');
+await writeFile(new URL('../public/licenses/big-js-MIT.txt', import.meta.url), decimalLicense.replaceAll('\r\n', '\n').trimEnd() + '\n');
+console.log('Copied the decimal arithmetic library license.');

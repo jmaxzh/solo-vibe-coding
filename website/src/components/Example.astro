@@ -1,0 +1,16 @@
+---
+import QuoteCalculator from './QuoteCalculator.astro';
+import CodeBlock from './CodeBlock.astro';
+import { UI, FIRST_PROMPT, href, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const ui = UI[locale].example;
+---
+<div class="container document-shell">
+  <header class="page-intro"><p class="page-context">{UI[locale].nav.examples}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <div class="example-layout">
+    <div><QuoteCalculator locale={locale} id="example-quote" /><p class="example-privacy">{ui.explanation}</p></div>
+    <div class="example-details"><h2>{ui.howTitle}</h2><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a class="button button-primary" href={href(locale, 'getting-started')}>{ui.next}<span aria-hidden="true">↗</span></a></div>
+  </div>
+  <section class="example-request" id="make-your-own"><h2>{ui.promptTitle}</h2><p>{ui.promptText}</p><CodeBlock locale={locale} code={FIRST_PROMPT[locale]} label={UI[locale].guides.prompt} /></section>
+</div>

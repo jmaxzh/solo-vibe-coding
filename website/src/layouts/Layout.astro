@@ -1,7 +1,7 @@
 ---
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import '../styles/global.css';
-import { UI, PROJECT, href, type Locale, type PageName } from '../data/site';
+import { UI, PROJECT, PAGE_PATHS, href, type Locale, type PageName } from '../data/site';
 
 interface Props {
   locale: Locale;
@@ -13,7 +13,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const { locale, page, title, description, route = page === 'home' ? '' : page, article, noindex = false } = Astro.props;
+const { locale, page, title, description, route = PAGE_PATHS[page], article, noindex = false } = Astro.props;
 const ui = UI[locale];
 const canonical = new URL(href(locale, route), PROJECT.origin).href;
 const alternate = locale === 'en' ? 'zh-CN' : 'en';
@@ -53,7 +53,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta property="og:image" content={PROJECT.origin + PROJECT.base + 'social-card.png'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Solo Vibe Coding — Build, ship, and grow your product." />
+    <meta property="og:image:alt" content="Solo Vibe Coding — Make the thing you have in mind." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -69,8 +69,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
           <span>Solo Vibe Coding</span>
         </a>
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
-          {(['getting-started', 'guides', 'build-log'] as const).map((item) => <a href={href(locale, item)} data-page={item} aria-current={page === item ? 'page' : undefined}>{ui.nav[item]}</a>)}
-          <a class="github-link" href={PROJECT.repository}>{ui.nav.github}<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          {(['examples', 'getting-started', 'guides'] as const).map((item) => <a href={href(locale, PAGE_PATHS[item])} data-page={item} aria-current={page === item ? 'page' : undefined}>{ui.nav[item]}</a>)}
         </nav>
         <a class="language-switch" data-language-switch href={href(alternate, route)} lang={alternate} aria-label={ui.switchLanguage}>{ui.language}</a>
       </div>
@@ -78,8 +77,8 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense}</p><p class="footer-license">{locale === 'en' ? 'Fonts:' : '字体：'} <a href={PROJECT.base + 'licenses/manrope-OFL.txt'}>Manrope</a> / <a href={PROJECT.base + 'licenses/ibm-plex-mono-OFL.txt'}>IBM Plex Mono</a></p></div>
-        <div class="footer-links"><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
+        <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense}</p></div>
+        <div class="footer-links"><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
       </div>
     </footer>
     <script>
@@ -116,34 +115,6 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
         });
       });
 
-      document.querySelectorAll<HTMLElement>('[data-task-explorer]').forEach((explorer) => {
-        const tabs = [...explorer.querySelectorAll<HTMLAnchorElement>('[data-task-tab]')];
-        const panels = [...explorer.querySelectorAll<HTMLElement>('[data-task-panel]')];
-        explorer.querySelector('[data-task-tabs]')?.setAttribute('role', 'tablist');
-        tabs.forEach((tab) => tab.setAttribute('role', 'tab'));
-        panels.forEach((panel) => panel.setAttribute('role', 'tabpanel'));
-        const select = (index: number, focus = false) => {
-          tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
-          panels.forEach((panel, i) => { panel.hidden = i !== index; });
-          if (focus) tabs[index]?.focus();
-        };
-        tabs.forEach((tab, index) => {
-          tab.addEventListener('click', (event) => { event.preventDefault(); select(index); });
-          tab.addEventListener('keydown', (event) => {
-            const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length : event.key === 'ArrowLeft' ? (index - 1 + tabs.length) % tabs.length : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
-            if (next === null) return;
-            event.preventDefault();
-            select(next, true);
-          });
-        });
-        const selectFromHash = () => {
-          const index = tabs.findIndex((tab) => tab.hash === window.location.hash);
-          if (index >= 0) select(index);
-        };
-        select(0);
-        selectFromHash();
-        window.addEventListener('hashchange', selectFromHash);
-      });
     </script>
   </body>
 </html>

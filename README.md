@@ -1,10 +1,12 @@
 # Solo Vibe Coding
 
-**Build, ship, and grow your product.**
+**Make the thing you have in mind.**
 
 [中文](README.zh-CN.md)
 
-A single Agent Skill for independent developers who already have a clear product direction. It selects specialist guidance for the current task across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release.
+A single Agent Skill for people building products independently with AI and a clear goal. Describe the website, tool, or feature you want; the coding agent selects relevant guidance to plan, implement, and check it. You can confirm important choices without first mastering every technical discipline.
+
+Guidance covers acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release.
 
 Engineering projects prioritize quality criteria and automated checks and share project knowledge conventions. Each topic can be entered independently; this skill does not explore startup ideas.
 
@@ -64,11 +66,13 @@ adapt composition and pacing to each platform, and deliver assets and editable s
 
 The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task guides, six catalogs of existing references and assets, and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
-## Website and project knowledge
+## Website
 
-The project website uses GitHub Pages at [jmaxzh.github.io/solo-vibe-coding](https://jmaxzh.github.io/solo-vibe-coding/), with English and Chinese pages. Its source lives in `website/` and is independent of the installable skill package.
+Try the [working quote calculator](https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/) or follow the [getting-started walkthrough](https://jmaxzh.github.io/solo-vibe-coding/getting-started/). The website has English and Chinese pages, with a complete first-task request and examples organized around what you want to make.
 
-See the [website README](website/README.md) for local development, checks, publishing, and rollback. The [project knowledge index](docs/README.md) links to the architecture, website specification, decision records, and testing guidance. Important decisions and their rationale are maintained alongside the code; complete verification and review records are kept separately in research archives.
+## Maintaining this repository
+
+The website source lives in `website/`, independently of the installable skill package. See its [README](website/README.md) for development, checks, GitHub Pages publishing, and rollback. The [maintainer knowledge index](docs/README.md) links to architecture, specifications, decisions, and testing. Full verification and review records are kept separately in research archives.
 
 ## Languages and layout
 

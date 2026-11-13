@@ -10,19 +10,20 @@
 | --- | --- |
 | `npm run check` | Astro 与 TypeScript 严格检查；错误阻断交付。 |
 | `npm run build` | 生成完整静态站；构建错误阻断发布。 |
-| `npm run verify` | 检查产物中的内链、锚点、项目路径、双语对应、标题摘要、canonical、分享图片、结构化数据、sitemap 和体积；任一失败阻断发布。 |
-| `npm run test:e2e` | Chromium 中检查导航、语言切换、任务选择、复制、移动端布局、关闭 JavaScript 后的正文，以及 axe 严重或关键无障碍问题；失败阻断发布。 |
+| `npm run verify` | 检查产物中的内链、锚点、项目路径、双语对应、标题摘要、canonical、分享图片、结构化数据、sitemap、维护入口混入与体积；任一失败阻断发布。 |
+| `npm run test:e2e` | Chromium 中检查用户开始路径、报价计算与错误、明细下载、导航、语言切换、复制、移动端、关闭 JavaScript 后的正文，以及 axe 严重或关键无障碍问题；失败阻断发布。 |
 
 `npm run validate` 依次执行前三项。浏览器验证使用 Playwright；首次在本地安装匹配浏览器：`npx playwright install chromium`。CI 使用 `npx playwright install --with-deps chromium`。
 
 ## 产物与内容标准
 
-- 正文预渲染为 HTML；客户端脚本仅增强交互，使用指南和安装命令在禁用 JavaScript 时仍可阅读。
+- 正文预渲染为 HTML，使用指南、完整需求和安装命令在禁用 JavaScript 时仍可阅读。报价示例的动态计算与下载需要脚本；关闭时展示初始结果、公式与启用说明，并禁用输入。
 - 英文和中文页面覆盖相同任务、边界与安装方式；每个内容页面具有对应语言页面。
 - 内部网址包含 `/solo-vibe-coding/`；404 页面不进入 sitemap。
 - 每个页面恰有一个主标题，具有独立标题、摘要和自身 canonical；hreflang 双向对应。
 - 项目能力、依赖、许可证与仓库内容一致；示例与实际运行证据有明确区别。
 - 页面不发布未验证的用户数量、评价、增长或提效数据。
+- 官网用户阅读路径不链接本仓库的维护知识库、ADR、工作流或研究档案；通过仓库维护入口继续保留追溯材料。
 - 单个 HTML 文件不超过 100 KiB；构建后的 JavaScript 总计不超过 60 KiB；整个发布目录不超过 5 MiB。阈值用于保持内容站轻量，实际判定源于 `website/scripts/verify-build.mjs`。
 
 ## 自动化范围

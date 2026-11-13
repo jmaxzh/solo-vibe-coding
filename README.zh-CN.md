@@ -1,10 +1,12 @@
 # Solo Vibe Coding
 
-**构建、交付并发展你的产品。**
+**把你想做的，变成能用的。**
 
 [English](README.md)
 
-为已有明确产品方向的独立开发者提供的单一 Agent Skill，按当前任务选择获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布方面的专业指导。
+为目标明确、希望借助 AI 独立做出产品的人提供的单一 Agent Skill。描述想做的网站、工具或功能，编程助手按任务选择相关指导，帮助规划、实现与检查。你可以确认重要选择，无须先掌握每个技术环节。
+
+专业指导覆盖获客与转化、视觉与交互、需求与沟通、架构与技术设计、开发与质量、生产部署与发布。
 
 工程项目优先确定质量指标并建立自动检查，共用项目知识库规范。各范畴可以独立进入，不探索创业方向。
 
@@ -62,11 +64,13 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 [技能入口](skills/solo-vibe-coding/SKILL.md) 指向六类任务指导、六份现成参考与素材目录和技术、质量两类专项参考，并提供远程读取与项目知识库的共用规范。助手按需读取选中的上游技能及必要引用，无须安装或注册这些外部技能。实际执行取决于可用工具和用户授权。来源或工具不可用时，指南要求说明缺口和实际完成的工作。
 
-## 官网与项目知识库
+## 官网
 
-项目官网使用 GitHub Pages 默认地址 [jmaxzh.github.io/solo-vibe-coding](https://jmaxzh.github.io/solo-vibe-coding/)，提供英文和中文页面。源码位于 `website/`，与可安装的技能包独立维护。
+可以先试用[能操作的报价计算器](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/)，或跟着[开始使用指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/)做第一件事。官网提供中英文页面、完整首次需求和按用户目标组织的使用示例。
 
-本地开发、检查、发布与回退方法见 [官网 README](website/README.md)。[项目知识库入口](docs/README.md) 汇集架构、官网需求、决策记录与测试说明。重要决策及其依据随代码维护，完整验证与评审记录独立保留在研究档案中。
+## 维护这个仓库
+
+官网源码位于 `website/`，与可安装的技能包独立维护。本地开发、检查、GitHub Pages 发布与回退方法见其 [README](website/README.md)。[维护知识库入口](docs/README.md) 汇集架构、需求、决策与测试说明；完整验证和评审记录独立保留在研究档案中。
 
 ## 语言与目录
 

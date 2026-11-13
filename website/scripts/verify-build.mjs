@@ -35,7 +35,7 @@ function targetFile(url) {
   return existsSync(index) ? index : null;
 }
 
-check(pages.length >= 11, `Expected bilingual content and a 404 page, found ${pages.length} HTML files.`);
+check(pages.length >= 13, `Expected bilingual content, a working example and a 404 page, found ${pages.length} HTML files.`);
 for (const file of pages) {
   const document = documents.get(file);
   const label = relative(root, file);
@@ -86,6 +86,10 @@ for (const file of pages) {
     const href = element.getAttribute('href') ?? element.getAttribute('src');
     if (!href || /^(mailto:|tel:|data:)/.test(href)) continue;
     const target = new URL(href, url);
+    const repositoryPath = '/jmaxzh/solo-vibe-coding/';
+    const maintenanceLink = target.hostname === 'github.com' && target.pathname.startsWith(repositoryPath) && /\/(blob|tree)\/[^/]+\/(docs|\.github)(\/|$)/.test(target.pathname);
+    check(!maintenanceLink, `${label}: maintenance material is linked from the user website: ${href}.`);
+    check(!(target.origin === origin && target.pathname.startsWith(base + 'docs/')), `${label}: maintenance documents are exposed as a user navigation target.`);
     if (target.origin !== origin) continue;
     const destination = targetFile(target);
     check(Boolean(destination), `${label}: broken local link or asset: ${href}.`);
