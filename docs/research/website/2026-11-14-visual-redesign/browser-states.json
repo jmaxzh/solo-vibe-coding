@@ -1,0 +1,146 @@
+[
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "development",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "design",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "deployment",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "growth",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "development",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "design",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "deployment",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "growth",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "development",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "design",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "deployment",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "growth",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "development",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "design",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "deployment",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "growth",
+    "overflow": false,
+    "artLoaded": true,
+    "failures": [],
+    "errors": []
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "locale": "zh-CN",
+    "javaScriptEnabled": true,
+    "httpRequests": [],
+    "pageErrors": []
+  },
+  {
+    "locale": "zh-CN",
+    "javaScriptEnabled": false,
+    "httpRequests": [],
+    "pageErrors": []
+  },
+  {
+    "locale": "en",
+    "javaScriptEnabled": true,
+    "httpRequests": [],
+    "pageErrors": []
+  },
+  {
+    "locale": "en",
+    "javaScriptEnabled": false,
+    "httpRequests": [],
+    "pageErrors": []
+  }
+]

@@ -36,8 +36,8 @@ const en = {
   footerSource: 'GitHub', footerTop: 'Back to top',
   hero: {
     context: 'An open-source skill for your coding assistant',
-    title: 'Get it built sooner.', accent: 'Make it worth sharing.',
-    description: 'A website that still does not explain the value. An interface that keeps looking like a template. Add Solo Vibe Coding to your coding assistant and bring relevant professional guidance and mature solutions to the part you are stuck on.',
+    title: 'Build it sooner.', accent: 'Make it worth sharing.',
+    description: 'From a working app to a real release and your first users. Put specialist guidance and suitable foundations into the assistant you already use, and work through the part you are stuck on.',
     primary: 'Add it to my assistant', secondary: 'Find my task',
     note: 'Free and open source. Work in your own project.',
   },
@@ -59,8 +59,8 @@ const en = {
   },
   getting: {
     title: 'Start with your own project.',
-    description: 'Install Solo Vibe Coding in your coding assistant, choose the task you are stuck on, and use a complete request for your own project.',
-    intro: 'A website, a design improvement, a first usable version or a release. Install the skill, then choose a request that fits what you actually want to do.',
+    description: 'Add Solo Vibe Coding to your coding assistant and start a repair, mobile redesign, release or first-user task in your own project.',
+    intro: 'Fix a bug, redesign a mobile app, get a demo live or prepare a first launch. Install the skill, then choose a request that fits what you actually want to do.',
     beforeTitle: 'Open your coding assistant',
     beforeText: 'Open a project folder in the assistant you use to make things. It needs to be able to edit files and access the web. The main path below uses Codex CLI or the IDE extension.',
     noAssistant: 'New to coding assistants? Install and open Codex CLI with the official guide.',
@@ -135,7 +135,7 @@ const zh: typeof en = {
   hero: {
     context: '一个给编程助手用的开源 Skill',
     title: '快点做出来，', accent: '也做得像样。',
-    description: '官网改了几轮，还是说不清价值；界面能用，却总像模板。把 Solo Vibe Coding 加到你常用的编程助手，让它按任务选用专业做法和成熟方案，帮你把卡住的这一段做完。',
+    description: '从能用的 App，到真正上线，再到第一批用户。给你常用的编程助手加上成熟做法和现成参考，把卡住的这一段做完。',
     primary: '加到我的编程助手', secondary: '找找我的场景', note: '免费开源，在你自己的项目里使用。',
   },
   home: {
@@ -155,8 +155,8 @@ const zh: typeof en = {
   },
   getting: {
     title: '从你自己的项目开始。',
-    description: '在编程助手中安装 Solo Vibe Coding，选择官网、界面、第一版或发布任务，带着完整需求继续做自己的项目。',
-    intro: '改善官网、重做界面、交付第一版，或准备发布。装好 Skill，选一段贴近自己情况的需求，继续做手边的项目。',
+    description: '在编程助手中安装 Solo Vibe Coding，从修复、移动界面、上线和首轮推广中选择任务，继续做自己的项目。',
+    intro: '修好一个 Bug、改善 App 界面、把 Demo 上线，或准备首轮推广。装好 Skill，选一段贴近自己情况的需求，继续做手边的项目。',
     beforeTitle: '打开你的编程助手',
     beforeText: '在你用来做项目的助手中打开一个项目文件夹。助手需要能修改文件并访问网络。下面的主路径以 Codex CLI 或 IDE 扩展为例。',
     noAssistant: '还没用过编程助手？按官方指南安装并打开 Codex CLI。',
@@ -219,7 +219,7 @@ export const UI: Record<Locale, typeof en> = { en, 'zh-CN': zh };
 export type Scenario = { id: string; label: string; title: string; summary: string; prompt: string; output: string; confirm: string; };
 export const SCENARIOS: Record<Locale, Scenario[]> = {
   en: [
-    { id: 'requirements', label: 'Make something new', title: 'A website or a small tool you wish existed.', summary: 'Start with what it should do and who will use it. Ask the assistant to recommend a small first version.', prompt: FIRST_PROMPT.en, output: 'A first version you can open and try, with instructions to run it.', confirm: 'Does it do the thing you wanted? Is it clear how to use it?' },
+    { id: 'requirements', label: 'Make something new', title: 'A website or a small tool you wish existed.', summary: 'Start with what it should do and who will use it. Ask the assistant to recommend a small first version.', prompt: 'Use $solo-vibe-coding to build the first usable version of this product.\nProduct direction, users and core task: [add the details].\nAssess suitable existing work and mature foundations, define one complete user journey and appropriate checks, then deliver a version I can open and try. Explain choices that affect cost or access and ask me to confirm them.', output: 'A first version you can open and try, with instructions to run it.', confirm: 'Does it do the thing you wanted? Is it clear how to use it?' },
     { id: 'architecture', label: 'Add a feature', title: 'Make your existing tool do one more useful thing.', summary: 'Describe the behaviour you want. The assistant can inspect the project and recommend how to fit it in.', prompt: 'Use $solo-vibe-coding to add a download button to my quote tool.\nI want a spreadsheet-friendly breakdown of the current numbers. Keep the existing look.\nRecommend an approach, build it, and check the downloaded values.', output: 'A working feature in your existing project.', confirm: 'Can you complete the new action, and do the old functions still work?' },
     { id: 'design', label: 'Improve the look', title: 'Make your page easier to understand and use.', summary: 'Show the page and explain the impression or experience you want.', prompt: 'Use $solo-vibe-coding to improve this page for the people who use it.\nMake the main action easier to find and the mobile layout easier to read.\nKeep the brand. Give me a version I can preview and compare.', output: 'An updated page you can preview on desktop and mobile.', confirm: 'Can you find the main action and read the important information?' },
     { id: 'development', label: 'Fix a problem', title: 'Get something that broke working again.', summary: 'Describe what you expected, what happened, and any error message. Let the assistant help investigate.', prompt: 'Use $solo-vibe-coding to fix this problem:\n[What I expected, what actually happened, and any message.]\nFind the cause, make the fix, and check that the original action works again.', output: 'A fix with a way to repeat and check the action.', confirm: 'Can you now do what failed before?' },
@@ -227,7 +227,7 @@ export const SCENARIOS: Record<Locale, Scenario[]> = {
     { id: 'growth', label: 'Explain your product', title: 'Help the right people see what they can do with it.', summary: 'Describe who it is for and show what actually works.', prompt: 'Use $solo-vibe-coding to improve this product page for its intended users.\nExplain what they can achieve, show actual examples, and give them a clear way to start.\nUse only capabilities and results we can show.', output: 'A user-focused page or message with concrete examples.', confirm: 'Would someone new understand what they can do and how to begin?' },
   ],
   'zh-CN': [
-    { id: 'requirements', label: '做一个新东西', title: '一个你一直想要的网站或小工具。', summary: '说明它要做什么、给谁用，让助手推荐一个适合先做出来的小版本。', prompt: FIRST_PROMPT['zh-CN'], output: '可以打开试用的第一版，以及具体使用方法。', confirm: '它是否做到了你想要的事？你是否知道怎样使用？' },
+    { id: 'requirements', label: '做一个新东西', title: '一个你一直想要的网站或小工具。', summary: '说明它要做什么、给谁用，让助手推荐一个适合先做出来的小版本。', prompt: '使用 $solo-vibe-coding，做出这个产品的第一个可用版本。\n产品方向、用户与核心任务：[补充说明]。\n评估合适的已有工作与成熟基础，明确一条完整使用流程和适当检查，再交付能打开试用的版本。涉及费用或访问范围的选择，说明后让我确认。', output: '可以打开试用的第一版，以及具体使用方法。', confirm: '它是否做到了你想要的事？你是否知道怎样使用？' },
     { id: 'architecture', label: '加一个功能', title: '让已有的工具，多做一件有用的事。', summary: '描述想增加的行为，助手查看项目情况，推荐合适的接入方式。', prompt: '使用 $solo-vibe-coding，给我的报价工具加一个下载按钮。\n我希望把当前数字下载成表格软件能打开的明细，保留现有外观。\n请推荐做法、完成实现，并核对下载的数值。', output: '已经接入现有项目、可以实际操作的新功能。', confirm: '新操作是否能完成？原来的功能是否仍然能用？' },
     { id: 'design', label: '改善外观和体验', title: '让页面更容易看懂，也更好用。', summary: '提供现有页面，说明你希望用户感受到什么、完成什么。', prompt: '使用 $solo-vibe-coding，为实际使用它的人改善这个页面。\n让主要操作更容易找到，手机上也能清楚阅读。\n保留品牌，给我一版能预览和对比的结果。', output: '可以在电脑和手机预览的更新页面。', confirm: '主要操作是否好找？重要内容是否容易阅读？' },
     { id: 'development', label: '修好一个问题', title: '让原本出错的地方，重新正常工作。', summary: '说明原本希望发生什么、实际发生什么，附上报错信息，让助手协助排查。', prompt: '使用 $solo-vibe-coding，帮我修好这个问题：\n[我原本想做什么、实际发生什么，以及提示信息。]\n请查明原因、完成修复，并实际确认原来的操作能正常进行。', output: '完成修复，并能重复原操作进行确认。', confirm: '之前失败的那件事，现在能不能完成？' },
@@ -247,7 +247,7 @@ export function pageMetadata(locale: Locale, page: PageName) {
     'build-log': `${ui.nav['build-log']} — ${PROJECT.name}`,
   };
   const descriptions: Record<PageName, string> = {
-    home: locale === 'en' ? 'Stuck on a product website, generic interface, unfinished first version or release? Add Solo Vibe Coding to your coding assistant and apply relevant professional guidance to your own project.' : '官网改了几轮还讲不清价值，界面总像模板，第一版或发布迟迟没完成？把 Solo Vibe Coding 加到编程助手，按任务用上专业指导和成熟方案，继续做自己的项目。',
+    home: locale === 'en' ? 'Break out of a bug loop, redesign a generic mobile app, get a demo live or reach your first users. One open-source skill brings relevant professional guidance to the assistant you already use.' : '修 Bug 总在兜圈、App 一股模板味、Demo 迟迟上不了线、做好的产品找不到用户？给编程助手加上 Solo Vibe Coding，按任务用上专业做法和现成参考。',
     'getting-started': ui.getting.description, guides: ui.guides.description, examples: ui.example.description, 'build-log': ui.log.description,
     'case-study': locale === 'en' ? 'Follow a real bookmark export task and a fresh-session change. See how Solo Vibe Coding was used, what was checked, and the limits of the comparison.' : '查看一次收藏导出和新会话追加修改的真实任务：Solo Vibe Coding 实际用了哪些指导、验证了什么，以及这次对照能说明和不能说明什么。',
   };

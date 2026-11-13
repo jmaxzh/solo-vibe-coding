@@ -1,0 +1,52 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-14",
+  "purpose": "Original editorial illustrations for the Solo Vibe Coding website; not screenshots or evidence of completed case outcomes.",
+  "assets": [
+    {
+      "name": "hero",
+      "path": "/Users/zhangjin/.cc-connect/projects/my-dev-skills/codex-home/generated_images/01a1d3ef-d504-7522-9ad3-df2995495980/exec-4d5edb24-316e-4c91-a113-63b7890ab2e2.png",
+      "prompt": "Create a premium art-directed 3D product still-life for a bold independent-developer software website. Physically plausible polished chrome, translucent colored glass, matte ceramic, crisp studio lighting and refined material reflections. A coherent expressive design world with electric cobalt blue #2457F5, warm tangerine #FF784F, acid lime #D5F36B and silver. Isolated on a genuinely transparent background, complete objects inside the canvas with generous margins. No text, no letters, no logos, no people, no fake screenshot, no watermark. This is an editorial illustration, not a functional product interface. Landscape composition for a large website hero: a monumental sculptural polished-chrome ribbon threads through three floating rounded browser-window-shaped cobalt glass frames, with one tangerine ceramic sphere and a small lime glass block orbiting the assembly. Asymmetrical, sculptural, tangible and playful like a contemporary design exhibition photographed with a macro lens. One unmistakable coherent focal sculpture. Dramatic depth, subtle soft contact shadows, no ground plane. High visual sophistication, not an icon pack. Leave breathing room around the silhouette.",
+      "output": [
+        "website/public/art/hero-720.webp",
+        "website/public/art/hero-1440.webp"
+      ]
+    },
+    {
+      "name": "repair",
+      "path": "/Users/zhangjin/.cc-connect/projects/my-dev-skills/codex-home/generated_images/01a1d3ef-d504-7522-9ad3-df2995495980/exec-f49cdf35-8112-4432-87eb-0ca845bbb163.png",
+      "prompt": "Create a premium art-directed 3D product still-life for a bold independent-developer software website. Physically plausible polished chrome, translucent colored glass, matte ceramic, crisp studio lighting and refined material reflections. A coherent expressive design world with electric cobalt blue #2457F5, warm tangerine #FF784F, acid lime #D5F36B and silver. Isolated on a genuinely transparent background, complete objects inside the canvas with generous margins. No text, no letters, no logos, no people, no fake screenshot, no watermark. This is an editorial illustration, not a functional product interface. Square composition: one exquisite translucent tangerine video camera lens with a silver body, hovering beside a small polished-chrome looping connector that neatly reconnects two cobalt glass segments. A tangible editorial metaphor for repairing a video-call app while preserving its existing functionality. The camera lens is the dominant object. Clean strong silhouette, beautifully lit close-up.",
+      "output": [
+        "website/public/art/case-development-320.webp",
+        "website/public/art/case-development-768.webp"
+      ]
+    },
+    {
+      "name": "design",
+      "path": "/Users/zhangjin/.cc-connect/projects/my-dev-skills/codex-home/generated_images/01a1d3ef-d504-7522-9ad3-df2995495980/exec-3cfa5d14-6749-4cec-ac62-aa4eec844df1.png",
+      "prompt": "Create a premium art-directed 3D product still-life for a bold independent-developer software website. Physically plausible polished chrome, translucent colored glass, matte ceramic, crisp studio lighting and refined material reflections. A coherent expressive design world with electric cobalt blue #2457F5, warm tangerine #FF784F, acid lime #D5F36B and silver. Isolated on a genuinely transparent background, complete objects inside the canvas with generous margins. No text, no letters, no logos, no people, no fake screenshot, no watermark. This is an editorial illustration, not a functional product interface. Square composition: a slim cobalt glass smartphone-shaped slab standing at a slight angle, its blank frosted surface decorated with three perfectly arranged physical tangerine and lime ceramic buttons and a small silver slider. A sculptural editorial metaphor for a thoughtfully designed mobile app. No screen content or text. A confident tactile beautiful product shot, very refined.",
+      "output": [
+        "website/public/art/case-design-320.webp",
+        "website/public/art/case-design-768.webp"
+      ]
+    },
+    {
+      "name": "launch",
+      "path": "/Users/zhangjin/.cc-connect/projects/my-dev-skills/codex-home/generated_images/01a1d3ef-d504-7522-9ad3-df2995495980/exec-6b4b9c1c-59c9-42a7-bd51-d2ff7bfa341d.png",
+      "prompt": "Create a premium art-directed 3D product still-life for a bold independent-developer software website. Physically plausible polished chrome, translucent colored glass, matte ceramic, crisp studio lighting and refined material reflections. A coherent expressive design world with electric cobalt blue #2457F5, warm tangerine #FF784F, acid lime #D5F36B and silver. Isolated on a genuinely transparent background, complete objects inside the canvas with generous margins. No text, no letters, no logos, no people, no fake screenshot, no watermark. This is an editorial illustration, not a functional product interface. Square composition: a chunky acid-lime translucent glass key interlocks with a silver browser-window-shaped arch and one small cobalt ceramic cylinder. An editorial metaphor for turning a working prototype into an accessible released application with login and data connected. The key and arch form one clean coherent assembly. Tangible, playful, beautifully composed, no text or actual interface.",
+      "output": [
+        "website/public/art/case-deployment-320.webp",
+        "website/public/art/case-deployment-768.webp"
+      ]
+    },
+    {
+      "name": "growth",
+      "path": "/Users/zhangjin/.cc-connect/projects/my-dev-skills/codex-home/generated_images/01a1d3ef-d504-7522-9ad3-df2995495980/exec-158366f9-eb64-4a84-ab27-ffa3d5583294.png",
+      "prompt": "Create a premium art-directed 3D product still-life for a bold independent-developer software website. Physically plausible polished chrome, translucent colored glass, matte ceramic, crisp studio lighting and refined material reflections. A coherent expressive design world with electric cobalt blue #2457F5, warm tangerine #FF784F, acid lime #D5F36B and silver. Isolated on a genuinely transparent background, complete objects inside the canvas with generous margins. No text, no letters, no logos, no people, no fake screenshot, no watermark. This is an editorial illustration, not a functional product interface. Square composition: one large sculptural tangerine ceramic paper airplane in mid-flight, with a polished-chrome curved flight path passing through three small cobalt and lime glass rings. An editorial metaphor for taking a finished product out to its first users. Visually dynamic but uncluttered, tactile material and beautiful dramatic directional light.",
+      "output": [
+        "website/public/art/case-growth-320.webp",
+        "website/public/art/case-growth-768.webp"
+      ]
+    }
+  ]
+}

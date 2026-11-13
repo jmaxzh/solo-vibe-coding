@@ -16,23 +16,23 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('h1')).toBeVisible();
     const stage = page.locator('[data-task-stage]');
     await expect(stage.getByRole('radio')).toHaveCount(4);
-    await expect(stage.locator('[data-outcome="growth"]')).toBeVisible();
+    await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
     await stage.locator('[data-choice="design"]').click();
     await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
-    await expect(stage.locator('[data-outcome="growth"]')).toBeHidden();
+    await expect(stage.locator('[data-outcome="development"]')).toBeHidden();
     await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'template' : '模板味');
     await stage.locator('input[value="design"]').focus();
     await page.keyboard.press('ArrowLeft');
-    await expect(stage.locator('input[value="growth"]')).toBeChecked();
-    await expect(stage.locator('[data-outcome="growth"]')).toBeVisible();
+    await expect(stage.locator('input[value="development"]')).toBeChecked();
+    await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
     await page.locator('[data-case-link]').first().click();
     await expect(page).toHaveURL(new RegExp(caseStudy + '$'));
     await expect(page.locator('[data-case-summary]')).not.toBeEmpty();
     await expect(page.locator('#round-one-title')).toBeVisible();
     await page.locator('[data-start]').first().click();
     await expect(page).toHaveURL(new RegExp('/getting-started/$'));
-    await expect(page.locator('#task-growth')).toBeVisible();
-    await expect(page.locator('#task-growth')).toContainText(locale === 'en' ? 'website' : '官网');
+    await expect(page.locator('#task-development')).toBeVisible();
+    await expect(page.locator('#task-development')).toContainText(locale === 'en' ? 'video' : '视频');
     await page.goto(path + example);
     const calculator = page.locator('[data-calculator]');
     await expect(calculator.locator('input[name="hours"]')).toBeEnabled();
@@ -52,7 +52,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
   });
 
   test(`${locale}: the selected task continues through setup and language switching`, async ({ page }) => {
-    for (const task of ['growth', 'design', 'requirements', 'deployment']) {
+    for (const task of ['development', 'design', 'deployment', 'growth']) {
       await page.goto(path);
       await page.locator(`[data-choice="${task}"]`).click();
       await expect(page.locator(`[data-outcome="${task}"] .task-help`)).toBeVisible();
@@ -78,6 +78,31 @@ for (const locale of ['en', 'zh-CN'] as const) {
       await page.goBack();
       await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
     }
+  });
+
+  test(`${locale}: artwork and motion respect pause and system preferences`, async ({ page }) => {
+    await page.goto(path);
+    const image = page.locator('[data-hero-object]');
+    await expect(image).toBeVisible();
+    expect(await image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+    await page.locator('[data-motion-toggle]').click();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+    await expect(image).toHaveCSS('animation-play-state', 'paused');
+    await page.locator('[data-language-switch]').click();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+    await page.locator('[data-motion-toggle]').click();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+    await expect(page.locator('[data-motion-toggle]')).toBeDisabled();
+    await expect(page.locator('[data-hero-object]')).toBeVisible();
+    await page.locator('[data-choice="design"]').click();
+    await expect(page.locator('[data-outcome="design"]')).toBeVisible();
+    await page.goto(path + 'getting-started/?task=requirements#task-requirements');
+    await expect(page.locator('#task-requirements')).toBeVisible();
+    await expect(page.locator('#task-requirements code')).toContainText(locale === 'en' ? 'first usable version' : '第一个可用版本');
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'requirements');
   });
 
   test(`${locale}: case explains evidence, keeps its language and supplies a starting project`, async ({ page }) => {
@@ -176,7 +201,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path + 'getting-started/');
     await expect(page.locator('#requirements a')).toHaveAttribute('href', 'https://learn.chatgpt.com/docs/codex/cli#getting-started');
     await expect(page.locator('#installation')).toContainText('--agent codex --yes');
-    const copy = page.locator('#task-growth [data-copy]');
+    const copy = page.locator('#task-development [data-copy]');
     await copy.click();
     await expect(copy).toHaveAttribute('data-copied', 'true');
     const text = await page.evaluate(() => navigator.clipboard.readText());
@@ -213,6 +238,8 @@ test.describe('without JavaScript', () => {
     for (const prefix of ['', 'zh-CN/']) {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
+      await expect(page.locator('[data-hero-object]')).toBeVisible();
+      await expect(page.locator('[data-motion-toggle]')).toBeHidden();
       await page.locator('[data-choice="deployment"]').click();
       await expect(page.locator('[data-outcome="deployment"]')).toBeVisible();
       await expect(page.locator('[data-outcome="growth"]')).toBeHidden();
@@ -245,7 +272,7 @@ test('clipboard denial keeps manual copying available', async ({ page }) => {
     Object.defineProperty(navigator, 'clipboard', { value: { writeText: async () => { throw new Error('Clipboard permission denied'); } } });
   });
   await page.goto(base + 'getting-started/');
-  const copy = page.locator('#task-growth [data-copy]');
+  const copy = page.locator('#task-development [data-copy]');
   await copy.click();
   await expect(copy).toContainText('Select and copy the text');
   await expect(copy).not.toHaveAttribute('data-copied', 'true');

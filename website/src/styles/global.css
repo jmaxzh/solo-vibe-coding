@@ -11,14 +11,14 @@
 
 @layer base {
   @font-face { font-family: 'Manrope Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
-  :root { --paper: #f7f5ef; --ink: #202320; --muted: #5a625c; --accent: #e4613e; --accent-ink: #a33c23; --line: #dcded3; --panel: #202b25; --panel-muted: #bdc8bf; --green: #dce5d9; --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
+  :root { --paper: #f7f5ef; --ink: #17212e; --muted: #5a625c; --accent: #ff784f; --accent-ink: #a33c23; --line: #dcded3; --panel: #1b2838; --panel-muted: #bdc8bf; --green: #e5edcf; --blue: #2457f5; --lime: #d5f36b; --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
   body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
   ::selection { background: #f5bb9f; color: var(--ink); }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
   a:hover { text-decoration-thickness: 2px; }
   button { cursor: pointer; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
   h1, h2, h3 { font-weight: 650; text-wrap: balance; }
   h2 { font-size: clamp(2rem, 3.15vw, 2.8rem); letter-spacing: -.055em; line-height: 1.18; }
   h3 { font-size: 1.15rem; letter-spacing: -.035em; line-height: 1.45; }
@@ -31,13 +31,13 @@
 @layer layout {
   .container { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
   .site-header { border-bottom: 1px solid var(--line); }
-  .header-inner { display: flex; align-items: center; gap: 36px; min-height: 100px; }
+  .header-inner { display: flex; align-items: center; gap: 36px; min-height: 88px; }
   .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 750; letter-spacing: -.045em; font-size: 1.15rem; white-space: nowrap; }
   .brand-mark { width: 37px; height: 37px; flex: none; color: var(--ink); }
   .main-navigation { display: flex; align-items: center; gap: 28px; margin-left: auto; }
   .main-navigation a { text-decoration: none; color: var(--muted); font-size: .875rem; font-weight: 600; white-space: nowrap; }
   .main-navigation a:hover, .main-navigation a[aria-current] { color: var(--ink); }
-  .main-navigation a[aria-current] { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+  .main-navigation a[aria-current] { text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: 2px; }
   .language-switch { font-size: .8rem; font-weight: 650; padding: 5px 10px; border: 1px solid #cacec4; border-radius: 6px; text-decoration: none; white-space: nowrap; }
   .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding-block: 84px 100px; }
   .hero-copy { min-width: 0; }
@@ -200,11 +200,14 @@
   .skip-link:focus { top: 12px; }
   .button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 51px; padding: 12px 21px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: .875rem; }
   .button-primary { background: var(--accent); color: #172019; }
-  .button-primary:hover { background: #ec724e; }
+  .button-primary:hover { background: #ff9a7b; }
+  .button { transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+  .button:active { transform: scale(.97); }
   .button svg { width: 19px; height: 19px; }
   .text-link { display: inline-flex; align-items: center; gap: 14px; font-size: .875rem; font-weight: 650; text-decoration: none; border-bottom: 1px solid #b1b7ab; padding-block: 4px; }
   .text-link:hover { border-color: var(--ink); }
   .code-block { background: var(--panel); color: var(--paper); border-radius: 10px; overflow: hidden; }
+  .code-block :focus-visible { outline-color: var(--lime); }
   .code-toolbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 1px solid #425046; color: var(--panel-muted); gap: 12px; font-size: .69rem; min-height: 42px; }
   .copy-button { display: inline-flex; align-items: center; gap: 5px; padding: 4px 7px; border: none; background: transparent; color: var(--paper); border-radius: 4px; font-size: .69rem; flex: none; }
   .copy-button:hover { background: #3b4b3e; }

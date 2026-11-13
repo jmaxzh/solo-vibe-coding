@@ -35,9 +35,11 @@ npm run test:e2e
 - `src/data/outcomes.ts`：四类代表任务的目标、困难、具体帮助、交付目标和需求；首页、使用场景和上手页共用，保持中英内容与操作边界对应。
 - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
 - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
+- `public/art/`：原创场景插画的透明WebP，包含首屏和任务图像的响应式尺寸；替换图片时保留透明通道、宽高和对应替代文本，检查移动端裁切与发布体积。
 - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
 - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
 - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
+- `src/components/WebsiteMotion.astro`：首页动画增强、暂停偏好、系统减少动态效果与指针交互；默认正文保持可见，停用脚本不影响核心路径。
 - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
 - `public/licenses/`：自托管字体的 OFL 许可与 Big.js 的 MIT 许可；依赖升级时重新生成并核对。
 

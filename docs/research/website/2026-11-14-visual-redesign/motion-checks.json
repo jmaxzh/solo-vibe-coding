@@ -1,0 +1,34 @@
+[
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "floatMoved": true,
+    "pointerTilt": "perspective(1000px) rotateX(1.05deg) rotateY(3.15deg) translate3d(3.15px, -1.05px, 0px)",
+    "paused": true,
+    "clearedTilt": true
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "floatMoved": true,
+    "pointerTilt": null,
+    "paused": true,
+    "clearedTilt": true
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "floatMoved": true,
+    "pointerTilt": "perspective(1000px) rotateX(1.05deg) rotateY(3.15deg) translate3d(3.15px, -1.05px, 0px)",
+    "paused": true,
+    "clearedTilt": true
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "floatMoved": true,
+    "pointerTilt": null,
+    "paused": true,
+    "clearedTilt": true
+  }
+]

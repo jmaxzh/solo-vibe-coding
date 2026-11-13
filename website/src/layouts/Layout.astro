@@ -80,7 +80,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <footer class="site-footer">
       <div class="container footer-inner">
         <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense}</p></div>
-        <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
+        <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
       </div>
     </footer>
     <script>

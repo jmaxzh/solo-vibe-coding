@@ -1,43 +1,33 @@
 ---
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
-import { href, type Locale } from '../data/site';
+import { PROJECT, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = OUTCOME_UI[locale];
 const outcomes = OUTCOMES[locale];
-const zh = locale === 'zh-CN';
+const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf', growth: '#e8e9fb' };
 ---
 <section class="task-stage" id="why-skill" aria-labelledby="stage-title" data-task-stage>
-  <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><span>{zh ? '点击切换任务' : 'Choose a task below'}</span></div>
+  <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><p>{ui.stageDescription}</p></div>
   <fieldset>
     <legend class="sr-only">{ui.selector}</legend>
-    {outcomes.map((outcome, index) => <input class="sr-only task-choice" type="radio" name={`task-${locale}`} id={`choose-${outcome.id}-${locale}`} value={outcome.id} checked={index === 0} />)}
+    {outcomes.map((outcome, index) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={index === 0} />)}
     <div class="task-options">
-      {outcomes.map((outcome) => <label for={`choose-${outcome.id}-${locale}`} data-choice={outcome.id}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={outcome.id === 'growth' ? 'M4 5h16v14H4zM4 9h16M8 13h8M8 16h5' : outcome.id === 'design' ? 'M4 4h16v16H4zM4 10h16M10 10v10' : outcome.id === 'requirements' ? 'M4 5h6v6H4zM14 13h6v6h-6zM7 11v5h7M10 8h7v5' : 'M12 16V3m-5 5 5-5 5 5M4 14v6h16v-6'} /></svg><span>{outcome.label}</span></label>)}
+      {outcomes.map((outcome) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><img src={PROJECT.base + 'art/case-' + outcome.id + '-320.webp'} width="320" height="320" loading="lazy" decoding="async" alt="" /><span>{outcome.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
     </div>
-    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={`pain-${outcome.id}`}>
-      <div class="task-context">
-        <p class="task-goal"><span>{ui.goal}</span>{outcome.goal}</p>
-        <h3 id={`pain-${outcome.id}`}>{outcome.pain}</h3>
-        <p class="task-situation">{outcome.situation}</p>
-        <a class="task-start" data-task-start={outcome.id} href={href(locale, 'getting-started') + `?task=${outcome.id}#task-${outcome.id}`}>{ui.start}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
-      </div>
-      <figure class:list={['result-preview', `result-${outcome.id}`]}>
-        <div class="result-surface" aria-hidden="true">
-          {outcome.id === 'growth' && <div class="page-specimen">
-            <div class="specimen-navigation"><span>Solo Vibe Coding</span><span>{zh ? '从这里开始' : 'Get started'} ↗</span></div>
-            <div class="specimen-body"><span class="specimen-rule"></span><p class="specimen-title">{outcome.previewTitle}</p><p class="specimen-description">{outcome.previewText}</p><div class="specimen-topics"><span>{zh ? '用户的困难' : 'The problem'}</span><span>{zh ? '实际的成果' : 'The outcome'}</span><span>{zh ? '下一步行动' : 'The next step'}</span></div></div>
-            <div class="specimen-bottom"><span>{zh ? '从产品目标，走到可发布的页面' : 'From a product goal to a publishable page'}</span><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M5 5h14v14" /></svg></div>
-          </div>}
-          {outcome.id === 'design' && <div class="interface-specimen">
-            <div class="interface-sidebar"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h7v7H4zM15 4h5v5h-5zM4 15h5v5H4zM13 13h7v7h-7z" /></svg><span></span><span></span><span></span></div>
-            <div class="interface-body"><p class="interface-small">{zh ? '你的工作空间' : 'Your workspace'}</p><p class="interface-title">{zh ? '手边的项目' : 'Your projects'}</p><div class="interface-project"><span class="project-symbol"></span><div><strong>{zh ? '产品首页' : 'Product homepage'}</strong><p>{zh ? '文案与页面设计' : 'Copy and page design'}</p></div><span class="interface-open">{zh ? '打开' : 'Open'} ↗</span></div><p class="interface-caption">{outcome.previewText}</p></div>
-          </div>}
-          {outcome.id === 'requirements' && <div class="flow-specimen"><p>{zh ? '第一版，先走通这条路' : 'A first version with a complete journey'}</p><div class="flow-steps">{(zh ? ['提交内容', '得到结果', '保存下来'] : ['Submit', 'Get a result', 'Save it']).map((step, index) => <div><span>{index + 1}</span><strong>{step}</strong></div>)}</div><p class="flow-caption">{zh ? '把精力留给真正需要定制的部分。' : 'Save custom work for the parts that need it.'}</p></div>}
-          {outcome.id === 'deployment' && <div class="release-specimen"><svg class="release-symbol" viewBox="0 0 48 48" fill="none"><path d="M24 31V6m-9 9 9-9 9 9M9 28v13h30V28" /></svg><p>{zh ? '发布前，把这些确认清楚' : 'Know what you are releasing'}</p><ul>{(zh ? ['谁能访问这个网址', '关键操作是否正常', '出问题怎样恢复'] : ['Who can access the address', 'Whether the core task works', 'How to recover if needed']).map((item) => <li><span></span>{item}</li>)}</ul></div>}
+    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id} style={'--case-surface:' + themes[outcome.id]}>
+      <div class="task-panel-top">
+        <div class="task-context">
+          <p class="task-goal"><span>{ui.goal}</span>{outcome.goal}</p>
+          <h3 id={'pain-' + outcome.id}>{outcome.pain}</h3>
+          <p class="task-situation">{outcome.situation}</p>
+          <div class="case-actions"><a class="task-start" data-task-start={outcome.id} href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{ui.start}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a><a class="discussion-link" href={outcome.source.url}>{ui.source}<span aria-hidden="true">↗</span></a></div>
         </div>
-        <figcaption><span>{ui.preview}</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M3 3h10v10" /></svg></figcaption>
-      </figure>
+        <figure class="result-preview">
+          <img class="case-art" data-case-art src={PROJECT.base + 'art/case-' + outcome.id + '-768.webp'} srcset={PROJECT.base + 'art/case-' + outcome.id + '-320.webp 320w, ' + PROJECT.base + 'art/case-' + outcome.id + '-768.webp 768w'} sizes="(max-width: 800px) 80vw, 40vw" width="768" height="768" loading="lazy" decoding="async" alt={outcome.artAlt} />
+          <figcaption><span>{ui.preview}</span><p>{outcome.previewTitle}</p><small>{outcome.previewText}</small></figcaption>
+        </figure>
+      </div>
       <div class="task-help"><h4>{ui.help}</h4><ol>{outcome.help.map((item) => <li><h5>{item.title}</h5><p>{item.text}</p></li>)}</ol></div>
       <div class="task-delivery"><h4>{ui.deliverables}</h4><ul>{outcome.deliverables.map((item) => <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4 9 3 3 7-7" /></svg>{item}</li>)}</ul></div>
     </article>)}
@@ -45,132 +35,105 @@ const zh = locale === 'zh-CN';
 </section>
 
 <style>
-  .stage-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
-  .stage-heading h2 { font-size: 1rem; letter-spacing: 0; }
-  .stage-heading > span { font-size: .7rem; color: var(--muted); }
+  .task-stage { margin-top: 73px; }
+  .stage-heading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 32px; }
+  .stage-heading h2 { font-size: clamp(2rem, 3.1vw, 2.8rem); letter-spacing: -.03em; max-width: 19ch; }
+  .stage-heading > p { color: var(--muted); font-size: .86rem; max-width: 35ch; line-height: 1.85; }
   fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
-  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: #e9ebe3; border-radius: 14px 14px 0 0; overflow: hidden; }
-  .task-options label { display: flex; gap: 12px; align-items: center; justify-content: center; padding: 21px 14px; cursor: pointer; font-size: .81rem; font-weight: 600; color: #586052; border-bottom: 2px solid transparent; transition: background .18s, color .18s; }
-  .task-options label:hover { background: #dfe3d6; color: var(--ink); }
-  .task-options svg { width: 21px; height: 21px; flex: none; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
-  .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="requirements"]:checked) label[data-choice="requirements"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"] { background: var(--panel); color: var(--paper); border-bottom-color: var(--accent); }
-  .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="requirements"]:focus-visible) label[data-choice="requirements"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"] { outline: 3px solid var(--accent); outline-offset: -5px; }
-  .task-panel { display: none; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--panel); color: var(--paper); border-radius: 0 0 14px 14px; overflow: hidden; }
-  .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="requirements"]:checked) [data-outcome="requirements"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"] { display: grid; }
-  .task-context { padding: 40px 40px 32px; align-self: center; }
-  .task-goal { font-size: .78rem; line-height: 1.85; color: #d0d8cf; }
-  .task-goal > span { display: block; color: #aebcae; font-size: .68rem; margin-bottom: 6px; }
-  .task-context h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 23px; }
-  .task-situation { color: #c0ccc0; font-size: .84rem; line-height: 1.95; margin-top: 18px; max-width: 50ch; }
-  .task-start { display: inline-flex; align-items: center; gap: 23px; color: #f4a58a; text-decoration: none; font-weight: 600; font-size: .82rem; margin-top: 24px; padding-block: 5px; }
-  .task-start:hover { color: #ffd2bf; }
-  .task-start svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
-  .result-preview { margin: 0; padding: 38px 38px 22px 12px; min-width: 0; align-self: center; }
-  .result-surface { background: #f8f6ef; color: #283429; min-height: 300px; border-radius: 5px; overflow: hidden; }
-  figcaption { display: flex; align-items: center; justify-content: space-between; color: #b8c4b8; font-size: .64rem; padding-top: 12px; }
-  figcaption svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 1; }
-  .specimen-navigation { display: flex; align-items: center; justify-content: space-between; padding: 17px 22px; border-bottom: 1px solid #dce0d4; font-size: .55rem; }
-  .specimen-navigation > span:first-child { font-weight: 750; font-size: .65rem; }
-  .specimen-body { padding: 30px 30px 25px; }
-  .specimen-rule { display: block; width: 30px; height: 3px; background: var(--accent); margin-bottom: 15px; }
-  .specimen-title { font-size: 1.7rem; line-height: 1.3; font-weight: 650; letter-spacing: -.025em; max-width: 19ch; }
-  .specimen-description { color: #68705f; font-size: .7rem; margin-top: 12px; }
-  .specimen-topics { display: flex; flex-wrap: wrap; gap: 10px 21px; margin-top: 24px; font-size: .6rem; color: #5b654f; }
-  .specimen-topics > span { padding-bottom: 6px; border-bottom: 1px solid #c9cfba; }
-  .specimen-bottom { display: flex; justify-content: space-between; align-items: center; background: #e4e9d8; padding: 16px 25px; font-size: .62rem; }
-  .specimen-bottom svg { width: 19px; height: 19px; stroke: currentColor; stroke-width: 1.5; }
-  .interface-specimen { display: grid; grid-template-columns: 46px 1fr; min-height: 300px; }
-  .interface-sidebar { border-right: 1px solid #dce0d4; padding: 18px 12px; display: flex; flex-direction: column; align-items: center; gap: 21px; }
-  .interface-sidebar svg { width: 21px; height: 21px; stroke: #4f5b44; stroke-width: 1.3; margin-bottom: 13px; }
-  .interface-sidebar > span { width: 12px; height: 2px; background: #aeb79f; }
-  .interface-body { padding: 34px 24px; min-width: 0; }
-  .interface-small { font-size: .62rem; color: #67705b; }
-  .interface-title { font-size: 1.7rem; font-weight: 650; margin-top: 8px; letter-spacing: -.02em; }
-  .interface-project { display: flex; align-items: center; gap: 12px; border-block: 1px solid #dce0d4; padding-block: 21px; margin-top: 22px; }
-  .project-symbol { width: 24px; height: 30px; border: 1px solid #a7b290; border-radius: 3px; background: #e1e7d5; flex: none; }
-  .interface-project strong { font-size: .73rem; font-weight: 600; }
-  .interface-project p { font-size: .6rem; color: #67705b; margin-top: 3px; }
-  .interface-open { margin-left: auto; background: #344a34; color: #f3f4ea; font-size: .6rem; border-radius: 4px; padding: 7px 9px; white-space: nowrap; }
-  .interface-caption { font-size: .63rem; color: #67705b; margin-top: 22px; }
-  .flow-specimen { padding: 38px 28px; min-height: 300px; }
-  .flow-specimen > p:first-child { font-size: .83rem; font-weight: 600; }
-  .flow-steps { display: flex; gap: 15px; margin-top: 30px; position: relative; }
-  .flow-steps::before { content: ''; position: absolute; top: 20px; left: 20px; right: 20px; height: 1px; background: #bec8ae; }
-  .flow-steps > div { flex: 1; z-index: 1; }
-  .flow-steps span { display: grid; place-items: center; width: 40px; height: 40px; background: #e2e8d6; border: 5px solid #f8f6ef; border-radius: 50%; font-size: .68rem; }
-  .flow-steps strong { display: block; font-size: .75rem; margin-top: 10px; font-weight: 600; }
-  .flow-caption { color: #67705b; font-size: .65rem; border-top: 1px solid #dce0d4; padding-top: 19px; margin-top: 26px; }
-  .release-specimen { padding: 29px 34px; }
-  .release-symbol { width: 39px; height: 39px; stroke: #6d8057; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-  .release-specimen > p { font-size: 1.1rem; font-weight: 600; margin-top: 15px; }
-  .release-specimen ul { list-style: none; padding: 0; margin-top: 17px; display: grid; gap: 12px; font-size: .7rem; color: #57634b; }
-  .release-specimen li { display: flex; align-items: center; gap: 10px; }
-  .release-specimen li > span { width: 10px; height: 10px; border: 1px solid #9fac8b; border-radius: 2px; }
-  .task-help { grid-column: 1 / -1; padding: 26px 40px 29px; border-top: 1px solid #465346; }
-  h4 { margin: 0; font-size: .7rem; font-weight: 500; color: #b8c5b6; }
-  .task-help ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; list-style: none; padding: 0; margin-top: 15px; }
-  h5 { margin: 0; font-size: .9rem; line-height: 1.6; font-weight: 600; }
-  .task-help li > p { color: #b8c5b6; font-size: .82rem; line-height: 1.9; margin-top: 8px; }
-  .task-delivery { display: flex; align-items: baseline; gap: 30px; padding: 18px 40px; grid-column: 1 / -1; background: #2d3d30; border-top: 1px solid #465346; }
-  .task-delivery h4 { flex: none; }
-  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 27px; list-style: none; padding: 0; font-size: .73rem; color: #e6ebdf; }
+  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; margin-bottom: 20px; }
+  .task-options label { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5px 20px 18px; cursor: pointer; background: #ebece5; border-radius: 16px; color: #28343e; min-width: 0; }
+  .task-options label > img { width: 112px; height: 112px; object-fit: contain; transition: transform 240ms var(--ease-out); }
+  .task-options label > span { font-size: .87rem; font-weight: 650; text-align: center; line-height: 1.6; }
+  .task-options label > svg { position: absolute; top: 17px; right: 17px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; opacity: .7; }
+  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { background: #17212e; color: #fffefa; }
+  .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2457f5; outline-offset: 4px; }
+  .task-panel { display: none; background: #fffef9; border-radius: 22px; overflow: hidden; border: 1px solid #dfe1d9; }
+  .task-stage:has(input[value="development"]:checked) [data-outcome="development"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"], .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"] { display: block; }
+  .task-panel-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .task-context { padding: 42px 40px; align-self: center; }
+  .task-goal { font-size: .8rem; line-height: 1.85; color: #525e68; }
+  .task-goal > span { display: block; color: #65707b; font-size: .71rem; margin-bottom: 7px; }
+  .task-context h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 22px; font-weight: 700; }
+  .task-situation { color: #56616b; font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
+  .case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; }
+  .task-start { display: inline-flex; align-items: center; gap: 22px; background: #17212e; color: #fffefa; text-decoration: none; border-radius: 8px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+  .task-start:hover { background: #2d435a; }
+  .task-start:active { transform: scale(.97); }
+  .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+  .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
+  .discussion-link:hover { color: #183dba; }
+  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 17px 36px 31px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .case-art { display: block; width: min(100%, 365px); height: auto; margin-inline: auto; object-fit: contain; }
+  figcaption { position: relative; text-align: left; padding-top: 2px; z-index: 1; }
+  figcaption > span { display: block; color: #56616b; font-size: .65rem; margin-bottom: 7px; }
+  figcaption > p { font-size: 1.43rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.4; }
+  figcaption > small { display: block; margin-top: 8px; font-size: .73rem; color: #53616b; line-height: 1.8; }
+  .task-help { padding: 28px 40px 31px; border-top: 1px solid #dfe1d9; }
+  h4 { margin: 0; font-size: .73rem; font-weight: 500; color: #5b6771; }
+  .task-help ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; list-style: none; padding: 0; margin-top: 17px; }
+  h5 { margin: 0; font-size: .95rem; line-height: 1.6; font-weight: 650; }
+  .task-help li > p { color: #58656e; font-size: .82rem; line-height: 1.95; margin-top: 9px; }
+  .task-delivery { display: flex; align-items: baseline; gap: 29px; padding: 20px 40px; background: #edf1e5; }
+  .task-delivery h4 { color: #465640; flex: none; }
+  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 23px; list-style: none; padding: 0; font-size: .75rem; color: #35472d; }
   .task-delivery li { display: flex; align-items: center; gap: 8px; }
-  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #b5c99d; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #537b34; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  @media (hover: hover) and (pointer: fine) {
+    .task-options label:hover > img { transform: translateY(-5px) rotate(-4deg) scale(1.05); }
+    .task-options label:hover { background: #e0e5ed; }
+    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { background: #23354b; }
+  }
   @media (max-width: 1100px) {
-    .task-options label { gap: 8px; font-size: .73rem; padding-inline: 10px; }
-    .task-context { padding: 30px; }
-    .result-preview { padding: 30px 28px 23px 0; }
-    .specimen-body { padding: 26px 23px; }
-    .task-help, .task-delivery { padding-inline: 30px; }
+    .task-options { gap: 11px; }
+    .task-options label { padding-inline: 15px; }
+    .task-options label > span { font-size: .76rem; }
+    .task-context { padding: 33px 29px; }
+    .result-preview { padding-inline: 27px; }
+    .task-help, .task-delivery { padding-inline: 29px; }
     .task-help ol { gap: 24px; }
     .task-delivery { gap: 20px; }
   }
   @media (max-width: 800px) {
-    .task-options { grid-template-columns: 1fr 1fr; }
-    .task-options label { padding: 17px 12px; justify-content: start; gap: 10px; font-size: .79rem; }
-    .task-panel { grid-template-columns: 1fr; }
-    .task-context { padding: 30px 27px 24px; }
-    .task-context h3 { font-size: 1.8rem; max-width: 28ch; }
-    .result-preview { padding: 0 27px 27px; max-width: 580px; width: 100%; justify-self: center; }
-    .task-help { padding: 24px 27px; }
-    .task-help ol { grid-template-columns: 1fr; gap: 21px; }
-    .task-help li > p { max-width: 65ch; margin-top: 5px; font-size: .8rem; }
-    .task-delivery { flex-direction: column; gap: 12px; padding: 21px 27px; }
-    .task-delivery ul { gap: 10px 20px; font-size: .75rem; }
-    .result-surface { min-height: 275px; }
+    .task-stage { margin-top: 50px; }
+    .stage-heading { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 25px; }
+    .stage-heading h2 { font-size: 2rem; max-width: 25ch; }
+    .stage-heading > p { max-width: 55ch; }
+    .task-options { grid-template-columns: 1fr 1fr; gap: 11px; }
+    .task-options label { flex-direction: row; justify-content: start; padding: 7px 14px 7px 6px; gap: 7px; min-height: 78px; border-radius: 12px; }
+    .task-options label > img { width: 67px; height: 67px; flex: none; }
+    .task-options label > span { text-align: left; font-size: .8rem; }
+    .task-options label > svg { display: none; }
+    .task-panel-top { grid-template-columns: 1fr; }
+    .task-context { padding: 31px 28px; }
+    .task-context h3 { font-size: 1.8rem; max-width: 29ch; }
+    .result-preview { padding: 16px 28px 27px; }
+    .case-art { width: min(78%, 310px); }
+    .task-help { padding: 27px 28px; }
+    .task-help ol { grid-template-columns: 1fr; gap: 23px; }
+    .task-help li > p { max-width: 65ch; margin-top: 6px; }
+    .task-delivery { flex-direction: column; gap: 14px; padding: 23px 28px; }
+    .task-delivery ul { gap: 12px 20px; font-size: .75rem; }
   }
   @media (max-width: 480px) {
-    .stage-heading { gap: 10px; }
-    .stage-heading h2 { font-size: .9rem; }
-    .stage-heading > span { font-size: .62rem; }
-    .task-options label { font-size: .7rem; gap: 8px; padding: 15px 11px; }
-    .task-options svg { width: 18px; height: 18px; }
-    .task-context { padding: 27px 23px 24px; }
-    .task-context h3 { font-size: 1.5rem; margin-top: 18px; }
-    .task-goal { font-size: .73rem; }
-    .task-situation { font-size: .79rem; }
-    .result-preview { padding-inline: 23px; }
-    .specimen-navigation { padding: 14px 17px; }
-    .specimen-navigation > span:first-child { font-size: .6rem; }
-    .specimen-navigation > span:last-child { font-size: .5rem; }
-    .specimen-body { padding: 25px 21px; }
-    .specimen-title { font-size: 1.4rem; }
-    .specimen-description { font-size: .64rem; }
-    .specimen-topics { gap: 10px 14px; font-size: .56rem; }
-    .specimen-bottom { padding: 15px 20px; font-size: .56rem; gap: 12px; }
-    .task-help, .task-delivery { padding-inline: 23px; }
-    .interface-specimen { grid-template-columns: 36px 1fr; min-height: 275px; }
-    .interface-sidebar { padding-inline: 9px; }
-    .interface-body { padding: 28px 15px; }
-    .interface-title { font-size: 1.5rem; }
-    .interface-project { gap: 8px; }
-    .interface-project strong { font-size: .66rem; }
-    .interface-project p { font-size: .55rem; }
-    .interface-open { font-size: .55rem; padding: 7px; }
-    .flow-specimen { min-height: 275px; padding: 31px 22px; }
-    .flow-steps { gap: 10px; }
-    .flow-steps strong { font-size: .68rem; }
-    .release-specimen { padding: 28px; }
-    .release-specimen > p { font-size: 1rem; }
+    .task-stage { margin-top: 40px; }
+    .stage-heading h2 { font-size: 1.7rem; }
+    .stage-heading > p { font-size: .8rem; }
+    .task-options { gap: 9px; margin-bottom: 15px; }
+    .task-options label { padding: 7px 8px 7px 3px; gap: 4px; min-height: 72px; }
+    .task-options label > img { width: 52px; height: 52px; }
+    .task-options label > span { font-size: .69rem; line-height: 1.65; }
+    .task-panel { border-radius: 16px; }
+    .task-context { padding: 27px 22px; }
+    .task-context h3 { font-size: 1.55rem; margin-top: 19px; }
+    .task-goal { font-size: .75rem; }
+    .task-situation { font-size: .81rem; }
+    .case-actions { gap: 13px 18px; margin-top: 24px; }
+    .task-start { font-size: .76rem; gap: 17px; padding: 12px 14px; }
+    .discussion-link { font-size: .68rem; }
+    .result-preview { padding: 15px 22px 25px; }
+    figcaption > p { font-size: 1.28rem; }
+    figcaption > small { font-size: .69rem; }
+    .task-help, .task-delivery { padding-inline: 22px; }
   }
+  @media (prefers-reduced-motion: reduce) { .task-options label > img { transition: none; } .task-options label:hover > img { transform: none; } }
 </style>
