@@ -1,0 +1,207 @@
+[
+  {
+    "mode": "desktop",
+    "locale": "en",
+    "status": 200,
+    "comparison": "100",
+    "aria": "original 100%, reworked 0%",
+    "command": "npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes",
+    "selected": null,
+    "selectedAfterLanguage": "design",
+    "overflow": false,
+    "scenes": [
+      {
+        "kind": "development",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "design",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "deployment",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "growth",
+        "visible": true,
+        "images": 1
+      }
+    ]
+  },
+  {
+    "mode": "desktop",
+    "locale": "zh-CN",
+    "status": 200,
+    "comparison": "100",
+    "aria": "原始版 100%, 调整版 0%",
+    "command": "npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes",
+    "selected": "design",
+    "selectedAfterLanguage": "design",
+    "overflow": false,
+    "scenes": [
+      {
+        "kind": "development",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "design",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "deployment",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "growth",
+        "visible": true,
+        "images": 1
+      }
+    ]
+  },
+  {
+    "mode": "desktop",
+    "route": "zh-CN/guides/",
+    "status": 200,
+    "h1": "你想做什么？",
+    "overflow": false
+  },
+  {
+    "mode": "desktop",
+    "route": "zh-CN/examples/quote-calculator/",
+    "status": 200,
+    "h1": "试用报价计算器",
+    "overflow": false
+  },
+  {
+    "mode": "desktop",
+    "route": "zh-CN/case-study/bookmark-export/",
+    "status": 200,
+    "h1": "给收藏工具加导出，再换个会话继续改。",
+    "overflow": false
+  },
+  {
+    "mode": "desktop",
+    "route": "build-log/working-methods/",
+    "status": 200,
+    "h1": "Your agent can code. Here is what this skill adds.",
+    "overflow": false
+  },
+  {
+    "mode": "desktop",
+    "errors": [],
+    "failed": []
+  },
+  {
+    "mode": "mobile",
+    "locale": "en",
+    "status": 200,
+    "comparison": "100",
+    "aria": "original 100%, reworked 0%",
+    "command": "npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes",
+    "selected": null,
+    "selectedAfterLanguage": "design",
+    "overflow": false,
+    "scenes": [
+      {
+        "kind": "development",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "design",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "deployment",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "growth",
+        "visible": true,
+        "images": 1
+      }
+    ]
+  },
+  {
+    "mode": "mobile",
+    "locale": "zh-CN",
+    "status": 200,
+    "comparison": "100",
+    "aria": "原始版 100%, 调整版 0%",
+    "command": "npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes",
+    "selected": "design",
+    "selectedAfterLanguage": "design",
+    "overflow": false,
+    "scenes": [
+      {
+        "kind": "development",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "design",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "deployment",
+        "visible": true,
+        "images": 1
+      },
+      {
+        "kind": "growth",
+        "visible": true,
+        "images": 1
+      }
+    ]
+  },
+  {
+    "mode": "mobile",
+    "route": "zh-CN/guides/",
+    "status": 200,
+    "h1": "你想做什么？",
+    "overflow": false
+  },
+  {
+    "mode": "mobile",
+    "route": "zh-CN/examples/quote-calculator/",
+    "status": 200,
+    "h1": "试用报价计算器",
+    "overflow": false
+  },
+  {
+    "mode": "mobile",
+    "route": "zh-CN/case-study/bookmark-export/",
+    "status": 200,
+    "h1": "给收藏工具加导出，再换个会话继续改。",
+    "overflow": false
+  },
+  {
+    "mode": "mobile",
+    "route": "build-log/working-methods/",
+    "status": 200,
+    "h1": "Your agent can code. Here is what this skill adds.",
+    "overflow": false
+  },
+  {
+    "mode": "mobile",
+    "errors": [],
+    "failed": []
+  },
+  {
+    "nojs": true,
+    "status": 200,
+    "images": 2,
+    "sliderVisible": false,
+    "h1": "快点做出来，\n也做得像样。"
+  }
+]

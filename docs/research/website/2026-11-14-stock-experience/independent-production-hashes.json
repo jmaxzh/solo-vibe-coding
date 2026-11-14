@@ -1,0 +1,72 @@
+[
+  {
+    "path": "index.html",
+    "status": 200,
+    "ci": "a3cd10b4f3f75af0c394066c9031c5b1a3e8e9ff2a8f958b02833e1e0b09d01a",
+    "production": "a3cd10b4f3f75af0c394066c9031c5b1a3e8e9ff2a8f958b02833e1e0b09d01a",
+    "match": true
+  },
+  {
+    "path": "zh-CN/index.html",
+    "status": 200,
+    "ci": "812a8477ef2490b5a492c6bc25b03cc8ffbcacc5305c17dbd978237c1ea4b0df",
+    "production": "812a8477ef2490b5a492c6bc25b03cc8ffbcacc5305c17dbd978237c1ea4b0df",
+    "match": true
+  },
+  {
+    "path": "licenses/visual-assets.txt",
+    "status": 200,
+    "ci": "ab95eaa2f9c5128343d659d1b5ad38d5346beb933f1f88e8a6660300ffda8607",
+    "production": "ab95eaa2f9c5128343d659d1b5ad38d5346beb933f1f88e8a6660300ffda8607",
+    "match": true
+  },
+  {
+    "path": "media/app-mobile.webp",
+    "status": 200,
+    "ci": "b5e5439600a410ec7421d5e17bfca41275900b06358203c72f9d1b039c85f9d5",
+    "production": "b5e5439600a410ec7421d5e17bfca41275900b06358203c72f9d1b039c85f9d5",
+    "match": true
+  },
+  {
+    "path": "media/design-before.webp",
+    "status": 200,
+    "ci": "ff67b31493f01283e161f2e68cf4a7c6c73837d386e764a74b1b11633fdef240",
+    "production": "ff67b31493f01283e161f2e68cf4a7c6c73837d386e764a74b1b11633fdef240",
+    "match": true
+  },
+  {
+    "path": "media/design-after.webp",
+    "status": 200,
+    "ci": "f1acecbb41daf6ba4e4022e51a5259b7b7dd70947137c489c1b58113e7d106fc",
+    "production": "f1acecbb41daf6ba4e4022e51a5259b7b7dd70947137c489c1b58113e7d106fc",
+    "match": true
+  },
+  {
+    "path": "media/login.webp",
+    "status": 200,
+    "ci": "15c90468bf6135418068f6d1e28ee60e5d4db1a76d21383ffa15013242202215",
+    "production": "15c90468bf6135418068f6d1e28ee60e5d4db1a76d21383ffa15013242202215",
+    "match": true
+  },
+  {
+    "path": "media/video-call.webp",
+    "status": 200,
+    "ci": "922e88a1c6daa291c28e6df809b8959d2c29a437825133a810ccff070a6c41a5",
+    "production": "922e88a1c6daa291c28e6df809b8959d2c29a437825133a810ccff070a6c41a5",
+    "match": true
+  },
+  {
+    "path": "_astro/ImageCompare.astro_astro_type_script_index_0_lang.Cmh9MshG.js",
+    "status": 200,
+    "ci": "be947b328d68087e69985f7dcbefca4f469087694e28a73c6bb7573dae85f359",
+    "production": "be947b328d68087e69985f7dcbefca4f469087694e28a73c6bb7573dae85f359",
+    "match": true
+  },
+  {
+    "path": "_astro/Terminal.astro_astro_type_script_index_0_lang.D40Cr6lA.js",
+    "status": 200,
+    "ci": "fe7cf95a5fcf56968898c3c9b8439e8ba79b1a27a2b19a00ebf9d24a516926b2",
+    "production": "fe7cf95a5fcf56968898c3c9b8439e8ba79b1a27a2b19a00ebf9d24a516926b2",
+    "match": true
+  }
+]
