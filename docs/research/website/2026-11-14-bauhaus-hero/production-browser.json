@@ -1,0 +1,38 @@
+[
+  {
+    "width": 1440,
+    "locale": "en",
+    "status": 200,
+    "background": "rgb(240, 234, 220)",
+    "action": "rgb(182, 64, 50)",
+    "overflow": false,
+    "images": true
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN/",
+    "status": 200,
+    "background": "rgb(240, 234, 220)",
+    "action": "rgb(182, 64, 50)",
+    "overflow": false,
+    "images": true
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "status": 200,
+    "background": "rgb(240, 234, 220)",
+    "action": "rgb(182, 64, 50)",
+    "overflow": false,
+    "images": true
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN/",
+    "status": 200,
+    "background": "rgb(240, 234, 220)",
+    "action": "rgb(182, 64, 50)",
+    "overflow": false,
+    "images": true
+  }
+]
