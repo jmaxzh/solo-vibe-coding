@@ -1,0 +1,5 @@
+Website checks	Check types, build, and verify generated pages	2026-11-14T07:28:41.4384643Z - 0 errors
+Website checks	Check types, build, and verify generated pages	2026-11-14T07:28:41.4385118Z - 0 warnings
+Website checks	Check types, build, and verify generated pages	2026-11-14T07:28:43.2428097Z Verified 17 HTML pages, 17 sitemap URLs, all local links and anchors, language pairs, metadata and structured data.
+Website checks	Check types, build, and verify generated pages	2026-11-14T07:28:43.2429566Z JavaScript: 13.6 KiB; complete website: 803.3 KiB.
+Website checks	Verify interactions, accessibility, and mobile layouts	2026-11-14T07:30:28.7061668Z   42 passed (1.4m)

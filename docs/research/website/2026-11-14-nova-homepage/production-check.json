@@ -1,0 +1,117 @@
+{
+  "verifiedAt": "2026-11-14T07:31:31.461Z",
+  "releaseCommit": "3a5dc0009e3455882c978eb44b7b22b94fea0f24",
+  "root": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "browser": "157.0.8103.51",
+  "checks": [
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "title": "给你的编程助手，\n一套做产品的专业方法。",
+      "status": 200,
+      "taskRefresh": true,
+      "languageTask": true,
+      "startTask": true,
+      "caseImageLoaded": true,
+      "calculatorAndCSV": true,
+      "noOverflow": true
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "title": "给你的编程助手，\n一套做产品的专业方法。",
+      "status": 200,
+      "taskRefresh": true,
+      "languageTask": true,
+      "startTask": true,
+      "caseImageLoaded": true,
+      "calculatorAndCSV": true,
+      "noOverflow": true
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "title": "Give your assistant\na product playbook.",
+      "status": 200,
+      "taskRefresh": true,
+      "languageTask": true,
+      "startTask": true,
+      "caseImageLoaded": true,
+      "calculatorAndCSV": true,
+      "noOverflow": true
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "title": "Give your assistant\na product playbook.",
+      "status": 200,
+      "taskRefresh": true,
+      "languageTask": true,
+      "startTask": true,
+      "caseImageLoaded": true,
+      "calculatorAndCSV": true,
+      "noOverflow": true
+    }
+  ],
+  "responses": [
+    {
+      "path": "sitemap-index.xml",
+      "status": 200
+    },
+    {
+      "path": "sitemap-0.xml",
+      "status": 200
+    },
+    {
+      "path": "getting-started/",
+      "status": 200
+    },
+    {
+      "path": "zh-CN/getting-started/",
+      "status": 200
+    },
+    {
+      "path": "guides/",
+      "status": 200
+    },
+    {
+      "path": "zh-CN/guides/",
+      "status": 200
+    },
+    {
+      "path": "case-study/bookmark-export/",
+      "status": 200
+    },
+    {
+      "path": "zh-CN/case-study/bookmark-export/",
+      "status": 200
+    },
+    {
+      "path": "build-log/",
+      "status": 200
+    },
+    {
+      "path": "zh-CN/build-log/",
+      "status": 200
+    },
+    {
+      "path": "build-log/working-methods/",
+      "status": 200
+    },
+    {
+      "path": "zh-CN/build-log/working-methods/",
+      "status": 200
+    }
+  ],
+  "starterZIP": true,
+  "pageErrors": [],
+  "failedResponses": []
+}
