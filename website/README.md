@@ -36,8 +36,10 @@ npm run test:e2e
 - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
 - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
 - `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
-- `src/components/Hero.astro`、`Home.astro`、`TaskStage.astro`：分栏首屏、四类任务示意、四个痛点、使用步骤、真实内容、安装与 FAQ；任务数据与内页共用。首页组件样式及 `Layout.astro` 中的 `body.homepage` 变量和导航页脚样式仅作用于首页。
-- `src/components/WorkflowDiagram.astro`：首屏助手使用方式示意正文；与四类任务同步，说明具体需求、Skill专业方法与交付检查目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
+- `src/components/Hero.astro`、`Home.astro`、`TaskStage.astro`：沉浸式首屏、独立四类任务示意章节、四个痛点、使用步骤、真实内容、安装与 FAQ；任务数据与内页共用。首页组件样式及 `Layout.astro` 中的 `body.homepage` 变量和导航页脚样式仅作用于首页。
+- OrbitScene.astro、HomeInteractions.astro：首页原创装饰图、有限粒子轨道、视差与指针增强；与既有动画偏好同步，Canvas离屏/隐藏/减少动画时停止，核心内容和操作不依赖动效。
+- public/media/orbit/chrome-orbit.webp：首页装饰概念图，静态资源直接分发；完整原图与生成提示保存在维护档案，构建与运行不读取档案。
+- `src/components/WorkflowDiagram.astro`：助手使用示意章节正文；与四类任务同步，说明具体需求、Skill专业方法与交付检查目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
 - `src/components/ImageCompare.astro`：可复用的设计参考对比组件；素材与真实执行证据分别注明来源。
 - `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
 - `src/components/Terminal.astro`：安装终端展示；完整命令预渲染并可复制，输入动效不冒充真实安装结果，遵循减少动态效果与暂停偏好。

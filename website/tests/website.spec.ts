@@ -91,6 +91,65 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
+  test(`${locale}: orbit responds to motion controls and stops rendering away from view`, async ({ page }) => {
+    await page.goto(path);
+    const canvas = page.locator('[data-orbit-canvas]');
+    const signature = () => canvas.evaluate((element) => {
+      const value = (element as HTMLCanvasElement).toDataURL();
+      let hash = 2166136261;
+      for (let i = 0; i < value.length; i += 17) hash = Math.imul(hash ^ value.charCodeAt(i), 16777619);
+      return hash >>> 0;
+    });
+    const settleFrames = () => page.evaluate(async () => {
+      for (let i = 0; i < 6; i++) await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    });
+    const initial = await signature();
+    await expect.poll(signature).not.toBe(initial);
+    if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
+      await page.mouse.move(1200, 350);
+      await expect.poll(() => page.locator('[data-orbit-scene]').evaluate(e => e.style.getPropertyValue('--orbit-x'))).not.toBe('');
+    }
+    await page.locator('[data-motion-toggle]').click();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+    const paused = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(paused);
+    await page.locator('[data-motion-toggle]').click();
+    await expect.poll(signature).not.toBe(paused);
+    await page.locator('#why-skill').scrollIntoViewIfNeeded();
+    await expect(page.locator('[data-orbit-scene]')).toHaveAttribute('data-scene-state', 'static');
+    const away = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(away);
+    await page.locator('.product-hero').scrollIntoViewIfNeeded();
+    await expect.poll(signature).not.toBe(away);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(page.locator('[data-motion-toggle]')).toBeDisabled();
+    const reduced = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(reduced);
+    await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
+    expect(await page.locator('[data-orbit-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  });
+
+  test(`${locale}: tablet navigation leaves the motion control clickable`, async ({ page }) => {
+    for (const width of [601, 700, 701, 768, 800]) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto(path);
+      const control = page.locator('[data-motion-toggle]');
+      expect(await control.evaluate(element => {
+        const rect = element.getBoundingClientRect();
+        const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
+        return hit === element || element.contains(hit);
+      })).toBe(true);
+      await control.click();
+      await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+      await control.click();
+      await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+      await expect(page.locator('.main-navigation')).toBeVisible();
+    }
+  });
+
   test(`${locale}: the selected task continues through setup and language switching`, async ({ page }) => {
     for (const task of ['development', 'design', 'deployment', 'growth']) {
       await page.goto(path);
@@ -317,6 +376,7 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
+      await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
       await expect(page.locator('[data-workflow="design"]')).toBeVisible();
       await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();

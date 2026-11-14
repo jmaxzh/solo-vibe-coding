@@ -3,10 +3,11 @@ THIRD-PARTY VISUALS AND COMPONENTS
 The skill’s MIT license does not replace the licenses below.
 References do not imply endorsement by their authors.
 
-Homepage composition reference: RicoFast, https://ricofast.pages.dev/
-Source: https://github.com/ricocc/ricoui-saas-template
-The homepage uses an independently implemented split developer-site composition.
-No source code, fonts, icons, images, or runtime dependencies from RicoFast are distributed here.
+Original homepage visual: media/orbit/chrome-orbit.webp
+Created with built-in image generation for Solo Vibe Coding, then packaged as WebP.
+The chrome sculpture is decorative concept art, not an interface screenshot or a Skill execution result.
+The particle canvas, orbit paths and pointer effects are original browser code.
+Lusion and Active Theory were viewed for high-level immersive art direction; no code, fonts, icons, images or other assets from those sites are distributed here.
 
 
 Devices.css

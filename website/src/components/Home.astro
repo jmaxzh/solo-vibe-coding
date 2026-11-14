@@ -1,5 +1,7 @@
 ---
 import Hero from './Hero.astro';
+import TaskStage from './TaskStage.astro';
+import HomeInteractions from './HomeInteractions.astro';
 import WebsiteMotion from './WebsiteMotion.astro';
 import Terminal from './Terminal.astro';
 import TaskVisual from './TaskVisual.astro';
@@ -52,13 +54,18 @@ const copy = zh ? {
 };
 const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 0 0 8 0V8M12 12v8', 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h.01M10 7h.01', 'M5 16a4 4 0 0 1 0-8 6 6 0 0 1 12-1 4.5 4.5 0 0 1 2 9M12 20V10m-4 4 4-4 4 4', 'M4 20V10m8 10V4m8 16v-7M2 20h20'];
 ---
-<div class="container nova-home">
+<div class="immersive-home">
   <Hero locale={locale} />
+  <div class="orbit-ribbon" aria-hidden="true"><div class="ribbon-track">{[0, 1].map(() => <span>DESIGN <i>✳</i> BUILD <i>✳</i> DEBUG <i>✳</i> SHIP <i>✳</i> LAUNCH <i>✳</i></span>)}</div></div>
+  <section class="experience-section" aria-labelledby="experience-title">
+    <div class="experience-heading"><p class="eyebrow">01 / THE METHOD</p><h2 id="experience-title">{zh ? '专业方法，进入你的工作流。' : 'Professional methods. Your familiar workflow.'}</h2><p>{zh ? '说清需求，按任务用上专业指导，明确这次交付与检查目标。继续在自己的编程助手中做项目。' : 'Describe the task, draw on relevant guidance and set clear delivery and check goals. Keep working in your own coding assistant.'}</p></div>
+    <TaskStage locale={locale} />
+  </section>
 
   <section class="pain-section home-section" id="why-skill" aria-labelledby="pain-title">
     <div class="section-intro"><p class="eyebrow">{copy.painEyebrow}</p><h2 id="pain-title">{copy.painTitle}</h2><p>{copy.painText}</p></div>
     <div class="pain-grid">{OUTCOMES[locale].map((outcome, index) => <article class="pain-card" id={'outcome-' + outcome.id}>
-      <div class="pain-card-top"><span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={icons[index]} /></svg></span><span class="pain-index">0{index + 1} / {copy.community}</span></div>
+      <div class="pain-card-top"><span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={icons[index]} /></svg></span><span class="pain-index"><b>0{index + 1}</b><small>{copy.community}</small></span></div>
       <h3>{outcome.pain}</h3><p class="pain-situation">{outcome.situation}</p>
       <div class="pain-methods"><p>{copy.method}</p><ul>{outcome.help.map((method) => <li>{method.title}</li>)}</ul></div>
       <div class="pain-actions"><a class="text-link" href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{copy.start}<span aria-hidden="true">↗</span></a><a class="source-link" href={outcome.source.url}>{copy.source}<span aria-hidden="true">↗</span></a></div>
@@ -95,120 +102,144 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
   <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
 
   <section class="more-tasks" aria-labelledby="scenarios-title"><div><p class="eyebrow" id="scenarios-title">{copy.allTasks}</p><a href={href(locale, 'guides')}>{copy.guideLink} ↗</a></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}>{scenario.label}<span aria-hidden="true">↗</span></a>)}</div></section>
+  <div class="brand-signature" aria-hidden="true">SOLO VIBE<span>✳</span></div>
 </div>
 <WebsiteMotion />
+<HomeInteractions />
 
 <style>
-  .nova-home { --home-space: 72px; }
+  .immersive-home { --home-space: 96px; overflow: clip; }
+  .home-section, .experience-section, .install-section, .more-tasks { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
   .home-section { padding-block: var(--home-space); }
+  .orbit-ribbon { padding-block: 26px; border-block: 1px solid #31405a; background: #090e17; overflow: hidden; transform: rotate(-2deg) scale(1.03); margin-block: 17px 72px; }
+  .ribbon-track { display: flex; width: max-content; }
+  .ribbon-track > span { display: flex; align-items: center; gap: 35px; padding-right: 35px; color: #d6e5fb; font-size: clamp(30px, 3.8vw, 56px); font-weight: 550; line-height: 1; letter-spacing: -.055em; white-space: nowrap; }
+  .ribbon-track i { color: #fb946c; font-size: 29px; font-style: normal; }
+  .experience-section { padding-block: 40px 80px; }
+  .experience-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0 80px; align-items: end; margin-bottom: 35px; }
+  .experience-heading .eyebrow { grid-column: 1 / -1; }
+  .experience-heading h2 { max-width: 26ch; font-size: 40px; }
+  .experience-heading > p:last-child { color: #aab9cf; font-size: 14px; line-height: 1.95; max-width: 44ch; justify-self: end; }
   .section-intro { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0 65px; align-items: end; }
-  .eyebrow { color: #b8ec9a; font: 10px/1.7 var(--mono); letter-spacing: .09em; margin-bottom: 15px; }
+  .eyebrow { color: #b8cee9; font: 10px/1.8 var(--mono); letter-spacing: .12em; margin-bottom: 19px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 5px; height: 5px; background: #f49b75; border-radius: 50%; margin-right: 10px; vertical-align: middle; }
   .section-intro .eyebrow { grid-column: 1 / -1; }
-  h2 { font-size: clamp(27px, 2.8vw, 38px); font-weight: 600; letter-spacing: -.045em; line-height: 1.3; }
+  h2 { color: #edf2f9; font-size: clamp(30px, 3.2vw, 46px); font-weight: 600; letter-spacing: -.055em; line-height: 1.26; }
   .section-intro h2 { max-width: 24ch; }
-  .section-intro > p:last-child { color: #a9b3c2; font-size: 14px; line-height: 1.95; max-width: 43ch; justify-self: end; }
-  .pain-section { padding-top: 62px; border-top: 1px solid #303742; }
-  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #303844; border-radius: 10px; overflow: hidden; margin-top: 34px; }
-  .pain-card { padding: 28px 30px; background: linear-gradient(135deg, #171c23, #12161d); }
-  .pain-card:nth-child(odd) { border-right: 1px solid #303844; }
-  .pain-card:nth-child(-n + 2) { border-bottom: 1px solid #303844; }
-  .pain-card-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-  .pain-icon { display: grid; place-items: center; background: #293324; border: 1px solid #47513e; color: #c7f5ab; width: 34px; height: 34px; border-radius: 7px; }
-  .pain-icon svg { width: 19px; height: 19px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-  .pain-index { color: #a2adbc; font-size: 10px; }
-  .pain-card h3 { font-size: 23px; line-height: 1.5; font-weight: 600; letter-spacing: -.035em; margin-top: 20px; max-width: 24ch; color: #f0f2f6; }
-  .pain-situation { color: #adb7c6; font-size: 13px; line-height: 1.95; margin-top: 12px; }
-  .pain-methods { margin-top: 19px; padding-top: 15px; border-top: 1px solid #303844; }
-  .pain-methods > p { font-size: 10px; color: #a1aec0; }
-  .pain-methods ul { display: flex; flex-wrap: wrap; gap: 7px 15px; list-style: none; padding: 0; margin-top: 9px; }
-  .pain-methods li { font-size: 11px; color: #c5dfb7; }
-  .pain-methods li::before { content: '↳'; color: #a5c592; margin-right: 5px; }
-  .pain-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; margin-top: 15px; }
-  .text-link { display: inline-flex; align-items: center; gap: 13px; color: #c1f0a4; font-size: 12px; text-decoration: none; font-weight: 550; min-height: 44px; }
+  .section-intro > p:last-child { color: #aab9cf; font-size: 14px; line-height: 1.95; max-width: 43ch; justify-self: end; }
+  .pain-section { border-top: 1px solid #2e3c51; }
+  .pain-grid { display: grid; margin-top: 42px; border-top: 1px solid #384961; }
+  .pain-card { display: grid; grid-template-columns: 92px minmax(0, 1.1fr) minmax(0, 1fr); gap: 13px 35px; position: relative; padding: 34px 25px; border-bottom: 1px solid #384961; background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), #263d5b26, transparent 58%); }
+  .pain-card-top { display: flex; flex-direction: column; gap: 17px; grid-column: 1; grid-row: 1 / 4; align-items: start; }
+  .pain-icon { display: grid; place-items: center; color: #adc9eb; width: 29px; height: 29px; }
+  .pain-icon svg { width: 25px; height: 25px; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .pain-index b { display: block; color: #afc4df; font: 30px/1 var(--mono); letter-spacing: -.08em; font-weight: 400; }
+  .pain-index small { display: block; color: #9caec8; font-size: 9px; line-height: 1.8; margin-top: 15px; }
+  .pain-card h3 { grid-column: 2; color: #f0f4fa; font-size: 27px; line-height: 1.45; font-weight: 550; letter-spacing: -.045em; max-width: 24ch; }
+  .pain-situation { grid-column: 2; color: #a8b9d1; font-size: 13px; line-height: 1.95; }
+  .pain-methods { grid-column: 3; grid-row: 1 / 3; align-self: center; padding-left: 25px; border-left: 1px solid #34445e; }
+  .pain-methods > p { font-size: 10px; color: #9cafd0; }
+  .pain-methods ul { display: grid; gap: 12px; list-style: none; padding: 0; margin-top: 17px; }
+  .pain-methods li { font-size: 13px; color: #d2dff1; line-height: 1.7; }
+  .pain-methods li::before { content: '↗'; color: #f9a47f; margin-right: 10px; }
+  .pain-actions { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 8px 23px; align-items: center; margin-top: 5px; }
+  .text-link { display: inline-flex; align-items: center; gap: 13px; color: #dceaff; font-size: 12px; text-decoration: none; font-weight: 550; min-height: 44px; }
+  .text-link > span { color: #ffae88; transition: transform 200ms ease; }
   .text-link:hover { text-decoration: underline; }
-  .source-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 10px; color: #b0bbca; text-decoration: none; }
-  .source-link:hover { color: #c7f4ad; text-decoration: underline; }
-  .source-note { margin-top: 18px; color: #a1adbf; font-size: 10px; line-height: 1.9; max-width: 96ch; }
-  .interface-reference { border-top: 1px solid #303844; margin-top: 9px; }
-  .interface-reference summary { display: flex; align-items: center; min-height: 44px; color: #aab7ca; font-size: 10px; cursor: pointer; }
-  .home-how { border-top: 1px solid #303742; }
-  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 34px; margin-top: 35px; }
-  .how-steps li { position: relative; padding-top: 25px; border-top: 1px solid #3c4654; }
-  .step-index { display: block; font: 11px var(--mono); color: #b8eb9b; margin-bottom: 22px; }
-  .how-steps h3 { font-size: 19px; font-weight: 600; color: #e9edf4; }
-  .how-steps p { margin-top: 12px; color: #aab6c7; font-size: 13px; line-height: 1.95; }
-  .how-steps a { margin-top: 10px; }
-  .skill-source { display: flex; align-items: center; min-height: 44px; width: fit-content; margin-top: 18px; color: #abb9ce; font-size: 11px; }
-  .evidence-section { border-top: 1px solid #303742; }
-  .evidence-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; margin-top: 34px; align-items: start; }
-  .evidence-card { background: #151a22; border: 1px solid #343e4c; border-radius: 9px; overflow: hidden; }
-  .case-image { margin: 0; padding: 20px 22px 13px; background: #1c232e; height: 300px; overflow: hidden; }
-  .case-image a { display: block; border: 1px solid #657080; border-radius: 5px; overflow: hidden; height: 232px; }
+  .text-link:hover > span { transform: translate(3px, -3px); }
+  .source-link { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 10px; color: #adc0dc; text-decoration: none; }
+  .source-link:hover { color: #f9ae8d; text-decoration: underline; }
+  .source-note { margin-top: 22px; color: #99acc8; font-size: 11px; line-height: 1.9; max-width: 100ch; }
+  .interface-reference { grid-column: 2 / -1; border-top: 1px solid #34435b; }
+  .interface-reference summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #b8cbe6; font-size: 10px; cursor: pointer; }
+  .interface-reference summary::after { content: '+'; font-size: 18px; }
+  .interface-reference[open] summary::after { content: '−'; }
+  .home-how { border-top: 1px solid #2e3c51; }
+  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 35px; margin-top: 48px; }
+  .how-steps li { position: relative; padding: 0 0 0 0; }
+  .step-index { display: block; color: #657f9f; -webkit-text-stroke: 1px #a7c4e7; font: 72px/1 var(--mono); letter-spacing: -.1em; margin-bottom: 24px; }
+  .how-steps li::after { content: '↗'; position: absolute; right: 10px; top: 16px; color: #f1a27a; font-size: 27px; }
+  .how-steps h3 { font-size: 20px; font-weight: 550; color: #ecf2fa; }
+  .how-steps p { margin-top: 13px; color: #aebed4; font-size: 14px; line-height: 1.95; }
+  .how-steps a { margin-top: 13px; }
+  .skill-source { display: flex; align-items: center; min-height: 44px; width: fit-content; margin-top: 25px; color: #adbfda; font-size: 11px; }
+  .evidence-section { border-top: 1px solid #2e3c51; }
+  .evidence-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 40px; align-items: start; }
+  .evidence-card { background: #0d1420; border: 1px solid #3c4e67; border-radius: 17px; overflow: hidden; }
+  .case-image { margin: 0; padding: 23px 24px 15px; background: linear-gradient(140deg, #25354c, #121c2b); min-height: 315px; }
+  .case-image a { display: block; border: 1px solid #7e8da2; border-radius: 7px; overflow: hidden; height: 245px; box-shadow: 0 18px 30px -22px #000c; }
   .case-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .case-image figcaption { color: #b6c1d1; font-size: 9px; margin-top: 11px; line-height: 1.7; }
-  .evidence-copy { padding: 24px 27px; }
-  .content-label { color: #b8e79d; font-size: 10px; }
-  .evidence-copy h3 { margin-top: 12px; font-size: 23px; line-height: 1.5; font-weight: 600; color: #f0f2f6; }
-  .evidence-copy > p:not(.content-label) { color: #adb9cc; font-size: 13px; line-height: 1.95; margin-top: 13px; }
-  .evidence-copy > .text-link { margin-top: 12px; }
-  .evidence-copy > p.evidence-limit { font-size: 10px; color: #a9b7ca; padding-top: 12px; border-top: 1px solid #343e4c; margin-top: 15px; }
-  .quote-visual { display: grid; align-items: center; background: #202b20; padding: 24px 30px; height: 300px; }
-  .quote-sheet { width: 100%; background: #101810; border: 1px solid #4e6144; border-radius: 7px; padding: 22px; box-shadow: 0 15px 35px -20px #0008; }
-  .quote-sheet-top { display: flex; gap: 10px; align-items: center; font-size: 12px; color: #eef3e9; margin-bottom: 20px; }
-  .quote-symbol { display: grid; place-items: center; color: #c8f4af; font-size: 20px; background: #30422a; border-radius: 5px; width: 30px; height: 30px; }
-  .quote-sheet-top small { color: #b3c8a6; display: block; font-size: 9px; margin-top: 3px; }
-  .quote-file { margin-left: auto; color: #bad0ab; font: 10px var(--mono); }
-  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 12px; font-size: 11px; color: #bfd0b5; }
-  .quote-line strong { color: #e5eedf; font-size: 11px; font-weight: 500; }
-  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #4b5f41; padding-top: 14px; margin-top: 16px; }
-  .sample-quote-total > span { font-size: 10px; color: #c1d5b4; }
-  .sample-quote-total strong { color: #d7ffc1; font-size: 25px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
-  .install-section { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 44px; border-radius: 10px; background: #c1f19d; color: #172111; margin-top: 15px; }
-  .install-copy .eyebrow { color: #34462a; }
-  .install-copy h2 { font-size: 36px; color: #15210f; max-width: 17ch; }
-  .install-copy > p:not(.eyebrow) { color: #364c2d; font-size: 14px; line-height: 1.95; margin-top: 20px; }
-  .install-copy .button { margin-top: 23px; background: #172111; color: #edffe1; font-size: 13px; gap: 25px; border-radius: 6px; }
-  .install-copy .button:hover { background: #304226; }
-  .install-copy :global(a:focus-visible) { outline-color: #233719; }
-  .install-copy > p.install-note { font-size: 10px; margin-top: 16px; }
-  .install-section :global(.install-terminal) { --panel: #101710; --surface: #fff; border-color: #3c4a34; border-radius: 8px; box-shadow: 0 18px 35px -24px #11200b70; }
+  .case-image figcaption { color: #c2d3eb; font-size: 10px; margin-top: 12px; line-height: 1.7; }
+  .evidence-copy { padding: 28px 29px; }
+  .content-label { color: #f5ac88; font-size: 10px; }
+  .evidence-copy h3 { margin-top: 14px; font-size: 25px; line-height: 1.45; font-weight: 550; color: #eff4fc; }
+  .evidence-copy > p:not(.content-label) { color: #aabed8; font-size: 14px; line-height: 1.95; margin-top: 15px; }
+  .evidence-copy > .text-link { margin-top: 17px; }
+  .evidence-copy > p.evidence-limit { font-size: 11px; color: #a1b7d5; padding-top: 15px; border-top: 1px solid #344761; margin-top: 18px; }
+  .quote-visual { display: grid; align-items: center; background: radial-gradient(ellipse at 50% 10%, #395b854f, transparent 75%), #131d2d; padding: 28px 33px; min-height: 315px; overflow: hidden; }
+  .quote-sheet { width: 100%; background: linear-gradient(140deg, #293951, #121d2c 75%); border: 1px solid #7193bd80; border-radius: 12px; padding: 23px; transform: rotate(-3deg); box-shadow: 15px 20px 40px #0006; }
+  .quote-sheet-top { display: flex; gap: 11px; align-items: center; font-size: 13px; color: #eaf3ff; margin-bottom: 20px; }
+  .quote-symbol { display: grid; place-items: center; color: #ffd7c3; font-size: 23px; background: #68432f66; border: 1px solid #bb795b; border-radius: 50%; width: 34px; height: 34px; }
+  .quote-sheet-top small { color: #bbd1ee; display: block; font-size: 9px; margin-top: 3px; }
+  .quote-file { margin-left: auto; color: #b9cee9; font: 10px var(--mono); }
+  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 13px; font-size: 11px; color: #b6c9e5; }
+  .quote-line strong { color: #e0ecfd; font-size: 11px; font-weight: 500; }
+  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #6684a7; padding-top: 15px; margin-top: 17px; }
+  .sample-quote-total > span { font-size: 10px; color: #bbd1ed; }
+  .sample-quote-total strong { color: #ffba98; font-size: 27px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
+  .install-section { display: grid; grid-template-columns: 1.1fr 1fr; gap: 55px; align-items: center; padding: 58px 48px; border: 1px solid #8c6d5f; border-radius: 18px; background: radial-gradient(ellipse at 0 0, #804a2b2e, transparent 55%), radial-gradient(ellipse at 100% 100%, #284e795e, transparent 70%), #101722; color: #edf3fc; margin-top: 12px; box-shadow: inset 0 1px 0 #d7ac8a33; }
+  .install-copy h2 { font-size: 43px; color: #f2f4f8; max-width: 17ch; }
+  .install-copy > p:not(.eyebrow) { color: #b9c8dc; font-size: 14px; line-height: 1.95; margin-top: 22px; }
+  .install-copy .button { margin-top: 26px; min-height: 52px; padding-inline: 22px; background: #f39165; color: #170e08; border: 1px solid #ffc3a0; font-size: 13px; gap: 30px; border-radius: 99px; }
+  .install-copy .button:hover { background: #ffb18e; }
+  .install-copy > p.install-note { font-size: 11px; margin-top: 18px; }
+  .install-section :global(.install-terminal) { --panel: #0b121d; --surface: #fff; border-color: #4a6383; border-radius: 12px; box-shadow: 0 24px 45px -20px #0008; }
   .install-section :global(.install-terminal .copy-button) { min-height: 44px; min-width: 44px; }
-  .install-section :global(.install-terminal .code-toolbar) { background: #1b2718; border-color: #3c4a34; color: #d0e2c4; }
-  .install-section :global(.install-terminal .terminal-caption) { border-color: #3c4a34; color: #c1d3b7; }
-  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #c0d1b8; }
-  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
-  .home-faq h2 { font-size: 34px; max-width: 14ch; }
-  .faq-intro { color: #adb9ca; font-size: 13px; line-height: 1.95; margin-top: 22px; max-width: 32ch; }
-  .home-faq :global(.faq-list details) { border-color: #343e4b; }
-  .home-faq :global(summary) { font-size: 14px; padding-block: 18px; font-weight: 500; gap: 20px; color: #e1e7f0; }
-  .home-faq :global(summary > span) { color: #b9d6a8; font-size: 21px; font-weight: 400; }
-  .home-faq :global(details > p) { font-size: 13px; line-height: 1.95; color: #adb9ca; padding-bottom: 20px; max-width: 58ch; }
-  .more-tasks { padding-block: 24px 35px; border-top: 1px solid #343e4b; }
+  .install-section :global(.install-terminal .code-toolbar) { background: #1b293d; border-color: #4a6383; color: #d5e7ff; }
+  .install-section :global(.install-terminal .terminal-caption) { border-color: #4a6383; color: #c4d8f3; }
+  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #c4d8f3; }
+  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 95px; }
+  .home-faq h2 { font-size: 39px; max-width: 14ch; }
+  .faq-intro { color: #aebfda; font-size: 14px; line-height: 1.95; margin-top: 22px; max-width: 32ch; }
+  .home-faq :global(.faq-list details) { border-color: #3b4d67; }
+  .home-faq :global(summary) { font-size: 14px; padding-block: 21px; font-weight: 500; gap: 20px; color: #e4efff; }
+  .home-faq :global(summary > span) { color: #e9b69a; font-size: 23px; font-weight: 400; }
+  .home-faq :global(details > p) { font-size: 14px; line-height: 1.95; color: #b2c4e1; padding-bottom: 22px; max-width: 58ch; }
+  .more-tasks { padding-block: 28px 40px; border-top: 1px solid #3b4d67; }
   .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
   .more-tasks .eyebrow { margin: 0; }
-  .more-tasks > div:first-child > a { font-size: 11px; color: #b4c1d3; }
-  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 12px; }
-  .scenario-links a { display: flex; gap: 18px; padding-block: 13px; font-size: 12px; text-decoration: none; min-height: 44px; border-bottom: 1px solid #343e4b; color: #ced7e5; }
-  .scenario-links a:hover { color: #c1f19d; }
-  @media (max-width: 1000px) { .section-intro { gap: 0 35px; } .install-section { gap: 28px; padding: 34px; } .home-faq { gap: 40px; } .quote-visual { padding-inline: 22px; } }
+  .more-tasks > div:first-child > a { font-size: 11px; color: #c4d6ee; }
+  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 14px; }
+  .scenario-links a { display: flex; gap: 18px; padding-block: 14px; font-size: 12px; text-decoration: none; min-height: 44px; border-bottom: 1px solid #394c68; color: #d4e3f8; }
+  .scenario-links a:hover { color: #ffb391; }
+  .brand-signature { width: min(1320px, calc(100% - 64px)); margin: 20px auto -15px; display: flex; justify-content: center; gap: 15px; white-space: nowrap; color: #536b89; -webkit-text-stroke: 1px #9ebfe6; font-size: clamp(75px, 14.8vw, 230px); line-height: 1.05; font-weight: 650; letter-spacing: -.085em; overflow: hidden; }
+  .brand-signature > span { font-size: .35em; color: #dd936d88; -webkit-text-stroke: 0; margin-top: .2em; }
+  :global(html[data-motion="on"]) .ribbon-track { animation: ribbon-drift 28s linear infinite; }
+  @keyframes ribbon-drift { to { transform: translateX(-50%); } }
+  @media (max-width: 1000px) { .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 80px); } .section-intro, .experience-heading { gap: 0 35px; } .pain-card { grid-template-columns: 65px minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px 22px; padding-inline: 0; } .pain-card h3 { font-size: 24px; } .install-section { gap: 30px; padding: 38px 32px; } .home-faq { gap: 45px; } .quote-visual { padding-inline: 23px; } }
   @media (max-width: 800px) {
-    .nova-home { --home-space: 58px; } .section-intro { grid-template-columns: 1fr; gap: 0; } .section-intro > p:last-child { justify-self: start; max-width: 65ch; margin-top: 16px; } .section-intro h2 { max-width: 27ch; }
-    .pain-card { padding: 23px; } .pain-card h3 { font-size: 21px; } .how-steps { gap: 24px; } .evidence-grid { grid-template-columns: 1fr 1fr; gap: 16px; } .evidence-copy { padding: 23px; } .case-image { padding-inline: 18px; }
-    .install-section { grid-template-columns: 1fr; gap: 30px; } .install-copy h2 { max-width: 22ch; } .home-faq { grid-template-columns: 1fr; gap: 27px; } .home-faq h2 { max-width: none; }
+    .immersive-home { --home-space: 70px; } .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 48px); }
+    .section-intro, .experience-heading { grid-template-columns: 1fr; gap: 0; } .section-intro > p:last-child, .experience-heading > p:last-child { justify-self: start; max-width: 65ch; margin-top: 18px; } .section-intro h2 { max-width: 27ch; }
+    .experience-heading h2 { font-size: 34px; } .pain-card { grid-template-columns: 55px minmax(0, 1fr); gap: 15px 20px; } .pain-card h3, .pain-situation, .pain-methods, .pain-actions, .interface-reference { grid-column: 2; } .pain-methods { grid-row: auto; border: 0; padding: 0; } .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 17px; margin-top: 10px; }
+    .how-steps { gap: 25px; } .evidence-grid { grid-template-columns: 1fr 1fr; gap: 18px; } .evidence-copy { padding: 24px; } .case-image { padding-inline: 18px; }
+    .install-section { grid-template-columns: 1fr; gap: 33px; } .install-copy h2 { max-width: 22ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; }
   }
   @media (max-width: 600px) {
-    .nova-home { --home-space: 51px; } h2 { font-size: 27px; } .eyebrow { font-size: 9px; margin-bottom: 12px; }
-    .section-intro > p:last-child { font-size: 14px; margin-top: 15px; } .pain-section { padding-top: 46px; }
-    .pain-grid { grid-template-columns: 1fr; margin-top: 26px; } .pain-card { padding: 25px 22px; border-right: 0 !important; } .pain-card:not(:last-child) { border-bottom: 1px solid #303844; }
-    .pain-card h3 { font-size: 23px; margin-top: 19px; } .pain-situation { font-size: 14px; } .pain-index { font-size: 9px; }
-    .pain-methods li { font-size: 12px; } .pain-methods ul { gap: 8px 13px; } .source-note { font-size: 11px; } .interface-reference summary { font-size: 11px; }
-    .how-steps { grid-template-columns: 1fr; margin-top: 28px; gap: 22px; } .how-steps li { padding-top: 18px; padding-left: 42px; } .step-index { position: absolute; left: 0; top: 21px; margin: 0; }
-    .how-steps h3 { font-size: 18px; } .how-steps p { font-size: 14px; margin-top: 9px; } .how-steps a { margin-top: 7px; } .skill-source { font-size: 11px; }
-    .evidence-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 26px; } .case-image { min-height: 245px; height: auto; padding: 17px 17px 10px; } .case-image a { height: 191px; } .case-image figcaption { font-size: 9px; margin-top: 8px; }
-    .evidence-copy h3 { font-size: 23px; } .evidence-copy > p:not(.content-label) { font-size: 14px; } .evidence-copy > p.evidence-limit { font-size: 11px; }
-    .quote-visual { height: 270px; padding-inline: 25px; } .quote-sheet { padding: 19px; } .quote-sheet-top small { font-size: 8px; } .sample-quote-total strong { font-size: 24px; }
-    .install-section { padding: 29px 23px; border-radius: 8px; gap: 26px; } .install-copy h2 { font-size: 29px; } .install-copy > p.install-note { font-size: 11px; }
-    .home-faq h2 { font-size: 28px; } .home-faq :global(summary) { font-size: 14px; } .home-faq :global(details > p) { font-size: 14px; }
+    .immersive-home { --home-space: 57px; } .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 36px); } h2 { font-size: 28px; } .eyebrow { font-size: 9px; margin-bottom: 15px; }
+    .orbit-ribbon { padding-block: 20px; margin-block: 10px 38px; } .ribbon-track > span { font-size: 35px; gap: 23px; padding-right: 23px; } .ribbon-track i { font-size: 23px; }
+    .experience-section { padding-block: 24px 55px; } .experience-heading { margin-bottom: 25px; } .experience-heading h2 { font-size: 28px; } .experience-heading > p:last-child { font-size: 14px; line-height: 1.95; }
+    .section-intro > p:last-child { font-size: 14px; margin-top: 17px; }
+    .pain-grid { margin-top: 29px; } .pain-card { display: block; padding: 28px 0; } .pain-card-top { flex-direction: row; gap: 15px; align-items: center; margin-bottom: 16px; } .pain-icon { display: none; } .pain-index { display: flex; align-items: center; gap: 15px; } .pain-index b { font-size: 24px; } .pain-index small { font-size: 9px; margin: 0; }
+    .pain-card h3 { font-size: 24px; } .pain-situation { font-size: 14px; margin-top: 13px; } .pain-methods { margin-top: 17px; padding-top: 15px; border-top: 1px solid #34445e; } .pain-methods li { font-size: 12px; } .pain-methods ul { gap: 9px 15px; } .pain-actions { margin-top: 13px; } .source-note { font-size: 11px; } .interface-reference summary { font-size: 11px; }
+    .how-steps { grid-template-columns: 1fr; margin-top: 32px; gap: 28px; } .how-steps li { padding: 5px 0 0 65px; border-top: 1px solid #33465f; padding-top: 21px; } .step-index { position: absolute; left: 0; top: 22px; margin: 0; font-size: 38px; }
+    .how-steps li::after { display: none; } .how-steps h3 { font-size: 19px; } .how-steps p { font-size: 14px; margin-top: 10px; } .how-steps a { margin-top: 8px; } .skill-source { font-size: 11px; }
+    .evidence-grid { grid-template-columns: 1fr; gap: 21px; margin-top: 29px; } .case-image { min-height: 245px; padding: 17px 17px 12px; } .case-image a { height: 191px; } .case-image figcaption { font-size: 10px; margin-top: 10px; }
+    .evidence-copy h3 { font-size: 24px; } .evidence-copy > p:not(.content-label) { font-size: 14px; } .evidence-copy > p.evidence-limit { font-size: 11px; }
+    .quote-visual { min-height: 285px; padding: 27px; } .quote-sheet { padding: 20px; } .quote-sheet-top small { font-size: 8px; } .sample-quote-total strong { font-size: 25px; }
+    .install-section { padding: 32px 24px; border-radius: 14px; gap: 29px; } .install-copy h2 { font-size: 32px; } .install-copy > p.install-note { font-size: 11px; }
+    .home-faq h2 { font-size: 30px; } .home-faq :global(summary) { font-size: 14px; } .home-faq :global(details > p) { font-size: 14px; }
     .scenario-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; } .scenario-links a { justify-content: space-between; font-size: 12px; }
+    .brand-signature { width: calc(100% - 25px); font-size: 16.2vw; margin-block: 10px 0; gap: 8px; }
   }
+  @media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none !important; } .text-link > span { transition: none; } }
 </style>

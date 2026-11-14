@@ -1,6 +1,6 @@
 # ADR 0008：深色开发者官网构图
 
-- 状态：已实现；按现有 GitHub Pages 流程发布
+- 状态：首页视觉由 [ADR 0009](0009-immersive-orbit-homepage.md) 替代；产品事实、行为与局部样式边界继续有效
 - 日期：2026-11-14
 - 对应决策：D42
 - 关联：替代 [ADR 0007](0007-homepage-assistant-preview.md) 的首页视觉；保留其任务关系、证据边界和局部样式范围

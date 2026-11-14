@@ -16,4 +16,6 @@
 
 - 官网深色分栏模板（2026-11-14）：[交互预览与对照](website/2026-11-14-dark-template/index.html)、[差异与成本](website/2026-11-14-dark-template/change-evaluation.md)、[验收](website/2026-11-14-dark-template/verification.md)、[独立审查](website/2026-11-14-dark-template/independent-review.md)。
 
+- 官网沉浸光环版（2026-11-14）：[预览与截图](website/2026-11-14-immersive-orbit/index.html)、[差异与成本](website/2026-11-14-immersive-orbit/change-evaluation.md)、[验收](website/2026-11-14-immersive-orbit/verification.md)、[独立审查](website/2026-11-14-immersive-orbit/independent-review.md)、[原创主视觉与提示](website/2026-11-14-immersive-orbit/visual-assets.md)。
+
 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。
