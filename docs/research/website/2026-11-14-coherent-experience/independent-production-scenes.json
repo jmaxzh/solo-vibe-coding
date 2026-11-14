@@ -1,0 +1,258 @@
+[
+  {
+    "width": 1440,
+    "locale": "en",
+    "task": "development",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Illustrated workflow: locate a guest video failure, make a focused repair, and check video, background blur and the existing call.",
+    "text": "The video callA guest joins. Their video stays black.Guest video missingThe failing actionVideo restoredBackground blurCall still worksVideo back. Working features intact.Reproduce the failure → Limit the change → Check the call",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "task": "design",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Design study: home, list and detail screens share typography, spacing and components, with a clear primary action.",
+    "text": "One app. A considered design.New colours. Still the same template.HomeBrowseDetailA design that holds across the app.Set a direction → Build the key screens → Try real content",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "task": "deployment",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Illustrated workflow: connect sign-in, saved data and a public release, then check the complete user journey.",
+    "text": "Ready for someone elseThe screens exist. The pieces do not connect.Sign inYour own workspaceSave a resultData that stays putOpen it againAt the public addressSign in. Save. Come back to it.Choose a foundation → Connect the journey → Check the release",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "en",
+    "task": "growth",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Launch illustration: connect a specific audience with a product explanation, demonstration and trial entry; no user-count claims.",
+    "text": "A reason to give it a tryA finished product. Nobody trying it.Who has this problem?Start with a real needShow what it helps them doSee it in useTry it for yourselfSee what it helps you do. Give it a try.Choose an audience → Show the use → Prepare the first launch",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "task": "development",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "流程示意：定位访客黑屏问题，只修改相关部分，再检查画面、背景虚化和通话功能。",
+    "text": "视频通话访客加入，却看不到画面访客黑屏出问题的操作画面恢复背景虚化正常通话画面恢复，原功能照常用定位黑屏原因 → 控制修改范围 → 复查通话功能",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "task": "design",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "设计示意：同一套字体、布局和组件贯穿首页、列表与详情，主要操作清楚可见。",
+    "text": "同一个 App，同一套设计反复换颜色，页面还是像模板首页列表详情从单页好看，到整套好用确定视觉方向 → 落实核心页面 → 检查真实操作",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "task": "deployment",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "流程示意：将登录、数据保存和公开访问接通，检查完整使用流程。",
+    "text": "让别人真正用起来页面做好了，关键环节没接通登录账号进入自己的空间保存结果数据能留下来再次访问公开网址也能用登录、保存、再次访问，连起来了评估现有方案 → 接通完整流程 → 核对公开版本",
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "locale": "zh-CN",
+    "task": "growth",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "推广示意：围绕具体用户组织产品介绍与演示，让感兴趣的人可以开始试用，不展示虚构用户量。",
+    "text": "给对的人，一个试用理由产品做出来了，却没人开始用谁正遇到这个问题？从具体需求找到目标用户让人看懂，为什么值得用看看实际怎么用开始试用看懂用途，找到入口，开始试用明确目标用户 → 讲清实际用途 → 准备渠道与试用入口",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "task": "development",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Illustrated workflow: locate a guest video failure, make a focused repair, and check video, background blur and the existing call.",
+    "text": "The video callA guest joins. Their video stays black.Guest video missingThe failing actionVideo restoredBackground blurCall still worksVideo back. Working features intact.Reproduce the failure → Limit the change → Check the call",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "task": "design",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Design study: home, list and detail screens share typography, spacing and components, with a clear primary action.",
+    "text": "One app. A considered design.New colours. Still the same template.HomeBrowseDetailA design that holds across the app.Set a direction → Build the key screens → Try real content",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "task": "deployment",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Illustrated workflow: connect sign-in, saved data and a public release, then check the complete user journey.",
+    "text": "Ready for someone elseThe screens exist. The pieces do not connect.Sign inYour own workspaceSave a resultData that stays putOpen it againAt the public addressSign in. Save. Come back to it.Choose a foundation → Connect the journey → Check the release",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "en",
+    "task": "growth",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "Launch illustration: connect a specific audience with a product explanation, demonstration and trial entry; no user-count claims.",
+    "text": "A reason to give it a tryA finished product. Nobody trying it.Who has this problem?Start with a real needShow what it helps them doSee it in useTry it for yourselfSee what it helps you do. Give it a try.Choose an audience → Show the use → Prepare the first launch",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "task": "development",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "流程示意：定位访客黑屏问题，只修改相关部分，再检查画面、背景虚化和通话功能。",
+    "text": "视频通话访客加入，却看不到画面访客黑屏出问题的操作画面恢复背景虚化正常通话画面恢复，原功能照常用定位黑屏原因 → 控制修改范围 → 复查通话功能",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "task": "design",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "设计示意：同一套字体、布局和组件贯穿首页、列表与详情，主要操作清楚可见。",
+    "text": "同一个 App，同一套设计反复换颜色，页面还是像模板首页列表详情从单页好看，到整套好用确定视觉方向 → 落实核心页面 → 检查真实操作",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "task": "deployment",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "流程示意：将登录、数据保存和公开访问接通，检查完整使用流程。",
+    "text": "让别人真正用起来页面做好了，关键环节没接通登录账号进入自己的空间保存结果数据能留下来再次访问公开网址也能用登录、保存、再次访问，连起来了评估现有方案 → 接通完整流程 → 核对公开版本",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "locale": "zh-CN",
+    "task": "growth",
+    "entry": {
+      "opacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "opacityFrames": false
+    },
+    "label": "推广示意：围绕具体用户组织产品介绍与演示，让感兴趣的人可以开始试用，不展示虚构用户量。",
+    "text": "给对的人，一个试用理由产品做出来了，却没人开始用谁正遇到这个问题？从具体需求找到目标用户让人看懂，为什么值得用看看实际怎么用开始试用看懂用途，找到入口，开始试用明确目标用户 → 讲清实际用途 → 准备渠道与试用入口",
+    "overflow": false
+  }
+]

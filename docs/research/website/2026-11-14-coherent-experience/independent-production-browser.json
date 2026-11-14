@@ -1,0 +1,420 @@
+{
+  "sha": "3c15019c0a9624da3f3eb8a3f568de41077ae551",
+  "run": "43531790311",
+  "pages": [
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "",
+      "status": 200,
+      "h1": "Build it sooner.Make it worth sharing.",
+      "headings": 1,
+      "intro": null,
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "getting-started/",
+      "status": 200,
+      "h1": "Install it. Bring your own project.",
+      "headings": 1,
+      "intro": "start",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "guides/",
+      "status": 200,
+      "h1": "What are you working on?",
+      "headings": 1,
+      "intro": "guides",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "examples/quote-calculator/",
+      "status": 200,
+      "h1": "Try the quote calculator.",
+      "headings": 1,
+      "intro": "quote",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "case-study/bookmark-export/",
+      "status": 200,
+      "h1": "Adding export, then picking up in a fresh session.",
+      "headings": 1,
+      "intro": "case",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "build-log/",
+      "status": 200,
+      "h1": "What is new, and how to use it.",
+      "headings": 1,
+      "intro": "updates",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "route": "build-log/working-methods/",
+      "status": 200,
+      "h1": "Your agent can code. Here is what this skill adds.",
+      "headings": 1,
+      "intro": "article",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "",
+      "status": 200,
+      "h1": "快点做出来，也做得像样。",
+      "headings": 1,
+      "intro": null,
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "getting-started/",
+      "status": 200,
+      "h1": "装好 Skill，继续做你的项目。",
+      "headings": 1,
+      "intro": "start",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "guides/",
+      "status": 200,
+      "h1": "你想做什么？",
+      "headings": 1,
+      "intro": "guides",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "examples/quote-calculator/",
+      "status": 200,
+      "h1": "试用报价计算器",
+      "headings": 1,
+      "intro": "quote",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "case-study/bookmark-export/",
+      "status": 200,
+      "h1": "给收藏工具加导出，再换个会话继续改。",
+      "headings": 1,
+      "intro": "case",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "build-log/",
+      "status": 200,
+      "h1": "最近更新了什么",
+      "headings": 1,
+      "intro": "updates",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "route": "build-log/working-methods/",
+      "status": 200,
+      "h1": "编程助手已经会写代码，Skill 还能帮什么？",
+      "headings": 1,
+      "intro": "article",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "",
+      "status": 200,
+      "h1": "Build it sooner.Make it worth sharing.",
+      "headings": 1,
+      "intro": null,
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "getting-started/",
+      "status": 200,
+      "h1": "Install it. Bring your own project.",
+      "headings": 1,
+      "intro": "start",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "guides/",
+      "status": 200,
+      "h1": "What are you working on?",
+      "headings": 1,
+      "intro": "guides",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "examples/quote-calculator/",
+      "status": 200,
+      "h1": "Try the quote calculator.",
+      "headings": 1,
+      "intro": "quote",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "case-study/bookmark-export/",
+      "status": 200,
+      "h1": "Adding export, then picking up in a fresh session.",
+      "headings": 1,
+      "intro": "case",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "build-log/",
+      "status": 200,
+      "h1": "What is new, and how to use it.",
+      "headings": 1,
+      "intro": "updates",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "route": "build-log/working-methods/",
+      "status": 200,
+      "h1": "Your agent can code. Here is what this skill adds.",
+      "headings": 1,
+      "intro": "article",
+      "overflow": false,
+      "lang": "en"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "",
+      "status": 200,
+      "h1": "快点做出来，也做得像样。",
+      "headings": 1,
+      "intro": null,
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "getting-started/",
+      "status": 200,
+      "h1": "装好 Skill，继续做你的项目。",
+      "headings": 1,
+      "intro": "start",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "guides/",
+      "status": 200,
+      "h1": "你想做什么？",
+      "headings": 1,
+      "intro": "guides",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "examples/quote-calculator/",
+      "status": 200,
+      "h1": "试用报价计算器",
+      "headings": 1,
+      "intro": "quote",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "case-study/bookmark-export/",
+      "status": 200,
+      "h1": "给收藏工具加导出，再换个会话继续改。",
+      "headings": 1,
+      "intro": "case",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "build-log/",
+      "status": 200,
+      "h1": "最近更新了什么",
+      "headings": 1,
+      "intro": "updates",
+      "overflow": false,
+      "lang": "zh-CN"
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "route": "build-log/working-methods/",
+      "status": 200,
+      "h1": "编程助手已经会写代码，Skill 还能帮什么？",
+      "headings": 1,
+      "intro": "article",
+      "overflow": false,
+      "lang": "zh-CN"
+    }
+  ],
+  "actions": [
+    {
+      "width": 1440,
+      "locale": "en",
+      "kind": "home",
+      "newDiagram": true,
+      "nativeRadio": true,
+      "keyboard": true,
+      "pauseLanguageResumeReduced": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "kind": "quote",
+      "hrefCarriesQuote": true,
+      "requestCorrect": true,
+      "installationLanguageReloadHistory": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "kind": "home",
+      "newDiagram": true,
+      "nativeRadio": true,
+      "keyboard": true,
+      "pauseLanguageResumeReduced": true
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "kind": "quote",
+      "hrefCarriesQuote": true,
+      "requestCorrect": true,
+      "installationLanguageReloadHistory": true
+    },
+    {
+      "width": 1440,
+      "kind": "404",
+      "seriousCriticalAxe": 0,
+      "lightChinese": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "kind": "home",
+      "newDiagram": true,
+      "nativeRadio": true,
+      "keyboard": false,
+      "pauseLanguageResumeReduced": true
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "kind": "quote",
+      "hrefCarriesQuote": true,
+      "requestCorrect": true,
+      "installationLanguageReloadHistory": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "kind": "home",
+      "newDiagram": true,
+      "nativeRadio": true,
+      "keyboard": false,
+      "pauseLanguageResumeReduced": true
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "kind": "quote",
+      "hrefCarriesQuote": true,
+      "requestCorrect": true,
+      "installationLanguageReloadHistory": true
+    },
+    {
+      "width": 390,
+      "kind": "404",
+      "seriousCriticalAxe": 0,
+      "lightChinese": true
+    },
+    {
+      "locale": "en",
+      "kind": "noJS",
+      "nativeTask": true,
+      "matchingRequest": true,
+      "disabledCalculatorWithInitialResult": true,
+      "quoteRequest": true
+    },
+    {
+      "locale": "zh-CN",
+      "kind": "noJS",
+      "nativeTask": true,
+      "matchingRequest": true,
+      "disabledCalculatorWithInitialResult": true,
+      "quoteRequest": true
+    }
+  ],
+  "errors": [
+    {
+      "width": 390,
+      "type": "requestfailed",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmarks-round-1.png",
+      "message": "net::ERR_ABORTED"
+    }
+  ]
+}
