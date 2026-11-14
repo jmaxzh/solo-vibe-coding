@@ -1,6 +1,6 @@
 # ADR 0009：沉浸光环首页
 
-- 状态：已实现，沿用现有GitHub Pages发布流程
+- 状态：由 [ADR 0010](0010-cobalt-editorial-homepage.md) 替代视觉构图
 - 日期：2026-11-14
 - 对应决策：D43
 - 关联：替代 [ADR 0008](0008-dark-developer-homepage.md) 的视觉构图，延续产品关系、数据、原生任务选项与证据边界

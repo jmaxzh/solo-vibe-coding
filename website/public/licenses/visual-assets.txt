@@ -3,12 +3,11 @@ THIRD-PARTY VISUALS AND COMPONENTS
 The skill’s MIT license does not replace the licenses below.
 References do not imply endorsement by their authors.
 
-Original homepage visual: media/orbit/chrome-orbit.webp
+Original homepage visual: media/fold/cobalt-fold.webp
 Created with built-in image generation for Solo Vibe Coding, then packaged as WebP.
-The chrome sculpture is decorative concept art, not an interface screenshot or a Skill execution result.
-The particle canvas, orbit paths and pointer effects are original browser code.
-Lusion and Active Theory were viewed for high-level immersive art direction; no code, fonts, icons, images or other assets from those sites are distributed here.
-
+The cobalt paper sculpture is decorative concept art, not an interface screenshot or a Skill execution result.
+The drafting canvas, pointer effects and page compositions are original browser code.
+This redesign adds no third-party template code, imagery or fonts.
 
 Devices.css
 https://github.com/picturepan2/devices.css/tree/11846244977a4905a4fb9ac12bb2121e068d6147

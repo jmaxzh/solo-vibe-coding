@@ -91,9 +91,9 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
-  test(`${locale}: orbit responds to motion controls and stops rendering away from view`, async ({ page }) => {
+  test(`${locale}: drafting scene responds to motion controls and stops rendering away from view`, async ({ page }) => {
     await page.goto(path);
-    const canvas = page.locator('[data-orbit-canvas]');
+    const canvas = page.locator('[data-hero-canvas]');
     const signature = () => canvas.evaluate((element) => {
       const value = (element as HTMLCanvasElement).toDataURL();
       let hash = 2166136261;
@@ -107,7 +107,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect.poll(signature).not.toBe(initial);
     if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
       await page.mouse.move(1200, 350);
-      await expect.poll(() => page.locator('[data-orbit-scene]').evaluate(e => e.style.getPropertyValue('--orbit-x'))).not.toBe('');
+      await expect.poll(() => page.locator('[data-hero-scene]').evaluate(e => e.style.getPropertyValue('--fold-x'))).not.toBe('');
     }
     await page.locator('[data-motion-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
@@ -117,7 +117,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.locator('[data-motion-toggle]').click();
     await expect.poll(signature).not.toBe(paused);
     await page.locator('#why-skill').scrollIntoViewIfNeeded();
-    await expect(page.locator('[data-orbit-scene]')).toHaveAttribute('data-scene-state', 'static');
+    await expect(page.locator('[data-hero-scene]')).toHaveAttribute('data-scene-state', 'static');
     const away = await signature();
     await settleFrames();
     expect(await signature()).toBe(away);
@@ -128,8 +128,35 @@ for (const locale of ['en', 'zh-CN'] as const) {
     const reduced = await signature();
     await settleFrames();
     expect(await signature()).toBe(reduced);
-    await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
-    expect(await page.locator('[data-orbit-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.locator('[data-hero-scene] img')).toBeVisible();
+    expect(await page.locator('[data-hero-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  });
+
+  test(locale + ': hero art stays clear of copy across breakpoints and pointer positions', async ({ page }) => {
+    test.setTimeout(60_000);
+    const separated = () => page.evaluate(() => {
+      const copy = document.querySelector('.hero-copy')!.getBoundingClientRect();
+      const title = document.querySelector('h1')!.getBoundingClientRect();
+      const art = document.querySelector('.fold-art')!.getBoundingClientRect();
+      return art.top >= title.bottom && (innerWidth <= 1000 ? art.top >= copy.bottom : art.left >= copy.right);
+    });
+    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 900, 1000, 1001, 1024, 1100, 1440]) {
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto(path);
+      await page.evaluate(() => document.fonts.ready);
+      expect(await separated(), 'Static hero overlap at ' + width).toBe(true);
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+      if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
+        for (const x of [1, width - 1]) {
+          await page.mouse.move(x, 100);
+          await page.locator('.fold-art').evaluate(async element => {
+            await Promise.all(element.getAnimations().map(animation => animation.finished.catch(() => {})));
+          });
+          expect(await separated(), 'Pointer hero overlap at ' + width).toBe(true);
+        }
+      }
+    }
   });
 
   test(`${locale}: tablet navigation leaves the motion control clickable`, async ({ page }) => {
@@ -376,7 +403,7 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
-      await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
+      await expect(page.locator('[data-hero-scene] img')).toBeVisible();
       await expect(page.locator('[data-workflow="design"]')).toBeVisible();
       await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();

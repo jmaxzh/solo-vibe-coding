@@ -30,8 +30,8 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content={page === 'home' ? '#05070b' : '#f4f0e7'} />
-    <meta name="color-scheme" content={page === 'home' ? 'dark' : 'light'} />
+    <meta name="theme-color" content={page === 'home' ? '#f4f1e8' : '#f4f0e7'} />
+    <meta name="color-scheme" content={'light'} />
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     {!noindex && <>
@@ -64,7 +64,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={href(locale)} aria-label="Solo Vibe Coding">
-          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke={page === 'home' ? '#0b1018' : '#f7f5ef'} stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke={page === 'home' ? '#f4f1e8' : '#f7f5ef'} stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Solo Vibe Coding</span>
         </a>
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
@@ -136,27 +136,29 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
 </html>
 
 <style>
-  :global(body.homepage) { --home-header-height: 88px; --paper: #05070b; --surface: #101722; --ink: #edf3fd; --muted: #b1c3dc; --action: #f39165; --action-hover: #ffb28c; --accent-ink: #c2dcfb; --line: #3b506d; --blue: #a5d5ff; --radius-panel: 16px; --radius-card: 12px; background: #05070b; color-scheme: dark; }
+  :global(body.homepage) { --home-header-height: 88px; --paper: #f4f1e8; --surface: #fffaf0; --ink: #182fc4; --muted: #545972; --action: #182fc4; --action-hover: #102189; --accent-ink: #3447a0; --line: #949ac0; --blue: #182fc4; --radius-panel: 0; --radius-card: 0; background: #f4f1e8; color-scheme: light; }
   :global(.homepage .container) { width: min(1320px, calc(100% - 112px)); }
-  :global(.homepage .site-header) { position: absolute; inset: 0 0 auto; z-index: 20; border: 0; background: linear-gradient(180deg, #05070bfa 0%, #05070bc9 70%, #05070b00 100%); }
+  :global(.homepage .site-header) { position: absolute; inset: 0 0 auto; z-index: 20; border: 0; background: #f4f1e8; border-bottom: 1px solid #949ac0; }
   :global(.homepage .header-inner) { min-height: var(--home-header-height); gap: 32px; flex-wrap: nowrap; padding-block: 0; }
   :global(.homepage .brand) { gap: 10px; font-size: 16px; min-height: 44px; margin-right: 0; letter-spacing: -.04em; }
-  :global(.homepage .brand-mark) { width: 31px; height: 31px; color: #e3efff; }
+  :global(.homepage .brand-mark) { width: 31px; height: 31px; color: #182fc4; }
   :global(.homepage .main-navigation) { gap: 29px; order: 0; width: auto; margin-left: auto; justify-content: initial; }
-  :global(.homepage .main-navigation a) { min-height: 44px; display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; color: #c1d0e5; }
-  :global(.homepage .main-navigation a:hover) { color: #ffbf9b; }
-  :global(.homepage .main-navigation a:last-child) { padding: 9px 20px; border: 1px solid #adbed6; border-radius: 99px; color: #eff6ff; background: #273a5540; }
-  :global(.homepage .language-switch) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; margin-left: 0; font-size: 10px; padding: 5px 10px; border: 1px solid #728bad; background: #0a162780; color: #dbeaff; border-radius: 99px; }
-  :global(.homepage .site-footer) { background: #080e17; border-color: #344a67; padding-block: 40px; position: relative; z-index: 2; }
+  :global(.homepage .main-navigation a) { min-height: 44px; display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; color: #3447a0; }
+  :global(.homepage .main-navigation a:hover) { color: #b43215; }
+  :global(.homepage .main-navigation a:last-child) { padding: 9px 20px; border: 1px solid #949ac0; border-radius: 0; color: #182fc4; background: #eeeadf; }
+  :global(.homepage .language-switch) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; margin-left: 0; font-size: 10px; padding: 5px 10px; border: 1px solid #949ac0; background: transparent; color: #182fc4; border-radius: 0; }
+  :global(.homepage .site-footer) { background: #182fc4; border-color: #5066de; padding-block: 40px; position: relative; z-index: 2; }
   :global(.homepage .footer-inner) { gap: 60px; }
-  :global(.homepage .footer-brand) { font-size: 15px; }
-  :global(.homepage .site-footer p) { font-size: 11px; max-width: 400px; color: #abc1df; }
+  :global(.homepage .footer-brand) { font-size: 15px; color: #f4f1e8; }
+  :global(.homepage .site-footer p) { font-size: 11px; max-width: 400px; color: #e1e5ff; }
   :global(.homepage .site-footer .footer-license) { font-size: 10px; max-width: 420px; line-height: 1.95; }
-  :global(.homepage .footer-links) { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 28px; text-align: left; font-size: 11px; color: #c8dbf5; }
+  :global(.homepage .footer-links) { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 28px; text-align: left; font-size: 11px; color: #f4f1e8; }
+  :global(.homepage .site-footer a:focus-visible) { outline-color: #fffaf0; }
   :global(.homepage .footer-links a) { display: inline-flex; align-items: center; min-height: 34px; }
-  :global(.homepage ::selection) { background: #f7ac84; color: #160e09; }
+  :global(.homepage ::selection) { background: #ffb196; color: #14215a; }
   :global(html[data-motion="off"] .homepage [data-magnetic]) { transition: none; }
   @media (max-width: 1000px) { :global(.homepage .container) { width: calc(100% - 80px); } }
   @media (max-width: 800px) { :global(.homepage .container) { width: calc(100% - 48px); } :global(.homepage .header-inner) { gap: 20px; } :global(.homepage .main-navigation) { gap: 17px; } :global(.homepage .footer-inner) { flex-direction: column; gap: 25px; } }
-  @media (max-width: 600px) { :global(body.homepage) { --home-header-height: 73px; } :global(.homepage .container) { width: calc(100% - 36px); } :global(.homepage .header-inner) { min-height: 73px; gap: 10px; } :global(.homepage .brand) { font-size: 14px; gap: 8px; } :global(.homepage .brand-mark) { width: 27px; height: 27px; } :global(.homepage .main-navigation) { display: none; } :global(.homepage .language-switch) { margin-left: auto; } :global(.homepage .footer-links) { grid-template-columns: repeat(3, 1fr); gap: 0 18px; width: 100%; } :global(.homepage .footer-links a) { min-height: 44px; } }
+  @media (max-width: 600px) { :global(body.homepage) { --home-header-height: 73px; } :global(.homepage .container) { width: calc(100% - 36px); } :global(.homepage .header-inner) { min-height: 73px; gap: 10px; } :global(.homepage .brand) { font-size: 14px; gap: 8px; } :global(.homepage .brand-mark) { width: 27px; height: 27px; } :global(.homepage .main-navigation) { display: none; } :global(.homepage .language-switch) { margin-left: auto; } :global(.homepage .footer-links) { grid-template-columns: repeat(3, 1fr); gap: 0 18px; width: 100%; } :global(.homepage .site-footer a:focus-visible) { outline-color: #fffaf0; }
+  :global(.homepage .footer-links a) { min-height: 44px; } }
 </style>

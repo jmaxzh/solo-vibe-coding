@@ -1,0 +1,60 @@
+
+> solo-vibe-coding-website@0.1.0 validate
+> npm run check && npm run build && npm run verify
+
+
+> solo-vibe-coding-website@0.1.0 check
+> astro check
+
+20:01:17 [types] Generated 52ms
+20:01:17 [check] Getting diagnostics for Astro files in /Users/zhangjin/rich-workspace/my-dev-skills-cobalt/website...
+Result (34 files):
+- 0 errors
+- 0 warnings
+- 0 hints
+
+
+> solo-vibe-coding-website@0.1.0 build
+> astro build
+
+20:01:20 [types] Generated 25ms
+20:01:20 [build] output: "static"
+20:01:20 [build] mode: "static"
+20:01:20 [build] directory: /Users/zhangjin/rich-workspace/my-dev-skills-cobalt/website/dist/
+20:01:20 [build] Collecting build info...
+20:01:20 [build] ✓ Completed in 38ms.
+20:01:20 [build] Building static entrypoints...
+20:01:20 [vite] ✓ built in 260ms
+20:01:20 [vite] ✓ built in 28ms
+20:01:20 [build] Rearranging server assets...
+
+ generating static routes
+20:01:20   ├─ /404.html (+6ms)
+20:01:20   ├─ /index.html (+3ms)
+20:01:20   ├─ /getting-started/index.html (+1ms)
+20:01:20   ├─ /guides/index.html (+1ms)
+20:01:20   ├─ /examples/quote-calculator/index.html (+4ms)
+20:01:20   ├─ /case-study/bookmark-export/index.html (+1ms)
+20:01:20   ├─ /build-log/index.html (+2ms)
+20:01:20   ├─ /build-log/working-methods/index.html (+1ms)
+20:01:20   ├─ /build-log/first-public-build/index.html (+1ms)
+20:01:20   ├─ /zh-CN/index.html (+1ms)
+20:01:20   ├─ /zh-CN/getting-started/index.html (+1ms)
+20:01:20   ├─ /zh-CN/guides/index.html (+1ms)
+20:01:20   ├─ /zh-CN/examples/quote-calculator/index.html (+1ms)
+20:01:20   ├─ /zh-CN/case-study/bookmark-export/index.html (+1ms)
+20:01:20   ├─ /zh-CN/build-log/index.html (+1ms)
+20:01:20   ├─ /zh-CN/build-log/working-methods/index.html (+1ms)
+20:01:20   ├─ /zh-CN/build-log/first-public-build/index.html (+1ms)
+20:01:20 ✓ Completed in 40ms.
+
+20:01:20 [build] ✓ Completed in 354ms.
+20:01:20 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+20:01:20 [build] 17 page(s) built in 406ms
+20:01:20 [build] Complete!
+
+> solo-vibe-coding-website@0.1.0 verify
+> node scripts/verify-build.mjs
+
+Verified 17 HTML pages, 17 sitemap URLs, all local links and anchors, language pairs, metadata and structured data.
+JavaScript: 16.8 KiB; complete website: 896.1 KiB.
