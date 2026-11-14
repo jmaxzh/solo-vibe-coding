@@ -17,4 +17,12 @@ JS保持13.1 KiB，无新增依赖。完整恢复旧PNG和导出器后，PNG由4
 
 ## 独立复核
 
-`/root/review_restore_palette`以全新上下文只读审查，先独立检查原始请求、适用指令、前后源码、实际diff、44文件一致性、浏览器截图与验证，再核对自评。恢复目标与范围检查未见阻断问题；正式站及最终提交范围另行核验。
+`/root/review_restore_palette`以全新上下文只读审查，先独立检查原始请求、适用指令、前后源码、实际diff、44文件一致性、浏览器截图与验证，再核对自评。本地复核通过，未发现源码阻断项；自评中尚在运行的测试状态已按最终结果更新。
+
+## 正式发布
+
+恢复源码提交为[`47684297185cb76b297e7108c76f28a09a745076`](https://github.com/jmaxzh/solo-vibe-coding/commit/47684297185cb76b297e7108c76f28a09a745076)。[Website 43554343738](https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43554343738)的检查与Pages部署均成功，部署job于2026-11-14 04:01:05 UTC完成。
+
+04:01:52 UTC下载该run的CI产物，44/44个线上发布文件均HTTP 200、内容SHA256与CI一致，44/44也与本地恢复构建一致。完整记录见[发布文件核验](2026-11-14-palette-restore-files.json)。
+
+独立审查者另外核对该run对应同一SHA且检查和部署成功；[正式中文首页](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/)及[英文首页](https://jmaxzh.github.io/solo-vibe-coding/)均200，暖白背景、钴蓝首屏和浅色元数据已恢复。最终源码提交不含两份Skill文件，它们仍以用户既有修改留在工作区。上线复核通过；未另行开展跨实体设备和真实用户研究，本轮结论限于指定版本恢复与发布。
