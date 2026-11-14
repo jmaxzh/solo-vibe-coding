@@ -1,8 +1,12 @@
-# 玻璃折射候选验收
+# 玻璃折射首页验收
 
-本轮基于ba342fd，分支website/prism-nocturne；视觉比较基准为用户认可的f2b27f3。只提交候选分支与草稿PR，未合并main、未发布正式GitHub Pages；GitHub状态见github-review.md。
+本轮基于ba342fd，分支website/prism-nocturne；视觉比较基准为用户认可的f2b27f3。候选阶段先推送草稿PR；2026-11-15用户授权正式发布后，PR #9合并main并完成GitHub Pages部署。公开核验见deployment.md，候选阶段原始截图和预览包保留。
 
-## 直接预览
+## 正式站点
+
+[中文](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/?v=85ea88f) / [English](https://jmaxzh.github.io/solo-vibe-coding/?v=85ea88f)。main检查与部署成功，54项CI测试通过，公开操作核验通过；见 [发布记录](deployment.md)。
+
+## 候选阶段本地与离线预览
 
 - [可操作图览与三版对照](http://127.0.0.1:8771/)
 - [中文本地预览](http://127.0.0.1:4329/solo-vibe-coding/zh-CN/) / [English](http://127.0.0.1:4329/solo-vibe-coding/)
@@ -26,7 +30,7 @@
 | 审美 | 独立审查认为全幅玻璃、前后遮挡与局部暗部已解除旧分栏保守问题，可作为有完成度候选；用户是否认可同等级仍待确认 |
 | 产品理解 | 自己的助手+Skill定位、四任务、社区/示意/实测/功能边界保留；没有用户理解或转化研究 |
 | 操作 | 54项测试通过，原用户路径/复制/下载/键盘/无JS及暂停偏好保留；新像素探针与命中检查支持背景型构图 |
-| 工程 | validate通过、17页链接/语言/元数据/sitemap/预算通过；120布局、30控件、28内页比较通过；PR CI另行记录，不执行部署 |
+| 工程 | validate通过、17页链接/语言/元数据/sitemap/预算通过；120布局、30控件、28内页比较通过；PR/main检查和正式部署均成功，公开核验另见deployment.md |
 
 ## 最终本地证据
 

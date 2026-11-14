@@ -1,4 +1,8 @@
-# 候选分支与确认边界
+# GitHub候选与发布记录
+
+2026-11-15用户授权正式发布。PR #9已合并，GitHub Pages已上线：[中文正式站点](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/?v=85ea88f) / [English](https://jmaxzh.github.io/solo-vibe-coding/?v=85ea88f)。完整SHA、检查、部署与公开核验见 [deployment.md](deployment.md)。
+
+## 发布前候选交付记录
 
 本轮交付方式为候选分支website/prism-nocturne及其GitHub草稿PR，等待用户确认后再决定正式采纳。工程基线为ba342fd，视觉比较对象为已认可的f2b27f3；本次不合并main、不发布正式GitHub Pages。
 
