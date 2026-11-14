@@ -35,15 +35,18 @@ npm run test:e2e
 - `src/data/outcomes.ts`：四类代表任务的目标、困难、具体帮助、交付目标和需求；首页、使用场景和上手页共用，保持中英内容与操作边界对应。
 - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
 - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
-- `public/art/`：场景辅助图像的透明WebP；保留宽高与透明通道，核对实际引用后清理不再使用的大图。图像不冒充软件运行截图。
-- `src/components/PageIntro.astro`、`SceneIcon.astro`：各类内页共用的品牌页头、与用途有关的流程图和图标；颜色、字号、间距和圆角以公共样式为准。
-- `src/components/TaskVisual.astro`：首页与指南共用的四类任务图示，展示困难、处理思路和目标结果；中英文分别表达，静态内容和可访问名称完整，不依赖动画才能理解。
+- `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
+- `src/components/ImageCompare.astro`：首屏对比交互；支持触控和键盘，关闭脚本时并排显示两张参考图。对比素材与真实执行证据分别注明来源。
+- `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
+- `src/components/Terminal.astro`：安装终端展示；完整命令预渲染并可复制，输入动效不冒充真实安装结果，遵循减少动态效果与暂停偏好。
+- `src/components/PageIntro.astro`：内页共用的品牌页头，按内容使用安装命令、界面参考或实际截图；颜色、字号、间距和圆角以公共样式为准。
+- `src/components/TaskVisual.astro`：首页与指南共用的四类任务界面参考，保留可访问名称、来源及演示数据说明。
 - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
 - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
 - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
-- `src/components/WebsiteMotion.astro`：首页动画增强、暂停偏好、系统减少动态效果与指针交互；图示文字全程清楚，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
+- `src/components/WebsiteMotion.astro`：首页入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
 - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
-- `public/licenses/`：自托管字体的 OFL 许可与 Big.js 的 MIT 许可；依赖升级时重新生成并核对。
+- `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。
 
 重要选择记录到 [决策索引](../docs/decisions.md)；更新行为时维护需求、架构、操作与测试文档。完整执行过程保留在研究档案。
 

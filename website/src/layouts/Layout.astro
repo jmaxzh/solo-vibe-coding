@@ -1,5 +1,4 @@
 ---
-import '@fontsource/ibm-plex-mono/latin-400.css';
 import '../styles/global.css';
 import { UI, PROJECT, PAGE_PATHS, href, type Locale, type PageName } from '../data/site';
 
@@ -79,7 +78,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense}</p></div>
+        <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense} <a href={PROJECT.base + 'licenses/visual-assets.txt'}>{locale === 'en' ? 'Visual credits' : '视觉素材来源'}</a></p></div>
         <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
       </div>
     </footer>

@@ -1,0 +1,64 @@
+---
+// Compare presentation adapted from Inspira UI (MIT), itself inspired by Aceternity UI.
+// https://github.com/unovue/inspira-ui/blob/eec920b047589058b4b02ba64deb614869e7237a/app/components/inspira/ui/compare/Compare.vue
+import { PROJECT, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh-CN';
+---
+<div class="image-compare" data-image-compare role="group" aria-label={zh ? '设计参考：拖动比较两种完整设计' : 'Design reference: compare two complete directions'}>
+  <div class="compare-toolbar"><span class="compare-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{zh ? '同一个网站，两种设计' : 'One website. Two design directions.'}</span><span class="compare-study">{zh ? '设计参考' : 'Design reference'}</span></div>
+  <div class="compare-viewport" data-compare-viewport>
+    <div class="compare-image compare-after"><img src={PROJECT.base + 'media/design-after.webp'} width="900" height="557" alt={zh ? 'Impeccable 的设计参考：深蓝海岸背景、醒目标题和橙色预订按钮。' : 'Impeccable design reference with a dark coastal image, bold headline and orange booking button.'} fetchpriority="high" decoding="async" draggable="false" /><span class="compare-tag">{zh ? '调整版' : 'Reworked'}</span></div>
+    <div class="compare-image compare-before"><img src={PROJECT.base + 'media/design-before.webp'} width="900" height="675" alt={zh ? '同一酒店网站的原始参考：暖白页面、衬线标题与插画。' : 'The original reference for the same hotel: a cream page, serif headline and illustration.'} decoding="async" draggable="false" /><span class="compare-tag">{zh ? '原始版' : 'Original'}</span></div>
+    <span class="compare-seam" aria-hidden="true"><span>↔</span></span>
+    <input class="compare-input" data-compare-input type="range" min="0" max="100" value="48" aria-label={zh ? '原始设计的显示比例' : 'Amount of the original design shown'} aria-valuetext={zh ? '原始版 48%，调整版 52%' : '48% original, 52% reworked'} data-original={zh ? '原始版' : 'original'} data-reworked={zh ? '调整版' : 'reworked'} disabled hidden />
+  </div>
+  <p class="compare-hint"><span aria-hidden="true">↔</span>{zh ? '拖动分界线，看看整体设计的变化' : 'Drag to explore a change in the whole design'}</p>
+  <noscript><p class="compare-fallback">{zh ? '两版参考均已显示；开启 JavaScript 可拖动比较。' : 'Both references are shown. Enable JavaScript for the slider.'}</p></noscript>
+</div>
+
+<style>
+  .image-compare { position: relative; min-width: 0; background: #0c1426; color: #f5f7ff; border: 1px solid #ffffff42; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 65px #0e1d5942; }
+  .compare-toolbar { display: flex; align-items: center; gap: 11px; padding: 15px 16px; font-size: 10px; color: #e3e9fc; }
+  .compare-dots { display: flex; gap: 5px; }
+  .compare-dots i { width: 6px; height: 6px; background: #8193b6; border-radius: 50%; }
+  .compare-dots i:first-child { background: #ff987a; }
+  .compare-study { margin-left: auto; color: #d9edaa; font-size: 9px; white-space: nowrap; }
+  .compare-viewport { display: grid; grid-template-columns: 1fr 1fr; position: relative; isolation: isolate; background: #f3f0e6; }
+  .compare-image { min-width: 0; position: relative; overflow: hidden; }
+  .compare-image img { width: 100%; height: auto; display: block; user-select: none; }
+  .compare-after { order: 2; }
+  .compare-before { order: 1; }
+  .compare-tag { position: absolute; top: 14px; left: 14px; padding: 6px 10px; border: 1px solid #d3d9e7; border-radius: 6px; background: #fffef8; color: #17212e; font-size: 10px; font-weight: 650; box-shadow: 0 2px 10px #00000014; }
+  .compare-after .compare-tag { left: auto; right: 14px; background: #17212e; color: #fffef8; border-color: #73839d; }
+  .compare-seam, .compare-hint { display: none; }
+  .image-compare[data-enhanced] .compare-viewport { display: block; aspect-ratio: 1.28; }
+  .image-compare[data-enhanced] .compare-image { position: absolute; inset: 0; }
+  .image-compare[data-enhanced] .compare-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .image-compare[data-enhanced] .compare-before { z-index: 2; clip-path: inset(0 calc(100% - var(--compare-position, 48%)) 0 0); }
+  .image-compare[data-enhanced] .compare-seam { display: block; position: absolute; z-index: 3; left: var(--compare-position, 48%); top: 0; bottom: 0; width: 2px; background: #e4eaff; box-shadow: 0 0 17px 3px #7aa4ff88; pointer-events: none; }
+  .compare-seam > span { display: grid; place-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 43px; width: 43px; border: 1px solid #aabefc; border-radius: 50%; background: #fffef8; box-shadow: 0 3px 16px #14264f55; color: #17366f; font-size: 22px; }
+  .compare-input { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+  .image-compare:has(.compare-input:focus-visible) { outline: 3px solid #d5f36b; outline-offset: 5px; }
+  .image-compare[data-enhanced] .compare-hint { display: flex; justify-content: center; align-items: center; gap: 9px; padding: 13px; color: #e1e8fa; font-size: 10px; }
+  .compare-fallback { padding: 12px; font-size: 11px; line-height: 1.7; }
+  @media (max-width: 480px) { .compare-toolbar { font-size: 9px; padding: 12px; gap: 8px; } .compare-study { font-size: 8px; } .compare-tag { top: 10px; left: 10px; font-size: 9px; } .compare-after .compare-tag { right: 10px; } .image-compare[data-enhanced] .compare-hint { font-size: 9px; } }
+</style>
+
+<script>
+  for (const compare of document.querySelectorAll<HTMLElement>('[data-image-compare]')) {
+    const input = compare.querySelector<HTMLInputElement>('[data-compare-input]');
+    if (!input) continue;
+    const update = () => {
+      const value = Number(input.value);
+      compare.style.setProperty('--compare-position', `${value}%`);
+      input.setAttribute('aria-valuetext', `${input.dataset.original} ${value}%, ${input.dataset.reworked} ${100 - value}%`);
+    };
+    compare.dataset.enhanced = 'true';
+    input.hidden = false;
+    input.disabled = false;
+    update();
+    input.addEventListener('input', update);
+  }
+</script>

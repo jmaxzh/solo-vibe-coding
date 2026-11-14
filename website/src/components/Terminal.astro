@@ -1,0 +1,77 @@
+---
+// Terminal presentation adapted from Magic UI (MIT). See public/licenses/visual-assets.txt.
+import { PROJECT, UI, type Locale } from '../data/site';
+interface Props { locale: Locale; compact?: boolean; }
+const { locale, compact = false } = Astro.props;
+const zh = locale === 'zh-CN';
+const ui = UI[locale];
+const command = PROJECT.install + ' --agent codex --yes';
+---
+<div class:list={['code-block', 'install-terminal', { compact }]} data-terminal data-install>
+  <div class="code-toolbar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>~/your-project</span><button type="button" class="copy-button" data-copy data-copy-label={ui.copy} data-copied-label={ui.copied} data-failed-label={ui.copyFailed} hidden><svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><rect x="7" y="7" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M12 4H5a2 2 0 0 0-2 2v7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-copy-text>{ui.copy}</span></button></div>
+  <div class="terminal-body"><p class="terminal-comment"># {zh ? '在你的项目文件夹中安装' : 'Install inside your project folder'}</p><div class="terminal-command"><span class="terminal-prompt" aria-hidden="true">$</span><pre tabindex="0" aria-label={ui.installationCommand}><code data-terminal-command>{command}</code></pre><span class="terminal-typing" data-terminal-typing aria-hidden="true"></span></div><p class="terminal-next"><span aria-hidden="true">↳</span>{zh ? '装好后，回到编程助手选择 $solo-vibe-coding' : 'Then select $solo-vibe-coding in your coding assistant'}</p></div>
+  <div class="terminal-caption"><span><span class="terminal-status" aria-hidden="true"></span>{zh ? '命令演示' : 'Command preview'}</span><span>Node.js 22.20+ · npm</span></div>
+  <span class="sr-only" aria-live="polite" data-copy-status></span>
+</div>
+
+<style>
+  .install-terminal { background: #101b2b; color: #edf2ff; border: 1px solid #3c4e69; border-radius: 15px; box-shadow: 0 17px 42px #15233b1a; overflow: hidden; text-align: left; margin: 0; }
+  .install-terminal .code-toolbar { padding: 14px 17px; background: #172438; color: #c7d3e7; border-bottom: 1px solid #35455d; justify-content: start; gap: 14px; font-size: 10px; }
+  .terminal-dots { display: flex; gap: 5px; flex: none; }
+  .terminal-dots i { height: 7px; width: 7px; border-radius: 50%; background: #99b774; }
+  .terminal-dots i:first-child { background: #ff987a; }
+  .terminal-dots i:nth-child(2) { background: #dfc87b; }
+  .install-terminal .copy-button { margin-left: auto; color: #e7eefc; font-size: 10px; }
+  .install-terminal .copy-button:hover { color: #fff; background: #2d405b; }
+  .terminal-body { padding: 25px 24px 27px; }
+  .terminal-comment { color: #aabbd4; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
+  .terminal-command { display: grid; grid-template-columns: 13px minmax(0,1fr); gap: 8px; position: relative; margin-top: 20px; }
+  .terminal-prompt { color: #d5f36b; font-family: var(--mono); font-size: 12px; line-height: 1.95; }
+  .install-terminal pre { margin: 0; padding: 0; font-size: 12px; line-height: 1.95; background: none; overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; color: #e6edff; }
+  .install-terminal code { font: inherit; color: inherit; }
+  .terminal-typing { display: none; grid-column: 2; grid-row: 1; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono); font-size: 12px; line-height: 1.95; color: #e6edff; }
+  [data-typing] .terminal-typing { display: block; }
+  [data-typing] pre { grid-column: 2; grid-row: 1; color: transparent; }
+  .terminal-next { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: #c6d6ee; line-height: 1.9; margin-top: 24px; }
+  .terminal-next > span { color: #d5f36b; flex: none; }
+  .terminal-caption { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #35455d; padding: 12px 17px; color: #b5c6df; font-size: 9px; }
+  .terminal-caption > span:first-child { display: flex; align-items: center; gap: 7px; }
+  .terminal-status { height: 5px; width: 5px; border-radius: 50%; background: #aace70; }
+  .compact .terminal-body { padding: 20px; }
+  .compact .terminal-next { margin-top: 20px; }
+  @media (max-width: 480px) { .terminal-body { padding: 23px 18px; } .install-terminal pre, .terminal-typing, .terminal-prompt { font-size: 10px; } .terminal-next, .terminal-comment { font-size: 10px; } .terminal-caption { font-size: 8px; padding-inline: 13px; } }
+</style>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  for (const terminal of document.querySelectorAll<HTMLElement>('[data-terminal]')) {
+    const command = terminal.querySelector<HTMLElement>('[data-terminal-command]');
+    const typing = terminal.querySelector<HTMLElement>('[data-terminal-typing]');
+    if (!command || !typing || !('IntersectionObserver' in window)) continue;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let started = false;
+    const stop = () => { clearInterval(timer); delete terminal.dataset.typing; };
+    const enabled = () => {
+      if (reduced.matches || document.documentElement.dataset.motion === 'off') return false;
+      try { return localStorage.getItem('solo-vibe-motion') !== 'off'; } catch { return true; }
+    };
+    const observer = new IntersectionObserver((entries) => {
+      if (started || !entries.some((entry) => entry.isIntersecting)) return;
+      started = true;
+      observer.disconnect();
+      if (!enabled()) return;
+      const text = command.textContent ?? '';
+      let cursor = 0;
+      terminal.dataset.typing = 'true';
+      typing.textContent = '';
+      timer = setInterval(() => {
+        if (!enabled() || cursor >= text.length) { stop(); return; }
+        cursor += 3;
+        typing.textContent = text.slice(0, cursor);
+      }, 35);
+    }, { threshold: .15 });
+    observer.observe(terminal);
+    reduced.addEventListener('change', stop);
+    document.addEventListener('website-motion-change', () => { if (!enabled()) stop(); });
+  }
+</script>

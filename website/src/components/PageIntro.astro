@@ -1,51 +1,41 @@
 ---
-import SceneIcon from './SceneIcon.astro';
-import type { Locale } from '../data/site';
-interface Props { locale: Locale; title: string; description: string; kind?: 'start' | 'guides' | 'quote' | 'case' | 'updates' | 'article' | 'missing'; }
-const { locale, title, description, kind = 'guides' } = Astro.props;
+import DeviceMockup from './DeviceMockup.astro';
+import Terminal from './Terminal.astro';
+import { PROJECT, type Locale } from '../data/site';
+interface Props { locale: Locale; title: string; titleLines?: string[]; description: string; kind?: 'start' | 'guides' | 'quote' | 'case' | 'updates' | 'article' | 'missing'; }
+const { locale, title, titleLines, description, kind = 'guides' } = Astro.props;
 const zh = locale === 'zh-CN';
-const journeys = {
-  start: [['terminal', zh ? '安装 Skill' : 'Install the skill'], ['code', zh ? '说清需求' : 'Bring your task'], ['check', zh ? '打开试用' : 'Try the result']],
-  guides: [['development', zh ? '修好问题' : 'Fix a bug'], ['design', zh ? '改善界面' : 'Refine the app'], ['deployment', zh ? '上线分享' : 'Ship it'], ['growth', zh ? '介绍产品' : 'Find users']],
-  quote: [['quote', zh ? '填入工时和单价' : 'Enter time and rates'], ['check', zh ? '核对报价' : 'Check the total'], ['save', zh ? '下载明细' : 'Download the CSV']],
-  case: [['code', zh ? '原始需求' : 'The requests'], ['check', zh ? '实际结果' : 'What happened'], ['quote', zh ? '对照与成本' : 'Results and costs']],
-  updates: [['guide', zh ? '了解变化' : 'What changed'], ['code', zh ? '看看用法' : 'How to use it'], ['arrow', zh ? '继续自己的项目' : 'Your next project']],
-  article: [['guide', zh ? '读懂用途' : 'See what it does'], ['code', zh ? '查看示例' : 'See the example'], ['arrow', zh ? '开始自己的任务' : 'Make it your own']],
-  missing: [['link', zh ? '地址有误或已变更' : 'A missing address'], ['guide', zh ? '找找使用场景' : 'Explore the tasks'], ['arrow', zh ? '回到首页' : 'Back to the start']],
-};
+const illustrated = ['start', 'guides', 'case'].includes(kind);
+const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按任务开始' : 'FIND YOUR TASK', quote: zh ? '可操作示例' : 'LIVE EXAMPLE', case: zh ? '历史执行记录' : 'EXECUTION RECORD', updates: zh ? '最新更新' : 'UPDATES', article: zh ? '使用与更新' : 'NOTES', missing: zh ? '返回首页' : 'BACK TO THE START' };
 ---
-<header class="page-intro brand-intro" data-page-intro={kind}>
-  <div class="intro-copy"><h1>{title}</h1><p>{description}</p><slot /></div>
-  <div class="intro-map" aria-hidden="true"><div class="map-heading"><span>Solo Vibe Coding</span><span class="map-dots"><i></i><i></i><i></i></span></div><ol class:list={[{ 'four-stops': journeys[kind].length === 4 }]}>{journeys[kind].map(([icon, label]) => <li><span class="map-symbol"><SceneIcon kind={icon} /></span><span>{label}</span></li>)}</ol><div class="map-baseline"><span></span><b></b><span></span></div></div>
+<header class:list={['page-intro', 'brand-intro', { illustrated }]} data-page-intro={kind}>
+  <div class="intro-copy"><p class="intro-kicker"><span>SOLO VIBE CODING</span><span>{labels[kind]}</span></p><h1>{titleLines ? titleLines.map((line) => <span>{line}</span>) : title}</h1><p>{description}</p><slot /></div>
+  {illustrated && <div class="intro-reference">
+    {kind === 'start' && <Terminal locale={locale} compact />}
+    {kind === 'guides' && <figure><img class="call-image" src={PROJECT.base + 'media/video-call.webp'} width="1000" height="687" alt={zh ? 'Jitsi Meet 的成品界面参考，展示电脑与手机上的视频通话。不是本 Skill 的实测成果。' : 'Jitsi Meet interface reference showing video calls across desktop and phone, not a measured result of this skill.'} decoding="async" /><figcaption>{zh ? '界面参考：' : 'Interface reference: '}<a href="https://github.com/jitsi/jitsi-meet">Jitsi Meet</a></figcaption></figure>}
+    {kind === 'case' && <figure><DeviceMockup src={PROJECT.base + 'case-study/bookmarks-round-2.png'} alt={zh ? '历史执行记录中收藏工具的实际截图，具体条件与限制见正文。' : 'An actual bookmark-tool screenshot from the execution record; conditions and limits are explained below.'} /><figcaption>{zh ? '实际项目截图 · 验证条件见正文' : 'Actual project screenshot · conditions below'}</figcaption></figure>}
+  </div>}
 </header>
 
 <style>
-  .brand-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; max-width: none; background: var(--blue); color: #fffefa; border-radius: var(--radius-panel); padding: 40px; margin-bottom: 38px; overflow: hidden; }
+  .brand-intro { display: block; max-width: none; background: var(--blue); color: #fffefa; border-radius: var(--radius-panel); padding: 43px 40px; margin-bottom: 38px; overflow: hidden; }
+  .brand-intro.illustrated { display: grid; grid-template-columns: 1.15fr 1fr; gap: 43px; align-items: center; }
   .intro-copy { min-width: 0; }
-  .intro-copy h1 { font-size: clamp(2.2rem, 3.2vw, 3.05rem); line-height: 1.2; letter-spacing: -.035em; max-width: 23ch; font-weight: 750; }
-  .intro-copy > p { max-width: 60ch; color: #eef2ff; font-size: .95rem; line-height: 1.9; margin-top: 20px; }
+  .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: #e4ecff; font-size: 9px; letter-spacing: .08em; margin-bottom: 21px; }
+  .intro-kicker > span:last-child { color: #daf29b; border-left: 1px solid #7c9cfa; padding-left: 15px; }
+  .intro-copy h1 { font-size: clamp(2.2rem, 3.2vw, 3.05rem); line-height: 1.25; letter-spacing: -.035em; max-width: 24ch; font-weight: 750; }
+  .intro-copy h1 > span { display: block; }
+  .intro-copy > p:not(.intro-kicker) { max-width: 60ch; color: #eef2ff; font-size: .95rem; line-height: 1.9; margin-top: 20px; }
   .intro-copy :global(p) { color: #eef2ff; }
   .intro-copy :global(a) { color: #fffefa; }
-  .intro-copy :global(a:focus-visible) { outline-color: #fffefa; }
+  .intro-copy :global(a:focus-visible), .intro-reference :global(a:focus-visible) { outline-color: #fffefa; }
   .intro-copy :global(.text-link) { margin-top: 20px; border-color: #d4e1ff; font-size: .78rem; }
   .intro-copy :global(.article-meta) { color: #e9efff; margin-top: 22px; }
-  .intro-map { background: #1737a1; padding: 24px; border-radius: var(--radius-card); min-width: 0; transform: perspective(1000px) rotateY(-6deg) rotateX(3deg); box-shadow: 0 15px 35px #102b7c42; }
-  .map-heading { display: flex; align-items: center; justify-content: space-between; color: #edf2ff; font-size: 11px; font-weight: 650; }
-  .map-dots { display: flex; gap: 4px; }
-  .map-dots i { width: 5px; height: 5px; background: #9db7fa; border-radius: 50%; }
-  .map-dots i:first-child { background: #ffad8f; }
-  .intro-map ol { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; padding: 0; margin: 28px 0 21px; }
-  .intro-map .four-stops { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; }
-  .intro-map li { min-width: 0; text-align: center; font-size: 11px; color: #f0f4ff; line-height: 1.6; }
-  .map-symbol { display: grid; place-items: center; width: 55px; height: 55px; margin: 0 auto 14px; border-radius: 13px; background: #dce6ff; color: #264eaa; }
-  .map-symbol :global(svg) { width: 25px; height: 25px; }
-  li:nth-child(2) .map-symbol { background: #ffae90; color: #65301e; }
-  li:nth-child(3) .map-symbol { background: #d5f36b; color: #304d24; }
-  li:nth-child(4) .map-symbol { background: #f4efff; color: #465180; }
-  .map-baseline { display: flex; align-items: center; gap: 8px; }
-  .map-baseline > span { height: 1px; background: #7294ef; flex: 1; }
-  .map-baseline > b { width: 7px; height: 7px; background: #d5f36b; border-radius: 50%; }
-  @media (max-width: 1100px) { .brand-intro { padding: 32px; gap: 27px; } .intro-map { padding: 22px 17px; } }
-  @media (max-width: 800px) { .brand-intro { grid-template-columns: 1fr; padding: 32px; gap: 28px; } .intro-copy h1 { max-width: 26ch; } .intro-map { max-width: 450px; width: 100%; transform: none; padding: 20px 24px; } .intro-map ol { margin-block: 22px 16px; } }
-  @media (max-width: 480px) { .brand-intro { padding: 27px 23px; border-radius: 18px; margin-bottom: 27px; gap: 25px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p { font-size: .86rem; margin-top: 17px; } .intro-map { padding: 19px 15px; } .map-symbol { width: 44px; height: 44px; margin-bottom: 10px; } .intro-map li { font-size: 10px; } .map-heading { font-size: 10px; } .intro-map .four-stops { gap: 7px; } }
+  .intro-reference { min-width: 0; }
+  .intro-reference figure { margin: 0; }
+  .call-image { display: block; width: 100%; height: auto; }
+  .intro-reference figcaption { margin-top: 16px; font-size: 10px; color: #e4ecff; text-align: center; }
+  @media (max-width: 1100px) { .brand-intro { padding: 34px; } .brand-intro.illustrated { gap: 30px; } }
+  @media (max-width: 800px) { .brand-intro, .brand-intro.illustrated { grid-template-columns: 1fr; padding: 32px; gap: 30px; } .intro-copy h1 { max-width: 28ch; } .intro-reference { width: 100%; max-width: 480px; } }
+  @media (max-width: 480px) { .brand-intro, .brand-intro.illustrated { padding: 27px 23px; border-radius: 18px; margin-bottom: 27px; gap: 24px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .86rem; margin-top: 17px; } .intro-kicker { font-size: 8px; margin-bottom: 18px; } .intro-reference figcaption { font-size: 9px; } }
 </style>

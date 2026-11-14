@@ -1,0 +1,494 @@
+{
+  "browser": "157.0.8103.51",
+  "reducedMotion": "reduce",
+  "records": [
+    {
+      "key": "mobile-en-home",
+      "route": "",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Build it sooner.\nMake it worth sharing."
+    },
+    {
+      "key": "desktop-en-home",
+      "route": "",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Build it sooner.\nMake it worth sharing."
+    },
+    {
+      "key": "mobile-en-case-development",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/video-call.webp",
+          "loaded": true,
+          "width": 288,
+          "height": 197.1875
+        }
+      ]
+    },
+    {
+      "key": "mobile-en-case-design",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/app-mobile.webp",
+          "loaded": true,
+          "width": 127.29776000976562,
+          "height": 228.04473876953125
+        }
+      ]
+    },
+    {
+      "key": "desktop-en-case-development",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/video-call.webp",
+          "loaded": true,
+          "width": 519,
+          "height": 356.546875
+        }
+      ]
+    },
+    {
+      "key": "mobile-en-case-deployment",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/login.webp",
+          "loaded": true,
+          "width": 239.22940063476562,
+          "height": 159.28549194335938
+        }
+      ]
+    },
+    {
+      "key": "desktop-en-case-design",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/app-mobile.webp",
+          "loaded": true,
+          "width": 229.419189453125,
+          "height": 410.9877624511719
+        }
+      ]
+    },
+    {
+      "key": "mobile-en-case-growth",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/design-after.webp",
+          "loaded": true,
+          "width": 239.22940063476562,
+          "height": 159.28549194335938
+        }
+      ]
+    },
+    {
+      "key": "desktop-en-case-deployment",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/login.webp",
+          "loaded": true,
+          "width": 431.1207275390625,
+          "height": 287.0518798828125
+        }
+      ]
+    },
+    {
+      "key": "desktop-en-case-growth",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/design-after.webp",
+          "loaded": true,
+          "width": 431.1207275390625,
+          "height": 287.0518798828125
+        }
+      ]
+    },
+    {
+      "key": "mobile-en-getting-started",
+      "route": "getting-started/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Install it.\nBring your own project."
+    },
+    {
+      "key": "desktop-en-getting-started",
+      "route": "getting-started/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Install it.\nBring your own project."
+    },
+    {
+      "key": "mobile-en-guides",
+      "route": "guides/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "What are you working on?"
+    },
+    {
+      "key": "mobile-en-examples-quote-calculator",
+      "route": "examples/quote-calculator/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Try the quote calculator."
+    },
+    {
+      "key": "desktop-en-guides",
+      "route": "guides/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "What are you working on?"
+    },
+    {
+      "key": "desktop-en-examples-quote-calculator",
+      "route": "examples/quote-calculator/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Try the quote calculator."
+    },
+    {
+      "key": "mobile-en-case-study-bookmark-export",
+      "route": "case-study/bookmark-export/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Adding export, then picking up in a fresh session."
+    },
+    {
+      "key": "mobile-en-build-log",
+      "route": "build-log/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "What is new, and how to use it."
+    },
+    {
+      "key": "desktop-en-case-study-bookmark-export",
+      "route": "case-study/bookmark-export/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Adding export, then picking up in a fresh session."
+    },
+    {
+      "key": "mobile-en-build-log-first-public-build",
+      "route": "build-log/first-public-build/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Try a quote tool, then make a version of your own"
+    },
+    {
+      "key": "desktop-en-build-log",
+      "route": "build-log/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "What is new, and how to use it."
+    },
+    {
+      "key": "mobile-en-build-log-working-methods",
+      "route": "build-log/working-methods/",
+      "locale": "en",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "Your agent can code. Here is what this skill adds."
+    },
+    {
+      "key": "desktop-en-build-log-first-public-build",
+      "route": "build-log/first-public-build/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Try a quote tool, then make a version of your own"
+    },
+    {
+      "key": "desktop-en-build-log-working-methods",
+      "route": "build-log/working-methods/",
+      "locale": "en",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "Your agent can code. Here is what this skill adds."
+    },
+    {
+      "key": "mobile-zh-CN-home",
+      "route": "",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "快点做出来，\n也做得像样。"
+    },
+    {
+      "key": "mobile-zh-CN-case-development",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/video-call.webp",
+          "loaded": true,
+          "width": 288,
+          "height": 197.1875
+        }
+      ]
+    },
+    {
+      "key": "desktop-zh-CN-home",
+      "route": "",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "快点做出来，\n也做得像样。"
+    },
+    {
+      "key": "mobile-zh-CN-case-design",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/app-mobile.webp",
+          "loaded": true,
+          "width": 127.29776000976562,
+          "height": 228.04473876953125
+        }
+      ]
+    },
+    {
+      "key": "mobile-zh-CN-case-deployment",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/login.webp",
+          "loaded": true,
+          "width": 239.22940063476562,
+          "height": 159.28549194335938
+        }
+      ]
+    },
+    {
+      "key": "desktop-zh-CN-case-development",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/video-call.webp",
+          "loaded": true,
+          "width": 519,
+          "height": 356.546875
+        }
+      ]
+    },
+    {
+      "key": "mobile-zh-CN-case-growth",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/design-after.webp",
+          "loaded": true,
+          "width": 239.22940063476562,
+          "height": 159.28549194335938
+        }
+      ]
+    },
+    {
+      "key": "desktop-zh-CN-case-design",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/app-mobile.webp",
+          "loaded": true,
+          "width": 229.419189453125,
+          "height": 410.9877624511719
+        }
+      ]
+    },
+    {
+      "key": "mobile-zh-CN-getting-started",
+      "route": "getting-started/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "装好 Skill，\n继续做你的项目。"
+    },
+    {
+      "key": "desktop-zh-CN-case-deployment",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/login.webp",
+          "loaded": true,
+          "width": 431.1207275390625,
+          "height": 287.0518798828125
+        }
+      ]
+    },
+    {
+      "key": "desktop-zh-CN-case-growth",
+      "images": [
+        {
+          "src": "/solo-vibe-coding/media/design-after.webp",
+          "loaded": true,
+          "width": 431.1207275390625,
+          "height": 287.0518798828125
+        }
+      ]
+    },
+    {
+      "key": "desktop-zh-CN-getting-started",
+      "route": "getting-started/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "装好 Skill，\n继续做你的项目。"
+    },
+    {
+      "key": "mobile-zh-CN-guides",
+      "route": "guides/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "你想做什么？"
+    },
+    {
+      "key": "mobile-zh-CN-examples-quote-calculator",
+      "route": "examples/quote-calculator/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "试用报价计算器"
+    },
+    {
+      "key": "desktop-zh-CN-guides",
+      "route": "guides/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "你想做什么？"
+    },
+    {
+      "key": "mobile-zh-CN-case-study-bookmark-export",
+      "route": "case-study/bookmark-export/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "给收藏工具加导出，再换个会话继续改。"
+    },
+    {
+      "key": "desktop-zh-CN-examples-quote-calculator",
+      "route": "examples/quote-calculator/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "试用报价计算器"
+    },
+    {
+      "key": "mobile-zh-CN-build-log",
+      "route": "build-log/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "最近更新了什么"
+    },
+    {
+      "key": "desktop-zh-CN-case-study-bookmark-export",
+      "route": "case-study/bookmark-export/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "给收藏工具加导出，再换个会话继续改。"
+    },
+    {
+      "key": "mobile-zh-CN-build-log-first-public-build",
+      "route": "build-log/first-public-build/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "试用报价计算器，再做自己的版本"
+    },
+    {
+      "key": "mobile-zh-CN-build-log-working-methods",
+      "route": "build-log/working-methods/",
+      "locale": "zh-CN",
+      "mode": "mobile",
+      "status": 200,
+      "overflow": false,
+      "title": "编程助手已经会写代码，Skill 还能帮什么？"
+    },
+    {
+      "key": "desktop-zh-CN-build-log",
+      "route": "build-log/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "最近更新了什么"
+    },
+    {
+      "key": "mobile-404",
+      "overflow": false
+    },
+    {
+      "key": "desktop-zh-CN-build-log-first-public-build",
+      "route": "build-log/first-public-build/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "试用报价计算器，再做自己的版本"
+    },
+    {
+      "key": "desktop-zh-CN-build-log-working-methods",
+      "route": "build-log/working-methods/",
+      "locale": "zh-CN",
+      "mode": "desktop",
+      "status": 200,
+      "overflow": false,
+      "title": "编程助手已经会写代码，Skill 还能帮什么？"
+    },
+    {
+      "key": "desktop-404",
+      "overflow": false
+    }
+  ],
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "mode": "desktop",
+        "externalOrigins": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "mode": "mobile",
+        "externalOrigins": []
+      }
+    }
+  ]
+}

@@ -59,6 +59,7 @@ const en = {
   },
   getting: {
     title: 'Install it. Bring your own project.',
+    titleLines: ['Install it.', 'Bring your own project.'],
     description: 'Add Solo Vibe Coding to your coding assistant and start a repair, mobile redesign, release or first-user task in your own project.',
     intro: 'Add the skill to your assistant, then send a request for the task you want to finish. Your existing project is the starting point.',
     beforeTitle: 'Open your coding assistant',
@@ -155,6 +156,7 @@ const zh: typeof en = {
   },
   getting: {
     title: '装好 Skill，继续做你的项目。',
+    titleLines: ['装好 Skill，', '继续做你的项目。'],
     description: '在编程助手中安装 Solo Vibe Coding，从修复、移动界面、上线和首轮推广中选择任务，继续做自己的项目。',
     intro: '先在编程助手里安装，再选择适合当前任务的需求示例。已有项目可以直接接着做。',
     beforeTitle: '打开你的编程助手',

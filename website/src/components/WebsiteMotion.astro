@@ -1,33 +1,19 @@
 <script>
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const root = document.documentElement;
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-motion-toggle]')];
-  const running = new Set<Animation>();
   let paused = false;
-  let keyboard = false;
   try { paused = localStorage.getItem('solo-vibe-motion') === 'off'; } catch { /* The preference is optional. */ }
-  const enabled = () => !reduced.matches && !paused;
   const synchronize = () => {
-    root.dataset.motion = enabled() ? 'on' : 'off';
+    const enabled = !reduced.matches && !paused;
+    root.dataset.motion = enabled ? 'on' : 'off';
     for (const button of buttons) {
       button.hidden = false;
       button.disabled = reduced.matches;
       const label = button.querySelector('[data-motion-label]');
-      if (label) label.textContent = (reduced.matches ? button.dataset.reduced : enabled() ? button.dataset.pause : button.dataset.play) ?? '';
+      if (label) label.textContent = (reduced.matches ? button.dataset.reduced : enabled ? button.dataset.pause : button.dataset.play) ?? '';
     }
-    if (!enabled()) {
-      for (const animation of running) animation.cancel();
-      running.clear();
-      document.querySelector<HTMLElement>('[data-art-transform]')?.style.removeProperty('transform');
-    }
-  };
-  const animate = (element: Element, frames: Keyframe[], duration: number, delay = 0) => {
-    if (!enabled() || !('animate' in element)) return;
-    const animation = element.animate(frames, { duration, delay, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' });
-    running.add(animation);
-    animation.addEventListener('finish', () => running.delete(animation), { once: true });
-    animation.addEventListener('cancel', () => running.delete(animation), { once: true });
+    document.dispatchEvent(new Event('website-motion-change'));
   };
   synchronize();
   reduced.addEventListener('change', synchronize);
@@ -36,37 +22,18 @@
     try { localStorage.setItem('solo-vibe-motion', paused ? 'off' : 'on'); } catch { /* This page still works without storage. */ }
     synchronize();
   });
-  document.addEventListener('keydown', () => { keyboard = true; });
-  document.addEventListener('pointerdown', () => { keyboard = false; }, { passive: true });
-  document.querySelectorAll('[data-title-line]').forEach((line, index) => animate(line, [{ transform: 'translateY(16px)' }, { transform: 'translateY(0)' }], 650, index * 70));
-  const visual = document.querySelector('[data-art-transform]');
-  if (visual) animate(visual, [{ transform: 'translateY(25px) rotate(-3deg) scale(.97)' }, { transform: 'none' }], 700, 60);
-  const artArea = document.querySelector<HTMLElement>('[data-hero-tilt]');
-  const art = document.querySelector<HTMLElement>('[data-art-transform]');
-  if (artArea && art) {
-    artArea.addEventListener('pointermove', (event) => {
-      if (!enabled() || !finePointer.matches || event.pointerType === 'touch') return;
-      const bounds = artArea.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - .5;
-      const y = (event.clientY - bounds.top) / bounds.height - .5;
-      art.style.transform = `perspective(1000px) rotateX(${-y * 7}deg) rotateY(${x * 9}deg) translate3d(${x * 9}px, ${y * 7}px, 0)`;
-    }, { passive: true });
-    artArea.addEventListener('pointerleave', () => art.style.removeProperty('transform'));
-  }
-  for (const stage of document.querySelectorAll('[data-task-stage]')) stage.addEventListener('change', (event) => {
-    const input = event.target;
-    if (keyboard || !(input instanceof HTMLInputElement)) return;
-    for (const animation of running) if (animation.effect instanceof KeyframeEffect && animation.effect.target?.matches('[data-case-art]')) animation.cancel();
-    const image = stage.querySelector(`[data-outcome="${input.value}"] [data-case-art]`);
-    if (image) animate(image, [{ transform: 'translateY(12px) scale(.97)' }, { transform: 'none' }], 260);
-  });
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) if (entry.isIntersecting) {
-        animate(entry.target, [{ transform: 'translateX(18px)' }, { transform: 'none' }], 550, Number((entry.target as HTMLElement).dataset.revealOrder ?? 0) * 60);
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: .16 });
-    document.querySelectorAll('[data-reveal-order]').forEach((element) => observer.observe(element));
-  }
 </script>
+
+<style>
+  :global(html[data-motion="on"] [data-title-line]) { animation: page-rise 600ms var(--ease-out) both; }
+  :global(html[data-motion="on"] [data-title-line] + [data-title-line]) { animation-delay: 70ms; }
+  :global(html[data-motion="on"] [data-art-transform]) { animation: page-rise 650ms var(--ease-out) both; }
+  :global(html[data-motion="on"] .task-panel) { animation: case-enter 240ms var(--ease-out) both; }
+  @keyframes page-rise { from { transform: translateY(16px); } to { transform: none; } }
+  @keyframes case-enter { from { transform: translateY(8px); } to { transform: none; } }
+  @supports (animation-timeline: view()) {
+    :global(html[data-motion="on"] [data-reveal-order]) { animation: reference-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; }
+    @keyframes reference-enter { from { transform: translateY(20px); } to { transform: none; } }
+  }
+  @media (prefers-reduced-motion: reduce) { :global([data-title-line]), :global([data-art-transform]), :global(.task-panel), :global([data-reveal-order]) { animation: none !important; } }
+</style>

@@ -1,6 +1,7 @@
 ---
 import CodeBlock from './CodeBlock.astro';
 import PageIntro from './PageIntro.astro';
+import Terminal from './Terminal.astro';
 import { PROJECT, UI, SCENARIOS, FIRST_PROMPT, href, type Locale } from '../data/site';
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
 interface Props { locale: Locale; }
@@ -12,14 +13,14 @@ const tasks = [...OUTCOMES[locale], { id: firstVersion.id, label: firstVersion.l
 const copy = OUTCOME_UI[locale];
 ---
 <div class="container document-shell">
-  <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="start" />
+  <PageIntro locale={locale} title={ui.title} titleLines={ui.titleLines} description={ui.intro} kind="start" />
   <div class="document-layout">
     <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">
       <section id="requirements"><h2>{ui.beforeTitle}</h2><p>{ui.beforeText}</p><a href="https://learn.chatgpt.com/docs/codex/cli#getting-started">{ui.noAssistant}</a></section>
       <section id="installation"><h2>{ui.installTitle}</h2><p>{ui.installText}</p><CodeBlock locale={locale} code={ui.setupPrompt} label={UI[locale].guides.prompt} /><p class="activation-help">{ui.activation}</p>
         <details class="setup-option"><summary>{ui.otherAssistant}</summary><p>{ui.claudeText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent claude-code --yes'} install /><CodeBlock locale={locale} code={PROJECT.install} install /></details>
-        <details class="setup-option"><summary>{ui.manualTitle}</summary><p>{ui.manualText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent codex --yes'} install /></details>
+        <details class="setup-option"><summary>{ui.manualTitle}</summary><p>{ui.manualText}</p><Terminal locale={locale} /></details>
       </section>
       <section id="first-task" data-task-picker><h2>{ui.firstTitle}</h2><p>{copy.gettingNote} <a href="#installation">{copy.installFirst}</a></p><p>{ui.firstText}</p>
         <nav class="task-request-nav" aria-label={copy.gettingNav}>{tasks.map((task) => <a href={'#task-' + task.id}>{task.label}</a>)}</nav>

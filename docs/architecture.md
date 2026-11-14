@@ -10,10 +10,11 @@
 | 对应中文技能 | `i18n/zh-CN/skills/solo-vibe-coding/` | 保持能力与结构一致的中文内容 |
 | 官网构建工程 | `website/` | 独立 npm 清单、锁文件与 Astro 配置 |
 | 项目事实与界面文案 | `website/src/data/site.ts` | 品牌、网址、安装命令、双语文案、用户目标场景、完整首次需求与页面元数据 |
-| 定位与案例 | `website/src/data/positioning.ts`、`case-study.ts`、`case-evidence.ts`、对应组件 | 可复用指导说明、用户任务、已审查的公开证据；不运行或导入研究材料 |
+| 定位与案例 | `website/src/data/outcomes.ts`、`case-study.ts`、`case-evidence.ts`、对应组件 | 可复用指导说明、用户任务、已审查的公开证据；不运行或导入研究材料 |
 | 构建日志 | `website/src/content/build-log/`、`website/src/data/posts.ts` | 双语 Markdown、显式文章索引、真实日期与对应 slug |
 | 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、页面结构、导航、语言切换、SEO、渐进增强 |
 | 展示组件与样式 | `website/src/components/`、`website/src/styles/` | 用户首页、上手与场景、报价示例、复制和响应式排版 |
+| 视觉素材与交互 | `website/public/media/`、`ImageCompare.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 自托管的第三方界面参考、现成设备样机、原生对比与可复制安装命令；许可随发布资源提供 |
 | 可用成果示例 | `website/src/components/QuoteCalculator.astro`、`website/src/lib/quote.ts` | 浏览器端报价计算、校验与 CSV 下载；Big.js 处理十进制金额，无后端 |
 | 静态资源 | `website/public/` | 图标、分享图片、案例真实截图、独立起始项目ZIP、分发许可与 `.nojekyll` |
 | 自动检查 | `website/scripts/`、`website/tests/` | 产物完整性、交互、布局与可自动检测的无障碍问题 |
@@ -36,7 +37,7 @@ GitHub Pages：/solo-vibe-coding/
 
 默认英文页面位于项目根路径，中文位于 `zh-CN/`。内容由构建期生成，切换语言保持主题。`[...path].astro` 生成首页、上手、用户场景、报价示例、真实任务、更新索引和已登记文章；`404.astro` 生成项目 404 页。公开页面共17个 HTML。
 
-首页的专业指导与案例为静态内容，案例起始项目ZIP可直接下载。JavaScript 增强复制与报价计算、校验和下载。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
+首页的专业指导与案例为静态内容，案例起始项目ZIP可直接下载。JavaScript 增强对比操作、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
 
 用户官网不引用维护知识库、ADR、CI 和研究档案作为阅读入口；这些材料在仓库维护区域查阅。源码和许可入口保留在页脚。
 

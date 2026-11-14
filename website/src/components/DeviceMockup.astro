@@ -1,0 +1,23 @@
+---
+import '../styles/vendor/devices.css';
+interface Props { src: string; alt: string; model?: 'laptop' | 'phone'; eager?: boolean; }
+const { src, alt, model = 'laptop', eager = false } = Astro.props;
+const phone = model === 'phone';
+const width = phone ? 440 : 752;
+const height = phone ? 880 : 446;
+---
+<svg class:list={['stock-device', { 'stock-phone': phone }]} viewBox={`0 0 ${width} ${height}`} role="img" aria-label={alt} data-stock-device={model}>
+  <foreignObject x="6" y="6" width={width - 12} height={height - 12}>
+    <div class:list={['device', phone ? 'device-iphone-14-pro device-silver' : 'device-macbook-pro device-spacegray']} aria-hidden="true">
+      <div class="device-frame"><img class="device-screen" src={src} width={phone ? 390 : 600} height={phone ? 830 : 375} loading={eager ? 'eager' : 'lazy'} decoding="async" alt="" /></div>
+      {phone && <><div class="device-stripe"></div><div class="device-header"></div><div class="device-sensors"></div><div class="device-btns"></div><div class="device-power"></div><div class="device-home"></div></>}
+      {!phone && <><div class="device-header"></div><div class="device-power"></div></>}
+    </div>
+  </foreignObject>
+</svg>
+
+<style>
+  .stock-device { display: block; width: 100%; height: auto; overflow: visible; }
+  .stock-phone { max-width: 220px; }
+  .stock-device :global(.device-screen) { display: block; object-fit: cover; object-position: center top; background: #fff; }
+</style>
