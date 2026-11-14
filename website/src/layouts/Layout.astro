@@ -30,8 +30,8 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f5ef" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#0b1016" />
+    <meta name="color-scheme" content="dark" />
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     {!noindex && <>
@@ -64,7 +64,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={href(locale)} aria-label="Solo Vibe Coding">
-          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke="#f7f5ef" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke="var(--on-accent)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Solo Vibe Coding</span>
         </a>
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>

@@ -44,6 +44,7 @@ npm run test:e2e
 - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
 - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
 - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
+- 配色统一维护在 `src/styles/global.css` 的 `:root` 语义变量中。调整后检查首页、内页、代码与表单的文字、控件边界和焦点对比度，以及悬停、选中、错误和禁用状态；更新品牌色时同步 favicon、分享图与主题元数据。
 - `src/components/WebsiteMotion.astro`：首页入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
 - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
 - `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。

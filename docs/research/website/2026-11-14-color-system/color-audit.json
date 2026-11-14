@@ -1,0 +1,772 @@
+{
+  "browser": "157.0.8103.51",
+  "method": "WCAG 2.2 sRGB contrast; computed styles, actual hover/focus/selected/error/disabled states; both gradient stops. Disabled controls recorded separately; incidental stock image text excluded.",
+  "records": [
+    {
+      "name": "hero secondary over gradient stops",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "15.36px",
+      "fontWeight": "400",
+      "ratios": [
+        7.473461538475364,
+        8.8400727881384,
+        8.8400727881384
+      ],
+      "minimum": 7.473461538475364,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "hero headline accent over gradient stops",
+      "mode": "text",
+      "color": "rgb(120, 228, 206)",
+      "backgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(120, 228, 206)",
+      "outline": "rgb(120, 228, 206)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "59.76px",
+      "fontWeight": "750",
+      "ratios": [
+        9.604265386007192,
+        11.360519439593235,
+        11.360519439593235
+      ],
+      "minimum": 9.604265386007192,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "primary CTA default",
+      "mode": "text",
+      "color": "rgb(9, 37, 31)",
+      "backgrounds": [
+        "rgb(120, 228, 206)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgb(120, 228, 206)",
+      "border": "rgb(9, 37, 31)",
+      "outline": "rgb(9, 37, 31)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "ratios": [
+        10.638055450606695
+      ],
+      "minimum": 10.638055450606695,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "primary CTA hover",
+      "mode": "text",
+      "color": "rgb(9, 37, 31)",
+      "backgrounds": [
+        "rgb(163, 240, 223)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgb(163, 240, 223)",
+      "border": "rgb(9, 37, 31)",
+      "outline": "rgb(9, 37, 31)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "ratios": [
+        12.412447784990821
+      ],
+      "minimum": 12.412447784990821,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "primary CTA keyboard focus",
+      "mode": "focus",
+      "color": "rgb(9, 37, 31)",
+      "backgrounds": [
+        "rgb(163, 240, 223)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgb(163, 240, 223)",
+      "border": "rgb(9, 37, 31)",
+      "outline": "rgb(177, 245, 231)",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "visibleOutline": true,
+      "ratios": [
+        11.901024172637754,
+        14.077267862808194,
+        14.077267862808194
+      ],
+      "minimum": 11.901024172637754,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "selected task label",
+      "mode": "text",
+      "color": "rgb(142, 233, 215)",
+      "backgrounds": [
+        "rgb(25, 60, 51)"
+      ],
+      "outerBackgrounds": [
+        "rgb(11, 16, 22)"
+      ],
+      "outer": "rgb(11, 16, 22)",
+      "background": "rgb(25, 60, 51)",
+      "border": "rgb(120, 228, 206)",
+      "outline": "rgb(142, 233, 215)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "selected": true,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "ratios": [
+        8.520391856629976
+      ],
+      "minimum": 8.520391856629976,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "task radio keyboard focus",
+      "mode": "focus",
+      "color": "rgb(142, 233, 215)",
+      "backgrounds": [
+        "rgb(25, 60, 51)"
+      ],
+      "outerBackgrounds": [
+        "rgb(11, 16, 22)"
+      ],
+      "outer": "rgb(11, 16, 22)",
+      "background": "rgb(25, 60, 51)",
+      "border": "rgb(120, 228, 206)",
+      "outline": "rgb(177, 245, 231)",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "selected": true,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "visibleOutline": true,
+      "ratios": [
+        15.53214150476735
+      ],
+      "minimum": 15.53214150476735,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "unselected task label",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outerBackgrounds": [
+        "rgb(11, 16, 22)"
+      ],
+      "outer": "rgb(11, 16, 22)",
+      "background": "rgb(18, 26, 35)",
+      "border": "rgb(42, 57, 73)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "selected": false,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "ratios": [
+        15.566587119607448
+      ],
+      "minimum": 15.566587119607448,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "unselected task hover",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(33, 48, 62)"
+      ],
+      "outerBackgrounds": [
+        "rgb(11, 16, 22)"
+      ],
+      "outer": "rgb(11, 16, 22)",
+      "background": "rgb(33, 48, 62)",
+      "border": "rgb(42, 57, 73)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "selected": false,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "ratios": [
+        11.974788313369507
+      ],
+      "minimum": 11.974788313369507,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "selected task border",
+      "mode": "border",
+      "color": "rgb(142, 233, 215)",
+      "backgrounds": [
+        "rgb(25, 60, 51)"
+      ],
+      "outerBackgrounds": [
+        "rgb(11, 16, 22)"
+      ],
+      "outer": "rgb(11, 16, 22)",
+      "background": "rgb(25, 60, 51)",
+      "border": "rgb(120, 228, 206)",
+      "outline": "rgb(142, 233, 215)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "selected": true,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "ratios": [
+        7.944321083965703,
+        12.534619446263969
+      ],
+      "minimum": 7.944321083965703,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "source attribution",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(26, 37, 49)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 37, 49)"
+      ],
+      "outer": "rgb(26, 37, 49)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "ratios": [
+        7.929919395322881
+      ],
+      "minimum": 7.929919395322881,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "image comparison focus",
+      "mode": "focus",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(42, 57, 73)",
+      "outline": "rgb(177, 245, 231)",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "visibleOutline": true,
+      "ratios": [
+        11.901024172637754,
+        14.077267862808194,
+        14.077267862808194
+      ],
+      "minimum": 11.901024172637754,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "image comparison toolbar",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outer": "rgb(13, 22, 31)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "ratios": [
+        9.315563070022215
+      ],
+      "minimum": 9.315563070022215,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "motion disabled state",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(26, 37, 49)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 43, 50)",
+        "rgb(16, 28, 36)",
+        "rgb(16, 28, 36)"
+      ],
+      "outer": "rgb(16, 28, 36)",
+      "background": "rgb(26, 37, 49)",
+      "border": "rgb(102, 125, 146)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "0.8",
+      "disabled": true,
+      "ariaInvalid": null,
+      "fontSize": "10.24px",
+      "fontWeight": "400",
+      "ratios": [
+        13.781388514829867
+      ],
+      "minimum": 13.781388514829867,
+      "threshold": 4.5,
+      "pass": "disabled exemption"
+    },
+    {
+      "name": "terminal command",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outer": "rgb(13, 22, 31)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(237, 242, 247)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "ratios": [
+        16.18949544154227
+      ],
+      "minimum": 16.18949544154227,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "terminal secondary",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outer": "rgb(13, 22, 31)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "11px",
+      "fontWeight": "400",
+      "ratios": [
+        9.315563070022215
+      ],
+      "minimum": 9.315563070022215,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "reading body",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "15.36px",
+      "fontWeight": "400",
+      "ratios": [
+        8.957136719999243
+      ],
+      "minimum": 8.957136719999243,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "code block foreground",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(237, 242, 247)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "ratios": [
+        16.18949544154227
+      ],
+      "minimum": 16.18949544154227,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "sidebar link",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(26, 37, 49)"
+      ],
+      "outerBackgrounds": [
+        "rgb(26, 37, 49)"
+      ],
+      "outer": "rgb(26, 37, 49)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "12.96px",
+      "fontWeight": "400",
+      "ratios": [
+        7.929919395322881
+      ],
+      "minimum": 7.929919395322881,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "input text",
+      "mode": "text",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(102, 125, 146)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": "false",
+      "fontSize": "17.92px",
+      "fontWeight": "400",
+      "ratios": [
+        16.18949544154227
+      ],
+      "minimum": 16.18949544154227,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "input boundary",
+      "mode": "border",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(102, 125, 146)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": "false",
+      "fontSize": "17.92px",
+      "fontWeight": "400",
+      "ratios": [
+        4.2664115987128115,
+        4.1022568046839565
+      ],
+      "minimum": 4.1022568046839565,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "input keyboard focus",
+      "mode": "focus",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(102, 125, 146)",
+      "outline": "rgb(177, 245, 231)",
+      "outlineStyle": "solid",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": "false",
+      "fontSize": "17.92px",
+      "fontWeight": "400",
+      "visibleOutline": true,
+      "ratios": [
+        14.263684916759358
+      ],
+      "minimum": 14.263684916759358,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "quote total label",
+      "mode": "text",
+      "color": "rgb(173, 187, 201)",
+      "backgrounds": [
+        "rgb(25, 60, 51)"
+      ],
+      "outerBackgrounds": [
+        "rgb(25, 60, 51)"
+      ],
+      "outer": "rgb(25, 60, 51)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 187, 201)",
+      "outline": "rgb(173, 187, 201)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "12.64px",
+      "fontWeight": "400",
+      "ratios": [
+        6.181792743546762
+      ],
+      "minimum": 6.181792743546762,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "invalid input boundary",
+      "mode": "border",
+      "color": "rgb(237, 242, 247)",
+      "backgrounds": [
+        "rgb(13, 22, 31)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(13, 22, 31)",
+      "border": "rgb(241, 165, 181)",
+      "outline": "rgb(237, 242, 247)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": "true",
+      "fontSize": "17.92px",
+      "fontWeight": "400",
+      "ratios": [
+        9.368582856605784,
+        9.008116513032094
+      ],
+      "minimum": 9.008116513032094,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "name": "error explanation",
+      "mode": "text",
+      "color": "rgb(241, 165, 181)",
+      "backgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(241, 165, 181)",
+      "outline": "rgb(241, 165, 181)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "1",
+      "disabled": false,
+      "ariaInvalid": null,
+      "fontSize": "13.12px",
+      "fontWeight": "400",
+      "ratios": [
+        9.008116513032094
+      ],
+      "minimum": 9.008116513032094,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "name": "disabled download",
+      "mode": "text",
+      "color": "rgb(9, 37, 31)",
+      "backgrounds": [
+        "rgb(120, 228, 206)"
+      ],
+      "outerBackgrounds": [
+        "rgb(18, 26, 35)"
+      ],
+      "outer": "rgb(18, 26, 35)",
+      "background": "rgb(120, 228, 206)",
+      "border": "rgba(195, 195, 195, 0.3)",
+      "outline": "rgb(9, 37, 31)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "opacity": "0.55",
+      "disabled": true,
+      "ariaInvalid": null,
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "ratios": [
+        10.638055450606695
+      ],
+      "minimum": 10.638055450606695,
+      "threshold": 4.5,
+      "pass": "disabled exemption"
+    }
+  ]
+}

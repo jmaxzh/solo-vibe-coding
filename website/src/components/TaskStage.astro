@@ -6,7 +6,6 @@ interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = OUTCOME_UI[locale];
 const outcomes = OUTCOMES[locale];
-const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf', growth: '#e8e9fb' };
 ---
 <section class="task-stage" id="why-skill" aria-labelledby="stage-title" data-task-stage>
   <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><p>{ui.stageDescription}</p></div>
@@ -16,7 +15,7 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
     <div class="task-options">
       {outcomes.map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><small class="task-number" aria-hidden="true">0{index + 1}</small><span>{outcome.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
     </div>
-    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id} style={'--case-surface:' + themes[outcome.id]}>
+    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id}>
       <div class="task-panel-top">
         <div class="task-context">
           <p class="task-goal"><span>{ui.goal}</span>{outcome.goal}</p>
@@ -42,45 +41,45 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
   .stage-heading > p { color: var(--muted); font-size: .86rem; max-width: 35ch; line-height: 1.85; }
   fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
   .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; margin-bottom: 20px; }
-  .task-options label { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 20px 24px; gap: 14px; cursor: pointer; background: #ebece5; border-radius: 16px; color: #28343e; min-width: 0; }
+  .task-options label { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 20px 24px; gap: 14px; cursor: pointer; background: var(--surface); border-radius: 16px; color: var(--ink); min-width: 0; border: 1px solid var(--line); }
   .task-number { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; opacity: .8; }
   .task-options label > span { font-size: .87rem; font-weight: 650; text-align: center; line-height: 1.6; }
   .task-options label > svg { position: absolute; top: 17px; right: 17px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; opacity: .7; }
-  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { background: #17212e; color: #fffefa; }
-  .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2457f5; outline-offset: 4px; }
-  .task-panel { display: none; background: #fffef9; border-radius: 22px; overflow: hidden; border: 1px solid #dfe1d9; }
+  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { background: var(--selected); color: var(--accent-ink); border-color: var(--accent); }
+  .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid var(--focus); outline-offset: 4px; }
+  .task-panel { display: none; background: var(--surface); border-radius: 22px; overflow: hidden; border: 1px solid var(--line); }
   .task-stage:has(input[value="development"]:checked) [data-outcome="development"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"], .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"] { display: block; }
   .task-panel-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .task-context { padding: 42px 40px; align-self: center; }
-  .task-goal { font-size: .8rem; line-height: 1.85; color: #525e68; }
-  .task-goal > span { display: block; color: #65707b; font-size: .71rem; margin-bottom: 7px; }
+  .task-goal { font-size: .8rem; line-height: 1.85; color: var(--muted); }
+  .task-goal > span { display: block; color: var(--muted); font-size: .71rem; margin-bottom: 7px; }
   .task-context h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 22px; font-weight: 700; }
-  .task-situation { color: #56616b; font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
+  .task-situation { color: var(--muted); font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
   .case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; }
-  .task-start { display: inline-flex; align-items: center; gap: 22px; background: #17212e; color: #fffefa; text-decoration: none; border-radius: 8px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
-  .task-start:hover { background: #2d435a; }
+  .task-start { display: inline-flex; align-items: center; gap: 22px; background: var(--accent); color: var(--on-accent); text-decoration: none; border-radius: 8px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+  .task-start:hover { background: var(--accent-hover); }
   .task-start:active { transform: scale(.97); }
   .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
-  .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
-  .discussion-link:hover { color: #183dba; }
-  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 20px 28px 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: .72rem; text-decoration: none; border-bottom: 1px solid var(--line); padding-block: 4px; }
+  .discussion-link:hover { color: var(--accent-ink); }
+  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--raised); padding: 20px 28px 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
   figcaption { position: relative; text-align: left; padding-top: 2px; z-index: 1; }
-  figcaption > span { display: block; color: #56616b; font-size: .65rem; margin-bottom: 7px; }
+  figcaption > span { display: block; color: var(--muted); font-size: .65rem; margin-bottom: 7px; }
   figcaption > p { font-size: 1.43rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.4; }
-  figcaption > small { display: block; margin-top: 8px; font-size: .73rem; color: #53616b; line-height: 1.8; }
-  .task-help { padding: 28px 40px 31px; border-top: 1px solid #dfe1d9; }
-  h4 { margin: 0; font-size: .73rem; font-weight: 500; color: #5b6771; }
+  figcaption > small { display: block; margin-top: 8px; font-size: .73rem; color: var(--muted); line-height: 1.8; }
+  .task-help { padding: 28px 40px 31px; border-top: 1px solid var(--line); }
+  h4 { margin: 0; font-size: .73rem; font-weight: 500; color: var(--muted); }
   .task-help ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; list-style: none; padding: 0; margin-top: 17px; }
   h5 { margin: 0; font-size: .95rem; line-height: 1.6; font-weight: 650; }
-  .task-help li > p { color: #58656e; font-size: .82rem; line-height: 1.95; margin-top: 9px; }
-  .task-delivery { display: flex; align-items: baseline; gap: 29px; padding: 20px 40px; background: #edf1e5; }
-  .task-delivery h4 { color: #465640; flex: none; }
-  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 23px; list-style: none; padding: 0; font-size: .75rem; color: #35472d; }
+  .task-help li > p { color: var(--muted); font-size: .82rem; line-height: 1.95; margin-top: 9px; }
+  .task-delivery { display: flex; align-items: baseline; gap: 29px; padding: 20px 40px; background: var(--raised); }
+  .task-delivery h4 { color: var(--muted); flex: none; }
+  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 23px; list-style: none; padding: 0; font-size: .75rem; color: var(--muted); }
   .task-delivery li { display: flex; align-items: center; gap: 8px; }
-  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #537b34; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: var(--success); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   @media (hover: hover) and (pointer: fine) {
-    .task-options label:hover { background: #e0e5ed; }
-    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { background: #23354b; }
+    .task-options label:hover { background: var(--surface-hover); }
+    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { background: var(--selected); }
   }
   @media (max-width: 1100px) {
     .task-options { gap: 11px; }

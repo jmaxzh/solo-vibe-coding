@@ -1,0 +1,110 @@
+[
+  {
+    "path": "website/src/data/outcomes.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/data/site.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/data/posts.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/data/case-study.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/data/case-evidence.ts",
+    "same": true
+  },
+  {
+    "path": "website/public/media/video-call.webp",
+    "same": true
+  },
+  {
+    "path": "website/public/media/design-after.webp",
+    "same": true
+  },
+  {
+    "path": "website/public/media/login.webp",
+    "same": true
+  },
+  {
+    "path": "website/public/media/design-before.webp",
+    "same": true
+  },
+  {
+    "path": "website/public/media/app-mobile.webp",
+    "same": true
+  },
+  {
+    "path": "website/public/licenses/manrope-OFL.txt",
+    "same": true
+  },
+  {
+    "path": "website/public/licenses/ibm-plex-mono-OFL.txt",
+    "same": true
+  },
+  {
+    "path": "website/public/licenses/big-js-MIT.txt",
+    "same": true
+  },
+  {
+    "path": "website/public/licenses/visual-assets.txt",
+    "same": true
+  },
+  {
+    "path": "website/src/styles/vendor/devices.css",
+    "same": true
+  },
+  {
+    "path": "website/package.json",
+    "same": true
+  },
+  {
+    "path": "website/package-lock.json",
+    "same": true
+  },
+  {
+    "path": "website/tests/website.spec.ts",
+    "same": true
+  },
+  {
+    "path": "website/playwright.config.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/components/DeviceMockup.astro",
+    "same": true
+  },
+  {
+    "path": "website/src/lib/quote.ts",
+    "same": true
+  },
+  {
+    "path": "website/src/components/Terminal.astro#script",
+    "same": true
+  },
+  {
+    "path": "website/src/components/WebsiteMotion.astro#script",
+    "same": true
+  },
+  {
+    "path": "website/src/components/ImageCompare.astro#script",
+    "same": true
+  },
+  {
+    "path": "website/src/components/GettingStarted.astro#script",
+    "same": true
+  },
+  {
+    "path": "website/src/components/QuoteCalculator.astro#script",
+    "same": true
+  },
+  {
+    "path": "website/src/layouts/Layout.astro#script",
+    "same": true
+  }
+]

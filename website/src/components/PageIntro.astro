@@ -18,23 +18,23 @@ const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按�
 </header>
 
 <style>
-  .brand-intro { display: block; max-width: none; background: var(--blue); color: #fffefa; border-radius: var(--radius-panel); padding: 43px 40px; margin-bottom: 38px; overflow: hidden; }
+  .brand-intro { display: block; max-width: none; background: var(--hero-surface); color: var(--ink); border-radius: var(--radius-panel); padding: 43px 40px; margin-bottom: 38px; overflow: hidden; background-image: linear-gradient(135deg, var(--hero-light), var(--hero-surface) 64%); border: 1px solid var(--line); }
   .brand-intro.illustrated { display: grid; grid-template-columns: 1.15fr 1fr; gap: 43px; align-items: center; }
   .intro-copy { min-width: 0; }
-  .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: #e4ecff; font-size: 9px; letter-spacing: .08em; margin-bottom: 21px; }
-  .intro-kicker > span:last-child { color: #daf29b; border-left: 1px solid #7c9cfa; padding-left: 15px; }
+  .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: var(--muted); font-size: 9px; letter-spacing: .08em; margin-bottom: 21px; }
+  .intro-kicker > span:last-child { color: var(--accent-ink); border-left: 1px solid var(--line); padding-left: 15px; }
   .intro-copy h1 { font-size: clamp(2.2rem, 3.2vw, 3.05rem); line-height: 1.25; letter-spacing: -.035em; max-width: 24ch; font-weight: 750; }
   .intro-copy h1 > span { display: block; }
-  .intro-copy > p:not(.intro-kicker) { max-width: 60ch; color: #eef2ff; font-size: .95rem; line-height: 1.9; margin-top: 20px; }
-  .intro-copy :global(p) { color: #eef2ff; }
-  .intro-copy :global(a) { color: #fffefa; }
-  .intro-copy :global(a:focus-visible), .intro-reference :global(a:focus-visible) { outline-color: #fffefa; }
-  .intro-copy :global(.text-link) { margin-top: 20px; border-color: #d4e1ff; font-size: .78rem; }
-  .intro-copy :global(.article-meta) { color: #e9efff; margin-top: 22px; }
+  .intro-copy > p:not(.intro-kicker) { max-width: 60ch; color: var(--muted); font-size: .95rem; line-height: 1.9; margin-top: 20px; }
+  .intro-copy :global(p) { color: var(--muted); }
+  .intro-copy :global(a) { color: var(--ink); }
+  .intro-copy :global(a:focus-visible), .intro-reference :global(a:focus-visible) { outline-color: var(--focus); }
+  .intro-copy :global(.text-link) { margin-top: 20px; border-color: var(--line); font-size: .78rem; }
+  .intro-copy :global(.article-meta) { color: var(--muted); margin-top: 22px; }
   .intro-reference { min-width: 0; }
   .intro-reference figure { margin: 0; }
   .call-image { display: block; width: 100%; height: auto; }
-  .intro-reference figcaption { margin-top: 16px; font-size: 10px; color: #e4ecff; text-align: center; }
+  .intro-reference figcaption { margin-top: 16px; font-size: 10px; color: var(--muted); text-align: center; }
   @media (max-width: 1100px) { .brand-intro { padding: 34px; } .brand-intro.illustrated { gap: 30px; } }
   @media (max-width: 800px) { .brand-intro, .brand-intro.illustrated { grid-template-columns: 1fr; padding: 32px; gap: 30px; } .intro-copy h1 { max-width: 28ch; } .intro-reference { width: 100%; max-width: 480px; } }
   @media (max-width: 480px) { .brand-intro, .brand-intro.illustrated { padding: 27px 23px; border-radius: 18px; margin-bottom: 27px; gap: 24px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .86rem; margin-top: 17px; } .intro-kicker { font-size: 8px; margin-bottom: 18px; } .intro-reference figcaption { font-size: 9px; } }
