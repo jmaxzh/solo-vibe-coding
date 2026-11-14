@@ -1,0 +1,585 @@
+{
+  "checked_at": "2026-11-14T03:32:54.091171+00:00",
+  "source_commit": "70bad65db63a650fab6ab6b9c6525592f447b416",
+  "run_id": 43551891039,
+  "files": 44,
+  "matched": 44,
+  "local_ci_matches": 44,
+  "results": [
+    {
+      "path": "index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/",
+      "status": 200,
+      "size": 45706,
+      "expected_sha256": "07454e6d73ea039651353f05386249240be2e30166eb1b86e691d0d25a753b16",
+      "response_sha256": "07454e6d73ea039651353f05386249240be2e30166eb1b86e691d0d25a753b16",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "social-card.png",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/social-card.png",
+      "status": 200,
+      "size": 42105,
+      "expected_sha256": "94063c33872bca31db69bca51d8bb7e2e1a585d49f32ce3fed37089ac4f2f4b5",
+      "response_sha256": "94063c33872bca31db69bca51d8bb7e2e1a585d49f32ce3fed37089ac4f2f4b5",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "social-card.svg",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/social-card.svg",
+      "status": 200,
+      "size": 1320,
+      "expected_sha256": "9509975bb8ef4a980745d25ea6c232417065574603dd716b834aa4fc4ee15046",
+      "response_sha256": "9509975bb8ef4a980745d25ea6c232417065574603dd716b834aa4fc4ee15046",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "sitemap-0.xml",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/sitemap-0.xml",
+      "status": 200,
+      "size": 1688,
+      "expected_sha256": "8dde3aa1ca7a11a2007bfed4a659f85a71eb8f325b4d590aef5a4dc2337918fb",
+      "response_sha256": "8dde3aa1ca7a11a2007bfed4a659f85a71eb8f325b4d590aef5a4dc2337918fb",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "404.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/404.html",
+      "status": 200,
+      "size": 4489,
+      "expected_sha256": "f19a9006b31d32e08ac09441afe1d1f6b2b75a1801c5874381cf3d3ae308497e",
+      "response_sha256": "f19a9006b31d32e08ac09441afe1d1f6b2b75a1801c5874381cf3d3ae308497e",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "sitemap-index.xml",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/sitemap-index.xml",
+      "status": 200,
+      "size": 204,
+      "expected_sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f",
+      "response_sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "favicon.svg",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/favicon.svg",
+      "status": 200,
+      "size": 266,
+      "expected_sha256": "3ed9996171750fda229af14af9de364f85bfd84d2914dfb1812c13f2aa6f5d11",
+      "response_sha256": "3ed9996171750fda229af14af9de364f85bfd84d2914dfb1812c13f2aa6f5d11",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "build-log/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/",
+      "status": 200,
+      "size": 6563,
+      "expected_sha256": "466f75843315696c715609715d02b64d3bd43cf65eb1b9075c0ddf27aa68a51d",
+      "response_sha256": "466f75843315696c715609715d02b64d3bd43cf65eb1b9075c0ddf27aa68a51d",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "licenses/manrope-OFL.txt",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/licenses/manrope-OFL.txt",
+      "status": 200,
+      "size": 4383,
+      "expected_sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30",
+      "response_sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "licenses/ibm-plex-mono-OFL.txt",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/licenses/ibm-plex-mono-OFL.txt",
+      "status": 200,
+      "size": 5299,
+      "expected_sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+      "response_sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "licenses/big-js-MIT.txt",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/licenses/big-js-MIT.txt",
+      "status": 200,
+      "size": 1120,
+      "expected_sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932",
+      "response_sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "licenses/visual-assets.txt",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/licenses/visual-assets.txt",
+      "status": 200,
+      "size": 18854,
+      "expected_sha256": "ab95eaa2f9c5128343d659d1b5ad38d5346beb933f1f88e8a6660300ffda8607",
+      "response_sha256": "ab95eaa2f9c5128343d659d1b5ad38d5346beb933f1f88e8a6660300ffda8607",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/",
+      "status": 200,
+      "size": 45325,
+      "expected_sha256": "63085c45c4c373cd2fedbe44d588b029d0885ec60ee8da45288b08cfb693cc89",
+      "response_sha256": "63085c45c4c373cd2fedbe44d588b029d0885ec60ee8da45288b08cfb693cc89",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "getting-started/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/getting-started/",
+      "status": 200,
+      "size": 30113,
+      "expected_sha256": "0fee66e1ec79c10c3836aa8b130c9e666ca38664addaf0be08aa3e452773df9f",
+      "response_sha256": "0fee66e1ec79c10c3836aa8b130c9e666ca38664addaf0be08aa3e452773df9f",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "guides/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/guides/",
+      "status": 200,
+      "size": 28721,
+      "expected_sha256": "d8617f0f178392e43f8fbf5ee8d38b4ca2e7a9227b0112915a71230c0c4df7ea",
+      "response_sha256": "d8617f0f178392e43f8fbf5ee8d38b4ca2e7a9227b0112915a71230c0c4df7ea",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/PageIntro.CL3OX0oq.css",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/PageIntro.CL3OX0oq.css",
+      "status": 200,
+      "size": 41481,
+      "expected_sha256": "bc048f55fd3e8f0ae560c7b3721c244754c46161372a7ea4766aa17b91288667",
+      "response_sha256": "bc048f55fd3e8f0ae560c7b3721c244754c46161372a7ea4766aa17b91288667",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.HqtRVCa7.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/Layout.astro_astro_type_script_index_0_lang.HqtRVCa7.js",
+      "status": 200,
+      "size": 1197,
+      "expected_sha256": "c54ecfaa8ea669dbb9351e3b5bdf6f3b31eacb74494ee2204a856306755d7985",
+      "response_sha256": "c54ecfaa8ea669dbb9351e3b5bdf6f3b31eacb74494ee2204a856306755d7985",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/_..De7Vcrjb.css",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/_..De7Vcrjb.css",
+      "status": 200,
+      "size": 34383,
+      "expected_sha256": "661441a68bde32f51403eef031cf962c7e7dc28b80c345a60851d7c8f6007e42",
+      "response_sha256": "661441a68bde32f51403eef031cf962c7e7dc28b80c345a60851d7c8f6007e42",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "size": 24836,
+      "expected_sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "response_sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/WebsiteMotion.astro_astro_type_script_index_0_lang.BbiUA3-x.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/WebsiteMotion.astro_astro_type_script_index_0_lang.BbiUA3-x.js",
+      "status": 200,
+      "size": 671,
+      "expected_sha256": "9551cc2727a9beb17aaf3de8240dbce61a82a46840eb26ff192802131c83623e",
+      "response_sha256": "9551cc2727a9beb17aaf3de8240dbce61a82a46840eb26ff192802131c83623e",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "size": 14708,
+      "expected_sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "response_sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "status": 200,
+      "size": 9601,
+      "expected_sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a",
+      "response_sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/Terminal.astro_astro_type_script_index_0_lang.D40Cr6lA.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/Terminal.astro_astro_type_script_index_0_lang.D40Cr6lA.js",
+      "status": 200,
+      "size": 860,
+      "expected_sha256": "fe7cf95a5fcf56968898c3c9b8439e8ba79b1a27a2b19a00ebf9d24a516926b2",
+      "response_sha256": "fe7cf95a5fcf56968898c3c9b8439e8ba79b1a27a2b19a00ebf9d24a516926b2",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/GettingStarted.astro_astro_type_script_index_0_lang.COdBBO_3.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/GettingStarted.astro_astro_type_script_index_0_lang.COdBBO_3.js",
+      "status": 200,
+      "size": 724,
+      "expected_sha256": "19f115979ab36f64243aa4f5c4befa738fa813a9f193a3d82a24dfe02e54b98f",
+      "response_sha256": "19f115979ab36f64243aa4f5c4befa738fa813a9f193a3d82a24dfe02e54b98f",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "_astro/ImageCompare.astro_astro_type_script_index_0_lang.Cmh9MshG.js",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/ImageCompare.astro_astro_type_script_index_0_lang.Cmh9MshG.js",
+      "status": 200,
+      "size": 391,
+      "expected_sha256": "be947b328d68087e69985f7dcbefca4f469087694e28a73c6bb7573dae85f359",
+      "response_sha256": "be947b328d68087e69985f7dcbefca4f469087694e28a73c6bb7573dae85f359",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "case-study/bookmarks-round-1.png",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmarks-round-1.png",
+      "status": 200,
+      "size": 71227,
+      "expected_sha256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91",
+      "response_sha256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "case-study/bookmarks-round-2.png",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmarks-round-2.png",
+      "status": 200,
+      "size": 59632,
+      "expected_sha256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94",
+      "response_sha256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "case-study/bookmark-starter.zip",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-starter.zip",
+      "status": 200,
+      "size": 4595,
+      "expected_sha256": "e3c0f346b08271a97435f23a765ab3bf44e7e8791ebb1c6e5fe7d224f0369e84",
+      "response_sha256": "e3c0f346b08271a97435f23a765ab3bf44e7e8791ebb1c6e5fe7d224f0369e84",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "media/video-call.webp",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/video-call.webp",
+      "status": 200,
+      "size": 36432,
+      "expected_sha256": "922e88a1c6daa291c28e6df809b8959d2c29a437825133a810ccff070a6c41a5",
+      "response_sha256": "922e88a1c6daa291c28e6df809b8959d2c29a437825133a810ccff070a6c41a5",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "media/design-after.webp",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/design-after.webp",
+      "status": 200,
+      "size": 55526,
+      "expected_sha256": "f1acecbb41daf6ba4e4022e51a5259b7b7dd70947137c489c1b58113e7d106fc",
+      "response_sha256": "f1acecbb41daf6ba4e4022e51a5259b7b7dd70947137c489c1b58113e7d106fc",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "media/login.webp",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/login.webp",
+      "status": 200,
+      "size": 6824,
+      "expected_sha256": "15c90468bf6135418068f6d1e28ee60e5d4db1a76d21383ffa15013242202215",
+      "response_sha256": "15c90468bf6135418068f6d1e28ee60e5d4db1a76d21383ffa15013242202215",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "media/design-before.webp",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/design-before.webp",
+      "status": 200,
+      "size": 20146,
+      "expected_sha256": "ff67b31493f01283e161f2e68cf4a7c6c73837d386e764a74b1b11633fdef240",
+      "response_sha256": "ff67b31493f01283e161f2e68cf4a7c6c73837d386e764a74b1b11633fdef240",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "media/app-mobile.webp",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/app-mobile.webp",
+      "status": 200,
+      "size": 17608,
+      "expected_sha256": "b5e5439600a410ec7421d5e17bfca41275900b06358203c72f9d1b039c85f9d5",
+      "response_sha256": "b5e5439600a410ec7421d5e17bfca41275900b06358203c72f9d1b039c85f9d5",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "case-study/bookmark-export/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-export/",
+      "status": 200,
+      "size": 18905,
+      "expected_sha256": "e363b06e17966dcfba591390788973fec3cc0fac2f80c88c2d7ff3250993f7b0",
+      "response_sha256": "e363b06e17966dcfba591390788973fec3cc0fac2f80c88c2d7ff3250993f7b0",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "examples/quote-calculator/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/",
+      "status": 200,
+      "size": 11730,
+      "expected_sha256": "a54b27629458cf385dbbfa8713814835c62c9876fe9d57798056e885cd60b10b",
+      "response_sha256": "a54b27629458cf385dbbfa8713814835c62c9876fe9d57798056e885cd60b10b",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/build-log/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/",
+      "status": 200,
+      "size": 6650,
+      "expected_sha256": "024e13c61f1fa552928c8ad44303127cf02940f37e838dc58792ded37028bce7",
+      "response_sha256": "024e13c61f1fa552928c8ad44303127cf02940f37e838dc58792ded37028bce7",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/getting-started/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/",
+      "status": 200,
+      "size": 29794,
+      "expected_sha256": "ac3a8bd291420c4ab4729a94b4ac91679207ab150f4058561dcb352be71729f3",
+      "response_sha256": "ac3a8bd291420c4ab4729a94b4ac91679207ab150f4058561dcb352be71729f3",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/guides/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/guides/",
+      "status": 200,
+      "size": 28142,
+      "expected_sha256": "dd27924a665b2060b0c7322813e88bdd708fe79ee3e5a30a636709859378257c",
+      "response_sha256": "dd27924a665b2060b0c7322813e88bdd708fe79ee3e5a30a636709859378257c",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/case-study/bookmark-export/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/case-study/bookmark-export/",
+      "status": 200,
+      "size": 18308,
+      "expected_sha256": "cbd16906fcbfc627abf5b79a691b4b130c385e52504aa1f63675fe442b49395a",
+      "response_sha256": "cbd16906fcbfc627abf5b79a691b4b130c385e52504aa1f63675fe442b49395a",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/examples/quote-calculator/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/",
+      "status": 200,
+      "size": 11807,
+      "expected_sha256": "062b2b1e3a71754995280cced7a7ddac5f15e5a24a5e8f51a16b44a756b205a2",
+      "response_sha256": "062b2b1e3a71754995280cced7a7ddac5f15e5a24a5e8f51a16b44a756b205a2",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/build-log/working-methods/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/working-methods/",
+      "status": 200,
+      "size": 8453,
+      "expected_sha256": "aa5d182bbb496a2a314ad55f043f0c00f144d895b95a2b4d8f310e1e0ce67153",
+      "response_sha256": "aa5d182bbb496a2a314ad55f043f0c00f144d895b95a2b4d8f310e1e0ce67153",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "zh-CN/build-log/first-public-build/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/first-public-build/",
+      "status": 200,
+      "size": 8357,
+      "expected_sha256": "34ceb3dcc4e90ef979a8e37073e8595257ca4ed0b2373f4d953774d57e776847",
+      "response_sha256": "34ceb3dcc4e90ef979a8e37073e8595257ca4ed0b2373f4d953774d57e776847",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "build-log/working-methods/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/working-methods/",
+      "status": 200,
+      "size": 8502,
+      "expected_sha256": "339da5e3fa2008c1cd21ed15cc456ec2ce9b37a8d8f52d185a3a29e9844f50db",
+      "response_sha256": "339da5e3fa2008c1cd21ed15cc456ec2ce9b37a8d8f52d185a3a29e9844f50db",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    },
+    {
+      "path": "build-log/first-public-build/index.html",
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/first-public-build/",
+      "status": 200,
+      "size": 8569,
+      "expected_sha256": "43ba452b58e593ad9b165d85346168c5df87190d7287871dfabc5863fff10c72",
+      "response_sha256": "43ba452b58e593ad9b165d85346168c5df87190d7287871dfabc5863fff10c72",
+      "matches": true,
+      "local_matches_ci": true,
+      "attempts": [
+        "match"
+      ]
+    }
+  ],
+  "root_robots": {
+    "status": 404
+  }
+}

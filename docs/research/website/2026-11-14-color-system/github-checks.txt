@@ -1,0 +1,5 @@
+Website checks	Install locked dependencies	2026-11-14T03:29:38.2318974Z found 0 vulnerabilities
+Website checks	Check types, build, and verify generated pages	2026-11-14T03:29:41.2827321Z Result (31 files):
+Website checks	Check types, build, and verify generated pages	2026-11-14T03:29:42.2901398Z Verified 17 HTML pages, 17 sitemap URLs, all local links and anchors, language pairs, metadata and structured data.
+Website checks	Check types, build, and verify generated pages	2026-11-14T03:29:42.2902441Z JavaScript: 13.1 KiB; complete website: 777.6 KiB.
+Website checks	Verify interactions, accessibility, and mobile layouts	2026-11-14T03:30:53.1017081Z   38 passed (57.3s)
