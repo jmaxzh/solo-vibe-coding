@@ -54,7 +54,7 @@ const copy = zh ? {
 };
 const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 0 0 8 0V8M12 12v8', 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h.01M10 7h.01', 'M5 16a4 4 0 0 1 0-8 6 6 0 0 1 12-1 4.5 4.5 0 0 1 2 9M12 20V10m-4 4 4-4 4 4', 'M4 20V10m8 10V4m8 16v-7M2 20h20'];
 ---
-<div class="cobalt-home">
+<div class="prism-home">
   <Hero locale={locale} />
   <div class="method-ribbon" aria-hidden="true"><div class="ribbon-track">{[0, 1].map(() => <span>DESIGN <i>✳</i> BUILD <i>✳</i> DEBUG <i>✳</i> SHIP <i>✳</i> LAUNCH <i>✳</i></span>)}</div></div>
   <section class="experience-section" aria-labelledby="experience-title">
@@ -108,134 +108,138 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
 <HomeInteractions />
 
 <style>
-  .cobalt-home { --home-space: 100px; overflow: clip; }
-  .home-section, .install-section, .more-tasks { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
+  .prism-home { --home-space: 96px; overflow: clip; }
+  .home-section, .experience-section, .install-section, .more-tasks { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
   .home-section { padding-block: var(--home-space); }
-  .method-ribbon { background: #182fc4; color: #f4f1e8; padding-block: 25px; overflow: hidden; border-block: 1px solid #182fc4; }
+  .method-ribbon { padding-block: 19px; border-block: 1px solid #3c4f46; background: #0d1310; overflow: hidden; transform: none; margin-block: 0 44px; }
   .ribbon-track { display: flex; width: max-content; }
-  .ribbon-track > span { display: flex; align-items: center; gap: 38px; padding-right: 38px; font-size: clamp(30px, 3.5vw, 52px); line-height: 1; font-weight: 650; letter-spacing: -.05em; white-space: nowrap; }
-  .ribbon-track i { font-size: 30px; color: #ff9776; font-style: normal; }
-  .experience-section { background: #182fc4; padding: 65px max(56px, calc((100% - 1280px) / 2)) 80px; color: #f8f4e9; }
+  .ribbon-track > span { display: flex; align-items: center; gap: 35px; padding-right: 35px; color: #e0f1e9; font: 12px/1 var(--mono); font-weight: 550; line-height: 1; letter-spacing: -.055em; white-space: nowrap; }
+  .ribbon-track i { color: #c2abe5; font-size: 17px; font-style: normal; }
+  .experience-section { padding-block: 40px 80px; }
   .experience-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0 80px; align-items: end; margin-bottom: 35px; }
-  .experience-heading .eyebrow { grid-column: 1 / -1; color: #e5e7ff; }
-  .experience-heading h2 { color: #fff9e9; font-size: 46px; max-width: 25ch; }
-  .experience-heading > p:last-child { color: #e1e5ff; font-size: 14px; line-height: 1.95; max-width: 46ch; justify-self: end; }
-  .section-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0 80px; align-items: end; }
-  .eyebrow { font: 10px/1.8 var(--mono); letter-spacing: .06em; color: #3447a0; margin-bottom: 24px; }
-  .eyebrow::before { content: '↳'; font-size: 17px; color: #b43215; margin-right: 10px; }
-  .experience-section .eyebrow::before { color: #ffb196; }
+  .experience-heading .eyebrow { grid-column: 1 / -1; }
+  .experience-heading h2 { max-width: 26ch; font-size: 40px; }
+  .experience-heading > p:last-child { color: #b4c5bd; font-size: 14px; line-height: 1.95; max-width: 44ch; justify-self: end; }
+  .section-intro { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0 65px; align-items: end; }
+  .eyebrow { color: #c5dcd1; font: 10px/1.8 var(--mono); letter-spacing: .12em; margin-bottom: 19px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 5px; height: 5px; background: #b7dfc5; border-radius: 50%; margin-right: 10px; vertical-align: middle; }
   .section-intro .eyebrow { grid-column: 1 / -1; }
-  h2 { color: #182fc4; font-size: clamp(35px, 3.9vw, 56px); line-height: 1.2; font-weight: 650; letter-spacing: -.06em; }
-  .section-intro h2 { max-width: 25ch; }
-  .section-intro > p:last-child { color: #545972; font-size: 14px; line-height: 1.95; max-width: 43ch; justify-self: end; }
-  .pain-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; border-top: 1px solid #949ac0; border-left: 1px solid #949ac0; }
-  .pain-card { position: relative; padding: 35px 37px 25px; border-right: 1px solid #949ac0; border-bottom: 1px solid #949ac0; background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), #5268df10, transparent 65%); display: flex; flex-direction: column; align-items: start; }
-  .pain-card-top { width: 100%; display: flex; align-items: start; justify-content: space-between; margin-bottom: 25px; }
-  .pain-icon { color: #182fc4; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #949ac0; }
-  .pain-icon svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-  .pain-index { text-align: right; }
-  .pain-index b { font: 50px/1 var(--mono); letter-spacing: -.1em; font-weight: 400; color: #182fc4; }
-  .pain-index small { display: block; font-size: 9px; color: #545972; margin-top: 10px; }
-  .pain-card h3 { font-size: 28px; line-height: 1.4; font-weight: 650; letter-spacing: -.045em; color: #182fc4; max-width: 26ch; }
-  .pain-situation { font-size: 14px; line-height: 1.95; color: #545972; margin-top: 17px; }
-  .pain-methods { width: 100%; margin-top: 23px; padding-top: 18px; border-top: 1px dashed #a7abc4; }
-  .pain-methods > p { font-size: 10px; color: #545972; }
-  .pain-methods ul { list-style: none; padding: 0; display: grid; gap: 9px; margin-top: 13px; }
-  .pain-methods li { font-size: 13px; line-height: 1.8; color: #333c66; }
-  .pain-methods li::before { content: '+'; color: #b43215; margin-right: 12px; }
-  .pain-actions { margin-top: auto; padding-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 25px; }
-  .text-link { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; color: #182fc4; font-size: 12px; font-weight: 650; text-decoration: none; }
-  .text-link > span { color: #b43215; font-size: 17px; }
+  h2 { color: #f0f6f3; font-size: clamp(30px, 3.2vw, 46px); font-weight: 600; letter-spacing: -.055em; line-height: 1.26; }
+  .section-intro h2 { max-width: 24ch; }
+  .section-intro > p:last-child { color: #b4c5bd; font-size: 14px; line-height: 1.95; max-width: 43ch; justify-self: end; }
+  .pain-section { border-top: 1px solid #374840; }
+  .pain-grid { display: grid; margin-top: 42px; border-top: 1px solid #43564d; }
+  .pain-card { display: grid; grid-template-columns: 100px minmax(0, 1.2fr) minmax(0, 1fr); gap: 13px 35px; position: relative; padding: 34px 25px; border-bottom: 1px solid #43564d; background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 50%), #344d4126, transparent 58%); }
+  .pain-card-top { display: flex; flex-direction: column; gap: 17px; grid-column: 1; grid-row: 1 / 4; align-items: start; }
+  .pain-icon { display: grid; place-items: center; color: #bddbcd; width: 29px; height: 29px; }
+  .pain-icon svg { width: 25px; height: 25px; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .pain-index b { display: block; color: #bbd3c7; font: 46px/1 var(--mono); letter-spacing: -.08em; font-weight: 400; }
+  .pain-index small { display: block; color: #a7bdb2; font-size: 9px; line-height: 1.8; margin-top: 15px; }
+  .pain-card h3 { grid-column: 2; color: #f3f7f5; font-size: 28px; line-height: 1.45; font-weight: 550; letter-spacing: -.045em; max-width: 24ch; }
+  .pain-situation { grid-column: 2; color: #b3c6bd; font-size: 13px; line-height: 1.95; }
+  .pain-methods { grid-column: 3; grid-row: 1 / 3; align-self: center; padding-left: 25px; border-left: 1px solid #3f5349; }
+  .pain-methods > p { font-size: 10px; color: #aac2b6; }
+  .pain-methods ul { display: grid; gap: 12px; list-style: none; padding: 0; margin-top: 17px; }
+  .pain-methods li { font-size: 13px; color: #dae9e2; line-height: 1.7; }
+  .pain-methods li::before { content: '↗'; color: #b8e8cc; margin-right: 10px; }
+  .pain-actions { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 8px 23px; align-items: center; margin-top: 5px; }
+  .text-link { display: inline-flex; align-items: center; gap: 13px; color: #e5f6ee; font-size: 12px; text-decoration: none; font-weight: 550; min-height: 44px; }
+  .text-link > span { color: #b5e6c7; transition: transform 200ms ease; }
   .text-link:hover { text-decoration: underline; }
-  .source-link { color: #545972; font-size: 11px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; }
-  .source-link:hover { text-decoration: underline; color: #182fc4; }
-  .source-note { color: #545972; font-size: 11px; line-height: 1.9; margin-top: 20px; max-width: 100ch; }
-  .interface-reference { width: 100%; border-top: 1px dashed #a7abc4; margin-top: 12px; }
-  .interface-reference summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #3447a0; font-size: 11px; cursor: pointer; }
-  .interface-reference summary::after { content: '+'; font-size: 22px; }
+  .text-link:hover > span { transform: translate(3px, -3px); }
+  .source-link { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 10px; color: #b9d0c5; text-decoration: none; }
+  .source-link:hover { color: #a9ddc4; text-decoration: underline; }
+  .source-note { margin-top: 22px; color: #a5bcb1; font-size: 11px; line-height: 1.9; max-width: 100ch; }
+  .interface-reference { grid-column: 2 / -1; border-top: 1px solid #3e5148; }
+  .interface-reference summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #c4dacf; font-size: 10px; cursor: pointer; }
+  .interface-reference summary::after { content: '+'; font-size: 18px; }
   .interface-reference[open] summary::after { content: '−'; }
-  .home-how { border-top: 1px solid #949ac0; }
-  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 42px; padding: 0; margin-top: 55px; list-style: none; counter-reset: steps; }
-  .how-steps li { border-top: 1px solid #949ac0; position: relative; padding-top: 28px; }
-  .step-index { display: block; color: #b43215; font: 98px/.95 var(--mono); letter-spacing: -.11em; margin-bottom: 28px; }
-  .how-steps h3 { color: #182fc4; font-size: 22px; line-height: 1.5; }
-  .how-steps p { color: #545972; font-size: 14px; line-height: 1.95; margin-top: 15px; }
-  .how-steps a { margin-top: 17px; }
-  .skill-source { display: inline-flex; align-items: center; min-height: 44px; color: #545972; font-size: 11px; margin-top: 30px; }
-  .evidence-section { border-top: 1px solid #949ac0; }
-  .evidence-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; margin-top: 50px; align-items: start; }
-  .evidence-card { min-width: 0; }
-  .case-image { background: #d9ddf0; padding: 30px 30px 18px; margin: 0; border: 1px solid #949ac0; }
-  .case-image a { display: block; }
-  .case-image img { display: block; width: 100%; height: auto; border: 1px solid #949ac0; box-shadow: 7px 7px 0 #b8bfde; }
-  .case-image figcaption { font-size: 10px; line-height: 1.85; color: #434d78; padding-top: 17px; }
-  .evidence-copy { padding: 28px 0; }
-  .content-label { color: #8e351e; font-size: 10px; letter-spacing: .02em; }
-  .evidence-copy h3 { color: #182fc4; font-size: 27px; line-height: 1.4; margin-top: 15px; }
-  .evidence-copy > p:not(.content-label) { color: #545972; font-size: 14px; line-height: 1.95; margin-top: 16px; }
-  .evidence-copy > .text-link { margin-top: 15px; }
-  .evidence-copy > p.evidence-limit { font-size: 11px; border-top: 1px dashed #a7abc4; padding-top: 16px; margin-top: 17px; }
-  .quote-visual { min-height: 335px; display: grid; align-items: center; padding: 37px; overflow: hidden; background-color: #182fc4; background-image: linear-gradient(#ffffff15 1px, transparent 1px), linear-gradient(90deg, #ffffff15 1px, transparent 1px); background-size: 32px 32px; }
-  .quote-sheet { background: #fffaf0; padding: 25px; border: 1px solid #d6d0c4; transform: rotate(4deg); box-shadow: 9px 12px 0 #081d8b; }
-  .quote-sheet-top { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; color: #182fc4; font-size: 13px; }
-  .quote-symbol { display: grid; place-items: center; width: 32px; height: 32px; background: #ff613d; color: #14215a; font-size: 22px; }
-  .quote-sheet-top small { display: block; font-size: 9px; line-height: 1.8; color: #545972; margin-top: 3px; }
-  .quote-file { margin-left: auto; color: #545972; font: 10px var(--mono); }
-  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #545972; font-size: 11px; margin-block: 13px; }
-  .quote-line strong { color: #333c66; font-size: 11px; font-weight: 500; }
-  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #949ac0; padding-top: 15px; margin-top: 17px; }
-  .sample-quote-total > span { font-size: 10px; color: #545972; }
-  .sample-quote-total strong { color: #182fc4; font-size: 28px; font-weight: 650; letter-spacing: -.06em; }
-  .install-section { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 65px; padding: 65px 50px; align-items: center; background: #ff754f; color: #14215a; border: 1px solid #b23c20; box-shadow: 10px 10px 0 #182fc4; margin-block: 10px 24px; }
-  .install-section::before { content: '↓'; position: absolute; right: 35px; top: -58px; font-size: 94px; line-height: 1; color: #182fc4; }
-  .install-copy .eyebrow { color: #2c315c; }
-  .install-copy .eyebrow::before { color: #14215a; }
-  .install-copy h2 { font-size: 48px; color: #14215a; max-width: 18ch; }
-  .install-copy > p:not(.eyebrow) { color: #333149; font-size: 14px; line-height: 1.95; margin-top: 22px; }
-  .install-copy .button { min-height: 53px; padding: 12px 22px; margin-top: 27px; background: #182fc4; color: #fffaf0; border-radius: 0; border: 1px solid #182fc4; gap: 35px; font-size: 13px; }
-  .install-copy .button:hover { background: #102189; }
-  .install-copy > p.install-note { font-size: 11px; margin-top: 20px; }
-  .install-section :global(.install-terminal) { --panel: #172466; --panel-muted: #edf0ff; border: 1px solid #14215a; border-radius: 0; box-shadow: 7px 7px 0 #ba482e; }
+  .home-how { border-top: 1px solid #374840; }
+  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 35px; margin-top: 48px; }
+  .how-steps li { position: relative; padding: 0 0 0 0; }
+  .step-index { display: block; color: #749083; -webkit-text-stroke: 1px #b8d6c8; font: 72px/1 var(--mono); letter-spacing: -.1em; margin-bottom: 24px; }
+  .how-steps li::after { content: '↗'; position: absolute; right: 10px; top: 16px; color: #99d2b7; font-size: 27px; }
+  .how-steps h3 { font-size: 20px; font-weight: 550; color: #f0f6f3; }
+  .how-steps p { margin-top: 13px; color: #b8cac1; font-size: 14px; line-height: 1.95; }
+  .how-steps a { margin-top: 13px; }
+  .skill-source { display: flex; align-items: center; min-height: 44px; width: fit-content; margin-top: 25px; color: #b9cec4; font-size: 11px; }
+  .evidence-section { border-top: 1px solid #374840; }
+  .evidence-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; margin-top: 40px; align-items: start; }
+  .evidence-card { background: #121b17; border: 1px solid #475c52; border-radius: 17px; overflow: hidden; }
+  .case-image { margin: 0; padding: 23px 24px 15px; background: linear-gradient(140deg, #2f4239, #18251f); min-height: 315px; }
+  .case-image a { display: block; border: 1px solid #879990; border-radius: 7px; overflow: hidden; height: 245px; box-shadow: 0 18px 30px -22px #000000cc; }
+  .case-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .case-image figcaption { color: #cde0d7; font-size: 10px; margin-top: 12px; line-height: 1.7; }
+  .evidence-copy { padding: 28px 29px; }
+  .content-label { color: #c2d8eb; font-size: 10px; }
+  .evidence-copy h3 { margin-top: 14px; font-size: 25px; line-height: 1.45; font-weight: 550; color: #f2f9f6; }
+  .evidence-copy > p:not(.content-label) { color: #b6ccc1; font-size: 14px; line-height: 1.95; margin-top: 15px; }
+  .evidence-copy > .text-link { margin-top: 17px; }
+  .evidence-copy > p.evidence-limit { font-size: 11px; color: #afc7bb; padding-top: 15px; border-top: 1px solid #40554b; margin-top: 18px; }
+  .quote-visual { display: grid; align-items: center; background: radial-gradient(ellipse at 50% 10%, #61416e38, transparent 75%), #111b1e; padding: 28px 33px; min-height: 315px; overflow: hidden; }
+  .quote-sheet { width: 100%; background: linear-gradient(140deg, #33473d, #19251f 75%); border: 1px solid #85a99880; border-radius: 12px; padding: 23px; transform: rotate(-3deg); box-shadow: 15px 20px 40px #00000066; }
+  .quote-sheet-top { display: flex; gap: 11px; align-items: center; font-size: 13px; color: #effaf5; margin-bottom: 20px; }
+  .quote-symbol { display: grid; place-items: center; color: #d3efe2; font-size: 23px; background: #3e594c66; border: 1px solid #74a28c; border-radius: 50%; width: 34px; height: 34px; }
+  .quote-sheet-top small { color: #c8e1d5; display: block; font-size: 9px; margin-top: 3px; }
+  .quote-file { margin-left: auto; color: #c5ddd1; font: 10px var(--mono); }
+  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 13px; font-size: 11px; color: #c2d9ce; }
+  .quote-line strong { color: #e8f5ef; font-size: 11px; font-weight: 500; }
+  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #779687; padding-top: 15px; margin-top: 17px; }
+  .sample-quote-total > span { font-size: 10px; color: #c8e0d4; }
+  .sample-quote-total strong { color: #c5f8b9; font-size: 27px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
+  .install-section { display: grid; grid-template-columns: 1.1fr 1fr; gap: 55px; align-items: center; padding: 58px 48px; border: 1px solid #506358; border-radius: 18px; background: radial-gradient(ellipse at 100% 100%, #58437430, transparent 65%), linear-gradient(140deg, #14221c, #10171b); color: #edf4ef; margin-top: 12px; box-shadow: inset 0 1px 0 #c6d9cb22; }
+  .install-copy h2 { font-size: 43px; color: #f4f6f5; max-width: 17ch; }
+  .install-copy > p:not(.eyebrow) { color: #c2d3cb; font-size: 14px; line-height: 1.95; margin-top: 22px; }
+  .install-copy .button { margin-top: 26px; min-height: 52px; padding-inline: 22px; background: #c5f8b9; color: #0c1310; border: 1px solid #b9e6d0; font-size: 13px; gap: 30px; border-radius: 99px; }
+  .install-copy .button:hover { background: #dbffd2; }
+  .install-copy > p.install-note { font-size: 11px; margin-top: 18px; }
+  .install-section :global(.install-terminal) { --panel: #101814; --surface: #ffffff; border-color: #597467; border-radius: 12px; box-shadow: 0 24px 45px -20px #00000088; }
   .install-section :global(.install-terminal .copy-button) { min-height: 44px; min-width: 44px; }
-  .install-section :global(.install-terminal .code-toolbar) { background: #0c184b; color: #f4f1e8; border-color: #5369b2; }
-  .install-section :global(.install-terminal .terminal-caption) { border-color: #5369b2; color: #e6eaff; }
-  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #e6eaff; }
-  .install-section :global(.install-terminal .terminal-prompt) { color: #ffbb9e; }
-  .install-section :global(.install-terminal .copy-button:focus-visible) { outline-color: #fffaf0; }
-  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
-  .home-faq h2 { font-size: 43px; max-width: 15ch; }
-  .faq-intro { color: #545972; font-size: 14px; line-height: 1.95; margin-top: 20px; max-width: 35ch; }
-  .home-faq :global(.faq-list details) { border-color: #949ac0; }
-  .home-faq :global(summary) { color: #182fc4; font-size: 14px; font-weight: 550; padding-block: 23px; gap: 20px; }
-  .home-faq :global(summary > span) { color: #b43215; font-size: 25px; font-weight: 400; }
-  .home-faq :global(details > p) { color: #545972; font-size: 14px; line-height: 1.95; padding-bottom: 22px; max-width: 58ch; }
-  .more-tasks { border-top: 1px solid #949ac0; padding-block: 25px 65px; }
-  .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .install-section :global(.install-terminal .code-toolbar) { background: #24342c; border-color: #597467; color: #e0f4ea; }
+  .install-section :global(.install-terminal .terminal-caption) { border-color: #597467; color: #d0e7dc; }
+  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #d0e7dc; }
+  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 95px; }
+  .home-faq h2 { font-size: 39px; max-width: 14ch; }
+  .faq-intro { color: #b9cfc4; font-size: 14px; line-height: 1.95; margin-top: 22px; max-width: 32ch; }
+  .home-faq :global(.faq-list details) { border-color: #465c51; }
+  .home-faq :global(summary) { font-size: 14px; padding-block: 21px; font-weight: 500; gap: 20px; color: #ebf8f2; }
+  .home-faq :global(summary > span) { color: #afd4c2; font-size: 23px; font-weight: 400; }
+  .home-faq :global(details > p) { font-size: 14px; line-height: 1.95; color: #bed5ca; padding-bottom: 22px; max-width: 58ch; }
+  .more-tasks { padding-block: 28px 40px; border-top: 1px solid #465c51; }
+  .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
   .more-tasks .eyebrow { margin: 0; }
-  .more-tasks > div:first-child > a { color: #182fc4; min-height: 44px; display: inline-flex; align-items: center; font-size: 11px; }
-  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 16px; }
-  .scenario-links a { min-height: 44px; padding-block: 12px; color: #3447a0; border-bottom: 1px solid #949ac0; font-size: 12px; text-decoration: none; display: flex; gap: 20px; }
-  .scenario-links a:hover { color: #b43215; }
-  .brand-signature { display: flex; justify-content: center; gap: 20px; padding: 30px 25px 0; background: #182fc4; color: #f4f1e8; white-space: nowrap; font-size: clamp(75px, 16vw, 245px); line-height: 1; font-weight: 750; letter-spacing: -.09em; overflow: hidden; }
-  .brand-signature > span { font-size: .4em; color: #ff9776; margin-top: .08em; }
-  :global(html[data-motion="on"]) .ribbon-track { animation: method-drift 32s linear infinite; }
-  @keyframes method-drift { to { transform: translateX(-50%); } }
-  @media (max-width: 1100px) { .home-section, .install-section, .more-tasks { width: calc(100% - 80px); } .experience-section { padding-inline: 40px; } .experience-heading, .section-intro { gap: 0 40px; } .pain-card { padding: 30px; } .install-section { gap: 35px; padding: 45px 35px; } .home-faq { gap: 50px; } }
+  .more-tasks > div:first-child > a { font-size: 11px; color: #cfe3d9; }
+  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 14px; }
+  .scenario-links a { display: flex; gap: 18px; padding-block: 14px; font-size: 12px; text-decoration: none; min-height: 44px; border-bottom: 1px solid #455c51; color: #ddefe6; }
+  .scenario-links a:hover { color: #d2e6db; }
+  .brand-signature { width: min(1320px, calc(100% - 64px)); margin: 20px auto -15px; display: flex; justify-content: center; gap: 15px; white-space: nowrap; color: #617b6f; -webkit-text-stroke: 1px #b1d3c3; font-size: clamp(75px, 14.8vw, 220px); line-height: 1.05; font-weight: 450; letter-spacing: -.085em; overflow: hidden; }
+  .brand-signature > span { font-size: .35em; color: #8ac0a688; -webkit-text-stroke: 0; margin-top: .2em; }
+  :global(html[data-motion="on"]) .ribbon-track { animation: ribbon-drift 28s linear infinite; }
+  @keyframes ribbon-drift { to { transform: translateX(-50%); } }
+  @media (max-width: 1000px) { .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 80px); } .section-intro, .experience-heading { gap: 0 35px; } .pain-card { grid-template-columns: 65px minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px 22px; padding-inline: 0; } .pain-card h3 { font-size: 24px; } .install-section { gap: 30px; padding: 38px 32px; } .home-faq { gap: 45px; } .quote-visual { padding-inline: 23px; } }
   @media (max-width: 800px) {
-    .cobalt-home { --home-space: 75px; } .home-section, .install-section, .more-tasks { width: calc(100% - 48px); } .experience-section { padding-inline: 24px; padding-block: 50px 60px; }
-    .experience-heading, .section-intro { grid-template-columns: 1fr; gap: 0; } .experience-heading > p:last-child, .section-intro > p:last-child { justify-self: start; max-width: 70ch; margin-top: 19px; } .experience-heading h2 { font-size: 38px; max-width: 28ch; }
-    .pain-card { padding: 25px; } .pain-card h3 { font-size: 25px; } .evidence-grid { gap: 25px; } .quote-visual { padding: 26px; } .quote-sheet { padding: 20px; } .sample-quote-total strong { font-size: 23px; }
-    .install-section { grid-template-columns: 1fr; gap: 35px; } .install-copy h2 { max-width: 26ch; } .home-faq { grid-template-columns: 1fr; gap: 30px; } .home-faq h2 { max-width: 23ch; }
+    .prism-home { --home-space: 70px; } .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 48px); }
+    .section-intro, .experience-heading { grid-template-columns: 1fr; gap: 0; } .section-intro > p:last-child, .experience-heading > p:last-child { justify-self: start; max-width: 65ch; margin-top: 18px; } .section-intro h2 { max-width: 27ch; }
+    .experience-heading h2 { font-size: 34px; } .pain-card { grid-template-columns: 55px minmax(0, 1fr); gap: 15px 20px; } .pain-card h3, .pain-situation, .pain-methods, .pain-actions, .interface-reference { grid-column: 2; } .pain-methods { grid-row: auto; border: 0; padding: 0; } .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 17px; margin-top: 10px; }
+    .how-steps { gap: 25px; } .evidence-grid { grid-template-columns: 1fr 1fr; gap: 18px; } .evidence-copy { padding: 24px; } .case-image { padding-inline: 18px; }
+    .install-section { grid-template-columns: 1fr; gap: 33px; } .install-copy h2 { max-width: 22ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; }
   }
   @media (max-width: 600px) {
-    .cobalt-home { --home-space: 62px; } .home-section, .install-section, .more-tasks { width: calc(100% - 36px); } .experience-section { padding: 44px 18px 48px; }
-    .method-ribbon { padding-block: 20px; } .ribbon-track > span { font-size: 34px; gap: 24px; padding-right: 24px; } .ribbon-track i { font-size: 22px; }
-    h2, .experience-heading h2 { font-size: 29px; } .eyebrow { font-size: 9px; margin-bottom: 18px; } .experience-heading { margin-bottom: 25px; } .section-intro > p:last-child { font-size: 14px; }
-    .pain-grid { grid-template-columns: 1fr; margin-top: 30px; } .pain-card { padding: 27px 20px 20px; } .pain-card-top { margin-bottom: 22px; } .pain-index b { font-size: 43px; } .pain-card h3 { font-size: 25px; } .pain-methods li { font-size: 13px; } .pain-actions { padding-top: 16px; gap: 7px 20px; }
-    .how-steps { grid-template-columns: 1fr; gap: 30px; margin-top: 35px; } .how-steps li { padding: 20px 0 0 70px; } .step-index { position: absolute; top: 21px; left: 0; font-size: 43px; } .how-steps h3 { font-size: 20px; } .how-steps p { font-size: 14px; margin-top: 10px; } .how-steps a { margin-top: 8px; }
-    .evidence-grid { grid-template-columns: 1fr; gap: 26px; margin-top: 32px; } .case-image { padding: 20px 18px 15px; } .case-image figcaption { font-size: 10px; } .evidence-copy { padding: 22px 0 0; } .evidence-copy h3 { font-size: 24px; } .quote-visual { padding: 30px; min-height: 320px; } .sample-quote-total strong { font-size: 27px; }
-    .install-section { padding: 34px 23px; box-shadow: 7px 7px 0 #182fc4; } .install-section::before { font-size: 70px; right: 25px; top: -42px; } .install-copy h2 { font-size: 32px; } .install-copy > p:not(.eyebrow) { margin-top: 18px; } .install-copy .button { font-size: 12px; } .install-copy > p.install-note { font-size: 11px; }
-    .home-faq h2 { font-size: 30px; } .home-faq :global(summary) { padding-block: 19px; } .brand-signature { gap: 8px; padding: 25px 12px 10px; font-size: 15.3vw; } .more-tasks { padding-bottom: 45px; }
+    .prism-home { --home-space: 57px; } .home-section, .experience-section, .install-section, .more-tasks { width: calc(100% - 36px); } h2 { font-size: 28px; } .eyebrow { font-size: 9px; margin-bottom: 15px; }
+    .method-ribbon { padding-block: 20px; margin-block: 10px 38px; } .ribbon-track > span { font-size: 12px; gap: 27px; padding-right: 23px; } .ribbon-track i { font-size: 17px; }
+    .experience-section { padding-block: 24px 55px; } .experience-heading { margin-bottom: 25px; } .experience-heading h2 { font-size: 28px; } .experience-heading > p:last-child { font-size: 14px; line-height: 1.95; }
+    .section-intro > p:last-child { font-size: 14px; margin-top: 17px; }
+    .pain-grid { margin-top: 29px; } .pain-card { display: block; padding: 28px 0; } .pain-card-top { flex-direction: row; gap: 15px; align-items: center; margin-bottom: 16px; } .pain-icon { display: none; } .pain-index { display: flex; align-items: center; gap: 15px; } .pain-index b { font-size: 24px; } .pain-index small { font-size: 9px; margin: 0; }
+    .pain-card h3 { font-size: 24px; } .pain-situation { font-size: 14px; margin-top: 13px; } .pain-methods { margin-top: 17px; padding-top: 15px; border-top: 1px solid #3f5349; } .pain-methods li { font-size: 12px; } .pain-methods ul { gap: 9px 15px; } .pain-actions { margin-top: 13px; } .source-note { font-size: 11px; } .interface-reference summary { font-size: 11px; }
+    .how-steps { grid-template-columns: 1fr; margin-top: 32px; gap: 28px; } .how-steps li { padding: 5px 0 0 65px; border-top: 1px solid #3e5449; padding-top: 21px; } .step-index { position: absolute; left: 0; top: 22px; margin: 0; font-size: 38px; }
+    .how-steps li::after { display: none; } .how-steps h3 { font-size: 19px; } .how-steps p { font-size: 14px; margin-top: 10px; } .how-steps a { margin-top: 8px; } .skill-source { font-size: 11px; }
+    .evidence-grid { grid-template-columns: 1fr; gap: 21px; margin-top: 29px; } .case-image { min-height: 245px; padding: 17px 17px 12px; } .case-image a { height: 191px; } .case-image figcaption { font-size: 10px; margin-top: 10px; }
+    .evidence-copy h3 { font-size: 24px; } .evidence-copy > p:not(.content-label) { font-size: 14px; } .evidence-copy > p.evidence-limit { font-size: 11px; }
+    .quote-visual { min-height: 285px; padding: 27px; } .quote-sheet { padding: 20px; } .quote-sheet-top small { font-size: 8px; } .sample-quote-total strong { font-size: 25px; }
+    .install-section { padding: 32px 24px; border-radius: 14px; gap: 29px; } .install-copy h2 { font-size: 32px; } .install-copy > p.install-note { font-size: 11px; }
+    .home-faq h2 { font-size: 30px; } .home-faq :global(summary) { font-size: 14px; } .home-faq :global(details > p) { font-size: 14px; }
+    .scenario-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; } .scenario-links a { justify-content: space-between; font-size: 12px; }
+    .brand-signature { width: calc(100% - 25px); font-size: 16.2vw; margin-block: 10px 0; gap: 8px; }
   }
-  @media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none !important; } .text-link > span { transition: none; } }
 </style>

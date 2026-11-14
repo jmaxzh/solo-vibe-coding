@@ -1,0 +1,7458 @@
+{
+  "baselineCommit": "ba342fd",
+  "visualBenchmark": "f2b27f3",
+  "capturedAt": "2026-11-14T16:02:47.752Z",
+  "browser": "157.0.8103.51",
+  "shots": [
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 7085,
+      "hero": {
+        "x": 60,
+        "y": 325.515625,
+        "width": 920,
+        "height": 206.5625
+      },
+      "demo": {
+        "x": 80,
+        "y": 1247.59375,
+        "width": 1280,
+        "height": 547.265625
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 9121,
+      "hero": {
+        "x": 18,
+        "y": 187,
+        "width": 354,
+        "height": 90.0625
+      },
+      "demo": {
+        "x": 18,
+        "y": 1207,
+        "width": 354,
+        "height": 879.234375
+      }
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 7230,
+      "hero": {
+        "x": 60,
+        "y": 316.515625,
+        "width": 920,
+        "height": 195.3125
+      },
+      "demo": {
+        "x": 80,
+        "y": 1293.78125,
+        "width": 1280,
+        "height": 547.265625
+      }
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 9939,
+      "hero": {
+        "x": 18,
+        "y": 187,
+        "width": 354,
+        "height": 85
+      },
+      "demo": {
+        "x": 18,
+        "y": 1354.796875,
+        "width": 354,
+        "height": 993.859375
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 181.171875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 140.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 181.171875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 140.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 181.171875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 140.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 181.171875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 140.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 126,
+          "height": 59.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 142,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 107,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 142,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 107,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 142,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 107,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 320,
+      "scrollWidth": 320,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 142,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 107,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 126,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 390,
+      "scrollWidth": 390,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 161,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 199.71875,
+          "height": 53
+        },
+        {
+          "label": "▷See how it works",
+          "width": 155.03125,
+          "height": 53
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 108.609375,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 600,
+      "scrollWidth": 600,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 157,
+          "height": 53
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 119,
+          "height": 53
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 88,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 266,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 601,
+      "scrollWidth": 601,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 122.75,
+          "height": 63.375
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 700,
+      "scrollWidth": 700,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 147.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 701,
+      "scrollWidth": 701,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 147.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.5,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 768,
+      "scrollWidth": 768,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 800,
+      "scrollWidth": 800,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 172.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 164.75,
+          "height": 63.375
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 801,
+      "scrollWidth": 801,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 164.75,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 900,
+      "scrollWidth": 900,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 189.5,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1000,
+      "scrollWidth": 1000,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1001,
+      "scrollWidth": 1001,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 213.71875,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 170.03125,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 171,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 134,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 180,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 236.28125,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 175.046875,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 236.28125,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 175.046875,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 236.28125,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 175.046875,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "中文",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 236.28125,
+          "height": 55
+        },
+        {
+          "label": "▷See how it works",
+          "width": 175.046875,
+          "height": 55
+        },
+        {
+          "label": "ⅡMotion reduced",
+          "width": 116.90625,
+          "height": 44
+        },
+        {
+          "label": "01Fix a regression↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02Improve the interface↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03Get the demo live↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04Reach your first users↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "Install and get started↗",
+          "width": 226.28125,
+          "height": 52
+        },
+        {
+          "label": "Copy",
+          "width": 60.484375,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 190,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 136,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 190,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 136,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 190,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 136,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "touchTargets": [
+        {
+          "label": "EN",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 190,
+          "height": 55
+        },
+        {
+          "label": "▷看看怎么用",
+          "width": 136,
+          "height": 55
+        },
+        {
+          "label": "Ⅱ动画已关闭",
+          "width": 94,
+          "height": 44
+        },
+        {
+          "label": "01排查与修复↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "02改进产品界面↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "03接通并上线↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "04找到第一批用户↗",
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "安装并开始使用↗",
+          "width": 180,
+          "height": 52
+        },
+        {
+          "label": "复制",
+          "width": 56,
+          "height": 44
+        }
+      ]
+    }
+  ],
+  "controlHits": [
+    {
+      "locale": "en",
+      "width": 320,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "zh-CN",
+      "width": 320,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "en",
+      "width": 600,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "zh-CN",
+      "width": 600,
+      "centerHit": true,
+      "controlTop": 83,
+      "headerBottom": 73
+    },
+    {
+      "locale": "en",
+      "width": 601,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 601,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 700,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 700,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 701,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 701,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 768,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 800,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 800,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 801,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 801,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 900,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 900,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 1000,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1000,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 1001,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1001,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 1024,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1024,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 1100,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1100,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1440,
+      "centerHit": true,
+      "controlTop": 98,
+      "headerBottom": 88
+    }
+  ],
+  "innerPages": [
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 73
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 103
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 41
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 70
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 32
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 42
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 73
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 103
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 41
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 70
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 32
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 42
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 71
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 101
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 68
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 30
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 40
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 37
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 71
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 101
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 68
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 30
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 40
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 37
+    }
+  ],
+  "errors": [],
+  "limits": "Desktop Chrome and Chromium mobile emulation, not physical devices or user research. Screenshots use reduced motion; source task data and static UI are unchanged by that preference."
+}

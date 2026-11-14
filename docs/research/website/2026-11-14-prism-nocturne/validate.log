@@ -1,0 +1,60 @@
+
+> solo-vibe-coding-website@0.1.0 validate
+> npm run check && npm run build && npm run verify
+
+
+> solo-vibe-coding-website@0.1.0 check
+> astro check
+
+00:04:47 [types] Generated 75ms
+00:04:47 [check] Getting diagnostics for Astro files in /Users/zhangjin/rich-workspace/my-dev-skills-prism/website...
+Result (34 files):
+- 0 errors
+- 0 warnings
+- 0 hints
+
+
+> solo-vibe-coding-website@0.1.0 build
+> astro build
+
+00:04:50 [types] Generated 25ms
+00:04:50 [build] output: "static"
+00:04:50 [build] mode: "static"
+00:04:50 [build] directory: /Users/zhangjin/rich-workspace/my-dev-skills-prism/website/dist/
+00:04:50 [build] Collecting build info...
+00:04:50 [build] ✓ Completed in 39ms.
+00:04:50 [build] Building static entrypoints...
+00:04:50 [vite] ✓ built in 257ms
+00:04:50 [vite] ✓ built in 26ms
+00:04:50 [build] Rearranging server assets...
+
+ generating static routes
+00:04:50   ├─ /404.html (+6ms)
+00:04:50   ├─ /index.html (+3ms)
+00:04:50   ├─ /getting-started/index.html (+1ms)
+00:04:50   ├─ /guides/index.html (+1ms)
+00:04:50   ├─ /examples/quote-calculator/index.html (+5ms)
+00:04:50   ├─ /case-study/bookmark-export/index.html (+1ms)
+00:04:50   ├─ /build-log/index.html (+2ms)
+00:04:50   ├─ /build-log/working-methods/index.html (+1ms)
+00:04:50   ├─ /build-log/first-public-build/index.html (+1ms)
+00:04:50   ├─ /zh-CN/index.html (+1ms)
+00:04:50   ├─ /zh-CN/getting-started/index.html (+1ms)
+00:04:50   ├─ /zh-CN/guides/index.html (+1ms)
+00:04:50   ├─ /zh-CN/examples/quote-calculator/index.html (+1ms)
+00:04:50   ├─ /zh-CN/case-study/bookmark-export/index.html (+1ms)
+00:04:50   ├─ /zh-CN/build-log/index.html (+1ms)
+00:04:50   ├─ /zh-CN/build-log/working-methods/index.html (+1ms)
+00:04:50   ├─ /zh-CN/build-log/first-public-build/index.html (+1ms)
+00:04:50 ✓ Completed in 39ms.
+
+00:04:50 [build] ✓ Completed in 349ms.
+00:04:50 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+00:04:50 [build] 17 page(s) built in 401ms
+00:04:50 [build] Complete!
+
+> solo-vibe-coding-website@0.1.0 verify
+> node scripts/verify-build.mjs
+
+Verified 17 HTML pages, 17 sitemap URLs, all local links and anchors, language pairs, metadata and structured data.
+JavaScript: 16.9 KiB; complete website: 950.4 KiB.

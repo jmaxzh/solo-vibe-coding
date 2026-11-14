@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
+import sharp from 'sharp';
 
 const base = '/solo-vibe-coding/';
 const example = 'examples/quote-calculator/';
@@ -91,7 +92,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
-  test(`${locale}: drafting scene responds to motion controls and stops rendering away from view`, async ({ page }) => {
+  test(`${locale}: optical scene responds to motion controls and stops rendering away from view`, async ({ page }) => {
     await page.goto(path);
     const canvas = page.locator('[data-hero-canvas]');
     const signature = () => canvas.evaluate((element) => {
@@ -106,8 +107,9 @@ for (const locale of ['en', 'zh-CN'] as const) {
     const initial = await signature();
     await expect.poll(signature).not.toBe(initial);
     if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
+      const before = (await page.locator('.hero-art').boundingBox())!.x;
       await page.mouse.move(1200, 350);
-      await expect.poll(() => page.locator('[data-hero-scene]').evaluate(e => e.style.getPropertyValue('--fold-x'))).not.toBe('');
+      await expect.poll(async () => (await page.locator('.hero-art').boundingBox())!.x).not.toBe(before);
     }
     await page.locator('[data-motion-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
@@ -132,28 +134,72 @@ for (const locale of ['en', 'zh-CN'] as const) {
     expect(await page.locator('[data-hero-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   });
 
-  test(locale + ': hero art stays clear of copy across breakpoints and pointer positions', async ({ page }) => {
-    test.setTimeout(60_000);
-    const separated = () => page.evaluate(() => {
-      const copy = document.querySelector('.hero-copy')!.getBoundingClientRect();
-      const title = document.querySelector('h1')!.getBoundingClientRect();
-      const art = document.querySelector('.fold-art')!.getBoundingClientRect();
-      return art.top >= title.bottom && (innerWidth <= 1000 ? art.top >= copy.bottom : art.left >= copy.right);
-    });
+  test(locale + ': hero copy stays readable across breakpoints and pointer positions', async ({ page }) => {
+    test.setTimeout(90_000);
+    const luminance = (rgb: number[]) => rgb.map(value => {
+      const channel = value / 255;
+      return channel <= .04045 ? channel / 12.92 : Math.pow((channel + .055) / 1.055, 2.4);
+    }).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+    const checkReading = async (width: number, state: string) => {
+      const measurements = await page.evaluate(() => {
+        const copy = document.querySelector('.hero-copy')!.getBoundingClientRect();
+        const art = document.querySelector('.hero-art')!.getBoundingClientRect();
+        const controlsHit = [...document.querySelectorAll('.product-actions a')].every(link => {
+          const r = link.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2;
+          if (y > innerHeight) return true;
+          const hit = document.elementFromPoint(x, y);
+          return hit === link || (hit !== null && link.contains(hit));
+        });
+        const probes = [...document.querySelectorAll<HTMLElement>('.product-hero h1 > span, .hero-description, .product-note, .hero-bottom-label')].flatMap(element => {
+          const range = document.createRange(); range.selectNodeContents(element);
+          const color = getComputedStyle(element).color.match(/[0-9.]+/g)!.slice(0, 3).map(Number);
+          return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
+        });
+        return { controlsHit, separated: innerWidth > 1000 || art.top >= copy.bottom, probes };
+      });
+      expect(measurements.controlsHit, state + ' control covered at ' + width).toBe(true);
+      expect(measurements.separated, state + ' mobile artwork overlaps copy at ' + width).toBe(true);
+      const hiding = await page.addStyleTag({ content: '.product-hero h1, .product-hero h1 *, .hero-description, .product-note, .hero-bottom-label { color: transparent !important; text-shadow: none !important; }' });
+      let background: Buffer;
+      try {
+        await expect(page.locator('h1 > span').first()).toHaveCSS('color', 'rgba(0, 0, 0, 0)');
+        background = await page.screenshot({ scale: 'css' });
+      } finally {
+        await hiding.evaluate(element => { element.parentNode?.removeChild(element); });
+        await expect(page.locator('h1 > span').first()).not.toHaveCSS('color', 'rgba(0, 0, 0, 0)');
+      }
+      const { data, info } = await sharp(background!).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+      for (const probe of measurements.probes) {
+        let brightest = 0, samples = 0;
+        const top = Math.max(0, probe.y), bottom = Math.min(info.height, probe.y + probe.height);
+        const left = Math.max(0, probe.x), right = Math.min(info.width, probe.x + probe.width);
+        const firstY = Math.floor(bottom - top < 4 ? (top + bottom) / 2 : top + 2);
+        const firstX = Math.floor(right - left < 4 ? (left + right) / 2 : left + 2);
+        for (let y = firstY; y < bottom; y += 6) {
+          for (let x = firstX; x < right; x += 6) {
+            const offset = (y * info.width + x) * info.channels;
+            brightest = Math.max(brightest, luminance([...data.subarray(offset, offset + 3)])); samples++;
+          }
+        }
+        expect(samples, 'No visible text samples at ' + width).toBeGreaterThan(0);
+        const contrast = (luminance(probe.color) + .05) / (brightest + .05);
+        expect(contrast, state + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
+      }
+    };
     for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 900, 1000, 1001, 1024, 1100, 1440]) {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
-      expect(await separated(), 'Static hero overlap at ' + width).toBe(true);
+      await checkReading(width, 'Static');
       await page.emulateMedia({ reducedMotion: 'no-preference' });
       if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
         for (const x of [1, width - 1]) {
-          await page.mouse.move(x, 100);
-          await page.locator('.fold-art').evaluate(async element => {
+          await page.mouse.move(x, 180);
+          await page.locator('.hero-art').evaluate(async element => {
             await Promise.all(element.getAnimations().map(animation => animation.finished.catch(() => {})));
           });
-          expect(await separated(), 'Pointer hero overlap at ' + width).toBe(true);
+          await checkReading(width, 'Pointer');
         }
       }
     }

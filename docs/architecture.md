@@ -14,7 +14,7 @@
 | 构建日志 | `website/src/content/build-log/`、`website/src/data/posts.ts` | 双语 Markdown、显式文章索引、真实日期与对应 slug |
 | 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、页面结构、导航、语言切换、SEO、渐进增强 |
 | 展示组件与样式 | `website/src/components/`、`website/src/styles/` | 用户首页、上手与场景、报价示例、复制和响应式排版 |
-| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`FoldScene.astro`、`HomeInteractions.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创助手使用示意、装饰主视觉与可暂停的原生Canvas、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
+| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`PrismScene.astro`、`HomeInteractions.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创助手使用示意、装饰主视觉与可暂停的原生Canvas、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
 | 可用成果示例 | `website/src/components/QuoteCalculator.astro`、`website/src/lib/quote.ts` | 浏览器端报价计算、校验与 CSV 下载；Big.js 处理十进制金额，无后端 |
 | 静态资源 | `website/public/` | 图标、分享图片、案例真实截图、独立起始项目ZIP、分发许可与 `.nojekyll` |
 | 自动检查 | `website/scripts/`、`website/tests/` | 产物完整性、交互、布局与可自动检测的无障碍问题 |

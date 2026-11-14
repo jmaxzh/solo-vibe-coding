@@ -1,0 +1,201 @@
+{
+  "baseCommit": "ba342fdea68f68d887558366c990c68b72f24e1a",
+  "bundle": "prism-static-preview.zip",
+  "bundleSHA256": "08bb0a4cf06239fd76724d33b3f1f69835ec812d19418f94ac38fbe1b27628d0",
+  "bundleBytes": 603671,
+  "distBytes": 973254,
+  "distFiles": [
+    {
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "sha256": "74c8a7af5052a195fe48f101fcbb4cbf56ed59edaa909e268e264766bde1e300"
+    },
+    {
+      "path": "_astro/GettingStarted.astro_astro_type_script_index_0_lang.COdBBO_3.js",
+      "sha256": "19f115979ab36f64243aa4f5c4befa738fa813a9f193a3d82a24dfe02e54b98f"
+    },
+    {
+      "path": "_astro/HomeInteractions.astro_astro_type_script_index_0_lang._Ii3SLut.js",
+      "sha256": "8cfe6ab15dee34545762844fd55111588529bf8c16538486e86f66a6a1f0543e"
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.HqtRVCa7.js",
+      "sha256": "c54ecfaa8ea669dbb9351e3b5bdf6f3b31eacb74494ee2204a856306755d7985"
+    },
+    {
+      "path": "_astro/PageIntro.CVTZzT4x.css",
+      "sha256": "404a5bfc40fb76250defff7ccbeeaaf06ec90971a2c32143618ce02647d70757"
+    },
+    {
+      "path": "_astro/PrismScene.astro_astro_type_script_index_0_lang.CUds48ri.js",
+      "sha256": "5c9214a8b2675a8820be10f17db4cefed31d1752234eb41125de06e380ebee6f"
+    },
+    {
+      "path": "_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "sha256": "2dcea7003442852ef8b2ab0e934b48a0233f5caf94d4ee2322248723b6f0ed1a"
+    },
+    {
+      "path": "_astro/TaskStage.astro_astro_type_script_index_0_lang.BVARjAiL.js",
+      "sha256": "79c4fac0b97350ec88e5aeb5c4475512f3b08f3a56af3d472cafc994d6443474"
+    },
+    {
+      "path": "_astro/Terminal.astro_astro_type_script_index_0_lang.Bgk1nTod.js",
+      "sha256": "165125d4a9874dd6c1e5a8fe5dc39d8165fb7c6445324d7b0309f61b230e6c00"
+    },
+    {
+      "path": "_astro/WebsiteMotion.astro_astro_type_script_index_0_lang.BbiUA3-x.js",
+      "sha256": "9551cc2727a9beb17aaf3de8240dbce61a82a46840eb26ff192802131c83623e"
+    },
+    {
+      "path": "_astro/_..C6GiT8d_.css",
+      "sha256": "9ebff1a09d3263779152554a99f95aeaf195e043df7e49d664cb3136484af703"
+    },
+    {
+      "path": "_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "sha256": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
+    },
+    {
+      "path": "build-log/first-public-build/index.html",
+      "sha256": "c46b7a791119415dfedd33765cddfcabc45b35d2e80fb2679f5af4a5309ae0f5"
+    },
+    {
+      "path": "build-log/index.html",
+      "sha256": "38c9f38623d79e476391a025746136affeb2504d27dc2d3cb431bbb2f4460a42"
+    },
+    {
+      "path": "build-log/working-methods/index.html",
+      "sha256": "bdce283361a7a563f455bbe3356cc6567c4c120790e7f5f247d9c084a049a980"
+    },
+    {
+      "path": "case-study/bookmark-export/index.html",
+      "sha256": "84bf1d84a0f0efbe1db59dbe23b7a3821bd0e075a5824e1b73b765c431e2690c"
+    },
+    {
+      "path": "case-study/bookmark-starter.zip",
+      "sha256": "e3c0f346b08271a97435f23a765ab3bf44e7e8791ebb1c6e5fe7d224f0369e84"
+    },
+    {
+      "path": "case-study/bookmarks-round-1.png",
+      "sha256": "50d14a1efef8d713543524b556cd6ac355281be26733d21633683e27718a8b91"
+    },
+    {
+      "path": "case-study/bookmarks-round-2.png",
+      "sha256": "523e1d7da3e58472808edfbbc3c15861db81669e70a3485039a4c0f280a00f94"
+    },
+    {
+      "path": "examples/quote-calculator/index.html",
+      "sha256": "dcc3a66221c326384de38aca46afaadab3f928b8690aa6078b4a1bdd99e00b73"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "9b348e21730bab28c90c254ceea33a75bcba6a3edf16d10df86160b7eb34c8e4"
+    },
+    {
+      "path": "getting-started/index.html",
+      "sha256": "70b871d438ab411062ad05222e61503d7c0d6da593568f69005c8ff3d68ed9f9"
+    },
+    {
+      "path": "guides/index.html",
+      "sha256": "c47c4a636875cd2784d9427728ffbf6b9c6e4b1d9f4e8e1feeb5d18900ddc038"
+    },
+    {
+      "path": "index.html",
+      "sha256": "dfaa7f5b01ffaf38c5932592269df2cfddb11c11c38e48ba05211bafe46645ac"
+    },
+    {
+      "path": "licenses/big-js-MIT.txt",
+      "sha256": "cc84225fb9bf55cb8a8b653713d8e322fb2a962a47ff818b67a7ad65ab446932"
+    },
+    {
+      "path": "licenses/ibm-plex-mono-OFL.txt",
+      "sha256": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f"
+    },
+    {
+      "path": "licenses/manrope-OFL.txt",
+      "sha256": "d826ab6583b12c26807d8716a545bdbbb672df04f48608a364ba9efdbe501c30"
+    },
+    {
+      "path": "licenses/visual-assets.txt",
+      "sha256": "3eea918e99483830ee258a486fb158af77d39010e8eaeb96a34dc65cd912e464"
+    },
+    {
+      "path": "media/app-mobile.webp",
+      "sha256": "b5e5439600a410ec7421d5e17bfca41275900b06358203c72f9d1b039c85f9d5"
+    },
+    {
+      "path": "media/design-after.webp",
+      "sha256": "f1acecbb41daf6ba4e4022e51a5259b7b7dd70947137c489c1b58113e7d106fc"
+    },
+    {
+      "path": "media/design-before.webp",
+      "sha256": "ff67b31493f01283e161f2e68cf4a7c6c73837d386e764a74b1b11633fdef240"
+    },
+    {
+      "path": "media/login.webp",
+      "sha256": "15c90468bf6135418068f6d1e28ee60e5d4db1a76d21383ffa15013242202215"
+    },
+    {
+      "path": "media/prism/optical-knot.webp",
+      "sha256": "93dada2c54ab1c9cbe0512a78e38b2c8c102a2a3cf34487f57d932686fad1c76"
+    },
+    {
+      "path": "media/video-call.webp",
+      "sha256": "922e88a1c6daa291c28e6df809b8959d2c29a437825133a810ccff070a6c41a5"
+    },
+    {
+      "path": "sitemap-0.xml",
+      "sha256": "8dde3aa1ca7a11a2007bfed4a659f85a71eb8f325b4d590aef5a4dc2337918fb"
+    },
+    {
+      "path": "sitemap-index.xml",
+      "sha256": "1c33a35972e2d50aa5a81d6561c8e650188cfcd4e1906a30389002c01307422f"
+    },
+    {
+      "path": "social-card.png",
+      "sha256": "315e35bfc2486848cc8be98d5e596d09f2e697b755c1bdf85331ce4114487741"
+    },
+    {
+      "path": "social-card.svg",
+      "sha256": "d5a0d59e96f51df072e32c0c744f5198e03a69a5de3eea6b823819fc3d4de9b5"
+    },
+    {
+      "path": "zh-CN/build-log/first-public-build/index.html",
+      "sha256": "305c1f9bb29ad0955f73484d6bc74554bc85d15cb3a433e62c3e1605a5831fb1"
+    },
+    {
+      "path": "zh-CN/build-log/index.html",
+      "sha256": "ea3023654a20ce48e4bcfd8377eda3c2511d6fa20ce386fe8bf4fea726b4c1d0"
+    },
+    {
+      "path": "zh-CN/build-log/working-methods/index.html",
+      "sha256": "60f83e4ffff2dfd09d5a821f64621a60ad7455be38432e762e14aea71e7715a2"
+    },
+    {
+      "path": "zh-CN/case-study/bookmark-export/index.html",
+      "sha256": "6d172f7d2249e786a5f33c10cdca3a39361ca2e43be286d70a261ae1b66d2f80"
+    },
+    {
+      "path": "zh-CN/examples/quote-calculator/index.html",
+      "sha256": "a258d5f6cdcea961b31a044d4bfa793ceaabe3d490a823675a7e6f325a4949ed"
+    },
+    {
+      "path": "zh-CN/getting-started/index.html",
+      "sha256": "00a623e42ff42792a4306eaef6701af363605254f2ad0c58f7cbce8140ec4acd"
+    },
+    {
+      "path": "zh-CN/guides/index.html",
+      "sha256": "f82d93876334e040b8a05790bf5ead03121546e6eaf9ee4d1c02903d6716a4b9"
+    },
+    {
+      "path": "zh-CN/index.html",
+      "sha256": "4f90010ae6c20e4ff5b8dd3128e001a6c1f0692dcffe1f20688d36320e646739"
+    }
+  ]
+}
