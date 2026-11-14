@@ -1,74 +1,51 @@
 ---
 import TaskStage from './TaskStage.astro';
-import WorkflowDiagram from './WorkflowDiagram.astro';
 import { UI, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].hero;
 ---
 <section class="product-hero" aria-labelledby="hero-title">
-  <div class="hero-canvas">
-    <div class="hero-copy">
-      <p class="product-definition"><span aria-hidden="true"></span>{ui.context}</p>
-      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
-      <p class="hero-description">{ui.description}</p>
-      <div class="product-actions">
-        <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
-        <a class="quiet-link" href="#why-skill">{ui.secondary}<span aria-hidden="true">↓</span></a>
-      </div>
-      <p class="product-note">{ui.note}</p>
+  <div class="hero-copy">
+    <p class="product-definition"><span aria-hidden="true">✳</span>{ui.context}<span class="definition-arrow" aria-hidden="true">↗</span></p>
+    <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
+    <p class="hero-description">{ui.description}</p>
+    <div class="product-actions">
+      <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started') + '?task=design#task-design'}>{ui.primary}<span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="#usage-demo"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 4 8 6-8 6V4Z" /></svg>{ui.secondary}</a>
     </div>
-    <WorkflowDiagram locale={locale} />
+    <p class="product-note">{ui.note}</p>
   </div>
   <TaskStage locale={locale} />
 </section>
 
 <style>
-  .product-hero { padding-bottom: 65px; }
-  .hero-canvas { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 64px; padding-block: 46px 38px; }
-  .hero-copy { min-width: 0; }
-  .product-definition { display: flex; align-items: center; gap: 9px; font-size: .9375rem; font-weight: 600; line-height: 1.5; letter-spacing: .02em; }
-  .product-definition > span { width: 9px; height: 9px; flex: none; background: var(--action); }
-  h1 { font-size: clamp(3.2rem, 5vw, 4.75rem); line-height: 1.17; font-weight: 750; letter-spacing: -.055em; margin-top: 25px; text-wrap: initial; }
+  .product-hero { padding-top: 58px; }
+  .hero-copy { text-align: center; max-width: 1000px; margin-inline: auto; }
+  .product-definition { display: inline-flex; align-items: center; gap: 9px; padding: 6px 12px; background: #ffffffbf; border: 1px solid #b7cfe580; border-radius: 99px; font-size: 12px; font-weight: 550; color: #44576c; box-shadow: 0 2px 5px #304a6c04; }
+  .product-definition > span:first-child { color: #2671c5; font-size: 17px; line-height: 1; }
+  .definition-arrow { margin-left: 4px; }
+  h1 { margin-top: 25px; font-size: clamp(44px, 4.5vw, 66px); line-height: 1.16; font-weight: 650; letter-spacing: -.055em; text-wrap: initial; }
   h1 > span { display: block; }
-  .hero-accent { color: var(--action); }
-  :global(:lang(zh-CN)) h1 { font-size: clamp(3.2rem, 5.3vw, 4.75rem); line-height: 1.2; letter-spacing: -.055em; }
-  .hero-description { color: var(--muted); font-size: 1rem; line-height: 1.9; max-width: 470px; margin-top: 26px; }
-  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 31px; }
-  .product-actions .button { min-height: 54px; padding-inline: 23px; gap: 35px; font-size: .9375rem; border-radius: 0; }
-  .product-actions svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .quiet-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--ink); text-decoration: none; font-size: .875rem; font-weight: 600; }
-  .quiet-link:hover { text-decoration: underline; }
-  .product-note { color: var(--muted); font-size: .75rem; line-height: 1.6; margin-top: 17px; }
-  @media (max-width: 1100px) {
-    .hero-canvas { gap: 35px; padding-block: 45px 35px; }
-    h1, :global(:lang(zh-CN)) h1 { font-size: 3.5rem; }
-    .hero-description { font-size: .9375rem; }
-    .product-definition { font-size: .8125rem; }
-    .product-actions { gap: 20px; }
-    .product-actions .button { gap: 22px; font-size: .875rem; padding-inline: 18px; }
-  }
-  @media (max-width: 800px) {
-    .hero-canvas { grid-template-columns: 1fr; gap: 35px; padding-block: 35px 30px; }
-    h1, :global(:lang(zh-CN)) h1 { font-size: clamp(2.75rem, 7.5vw, 3.875rem); margin-top: 20px; }
-    .hero-description { max-width: 560px; }
-    .product-hero { padding-bottom: 45px; }
-  }
+  .hero-accent { color: #586f89; }
+  :global(:lang(zh-CN)) h1 { font-size: clamp(40px, 4.4vw, 64px); line-height: 1.28; letter-spacing: -.055em; }
+  .hero-description { max-width: 665px; margin: 24px auto 0; color: var(--muted); font-size: 16px; line-height: 1.95; }
+  .product-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .product-actions .button { min-height: 48px; padding: 11px 21px; gap: 15px; border-radius: 9px; font-size: 14px; }
+  .product-actions .button-primary > span { font-size: 20px; font-weight: 400; line-height: 1; }
+  .button-secondary { background: #ffffffc9; border: 1px solid #d4dde7; color: var(--ink); box-shadow: 0 2px 4px #304a6c03; }
+  .button-secondary svg { width: 16px; height: 16px; fill: currentColor; }
+  .product-note { color: #596b82; margin-top: 15px; font-size: 12px; }
+  @media (max-width: 800px) { .product-hero { padding-top: 42px; } .hero-description { max-width: 560px; } }
   @media (max-width: 480px) {
-    .hero-canvas { padding-block: 24px 23px; gap: 20px; }
-    .product-definition { font-size: .75rem; gap: 7px; }
-    .product-definition > span { width: 7px; height: 7px; }
-    h1 { font-size: 2.375rem; line-height: 1.2; margin-top: 14px; }
-    :global(:lang(zh-CN)) h1 { font-size: 2.6875rem; line-height: 1.22; }
-    .hero-description { font-size: .875rem; line-height: 1.8; margin-top: 14px; }
-    .product-actions { gap: 22px; margin-top: 18px; }
-    .product-actions .button { min-height: 48px; padding-inline: 16px; font-size: .8125rem; gap: 21px; }
-    .quiet-link { font-size: .75rem; gap: 8px; }
-    .product-note { font-size: .6875rem; margin-top: 11px; }
+    .product-hero { padding-top: 32px; }
+    .product-definition { font-size: 11px; padding: 5px 10px; gap: 7px; }
+    h1 { margin-top: 21px; font-size: 38px; line-height: 1.17; letter-spacing: -.05em; }
+    :global(:lang(zh-CN)) h1 { font-size: 32px; line-height: 1.4; letter-spacing: -.055em; }
+    .hero-description { font-size: 14px; line-height: 1.9; margin-top: 18px; padding-inline: 4px; }
+    .product-actions { margin-top: 23px; gap: 9px; }
+    .product-actions .button { padding-inline: 14px; font-size: 12px; gap: 9px; }
+    .product-note { font-size: 11px; margin-top: 13px; }
   }
-  @media (max-width: 350px) {
-    h1, :global(:lang(zh-CN)) h1 { font-size: 2.3125rem; }
-    .product-actions { gap: 15px; }
-    .product-actions .button { gap: 13px; padding-inline: 13px; }
-  }
+  @media (max-width: 360px) { :global(:lang(zh-CN)) h1 { font-size: 28px; } h1 { font-size: 33px; } }
 </style>

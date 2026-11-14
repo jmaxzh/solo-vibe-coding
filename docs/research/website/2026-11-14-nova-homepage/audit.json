@@ -1,0 +1,524 @@
+{
+  "capturedAt": "2026-11-14T07:18:41.500Z",
+  "browser": "157.0.8103.51",
+  "shots": [
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 5790,
+      "hero": {
+        "x": 220,
+        "y": 197.390625,
+        "width": 1000,
+        "height": 162.1875
+      },
+      "demo": {
+        "x": 180,
+        "y": 605.34375,
+        "width": 1080,
+        "height": 673.578125
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 8204,
+      "hero": {
+        "x": 18,
+        "y": 151.6875,
+        "width": 354,
+        "height": 89.59375
+      },
+      "demo": {
+        "x": 18,
+        "y": 472.75,
+        "width": 354,
+        "height": 823.984375
+      }
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 5912,
+      "hero": {
+        "x": 220,
+        "y": 197.390625,
+        "width": 1000,
+        "height": 150.3125
+      },
+      "demo": {
+        "x": 180,
+        "y": 593.46875,
+        "width": 1080,
+        "height": 673.578125
+      }
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 8940,
+      "hero": {
+        "x": 18,
+        "y": 151.6875,
+        "width": 354,
+        "height": 88.90625
+      },
+      "demo": {
+        "x": 18,
+        "y": 498.65625,
+        "width": 354,
+        "height": 932.28125
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "en",
+      "task": "development",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "en",
+      "task": "design",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "en",
+      "task": "deployment",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "en",
+      "task": "growth",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "zh-CN",
+      "task": "development",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "zh-CN",
+      "task": "design",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "zh-CN",
+      "task": "deployment",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "zh-CN",
+      "task": "growth",
+      "width": 1440,
+      "scrollWidth": 1440
+    }
+  ],
+  "innerPages": [
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 73
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 103
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 41
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 70
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 32
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 42
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 73
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 103
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 41
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 70
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 32
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 42
+    },
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 71
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 101
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 68
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 30
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 40
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 37
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "getting-started/",
+      "equal": true,
+      "elementCount": 71
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "guides/",
+      "equal": true,
+      "elementCount": 101
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "examples/quote-calculator/",
+      "equal": true,
+      "elementCount": 39
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "case-study/bookmark-export/",
+      "equal": true,
+      "elementCount": 68
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/",
+      "equal": true,
+      "elementCount": 30
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/first-public-build/",
+      "equal": true,
+      "elementCount": 40
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "route": "build-log/working-methods/",
+      "equal": true,
+      "elementCount": 37
+    }
+  ],
+  "errors": [],
+  "limits": "Desktop Chrome and Chromium mobile emulation, not physical devices or user research. Screenshots use reduced motion; source task data and static UI are unchanged by that preference."
+}

@@ -1,0 +1,1103 @@
+diff --git a/docs/architecture.md b/docs/architecture.md
+index f7fa3df..3180575 100644
+--- a/docs/architecture.md
++++ b/docs/architecture.md
+@@ -14,7 +14,7 @@
+ | 构建日志 | `website/src/content/build-log/`、`website/src/data/posts.ts` | 双语 Markdown、显式文章索引、真实日期与对应 slug |
+ | 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、页面结构、导航、语言切换、SEO、渐进增强 |
+ | 展示组件与样式 | `website/src/components/`、`website/src/styles/` | 用户首页、上手与场景、报价示例、复制和响应式排版 |
+-| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创任务关系图、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
++| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创助手使用示意、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
+ | 可用成果示例 | `website/src/components/QuoteCalculator.astro`、`website/src/lib/quote.ts` | 浏览器端报价计算、校验与 CSV 下载；Big.js 处理十进制金额，无后端 |
+ | 静态资源 | `website/public/` | 图标、分享图片、案例真实截图、独立起始项目ZIP、分发许可与 `.nojekyll` |
+ | 自动检查 | `website/scripts/`、`website/tests/` | 产物完整性、交互、布局与可自动检测的无障碍问题 |
+@@ -37,7 +37,7 @@ GitHub Pages：/solo-vibe-coding/
+ 
+ 默认英文页面位于项目根路径，中文位于 `zh-CN/`。内容由构建期生成，切换语言保持主题。`[...path].astro` 生成首页、上手、用户场景、报价示例、真实任务、更新索引和已登记文章；`404.astro` 生成项目 404 页。公开页面共17个 HTML。
+ 
+-首页的专业指导与案例为静态内容，案例起始项目ZIP可直接下载。原生单选控件和CSS使首屏关系图与任务详情在无脚本时同步切换。JavaScript增强首页任务在安装入口与语言切换中的延续、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
++首页的专业指导、四个痛点与真实内容入口为静态内容，案例起始项目ZIP可直接下载。原生单选控件和CSS使首屏助手示意中的需求、专业方法与交付检查目标在无脚本时同步切换。首页样式与导航、页脚颜色限定于首页；阅读与操作内页保留原样式。JavaScript增强首页任务在安装入口与语言切换中的延续、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
+ 
+ 用户官网不引用维护知识库、ADR、CI 和研究档案作为阅读入口；这些材料在仓库维护区域查阅。源码和许可入口保留在页脚。
+ 
+diff --git a/docs/decisions.md b/docs/decisions.md
+index aa202de..71813f9 100644
+--- a/docs/decisions.md
++++ b/docs/decisions.md
+@@ -1,6 +1,6 @@
+ # 决策索引
+ 
+-本索引记录官网的产品、设计、工程与发布选择。接受日期为 2026-11-13。D01–D23 为初版记录；其中受众、首页入口、公开日志与任务标签页已由 D24–D31 和 [ADR 0005](adr/0005-user-outcomes-and-audiences.md) 调整，其余按各主维护位置继续有效。
++本索引记录官网的产品、设计、工程与发布选择。初版接受日期为 2026-11-13；后续日期与状态见各 ADR。D01–D23 为初版记录；其中受众、首页入口、公开日志与任务标签页已由 D24–D31 和 [ADR 0005](adr/0005-user-outcomes-and-audiences.md) 调整，其余按各主维护位置继续有效。
+ 
+ 重要取舍由 ADR 说明；稳定操作与参数由各主维护文档和代码维护。新增具有持续影响的选择时补充此表；替换重要选择时新增关联旧记录的 ADR。
+ 
+@@ -44,5 +44,8 @@
+ | D36 | 共同环境故障保留原结果，登记同等条件的新批次 | 不将工具限制当作Skill效果，也不删除超时、失败和缺失成本 | [ADR 0006](adr/0006-skill-increment-and-case-evidence.md) |
+ | D37 | 真实任务、截图及起始项目独立作为用户内容发布 | 研究日志与评分器留维护区，网站运行/构建不依赖研究档案；增加静态资源维护成本 | [当前架构](architecture.md) |
+ | D38 | 保留报价工具、场景和既有文章URL | 报价工具作为次级体验，实际Skill任务承担增量说明；维护旧链接与用户入口 | [当前需求](specs/website.md) |
++| D39 | 首页使用浅蓝渐变、居中标题与宽幅助手使用示意 | 对应明确的视觉参考与完整叙事；增加长页内容维护与滚动量 | [ADR 0007](adr/0007-homepage-assistant-preview.md) |
++| D40 | 四个痛点常驻，首屏默认设计任务并同步四类需求与检查目标 | 用户可同时辨认困难，再按任务开始；示意与实际证据分别标注 | [当前需求](specs/website.md) |
++| D41 | 首页视觉覆盖限定在首页，内页按类型后续延展 | 控制公共样式影响；暂时保留两种页面视觉，需核对跨页体验 | [ADR 0007](adr/0007-homepage-assistant-preview.md) |
+ 
+ 细粒度视觉参数与交互状态以 [global.css](../website/src/styles/global.css) 和组件为准，依赖以锁文件为准。历史评审与执行证据从 [研究档案](research/README.md) 查阅。
+diff --git a/docs/research/README.md b/docs/research/README.md
+index da30424..f4f79e4 100644
+--- a/docs/research/README.md
++++ b/docs/research/README.md
+@@ -12,4 +12,6 @@
+ 
+ - 官网首屏样稿（2026-11-13）：[中文交互样稿](website/2026-11-13-hero-study/preview.zh-CN.html)、[英文交互样稿](website/2026-11-13-hero-study/preview.en.html)、[评审材料](website/2026-11-13-hero-study/review-brief.md)、[差异评估](website/2026-11-13-hero-study/change-evaluation.md)、[独立评审](website/2026-11-13-hero-study/review.md)，记录作者口吻、真实案例局部展示与无JS切换的首屏方案。
+ 
++- 官网浅蓝首页预览（2026-11-14）：[可操作预览与截图对照](website/2026-11-14-nova-homepage/index.html)、[实际差异与成本](website/2026-11-14-nova-homepage/change-evaluation.md)、[验收记录](website/2026-11-14-nova-homepage/verification.md)、[独立审查](website/2026-11-14-nova-homepage/independent-review.md)。
++
+ 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。
+diff --git a/docs/specs/website.md b/docs/specs/website.md
+index 06ae7f8..1ecadfa 100644
+--- a/docs/specs/website.md
++++ b/docs/specs/website.md
+@@ -40,11 +40,11 @@ Skill 帮用户保留其项目背景和重要选择的能力，以“后续修
+ 
+ 默认英文，中文使用 `/zh-CN/`，均在 `/solo-vibe-coding/` 下。保留已有页面地址与六个场景锚点；语言切换保持当前主题。两种语言保持功能、边界与内容对应，示例货币采用明确的本地化显示。
+ 
+-全站采用现代包豪斯启发的「构成工作室」视觉：暖纸底、深色正文、朱红主行动、黄色目标区和少量钴蓝方法标识，以非对称网格、清晰字阶、留白与细分隔线组织内容。首页将产品定义置于主标题前，用关系图解释专业方法如何加入现有编程助手；四个任务入口采用紧凑的文字分栏。内页共享配色、字体、按钮与反馈组件，使用开放式标题区；上手页以单栏步骤和可复制命令为主，案例页使用真实项目截图，指南保留任务参考图，长文保留适合阅读的行宽。沿用自托管Manrope、中文系统字体和代码用IBM Plex Mono，桌面与手机分别重排并检查构图和文字。
++首页采用浅蓝渐变向浅色页面过渡的视觉：居中标题、清楚的主次按钮、宽幅助手使用示意，随后以四个痛点、三步使用、真实内容、安装和 FAQ 组织页面。宽松版心、细边框、克制阴影与一致圆角形成连贯层级。首页的导航、页脚与色彩变量限定在 `body.homepage` 下；阅读与操作内页保留暖纸色视觉，避免首页改版改变其内容密度和操作反馈。沿用自托管 Manrope、中文系统字体与 IBM Plex Mono，不增加字体或运行依赖。后续延展到内页时，按页面用途迁移颜色、字阶与组件，并分别核对双语、桌面、手机和交互状态。
+ 
+-首屏用原创工作方式示意呈现「用户目标 → 现有编程助手＋Solo Vibe Coding → 专业方法与交付目标」，与原生单选控件选择的任务同步，并将结果标为希望交付。关闭JavaScript时，任务切换、关系图和场景正文仍可操作；任务详情的开始链接保留所选任务。启用脚本时，导航、首屏与安装区的开始入口、刷新及语言切换共同延续所选任务。四个代表场景的详情使用现成界面图和设备样机辅助说明任务：修好视频黑屏并保留原功能、多页面设计一致、接通登录/数据/公开访问、让目标用户理解用途并开始试用。第三方界面和模板数据不作为本 Skill 的实际客户、修复或获客成果；真实执行记录独立呈现。指南沿用对应参考，四类任务优先呈现，六个原锚点保持有效。
++首屏以原创助手界面示意呈现「具体任务 → 现有编程助手按任务使用 Skill 专业指导 → 本次交付与检查目标」。明确标注使用方式示意，不能作为已执行的结果；制作发生在用户自己的编程助手中。原生单选控件切换四类任务，默认展示改善产品界面，内容来自共享任务数据。关闭 JavaScript 时，示意和对应任务的开始链接仍可操作；启用脚本时，导航、首屏与安装区的开始入口、刷新及语言切换共同延续所选任务。四个痛点始终可读，并保留专业方法和公开讨论来源；原帖作者不作为客户或成功案例。设计卡片可展开第三方界面参考，标明非执行结果。实际执行记录与可操作报价示例独立展示，分别标注证据性质并进入完整内页。指南继续使用已有任务参考，六个原锚点保持有效。
+ 
+-现成素材以自托管图片和轻量组件呈现，保留作者、原许可和必要的修改说明；公开源码分发范围与网站使用范围分别核对。设备样机使用原作者提供的成品样式；交互组件按既有 Astro 技术适配，不因选材引入额外框架。安装终端显示真实、完整、可复制的命令，动画仅为演示，不显示未经执行的安装成功记录。
++现成素材以自托管图片和轻量组件呈现，保留作者、原许可和必要的修改说明；公开源码分发范围与网站使用范围分别核对。设备样机使用原作者提供的成品样式；交互组件按既有 Astro 技术适配，不因选材引入额外框架。安装终端显示真实、完整、可复制的命令；首页直接显示完整命令，指南的可选输入动画仅为演示，不显示未经执行的安装成功记录。
+ 
+ 中英文共享产品事实、功能、安装命令、费用、证据和边界，分别按读者习惯成稿，允许标题长度、句式、表达和排版不同。中文优先使用自然、具体的用户语言；英文采用自然的产品表达。完整检查导航、按钮、任务说明、文章、错误信息、图注与替代文本，避免用字段对应代替语言质量检查。
+ 
+diff --git a/docs/testing.md b/docs/testing.md
+index baddc8a..2945e54 100644
+--- a/docs/testing.md
++++ b/docs/testing.md
+@@ -24,7 +24,7 @@ npm run test:e2e
+ | sitemap 不完整 | 对照所有内容页面，确认网址存在且不含 404 |
+ | 脚本增加阻断阅读 | 在关闭 JavaScript 的浏览器上下文阅读示例并导航 |
+ | 目标入口与复制失效 | 首页定位到真实任务和安装、案例同主题语言切换、起始项目真实下载、两轮需求、旧场景锚点、实际剪贴板与拒绝权限后的手动复制 |
+-| 任务关系与安装展示不可操作 | 触控/鼠标及键盘选择四类任务，核对首屏目标、专业方法和交付目标、安装入口与语言切换的任务连续性；无脚本时关系图与详情仍同步切换；终端复制完整命令，减少动态效果时稳定呈现；按需加载的设备图实际完成加载 |
++| 任务关系与安装展示不可操作 | 触控/鼠标及键盘选择四类任务，核对首屏需求、专业方法和交付检查目标、安装入口与语言切换的任务连续性；首页刷新保留任务，无效任务回到默认示例；无脚本时示意与任务入口仍同步切换；终端复制完整命令，减少动态效果时稳定呈现；实际案例截图与展开后的界面参考实际完成加载 |
+ | 可用示例计算或下载错误 | 独立预期金额核对、分级舍入、负数/空值/超范围、零值/大数、CSV 内容与 BOM |
+ | 维护内容混入用户网站 | 产物中检查本仓库维护 docs 和工作流链接，保留普通 GitHub / 许可入口 |
+ | 手机横向溢出 | 以手机视口检查每类页面的文档宽度 |
+diff --git a/website/README.md b/website/README.md
+index 6f361e4..aa2f8d3 100644
+--- a/website/README.md
++++ b/website/README.md
+@@ -36,7 +36,8 @@ npm run test:e2e
+ - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
+ - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
+ - `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
+-- `src/components/WorkflowDiagram.astro`：首屏工作方式示意；与四类任务同步，说明现有助手、Skill专业方法与交付目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
++- `src/components/Hero.astro`、`Home.astro`、`TaskStage.astro`：居中首屏、四类任务示意、四个痛点、使用步骤、真实内容、安装与 FAQ；任务数据与内页共用。首页组件样式及 `Layout.astro` 中的 `body.homepage` 变量和导航页脚样式仅作用于首页。
++- `src/components/WorkflowDiagram.astro`：首屏助手使用方式示意正文；与四类任务同步，说明具体需求、Skill专业方法与交付检查目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
+ - `src/components/ImageCompare.astro`：可复用的设计参考对比组件；素材与真实执行证据分别注明来源。
+ - `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
+ - `src/components/Terminal.astro`：安装终端展示；完整命令预渲染并可复制，输入动效不冒充真实安装结果，遵循减少动态效果与暂停偏好。
+@@ -45,7 +46,7 @@ npm run test:e2e
+ - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
+ - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
+ - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
+-- `src/components/WebsiteMotion.astro`：首页标题、关系图入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
++- `src/components/WebsiteMotion.astro`：首页标题、助手示意入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
+ - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
+ - `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。
+ 
+diff --git a/website/src/components/Hero.astro b/website/src/components/Hero.astro
+index b5a0f3d..796492d 100644
+--- a/website/src/components/Hero.astro
++++ b/website/src/components/Hero.astro
+@@ -1,74 +1,51 @@
+ ---
+ import TaskStage from './TaskStage.astro';
+-import WorkflowDiagram from './WorkflowDiagram.astro';
+ import { UI, href, type Locale } from '../data/site';
+ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+ const ui = UI[locale].hero;
+ ---
+ <section class="product-hero" aria-labelledby="hero-title">
+-  <div class="hero-canvas">
+-    <div class="hero-copy">
+-      <p class="product-definition"><span aria-hidden="true"></span>{ui.context}</p>
+-      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
+-      <p class="hero-description">{ui.description}</p>
+-      <div class="product-actions">
+-        <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
+-        <a class="quiet-link" href="#why-skill">{ui.secondary}<span aria-hidden="true">↓</span></a>
+-      </div>
+-      <p class="product-note">{ui.note}</p>
++  <div class="hero-copy">
++    <p class="product-definition"><span aria-hidden="true">✳</span>{ui.context}<span class="definition-arrow" aria-hidden="true">↗</span></p>
++    <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
++    <p class="hero-description">{ui.description}</p>
++    <div class="product-actions">
++      <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started') + '?task=design#task-design'}>{ui.primary}<span aria-hidden="true">↗</span></a>
++      <a class="button button-secondary" href="#usage-demo"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 4 8 6-8 6V4Z" /></svg>{ui.secondary}</a>
+     </div>
+-    <WorkflowDiagram locale={locale} />
++    <p class="product-note">{ui.note}</p>
+   </div>
+   <TaskStage locale={locale} />
+ </section>
+ 
+ <style>
+-  .product-hero { padding-bottom: 65px; }
+-  .hero-canvas { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 64px; padding-block: 46px 38px; }
+-  .hero-copy { min-width: 0; }
+-  .product-definition { display: flex; align-items: center; gap: 9px; font-size: .9375rem; font-weight: 600; line-height: 1.5; letter-spacing: .02em; }
+-  .product-definition > span { width: 9px; height: 9px; flex: none; background: var(--action); }
+-  h1 { font-size: clamp(3.2rem, 5vw, 4.75rem); line-height: 1.17; font-weight: 750; letter-spacing: -.055em; margin-top: 25px; text-wrap: initial; }
++  .product-hero { padding-top: 58px; }
++  .hero-copy { text-align: center; max-width: 1000px; margin-inline: auto; }
++  .product-definition { display: inline-flex; align-items: center; gap: 9px; padding: 6px 12px; background: #ffffffbf; border: 1px solid #b7cfe580; border-radius: 99px; font-size: 12px; font-weight: 550; color: #44576c; box-shadow: 0 2px 5px #304a6c04; }
++  .product-definition > span:first-child { color: #2671c5; font-size: 17px; line-height: 1; }
++  .definition-arrow { margin-left: 4px; }
++  h1 { margin-top: 25px; font-size: clamp(44px, 4.5vw, 66px); line-height: 1.16; font-weight: 650; letter-spacing: -.055em; text-wrap: initial; }
+   h1 > span { display: block; }
+-  .hero-accent { color: var(--action); }
+-  :global(:lang(zh-CN)) h1 { font-size: clamp(3.2rem, 5.3vw, 4.75rem); line-height: 1.2; letter-spacing: -.055em; }
+-  .hero-description { color: var(--muted); font-size: 1rem; line-height: 1.9; max-width: 470px; margin-top: 26px; }
+-  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 31px; }
+-  .product-actions .button { min-height: 54px; padding-inline: 23px; gap: 35px; font-size: .9375rem; border-radius: 0; }
+-  .product-actions svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+-  .quiet-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--ink); text-decoration: none; font-size: .875rem; font-weight: 600; }
+-  .quiet-link:hover { text-decoration: underline; }
+-  .product-note { color: var(--muted); font-size: .75rem; line-height: 1.6; margin-top: 17px; }
+-  @media (max-width: 1100px) {
+-    .hero-canvas { gap: 35px; padding-block: 45px 35px; }
+-    h1, :global(:lang(zh-CN)) h1 { font-size: 3.5rem; }
+-    .hero-description { font-size: .9375rem; }
+-    .product-definition { font-size: .8125rem; }
+-    .product-actions { gap: 20px; }
+-    .product-actions .button { gap: 22px; font-size: .875rem; padding-inline: 18px; }
+-  }
+-  @media (max-width: 800px) {
+-    .hero-canvas { grid-template-columns: 1fr; gap: 35px; padding-block: 35px 30px; }
+-    h1, :global(:lang(zh-CN)) h1 { font-size: clamp(2.75rem, 7.5vw, 3.875rem); margin-top: 20px; }
+-    .hero-description { max-width: 560px; }
+-    .product-hero { padding-bottom: 45px; }
+-  }
++  .hero-accent { color: #586f89; }
++  :global(:lang(zh-CN)) h1 { font-size: clamp(40px, 4.4vw, 64px); line-height: 1.28; letter-spacing: -.055em; }
++  .hero-description { max-width: 665px; margin: 24px auto 0; color: var(--muted); font-size: 16px; line-height: 1.95; }
++  .product-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
++  .product-actions .button { min-height: 48px; padding: 11px 21px; gap: 15px; border-radius: 9px; font-size: 14px; }
++  .product-actions .button-primary > span { font-size: 20px; font-weight: 400; line-height: 1; }
++  .button-secondary { background: #ffffffc9; border: 1px solid #d4dde7; color: var(--ink); box-shadow: 0 2px 4px #304a6c03; }
++  .button-secondary svg { width: 16px; height: 16px; fill: currentColor; }
++  .product-note { color: #596b82; margin-top: 15px; font-size: 12px; }
++  @media (max-width: 800px) { .product-hero { padding-top: 42px; } .hero-description { max-width: 560px; } }
+   @media (max-width: 480px) {
+-    .hero-canvas { padding-block: 24px 23px; gap: 20px; }
+-    .product-definition { font-size: .75rem; gap: 7px; }
+-    .product-definition > span { width: 7px; height: 7px; }
+-    h1 { font-size: 2.375rem; line-height: 1.2; margin-top: 14px; }
+-    :global(:lang(zh-CN)) h1 { font-size: 2.6875rem; line-height: 1.22; }
+-    .hero-description { font-size: .875rem; line-height: 1.8; margin-top: 14px; }
+-    .product-actions { gap: 22px; margin-top: 18px; }
+-    .product-actions .button { min-height: 48px; padding-inline: 16px; font-size: .8125rem; gap: 21px; }
+-    .quiet-link { font-size: .75rem; gap: 8px; }
+-    .product-note { font-size: .6875rem; margin-top: 11px; }
+-  }
+-  @media (max-width: 350px) {
+-    h1, :global(:lang(zh-CN)) h1 { font-size: 2.3125rem; }
+-    .product-actions { gap: 15px; }
+-    .product-actions .button { gap: 13px; padding-inline: 13px; }
++    .product-hero { padding-top: 32px; }
++    .product-definition { font-size: 11px; padding: 5px 10px; gap: 7px; }
++    h1 { margin-top: 21px; font-size: 38px; line-height: 1.17; letter-spacing: -.05em; }
++    :global(:lang(zh-CN)) h1 { font-size: 32px; line-height: 1.4; letter-spacing: -.055em; }
++    .hero-description { font-size: 14px; line-height: 1.9; margin-top: 18px; padding-inline: 4px; }
++    .product-actions { margin-top: 23px; gap: 9px; }
++    .product-actions .button { padding-inline: 14px; font-size: 12px; gap: 9px; }
++    .product-note { font-size: 11px; margin-top: 13px; }
+   }
++  @media (max-width: 360px) { :global(:lang(zh-CN)) h1 { font-size: 28px; } h1 { font-size: 33px; } }
+ </style>
+diff --git a/website/src/components/Home.astro b/website/src/components/Home.astro
+index 955a54a..0e1fc74 100644
+--- a/website/src/components/Home.astro
++++ b/website/src/components/Home.astro
+@@ -2,102 +2,207 @@
+ import Hero from './Hero.astro';
+ import WebsiteMotion from './WebsiteMotion.astro';
+ import Terminal from './Terminal.astro';
++import TaskVisual from './TaskVisual.astro';
+ import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
+-import { UI, PROJECT, SCENARIOS, href, type Locale } from '../data/site';
++import { UI, PROJECT, SCENARIOS, PAGE_PATHS, href, type Locale } from '../data/site';
+ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+ const ui = UI[locale];
+-const copy = OUTCOME_UI[locale];
++const zh = locale === 'zh-CN';
++const copy = zh ? {
++  painEyebrow: '从卡住的地方，继续往前', painTitle: '做产品，总有几步不只靠写代码。',
++  painText: '把这些任务里的专业方法，补到你已经在用的助手里。',
++  community: '公开社区求助场景', source: '原始讨论', start: '从这个任务开始', method: '给助手补上的方法',
++  sourceNote: '这些困难来自公开社区讨论，原帖作者并非本 Skill 的客户；这里不代表他们已用 Skill 解决问题。',
++  howEyebrow: 'HOW IT WORKS', howTitle: '熟悉的助手，多一套做产品的方法。', howText: '不必换一个地方工作。装好 Skill，回到自己的项目，说明你现在想做的事。',
++  steps: [
++    {title: '装进你的编程助手', text: '在当前项目安装 Skill。上手指南提供 Codex 与 Claude Code 的安装方式。', link: '查看完整安装指南', target: 'getting-started'},
++    {title: '说清这一次的需求', text: '选一份接近你目标的任务需求，补上项目现状、参考和要保留的功能。', link: '浏览任务与需求示例', target: 'guides'},
++    {title: '一起推进，检查结果', text: '助手按任务补充专业指导。打开成果试一遍，核对交付目标，再继续修改。', link: '看看实际执行记录', target: PAGE_PATHS['case-study']},
++  ],
++  evidenceEyebrow: '看得见，也能试一试', evidenceTitle: '从真实记录里了解，从小成果开始。', evidenceText: '实际执行记录与功能示例分开呈现，帮助你判断是否适合自己的项目。',
++  caseLabel: '实际执行记录 · 2026.11.13', caseTitle: '给收藏工具加导出，再新开会话继续改。',
++  caseText: '同一编程助手，分别直接执行与启用 Skill：比较 CSV 导出、原有功能和后续修改。记录包含结果、成本与限制。', caseLink: '阅读完整记录',
++  caseCaption: '实际产物截图 · 启用 Skill 组 · 修订批次第 1 配对 · 示例数据', caseLimit: '维护者的小规模任务比较，尚未进行真实用户研究；不代表普遍效果优势。',
++  exampleLabel: '功能示例 · 可以实际操作', exampleTitle: '一个能计算，也能下载的小工具。', exampleText: '输入工时、单价、额外费用与预留比例，试试手机操作和 CSV 明细下载。', exampleLink: '打开报价计算器',
++  quoteTitle: '项目报价', quoteSub: '浏览器内计算 · 示例金额', quoteHours: '12 小时 × ¥300', quoteExtras: '额外费用', quoteReserve: '预留 10%', quoteTotal: '报价总额', quoteAmount: '¥3,960.00',
++  installEyebrow: '从你的下一项任务开始', installTitle: '让专业方法，进入你的日常开发。', installText: '在项目文件夹中执行安装命令，或让助手按完整指南帮你安装。装好后，继续使用你熟悉的助手。', installLink: '安装并开始使用', installNote: 'Skill 免费 · MIT 许可。编程助手、API 与托管等第三方服务可能另外收费。',
++  faqEyebrow: 'FAQ', faqTitle: '开始前，你可能还想知道。', faqText: '先了解适用方式，再带着自己的项目开始。',
++  allTasks: '继续探索', guideLink: '全部任务指南', reference: '查看界面参考（非执行结果）',
++} : {
++  painEyebrow: 'MOVE PAST THE STICKING POINT', painTitle: 'Building a product takes more than code.',
++  painText: 'Bring the methods behind these tasks into the assistant you already use.',
++  community: 'Public community question', source: 'Original discussion', start: 'Start with this task', method: 'Methods your assistant can draw on',
++  sourceNote: 'These problems come from public community discussions. The authors are not customers of this skill, and these are not claims that it solved their problems.',
++  howEyebrow: 'HOW IT WORKS', howTitle: 'Your familiar assistant. A considered approach.', howText: 'Stay where you work. Install the skill, open your project and describe the task in front of you.',
++  steps: [
++    {title: 'Install in your coding assistant', text: 'Add the skill to your current project. The guide covers setup for Codex and Claude Code.', link: 'Read the setup guide', target: 'getting-started'},
++    {title: 'Describe this particular task', text: 'Choose a relevant request. Add your project, references and the working features you want to keep.', link: 'Explore tasks and requests', target: 'guides'},
++    {title: 'Make progress. Check the result.', text: 'Your assistant draws on guidance for the task. Open the result, check the delivery goals, then keep refining.', link: 'See an actual execution record', target: PAGE_PATHS['case-study']},
++  ],
++  evidenceEyebrow: 'LOOK CLOSER. TRY SOMETHING.', evidenceTitle: 'Real work to inspect. A small tool to try.', evidenceText: 'Execution evidence and functional examples are shown separately, so you can judge what fits your project.',
++  caseLabel: 'Actual execution record · 13 Nov 2026', caseTitle: 'Add bookmark export. Pick up in a fresh session.',
++  caseText: 'The same coding assistant, with and without the skill: CSV export, existing features and a follow-up change. Includes results, costs and limits.', caseLink: 'Read the full record',
++  caseCaption: 'Actual output · Skill group · Corrected cohort, pair 01 · Example data', caseLimit: 'A small task comparison by the maintainer, not research with real users or evidence of a general advantage.',
++  exampleLabel: 'Functional example · Try it yourself', exampleTitle: 'A small tool with a useful, downloadable result.', exampleText: 'Enter hours, rate, extra costs and reserve. Try the mobile experience and download a CSV breakdown.', exampleLink: 'Open the quote calculator',
++  quoteTitle: 'Project quote', quoteSub: 'Browser-local calculation · Sample amounts', quoteHours: '12 hours × $50', quoteExtras: 'Extra costs', quoteReserve: 'Reserve 10%', quoteTotal: 'Total quote', quoteAmount: '$660.00',
++  installEyebrow: 'START WITH YOUR NEXT TASK', installTitle: 'Put professional methods to work.', installText: 'Run the command in your project folder, or follow the full guide with your assistant. Then keep working in the assistant you know.', installLink: 'Install and get started', installNote: 'The skill is free under MIT. Your coding assistant, APIs, hosting and other services may charge separately.',
++  faqEyebrow: 'FAQ', faqTitle: 'A few things before you begin.', faqText: 'Understand how it fits, then start with a project of your own.',
++  allTasks: 'KEEP EXPLORING', guideLink: 'All task guides', reference: 'View an interface reference (not an execution result)',
++};
++const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 0 0 8 0V8M12 12v8', 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h.01M10 7h.01', 'M5 16a4 4 0 0 1 0-8 6 6 0 0 1 12-1 4.5 4.5 0 0 1 2 9M12 20V10m-4 4 4-4 4 4', 'M4 20V10m8 10V4m8 16v-7M2 20h20'];
+ ---
+-<div class="container outcome-home">
++<div class="container nova-home">
+   <Hero locale={locale} />
+ 
+-  <section class="how-it-helps" id="how-it-helps" aria-labelledby="mechanism-title">
+-    <div class="mechanism-introduction"><h2 id="mechanism-title">{copy.mechanismTitle}</h2><div><p>{copy.mechanismText}</p><a class="text-link" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{copy.skillSource}<span aria-hidden="true">↗</span></a></div></div>
+-    <div class="mechanism-list">{copy.mechanisms.map((item, index) => <div data-reveal-order={index}><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d={index === 0 ? 'M9 9h22v22H9zM15 15h10M15 20h10M15 25h6' : index === 1 ? 'M7 12h12v12H7zM21 7h12v12H21zM21 23h12v12H21zM12 24v6h9' : 'M8 8h24v24H8zM14 20l4 4 9-10'} /></svg><h3>{item.title}</h3><p>{item.text}</p></div>)}</div>
++  <section class="pain-section home-section" id="why-skill" aria-labelledby="pain-title">
++    <div class="section-intro"><p class="eyebrow">{copy.painEyebrow}</p><h2 id="pain-title">{copy.painTitle}</h2><p>{copy.painText}</p></div>
++    <div class="pain-grid">{OUTCOMES[locale].map((outcome, index) => <article class="pain-card" id={'outcome-' + outcome.id}>
++      <div class="pain-card-top"><span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={icons[index]} /></svg></span><span class="pain-index">0{index + 1} / {copy.community}</span></div>
++      <h3>{outcome.pain}</h3><p class="pain-situation">{outcome.situation}</p>
++      <div class="pain-methods"><p>{copy.method}</p><ul>{outcome.help.map((method) => <li>{method.title}</li>)}</ul></div>
++      <div class="pain-actions"><a class="text-link" href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{copy.start}<span aria-hidden="true">↗</span></a><a class="source-link" href={outcome.source.url}>{copy.source}<span aria-hidden="true">↗</span></a></div>
++      {outcome.id === 'design' && <details class="interface-reference"><summary>{copy.reference}</summary><TaskVisual locale={locale} kind="design" /></details>}
++    </article>)}</div>
++    <p class="source-note">{copy.sourceNote}</p>
+   </section>
+ 
+-  <section class="real-work" aria-labelledby="evidence-title">
+-    <div class="evidence-heading"><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
+-    <div class="discussion-sources">{OUTCOMES[locale].map((outcome) => <a href={outcome.source.url}><span>{outcome.label}</span><small>{outcome.source.label}</small><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></a>)}</div>
++  <section class="home-how home-section" id="how-it-helps" aria-labelledby="how-title">
++    <div class="section-intro"><p class="eyebrow">{copy.howEyebrow}</p><h2 id="how-title">{copy.howTitle}</h2><p>{copy.howText}</p></div>
++    <ol class="how-steps">{copy.steps.map((step, index) => <li><span class="step-index">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" data-home-start={index === 0 || undefined} href={href(locale, step.target)}>{step.link}<span aria-hidden="true">↗</span></a></li>)}</ol>
++    <a class="skill-source" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{OUTCOME_UI[locale].skillSource}<span aria-hidden="true"> ↗</span></a>
+   </section>
+ 
+-  <section class="own-task" id="install" aria-labelledby="start-title">
+-    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
+-    <Terminal locale={locale} />
++  <section class="evidence-section home-section" aria-labelledby="evidence-title">
++    <div class="section-intro"><p class="eyebrow">{copy.evidenceEyebrow}</p><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
++    <div class="evidence-grid">
++      <article class="evidence-card">
++        <figure class="case-image"><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}><img src={PROJECT.base + 'case-study/bookmarks-round-1.png'} alt={zh ? '收藏工具实际执行产物，显示列表、搜索、筛选和导出按钮' : 'Actual bookmark tool output showing the list, search, filters and export button'} width="1440" height="1000" loading="lazy" /></a><figcaption>{copy.caseCaption}</figcaption></figure>
++        <div class="evidence-copy"><p class="content-label">{copy.caseLabel}</p><h3>{copy.caseTitle}</h3><p>{copy.caseText}</p><a class="text-link" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{copy.caseLink}<span aria-hidden="true">↗</span></a><p class="evidence-limit">{copy.caseLimit}</p></div>
++      </article>
++      <article class="evidence-card">
++        <div class="quote-visual" aria-label={copy.quoteSub}><div class="quote-sheet"><div class="quote-sheet-top"><span class="quote-symbol" aria-hidden="true">↗</span><span>{copy.quoteTitle}<small>{copy.quoteSub}</small></span><span class="quote-file" aria-hidden="true">.csv</span></div><div class="quote-line"><span>{copy.quoteHours}</span><strong>{zh ? '¥3,600.00' : '$600.00'}</strong></div><div class="quote-line"><span>{copy.quoteExtras}</span><strong>{zh ? '¥0.00' : '$0.00'}</strong></div><div class="quote-line"><span>{copy.quoteReserve}</span><strong>{zh ? '¥360.00' : '$60.00'}</strong></div><div class="sample-quote-total"><span>{copy.quoteTotal}</span><strong>{copy.quoteAmount}</strong></div></div></div>
++        <div class="evidence-copy"><p class="content-label">{copy.exampleLabel}</p><h3>{copy.exampleTitle}</h3><p>{copy.exampleText}</p><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{copy.exampleLink}<span aria-hidden="true">↗</span></a></div>
++      </article>
++    </div>
+   </section>
+ 
+-  <section class="faq-section" aria-labelledby="faq-title"><h2 id="faq-title">{ui.home.faqTitle}</h2><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
++  <section class="install-section" id="install" aria-labelledby="start-title">
++    <div class="install-copy"><p class="eyebrow">{copy.installEyebrow}</p><h2 id="start-title">{copy.installTitle}</h2><p>{copy.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started') + '?task=design#task-design'}>{copy.installLink}<span aria-hidden="true">↗</span></a><p class="install-note">{copy.installNote}</p></div>
++    <Terminal locale={locale} animate={false} />
++  </section>
++
++  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+ 
+-  <section class="more-tasks" aria-labelledby="scenarios-title"><h2 id="scenarios-title">{copy.allTasks}</h2><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}><span>{scenario.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>)}</div></section>
++  <section class="more-tasks" aria-labelledby="scenarios-title"><div><p class="eyebrow" id="scenarios-title">{copy.allTasks}</p><a href={href(locale, 'guides')}>{copy.guideLink} ↗</a></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}>{scenario.label}<span aria-hidden="true">↗</span></a>)}</div></section>
+ </div>
+ <WebsiteMotion />
+ 
+ <style>
+-  .how-it-helps { padding-block: 67px 75px; border-top: 1px solid var(--line); }
+-  .mechanism-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+-  .mechanism-introduction h2 { max-width: 20ch; font-size: clamp(2rem, 3.1vw, 2.8rem); letter-spacing: -.03em; }
+-  .mechanism-introduction p { color: var(--muted); font-size: .94rem; line-height: 1.95; max-width: 48ch; }
+-  .mechanism-introduction a { margin-top: 22px; font-size: .78rem; }
+-  .mechanism-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 43px; }
+-  .mechanism-list > div { padding: 26px 0; border-top: 1px solid var(--line); }
+-  .mechanism-list svg { width: 34px; height: 34px; stroke: var(--blue); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
+-  .mechanism-list h3 { font-size: 1.14rem; letter-spacing: -.02em; }
+-  .mechanism-list p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 12px; }
+-  .real-work { padding-block: 57px 66px; border-top: 1px solid var(--line); }
+-  .evidence-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 80px; }
+-  .evidence-heading h2 { font-size: 2rem; letter-spacing: -.03em; max-width: 24ch; }
+-  .evidence-heading > p { color: var(--muted); font-size: .84rem; max-width: 54ch; line-height: 1.9; }
+-  .discussion-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 50px; margin-top: 32px; }
+-  .discussion-sources a { display: grid; grid-template-columns: 1fr auto; gap: 5px 20px; text-decoration: none; padding-block: 21px; border-top: 1px solid var(--line); }
+-  .discussion-sources a > span { font-size: .9rem; font-weight: 650; }
+-  .discussion-sources a > small { color: var(--muted); font-size: .7rem; grid-column: 1; line-height: 1.8; }
+-  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: var(--blue); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
+-  .discussion-sources a:hover > span { color: var(--action); }
+-  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: var(--subtle); color: var(--ink); padding: 42px 48px; border-radius: var(--radius-panel); margin-block: 5px 65px; overflow: hidden; }
+-  .own-task > div { position: relative; z-index: 1; }
+-  .own-task h2 { font-size: clamp(1.9rem, 2.9vw, 2.6rem); letter-spacing: -.025em; max-width: 22ch; }
+-  .own-task p { color: var(--muted); font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
+-  .own-task .button { margin-top: 25px; background: var(--action); color: var(--surface); }
+-  .own-task .button:hover { background: var(--action-hover); }
+-  .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+-  .faq-section { padding-bottom: 65px; }
+-  .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
+-  .more-tasks h2 { font-size: 1.05rem; letter-spacing: 0; }
+-  .more-tasks .scenario-links { margin-top: 12px; }
+-  .more-tasks .scenario-links a { font-size: .84rem; font-weight: 500; padding-block: 17px; }
+-  @media (hover: hover) and (pointer: fine) { .discussion-sources a:hover > svg { transform: translate(2px, -2px); } }
+-  @media (max-width: 1100px) {
+-    .mechanism-introduction, .evidence-heading { gap: 45px; }
+-    .mechanism-list { gap: 15px; }
+-    .mechanism-list > div { padding: 26px; }
+-    .own-task { padding: 35px; gap: 20px; }
+-  }
++  .nova-home { --home-space: 100px; }
++  .home-section { padding-block: var(--home-space); }
++  .section-intro { text-align: center; max-width: 780px; margin-inline: auto; }
++  .eyebrow { color: #4e75a1; font-size: 11px; letter-spacing: .1em; font-weight: 650; margin-bottom: 16px; }
++  h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 600; letter-spacing: -.045em; line-height: 1.25; }
++  .section-intro > p:last-child { margin-top: 20px; color: var(--muted); font-size: 15px; line-height: 1.9; }
++  .pain-section { padding-top: 88px; }
++  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 44px; }
++  .pain-card { padding: 30px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
++  .pain-card-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
++  .pain-icon { display: grid; place-items: center; border: 1px solid #dfE8f4; background: #f4f8ff; color: #4378b6; width: 40px; height: 40px; border-radius: 10px; }
++  .pain-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
++  .pain-index { color: #596b82; font-size: 10px; }
++  .pain-card h3 { font-size: 23px; line-height: 1.5; font-weight: 600; letter-spacing: -.035em; margin-top: 24px; max-width: 24ch; }
++  .pain-situation { color: var(--muted); font-size: 13px; line-height: 1.95; margin-top: 14px; }
++  .pain-methods { margin-top: 22px; padding-top: 18px; border-top: 1px solid #edf0f5; }
++  .pain-methods > p { font-size: 10px; color: #596b82; }
++  .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 16px; list-style: none; padding: 0; margin-top: 9px; }
++  .pain-methods li { font-size: 12px; color: #3d526d; }
++  .pain-methods li::before { content: '↳'; color: #5c88ba; margin-right: 6px; }
++  .pain-actions { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; margin-top: 22px; }
++  .text-link { display: inline-flex; align-items: center; gap: 13px; color: #245f9f; font-size: 12px; text-decoration: none; font-weight: 600; min-height: 36px; }
++  .text-link:hover { text-decoration: underline; }
++  .source-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 11px; color: #64748a; text-decoration: none; }
++  .source-link:hover { color: #245f9f; text-decoration: underline; }
++  .source-note { max-width: 800px; text-align: center; margin: 22px auto 0; color: #596b82; font-size: 11px; line-height: 1.8; }
++  .interface-reference { border-top: 1px solid #edf0f5; margin-top: 15px; }
++  .interface-reference summary { padding-block: 12px; color: #64748a; font-size: 10px; cursor: pointer; }
++  .home-how { border-block: 1px solid var(--line); }
++  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 44px; margin-top: 48px; }
++  .how-steps li { position: relative; }
++  .step-index { display: grid; place-items: center; width: 38px; height: 38px; background: #fff; border: 1px solid #d6e3f3; border-radius: 10px; font: 12px var(--mono); color: #4875ac; margin-bottom: 25px; box-shadow: 0 3px 5px #314a6a03; }
++  .how-steps li:not(:last-child)::after { content: ''; position: absolute; top: 19px; left: 58px; right: -16px; height: 1px; background: #dfe6f0; }
++  .how-steps h3 { font-size: 18px; font-weight: 600; }
++  .how-steps p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.95; }
++  .how-steps a { margin-top: 16px; }
++  .skill-source { display: block; width: fit-content; margin: 32px auto 0; color: #64748a; font-size: 11px; }
++  .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
++  .evidence-card { background: #fff; border: 1px solid var(--line); border-radius: 15px; overflow: hidden; }
++  .case-image { margin: 0; padding: 23px 25px 12px; background: #eef2f7; height: 320px; overflow: hidden; }
++  .case-image a { display: block; border: 1px solid #d5dfe9; border-radius: 7px; overflow: hidden; box-shadow: 0 12px 20px -16px #1630524d; height: 253px; }
++  .case-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
++  .case-image figcaption { color: #596b82; font-size: 9px; margin-top: 10px; line-height: 1.7; }
++  .evidence-copy { padding: 28px 30px 30px; }
++  .content-label { color: #4d74a4; font-size: 10px; }
++  .evidence-copy h3 { margin-top: 12px; font-size: 22px; line-height: 1.5; font-weight: 600; }
++  .evidence-copy > p:not(.content-label) { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 13px; }
++  .evidence-copy > .text-link { margin-top: 17px; }
++  .evidence-copy > p.evidence-limit { font-size: 10px; color: #596b82; padding-top: 12px; border-top: 1px solid #edf0f5; margin-top: 18px; }
++  .quote-visual { display: grid; align-items: center; background: #eaf1fb; padding: 24px 40px; height: 320px; }
++  .quote-sheet { width: 100%; background: #fff; border: 1px solid #d9e3f1; border-radius: 10px; padding: 22px; box-shadow: 0 15px 28px -20px #344f7940; }
++  .quote-sheet-top { display: flex; gap: 10px; align-items: center; font-size: 12px; margin-bottom: 20px; }
++  .quote-symbol { display: grid; place-items: center; color: #427ab8; font-size: 20px; background: #ecf4ff; border-radius: 6px; width: 30px; height: 30px; }
++  .quote-sheet-top small { color: #596b82; display: block; font-size: 9px; margin-top: 3px; }
++  .quote-file { margin-left: auto; color: #596b82; font: 10px var(--mono); }
++  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 12px; font-size: 11px; color: #66768c; }
++  .quote-line strong { color: #41526a; font-size: 11px; font-weight: 500; }
++  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #dbe3ed; padding-top: 14px; margin-top: 16px; }
++  .sample-quote-total > span { font-size: 10px; color: #5b6e87; }
++  .sample-quote-total strong { font-size: 25px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
++  .install-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 55px 48px; border: 1px solid #dbe5f2; border-radius: 20px; background: linear-gradient(120deg, #eaf2ff, #f3f7fc 55%, #e9f1fd); }
++  .install-copy h2 { font-size: 35px; max-width: 17ch; }
++  .install-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.95; margin-top: 21px; }
++  .install-copy .button { margin-top: 25px; font-size: 13px; gap: 25px; border-radius: 9px; }
++  .install-copy > p.install-note { font-size: 10px; margin-top: 19px; }
++  .install-section :global(.install-terminal) { --panel: #17212f; --surface: #fff; border-color: #35465e; border-radius: 12px; box-shadow: 0 18px 35px -24px #18365c70; }
++  .install-section :global(.install-terminal .code-toolbar) { background: #1d293b; border-color: #35465e; color: #c0cfdf; }
++  .install-section :global(.install-terminal .terminal-caption) { border-color: #35465e; color: #c0cfdf; }
++  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #bdccde; }
++  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
++  .home-faq h2 { font-size: 34px; max-width: 14ch; }
++  .faq-intro { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 22px; max-width: 32ch; }
++  .home-faq :global(.faq-list details) { border-color: var(--line); }
++  .home-faq :global(summary) { font-size: 14px; padding-block: 19px; font-weight: 550; gap: 20px; }
++  .home-faq :global(summary > span) { color: #596b82; font-size: 21px; font-weight: 400; }
++  .home-faq :global(details > p) { font-size: 13px; line-height: 1.95; color: var(--muted); padding-bottom: 22px; max-width: 58ch; }
++  .more-tasks { padding-block: 25px 50px; border-top: 1px solid var(--line); }
++  .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
++  .more-tasks .eyebrow { margin: 0; }
++  .more-tasks > div:first-child > a { font-size: 11px; color: #64748a; }
++  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 13px; }
++  .scenario-links a { display: flex; gap: 18px; padding-block: 13px; font-size: 12px; text-decoration: none; min-height: 44px; }
++  .scenario-links a:hover { color: #245f9f; }
++  @media (max-width: 1000px) { .install-section { gap: 30px; padding: 38px 32px; } .home-faq { gap: 40px; } .quote-visual { padding-inline: 25px; } }
+   @media (max-width: 800px) {
+-    .how-it-helps { padding-block: 44px 52px; }
+-    .mechanism-introduction, .evidence-heading { grid-template-columns: 1fr; gap: 23px; }
+-    .mechanism-introduction h2 { max-width: 25ch; }
+-    .mechanism-introduction p { max-width: 65ch; }
+-    .mechanism-list { grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+-    .mechanism-list > div { display: grid; grid-template-columns: 36px 1fr; gap: 0 22px; padding: 28px; }
+-    .mechanism-list svg { grid-row: span 2; margin: 0; }
+-    .mechanism-list p { margin-top: 8px; }
+-    .real-work { padding-block: 44px 50px; }
+-    .discussion-sources { gap: 0 25px; margin-top: 27px; }
+-    .own-task { padding: 32px; grid-template-columns: 1fr; gap: 30px; margin-bottom: 45px; }
+-    .own-task h2 { font-size: 1.8rem; }
+-    .faq-section { padding-bottom: 45px; }
+-    .more-tasks { padding-bottom: 48px; }
++    .nova-home { --home-space: 72px; } .pain-grid { gap: 15px; } .pain-card { padding: 24px; } .pain-card h3 { font-size: 21px; }
++    .how-steps { gap: 25px; } .evidence-copy { padding: 24px; } .case-image { padding-inline: 18px; } .quote-visual { padding-inline: 18px; }
++    .install-section { grid-template-columns: 1fr; gap: 32px; } .install-copy h2 { max-width: 22ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; }
+   }
+-  @media (max-width: 480px) {
+-    .mechanism-introduction h2 { font-size: 1.8rem; }
+-    .mechanism-introduction p { font-size: .88rem; }
+-    .mechanism-list > div { padding: 25px 22px; gap: 0 18px; }
+-    .mechanism-list h3 { font-size: 1.05rem; }
+-    .mechanism-list p { font-size: .8rem; }
+-    .evidence-heading h2 { font-size: 1.7rem; }
+-    .discussion-sources { grid-template-columns: 1fr; }
+-    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: var(--radius-panel); }
+-    .own-task p { font-size: .83rem; }
++  @media (max-width: 600px) {
++    .nova-home { --home-space: 65px; } h2 { font-size: 27px; } .eyebrow { font-size: 10px; margin-bottom: 13px; }
++    .section-intro > p:last-child { font-size: 14px; margin-top: 16px; } .pain-section { padding-top: 62px; }
++    .pain-grid { grid-template-columns: 1fr; margin-top: 30px; gap: 16px; } .pain-card { padding: 25px 23px; border-radius: 13px; }
++    .pain-card h3 { font-size: 23px; margin-top: 22px; } .pain-situation { font-size: 14px; } .pain-index { font-size: 10px; }
++    .pain-methods li { font-size: 12px; } .pain-methods ul { gap: 8px 13px; } .pain-actions { margin-top: 16px; } .text-link, .source-link { min-height: 44px; }
++    .source-note { text-align: left; font-size: 11px; } .interface-reference summary { padding-block: 15px; min-height: 44px; font-size: 11px; }
++    .how-steps { grid-template-columns: 1fr; margin-top: 34px; gap: 28px; } .how-steps li { padding-left: 59px; } .step-index { position: absolute; left: 0; top: 0; margin: 0; }
++    .how-steps li:not(:last-child)::after { left: 19px; top: 52px; bottom: -10px; right: auto; width: 1px; height: auto; }
++    .how-steps h3 { font-size: 18px; } .how-steps p { font-size: 14px; margin-top: 9px; } .how-steps a { margin-top: 9px; } .skill-source { font-size: 12px; min-height: 44px; display: flex; align-items: center; }
++    .evidence-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 30px; } .case-image { height: 250px; padding: 18px 18px 10px; } .case-image a { height: 193px; } .case-image figcaption { font-size: 9px; margin-top: 7px; }
++    .evidence-copy h3 { font-size: 23px; } .evidence-copy > p:not(.content-label) { font-size: 14px; } .evidence-copy > p.evidence-limit { font-size: 11px; }
++    .quote-visual { height: 275px; padding-inline: 25px; } .quote-sheet { padding: 19px; } .quote-sheet-top small { font-size: 8px; } .sample-quote-total strong { font-size: 24px; }
++    .install-section { padding: 30px 23px; border-radius: 15px; gap: 28px; } .install-copy h2 { font-size: 29px; } .install-copy > p.install-note { font-size: 11px; }
++    .home-faq h2 { font-size: 28px; } .home-faq :global(summary) { font-size: 14px; } .home-faq :global(details > p) { font-size: 14px; } .home-faq { gap: 23px; }
++    .more-tasks { padding-bottom: 30px; } .scenario-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; } .scenario-links a { justify-content: space-between; font-size: 12px; border-bottom: 1px solid var(--line); }
+   }
+ </style>
+diff --git a/website/src/components/TaskStage.astro b/website/src/components/TaskStage.astro
+index c6a3142..8a2bf33 100644
+--- a/website/src/components/TaskStage.astro
++++ b/website/src/components/TaskStage.astro
+@@ -1,148 +1,95 @@
+ ---
+ import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
+-import TaskVisual from './TaskVisual.astro';
+-import { href, type Locale } from '../data/site';
++import WorkflowDiagram from './WorkflowDiagram.astro';
++import { type Locale } from '../data/site';
+ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+-const ui = OUTCOME_UI[locale];
+-const outcomes = OUTCOMES[locale];
+-const themes = { development: 'var(--subtle)', design: '#f1e6cf', deployment: 'var(--subtle)', growth: 'var(--subtle)' };
++const zh = locale === 'zh-CN';
++const labels = zh ? { development: '排查与修复', design: '改进产品界面', deployment: '接通并上线', growth: '找到第一批用户' } : { development: 'Fix a regression', design: 'Improve the interface', deployment: 'Get the demo live', growth: 'Reach your first users' };
+ ---
+-<section class="task-stage" id="why-skill" aria-labelledby="stage-title" data-task-stage>
+-  <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><p>{ui.stageDescription}</p></div>
++<section class="task-stage" id="usage-demo" aria-labelledby="demo-title" data-task-stage>
++  <h2 id="demo-title" class="sr-only">{zh ? '在编程助手中怎样使用' : 'How to use it in your coding assistant'}</h2>
+   <fieldset>
+-    <legend class="sr-only">{ui.selector}</legend>
+-    {outcomes.map((outcome, index) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={index === 0} />)}
+-    <div class="task-options">
+-      {outcomes.map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><small class="task-number" aria-hidden="true">0{index + 1}</small><span class="task-label">{outcome.label}</span><span class="task-pain-summary">{outcome.pain}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
+-    </div>
+-    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id} style={'--case-surface:' + themes[outcome.id]}>
+-      <div class="task-panel-top">
+-        <div class="task-context">
+-          <p class="task-goal"><span>{ui.goal}</span>{outcome.goal}</p>
+-          <h3 id={'pain-' + outcome.id}>{outcome.pain}</h3>
+-          <p class="task-situation">{outcome.situation}</p>
+-          <div class="case-actions"><a class="task-start" data-task-start={outcome.id} href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{ui.start}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a><a class="discussion-link" href={outcome.source.url}>{ui.source}<span aria-hidden="true">↗</span></a></div>
++    <legend class="sr-only">{OUTCOME_UI[locale].selector}</legend>
++    {OUTCOMES[locale].map((outcome) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={outcome.id === 'design'} />)}
++    <figure class="assistant-demo" data-hero-object aria-label={zh ? '工作方式示意' : 'How it works'}>
++      <div class="demo-window" data-art-transform>
++        <div class="demo-toolbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{zh ? '你自己的编程助手' : 'Your own coding assistant'}<span class="toolbar-project"> / {zh ? '当前项目' : 'your project'}</span></span><span class="demo-badge">{zh ? '使用方式示意' : 'Illustrative workflow'}</span></div>
++        <div class="demo-layout">
++          <aside class="demo-sidebar" aria-label={zh ? '浏览四类任务' : 'Explore four tasks'}>
++            <div class="project-label"><span aria-hidden="true">⌘</span><strong>{zh ? '我的产品项目' : 'My product project'}</strong></div>
++            <p class="sidebar-caption">{zh ? '今天想推进哪件事？' : 'What are you working on?'}</p>
++            <div class="task-options">{OUTCOMES[locale].map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><span class="task-number" aria-hidden="true">0{index + 1}</span><span>{labels[outcome.id]}</span><span class="task-option-arrow" aria-hidden="true">↗</span></label>)}</div>
++            <div class="sidebar-skill"><span class="skill-symbol" aria-hidden="true">✳</span><div><strong>Solo Vibe Coding</strong><small>{zh ? '为助手补充专业方法' : 'Guidance for your assistant'}</small></div></div>
++          </aside>
++          <WorkflowDiagram locale={locale} />
+         </div>
+-        <figure class="result-preview">
+-          <TaskVisual locale={locale} kind={outcome.id} />
+-          <figcaption><span>{ui.preview}</span><p>{outcome.previewTitle}</p><small>{outcome.previewText}</small></figcaption>
+-        </figure>
+       </div>
+-      <div class="task-help"><h4>{ui.help}</h4><ol>{outcome.help.map((item) => <li><h5>{item.title}</h5><p>{item.text}</p></li>)}</ol></div>
+-      <div class="task-delivery"><h4>{ui.deliverables}</h4><ul>{outcome.deliverables.map((item) => <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4 9 3 3 7-7" /></svg>{item}</li>)}</ul></div>
+-    </article>)}
++      <figcaption><span>{zh ? '使用方式示意，非实际执行结果。任务在你自己的编程助手中完成。' : 'An illustration, not an executed result. The work happens in your own coding assistant.'}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
++    </figure>
+   </fieldset>
+ </section>
+ 
+ <style>
+-  .task-stage { margin-top: 0; padding-top: 26px; border-top: 1px solid var(--ink); }
+-  .stage-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 35px; margin-bottom: 24px; }
+-  .stage-heading h2 { font-size: 1.4375rem; letter-spacing: -.035em; max-width: 26ch; }
+-  .stage-heading > p { color: var(--muted); font-size: .86rem; max-width: 35ch; line-height: 1.85; }
+-  fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
+-  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-bottom: 30px; }
+-  .task-options label { position: relative; display: flex; flex-direction: column; align-items: start; padding: 16px 22px 13px 0; gap: 10px; cursor: pointer; background: transparent; border-top: 3px solid var(--line); color: var(--ink); min-width: 0; }
+-  .task-number { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .05em; }
+-  .task-options label > .task-label { font-size: 1rem; font-weight: 600; line-height: 1.5; }
+-  .task-pain-summary { color: var(--muted); font-size: .75rem; line-height: 1.8; }
+-  .task-options label > svg { position: absolute; top: 17px; right: 17px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; opacity: .7; }
+-  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { border-color: var(--action); color: var(--action); }
+-  .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2457f5; outline-offset: 4px; }
+-  .task-panel { display: none; background: var(--surface); border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--line); }
+-  .task-stage:has(input[value="development"]:checked) [data-outcome="development"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"], .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"] { display: block; }
+-  .task-panel-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+-  .task-context { padding: 42px 40px; align-self: center; }
+-  .task-goal { font-size: .8rem; line-height: 1.85; color: #525e68; }
+-  .task-goal > span { display: block; color: #65707b; font-size: .71rem; margin-bottom: 7px; }
+-  .task-context h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 22px; font-weight: 700; }
+-  .task-situation { color: #56616b; font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
+-  .case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; }
+-  .task-start { display: inline-flex; align-items: center; gap: 22px; background: var(--action); color: var(--surface); text-decoration: none; border-radius: 2px; min-height: 48px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+-  .task-start:hover { background: var(--action-hover); }
+-  .task-start:active { transform: scale(.97); }
+-  .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+-  .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
+-  .discussion-link:hover { color: #183dba; }
+-  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 20px 28px 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+-  figcaption { position: relative; text-align: left; padding-top: 2px; z-index: 1; }
+-  figcaption > span { display: block; color: #56616b; font-size: .65rem; margin-bottom: 7px; }
+-  figcaption > p { font-size: 1.43rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.4; }
+-  figcaption > small { display: block; margin-top: 8px; font-size: .73rem; color: #53616b; line-height: 1.8; }
+-  .task-help { padding: 28px 40px 31px; border-top: 1px solid #dfe1d9; }
+-  h4 { margin: 0; font-size: .73rem; font-weight: 500; color: #5b6771; }
+-  .task-help ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; list-style: none; padding: 0; margin-top: 17px; }
+-  h5 { margin: 0; font-size: .95rem; line-height: 1.6; font-weight: 650; }
+-  .task-help li > p { color: #58656e; font-size: .82rem; line-height: 1.95; margin-top: 9px; }
+-  .task-delivery { display: flex; align-items: baseline; gap: 29px; padding: 20px 40px; background: #edf1e5; }
+-  .task-delivery h4 { color: #465640; flex: none; }
+-  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 23px; list-style: none; padding: 0; font-size: .75rem; color: #35472d; }
+-  .task-delivery li { display: flex; align-items: center; gap: 8px; }
+-  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #537b34; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+-  @media (hover: hover) and (pointer: fine) {
+-    .task-options label:hover { border-color: var(--muted); }
+-    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { border-color: var(--action); }
+-  }
+-  @media (max-width: 1100px) {
+-    .task-options { gap: 11px; }
+-    .task-options label { padding-inline: 15px; }
+-    .task-options label > .task-label { font-size: .76rem; }
+-    .task-context { padding: 33px 29px; }
+-    .result-preview { padding-inline: 27px; }
+-    .task-help, .task-delivery { padding-inline: 29px; }
+-    .task-help ol { gap: 24px; }
+-    .task-delivery { gap: 20px; }
+-  }
+-  @media (max-width: 800px) {
+-    .task-stage { margin-top: 0; }
+-    .stage-heading { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 25px; }
+-    .stage-heading h2 { font-size: 2rem; max-width: 25ch; }
+-    .stage-heading > p { max-width: 55ch; }
+-    .task-options { grid-template-columns: 1fr 1fr; gap: 11px; }
+-    .task-options label { justify-content: start; padding: 14px 0; gap: 7px; min-height: 78px; }
+-    .task-number { min-width: 24px; font-size: 11px; }
+-    .task-options label > .task-label { text-align: left; font-size: .8rem; }
+-    .task-options label > svg { display: none; }
+-    .task-panel-top { grid-template-columns: 1fr; }
+-    .task-context { padding: 31px 28px; }
+-    .task-context h3 { font-size: 1.8rem; max-width: 29ch; }
+-    .result-preview { padding: 16px 28px 27px; }
+-    .task-help { padding: 27px 28px; }
+-    .task-help ol { grid-template-columns: 1fr; gap: 23px; }
+-    .task-help li > p { max-width: 65ch; margin-top: 6px; }
+-    .task-delivery { flex-direction: column; gap: 14px; padding: 23px 28px; }
+-    .task-delivery ul { gap: 12px 20px; font-size: .75rem; }
+-  }
+-  @media (max-width: 480px) {
+-    .task-stage { margin-top: 0; padding-top: 17px; }
+-    .stage-heading h2 { font-size: 1.125rem; }
+-    .stage-heading > p { font-size: .8rem; }
+-    .task-options { gap: 9px; margin-bottom: 15px; }
+-    .task-options label { padding: 10px 0; gap: 5px; min-height: 66px; }
+-    .task-options label > .task-label { font-size: .75rem; line-height: 1.65; }
+-    .task-pain-summary { display: none; }
+-    .task-panel { border-radius: 16px; }
+-    .task-context { padding: 27px 22px; }
+-    .task-context h3 { font-size: 1.55rem; margin-top: 19px; }
+-    .task-goal { font-size: .75rem; }
+-    .task-situation { font-size: .81rem; }
+-    .case-actions { gap: 13px 18px; margin-top: 24px; }
+-    .task-start { font-size: .76rem; gap: 17px; padding: 12px 14px; }
+-    .discussion-link { font-size: .68rem; }
+-    .result-preview { padding: 15px 22px 25px; }
+-    figcaption > p { font-size: 1.28rem; }
+-    figcaption > small { font-size: .69rem; }
+-    .task-help, .task-delivery { padding-inline: 22px; }
++  .task-stage { margin: 48px auto 0; max-width: 1080px; scroll-margin-top: 24px; }
++  fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
++  .assistant-demo { margin: 0; min-width: 0; }
++  .demo-window { border: 1px solid #fff; border-radius: 20px; background: #ffffff80; padding: 9px; box-shadow: 0 25px 75px -38px #3d5b894f, 0 3px 12px #314a6a08; }
++  .demo-toolbar { display: flex; align-items: center; gap: 14px; min-height: 46px; padding: 0 14px 8px; font-size: 12px; color: #566779; }
++  .window-dots { display: flex; gap: 5px; }
++  .window-dots i { width: 7px; height: 7px; border-radius: 50%; background: #f3aeaa; }
++  .window-dots i:nth-child(2) { background: #edce85; }
++  .window-dots i:nth-child(3) { background: #a1cbb4; }
++  .toolbar-project { color: #5d6f84; }
++  .demo-badge { margin-left: auto; font-size: 10px; border: 1px solid #dbe4ee; background: #fff; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
++  .demo-layout { display: grid; grid-template-columns: 218px minmax(0, 1fr); border: 1px solid #dfe5ee; border-radius: 12px; overflow: hidden; background: #fff; }
++  .demo-sidebar { background: #f8fafd; border-right: 1px solid #e7ecf2; display: flex; flex-direction: column; padding: 25px 14px 18px; }
++  .project-label { display: flex; align-items: center; gap: 10px; padding-inline: 10px; font-size: 12px; }
++  .project-label > span { border: 1px solid #dce4ed; background: #fff; border-radius: 7px; padding: 3px 7px; font-size: 18px; }
++  .project-label strong { font-weight: 600; }
++  .sidebar-caption { color: #596b82; font-size: 11px; margin: 31px 10px 12px; }
++  .task-options { display: grid; gap: 7px; }
++  .task-options label { min-height: 43px; display: flex; align-items: center; gap: 9px; padding: 10px; border: 1px solid transparent; border-radius: 7px; font-size: 12px; color: #536478; cursor: pointer; }
++  .task-number { font: 10px var(--mono); color: #52677f; }
++  .task-option-arrow { margin-left: auto; visibility: hidden; }
++  .task-options label:hover { background: #eef3f9; }
++  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #1e5a9c; background: #e6f0fd; border-color: #c6daf2; font-weight: 600; }
++  fieldset:has(input[value="development"]:checked) label[data-choice="development"] .task-option-arrow, fieldset:has(input[value="design"]:checked) label[data-choice="design"] .task-option-arrow, fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"] .task-option-arrow, fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] .task-option-arrow { visibility: visible; }
++  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2671c5; outline-offset: 2px; }
++  .sidebar-skill { display: flex; gap: 9px; margin-top: auto; padding: 45px 10px 0; align-items: center; }
++  .skill-symbol { color: #347bc5; font-size: 27px; }
++  .sidebar-skill strong { display: block; font-size: 11px; font-weight: 650; }
++  .sidebar-skill small { display: block; font-size: 10px; color: #596b82; margin-top: 2px; }
++  figcaption { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; color: #596b82; font-size: 11px; text-align: center; }
++  .motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 5px 8px; border: 0; border-radius: 5px; background: transparent; color: #576b81; font-size: 11px; }
++  .motion-toggle:hover { background: #eaf0f7; }
++  .motion-toggle:disabled { cursor: default; }
++  @media (max-width: 800px) { .demo-layout { grid-template-columns: 185px minmax(0, 1fr); } .demo-sidebar { padding-inline: 9px; } .toolbar-project { display: none; } }
++  @media (max-width: 600px) {
++    .task-stage { margin-top: 31px; }
++    .demo-window { border-radius: 14px; padding: 5px; }
++    .demo-toolbar { padding: 5px 7px 10px; font-size: 10px; gap: 9px; }
++    .window-dots { gap: 3px; } .window-dots i { width: 5px; height: 5px; }
++    .demo-badge { font-size: 9px; padding-inline: 5px; }
++    .demo-layout { grid-template-columns: 1fr; border-radius: 9px; }
++    .demo-sidebar { padding: 12px; border: 0; border-bottom: 1px solid #e7ecf2; }
++    .project-label, .sidebar-skill { display: none; }
++    .sidebar-caption { margin: 0 0 8px; font-size: 10px; }
++    .task-options { grid-template-columns: 1fr 1fr; gap: 5px; }
++    .task-options label { font-size: 11px; padding: 8px; min-height: 44px; gap: 7px; }
++    .task-number { font-size: 9px; }
++    figcaption { margin: 12px 7px 0; font-size: 10px; gap: 0; }
+   }
+ </style>
+ 
+ <script>
+   const stage = document.querySelector<HTMLElement>('[data-task-stage]');
+-  const choices = stage?.querySelectorAll<HTMLInputElement>('.task-choice');
++  const choices = [...(stage?.querySelectorAll<HTMLInputElement>('.task-choice') ?? [])];
+   const startLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-home-start]')];
+   const synchronizeTask = (task: string, persist = true) => {
+-    const choice = [...(choices ?? [])].find((input) => input.value === task);
++    const choice = choices.find((input) => input.value === task) ?? choices.find((input) => input.value === 'design');
+     if (!choice) return;
++    task = choice.value;
+     choice.checked = true;
+     for (const link of startLinks) {
+       const target = new URL(link.href);
+@@ -161,9 +108,8 @@ const themes = { development: 'var(--subtle)', design: '#f1e6cf', deployment: 'v
+       language.href = alternate.href;
+     }
+   };
+-  for (const choice of choices ?? []) choice.addEventListener('change', () => {
+-    if (choice.checked) synchronizeTask(choice.value);
+-  });
++  choices.forEach((choice) => choice.addEventListener('change', () => { if (choice.checked) synchronizeTask(choice.value); }));
++  window.addEventListener('popstate', () => synchronizeTask(new URLSearchParams(location.search).get('task') ?? 'design', false));
+   const requested = new URLSearchParams(window.location.search).get('task');
+-  synchronizeTask(requested ?? 'development', Boolean(requested));
++  synchronizeTask(requested ?? 'design', Boolean(requested));
+ </script>
+diff --git a/website/src/components/Terminal.astro b/website/src/components/Terminal.astro
+index 20f7896..0cf48db 100644
+--- a/website/src/components/Terminal.astro
++++ b/website/src/components/Terminal.astro
+@@ -1,13 +1,13 @@
+ ---
+ // Terminal presentation adapted from Magic UI (MIT). See public/licenses/visual-assets.txt.
+ import { PROJECT, UI, type Locale } from '../data/site';
+-interface Props { locale: Locale; compact?: boolean; }
+-const { locale, compact = false } = Astro.props;
++interface Props { locale: Locale; compact?: boolean; animate?: boolean; }
++const { locale, compact = false, animate = true } = Astro.props;
+ const zh = locale === 'zh-CN';
+ const ui = UI[locale];
+ const command = PROJECT.install + ' --agent codex --yes';
+ ---
+-<div class:list={['code-block', 'install-terminal', { compact }]} data-terminal data-install>
++<div class:list={['code-block', 'install-terminal', { compact }]} data-terminal data-install data-animate={animate ? 'on' : 'off'}>
+   <div class="code-toolbar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>~/your-project</span><button type="button" class="copy-button" data-copy data-copy-label={ui.copy} data-copied-label={ui.copied} data-failed-label={ui.copyFailed} hidden><svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><rect x="7" y="7" width="9" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M12 4H5a2 2 0 0 0-2 2v7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span data-copy-text>{ui.copy}</span></button></div>
+   <div class="terminal-body"><p class="terminal-comment"># {zh ? '在你的项目文件夹中安装' : 'Install inside your project folder'}</p><div class="terminal-command"><span class="terminal-prompt" aria-hidden="true">$</span><pre tabindex="0" aria-label={ui.installationCommand}><code data-terminal-command>{command}</code></pre><span class="terminal-typing" data-terminal-typing aria-hidden="true"></span></div><p class="terminal-next"><span aria-hidden="true">↳</span>{zh ? '装好后，回到编程助手选择 $solo-vibe-coding' : 'Then select $solo-vibe-coding in your coding assistant'}</p></div>
+   <div class="terminal-caption"><span><span class="terminal-status" aria-hidden="true"></span>{zh ? '命令演示' : 'Command preview'}</span><span>Node.js 22.20+ · npm</span></div>
+@@ -45,6 +45,7 @@ const command = PROJECT.install + ' --agent codex --yes';
+ <script>
+   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+   for (const terminal of document.querySelectorAll<HTMLElement>('[data-terminal]')) {
++    if (terminal.dataset.animate === 'off') continue;
+     const command = terminal.querySelector<HTMLElement>('[data-terminal-command]');
+     const typing = terminal.querySelector<HTMLElement>('[data-terminal-typing]');
+     if (!command || !typing || !('IntersectionObserver' in window)) continue;
+diff --git a/website/src/components/WorkflowDiagram.astro b/website/src/components/WorkflowDiagram.astro
+index 8a7b8fb..93c2098 100644
+--- a/website/src/components/WorkflowDiagram.astro
++++ b/website/src/components/WorkflowDiagram.astro
+@@ -1,101 +1,61 @@
+ ---
+-import { WORKFLOW_PREVIEWS } from '../data/outcomes';
+-import { type Locale } from '../data/site';
++import { OUTCOMES, WORKFLOW_PREVIEWS } from '../data/outcomes';
++import { href, type Locale } from '../data/site';
+ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+ const zh = locale === 'zh-CN';
+-const copy = zh ? {
+-  sequence: '你的目标 → 专业做法 → 可用成果', label: '工作方式示意', goal: '你想做到',
+-  assistant: '你正在用的编程助手', project: '结合现有项目，继续做', guidance: '按任务补充专业方法与参考',
+-  output: '希望交付', caption: '在你自己的编程助手中完成任务。',
+-} : {
+-  sequence: 'Your goal → Relevant methods → A usable result', label: 'How it works', goal: 'Your goal',
+-  assistant: 'The coding assistant you use', project: 'Continue in your existing project', guidance: 'Task-specific methods and references',
+-  output: 'What to ask it to deliver', caption: 'The work happens in your own coding assistant.',
+-};
+ ---
+-<figure class="hero-art" data-hero-object aria-label={copy.label}>
+-  <div class="workflow-heading"><span>{copy.sequence}</span><span>{copy.label}</span></div>
+-  <div class="workflow-scenes" data-art-transform>
+-    {Object.entries(WORKFLOW_PREVIEWS[locale]).map(([task, preview]) => <div class="workflow-scene" data-workflow={task}>
+-      <div class="workflow-request"><span>{copy.goal}</span><p>{preview.request}</p><span class="request-arrow" aria-hidden="true">↘</span></div>
+-      <div class="workflow-assistant">
+-        <div class="assistant-heading"><span class="assistant-symbol" aria-hidden="true">&lt;/&gt;</span><span>{copy.assistant}<small>{copy.project}</small></span></div>
+-        <div class="workflow-skill"><span class="skill-plus" aria-hidden="true">＋</span><span>Solo Vibe Coding<small>{copy.guidance}</small></span><span class="skill-arrow" aria-hidden="true">↙</span></div>
+-        <ol class="workflow-methods">{preview.methods.map((method, index) => <li><span aria-hidden="true">0{index + 1}</span><strong>{method}</strong></li>)}</ol>
+-      </div>
+-      <div class="workflow-output"><span aria-hidden="true">↳</span><p><small>{copy.output}</small><strong>{preview.output}</strong></p></div>
+-    </div>)}
+-  </div>
+-  <figcaption><span>{copy.caption}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
+-</figure>
++<div class="workflow-scenes">
++  {OUTCOMES[locale].map((outcome) => {
++    const preview = WORKFLOW_PREVIEWS[locale][outcome.id];
++    return <article class="workflow-scene task-panel" data-workflow={outcome.id} data-outcome={outcome.id} aria-label={outcome.label}>
++      <div class="request-heading"><span>{zh ? '你提出具体需求' : 'You describe the task'}</span><span class="user-avatar" aria-hidden="true">{zh ? '你' : 'You'}</span></div>
++      <div class="workflow-request"><span class="skill-mention">$solo-vibe-coding</span><p>{preview.request}</p></div>
++      <div class="assistant-heading"><span class="assistant-symbol" aria-hidden="true">✳</span><div><strong>{zh ? '你的编程助手' : 'Your coding assistant'}</strong><small>{zh ? '按任务使用 Solo Vibe Coding 专业指导' : 'Using Solo Vibe Coding guidance for this task'}</small></div></div>
++      <div class="task-help"><p>{zh ? '结合现有项目，按这三个方向推进：' : 'Build on your project with these three steps:'}</p><ol>{preview.methods.map((method, index) => <li><span aria-hidden="true">{index + 1}</span><div><strong>{method}</strong></div></li>)}</ol></div>
++      <div class="task-delivery"><p class="delivery-label">{zh ? '本次交付与检查目标' : 'Delivery and check goals'}</p><p class="delivery-output">{preview.output}</p><ul>{outcome.checks.map((check) => <li>{check}</li>)}</ul></div>
++      <div class="workflow-bottom"><span>{zh ? '保留现有项目 · 交代未验证项' : 'Keep the project · Report unverified work'}</span><a data-task-start={outcome.id} href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{zh ? '用这个任务开始' : 'Start with this task'}<span aria-hidden="true">↗</span></a></div>
++    </article>;
++  })}
++</div>
+ 
+ <style>
+-  .hero-art { position: relative; min-width: 0; width: 100%; margin: 0; padding-left: 12px; }
+-  .workflow-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .75rem; color: var(--muted); margin-bottom: 23px; }
+-  .workflow-heading > span:last-child { font-size: .6875rem; white-space: nowrap; }
+-  .workflow-scene { display: none; }
+-  .workflow-scene[data-workflow="development"] { display: block; }
+-  :global(.product-hero:has(input.task-choice:not([value="development"]):checked)) .workflow-scene[data-workflow="development"] { display: none; }
+-  :global(.product-hero:has(input[value="design"]:checked)) [data-workflow="design"],
+-  :global(.product-hero:has(input[value="deployment"]:checked)) [data-workflow="deployment"],
+-  :global(.product-hero:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: block; }
+-  .workflow-request { position: relative; background: var(--yellow); border: 1px solid #cfb04b; padding: 18px 54px 18px 23px; margin-right: 32px; }
+-  .workflow-request > span:first-child { font-size: .75rem; color: #57471d; }
+-  .workflow-request p { font-size: 1.0625rem; font-weight: 600; line-height: 1.6; margin-top: 6px; }
+-  .request-arrow { position: absolute; right: 20px; top: 28px; font-size: 28px; }
+-  .workflow-assistant { margin: 16px 0 0 32px; padding: 21px 25px 0; background: var(--surface); border: 1px solid var(--ink); box-shadow: 7px 7px 0 #e0dacd; }
+-  .assistant-heading { display: flex; align-items: center; gap: 12px; font-size: 1rem; font-weight: 600; }
+-  .assistant-symbol { border: 1px solid var(--line); width: 38px; height: 38px; flex: none; display: grid; place-items: center; font: 600 15px var(--mono); }
+-  .assistant-heading small { display: block; font-size: .75rem; color: var(--muted); font-weight: 400; margin-top: 5px; }
+-  .workflow-skill { display: flex; align-items: center; gap: 15px; background: var(--action); color: var(--surface); padding: 16px 22px; margin: 24px -42px 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -.025em; }
+-  .skill-plus { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #ffffff80; border-radius: 50%; font-size: 25px; font-weight: 400; }
+-  .workflow-skill small { display: block; font-size: .75rem; font-weight: 400; letter-spacing: .02em; margin-top: 6px; }
+-  .skill-arrow { margin-left: auto; font-size: 32px; font-weight: 400; }
+-  .workflow-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 20px 0; }
+-  .workflow-methods li { display: flex; flex-direction: column; gap: 9px; padding-left: 15px; border-left: 1px solid var(--line); }
+-  .workflow-methods li:first-child { padding-left: 0; border-left: 0; }
+-  .workflow-methods li > span { color: var(--blue); font: .75rem/1.5 var(--mono); }
+-  .workflow-methods strong { font-size: .75rem; line-height: 1.6; font-weight: 550; }
+-  .workflow-output { display: flex; align-items: center; gap: 14px; margin: 26px 0 0 32px; }
+-  .workflow-output > span { color: var(--blue); font-size: 33px; }
+-  .workflow-output small { display: block; color: var(--muted); font-size: .6875rem; margin-bottom: 5px; }
+-  .workflow-output strong { font-size: .875rem; line-height: 1.7; font-weight: 550; }
+-  figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 17px 0 0 32px; color: var(--muted); font-size: .6875rem; line-height: 1.6; }
+-  .motion-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 9px; background: transparent; border: 1px solid var(--line); color: var(--ink); font-size: .6875rem; white-space: nowrap; }
+-  .motion-toggle:disabled { color: var(--muted); cursor: default; }
+-  @media (max-width: 1100px) {
+-    .hero-art { padding-left: 0; }
+-    .workflow-heading { font-size: .6875rem; }
+-    .workflow-request { padding-left: 18px; margin-right: 18px; }
+-    .workflow-request p { font-size: .9375rem; }
+-    .workflow-assistant { margin-left: 18px; padding-inline: 20px; }
+-    .workflow-skill { margin-inline: -30px; padding-inline: 17px; font-size: 1.0625rem; }
+-    .workflow-methods li { padding-left: 8px; }
+-    .workflow-methods strong { font-size: .6875rem; }
+-  }
+-  @media (max-width: 800px) { .hero-art { width: min(100%, 500px); margin-inline: auto; } }
+-  @media (max-width: 480px) {
+-    .workflow-heading { margin-bottom: 12px; }
+-    .workflow-request { padding: 10px 37px 10px 14px; margin-right: 17px; }
+-    .workflow-request > span:first-child { font-size: .6875rem; }
+-    .workflow-request p { font-size: .8125rem; margin-top: 4px; }
+-    .request-arrow { right: 11px; top: 18px; font-size: 24px; }
+-    .workflow-assistant { margin-top: 10px; margin-left: 17px; padding: 13px 13px 0; box-shadow: 4px 4px 0 #e0dacd; }
+-    .assistant-heading { font-size: .8125rem; gap: 9px; }
+-    .assistant-symbol { width: 29px; height: 29px; font-size: 12px; }
+-    .assistant-heading small { display: none; }
+-    .workflow-skill { margin: 12px -22px 0; padding: 11px 13px; font-size: 1.0625rem; gap: 11px; }
+-    .skill-plus { width: 28px; height: 28px; font-size: 23px; }
+-    .workflow-skill small { font-size: .6875rem; margin-top: 4px; }
+-    .skill-arrow { font-size: 26px; }
+-    .workflow-methods { padding-block: 12px; }
+-    .workflow-methods li { padding-left: 8px; gap: 4px; }
+-    .workflow-methods li > span { font-size: .6875rem; }
+-    .workflow-output { gap: 10px; margin: 15px 0 0 16px; }
+-    .workflow-output > span { font-size: 28px; }
+-    .workflow-output small { font-size: .6875rem; margin-bottom: 3px; }
+-    .workflow-output strong { font-size: .75rem; }
+-    figcaption { margin: 8px 0 0 17px; }
++  .workflow-scenes { min-width: 0; }
++  .workflow-scene { display: none; padding: 24px 32px 20px; }
++  :global([data-task-stage]:has(input[value="development"]:checked)) [data-workflow="development"], :global([data-task-stage]:has(input[value="design"]:checked)) [data-workflow="design"], :global([data-task-stage]:has(input[value="deployment"]:checked)) [data-workflow="deployment"], :global([data-task-stage]:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: block; }
++  .request-heading { display: flex; align-items: center; justify-content: end; gap: 9px; color: #596b82; font-size: 10px; }
++  .user-avatar { display: grid; place-items: center; min-width: 25px; height: 25px; border: 1px solid #dce4ed; border-radius: 50%; background: #f4f7fb; font-size: 9px; }
++  .workflow-request { max-width: 540px; margin: 7px 0 23px auto; padding: 13px 17px; background: #f1f5fa; border: 1px solid #e5eaf2; border-radius: 11px 3px 11px 11px; }
++  .skill-mention { font: 10px var(--mono); color: #2861a1; }
++  .workflow-request p { font-size: 13px; font-weight: 550; line-height: 1.75; margin-top: 4px; }
++  .assistant-heading { display: flex; align-items: center; gap: 10px; }
++  .assistant-symbol { display: grid; place-items: center; background: #eaf3ff; color: #3379c6; width: 31px; height: 31px; border: 1px solid #d7e6fa; border-radius: 8px; font-size: 22px; }
++  .assistant-heading strong { display: block; font-size: 12px; font-weight: 650; }
++  .assistant-heading small { display: block; font-size: 10px; color: #596b82; margin-top: 1px; }
++  .task-help { margin: 15px 0 0 41px; }
++  .task-help > p { color: #596b7f; font-size: 11px; }
++  .task-help ol { padding: 0; list-style: none; margin-top: 13px; display: grid; gap: 11px; }
++  .task-help li { display: flex; align-items: start; gap: 10px; }
++  .task-help li > span { display: grid; place-items: center; width: 20px; height: 20px; flex: none; border: 1px solid #d8e5f6; border-radius: 50%; color: #2765aa; background: #f4f8ff; font: 10px var(--mono); }
++  .task-help strong { display: block; font-size: 12px; font-weight: 600; line-height: 1.7; }
++  .task-delivery { margin: 19px 0 0 41px; padding: 13px 16px; background: #f7faff; border: 1px solid #dce7f5; border-radius: 8px; }
++  .delivery-label { font-size: 10px; color: #4b6e99; }
++  .delivery-output { margin-top: 4px; font-size: 12px; font-weight: 600; }
++  .task-delivery ul { padding-left: 15px; margin-top: 7px; font-size: 10px; line-height: 1.9; color: #607187; }
++  .workflow-bottom { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 19px; padding-top: 13px; border-top: 1px solid #edf0f5; font-size: 10px; color: #596b82; }
++  .workflow-bottom a { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; text-decoration: none; color: #225d9d; font-weight: 600; }
++  .workflow-bottom a:hover { text-decoration: underline; }
++  @media (max-width: 800px) { .workflow-scene { padding: 22px; } .task-help, .task-delivery { margin-left: 0; } }
++  @media (max-width: 600px) {
++    .workflow-scene { padding: 17px 14px 11px; }
++    .workflow-request { margin-bottom: 19px; padding: 11px 13px; }
++    .workflow-request p { font-size: 13px; }
++    .task-help { margin-top: 14px; }
++    .task-help strong { font-size: 13px; }
++    .task-help ol { gap: 14px; }
++    .task-delivery { padding: 12px; }
++    .delivery-output { font-size: 13px; } .task-delivery ul { font-size: 12px; }
++    .workflow-bottom { gap: 6px; flex-wrap: wrap; margin-top: 14px; }
++    .workflow-bottom a { min-height: 44px; font-size: 12px; }
+   }
+ </style>
+diff --git a/website/src/data/site.ts b/website/src/data/site.ts
+index 84f4b89..bcef2d5 100644
+--- a/website/src/data/site.ts
++++ b/website/src/data/site.ts
+@@ -35,11 +35,11 @@ const en = {
+   footerLicense: 'The skill is open source under MIT. Your coding assistant and other services have their own terms.',
+   footerSource: 'GitHub', footerTop: 'Back to top',
+   hero: {
+-    context: 'Professional guidance for your assistant · Open-source skill',
+-    title: 'Build it sooner.', accent: 'Make it worth sharing.',
+-    description: 'Bring design, debugging, release and launch guidance into the coding assistant you already use. Work on your own project, starting with the part that is holding it back.',
+-    primary: 'Get the skill', secondary: 'See where it helps',
+-    note: 'Free and open source · MIT licensed · Use it in your own assistant',
++    context: 'An open-source skill for your coding assistant',
++    title: 'Give your assistant', accent: 'a product playbook.',
++    description: 'From interface design and development to debugging, shipping and launch: add methods, references and checks for the task at hand. Keep using the coding assistant you know.',
++    primary: 'Install and get started', secondary: 'See how it works',
++    note: 'Works in your existing assistant · Free, open-source skill',
+   },
+   home: {
+     installTitle: 'Put it to work on your project.',
+@@ -135,9 +135,9 @@ const zh: typeof en = {
+   footerLicense: 'Skill 采用 MIT 开源许可。编程助手与其他服务按各自条款提供。', footerSource: 'GitHub', footerTop: '回到顶部',
+   hero: {
+     context: '给编程助手的专业指导包 · 开源 Skill',
+-    title: '快点做出来，', accent: '也做得像样。',
+-    description: '修 Bug、改界面、上线、推广，把各个领域的专业做法用到你的项目里。你说清想做到什么，编程助手结合现有项目继续做。',
+-    primary: '安装并开始使用', secondary: '看看怎么用', note: '免费开源 · MIT 许可 · 装进你常用的编程助手',
++    title: '给你的编程助手，', accent: '一套做产品的专业方法。',
++    description: '从界面设计、功能开发到排查问题、上线推广，按当前任务补上方法、参考与检查步骤。继续使用你熟悉的编程助手。',
++    primary: '安装并开始使用', secondary: '看看怎么用', note: '在现有助手中使用 · Skill 免费开源',
+   },
+   home: {
+     installTitle: '从你正遇到的问题开始。',
+diff --git a/website/src/layouts/Layout.astro b/website/src/layouts/Layout.astro
+index f3f5921..5984f22 100644
+--- a/website/src/layouts/Layout.astro
++++ b/website/src/layouts/Layout.astro
+@@ -30,7 +30,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <meta name="description" content={description} />
+-    <meta name="theme-color" content="#f4f0e7" />
++    <meta name="theme-color" content={page === 'home' ? '#dceafd' : '#f4f0e7'} />
+     <meta name="color-scheme" content="light" />
+     {noindex && <meta name="robots" content="noindex" />}
+     <title>{title}</title>
+@@ -59,7 +59,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+     <meta name="twitter:image" content={PROJECT.origin + PROJECT.base + 'social-card.png'} />
+     {!noindex && <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')} />}
+   </head>
+-  <body id="top">
++  <body id="top" class:list={{ homepage: page === 'home' }}>
+     <a class="skip-link" href="#main">{ui.skip}</a>
+     <header class="site-header">
+       <div class="container header-inner">
+@@ -134,3 +134,25 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+     </script>
+   </body>
+ </html>
++
++<style>
++  :global(body.homepage) { --paper: #fafbfd; --surface: #fff; --ink: #1e2938; --muted: #617084; --action: #1e2938; --action-hover: #354a65; --accent-ink: #346aa8; --line: #e0e6ee; --radius-panel: 16px; --radius-card: 12px; background: linear-gradient(180deg, #dceafd 0, #edf4fd 300px, #f8fafd 680px, #fafbfd 1150px); background-repeat: no-repeat; background-color: #fafbfd; }
++  :global(.homepage .container) { width: min(1160px, calc(100% - 80px)); }
++  :global(.homepage .site-header) { border: 0; }
++  :global(.homepage .header-inner) { min-height: 80px; }
++  :global(.homepage .brand) { gap: 9px; font-size: 16px; letter-spacing: -.04em; }
++  :global(.homepage .brand-mark) { width: 29px; height: 29px; color: #306aa9; }
++  :global(.homepage .main-navigation) { gap: 26px; }
++  :global(.homepage .main-navigation a) { font-size: 12px; font-weight: 550; color: #4c6079; }
++  :global(.homepage .main-navigation a:last-child) { padding: 8px 15px; border: 1px solid #bed0e5; border-radius: 7px; color: #2c4564; background: #ffffff40; }
++  :global(.homepage .language-switch) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; font-size: 11px; padding: 5px; border: 0; color: #3e5673; }
++  :global(.homepage .site-footer) { background: #f1f5fb; border-color: #e0e6ee; padding-block: 42px; }
++  :global(.homepage .footer-inner) { gap: 60px; }
++  :global(.homepage .footer-brand) { font-size: 15px; }
++  :global(.homepage .site-footer p) { font-size: 11px; max-width: 400px; }
++  :global(.homepage .site-footer .footer-license) { font-size: 10px; max-width: 420px; line-height: 1.9; }
++  :global(.homepage .footer-links) { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 28px; text-align: left; font-size: 11px; }
++  :global(.homepage .footer-links a) { display: inline-flex; align-items: center; min-height: 32px; }
++  @media (max-width: 800px) { :global(.homepage .container) { width: calc(100% - 48px); } :global(.homepage .header-inner) { gap: 20px; } :global(.homepage .main-navigation) { gap: 17px; } :global(.homepage .footer-inner) { flex-direction: column; gap: 25px; } }
++  @media (max-width: 600px) { :global(.homepage .container) { width: calc(100% - 36px); } :global(.homepage .header-inner) { min-height: 68px; gap: 10px; } :global(.homepage .brand) { font-size: 14px; gap: 8px; } :global(.homepage .brand-mark) { width: 26px; height: 26px; } :global(.homepage .main-navigation) { display: none; } :global(.homepage .language-switch) { margin-left: auto; } :global(.homepage .footer-links) { grid-template-columns: repeat(3, 1fr); gap: 0 18px; width: 100%; } :global(.homepage .footer-links a) { min-height: 44px; } }
++</style>
+diff --git a/website/tests/website.spec.ts b/website/tests/website.spec.ts
+index 244ec75..14fccbe 100644
+--- a/website/tests/website.spec.ts
++++ b/website/tests/website.spec.ts
+@@ -16,11 +16,14 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     await expect(page.locator('h1')).toBeVisible();
+     const stage = page.locator('[data-task-stage]');
+     await expect(stage.getByRole('radio')).toHaveCount(4);
++    await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
++    await stage.locator('[data-choice="development"]').click();
+     await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
+     await stage.locator('[data-choice="design"]').click();
+     await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
+     await expect(stage.locator('[data-outcome="development"]')).toBeHidden();
+-    await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'template' : '模板味');
++    await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
++    await expect(page.locator('#outcome-design')).toContainText(locale === 'en' ? 'template' : '模板味');
+     await stage.locator('input[value="design"]').focus();
+     await page.keyboard.press('ArrowLeft');
+     await expect(stage.locator('input[value="development"]')).toBeChecked();
+@@ -56,6 +59,38 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     expect(errors).toEqual([]);
+   });
+ 
++  test(`${locale}: homepage preview, primary action and evidence keep their meaning`, async ({ page }) => {
++    await page.goto(path);
++    for (const name of (locale === 'en' ? ['Fix a regression', 'Improve the interface', 'Get the demo live', 'Reach your first users'] : ['排查与修复', '改进产品界面', '接通并上线', '找到第一批用户'])) await expect(page.getByRole('radio', { name, exact: true })).toHaveCount(1);
++    await expect(page.locator('input[value="design"]')).toBeChecked();
++    await page.locator('.product-actions a[href="#usage-demo"]').click();
++    await expect(page).toHaveURL(/#usage-demo$/);
++    await expect(page.locator('[data-hero-object]')).toBeVisible();
++    await page.locator('[data-choice="growth"]').click();
++    await page.reload();
++    await expect(page.locator('input[value="growth"]')).toBeChecked();
++    await expect(page.locator('[data-workflow="growth"] .task-delivery')).toBeVisible();
++    await page.locator('[data-language-switch]').click();
++    await expect(page.locator('input[value="growth"]')).toBeChecked();
++    await page.locator('.product-actions [data-home-start]').click();
++    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'growth');
++    await page.goto(path + '?task=unknown');
++    await expect(page.locator('input[value="design"]')).toBeChecked();
++    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
++    await expect(page.locator('.pain-card')).toHaveCount(4);
++    const sources = page.locator('.pain-card .source-link');
++    await expect(sources).toHaveCount(4);
++    for (const link of await sources.all()) await expect(link).toHaveAttribute('href', /^https:\/\/(forum.cursor.com|www.reddit.com)\//);
++    const screenshot = page.locator('.case-image img');
++    await screenshot.scrollIntoViewIfNeeded();
++    await expect.poll(() => screenshot.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
++    await expect(page.locator('.case-image figcaption')).toContainText(locale === 'en' ? 'Actual output' : '实际产物截图');
++    const question = page.locator('.home-faq summary').first();
++    await question.focus();
++    await page.keyboard.press('Enter');
++    await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
++  });
++
+   test(`${locale}: the selected task continues through setup and language switching`, async ({ page }) => {
+     for (const task of ['development', 'design', 'deployment', 'growth']) {
+       await page.goto(path);
+@@ -90,6 +125,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     const image = page.locator('[data-hero-object]');
+     await expect(image).toBeVisible();
+     await expect(image).toHaveAttribute('aria-label', locale === 'en' ? 'How it works' : '工作方式示意');
++    await page.locator('[data-choice="development"]').click();
+     await expect(image.locator('[data-workflow="development"]')).toContainText(locale === 'en' ? 'black screen' : '访客黑屏');
+     await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'your own coding assistant' : '你自己的编程助手');
+     await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+@@ -137,7 +173,8 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
+     await expect(terminal.locator('[data-copy-status]')).toContainText(locale === 'en' ? 'Copied' : '已复制');
+     await page.locator('[data-choice="design"]').click();
+-    const phone = page.locator('[data-outcome="design"] [data-stock-device="phone"]');
++    await page.locator('.interface-reference summary').click();
++    const phone = page.locator('.interface-reference [data-stock-device="phone"]');
+     await phone.scrollIntoViewIfNeeded();
+     await expect(phone).toBeVisible();
+     await expect(phone).toHaveAttribute('aria-label', locale === 'en' ? /template sample data/ : /模板演示数据/);
+@@ -280,6 +317,8 @@ test.describe('without JavaScript', () => {
+       await page.goto(base + prefix);
+       await expect(page.locator('h1')).toBeVisible();
+       await expect(page.locator('[data-hero-object]')).toBeVisible();
++      await expect(page.locator('[data-workflow="design"]')).toBeVisible();
++      await page.locator('[data-choice="development"]').click();
+       await expect(page.locator('[data-workflow="development"]')).toBeVisible();
+       await expect(page.locator('[data-motion-toggle]')).toBeHidden();
+       await page.locator('[data-choice="deployment"]').click();

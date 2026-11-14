@@ -2,102 +2,207 @@
 import Hero from './Hero.astro';
 import WebsiteMotion from './WebsiteMotion.astro';
 import Terminal from './Terminal.astro';
+import TaskVisual from './TaskVisual.astro';
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
-import { UI, PROJECT, SCENARIOS, href, type Locale } from '../data/site';
+import { UI, PROJECT, SCENARIOS, PAGE_PATHS, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale];
-const copy = OUTCOME_UI[locale];
+const zh = locale === 'zh-CN';
+const copy = zh ? {
+  painEyebrow: '从卡住的地方，继续往前', painTitle: '做产品，总有几步不只靠写代码。',
+  painText: '把这些任务里的专业方法，补到你已经在用的助手里。',
+  community: '公开社区求助场景', source: '原始讨论', start: '从这个任务开始', method: '给助手补上的方法',
+  sourceNote: '这些困难来自公开社区讨论，原帖作者并非本 Skill 的客户；这里不代表他们已用 Skill 解决问题。',
+  howEyebrow: 'HOW IT WORKS', howTitle: '熟悉的助手，多一套做产品的方法。', howText: '不必换一个地方工作。装好 Skill，回到自己的项目，说明你现在想做的事。',
+  steps: [
+    {title: '装进你的编程助手', text: '在当前项目安装 Skill。上手指南提供 Codex 与 Claude Code 的安装方式。', link: '查看完整安装指南', target: 'getting-started'},
+    {title: '说清这一次的需求', text: '选一份接近你目标的任务需求，补上项目现状、参考和要保留的功能。', link: '浏览任务与需求示例', target: 'guides'},
+    {title: '一起推进，检查结果', text: '助手按任务补充专业指导。打开成果试一遍，核对交付目标，再继续修改。', link: '看看实际执行记录', target: PAGE_PATHS['case-study']},
+  ],
+  evidenceEyebrow: '看得见，也能试一试', evidenceTitle: '从真实记录里了解，从小成果开始。', evidenceText: '实际执行记录与功能示例分开呈现，帮助你判断是否适合自己的项目。',
+  caseLabel: '实际执行记录 · 2026.11.13', caseTitle: '给收藏工具加导出，再新开会话继续改。',
+  caseText: '同一编程助手，分别直接执行与启用 Skill：比较 CSV 导出、原有功能和后续修改。记录包含结果、成本与限制。', caseLink: '阅读完整记录',
+  caseCaption: '实际产物截图 · 启用 Skill 组 · 修订批次第 1 配对 · 示例数据', caseLimit: '维护者的小规模任务比较，尚未进行真实用户研究；不代表普遍效果优势。',
+  exampleLabel: '功能示例 · 可以实际操作', exampleTitle: '一个能计算，也能下载的小工具。', exampleText: '输入工时、单价、额外费用与预留比例，试试手机操作和 CSV 明细下载。', exampleLink: '打开报价计算器',
+  quoteTitle: '项目报价', quoteSub: '浏览器内计算 · 示例金额', quoteHours: '12 小时 × ¥300', quoteExtras: '额外费用', quoteReserve: '预留 10%', quoteTotal: '报价总额', quoteAmount: '¥3,960.00',
+  installEyebrow: '从你的下一项任务开始', installTitle: '让专业方法，进入你的日常开发。', installText: '在项目文件夹中执行安装命令，或让助手按完整指南帮你安装。装好后，继续使用你熟悉的助手。', installLink: '安装并开始使用', installNote: 'Skill 免费 · MIT 许可。编程助手、API 与托管等第三方服务可能另外收费。',
+  faqEyebrow: 'FAQ', faqTitle: '开始前，你可能还想知道。', faqText: '先了解适用方式，再带着自己的项目开始。',
+  allTasks: '继续探索', guideLink: '全部任务指南', reference: '查看界面参考（非执行结果）',
+} : {
+  painEyebrow: 'MOVE PAST THE STICKING POINT', painTitle: 'Building a product takes more than code.',
+  painText: 'Bring the methods behind these tasks into the assistant you already use.',
+  community: 'Public community question', source: 'Original discussion', start: 'Start with this task', method: 'Methods your assistant can draw on',
+  sourceNote: 'These problems come from public community discussions. The authors are not customers of this skill, and these are not claims that it solved their problems.',
+  howEyebrow: 'HOW IT WORKS', howTitle: 'Your familiar assistant. A considered approach.', howText: 'Stay where you work. Install the skill, open your project and describe the task in front of you.',
+  steps: [
+    {title: 'Install in your coding assistant', text: 'Add the skill to your current project. The guide covers setup for Codex and Claude Code.', link: 'Read the setup guide', target: 'getting-started'},
+    {title: 'Describe this particular task', text: 'Choose a relevant request. Add your project, references and the working features you want to keep.', link: 'Explore tasks and requests', target: 'guides'},
+    {title: 'Make progress. Check the result.', text: 'Your assistant draws on guidance for the task. Open the result, check the delivery goals, then keep refining.', link: 'See an actual execution record', target: PAGE_PATHS['case-study']},
+  ],
+  evidenceEyebrow: 'LOOK CLOSER. TRY SOMETHING.', evidenceTitle: 'Real work to inspect. A small tool to try.', evidenceText: 'Execution evidence and functional examples are shown separately, so you can judge what fits your project.',
+  caseLabel: 'Actual execution record · 13 Nov 2026', caseTitle: 'Add bookmark export. Pick up in a fresh session.',
+  caseText: 'The same coding assistant, with and without the skill: CSV export, existing features and a follow-up change. Includes results, costs and limits.', caseLink: 'Read the full record',
+  caseCaption: 'Actual output · Skill group · Corrected cohort, pair 01 · Example data', caseLimit: 'A small task comparison by the maintainer, not research with real users or evidence of a general advantage.',
+  exampleLabel: 'Functional example · Try it yourself', exampleTitle: 'A small tool with a useful, downloadable result.', exampleText: 'Enter hours, rate, extra costs and reserve. Try the mobile experience and download a CSV breakdown.', exampleLink: 'Open the quote calculator',
+  quoteTitle: 'Project quote', quoteSub: 'Browser-local calculation · Sample amounts', quoteHours: '12 hours × $50', quoteExtras: 'Extra costs', quoteReserve: 'Reserve 10%', quoteTotal: 'Total quote', quoteAmount: '$660.00',
+  installEyebrow: 'START WITH YOUR NEXT TASK', installTitle: 'Put professional methods to work.', installText: 'Run the command in your project folder, or follow the full guide with your assistant. Then keep working in the assistant you know.', installLink: 'Install and get started', installNote: 'The skill is free under MIT. Your coding assistant, APIs, hosting and other services may charge separately.',
+  faqEyebrow: 'FAQ', faqTitle: 'A few things before you begin.', faqText: 'Understand how it fits, then start with a project of your own.',
+  allTasks: 'KEEP EXPLORING', guideLink: 'All task guides', reference: 'View an interface reference (not an execution result)',
+};
+const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 0 0 8 0V8M12 12v8', 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h.01M10 7h.01', 'M5 16a4 4 0 0 1 0-8 6 6 0 0 1 12-1 4.5 4.5 0 0 1 2 9M12 20V10m-4 4 4-4 4 4', 'M4 20V10m8 10V4m8 16v-7M2 20h20'];
 ---
-<div class="container outcome-home">
+<div class="container nova-home">
   <Hero locale={locale} />
 
-  <section class="how-it-helps" id="how-it-helps" aria-labelledby="mechanism-title">
-    <div class="mechanism-introduction"><h2 id="mechanism-title">{copy.mechanismTitle}</h2><div><p>{copy.mechanismText}</p><a class="text-link" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{copy.skillSource}<span aria-hidden="true">↗</span></a></div></div>
-    <div class="mechanism-list">{copy.mechanisms.map((item, index) => <div data-reveal-order={index}><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d={index === 0 ? 'M9 9h22v22H9zM15 15h10M15 20h10M15 25h6' : index === 1 ? 'M7 12h12v12H7zM21 7h12v12H21zM21 23h12v12H21zM12 24v6h9' : 'M8 8h24v24H8zM14 20l4 4 9-10'} /></svg><h3>{item.title}</h3><p>{item.text}</p></div>)}</div>
+  <section class="pain-section home-section" id="why-skill" aria-labelledby="pain-title">
+    <div class="section-intro"><p class="eyebrow">{copy.painEyebrow}</p><h2 id="pain-title">{copy.painTitle}</h2><p>{copy.painText}</p></div>
+    <div class="pain-grid">{OUTCOMES[locale].map((outcome, index) => <article class="pain-card" id={'outcome-' + outcome.id}>
+      <div class="pain-card-top"><span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={icons[index]} /></svg></span><span class="pain-index">0{index + 1} / {copy.community}</span></div>
+      <h3>{outcome.pain}</h3><p class="pain-situation">{outcome.situation}</p>
+      <div class="pain-methods"><p>{copy.method}</p><ul>{outcome.help.map((method) => <li>{method.title}</li>)}</ul></div>
+      <div class="pain-actions"><a class="text-link" href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{copy.start}<span aria-hidden="true">↗</span></a><a class="source-link" href={outcome.source.url}>{copy.source}<span aria-hidden="true">↗</span></a></div>
+      {outcome.id === 'design' && <details class="interface-reference"><summary>{copy.reference}</summary><TaskVisual locale={locale} kind="design" /></details>}
+    </article>)}</div>
+    <p class="source-note">{copy.sourceNote}</p>
   </section>
 
-  <section class="real-work" aria-labelledby="evidence-title">
-    <div class="evidence-heading"><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
-    <div class="discussion-sources">{OUTCOMES[locale].map((outcome) => <a href={outcome.source.url}><span>{outcome.label}</span><small>{outcome.source.label}</small><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></a>)}</div>
+  <section class="home-how home-section" id="how-it-helps" aria-labelledby="how-title">
+    <div class="section-intro"><p class="eyebrow">{copy.howEyebrow}</p><h2 id="how-title">{copy.howTitle}</h2><p>{copy.howText}</p></div>
+    <ol class="how-steps">{copy.steps.map((step, index) => <li><span class="step-index">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" data-home-start={index === 0 || undefined} href={href(locale, step.target)}>{step.link}<span aria-hidden="true">↗</span></a></li>)}</ol>
+    <a class="skill-source" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{OUTCOME_UI[locale].skillSource}<span aria-hidden="true"> ↗</span></a>
   </section>
 
-  <section class="own-task" id="install" aria-labelledby="start-title">
-    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
-    <Terminal locale={locale} />
+  <section class="evidence-section home-section" aria-labelledby="evidence-title">
+    <div class="section-intro"><p class="eyebrow">{copy.evidenceEyebrow}</p><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
+    <div class="evidence-grid">
+      <article class="evidence-card">
+        <figure class="case-image"><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}><img src={PROJECT.base + 'case-study/bookmarks-round-1.png'} alt={zh ? '收藏工具实际执行产物，显示列表、搜索、筛选和导出按钮' : 'Actual bookmark tool output showing the list, search, filters and export button'} width="1440" height="1000" loading="lazy" /></a><figcaption>{copy.caseCaption}</figcaption></figure>
+        <div class="evidence-copy"><p class="content-label">{copy.caseLabel}</p><h3>{copy.caseTitle}</h3><p>{copy.caseText}</p><a class="text-link" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{copy.caseLink}<span aria-hidden="true">↗</span></a><p class="evidence-limit">{copy.caseLimit}</p></div>
+      </article>
+      <article class="evidence-card">
+        <div class="quote-visual" aria-label={copy.quoteSub}><div class="quote-sheet"><div class="quote-sheet-top"><span class="quote-symbol" aria-hidden="true">↗</span><span>{copy.quoteTitle}<small>{copy.quoteSub}</small></span><span class="quote-file" aria-hidden="true">.csv</span></div><div class="quote-line"><span>{copy.quoteHours}</span><strong>{zh ? '¥3,600.00' : '$600.00'}</strong></div><div class="quote-line"><span>{copy.quoteExtras}</span><strong>{zh ? '¥0.00' : '$0.00'}</strong></div><div class="quote-line"><span>{copy.quoteReserve}</span><strong>{zh ? '¥360.00' : '$60.00'}</strong></div><div class="sample-quote-total"><span>{copy.quoteTotal}</span><strong>{copy.quoteAmount}</strong></div></div></div>
+        <div class="evidence-copy"><p class="content-label">{copy.exampleLabel}</p><h3>{copy.exampleTitle}</h3><p>{copy.exampleText}</p><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{copy.exampleLink}<span aria-hidden="true">↗</span></a></div>
+      </article>
+    </div>
   </section>
 
-  <section class="faq-section" aria-labelledby="faq-title"><h2 id="faq-title">{ui.home.faqTitle}</h2><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+  <section class="install-section" id="install" aria-labelledby="start-title">
+    <div class="install-copy"><p class="eyebrow">{copy.installEyebrow}</p><h2 id="start-title">{copy.installTitle}</h2><p>{copy.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started') + '?task=design#task-design'}>{copy.installLink}<span aria-hidden="true">↗</span></a><p class="install-note">{copy.installNote}</p></div>
+    <Terminal locale={locale} animate={false} />
+  </section>
 
-  <section class="more-tasks" aria-labelledby="scenarios-title"><h2 id="scenarios-title">{copy.allTasks}</h2><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}><span>{scenario.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>)}</div></section>
+  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+
+  <section class="more-tasks" aria-labelledby="scenarios-title"><div><p class="eyebrow" id="scenarios-title">{copy.allTasks}</p><a href={href(locale, 'guides')}>{copy.guideLink} ↗</a></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}>{scenario.label}<span aria-hidden="true">↗</span></a>)}</div></section>
 </div>
 <WebsiteMotion />
 
 <style>
-  .how-it-helps { padding-block: 67px 75px; border-top: 1px solid var(--line); }
-  .mechanism-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .mechanism-introduction h2 { max-width: 20ch; font-size: clamp(2rem, 3.1vw, 2.8rem); letter-spacing: -.03em; }
-  .mechanism-introduction p { color: var(--muted); font-size: .94rem; line-height: 1.95; max-width: 48ch; }
-  .mechanism-introduction a { margin-top: 22px; font-size: .78rem; }
-  .mechanism-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 43px; }
-  .mechanism-list > div { padding: 26px 0; border-top: 1px solid var(--line); }
-  .mechanism-list svg { width: 34px; height: 34px; stroke: var(--blue); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
-  .mechanism-list h3 { font-size: 1.14rem; letter-spacing: -.02em; }
-  .mechanism-list p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 12px; }
-  .real-work { padding-block: 57px 66px; border-top: 1px solid var(--line); }
-  .evidence-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 80px; }
-  .evidence-heading h2 { font-size: 2rem; letter-spacing: -.03em; max-width: 24ch; }
-  .evidence-heading > p { color: var(--muted); font-size: .84rem; max-width: 54ch; line-height: 1.9; }
-  .discussion-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 50px; margin-top: 32px; }
-  .discussion-sources a { display: grid; grid-template-columns: 1fr auto; gap: 5px 20px; text-decoration: none; padding-block: 21px; border-top: 1px solid var(--line); }
-  .discussion-sources a > span { font-size: .9rem; font-weight: 650; }
-  .discussion-sources a > small { color: var(--muted); font-size: .7rem; grid-column: 1; line-height: 1.8; }
-  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: var(--blue); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
-  .discussion-sources a:hover > span { color: var(--action); }
-  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: var(--subtle); color: var(--ink); padding: 42px 48px; border-radius: var(--radius-panel); margin-block: 5px 65px; overflow: hidden; }
-  .own-task > div { position: relative; z-index: 1; }
-  .own-task h2 { font-size: clamp(1.9rem, 2.9vw, 2.6rem); letter-spacing: -.025em; max-width: 22ch; }
-  .own-task p { color: var(--muted); font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
-  .own-task .button { margin-top: 25px; background: var(--action); color: var(--surface); }
-  .own-task .button:hover { background: var(--action-hover); }
-  .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
-  .faq-section { padding-bottom: 65px; }
-  .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
-  .more-tasks h2 { font-size: 1.05rem; letter-spacing: 0; }
-  .more-tasks .scenario-links { margin-top: 12px; }
-  .more-tasks .scenario-links a { font-size: .84rem; font-weight: 500; padding-block: 17px; }
-  @media (hover: hover) and (pointer: fine) { .discussion-sources a:hover > svg { transform: translate(2px, -2px); } }
-  @media (max-width: 1100px) {
-    .mechanism-introduction, .evidence-heading { gap: 45px; }
-    .mechanism-list { gap: 15px; }
-    .mechanism-list > div { padding: 26px; }
-    .own-task { padding: 35px; gap: 20px; }
-  }
+  .nova-home { --home-space: 100px; }
+  .home-section { padding-block: var(--home-space); }
+  .section-intro { text-align: center; max-width: 780px; margin-inline: auto; }
+  .eyebrow { color: #4e75a1; font-size: 11px; letter-spacing: .1em; font-weight: 650; margin-bottom: 16px; }
+  h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 600; letter-spacing: -.045em; line-height: 1.25; }
+  .section-intro > p:last-child { margin-top: 20px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+  .pain-section { padding-top: 88px; }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 44px; }
+  .pain-card { padding: 30px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+  .pain-card-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+  .pain-icon { display: grid; place-items: center; border: 1px solid #dfE8f4; background: #f4f8ff; color: #4378b6; width: 40px; height: 40px; border-radius: 10px; }
+  .pain-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .pain-index { color: #596b82; font-size: 10px; }
+  .pain-card h3 { font-size: 23px; line-height: 1.5; font-weight: 600; letter-spacing: -.035em; margin-top: 24px; max-width: 24ch; }
+  .pain-situation { color: var(--muted); font-size: 13px; line-height: 1.95; margin-top: 14px; }
+  .pain-methods { margin-top: 22px; padding-top: 18px; border-top: 1px solid #edf0f5; }
+  .pain-methods > p { font-size: 10px; color: #596b82; }
+  .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 16px; list-style: none; padding: 0; margin-top: 9px; }
+  .pain-methods li { font-size: 12px; color: #3d526d; }
+  .pain-methods li::before { content: '↳'; color: #5c88ba; margin-right: 6px; }
+  .pain-actions { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; margin-top: 22px; }
+  .text-link { display: inline-flex; align-items: center; gap: 13px; color: #245f9f; font-size: 12px; text-decoration: none; font-weight: 600; min-height: 36px; }
+  .text-link:hover { text-decoration: underline; }
+  .source-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 11px; color: #64748a; text-decoration: none; }
+  .source-link:hover { color: #245f9f; text-decoration: underline; }
+  .source-note { max-width: 800px; text-align: center; margin: 22px auto 0; color: #596b82; font-size: 11px; line-height: 1.8; }
+  .interface-reference { border-top: 1px solid #edf0f5; margin-top: 15px; }
+  .interface-reference summary { padding-block: 12px; color: #64748a; font-size: 10px; cursor: pointer; }
+  .home-how { border-block: 1px solid var(--line); }
+  .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 44px; margin-top: 48px; }
+  .how-steps li { position: relative; }
+  .step-index { display: grid; place-items: center; width: 38px; height: 38px; background: #fff; border: 1px solid #d6e3f3; border-radius: 10px; font: 12px var(--mono); color: #4875ac; margin-bottom: 25px; box-shadow: 0 3px 5px #314a6a03; }
+  .how-steps li:not(:last-child)::after { content: ''; position: absolute; top: 19px; left: 58px; right: -16px; height: 1px; background: #dfe6f0; }
+  .how-steps h3 { font-size: 18px; font-weight: 600; }
+  .how-steps p { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.95; }
+  .how-steps a { margin-top: 16px; }
+  .skill-source { display: block; width: fit-content; margin: 32px auto 0; color: #64748a; font-size: 11px; }
+  .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
+  .evidence-card { background: #fff; border: 1px solid var(--line); border-radius: 15px; overflow: hidden; }
+  .case-image { margin: 0; padding: 23px 25px 12px; background: #eef2f7; height: 320px; overflow: hidden; }
+  .case-image a { display: block; border: 1px solid #d5dfe9; border-radius: 7px; overflow: hidden; box-shadow: 0 12px 20px -16px #1630524d; height: 253px; }
+  .case-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .case-image figcaption { color: #596b82; font-size: 9px; margin-top: 10px; line-height: 1.7; }
+  .evidence-copy { padding: 28px 30px 30px; }
+  .content-label { color: #4d74a4; font-size: 10px; }
+  .evidence-copy h3 { margin-top: 12px; font-size: 22px; line-height: 1.5; font-weight: 600; }
+  .evidence-copy > p:not(.content-label) { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 13px; }
+  .evidence-copy > .text-link { margin-top: 17px; }
+  .evidence-copy > p.evidence-limit { font-size: 10px; color: #596b82; padding-top: 12px; border-top: 1px solid #edf0f5; margin-top: 18px; }
+  .quote-visual { display: grid; align-items: center; background: #eaf1fb; padding: 24px 40px; height: 320px; }
+  .quote-sheet { width: 100%; background: #fff; border: 1px solid #d9e3f1; border-radius: 10px; padding: 22px; box-shadow: 0 15px 28px -20px #344f7940; }
+  .quote-sheet-top { display: flex; gap: 10px; align-items: center; font-size: 12px; margin-bottom: 20px; }
+  .quote-symbol { display: grid; place-items: center; color: #427ab8; font-size: 20px; background: #ecf4ff; border-radius: 6px; width: 30px; height: 30px; }
+  .quote-sheet-top small { color: #596b82; display: block; font-size: 9px; margin-top: 3px; }
+  .quote-file { margin-left: auto; color: #596b82; font: 10px var(--mono); }
+  .quote-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block: 12px; font-size: 11px; color: #66768c; }
+  .quote-line strong { color: #41526a; font-size: 11px; font-weight: 500; }
+  .sample-quote-total { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed #dbe3ed; padding-top: 14px; margin-top: 16px; }
+  .sample-quote-total > span { font-size: 10px; color: #5b6e87; }
+  .sample-quote-total strong { font-size: 25px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
+  .install-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 55px 48px; border: 1px solid #dbe5f2; border-radius: 20px; background: linear-gradient(120deg, #eaf2ff, #f3f7fc 55%, #e9f1fd); }
+  .install-copy h2 { font-size: 35px; max-width: 17ch; }
+  .install-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.95; margin-top: 21px; }
+  .install-copy .button { margin-top: 25px; font-size: 13px; gap: 25px; border-radius: 9px; }
+  .install-copy > p.install-note { font-size: 10px; margin-top: 19px; }
+  .install-section :global(.install-terminal) { --panel: #17212f; --surface: #fff; border-color: #35465e; border-radius: 12px; box-shadow: 0 18px 35px -24px #18365c70; }
+  .install-section :global(.install-terminal .code-toolbar) { background: #1d293b; border-color: #35465e; color: #c0cfdf; }
+  .install-section :global(.install-terminal .terminal-caption) { border-color: #35465e; color: #c0cfdf; }
+  .install-section :global(.install-terminal .terminal-comment), .install-section :global(.install-terminal .terminal-next) { color: #bdccde; }
+  .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
+  .home-faq h2 { font-size: 34px; max-width: 14ch; }
+  .faq-intro { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 22px; max-width: 32ch; }
+  .home-faq :global(.faq-list details) { border-color: var(--line); }
+  .home-faq :global(summary) { font-size: 14px; padding-block: 19px; font-weight: 550; gap: 20px; }
+  .home-faq :global(summary > span) { color: #596b82; font-size: 21px; font-weight: 400; }
+  .home-faq :global(details > p) { font-size: 13px; line-height: 1.95; color: var(--muted); padding-bottom: 22px; max-width: 58ch; }
+  .more-tasks { padding-block: 25px 50px; border-top: 1px solid var(--line); }
+  .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+  .more-tasks .eyebrow { margin: 0; }
+  .more-tasks > div:first-child > a { font-size: 11px; color: #64748a; }
+  .scenario-links { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 13px; }
+  .scenario-links a { display: flex; gap: 18px; padding-block: 13px; font-size: 12px; text-decoration: none; min-height: 44px; }
+  .scenario-links a:hover { color: #245f9f; }
+  @media (max-width: 1000px) { .install-section { gap: 30px; padding: 38px 32px; } .home-faq { gap: 40px; } .quote-visual { padding-inline: 25px; } }
   @media (max-width: 800px) {
-    .how-it-helps { padding-block: 44px 52px; }
-    .mechanism-introduction, .evidence-heading { grid-template-columns: 1fr; gap: 23px; }
-    .mechanism-introduction h2 { max-width: 25ch; }
-    .mechanism-introduction p { max-width: 65ch; }
-    .mechanism-list { grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
-    .mechanism-list > div { display: grid; grid-template-columns: 36px 1fr; gap: 0 22px; padding: 28px; }
-    .mechanism-list svg { grid-row: span 2; margin: 0; }
-    .mechanism-list p { margin-top: 8px; }
-    .real-work { padding-block: 44px 50px; }
-    .discussion-sources { gap: 0 25px; margin-top: 27px; }
-    .own-task { padding: 32px; grid-template-columns: 1fr; gap: 30px; margin-bottom: 45px; }
-    .own-task h2 { font-size: 1.8rem; }
-    .faq-section { padding-bottom: 45px; }
-    .more-tasks { padding-bottom: 48px; }
+    .nova-home { --home-space: 72px; } .pain-grid { gap: 15px; } .pain-card { padding: 24px; } .pain-card h3 { font-size: 21px; }
+    .how-steps { gap: 25px; } .evidence-copy { padding: 24px; } .case-image { padding-inline: 18px; } .quote-visual { padding-inline: 18px; }
+    .install-section { grid-template-columns: 1fr; gap: 32px; } .install-copy h2 { max-width: 22ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; }
   }
-  @media (max-width: 480px) {
-    .mechanism-introduction h2 { font-size: 1.8rem; }
-    .mechanism-introduction p { font-size: .88rem; }
-    .mechanism-list > div { padding: 25px 22px; gap: 0 18px; }
-    .mechanism-list h3 { font-size: 1.05rem; }
-    .mechanism-list p { font-size: .8rem; }
-    .evidence-heading h2 { font-size: 1.7rem; }
-    .discussion-sources { grid-template-columns: 1fr; }
-    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: var(--radius-panel); }
-    .own-task p { font-size: .83rem; }
+  @media (max-width: 600px) {
+    .nova-home { --home-space: 65px; } h2 { font-size: 27px; } .eyebrow { font-size: 10px; margin-bottom: 13px; }
+    .section-intro > p:last-child { font-size: 14px; margin-top: 16px; } .pain-section { padding-top: 62px; }
+    .pain-grid { grid-template-columns: 1fr; margin-top: 30px; gap: 16px; } .pain-card { padding: 25px 23px; border-radius: 13px; }
+    .pain-card h3 { font-size: 23px; margin-top: 22px; } .pain-situation { font-size: 14px; } .pain-index { font-size: 10px; }
+    .pain-methods li { font-size: 12px; } .pain-methods ul { gap: 8px 13px; } .pain-actions { margin-top: 16px; } .text-link, .source-link { min-height: 44px; }
+    .source-note { text-align: left; font-size: 11px; } .interface-reference summary { padding-block: 15px; min-height: 44px; font-size: 11px; }
+    .how-steps { grid-template-columns: 1fr; margin-top: 34px; gap: 28px; } .how-steps li { padding-left: 59px; } .step-index { position: absolute; left: 0; top: 0; margin: 0; }
+    .how-steps li:not(:last-child)::after { left: 19px; top: 52px; bottom: -10px; right: auto; width: 1px; height: auto; }
+    .how-steps h3 { font-size: 18px; } .how-steps p { font-size: 14px; margin-top: 9px; } .how-steps a { margin-top: 9px; } .skill-source { font-size: 12px; min-height: 44px; display: flex; align-items: center; }
+    .evidence-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 30px; } .case-image { height: 250px; padding: 18px 18px 10px; } .case-image a { height: 193px; } .case-image figcaption { font-size: 9px; margin-top: 7px; }
+    .evidence-copy h3 { font-size: 23px; } .evidence-copy > p:not(.content-label) { font-size: 14px; } .evidence-copy > p.evidence-limit { font-size: 11px; }
+    .quote-visual { height: 275px; padding-inline: 25px; } .quote-sheet { padding: 19px; } .quote-sheet-top small { font-size: 8px; } .sample-quote-total strong { font-size: 24px; }
+    .install-section { padding: 30px 23px; border-radius: 15px; gap: 28px; } .install-copy h2 { font-size: 29px; } .install-copy > p.install-note { font-size: 11px; }
+    .home-faq h2 { font-size: 28px; } .home-faq :global(summary) { font-size: 14px; } .home-faq :global(details > p) { font-size: 14px; } .home-faq { gap: 23px; }
+    .more-tasks { padding-bottom: 30px; } .scenario-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; } .scenario-links a { justify-content: space-between; font-size: 12px; border-bottom: 1px solid var(--line); }
   }
 </style>

@@ -35,11 +35,11 @@ const en = {
   footerLicense: 'The skill is open source under MIT. Your coding assistant and other services have their own terms.',
   footerSource: 'GitHub', footerTop: 'Back to top',
   hero: {
-    context: 'Professional guidance for your assistant · Open-source skill',
-    title: 'Build it sooner.', accent: 'Make it worth sharing.',
-    description: 'Bring design, debugging, release and launch guidance into the coding assistant you already use. Work on your own project, starting with the part that is holding it back.',
-    primary: 'Get the skill', secondary: 'See where it helps',
-    note: 'Free and open source · MIT licensed · Use it in your own assistant',
+    context: 'An open-source skill for your coding assistant',
+    title: 'Give your assistant', accent: 'a product playbook.',
+    description: 'From interface design and development to debugging, shipping and launch: add methods, references and checks for the task at hand. Keep using the coding assistant you know.',
+    primary: 'Install and get started', secondary: 'See how it works',
+    note: 'Works in your existing assistant · Free, open-source skill',
   },
   home: {
     installTitle: 'Put it to work on your project.',
@@ -135,9 +135,9 @@ const zh: typeof en = {
   footerLicense: 'Skill 采用 MIT 开源许可。编程助手与其他服务按各自条款提供。', footerSource: 'GitHub', footerTop: '回到顶部',
   hero: {
     context: '给编程助手的专业指导包 · 开源 Skill',
-    title: '快点做出来，', accent: '也做得像样。',
-    description: '修 Bug、改界面、上线、推广，把各个领域的专业做法用到你的项目里。你说清想做到什么，编程助手结合现有项目继续做。',
-    primary: '安装并开始使用', secondary: '看看怎么用', note: '免费开源 · MIT 许可 · 装进你常用的编程助手',
+    title: '给你的编程助手，', accent: '一套做产品的专业方法。',
+    description: '从界面设计、功能开发到排查问题、上线推广，按当前任务补上方法、参考与检查步骤。继续使用你熟悉的编程助手。',
+    primary: '安装并开始使用', secondary: '看看怎么用', note: '在现有助手中使用 · Skill 免费开源',
   },
   home: {
     installTitle: '从你正遇到的问题开始。',

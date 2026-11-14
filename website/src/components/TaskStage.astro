@@ -1,148 +1,95 @@
 ---
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
-import TaskVisual from './TaskVisual.astro';
-import { href, type Locale } from '../data/site';
+import WorkflowDiagram from './WorkflowDiagram.astro';
+import { type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
-const ui = OUTCOME_UI[locale];
-const outcomes = OUTCOMES[locale];
-const themes = { development: 'var(--subtle)', design: '#f1e6cf', deployment: 'var(--subtle)', growth: 'var(--subtle)' };
+const zh = locale === 'zh-CN';
+const labels = zh ? { development: '排查与修复', design: '改进产品界面', deployment: '接通并上线', growth: '找到第一批用户' } : { development: 'Fix a regression', design: 'Improve the interface', deployment: 'Get the demo live', growth: 'Reach your first users' };
 ---
-<section class="task-stage" id="why-skill" aria-labelledby="stage-title" data-task-stage>
-  <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><p>{ui.stageDescription}</p></div>
+<section class="task-stage" id="usage-demo" aria-labelledby="demo-title" data-task-stage>
+  <h2 id="demo-title" class="sr-only">{zh ? '在编程助手中怎样使用' : 'How to use it in your coding assistant'}</h2>
   <fieldset>
-    <legend class="sr-only">{ui.selector}</legend>
-    {outcomes.map((outcome, index) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={index === 0} />)}
-    <div class="task-options">
-      {outcomes.map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><small class="task-number" aria-hidden="true">0{index + 1}</small><span class="task-label">{outcome.label}</span><span class="task-pain-summary">{outcome.pain}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
-    </div>
-    {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id} style={'--case-surface:' + themes[outcome.id]}>
-      <div class="task-panel-top">
-        <div class="task-context">
-          <p class="task-goal"><span>{ui.goal}</span>{outcome.goal}</p>
-          <h3 id={'pain-' + outcome.id}>{outcome.pain}</h3>
-          <p class="task-situation">{outcome.situation}</p>
-          <div class="case-actions"><a class="task-start" data-task-start={outcome.id} href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{ui.start}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a><a class="discussion-link" href={outcome.source.url}>{ui.source}<span aria-hidden="true">↗</span></a></div>
+    <legend class="sr-only">{OUTCOME_UI[locale].selector}</legend>
+    {OUTCOMES[locale].map((outcome) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={outcome.id === 'design'} />)}
+    <figure class="assistant-demo" data-hero-object aria-label={zh ? '工作方式示意' : 'How it works'}>
+      <div class="demo-window" data-art-transform>
+        <div class="demo-toolbar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>{zh ? '你自己的编程助手' : 'Your own coding assistant'}<span class="toolbar-project"> / {zh ? '当前项目' : 'your project'}</span></span><span class="demo-badge">{zh ? '使用方式示意' : 'Illustrative workflow'}</span></div>
+        <div class="demo-layout">
+          <aside class="demo-sidebar" aria-label={zh ? '浏览四类任务' : 'Explore four tasks'}>
+            <div class="project-label"><span aria-hidden="true">⌘</span><strong>{zh ? '我的产品项目' : 'My product project'}</strong></div>
+            <p class="sidebar-caption">{zh ? '今天想推进哪件事？' : 'What are you working on?'}</p>
+            <div class="task-options">{OUTCOMES[locale].map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><span class="task-number" aria-hidden="true">0{index + 1}</span><span>{labels[outcome.id]}</span><span class="task-option-arrow" aria-hidden="true">↗</span></label>)}</div>
+            <div class="sidebar-skill"><span class="skill-symbol" aria-hidden="true">✳</span><div><strong>Solo Vibe Coding</strong><small>{zh ? '为助手补充专业方法' : 'Guidance for your assistant'}</small></div></div>
+          </aside>
+          <WorkflowDiagram locale={locale} />
         </div>
-        <figure class="result-preview">
-          <TaskVisual locale={locale} kind={outcome.id} />
-          <figcaption><span>{ui.preview}</span><p>{outcome.previewTitle}</p><small>{outcome.previewText}</small></figcaption>
-        </figure>
       </div>
-      <div class="task-help"><h4>{ui.help}</h4><ol>{outcome.help.map((item) => <li><h5>{item.title}</h5><p>{item.text}</p></li>)}</ol></div>
-      <div class="task-delivery"><h4>{ui.deliverables}</h4><ul>{outcome.deliverables.map((item) => <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m4 9 3 3 7-7" /></svg>{item}</li>)}</ul></div>
-    </article>)}
+      <figcaption><span>{zh ? '使用方式示意，非实际执行结果。任务在你自己的编程助手中完成。' : 'An illustration, not an executed result. The work happens in your own coding assistant.'}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
+    </figure>
   </fieldset>
 </section>
 
 <style>
-  .task-stage { margin-top: 0; padding-top: 26px; border-top: 1px solid var(--ink); }
-  .stage-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 35px; margin-bottom: 24px; }
-  .stage-heading h2 { font-size: 1.4375rem; letter-spacing: -.035em; max-width: 26ch; }
-  .stage-heading > p { color: var(--muted); font-size: .86rem; max-width: 35ch; line-height: 1.85; }
-  fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
-  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-bottom: 30px; }
-  .task-options label { position: relative; display: flex; flex-direction: column; align-items: start; padding: 16px 22px 13px 0; gap: 10px; cursor: pointer; background: transparent; border-top: 3px solid var(--line); color: var(--ink); min-width: 0; }
-  .task-number { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .05em; }
-  .task-options label > .task-label { font-size: 1rem; font-weight: 600; line-height: 1.5; }
-  .task-pain-summary { color: var(--muted); font-size: .75rem; line-height: 1.8; }
-  .task-options label > svg { position: absolute; top: 17px; right: 17px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; opacity: .7; }
-  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { border-color: var(--action); color: var(--action); }
-  .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2457f5; outline-offset: 4px; }
-  .task-panel { display: none; background: var(--surface); border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--line); }
-  .task-stage:has(input[value="development"]:checked) [data-outcome="development"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"], .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"] { display: block; }
-  .task-panel-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .task-context { padding: 42px 40px; align-self: center; }
-  .task-goal { font-size: .8rem; line-height: 1.85; color: #525e68; }
-  .task-goal > span { display: block; color: #65707b; font-size: .71rem; margin-bottom: 7px; }
-  .task-context h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 22px; font-weight: 700; }
-  .task-situation { color: #56616b; font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
-  .case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; }
-  .task-start { display: inline-flex; align-items: center; gap: 22px; background: var(--action); color: var(--surface); text-decoration: none; border-radius: 2px; min-height: 48px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
-  .task-start:hover { background: var(--action-hover); }
-  .task-start:active { transform: scale(.97); }
-  .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
-  .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
-  .discussion-link:hover { color: #183dba; }
-  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 20px 28px 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-  figcaption { position: relative; text-align: left; padding-top: 2px; z-index: 1; }
-  figcaption > span { display: block; color: #56616b; font-size: .65rem; margin-bottom: 7px; }
-  figcaption > p { font-size: 1.43rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.4; }
-  figcaption > small { display: block; margin-top: 8px; font-size: .73rem; color: #53616b; line-height: 1.8; }
-  .task-help { padding: 28px 40px 31px; border-top: 1px solid #dfe1d9; }
-  h4 { margin: 0; font-size: .73rem; font-weight: 500; color: #5b6771; }
-  .task-help ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; list-style: none; padding: 0; margin-top: 17px; }
-  h5 { margin: 0; font-size: .95rem; line-height: 1.6; font-weight: 650; }
-  .task-help li > p { color: #58656e; font-size: .82rem; line-height: 1.95; margin-top: 9px; }
-  .task-delivery { display: flex; align-items: baseline; gap: 29px; padding: 20px 40px; background: #edf1e5; }
-  .task-delivery h4 { color: #465640; flex: none; }
-  .task-delivery ul { display: flex; flex-wrap: wrap; gap: 10px 23px; list-style: none; padding: 0; font-size: .75rem; color: #35472d; }
-  .task-delivery li { display: flex; align-items: center; gap: 8px; }
-  .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #537b34; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  @media (hover: hover) and (pointer: fine) {
-    .task-options label:hover { border-color: var(--muted); }
-    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { border-color: var(--action); }
-  }
-  @media (max-width: 1100px) {
-    .task-options { gap: 11px; }
-    .task-options label { padding-inline: 15px; }
-    .task-options label > .task-label { font-size: .76rem; }
-    .task-context { padding: 33px 29px; }
-    .result-preview { padding-inline: 27px; }
-    .task-help, .task-delivery { padding-inline: 29px; }
-    .task-help ol { gap: 24px; }
-    .task-delivery { gap: 20px; }
-  }
-  @media (max-width: 800px) {
-    .task-stage { margin-top: 0; }
-    .stage-heading { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 25px; }
-    .stage-heading h2 { font-size: 2rem; max-width: 25ch; }
-    .stage-heading > p { max-width: 55ch; }
-    .task-options { grid-template-columns: 1fr 1fr; gap: 11px; }
-    .task-options label { justify-content: start; padding: 14px 0; gap: 7px; min-height: 78px; }
-    .task-number { min-width: 24px; font-size: 11px; }
-    .task-options label > .task-label { text-align: left; font-size: .8rem; }
-    .task-options label > svg { display: none; }
-    .task-panel-top { grid-template-columns: 1fr; }
-    .task-context { padding: 31px 28px; }
-    .task-context h3 { font-size: 1.8rem; max-width: 29ch; }
-    .result-preview { padding: 16px 28px 27px; }
-    .task-help { padding: 27px 28px; }
-    .task-help ol { grid-template-columns: 1fr; gap: 23px; }
-    .task-help li > p { max-width: 65ch; margin-top: 6px; }
-    .task-delivery { flex-direction: column; gap: 14px; padding: 23px 28px; }
-    .task-delivery ul { gap: 12px 20px; font-size: .75rem; }
-  }
-  @media (max-width: 480px) {
-    .task-stage { margin-top: 0; padding-top: 17px; }
-    .stage-heading h2 { font-size: 1.125rem; }
-    .stage-heading > p { font-size: .8rem; }
-    .task-options { gap: 9px; margin-bottom: 15px; }
-    .task-options label { padding: 10px 0; gap: 5px; min-height: 66px; }
-    .task-options label > .task-label { font-size: .75rem; line-height: 1.65; }
-    .task-pain-summary { display: none; }
-    .task-panel { border-radius: 16px; }
-    .task-context { padding: 27px 22px; }
-    .task-context h3 { font-size: 1.55rem; margin-top: 19px; }
-    .task-goal { font-size: .75rem; }
-    .task-situation { font-size: .81rem; }
-    .case-actions { gap: 13px 18px; margin-top: 24px; }
-    .task-start { font-size: .76rem; gap: 17px; padding: 12px 14px; }
-    .discussion-link { font-size: .68rem; }
-    .result-preview { padding: 15px 22px 25px; }
-    figcaption > p { font-size: 1.28rem; }
-    figcaption > small { font-size: .69rem; }
-    .task-help, .task-delivery { padding-inline: 22px; }
+  .task-stage { margin: 48px auto 0; max-width: 1080px; scroll-margin-top: 24px; }
+  fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
+  .assistant-demo { margin: 0; min-width: 0; }
+  .demo-window { border: 1px solid #fff; border-radius: 20px; background: #ffffff80; padding: 9px; box-shadow: 0 25px 75px -38px #3d5b894f, 0 3px 12px #314a6a08; }
+  .demo-toolbar { display: flex; align-items: center; gap: 14px; min-height: 46px; padding: 0 14px 8px; font-size: 12px; color: #566779; }
+  .window-dots { display: flex; gap: 5px; }
+  .window-dots i { width: 7px; height: 7px; border-radius: 50%; background: #f3aeaa; }
+  .window-dots i:nth-child(2) { background: #edce85; }
+  .window-dots i:nth-child(3) { background: #a1cbb4; }
+  .toolbar-project { color: #5d6f84; }
+  .demo-badge { margin-left: auto; font-size: 10px; border: 1px solid #dbe4ee; background: #fff; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
+  .demo-layout { display: grid; grid-template-columns: 218px minmax(0, 1fr); border: 1px solid #dfe5ee; border-radius: 12px; overflow: hidden; background: #fff; }
+  .demo-sidebar { background: #f8fafd; border-right: 1px solid #e7ecf2; display: flex; flex-direction: column; padding: 25px 14px 18px; }
+  .project-label { display: flex; align-items: center; gap: 10px; padding-inline: 10px; font-size: 12px; }
+  .project-label > span { border: 1px solid #dce4ed; background: #fff; border-radius: 7px; padding: 3px 7px; font-size: 18px; }
+  .project-label strong { font-weight: 600; }
+  .sidebar-caption { color: #596b82; font-size: 11px; margin: 31px 10px 12px; }
+  .task-options { display: grid; gap: 7px; }
+  .task-options label { min-height: 43px; display: flex; align-items: center; gap: 9px; padding: 10px; border: 1px solid transparent; border-radius: 7px; font-size: 12px; color: #536478; cursor: pointer; }
+  .task-number { font: 10px var(--mono); color: #52677f; }
+  .task-option-arrow { margin-left: auto; visibility: hidden; }
+  .task-options label:hover { background: #eef3f9; }
+  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #1e5a9c; background: #e6f0fd; border-color: #c6daf2; font-weight: 600; }
+  fieldset:has(input[value="development"]:checked) label[data-choice="development"] .task-option-arrow, fieldset:has(input[value="design"]:checked) label[data-choice="design"] .task-option-arrow, fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"] .task-option-arrow, fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] .task-option-arrow { visibility: visible; }
+  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2671c5; outline-offset: 2px; }
+  .sidebar-skill { display: flex; gap: 9px; margin-top: auto; padding: 45px 10px 0; align-items: center; }
+  .skill-symbol { color: #347bc5; font-size: 27px; }
+  .sidebar-skill strong { display: block; font-size: 11px; font-weight: 650; }
+  .sidebar-skill small { display: block; font-size: 10px; color: #596b82; margin-top: 2px; }
+  figcaption { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; color: #596b82; font-size: 11px; text-align: center; }
+  .motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 5px 8px; border: 0; border-radius: 5px; background: transparent; color: #576b81; font-size: 11px; }
+  .motion-toggle:hover { background: #eaf0f7; }
+  .motion-toggle:disabled { cursor: default; }
+  @media (max-width: 800px) { .demo-layout { grid-template-columns: 185px minmax(0, 1fr); } .demo-sidebar { padding-inline: 9px; } .toolbar-project { display: none; } }
+  @media (max-width: 600px) {
+    .task-stage { margin-top: 31px; }
+    .demo-window { border-radius: 14px; padding: 5px; }
+    .demo-toolbar { padding: 5px 7px 10px; font-size: 10px; gap: 9px; }
+    .window-dots { gap: 3px; } .window-dots i { width: 5px; height: 5px; }
+    .demo-badge { font-size: 9px; padding-inline: 5px; }
+    .demo-layout { grid-template-columns: 1fr; border-radius: 9px; }
+    .demo-sidebar { padding: 12px; border: 0; border-bottom: 1px solid #e7ecf2; }
+    .project-label, .sidebar-skill { display: none; }
+    .sidebar-caption { margin: 0 0 8px; font-size: 10px; }
+    .task-options { grid-template-columns: 1fr 1fr; gap: 5px; }
+    .task-options label { font-size: 11px; padding: 8px; min-height: 44px; gap: 7px; }
+    .task-number { font-size: 9px; }
+    figcaption { margin: 12px 7px 0; font-size: 10px; gap: 0; }
   }
 </style>
 
 <script>
   const stage = document.querySelector<HTMLElement>('[data-task-stage]');
-  const choices = stage?.querySelectorAll<HTMLInputElement>('.task-choice');
+  const choices = [...(stage?.querySelectorAll<HTMLInputElement>('.task-choice') ?? [])];
   const startLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-home-start]')];
   const synchronizeTask = (task: string, persist = true) => {
-    const choice = [...(choices ?? [])].find((input) => input.value === task);
+    const choice = choices.find((input) => input.value === task) ?? choices.find((input) => input.value === 'design');
     if (!choice) return;
+    task = choice.value;
     choice.checked = true;
     for (const link of startLinks) {
       const target = new URL(link.href);
@@ -161,9 +108,8 @@ const themes = { development: 'var(--subtle)', design: '#f1e6cf', deployment: 'v
       language.href = alternate.href;
     }
   };
-  for (const choice of choices ?? []) choice.addEventListener('change', () => {
-    if (choice.checked) synchronizeTask(choice.value);
-  });
+  choices.forEach((choice) => choice.addEventListener('change', () => { if (choice.checked) synchronizeTask(choice.value); }));
+  window.addEventListener('popstate', () => synchronizeTask(new URLSearchParams(location.search).get('task') ?? 'design', false));
   const requested = new URLSearchParams(window.location.search).get('task');
-  synchronizeTask(requested ?? 'development', Boolean(requested));
+  synchronizeTask(requested ?? 'design', Boolean(requested));
 </script>

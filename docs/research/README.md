@@ -12,4 +12,6 @@
 
 - 官网首屏样稿（2026-11-13）：[中文交互样稿](website/2026-11-13-hero-study/preview.zh-CN.html)、[英文交互样稿](website/2026-11-13-hero-study/preview.en.html)、[评审材料](website/2026-11-13-hero-study/review-brief.md)、[差异评估](website/2026-11-13-hero-study/change-evaluation.md)、[独立评审](website/2026-11-13-hero-study/review.md)，记录作者口吻、真实案例局部展示与无JS切换的首屏方案。
 
+- 官网浅蓝首页预览（2026-11-14）：[可操作预览与截图对照](website/2026-11-14-nova-homepage/index.html)、[实际差异与成本](website/2026-11-14-nova-homepage/change-evaluation.md)、[验收记录](website/2026-11-14-nova-homepage/verification.md)、[独立审查](website/2026-11-14-nova-homepage/independent-review.md)。
+
 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。

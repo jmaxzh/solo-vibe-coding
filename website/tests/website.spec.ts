@@ -16,11 +16,14 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('h1')).toBeVisible();
     const stage = page.locator('[data-task-stage]');
     await expect(stage.getByRole('radio')).toHaveCount(4);
+    await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
+    await stage.locator('[data-choice="development"]').click();
     await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
     await stage.locator('[data-choice="design"]').click();
     await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
     await expect(stage.locator('[data-outcome="development"]')).toBeHidden();
-    await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'template' : '模板味');
+    await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
+    await expect(page.locator('#outcome-design')).toContainText(locale === 'en' ? 'template' : '模板味');
     await stage.locator('input[value="design"]').focus();
     await page.keyboard.press('ArrowLeft');
     await expect(stage.locator('input[value="development"]')).toBeChecked();
@@ -54,6 +57,38 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path + '#task-growth');
     await expect(page.locator('#task-growth')).toBeVisible();
     expect(errors).toEqual([]);
+  });
+
+  test(`${locale}: homepage preview, primary action and evidence keep their meaning`, async ({ page }) => {
+    await page.goto(path);
+    for (const name of (locale === 'en' ? ['Fix a regression', 'Improve the interface', 'Get the demo live', 'Reach your first users'] : ['排查与修复', '改进产品界面', '接通并上线', '找到第一批用户'])) await expect(page.getByRole('radio', { name, exact: true })).toHaveCount(1);
+    await expect(page.locator('input[value="design"]')).toBeChecked();
+    await page.locator('.product-actions a[href="#usage-demo"]').click();
+    await expect(page).toHaveURL(/#usage-demo$/);
+    await expect(page.locator('[data-hero-object]')).toBeVisible();
+    await page.locator('[data-choice="growth"]').click();
+    await page.reload();
+    await expect(page.locator('input[value="growth"]')).toBeChecked();
+    await expect(page.locator('[data-workflow="growth"] .task-delivery')).toBeVisible();
+    await page.locator('[data-language-switch]').click();
+    await expect(page.locator('input[value="growth"]')).toBeChecked();
+    await page.locator('.product-actions [data-home-start]').click();
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'growth');
+    await page.goto(path + '?task=unknown');
+    await expect(page.locator('input[value="design"]')).toBeChecked();
+    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
+    await expect(page.locator('.pain-card')).toHaveCount(4);
+    const sources = page.locator('.pain-card .source-link');
+    await expect(sources).toHaveCount(4);
+    for (const link of await sources.all()) await expect(link).toHaveAttribute('href', /^https:\/\/(forum.cursor.com|www.reddit.com)\//);
+    const screenshot = page.locator('.case-image img');
+    await screenshot.scrollIntoViewIfNeeded();
+    await expect.poll(() => screenshot.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.locator('.case-image figcaption')).toContainText(locale === 'en' ? 'Actual output' : '实际产物截图');
+    const question = page.locator('.home-faq summary').first();
+    await question.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
   test(`${locale}: the selected task continues through setup and language switching`, async ({ page }) => {
@@ -90,6 +125,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     const image = page.locator('[data-hero-object]');
     await expect(image).toBeVisible();
     await expect(image).toHaveAttribute('aria-label', locale === 'en' ? 'How it works' : '工作方式示意');
+    await page.locator('[data-choice="development"]').click();
     await expect(image.locator('[data-workflow="development"]')).toContainText(locale === 'en' ? 'black screen' : '访客黑屏');
     await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'your own coding assistant' : '你自己的编程助手');
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
@@ -137,7 +173,8 @@ for (const locale of ['en', 'zh-CN'] as const) {
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
     await expect(terminal.locator('[data-copy-status]')).toContainText(locale === 'en' ? 'Copied' : '已复制');
     await page.locator('[data-choice="design"]').click();
-    const phone = page.locator('[data-outcome="design"] [data-stock-device="phone"]');
+    await page.locator('.interface-reference summary').click();
+    const phone = page.locator('.interface-reference [data-stock-device="phone"]');
     await phone.scrollIntoViewIfNeeded();
     await expect(phone).toBeVisible();
     await expect(phone).toHaveAttribute('aria-label', locale === 'en' ? /template sample data/ : /模板演示数据/);
@@ -280,6 +317,8 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
+      await expect(page.locator('[data-workflow="design"]')).toBeVisible();
+      await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();
       await expect(page.locator('[data-motion-toggle]')).toBeHidden();
       await page.locator('[data-choice="deployment"]').click();
