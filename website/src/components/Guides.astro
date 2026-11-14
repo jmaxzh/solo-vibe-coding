@@ -1,19 +1,27 @@
 ---
 import CodeBlock from './CodeBlock.astro';
+import PageIntro from './PageIntro.astro';
+import TaskVisual from './TaskVisual.astro';
 import { UI, SCENARIOS, href, type Locale } from '../data/site';
 import { OUTCOMES } from '../data/outcomes';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].guides;
-const scenarios = SCENARIOS[locale].map((scenario) => {
+const order = ['development', 'design', 'deployment', 'growth', 'requirements', 'architecture'];
+const scenarios = [...SCENARIOS[locale]].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id)).map((scenario) => {
   const outcome = OUTCOMES[locale].find((item) => item.id === scenario.id);
   return { ...scenario, ...(outcome ? { title: outcome.goal, summary: outcome.pain, prompt: outcome.prompt, output: outcome.deliverables.join(locale === 'en' ? '; ' : '；'), confirm: outcome.checks.join(' ') } : {}), help: outcome?.help ?? [], situation: outcome?.situation ?? '' };
 });
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav.guides}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
-  <div class="document-layout"><nav class="on-this-page" aria-label={locale === 'en' ? 'Find your goal' : '找到你的目标'}>{SCENARIOS[locale].map((scenario) => <a href={`#${scenario.id}`}>{scenario.label}</a>)}</nav><div class="document-content task-guide-list">
-    {scenarios.map((scenario) => <section class="task-guide" id={scenario.id} data-guide-task><span class="guide-label">{scenario.label}</span><h2>{scenario.title}</h2><p>{scenario.summary}</p>{scenario.situation && <p>{scenario.situation}</p>}{scenario.help.length > 0 && <ul>{scenario.help.map((item) => <li><strong>{item.title}{locale === 'en' ? ': ' : '：'}</strong>{item.text}</li>)}</ul>}<CodeBlock locale={locale} code={scenario.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.output}</h3><p>{scenario.output}</p></div><div><h3>{ui.confirm}</h3><p>{scenario.confirm}</p></div></div></section>)}
+  <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="guides" />
+  <div class="document-layout"><nav class="on-this-page" aria-label={locale === 'en' ? 'Find your goal' : '找到你的目标'}>{scenarios.map((scenario) => <a href={`#${scenario.id}`}>{scenario.label}</a>)}</nav><div class="document-content task-guide-list">
+    {scenarios.map((scenario) => <section class="task-guide" id={scenario.id} data-guide-task><h2>{scenario.title}</h2><p>{scenario.summary}</p>{scenario.situation && <p>{scenario.situation}</p>}{scenario.help.length > 0 && <><div class="guide-scene"><TaskVisual locale={locale} kind={scenario.id as 'development' | 'design' | 'deployment' | 'growth'} /><p>{locale === 'en' ? 'Illustrated workflow, based on the community question.' : '根据社区问题绘制的流程示意。'}</p></div><ul>{scenario.help.map((item) => <li><strong>{item.title}{locale === 'en' ? ': ' : '：'}</strong>{item.text}</li>)}</ul></>}<CodeBlock locale={locale} code={scenario.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.output}</h3><p>{scenario.output}</p></div><div><h3>{ui.confirm}</h3><p>{scenario.confirm}</p></div></div></section>)}
     <a class="button button-primary" href={href(locale, 'getting-started')}>{ui.next}<span aria-hidden="true">↗</span></a>
   </div></div>
 </div>
+<style>
+  .guide-scene { max-width: 510px; margin: 24px auto; background: #e8edff; border-radius: 16px; padding: 16px 24px; }
+  .guide-scene > p { font-size: .72rem; color: #4a5b77; margin-top: 10px; text-align: center; }
+  @media (max-width: 480px) { .guide-scene { padding: 10px 12px 16px; } }
+</style>

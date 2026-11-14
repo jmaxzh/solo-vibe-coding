@@ -1,11 +1,12 @@
 ---
 import { UI, href, type Locale } from '../data/site';
 import { postsFor } from '../data/posts';
+import PageIntro from './PageIntro.astro';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].log;
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav['build-log']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="updates" />
   <div class="log-list">{postsFor(locale).map(({ frontmatter: post }) => <a class="log-entry" data-log-entry href={href(locale, `build-log/${post.slug}`)}><time datetime={post.date}>{new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(post.date + 'T00:00:00Z'))}</time><div><h2>{post.title}</h2><p>{post.description}</p><span class="text-link">{ui.read}<span aria-hidden="true">↗</span></span></div></a>)}</div>
 </div>

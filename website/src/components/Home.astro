@@ -1,6 +1,7 @@
 ---
 import Hero from './Hero.astro';
 import WebsiteMotion from './WebsiteMotion.astro';
+import SceneIcon from './SceneIcon.astro';
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
 import { UI, PROJECT, SCENARIOS, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
@@ -23,7 +24,7 @@ const copy = OUTCOME_UI[locale];
 
   <section class="own-task" id="install" aria-labelledby="start-title">
     <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
-    <img src={PROJECT.base + 'art/case-growth-768.webp'} width="768" height="768" loading="lazy" decoding="async" alt="" />
+    <div class="start-path" aria-hidden="true">{[{ icon: 'terminal', text: locale === 'en' ? 'Install the skill' : '安装 Skill' }, { icon: 'code', text: locale === 'en' ? 'Describe your task' : '说清你想做什么' }, { icon: 'check', text: locale === 'en' ? 'Open the result' : '打开成果试一试' }].map((step) => <div><span><SceneIcon kind={step.icon} /></span><strong>{step.text}</strong></div>)}</div>
   </section>
 
   <section class="faq-section" aria-labelledby="faq-title"><h2 id="faq-title">{ui.home.faqTitle}</h2><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
@@ -64,7 +65,11 @@ const copy = OUTCOME_UI[locale];
   .own-task .button { margin-top: 25px; background: #17212e; color: #fffefa; }
   .own-task .button:hover { background: #2a425d; }
   .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
-  .own-task > img { width: 115%; max-width: none; height: auto; margin-top: -30px; margin-bottom: -50px; }
+  .start-path { padding: 15px 0 15px 22px; border-left: 1px solid #91ad43; display: grid; gap: 22px; }
+  .start-path > div { display: flex; align-items: center; gap: 17px; }
+  .start-path > div > span { display: grid; place-items: center; width: 43px; height: 43px; flex: none; background: #17283f; color: #e7f4b0; border-radius: 12px; }
+  .start-path :global(svg) { width: 22px; height: 22px; }
+  .start-path strong { font-size: .85rem; }
   .faq-section { padding-bottom: 65px; }
   .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
   .more-tasks h2 { font-size: 1.05rem; letter-spacing: 0; }
@@ -102,7 +107,7 @@ const copy = OUTCOME_UI[locale];
     .evidence-heading h2 { font-size: 1.7rem; }
     .discussion-sources { grid-template-columns: 1fr; }
     .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: 18px; }
-    .own-task > img { display: none; }
+    .start-path { margin-top: 10px; padding: 24px 0 0; border-left: 0; border-top: 1px solid #91ad43; gap: 17px; }
     .own-task p { font-size: .83rem; }
   }
 </style>

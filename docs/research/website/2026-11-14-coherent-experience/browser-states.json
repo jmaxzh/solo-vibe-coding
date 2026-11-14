@@ -1,0 +1,146 @@
+[
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "development",
+    "label": "流程示意：定位访客黑屏问题，只修改相关部分，再检查画面、背景虚化和通话功能。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "design",
+    "label": "设计示意：同一套字体、布局和组件贯穿首页、列表与详情，主要操作清楚可见。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "deployment",
+    "label": "流程示意：将登录、数据保存和公开访问接通，检查完整使用流程。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "task": "growth",
+    "label": "推广示意：围绕具体用户组织产品介绍与演示，让感兴趣的人可以开始试用，不展示虚构用户量。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "development",
+    "label": "流程示意：定位访客黑屏问题，只修改相关部分，再检查画面、背景虚化和通话功能。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "design",
+    "label": "设计示意：同一套字体、布局和组件贯穿首页、列表与详情，主要操作清楚可见。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "deployment",
+    "label": "流程示意：将登录、数据保存和公开访问接通，检查完整使用流程。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "task": "growth",
+    "label": "推广示意：围绕具体用户组织产品介绍与演示，让感兴趣的人可以开始试用，不展示虚构用户量。",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "development",
+    "label": "Illustrated workflow: locate a guest video failure, make a focused repair, and check video, background blur and the existing call.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "design",
+    "label": "Design study: home, list and detail screens share typography, spacing and components, with a clear primary action.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "deployment",
+    "label": "Illustrated workflow: connect sign-in, saved data and a public release, then check the complete user journey.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "task": "growth",
+    "label": "Launch illustration: connect a specific audience with a product explanation, demonstration and trial entry; no user-count claims.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "development",
+    "label": "Illustrated workflow: locate a guest video failure, make a focused repair, and check video, background blur and the existing call.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "design",
+    "label": "Design study: home, list and detail screens share typography, spacing and components, with a clear primary action.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "deployment",
+    "label": "Illustrated workflow: connect sign-in, saved data and a public release, then check the complete user journey.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "task": "growth",
+    "label": "Launch illustration: connect a specific audience with a product explanation, demonstration and trial entry; no user-count claims.",
+    "violations": [],
+    "overflow": false,
+    "errors": []
+  }
+]

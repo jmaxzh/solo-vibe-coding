@@ -38,9 +38,9 @@
   });
   document.addEventListener('keydown', () => { keyboard = true; });
   document.addEventListener('pointerdown', () => { keyboard = false; }, { passive: true });
-  document.querySelectorAll('[data-title-line]').forEach((line, index) => animate(line, [{ opacity: .65, transform: 'translateY(16px)' }, { opacity: 1, transform: 'translateY(0)' }], 650, index * 70));
-  const sculpture = document.querySelector('[data-art-transform]');
-  if (sculpture) animate(sculpture, [{ opacity: .3, transform: 'translateY(32px) rotate(-5deg) scale(.95)' }, { opacity: 1, transform: 'none' }], 900, 60);
+  document.querySelectorAll('[data-title-line]').forEach((line, index) => animate(line, [{ transform: 'translateY(16px)' }, { transform: 'translateY(0)' }], 650, index * 70));
+  const visual = document.querySelector('[data-art-transform]');
+  if (visual) animate(visual, [{ transform: 'translateY(25px) rotate(-3deg) scale(.97)' }, { transform: 'none' }], 700, 60);
   const artArea = document.querySelector<HTMLElement>('[data-hero-tilt]');
   const art = document.querySelector<HTMLElement>('[data-art-transform]');
   if (artArea && art) {
@@ -58,12 +58,12 @@
     if (keyboard || !(input instanceof HTMLInputElement)) return;
     for (const animation of running) if (animation.effect instanceof KeyframeEffect && animation.effect.target?.matches('[data-case-art]')) animation.cancel();
     const image = stage.querySelector(`[data-outcome="${input.value}"] [data-case-art]`);
-    if (image) animate(image, [{ opacity: .65, transform: 'translateY(12px) scale(.96)' }, { opacity: 1, transform: 'none' }], 260);
+    if (image) animate(image, [{ transform: 'translateY(12px) scale(.97)' }, { transform: 'none' }], 260);
   });
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) if (entry.isIntersecting) {
-        animate(entry.target, [{ opacity: .55, transform: 'translateX(18px)' }, { opacity: 1, transform: 'none' }], 550, Number((entry.target as HTMLElement).dataset.revealOrder ?? 0) * 60);
+        animate(entry.target, [{ transform: 'translateX(18px)' }, { transform: 'none' }], 550, Number((entry.target as HTMLElement).dataset.revealOrder ?? 0) * 60);
         observer.unobserve(entry.target);
       }
     }, { threshold: .16 });

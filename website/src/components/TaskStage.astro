@@ -1,5 +1,6 @@
 ---
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
+import TaskVisual from './TaskVisual.astro';
 import { PROJECT, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -24,7 +25,7 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
           <div class="case-actions"><a class="task-start" data-task-start={outcome.id} href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{ui.start}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a><a class="discussion-link" href={outcome.source.url}>{ui.source}<span aria-hidden="true">↗</span></a></div>
         </div>
         <figure class="result-preview">
-          <img class="case-art" data-case-art src={PROJECT.base + 'art/case-' + outcome.id + '-768.webp'} srcset={PROJECT.base + 'art/case-' + outcome.id + '-320.webp 320w, ' + PROJECT.base + 'art/case-' + outcome.id + '-768.webp 768w'} sizes="(max-width: 800px) 80vw, 40vw" width="768" height="768" loading="lazy" decoding="async" alt={outcome.artAlt} />
+          <TaskVisual locale={locale} kind={outcome.id} />
           <figcaption><span>{ui.preview}</span><p>{outcome.previewTitle}</p><small>{outcome.previewText}</small></figcaption>
         </figure>
       </div>
@@ -62,8 +63,7 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
   .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
   .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
   .discussion-link:hover { color: #183dba; }
-  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 17px 36px 31px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-  .case-art { display: block; width: min(100%, 365px); height: auto; margin-inline: auto; object-fit: contain; }
+  .result-preview { margin: 0; position: relative; min-width: 0; background: var(--case-surface); padding: 20px 28px 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
   figcaption { position: relative; text-align: left; padding-top: 2px; z-index: 1; }
   figcaption > span { display: block; color: #56616b; font-size: .65rem; margin-bottom: 7px; }
   figcaption > p { font-size: 1.43rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.4; }
@@ -107,7 +107,6 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
     .task-context { padding: 31px 28px; }
     .task-context h3 { font-size: 1.8rem; max-width: 29ch; }
     .result-preview { padding: 16px 28px 27px; }
-    .case-art { width: min(78%, 310px); }
     .task-help { padding: 27px 28px; }
     .task-help ol { grid-template-columns: 1fr; gap: 23px; }
     .task-help li > p { max-width: 65ch; margin-top: 6px; }

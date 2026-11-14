@@ -46,6 +46,11 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.keyboard.press('Tab');
     await expect(calculator.locator('input[name="rate"]')).toBeFocused();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.locator('[data-make-quote]').click();
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'quote');
+    await expect(page.locator('#task-quote code')).toContainText(locale === 'en' ? 'quote calculator' : '项目报价');
+    await page.locator('[data-language-switch]').click();
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'quote');
     await page.goto(path + '#task-growth');
     await expect(page.locator('#task-growth')).toBeVisible();
     expect(errors).toEqual([]);
@@ -84,7 +89,9 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path);
     const image = page.locator('[data-hero-object]');
     await expect(image).toBeVisible();
-    expect(await image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(image).toHaveAttribute('role', 'img');
+    await expect(image).toHaveAttribute('aria-label', locale === 'en' ? /background blur/ : /背景虚化/);
+    expect(await image.locator('img').evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
     await page.locator('[data-motion-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
@@ -218,13 +225,15 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await page.goto(path + 'build-log/');
     await page.locator('[data-log-entry]').first().click();
     await expect(page.locator('article')).toBeVisible();
-    await expect(page.locator('article a').filter({ hasText: locale === 'en' ? 'bookmark export case' : '收藏导出案例' })).toBeVisible();
+    await expect(page.locator(`article a[href="${path + caseStudy}"]`)).toBeVisible();
     await expect(page.locator('time')).toHaveAttribute('datetime', /2026-11-13/);
   });
 
   test(`${locale}: pages remain accessible and fit the viewport`, async ({ page }) => {
     for (const route of ['', 'getting-started/', 'guides/', example, caseStudy, 'build-log/', 'build-log/first-public-build/', 'build-log/working-methods/']) {
       await page.goto(path + route);
+      await expect(page.locator('h1')).toHaveCount(1);
+      if (route) await expect(page.locator('[data-page-intro]')).toBeVisible();
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       expect(results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -285,6 +294,9 @@ test('reduced motion and 404 remain usable', async ({ page }) => {
   await expect(page.locator('html')).toHaveCSS('scroll-behavior', 'auto');
   await page.goto(base + '404.html');
   await expect(page.locator('h1')).toContainText('404');
+  await expect(page.locator('[data-page-intro="missing"]')).toBeVisible();
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+  expect(results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
   await page.locator('main a').first().click();
   await expect(page).toHaveURL(new RegExp(base + '$'));
 });

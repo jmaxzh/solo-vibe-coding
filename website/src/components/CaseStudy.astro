@@ -1,5 +1,6 @@
 ---
 import CodeBlock from './CodeBlock.astro';
+import PageIntro from './PageIntro.astro';
 import { CASE_STUDY } from '../data/case-study';
 import { CASE_EVIDENCE } from '../data/case-evidence';
 import { PROJECT, href, type Locale } from '../data/site';
@@ -9,7 +10,7 @@ const ui = CASE_STUDY[locale];
 if (!CASE_EVIDENCE.available) throw new Error('Complete and review the actual case evidence before publishing.');
 ---
 <article class="container case-study-shell" data-case-study>
-  <header class="page-intro"><p class="page-context"><time datetime={CASE_EVIDENCE.date}>{ui.label}</time></p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="case"><p class="case-record-date"><time datetime={CASE_EVIDENCE.date}>{ui.label}</time></p></PageIntro>
   <p class="case-result-summary" data-case-summary>{CASE_EVIDENCE.summary[locale]}</p>
 
   <section class="case-round" aria-labelledby="round-one-title"><div class="case-round-copy"><h2 id="round-one-title">{ui.roundOne}</h2><p>{ui.roundOneText}</p><details class="case-request"><summary>{ui.requestLabel}</summary><blockquote>{ui.request}</blockquote><p>{ui.requestNote}</p></details></div><figure class="case-screenshot"><img src={PROJECT.base + 'case-study/bookmarks-round-1.png'} alt={ui.imageOneAlt} width="1280" height="900" loading="lazy" /><figcaption>{ui.imageCaption}</figcaption></figure></section>

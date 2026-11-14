@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import { UI, href } from '../data/site';
 const ui = UI.en.notFound;
 ---
 <Layout locale="en" page="home" title={ui.title} description={ui.description} route="" noindex>
-  <div class="container not-found"><h1>{ui.title}</h1><p>{ui.text}</p><a class="button button-primary" href={href('en')}>{ui.home}</a></div>
+  <div class="container not-found"><PageIntro locale="en" title={ui.title} description={ui.text} kind="missing"><p lang="zh-CN">没有找到这个页面，地址可能有误或已经变更。</p></PageIntro><div class="not-found-actions"><a class="button button-primary" href={href('en')}>{ui.home}</a><a class="text-link" href={href('zh-CN')} lang="zh-CN">返回中文首页 →</a></div></div>
 </Layout>

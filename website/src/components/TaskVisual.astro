@@ -1,0 +1,156 @@
+---
+import SceneIcon from './SceneIcon.astro';
+import { PROJECT, type Locale } from '../data/site';
+interface Props { locale: Locale; kind: 'development' | 'design' | 'deployment' | 'growth'; hero?: boolean; }
+const { locale, kind, hero = false } = Astro.props;
+const zh = locale === 'zh-CN';
+const text = zh ? {
+  development: { title: '视频通话', problem: '访客加入，却看不到画面', result: '画面恢复，原功能照常用', method: '定位黑屏原因 → 控制修改范围 → 复查通话功能', description: '流程示意：定位访客黑屏问题，只修改相关部分，再检查画面、背景虚化和通话功能。' },
+  design: { title: '同一个 App，同一套设计', problem: '反复换颜色，页面还是像模板', result: '从单页好看，到整套好用', method: '确定视觉方向 → 落实核心页面 → 检查真实操作', description: '设计示意：同一套字体、布局和组件贯穿首页、列表与详情，主要操作清楚可见。' },
+  deployment: { title: '让别人真正用起来', problem: '页面做好了，关键环节没接通', result: '登录、保存、再次访问，连起来了', method: '评估现有方案 → 接通完整流程 → 核对公开版本', description: '流程示意：将登录、数据保存和公开访问接通，检查完整使用流程。' },
+  growth: { title: '给对的人，一个试用理由', problem: '产品做出来了，却没人开始用', result: '看懂用途，找到入口，开始试用', method: '明确目标用户 → 讲清实际用途 → 准备渠道与试用入口', description: '推广示意：围绕具体用户组织产品介绍与演示，让感兴趣的人可以开始试用，不展示虚构用户量。' },
+} : {
+  development: { title: 'The video call', problem: 'A guest joins. Their video stays black.', result: 'Video back. Working features intact.', method: 'Reproduce the failure → Limit the change → Check the call', description: 'Illustrated workflow: locate a guest video failure, make a focused repair, and check video, background blur and the existing call.' },
+  design: { title: 'One app. A considered design.', problem: 'New colours. Still the same template.', result: 'A design that holds across the app.', method: 'Set a direction → Build the key screens → Try real content', description: 'Design study: home, list and detail screens share typography, spacing and components, with a clear primary action.' },
+  deployment: { title: 'Ready for someone else', problem: 'The screens exist. The pieces do not connect.', result: 'Sign in. Save. Come back to it.', method: 'Choose a foundation → Connect the journey → Check the release', description: 'Illustrated workflow: connect sign-in, saved data and a public release, then check the complete user journey.' },
+  growth: { title: 'A reason to give it a try', problem: 'A finished product. Nobody trying it.', result: 'See what it helps you do. Give it a try.', method: 'Choose an audience → Show the use → Prepare the first launch', description: 'Launch illustration: connect a specific audience with a product explanation, demonstration and trial entry; no user-count claims.' },
+};
+const scene = text[kind];
+---
+<div class:list={['task-visual', 'scene-' + kind, { 'hero-visual': hero }]} data-case-art={!hero || undefined} data-hero-object={hero || undefined} role="img" aria-label={scene.description}>
+  <div class="visual-window" aria-hidden="true">
+    <div class="window-toolbar"><span class="window-dots"><i></i><i></i><i></i></span><span>{scene.title}</span><SceneIcon kind={kind} /></div>
+    <div class="scene-content">
+      <p class="scene-problem">{scene.problem}</p>
+      {kind === 'development' && <div class="call-comparison">
+        <div class="call-before"><div class="dark-video"><SceneIcon kind="development" /><span>{zh ? '访客黑屏' : 'Guest video missing'}</span></div><small>{zh ? '出问题的操作' : 'The failing action'}</small></div>
+        <div class="change-arrow scene-signal"><SceneIcon kind="arrow" /></div>
+        <div class="call-after"><div class="working-video"><img src={PROJECT.base + 'art/case-development-320.webp'} width="320" height="320" loading={hero ? 'eager' : 'lazy'} fetchpriority={hero ? 'high' : undefined} decoding="async" alt="" /><span>{zh ? '画面恢复' : 'Video restored'}</span><b class="live-dot"></b></div><div class="call-controls"><span><SceneIcon kind="check" />{zh ? '背景虚化' : 'Background blur'}</span><span><SceneIcon kind="check" />{zh ? '正常通话' : 'Call still works'}</span></div></div>
+      </div>}
+      {kind === 'design' && <div class="phone-family">
+        {[zh ? '首页' : 'Home', zh ? '列表' : 'Browse', zh ? '详情' : 'Detail'].map((label, index) => <div class:list={['phone', 'phone-' + index]}><div class="phone-notch"></div><span class="phone-label">{label}</span>{index === 0 ? <><div class="phone-feature"><span></span><span></span></div><div class="ui-line wide"></div><div class="ui-line"></div><div class="phone-action"></div></> : index === 1 ? <>{[0,1,2].map(() => <div class="phone-row"><i></i><div><div class="ui-line wide"></div><div class="ui-line"></div></div></div>)}<div class="phone-action"></div></> : <><div class="phone-cover"></div><div class="ui-line wide"></div><div class="ui-line"></div><div class="phone-action"></div></>}<div class="phone-nav"><i></i><i></i><i></i></div></div>)}
+      </div>}
+      {kind === 'deployment' && <div class="release-journey">
+        {[{ icon: 'user', title: zh ? '登录账号' : 'Sign in', note: zh ? '进入自己的空间' : 'Your own workspace' }, { icon: 'save', title: zh ? '保存结果' : 'Save a result', note: zh ? '数据能留下来' : 'Data that stays put' }, { icon: 'link', title: zh ? '再次访问' : 'Open it again', note: zh ? '公开网址也能用' : 'At the public address' }].map((step, index) => <div class="release-step"><span class="release-symbol"><SceneIcon kind={step.icon} /></span><strong>{step.title}</strong><small>{step.note}</small>{index < 2 && <span class="step-connection scene-signal"><SceneIcon kind="arrow" /></span>}</div>)}
+      </div>}
+      {kind === 'growth' && <div class="launch-path">
+        <div class="audience-note"><SceneIcon kind="user" /><div><strong>{zh ? '谁正遇到这个问题？' : 'Who has this problem?'}</strong><span>{zh ? '从具体需求找到目标用户' : 'Start with a real need'}</span></div></div>
+        <span class="launch-connector scene-signal"><SceneIcon kind="arrow" /></span>
+        <div class="trial-page"><span class="mini-brand"></span><strong>{zh ? '让人看懂，为什么值得用' : 'Show what it helps them do'}</strong><div class="demo-preview"><SceneIcon kind="play" /><span>{zh ? '看看实际怎么用' : 'See it in use'}</span></div><span class="trial-action">{zh ? '开始试用' : 'Try it for yourself'}<SceneIcon kind="arrow" /></span></div>
+      </div>}
+      <p class="scene-result"><SceneIcon kind="check" />{scene.result}</p>
+    </div>
+    <div class="scene-method">{scene.method}</div>
+  </div>
+</div>
+
+<style>
+  .task-visual { position: relative; width: 100%; min-width: 0; color: #17212e; padding: 20px 10px; }
+  .visual-window { position: relative; background: #fffefa; border-radius: 16px; box-shadow: 0 18px 40px #17212e1c; overflow: hidden; transform: perspective(1000px) rotateY(-4deg) rotateX(2deg); }
+  .window-toolbar { display: flex; align-items: center; gap: 12px; min-height: 43px; padding: 10px 16px; background: #17283f; color: #f1f4ff; font-size: 11px; font-weight: 600; }
+  .window-toolbar > :global(svg) { width: 17px; height: 17px; margin-left: auto; flex: none; }
+  .window-dots { display: flex; gap: 4px; flex: none; }
+  .window-dots i { width: 5px; height: 5px; border-radius: 50%; background: #96a9c3; }
+  .window-dots i:first-child { background: #ff9878; }
+  .scene-content { padding: 22px 20px 17px; }
+  .scene-problem { font-size: 12px; color: #5b6470; line-height: 1.7; margin-bottom: 20px; }
+  .scene-result { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; font-weight: 700; line-height: 1.6; margin-top: 23px; text-align: center; }
+  .scene-result :global(svg) { width: 18px; height: 18px; flex: none; color: #35562d; }
+  .scene-method { background: #edf1e6; padding: 13px 16px; color: #3d5038; font-size: 11px; line-height: 1.8; text-align: center; }
+  .call-comparison { display: grid; grid-template-columns: .65fr 24px 1fr; align-items: center; gap: 10px; }
+  .dark-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; aspect-ratio: .9; background: #233044; color: #dbe4f1; padding: 12px 8px; border-radius: 10px; text-align: center; font-size: 10px; }
+  .dark-video :global(svg) { width: 30px; height: 30px; }
+  .call-before > small { display: block; font-size: 9px; color: #53616f; margin-top: 9px; text-align: center; }
+  .change-arrow { color: #3c63bc; }
+  .change-arrow :global(svg) { width: 22px; height: 22px; }
+  .working-video { position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; background: #2457f5; color: white; border-radius: 11px; aspect-ratio: 1.12; overflow: hidden; padding-bottom: 12px; }
+  .working-video img { width: 80%; height: auto; margin-top: -8px; margin-bottom: -13px; }
+  .working-video > span { position: relative; font-size: 12px; font-weight: 650; }
+  .live-dot { position: absolute; top: 12px; right: 12px; width: 7px; height: 7px; background: #d5f36b; border-radius: 50%; }
+  .call-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px 13px; margin-top: 11px; }
+  .call-controls > span { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #344f2d; }
+  .call-controls :global(svg) { width: 12px; height: 12px; }
+  .phone-family { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 210px; }
+  .phone { position: relative; width: 30%; max-width: 100px; min-width: 0; background: #f9fafc; border: 4px solid #203653; border-radius: 17px; padding: 18px 8px 22px; aspect-ratio: .5; }
+  .phone-0 { transform: translateY(9px) rotate(-7deg); }
+  .phone-1 { background: #f5f7ff; transform: translateY(-9px); z-index: 1; }
+  .phone-2 { transform: translateY(9px) rotate(7deg); }
+  .phone-notch { position: absolute; width: 28%; height: 4px; top: 5px; left: 36%; background: #203653; border-radius: 3px; }
+  .phone-label { display: block; font-weight: 750; font-size: 10px; margin-bottom: 12px; }
+  .phone-feature { height: 45px; background: #2457f5; border-radius: 7px; padding: 9px; margin-bottom: 12px; }
+  .phone-feature > span { display: block; height: 4px; background: #eaf0ff; width: 75%; border-radius: 2px; margin-bottom: 6px; }
+  .phone-feature > span + span { width: 45%; height: 8px; background: #d5f36b; }
+  .ui-line { height: 4px; width: 62%; background: #b2bfd1; border-radius: 2px; margin-block: 7px; }
+  .ui-line.wide { width: 100%; background: #57708e; }
+  .phone-action { height: 13px; width: 100%; background: #ff885f; border-radius: 4px; margin-top: 14px; }
+  .phone-nav { position: absolute; display: flex; justify-content: space-around; bottom: 9px; left: 10px; right: 10px; }
+  .phone-nav i { width: 5px; height: 5px; background: #879bb6; border-radius: 2px; }
+  .phone-nav i:first-child { background: #2457f5; }
+  .phone-row { display: flex; gap: 5px; margin-block: 9px; }
+  .phone-row > i { background: #dbe3ff; width: 14px; height: 20px; border-radius: 4px; flex: none; }
+  .phone-row > div { flex: 1; }
+  .phone-row .ui-line { margin-block: 4px; height: 3px; }
+  .phone-cover { background: #d5f36b; height: 55px; border-radius: 7px; margin-bottom: 10px; }
+  .release-journey { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; align-items: start; padding-block: 30px; }
+  .release-step { position: relative; text-align: center; min-width: 0; }
+  .release-symbol { display: grid; place-items: center; width: 66px; height: 66px; margin: 0 auto 17px; background: #e4eaff; color: #2457d6; border-radius: 16px; }
+  .release-symbol :global(svg) { width: 30px; height: 30px; }
+  .release-step:nth-child(2) .release-symbol { background: #ffe7dc; color: #963d1d; }
+  .release-step:nth-child(3) .release-symbol { background: #e7efca; color: #466221; }
+  .release-step strong { display: block; font-size: 12px; }
+  .release-step small { display: block; font-size: 9px; line-height: 1.65; color: #53616f; margin-top: 8px; }
+  .step-connection { position: absolute; top: 24px; right: -23px; color: #4c6490; }
+  .step-connection :global(svg) { width: 24px; height: 24px; }
+  .launch-path { display: grid; grid-template-columns: .85fr 22px 1.15fr; gap: 10px; align-items: center; min-height: 210px; }
+  .audience-note { padding: 15px 12px; background: #e6ecff; border-radius: 12px; }
+  .audience-note > :global(svg) { width: 27px; height: 27px; color: #3155a8; margin-bottom: 15px; }
+  .audience-note strong { display: block; font-size: 12px; line-height: 1.7; }
+  .audience-note span { display: block; font-size: 10px; line-height: 1.7; color: #4c5c74; margin-top: 8px; }
+  .launch-connector :global(svg) { width: 22px; height: 22px; color: #4c6490; }
+  .trial-page { padding: 16px 13px; background: #f2f5e7; border-radius: 12px; }
+  .mini-brand { display: block; width: 19px; height: 5px; background: #2457f5; margin-bottom: 12px; }
+  .trial-page > strong { display: block; font-size: 11px; line-height: 1.7; }
+  .demo-preview { display: flex; align-items: center; gap: 5px; background: #dce5bf; border-radius: 7px; padding: 15px 8px; margin-top: 12px; font-size: 9px; color: #34482b; }
+  .demo-preview :global(svg) { width: 17px; height: 17px; flex: none; }
+  .trial-action { display: flex; align-items: center; justify-content: space-between; gap: 5px; background: #17283f; color: #fffefa; font-size: 10px; padding: 9px; border-radius: 6px; margin-top: 12px; }
+  .trial-action :global(svg) { width: 13px; height: 13px; flex: none; }
+  .scene-signal { animation: guide-forward 3.4s ease-in-out infinite; animation-play-state: paused; }
+  :global(html[data-motion="on"]) .scene-signal { animation-play-state: running; }
+  .hero-visual { animation: scene-float 11s ease-in-out infinite; animation-play-state: paused; padding: 25px 5px; }
+  :global(html[data-motion="on"]) .hero-visual { animation-play-state: running; }
+  .hero-visual .visual-window { transform: perspective(1200px) rotateY(-8deg) rotateX(5deg) rotateZ(2deg); box-shadow: 0 30px 65px #10245d55; }
+  .hero-visual .scene-content { padding: 24px; }
+  .hero-visual .scene-problem { font-size: 13px; }
+  .hero-visual .scene-result { font-size: 14px; }
+  @keyframes guide-forward { 0%, 100% { transform: translateX(0); } 45% { transform: translateX(4px); } }
+  @keyframes scene-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @media (max-width: 480px) {
+    .task-visual { padding: 12px 0; }
+    .visual-window, .hero-visual .visual-window { transform: none; }
+    .scene-content { padding: 18px 14px 14px; }
+    .scene-problem { font-size: 11px; }
+    .scene-result { font-size: 11px; }
+    .scene-method { font-size: 10px; padding-inline: 12px; }
+    .call-comparison { gap: 7px; grid-template-columns: .65fr 19px 1fr; }
+    .call-controls { gap: 5px; }
+    .call-controls > span { font-size: 10px; }
+    .working-video > span { font-size: 11px; }
+    .hero-visual .scene-content { padding: 19px 14px; }
+    .hero-visual .scene-problem { font-size: 11px; }
+    .hero-visual .scene-result { font-size: 11px; }
+    .phone-family { gap: 9px; min-height: 180px; }
+    .phone { border-width: 3px; padding-inline: 6px; }
+    .release-journey { gap: 14px; padding-block: 20px; }
+    .release-symbol { width: 50px; height: 50px; }
+    .release-step strong { font-size: 11px; }
+    .release-step small { font-size: 9px; }
+    .step-connection { right: -19px; top: 17px; }
+    .step-connection :global(svg) { width: 20px; height: 20px; }
+    .launch-path { gap: 7px; grid-template-columns: .85fr 17px 1.15fr; }
+    .audience-note { padding: 12px 9px; }
+    .audience-note strong { font-size: 11px; }
+    .launch-connector :global(svg) { width: 17px; }
+    .trial-page { padding: 12px 9px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .scene-signal, .hero-visual { animation: none; } }
+</style>

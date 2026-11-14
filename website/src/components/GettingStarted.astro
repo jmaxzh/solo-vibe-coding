@@ -1,16 +1,18 @@
 ---
 import CodeBlock from './CodeBlock.astro';
-import { PROJECT, UI, SCENARIOS, href, type Locale } from '../data/site';
+import PageIntro from './PageIntro.astro';
+import { PROJECT, UI, SCENARIOS, FIRST_PROMPT, href, type Locale } from '../data/site';
 import { OUTCOMES, OUTCOME_UI } from '../data/outcomes';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].getting;
 const firstVersion = SCENARIOS[locale].find((task) => task.id === 'requirements')!;
-const tasks = [...OUTCOMES[locale], { id: firstVersion.id, label: firstVersion.label, goal: firstVersion.title, pain: firstVersion.summary, prompt: firstVersion.prompt, checks: [firstVersion.confirm] }];
+const quoteTask = { id: 'quote', label: locale === 'en' ? 'Build a quote tool' : '做报价工具', goal: locale === 'en' ? 'Build your own quote calculator' : '做一个自己的报价计算器', pain: locale === 'en' ? 'Use your own hours, rates, costs and reserve, with a downloadable breakdown.' : '按自己的工时、单价、费用和预留比例计算报价，并下载明细。', prompt: FIRST_PROMPT[locale], checks: UI[locale].example.checks };
+const tasks = [...OUTCOMES[locale], { id: firstVersion.id, label: firstVersion.label, goal: firstVersion.title, pain: firstVersion.summary, prompt: firstVersion.prompt, checks: [firstVersion.confirm] }, quoteTask];
 const copy = OUTCOME_UI[locale];
 ---
 <div class="container document-shell">
-  <header class="page-intro"><p class="page-context">{UI[locale].nav['getting-started']}</p><h1>{ui.title}</h1><p>{ui.intro}</p></header>
+  <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="start" />
   <div class="document-layout">
     <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">
@@ -36,7 +38,7 @@ const copy = OUTCOME_UI[locale];
   .task-request-nav a { text-decoration: none; padding-block: 4px; }
   .task-request-nav a:hover { text-decoration: underline; }
   .task-request + .task-request { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 32px; }
-  [data-selected-task="growth"] .task-request:not([data-task-request="growth"]), [data-selected-task="design"] .task-request:not([data-task-request="design"]), [data-selected-task="development"] .task-request:not([data-task-request="development"]), [data-selected-task="deployment"] .task-request:not([data-task-request="deployment"]), [data-selected-task="requirements"] .task-request:not([data-task-request="requirements"]) { display: none; }
+  [data-selected-task="growth"] .task-request:not([data-task-request="growth"]), [data-selected-task="design"] .task-request:not([data-task-request="design"]), [data-selected-task="development"] .task-request:not([data-task-request="development"]), [data-selected-task="deployment"] .task-request:not([data-task-request="deployment"]), [data-selected-task="requirements"] .task-request:not([data-task-request="requirements"]), [data-selected-task="quote"] .task-request:not([data-task-request="quote"]) { display: none; }
   [data-selected-task] .task-request { border: 0; padding-top: 0; margin-top: 0; }
   .task-request h4 { font-size: .85rem; font-weight: 600; margin: 22px 0 12px; }
   .task-request .check-list { font-size: .84rem; }
