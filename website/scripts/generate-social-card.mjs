@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 await sharp(fileURLToPath(new URL('../public/social-card.svg', import.meta.url)))
-  .png({ compressionLevel: 9 })
+  .png()
   .toFile(fileURLToPath(new URL('../public/social-card.png', import.meta.url)));
 console.log('Generated public/social-card.png from public/social-card.svg.');
 
