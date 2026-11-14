@@ -3,6 +3,11 @@ THIRD-PARTY VISUALS AND COMPONENTS
 The skill’s MIT license does not replace the licenses below.
 References do not imply endorsement by their authors.
 
+Homepage composition reference: RicoFast, https://ricofast.pages.dev/
+Source: https://github.com/ricocc/ricoui-saas-template
+The homepage uses an independently implemented split developer-site composition.
+No source code, fonts, icons, images, or runtime dependencies from RicoFast are distributed here.
+
 
 Devices.css
 https://github.com/picturepan2/devices.css/tree/11846244977a4905a4fb9ac12bb2121e068d6147

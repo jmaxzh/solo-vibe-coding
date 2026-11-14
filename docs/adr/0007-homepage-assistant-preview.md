@@ -1,6 +1,6 @@
 # ADR 0007：首页使用示意与局部视觉系统
 
-- 状态：已采纳；使用现有 GitHub Pages 流程发布
+- 状态：首页视觉由 [ADR 0008](0008-dark-developer-homepage.md) 替代；任务关系、证据边界与局部样式原则继续有效
 - 日期：2026-11-14
 - 对应决策：D39–D41
 - 关联：更新 [ADR 0003](0003-visual-and-interaction.md) 的首页视觉；延续 [ADR 0006](0006-skill-increment-and-case-evidence.md) 的定位和证据边界

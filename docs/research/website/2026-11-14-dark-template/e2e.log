@@ -1,0 +1,67 @@
+
+> solo-vibe-coding-website@0.1.0 test:e2e
+> playwright test --config=/tmp/solo-template-playwright.config.mjs --workers=4
+
+
+Running 42 tests using 4 workers
+
+(node:72256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72257) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72255) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [desktop] › tests/website.spec.ts:62:3 › en: homepage preview, primary action and evidence keep their meaning (2.7s)
+  ✓   3 [desktop] › tests/website.spec.ts:123:3 › en: workflow explanation and motion respect pause and system preferences (2.8s)
+  ✓   6 [desktop] › tests/website.spec.ts:184:3 › en: case explains evidence, keeps its language and supplies a starting project (738ms)
+  ✓   1 [desktop] › tests/website.spec.ts:12:3 › en: explore a concrete task and follow the evidence and start path (4.1s)
+  ✓   7 [desktop] › tests/website.spec.ts:207:3 › en: calculator handles errors, cents, export and large values (1.2s)
+  ✓   8 [desktop] › tests/website.spec.ts:275:3 › en: complete request, clipboard, language pairs and user updates (1.5s)
+  ✓   5 [desktop] › tests/website.spec.ts:153:3 › en: task choices update the workflow and start links, and the terminal copies the real command (3.0s)
+  ✓  11 [desktop] › tests/website.spec.ts:62:3 › zh-CN: homepage preview, primary action and evidence keep their meaning (2.8s)
+  ✓   9 [desktop] › tests/website.spec.ts:301:3 › en: pages remain accessible and fit the viewport (4.4s)
+  ✓  10 [desktop] › tests/website.spec.ts:12:3 › zh-CN: explore a concrete task and follow the evidence and start path (4.0s)
+  ✓  13 [desktop] › tests/website.spec.ts:123:3 › zh-CN: workflow explanation and motion respect pause and system preferences (2.4s)
+  ✓  14 [desktop] › tests/website.spec.ts:153:3 › zh-CN: task choices update the workflow and start links, and the terminal copies the real command (3.2s)
+  ✓  15 [desktop] › tests/website.spec.ts:184:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (2.1s)
+  ✓   2 [desktop] › tests/website.spec.ts:94:3 › en: the selected task continues through setup and language switching (15.7s)
+  ✓  16 [desktop] › tests/website.spec.ts:207:3 › zh-CN: calculator handles errors, cents, export and large values (3.2s)
+  ✓  17 [desktop] › tests/website.spec.ts:275:3 › zh-CN: complete request, clipboard, language pairs and user updates (3.0s)
+  ✓  20 [desktop] › tests/website.spec.ts:352:1 › clipboard denial keeps manual copying available (638ms)
+  ✓  21 [desktop] › tests/website.spec.ts:364:1 › reduced motion and 404 remain usable (1.3s)
+(node:72449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [desktop] › tests/website.spec.ts:301:3 › zh-CN: pages remain accessible and fit the viewport (6.6s)
+(node:72473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [desktop] › tests/website.spec.ts:94:3 › zh-CN: the selected task continues through setup and language switching (16.0s)
+  ✓  19 [desktop] › tests/website.spec.ts:315:3 › without JavaScript › content, goal links and setup work in both languages (8.7s)
+(node:72487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  22 [mobile] › tests/website.spec.ts:12:3 › en: explore a concrete task and follow the evidence and start path (5.1s)
+  ✓  23 [mobile] › tests/website.spec.ts:62:3 › en: homepage preview, primary action and evidence keep their meaning (3.5s)
+  ✓  26 [mobile] › tests/website.spec.ts:153:3 › en: task choices update the workflow and start links, and the terminal copies the real command (1.9s)
+  ✓  27 [mobile] › tests/website.spec.ts:184:3 › en: case explains evidence, keeps its language and supplies a starting project (967ms)
+  ✓  25 [mobile] › tests/website.spec.ts:123:3 › en: workflow explanation and motion respect pause and system preferences (3.5s)
+  ✓  28 [mobile] › tests/website.spec.ts:207:3 › en: calculator handles errors, cents, export and large values (1.4s)
+  ✓  29 [mobile] › tests/website.spec.ts:275:3 › en: complete request, clipboard, language pairs and user updates (1.4s)
+  ✓  32 [mobile] › tests/website.spec.ts:62:3 › zh-CN: homepage preview, primary action and evidence keep their meaning (2.5s)
+  ✓  31 [mobile] › tests/website.spec.ts:12:3 › zh-CN: explore a concrete task and follow the evidence and start path (3.7s)
+  ✓  30 [mobile] › tests/website.spec.ts:301:3 › en: pages remain accessible and fit the viewport (4.8s)
+  ✓  34 [mobile] › tests/website.spec.ts:123:3 › zh-CN: workflow explanation and motion respect pause and system preferences (2.2s)
+  ✓  36 [mobile] › tests/website.spec.ts:184:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (728ms)
+  ✓  37 [mobile] › tests/website.spec.ts:207:3 › zh-CN: calculator handles errors, cents, export and large values (1.3s)
+  ✓  35 [mobile] › tests/website.spec.ts:153:3 › zh-CN: task choices update the workflow and start links, and the terminal copies the real command (3.7s)
+  ✓  38 [mobile] › tests/website.spec.ts:275:3 › zh-CN: complete request, clipboard, language pairs and user updates (1.6s)
+  ✓  39 [mobile] › tests/website.spec.ts:301:3 › zh-CN: pages remain accessible and fit the viewport (4.1s)
+  ✓  41 [mobile] › tests/website.spec.ts:352:1 › clipboard denial keeps manual copying available (393ms)
+  ✓  42 [mobile] › tests/website.spec.ts:364:1 › reduced motion and 404 remain usable (990ms)
+  ✓  24 [mobile] › tests/website.spec.ts:94:3 › en: the selected task continues through setup and language switching (18.0s)
+  ✓  40 [mobile] › tests/website.spec.ts:315:3 › without JavaScript › content, goal links and setup work in both languages (7.5s)
+  ✓  33 [mobile] › tests/website.spec.ts:94:3 › zh-CN: the selected task continues through setup and language switching (15.2s)
+
+  42 passed (49.3s)

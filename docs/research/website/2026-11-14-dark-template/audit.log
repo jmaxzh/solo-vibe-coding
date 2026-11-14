@@ -1,0 +1,84 @@
+{
+  "shots": [
+    {
+      "locale": "zh-CN",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 4898,
+      "hero": {
+        "x": 100,
+        "y": 360.765625,
+        "width": 550.15625,
+        "height": 136.15625
+      },
+      "demo": {
+        "x": 694.15625,
+        "y": 156,
+        "width": 645.84375,
+        "height": 693.875
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 7889,
+      "hero": {
+        "x": 18,
+        "y": 149.59375,
+        "width": 354,
+        "height": 94.875
+      },
+      "demo": {
+        "x": 18,
+        "y": 478.9375,
+        "width": 354,
+        "height": 773.96875
+      }
+    },
+    {
+      "locale": "en",
+      "device": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "pageHeight": 5097,
+      "hero": {
+        "x": 100,
+        "y": 351.25,
+        "width": 550.15625,
+        "height": 139.59375
+      },
+      "demo": {
+        "x": 694.15625,
+        "y": 156,
+        "width": 645.84375,
+        "height": 709.46875
+      }
+    },
+    {
+      "locale": "en",
+      "device": "mobile",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 8587,
+      "hero": {
+        "x": 18,
+        "y": 149.59375,
+        "width": 354,
+        "height": 93.65625
+      },
+      "demo": {
+        "x": 18,
+        "y": 504.3125,
+        "width": 354,
+        "height": 838.8125
+      }
+    }
+  ],
+  "layoutChecks": 40,
+  "innerComparisons": 28,
+  "innerDifferences": [],
+  "errors": []
+}

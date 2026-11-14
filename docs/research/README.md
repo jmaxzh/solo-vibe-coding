@@ -14,4 +14,6 @@
 
 - 官网浅蓝首页预览（2026-11-14）：[可操作预览与截图对照](website/2026-11-14-nova-homepage/index.html)、[实际差异与成本](website/2026-11-14-nova-homepage/change-evaluation.md)、[验收记录](website/2026-11-14-nova-homepage/verification.md)、[独立审查](website/2026-11-14-nova-homepage/independent-review.md)。
 
+- 官网深色分栏模板（2026-11-14）：[交互预览与对照](website/2026-11-14-dark-template/index.html)、[差异与成本](website/2026-11-14-dark-template/change-evaluation.md)、[验收](website/2026-11-14-dark-template/verification.md)、[独立审查](website/2026-11-14-dark-template/independent-review.md)。
+
 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。
