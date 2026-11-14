@@ -1,0 +1,96 @@
+---
+import { PROJECT } from '../data/site';
+---
+<div class="prism-scene" data-hero-scene aria-hidden="true">
+  <div class="scene-aura"></div>
+  <div class="hero-art"><img src={PROJECT.base + 'media/prism/optical-knot.webp'} width="1536" height="1024" alt="" fetchpriority="high" decoding="async" /></div>
+  <canvas data-hero-canvas></canvas>
+  <div class="scene-coordinate"><span></span>OPTICAL STUDY / SOLO VIBE</div>
+  <div class="scene-mark">✳</div>
+</div>
+<style>
+  .prism-scene { position: absolute; left: calc((100% - 100vw) / 2); top: 0; width: 100vw; height: 100%; pointer-events: none; mix-blend-mode: screen; overflow: hidden; z-index: 1; }
+  .scene-aura { position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, #32795124, transparent 60%), radial-gradient(ellipse at 70% 85%, #6850841c, transparent 55%); }
+  .hero-art { position: absolute; width: min(119vw, 1780px); right: -17%; top: -3%; z-index: 2; transform: translate3d(var(--prism-x, 0px), var(--prism-y, 0px), 0) rotate(var(--prism-r, 0deg)); transition: transform 600ms cubic-bezier(.16,1,.3,1); }
+  .hero-art img { display: block; width: 100%; height: auto; mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, #000 62%, transparent 95%); }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; opacity: .65; }
+  .scene-coordinate { position: absolute; bottom: 13%; right: 6%; z-index: 4; color: #bdd0c6; font: 8px/1.8 var(--mono); letter-spacing: .12em; display: flex; align-items: center; gap: 12px; padding: 6px 10px; background: #0b1511c9; border: 1px solid #58726055; border-radius: 99px; backdrop-filter: blur(10px); }
+  .scene-coordinate > span { display: inline-block; width: 45px; height: 1px; background: #88a397; }
+  .scene-mark { position: absolute; top: 22%; right: 9%; color: #c3d5ce; font: 32px var(--mono); z-index: 4; }
+  @media (max-width: 1200px) { .hero-art { width: 135vw; right: -27%; top: 7%; } }
+  @media (max-width: 1000px) {
+    .prism-scene { position: relative; left: auto; top: auto; width: 100%; height: auto; margin-top: 32px; overflow: visible; mask-image: linear-gradient(180deg, transparent, #000 8%, #000 91%, transparent), linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-composite: intersect; }
+    .hero-art { position: relative; top: auto; right: auto; width: 100%; height: auto; }
+    .scene-mark { top: 12%; right: 5%; font-size: 25px; } .scene-coordinate { right: 5%; bottom: 10%; }
+  }
+  @media (max-width: 600px) { .prism-scene { margin-top: 28px; } .hero-art { height: auto; aspect-ratio: 1.2; } .hero-art img { height: 100%; object-fit: cover; object-position: 75% 50%; } .scene-coordinate { bottom: 10%; right: 5%; font-size: 7px; } .scene-coordinate > span { width: 24px; } .scene-mark { font-size: 23px; top: 12%; right: 5%; } }
+  :global(html[data-motion="off"]) .hero-art { transition: none; }
+  @media (prefers-reduced-motion: reduce) { .hero-art { transition: none; } }
+</style>
+<script>
+  const scene = document.querySelector<HTMLElement>('[data-hero-scene]');
+  const hero = scene?.closest<HTMLElement>('.product-hero');
+  const canvas = scene?.querySelector<HTMLCanvasElement>('[data-hero-canvas]');
+  const ctx = canvas?.getContext('2d', { alpha: true });
+  if (scene && hero && canvas && ctx) {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    const fine = matchMedia('(hover: hover) and (pointer: fine)');
+    let width = 0, height = 0, frame = 0, last = 0, visible = true, px = 0, py = 0;
+    const enabled = () => !reduce.matches && document.documentElement.dataset.motion === 'on' && visible && !document.hidden;
+    const paint = (time: number) => {
+      ctx.clearRect(0, 0, width, height);
+      const drift = enabled() ? time * .000025 : 0;
+      for (let i = 0; i < 55; i++) {
+        const seed = (Math.sin(i * 127.1) * 43758.5453) % 1;
+        const x = ((seed + 1 + drift * (.2 + i % 7 / 7)) % 1) * width;
+        const y = (((Math.sin(i * 311.7) * 9621.912) % 1 + 1) % 1) * height;
+        ctx.fillStyle = i % 7 === 0 ? '#c7b8e96b' : '#b2d8c640';
+        ctx.beginPath(); ctx.arc(x, y, .5 + i % 3 * .25, 0, Math.PI * 2); ctx.fill();
+      }
+      const t = drift * 3;
+      ctx.save(); ctx.translate(width * .6, height * .52); ctx.rotate(-.45);
+      const gradient = ctx.createLinearGradient(-width * .5, 0, width * .5, 0);
+      gradient.addColorStop(0, '#b8f1cf00'); gradient.addColorStop(.5, '#b8f1cf50'); gradient.addColorStop(1, '#c2adeb00');
+      ctx.strokeStyle = gradient; ctx.lineWidth = .65;
+      for (let i = 0; i < 3; i++) {
+        const y = Math.sin(t + i * .8) * 15 + (i - 1) * 60;
+        ctx.beginPath(); ctx.moveTo(-width * .55, y); ctx.lineTo(width * .5, y - 70); ctx.stroke();
+      }
+      ctx.restore();
+    };
+    const loop = (time: number) => {
+      if (!enabled()) { frame = 0; return; }
+      if (time - last >= 1000 / 30) { paint(time); last = time; }
+      frame = requestAnimationFrame(loop);
+    };
+    const reset = () => {
+      px = 0; py = 0;
+      scene.style.setProperty('--prism-x', '0px'); scene.style.setProperty('--prism-y', '0px'); scene.style.setProperty('--prism-r', '0deg');
+    };
+    const sync = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      scene.dataset.sceneState = enabled() ? 'running' : 'static';
+      if (enabled()) frame = requestAnimationFrame(loop);
+      else { reset(); paint(0); }
+    };
+    const resize = () => {
+      width = scene.clientWidth; height = scene.clientHeight;
+      const ratio = Math.min(devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0); paint(0);
+    };
+    new ResizeObserver(resize).observe(scene);
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .01 }).observe(scene);
+    hero.addEventListener('pointermove', (event) => {
+      if (!fine.matches || !enabled()) return;
+      const rect = hero.getBoundingClientRect();
+      px = (event.clientX - rect.left) / rect.width * 2 - 1; py = (event.clientY - rect.top) / rect.height * 2 - 1;
+      scene.style.setProperty('--prism-x', `${px * 8}px`); scene.style.setProperty('--prism-y', `${py * 5}px`); scene.style.setProperty('--prism-r', `${px * .45}deg`);
+    }, { passive: true });
+    hero.addEventListener('pointerleave', reset);
+    document.addEventListener('website-motion-change', sync);
+    document.addEventListener('visibilitychange', sync); reduce.addEventListener('change', sync);
+    resize(); sync();
+  }
+</script>
