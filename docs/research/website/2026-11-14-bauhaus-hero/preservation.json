@@ -1,0 +1,7 @@
+{
+  "baseline": "0043997",
+  "heroOutsideCSSUnchanged": true,
+  "changedWebsiteFiles": [
+    "website/src/components/Hero.astro"
+  ]
+}

@@ -1,0 +1,63 @@
+
+> solo-vibe-coding-website@0.1.0 test:e2e
+> playwright test
+
+
+Running 38 tests using 4 workers
+
+(node:54926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54929) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop] › tests/website.spec.ts:118:3 › en: comparison responds to pointer and keyboard and the terminal copies the real command (2.3s)
+  ✓   1 [desktop] › tests/website.spec.ts:88:3 › en: sourced visuals and motion respect pause and system preferences (3.1s)
+  ✓   3 [desktop] › tests/website.spec.ts:12:3 › en: explore a concrete task and follow the evidence and start path (3.4s)
+  ✓   5 [desktop] › tests/website.spec.ts:149:3 › en: case explains evidence, keeps its language and supplies a starting project (1.3s)
+  ✓   6 [desktop] › tests/website.spec.ts:172:3 › en: calculator handles errors, cents, export and large values (1.4s)
+  ✓   7 [desktop] › tests/website.spec.ts:240:3 › en: complete request, clipboard, language pairs and user updates (1.8s)
+  ✓   9 [desktop] › tests/website.spec.ts:12:3 › zh-CN: explore a concrete task and follow the evidence and start path (1.7s)
+  ✓  11 [desktop] › tests/website.spec.ts:88:3 › zh-CN: sourced visuals and motion respect pause and system preferences (1.4s)
+  ✓   8 [desktop] › tests/website.spec.ts:266:3 › en: pages remain accessible and fit the viewport (4.8s)
+  ✓  13 [desktop] › tests/website.spec.ts:149:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (712ms)
+  ✓  14 [desktop] › tests/website.spec.ts:172:3 › zh-CN: calculator handles errors, cents, export and large values (733ms)
+  ✓  12 [desktop] › tests/website.spec.ts:118:3 › zh-CN: comparison responds to pointer and keyboard and the terminal copies the real command (2.1s)
+  ✓  15 [desktop] › tests/website.spec.ts:240:3 › zh-CN: complete request, clipboard, language pairs and user updates (1.7s)
+  ✓   4 [desktop] › tests/website.spec.ts:59:3 › en: the selected task continues through setup and language switching (14.0s)
+  ✓  16 [desktop] › tests/website.spec.ts:266:3 › zh-CN: pages remain accessible and fit the viewport (4.2s)
+  ✓  18 [desktop] › tests/website.spec.ts:315:1 › clipboard denial keeps manual copying available (636ms)
+  ✓  19 [desktop] › tests/website.spec.ts:327:1 › reduced motion and 404 remain usable (1.2s)
+(node:55056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop] › tests/website.spec.ts:59:3 › zh-CN: the selected task continues through setup and language switching (11.0s)
+(node:55075) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [desktop] › tests/website.spec.ts:280:3 › without JavaScript › content, goal links and setup work in both languages (6.9s)
+(node:55097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  20 [mobile] › tests/website.spec.ts:12:3 › en: explore a concrete task and follow the evidence and start path (2.3s)
+  ✓  22 [mobile] › tests/website.spec.ts:88:3 › en: sourced visuals and motion respect pause and system preferences (1.8s)
+  ✓  24 [mobile] › tests/website.spec.ts:149:3 › en: case explains evidence, keeps its language and supplies a starting project (1.0s)
+  ✓  25 [mobile] › tests/website.spec.ts:172:3 › en: calculator handles errors, cents, export and large values (1.4s)
+  ✓  26 [mobile] › tests/website.spec.ts:240:3 › en: complete request, clipboard, language pairs and user updates (1.4s)
+  ✓  23 [mobile] › tests/website.spec.ts:118:3 › en: comparison responds to pointer and keyboard and the terminal copies the real command (2.6s)
+  ✓  28 [mobile] › tests/website.spec.ts:12:3 › zh-CN: explore a concrete task and follow the evidence and start path (1.8s)
+  ✓  30 [mobile] › tests/website.spec.ts:88:3 › zh-CN: sourced visuals and motion respect pause and system preferences (1.6s)
+  ✓  27 [mobile] › tests/website.spec.ts:266:3 › en: pages remain accessible and fit the viewport (4.8s)
+  ✓  32 [mobile] › tests/website.spec.ts:149:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (600ms)
+  ✓  31 [mobile] › tests/website.spec.ts:118:3 › zh-CN: comparison responds to pointer and keyboard and the terminal copies the real command (2.4s)
+  ✓  33 [mobile] › tests/website.spec.ts:172:3 › zh-CN: calculator handles errors, cents, export and large values (1.2s)
+  ✓  34 [mobile] › tests/website.spec.ts:240:3 › zh-CN: complete request, clipboard, language pairs and user updates (1.6s)
+  ✓  21 [mobile] › tests/website.spec.ts:59:3 › en: the selected task continues through setup and language switching (14.9s)
+  ✓  35 [mobile] › tests/website.spec.ts:266:3 › zh-CN: pages remain accessible and fit the viewport (4.2s)
+  ✓  37 [mobile] › tests/website.spec.ts:315:1 › clipboard denial keeps manual copying available (628ms)
+  ✓  38 [mobile] › tests/website.spec.ts:327:1 › reduced motion and 404 remain usable (1.0s)
+  ✓  29 [mobile] › tests/website.spec.ts:59:3 › zh-CN: the selected task continues through setup and language switching (11.1s)
+  ✓  36 [mobile] › tests/website.spec.ts:280:3 › without JavaScript › content, goal links and setup work in both languages (8.1s)
+
+  38 passed (38.4s)
