@@ -1,6 +1,6 @@
 # 深色分栏首页验收
 
-完整中英文首页已在 `website/new-template` 实现，基线为 `725ffb4`。源码位于 `/Users/zhangjin/rich-workspace/my-dev-skills-template/website/`。发布状态另由 GitHub Pages 发布记录说明。
+完整中英文首页已在 `website/new-template` 实现，基线为 `725ffb4`。源码位于 `/Users/zhangjin/rich-workspace/my-dev-skills-template/website/`。发布已成功，详见 [GitHub Pages 发布记录](deployment.md)。
 
 ## 预览与截图
 
