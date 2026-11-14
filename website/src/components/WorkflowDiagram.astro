@@ -21,31 +21,40 @@ const zh = locale === 'zh-CN';
 
 <style>
   .workflow-scenes { min-width: 0; }
-  .workflow-scene { display: none; padding: 30px 27px 18px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.05fr); gap: 0 30px; }
+  .workflow-scene { display: none; padding: 28px 27px 18px; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 0 26px; }
   :global([data-task-stage]:has(input[value="development"]:checked)) [data-workflow="development"], :global([data-task-stage]:has(input[value="design"]:checked)) [data-workflow="design"], :global([data-task-stage]:has(input[value="deployment"]:checked)) [data-workflow="deployment"], :global([data-task-stage]:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: grid; }
-  .request-heading { grid-column: 1; grid-row: 1; display: flex; align-items: center; justify-content: space-between; color: #3447a0; font-size: 11px; align-self: start; min-height: 38px; }
-  .user-avatar { border: 1px solid #949ac0; padding: 3px 7px; color: #3447a0; font-size: 10px; }
-  .workflow-request { grid-column: 1; grid-row: 2 / 4; align-self: start; padding: 15px; border: 1px solid #949ac0; background: #ece9dd; margin-top: 12px; }
-  .skill-mention { font: 10px var(--mono); color: #182fc4; }
-  .workflow-request p { color: #333951; font-size: 14px; line-height: 1.9; margin-top: 10px; }
-  .assistant-heading { grid-column: 2; grid-row: 1; display: flex; align-items: center; gap: 10px; }
-  .assistant-symbol { display: grid; place-items: center; width: 32px; height: 32px; flex: none; font-size: 24px; background: #182fc4; color: #fffaf0; }
-  .assistant-heading strong { display: block; color: #182fc4; font-size: 13px; font-weight: 650; }
-  .assistant-heading small { display: block; color: #545972; font-size: 10px; line-height: 1.7; margin-top: 3px; }
-  .task-help { grid-column: 2; grid-row: 2 / 4; margin-top: 12px; }
-  .task-help > p { color: #545972; font-size: 11px; line-height: 1.9; }
-  .task-help ol { list-style: none; padding: 0; display: grid; gap: 18px; margin-top: 18px; }
-  .task-help li { display: flex; align-items: start; gap: 10px; }
-  .task-help li > span { width: 22px; height: 22px; flex: none; display: grid; place-items: center; font: 10px var(--mono); color: #8e351e; border: 1px solid #b2614a; }
-  .task-help strong { display: block; color: #34416f; font-size: 13px; font-weight: 550; line-height: 1.75; }
-  .task-delivery { grid-column: 3; grid-row: 1 / 4; padding: 21px; background: #f7d5bc; border: 1px solid #b2614a; }
-  .delivery-label { color: #78321f; font: 10px/1.8 var(--mono); }
-  .delivery-output { color: #18245d; font-size: 21px; font-weight: 650; line-height: 1.55; margin-top: 16px; letter-spacing: -.035em; }
-  .task-delivery ul { display: grid; gap: 12px; margin-top: 20px; padding-left: 16px; color: #4f4550; font-size: 12px; line-height: 1.9; }
-  .workflow-bottom { grid-column: 1 / -1; grid-row: 4; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 12px; margin-top: 27px; border-top: 1px solid #949ac0; color: #545972; font-size: 10px; }
-  .workflow-bottom a { display: inline-flex; align-items: center; gap: 15px; min-height: 44px; color: #182fc4; font-size: 12px; text-decoration: none; font-weight: 650; }
+  .request-heading { grid-column: 1; display: flex; align-items: center; justify-content: space-between; color: #c4dacf; font-size: 11px; }
+  .user-avatar { color: #edf9f3; font-size: 10px; padding: 3px 7px; border: 1px solid #7d968a; border-radius: 50%; }
+  .workflow-request { grid-column: 1; margin: 10px 0 23px; padding: 14px 16px; background: #3954475e; border: 1px solid #6b8d7d; border-radius: 9px; }
+  .skill-mention { font: 10px var(--mono); color: #def3e9; }
+  .workflow-request p { font-size: 14px; font-weight: 500; line-height: 1.9; margin-top: 6px; color: #f4fbf8; }
+  .assistant-heading { grid-column: 1; display: flex; align-items: center; gap: 10px; }
+  .assistant-symbol { display: grid; place-items: center; background: #4d6a5c5c; color: #dcf3e8; width: 31px; height: 31px; border: 1px solid #89ac9b; border-radius: 50%; font-size: 22px; flex: none; }
+  .assistant-heading strong { display: block; font-size: 13px; color: #f2fbf7; font-weight: 550; }
+  .assistant-heading small { display: block; font-size: 10px; color: #c2dbcf; margin-top: 3px; }
+  .task-help { grid-column: 1; margin-top: 17px; }
+  .task-help > p { color: #c1d7cc; font-size: 11px; line-height: 1.8; }
+  .task-help ol { padding: 0; list-style: none; margin-top: 13px; display: grid; gap: 12px; }
+  .task-help li { display: flex; align-items: center; gap: 10px; }
+  .task-help li > span { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border: 1px solid #799b8b; border-radius: 50%; color: #d9f2e6; font: 10px var(--mono); }
+  .task-help strong { display: block; color: #e8f5ef; font-size: 13px; font-weight: 500; line-height: 1.75; }
+  .task-delivery { grid-column: 2; grid-row: 1 / 5; display: flex; flex-direction: column; justify-content: center; align-self: stretch; padding: 24px 22px; background: linear-gradient(140deg, #3b28484a, #16202166); border: 1px solid #726080; border-radius: 10px; }
+  .delivery-label { font: 10px/1.8 var(--mono); color: #ddcaef; letter-spacing: .03em; }
+  .delivery-output { margin-top: 16px; font-size: 20px; line-height: 1.6; color: #e8f1ed; font-weight: 550; letter-spacing: -.03em; }
+  .task-delivery ul { padding-left: 17px; margin-top: 21px; font-size: 12px; line-height: 1.95; color: #d1c8d9; display: grid; gap: 12px; }
+  .workflow-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 11px; border-top: 1px solid #4e675b; font-size: 10px; color: #c1dace; }
+  .workflow-bottom a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #c8ecdb; font-size: 12px; font-weight: 550; }
   .workflow-bottom a:hover { text-decoration: underline; }
-  .workflow-bottom a > span { font-size: 18px; color: #8e351e; }
-  @media (max-width: 1000px) { .workflow-scene { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 25px; } .task-delivery { grid-column: 1 / -1; grid-row: 4; margin-top: 26px; } .workflow-bottom { grid-row: 5; } }
-  @media (max-width: 600px) { .workflow-scene { padding: 20px 15px 13px; grid-template-columns: 1fr; } .request-heading, .workflow-request, .assistant-heading, .task-help, .task-delivery, .workflow-bottom { grid-column: 1; grid-row: auto; } .workflow-request { margin: 10px 0 24px; } .task-help { margin-top: 17px; } .task-help ol { gap: 14px; } .task-help strong { font-size: 13px; } .assistant-heading small { font-size: 11px; } .task-delivery { margin-top: 25px; padding: 20px 18px; } .delivery-output { font-size: 20px; margin-top: 12px; } .task-delivery ul { font-size: 13px; margin-top: 15px; } .workflow-bottom { flex-wrap: wrap; gap: 0 9px; margin-top: 20px; } }
+  @media (max-width: 1100px) { .workflow-scene { padding: 24px 22px 17px; gap: 0 19px; } .task-delivery { padding: 20px 17px; } .delivery-output { font-size: 18px; } }
+  @media (max-width: 600px) {
+    .workflow-scene { padding: 19px 15px 13px; grid-template-columns: 1fr; }
+    .workflow-request p { font-size: 14px; }
+    .task-help strong { font-size: 13px; }
+    .assistant-heading small { font-size: 11px; }
+    .task-help ol { gap: 13px; }
+    .task-delivery { grid-column: 1; grid-row: auto; margin-top: 23px; padding: 20px 18px; }
+    .delivery-output { font-size: 18px; margin-top: 10px; }
+    .task-delivery ul { font-size: 13px; margin-top: 14px; gap: 10px; }
+    .workflow-bottom { flex-wrap: wrap; gap: 0 9px; margin-top: 18px; }
+  }
 </style>

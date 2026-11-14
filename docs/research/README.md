@@ -21,3 +21,5 @@
 档案描述其记录时的事实与结论；后续更改以版本控制、当前主维护文档与新增记录为准。
 
 - 2026-11-14：[钴蓝折纸首页预览与对照](website/2026-11-14-cobalt-fold/index.html)、[验收](website/2026-11-14-cobalt-fold/verification.md)、[差异评估](website/2026-11-14-cobalt-fold/change-evaluation.md)、[独立审查](website/2026-11-14-cobalt-fold/independent-review.md)、[原创素材](website/2026-11-14-cobalt-fold/visual-assets.md)。
+
+- 2026-11-14起：[玻璃折射候选复盘与目标](website/2026-11-14-prism-nocturne/design-brief.md)、[候选图览](website/2026-11-14-prism-nocturne/index.html)、[验收](website/2026-11-14-prism-nocturne/verification.md)、[差异评估](website/2026-11-14-prism-nocturne/change-evaluation.md)、[独立审查](website/2026-11-14-prism-nocturne/independent-review.md)。

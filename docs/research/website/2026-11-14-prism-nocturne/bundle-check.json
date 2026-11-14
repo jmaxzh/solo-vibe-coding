@@ -1,0 +1,46 @@
+{
+  "verifiedAt": "2026-11-14T16:09:28.507Z",
+  "browser": "157.0.8103.51",
+  "bundle": "prism-static-preview.zip",
+  "externalRequestsBlocked": true,
+  "checks": [
+    {
+      "locale": "zh-CN",
+      "width": 1440,
+      "height": 1000,
+      "homepage200": true,
+      "artLoaded": true,
+      "taskRefreshLanguageStart": true,
+      "calculatorCSV": true
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "height": 844,
+      "homepage200": true,
+      "artLoaded": true,
+      "taskRefreshLanguageStart": true,
+      "calculatorCSV": true
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 1000,
+      "homepage200": true,
+      "artLoaded": true,
+      "taskRefreshLanguageStart": true,
+      "calculatorCSV": true
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "height": 844,
+      "homepage200": true,
+      "artLoaded": true,
+      "taskRefreshLanguageStart": true,
+      "calculatorCSV": true
+    }
+  ],
+  "errors": [],
+  "failures": []
+}
