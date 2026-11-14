@@ -158,6 +158,22 @@ export const OUTCOMES: Record<Locale, Outcome[]> = {
   ],
 };
 
+type WorkflowPreview = { request: string; methods: [string, string, string]; output: string; };
+export const WORKFLOW_PREVIEWS: Record<Locale, Record<Outcome['id'], WorkflowPreview>> = {
+  en: {
+    development: { request: 'Fix the guest’s black screen. Keep background blur.', methods: ['Reproduce the problem', 'Build on existing code', 'Check working features'], output: 'A repeatable repair, with existing features still working.' },
+    design: { request: 'Give the working app a consistent design across screens.', methods: ['Set a visual direction', 'Apply it to real screens', 'Check mobile use'], output: 'A coherent direction and usable core screens.' },
+    deployment: { request: 'Connect sign-in and data so other people can use it.', methods: ['Choose a fitting solution', 'Connect the user journey', 'Verify the live release'], output: 'A checked live journey with sign-in and saved data.' },
+    growth: { request: 'Help people with the need understand it and start a trial.', methods: ['Find the obstacle', 'Explain the concrete use', 'Prepare the first launch'], output: 'A clear demo, trial entry and first outreach plan.' },
+  },
+  'zh-CN': {
+    development: { request: '修复访客黑屏，保留背景虚化。', methods: ['先重现问题', '沿用现有实现', '检查原有功能'], output: '能重复验证的修复，原有功能继续正常。' },
+    design: { request: '让已经能用的 App，各个页面设计一致。', methods: ['明确视觉方向', '落实核心页面', '检查手机操作'], output: '统一的视觉方向，以及可以操作的核心页面。' },
+    deployment: { request: '接通登录、数据，让别人能实际使用。', methods: ['选择合适方案', '接通使用流程', '核验线上版本'], output: '能登录、保存，并经过核验的线上使用流程。' },
+    growth: { request: '让有需求的人看懂产品，并开始试用。', methods: ['弄清卡在哪里', '讲清具体用途', '准备首轮推广'], output: '清楚的产品演示、试用入口与首轮推广计划。' },
+  },
+};
+
 const en = {
   stageTitle: 'Where is your project getting stuck?',
   stageDescription: 'Four familiar problems. Pick the one that sounds like yours.',

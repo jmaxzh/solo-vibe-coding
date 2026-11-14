@@ -30,7 +30,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="theme-color" content="#f4f0e7" />
     <meta name="color-scheme" content="light" />
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
@@ -70,7 +70,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
           <a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a>
           <a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a>
-          <a href={href(locale, 'getting-started')} data-page="getting-started" aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
+          <a href={href(locale, 'getting-started')} data-page="getting-started" data-home-start={page === 'home' || undefined} aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
         </nav>
         <a class="language-switch" data-language-switch href={href(alternate, route)} lang={alternate} aria-label={ui.switchLanguage}>{ui.language}</a>
       </div>
@@ -79,7 +79,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <footer class="site-footer">
       <div class="container footer-inner">
         <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense} <a href={PROJECT.base + 'licenses/visual-assets.txt'}>{locale === 'en' ? 'Visual credits' : '视觉素材来源'}</a></p></div>
-        <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
+        <div class="footer-links"><a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a><a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
       </div>
     </footer>
     <script>

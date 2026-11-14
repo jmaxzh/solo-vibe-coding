@@ -85,14 +85,13 @@ for (const locale of ['en', 'zh-CN'] as const) {
     }
   });
 
-  test(`${locale}: sourced visuals and motion respect pause and system preferences`, async ({ page }) => {
+  test(`${locale}: workflow explanation and motion respect pause and system preferences`, async ({ page }) => {
     await page.goto(path);
     const image = page.locator('[data-hero-object]');
     await expect(image).toBeVisible();
-    await expect(image.locator('[data-image-compare]')).toHaveAttribute('role', 'group');
-    await expect(image.locator('[data-image-compare]')).toHaveAttribute('aria-label', locale === 'en' ? /Design reference/ : /设计参考/);
-    expect(await image.locator('img').evaluateAll((elements) => elements.every((element) => (element as HTMLImageElement).naturalWidth > 0))).toBe(true);
-    await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'not a measured result' : '不是本 Skill 的实测对照');
+    await expect(image).toHaveAttribute('aria-label', locale === 'en' ? 'How it works' : '工作方式示意');
+    await expect(image.locator('[data-workflow="development"]')).toContainText(locale === 'en' ? 'black screen' : '访客黑屏');
+    await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'your own coding assistant' : '你自己的编程助手');
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
     await page.locator('[data-motion-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
@@ -115,24 +114,23 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'requirements');
   });
 
-  test(`${locale}: comparison responds to pointer and keyboard and the terminal copies the real command`, async ({ page, context, isMobile }) => {
+  test(`${locale}: task choices update the workflow and start links, and the terminal copies the real command`, async ({ page, context }) => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto(path);
-    const slider = page.getByRole('slider');
-    await expect(slider).toBeEnabled();
-    await slider.scrollIntoViewIfNeeded();
-    const box = (await slider.boundingBox())!;
-    if (isMobile) await page.touchscreen.tap(box.x + box.width * .75, box.y + box.height * .5);
-    else await page.mouse.click(box.x + box.width * .75, box.y + box.height * .5);
-    expect(Number(await slider.inputValue())).toBeGreaterThan(60);
-    const before = await page.locator('.compare-before').evaluate((element) => getComputedStyle(element).clipPath);
-    await slider.focus();
-    await page.keyboard.press('Home');
-    await expect(slider).toHaveValue('0');
-    await page.keyboard.press('End');
-    await expect(slider).toHaveValue('100');
-    await expect(slider).toHaveAttribute('aria-valuetext', /100%/);
-    expect(await page.locator('.compare-before').evaluate((element) => getComputedStyle(element).clipPath)).not.toBe(before);
+    await page.locator('[data-choice="design"]').click();
+    const workflow = page.locator('[data-workflow="design"]');
+    await expect(workflow).toBeVisible();
+    await expect(workflow).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
+    await expect(page.locator('[data-workflow="development"]')).toBeHidden();
+    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
+    await page.locator('[data-language-switch]').click();
+    await expect(page.locator('input[value="design"]')).toBeChecked();
+    await expect(page.locator('[data-workflow="design"]')).toBeVisible();
+    await page.locator('[data-language-switch]').click();
+    await page.locator('input[value="design"]').focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('[data-workflow="development"]')).toBeVisible();
+    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=development#task-development$/);
     await page.locator('#install').scrollIntoViewIfNeeded();
     const terminal = page.locator('[data-terminal]');
     await terminal.locator('[data-copy]').click();
@@ -282,11 +280,11 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
-      await expect(page.locator('[data-compare-input]')).toBeHidden();
-      await expect(page.locator('[data-image-compare] img')).toHaveCount(2);
+      await expect(page.locator('[data-workflow="development"]')).toBeVisible();
       await expect(page.locator('[data-motion-toggle]')).toBeHidden();
       await page.locator('[data-choice="deployment"]').click();
       await expect(page.locator('[data-outcome="deployment"]')).toBeVisible();
+      await expect(page.locator('[data-workflow="deployment"]')).toBeVisible();
       await expect(page.locator('[data-outcome="growth"]')).toBeHidden();
       await page.locator('[data-task-start="deployment"]').click();
       await expect(page.locator('#task-deployment')).toBeVisible();

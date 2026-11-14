@@ -23,7 +23,7 @@ const copy = OUTCOME_UI[locale];
   </section>
 
   <section class="own-task" id="install" aria-labelledby="start-title">
-    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
+    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
     <Terminal locale={locale} />
   </section>
 
@@ -40,14 +40,10 @@ const copy = OUTCOME_UI[locale];
   .mechanism-introduction p { color: var(--muted); font-size: .94rem; line-height: 1.95; max-width: 48ch; }
   .mechanism-introduction a { margin-top: 22px; font-size: .78rem; }
   .mechanism-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 43px; }
-  .mechanism-list > div { padding: 30px; border-radius: 16px; background: #e7edff; }
-  .mechanism-list > div:nth-child(2) { background: #ffebe3; }
-  .mechanism-list > div:nth-child(3) { background: #eaf0d5; }
-  .mechanism-list svg { width: 34px; height: 34px; stroke: #304c93; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
-  .mechanism-list > div:nth-child(2) svg { stroke: #a0472d; }
-  .mechanism-list > div:nth-child(3) svg { stroke: #57732b; }
+  .mechanism-list > div { padding: 26px 0; border-top: 1px solid var(--line); }
+  .mechanism-list svg { width: 34px; height: 34px; stroke: var(--blue); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
   .mechanism-list h3 { font-size: 1.14rem; letter-spacing: -.02em; }
-  .mechanism-list p { color: #4e5a63; font-size: .85rem; line-height: 1.95; margin-top: 12px; }
+  .mechanism-list p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 12px; }
   .real-work { padding-block: 57px 66px; border-top: 1px solid var(--line); }
   .evidence-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 80px; }
   .evidence-heading h2 { font-size: 2rem; letter-spacing: -.03em; max-width: 24ch; }
@@ -56,14 +52,14 @@ const copy = OUTCOME_UI[locale];
   .discussion-sources a { display: grid; grid-template-columns: 1fr auto; gap: 5px 20px; text-decoration: none; padding-block: 21px; border-top: 1px solid var(--line); }
   .discussion-sources a > span { font-size: .9rem; font-weight: 650; }
   .discussion-sources a > small { color: var(--muted); font-size: .7rem; grid-column: 1; line-height: 1.8; }
-  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: #2457f5; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
-  .discussion-sources a:hover > span { color: #1745d0; }
-  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: #d5f36b; color: #17212e; padding: 42px 48px; border-radius: 22px; margin-block: 5px 65px; overflow: hidden; }
+  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: var(--blue); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
+  .discussion-sources a:hover > span { color: var(--action); }
+  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: var(--subtle); color: var(--ink); padding: 42px 48px; border-radius: var(--radius-panel); margin-block: 5px 65px; overflow: hidden; }
   .own-task > div { position: relative; z-index: 1; }
   .own-task h2 { font-size: clamp(1.9rem, 2.9vw, 2.6rem); letter-spacing: -.025em; max-width: 22ch; }
-  .own-task p { color: #455432; font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
-  .own-task .button { margin-top: 25px; background: #17212e; color: #fffefa; }
-  .own-task .button:hover { background: #2a425d; }
+  .own-task p { color: var(--muted); font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
+  .own-task .button { margin-top: 25px; background: var(--action); color: var(--surface); }
+  .own-task .button:hover { background: var(--action-hover); }
   .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
   .faq-section { padding-bottom: 65px; }
   .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
@@ -101,7 +97,7 @@ const copy = OUTCOME_UI[locale];
     .mechanism-list p { font-size: .8rem; }
     .evidence-heading h2 { font-size: 1.7rem; }
     .discussion-sources { grid-template-columns: 1fr; }
-    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: 18px; }
+    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: var(--radius-panel); }
     .own-task p { font-size: .83rem; }
   }
 </style>

@@ -1,108 +1,74 @@
 ---
 import TaskStage from './TaskStage.astro';
-import ImageCompare from './ImageCompare.astro';
+import WorkflowDiagram from './WorkflowDiagram.astro';
 import { UI, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].hero;
-const zh = locale === 'zh-CN';
 ---
 <section class="product-hero" aria-labelledby="hero-title">
   <div class="hero-canvas">
     <div class="hero-copy">
-      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span data-title-line>{ui.accent}</span></h1>
       <p class="product-definition"><span aria-hidden="true"></span>{ui.context}</p>
+      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
       <p class="hero-description">{ui.description}</p>
       <div class="product-actions">
-        <a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
+        <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
         <a class="quiet-link" href="#why-skill">{ui.secondary}<span aria-hidden="true">↓</span></a>
       </div>
       <p class="product-note">{ui.note}</p>
     </div>
-    <figure class="hero-art" data-hero-object>
-      <div class="art-transform" data-art-transform><ImageCompare locale={locale} /></div>
-      <figcaption><span>{zh ? '设计参考来自 ' : 'Design reference by '}<a href="https://github.com/pbakaus/impeccable">Impeccable</a>{zh ? '，不是本 Skill 的实测对照。' : ', not a measured result of this skill.'}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" /></svg><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
-    </figure>
-    <div class="hero-footnote"><span>Solo Vibe Coding</span><p>{zh ? '在你常用的编程助手里，继续做自己的项目。' : 'Your assistant. Your project. Specialist guidance when it helps.'}</p><a href="#why-skill" aria-label={zh ? '浏览四个使用场景' : 'Explore the four scenarios'}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v15m-6-6 6 6 6-6" /></svg></a></div>
+    <WorkflowDiagram locale={locale} />
   </div>
   <TaskStage locale={locale} />
 </section>
 
 <style>
-  .product-hero { padding-block: 24px 72px; }
-  .hero-canvas { --hero-paper: #f0eadc; --hero-ink: #272925; --hero-muted: #625d50; --hero-line: #cfc5b1; --hero-action: #b64032; --hero-action-hover: #983529; --hero-yellow: #f1ca50; --hero-blue: #344f88; position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px; min-height: 650px; background: var(--hero-paper); color: var(--hero-ink); border: 1px solid var(--hero-line); border-radius: var(--radius-panel); overflow: hidden; padding: 58px 48px 102px; }
-  .hero-copy { position: relative; z-index: 2; grid-column: 2; grid-row: 1; }
-  .hero-canvas :is(a, button):focus-visible { outline-color: var(--hero-ink); }
-  .product-definition { display: flex; align-items: center; gap: 10px; font-size: .75rem; color: var(--hero-muted); margin-top: 23px; }
-  .product-definition > span { width: 7px; height: 7px; flex: none; background: var(--hero-blue); border-radius: 50%; }
-  h1 { font-size: clamp(3.2rem, 4.7vw, 4.6rem); line-height: 1.1; font-weight: 750; letter-spacing: -.04em; }
+  .product-hero { padding-bottom: 65px; }
+  .hero-canvas { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 64px; padding-block: 46px 38px; }
+  .hero-copy { min-width: 0; }
+  .product-definition { display: flex; align-items: center; gap: 9px; font-size: .9375rem; font-weight: 600; line-height: 1.5; letter-spacing: .02em; }
+  .product-definition > span { width: 9px; height: 9px; flex: none; background: var(--action); }
+  h1 { font-size: clamp(3.2rem, 5vw, 4.75rem); line-height: 1.17; font-weight: 750; letter-spacing: -.055em; margin-top: 25px; text-wrap: initial; }
   h1 > span { display: block; }
-  :global(:lang(zh-CN)) h1 { font-size: clamp(2.7rem, 4.15vw, 4rem); line-height: 1.3; letter-spacing: -.03em; }
-  .hero-description { color: var(--hero-muted); font-size: .96rem; line-height: 1.9; max-width: 43ch; margin-top: 17px; }
-  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 29px; }
-  .product-actions .button-primary { background: var(--hero-action); border-radius: 9px; padding: 15px 20px; gap: 22px; color: #fffefa; }
-  .product-actions .button-primary:hover { background: var(--hero-action-hover); }
-  .product-actions svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
-  .quiet-link { display: inline-flex; align-items: center; gap: 10px; color: var(--hero-ink); text-decoration: none; font-size: .82rem; font-weight: 600; padding-block: 8px; }
-  .quiet-link:hover { text-decoration: underline; text-underline-offset: 6px; }
-  .product-note { color: var(--hero-muted); font-size: .7rem; margin-top: 18px; }
-  .hero-art { position: relative; min-width: 0; margin: 0; align-self: center; display: flex; flex-direction: column; justify-content: center; grid-column: 1; grid-row: 1; }
-  .art-transform { position: relative; width: 100%; padding: 10px; background: var(--hero-yellow); border-radius: 16px; transform-style: preserve-3d; transition: transform 260ms var(--ease-out); }
-  .art-transform :global(.image-compare) { background: #fffaf0; color: var(--hero-ink); border: 1px solid var(--hero-ink); border-radius: 8px; box-shadow: none; }
-  .art-transform :global(.compare-toolbar), .hero-art .art-transform :global(.image-compare[data-enhanced] .compare-hint) { color: var(--hero-muted); }
-  .art-transform :global(.compare-study) { color: var(--hero-blue); }
-  .art-transform :global(.compare-dots i:first-child) { background: var(--hero-action); }
-  .art-transform :global(.compare-dots i) { background: var(--hero-blue); }
-  .hero-art .art-transform :global(.image-compare[data-enhanced] .compare-seam) { background: #fffaf0; box-shadow: 1px 0 var(--hero-ink), -1px 0 var(--hero-ink); }
-  .art-transform :global(.compare-seam > span) { border-color: var(--hero-ink); color: var(--hero-ink); }
-  .hero-art .art-transform :global(.image-compare:has(.compare-input:focus-visible)) { outline-color: var(--hero-ink); outline-offset: 3px; }
-  .hero-art figcaption { display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .65rem; line-height: 1.7; color: var(--hero-muted); z-index: 2; margin-top: 12px; }
-  .motion-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; border: 1px solid #817865; color: var(--hero-ink); background: transparent; border-radius: 20px; padding: 7px 10px; font-size: .64rem; white-space: nowrap; }
-  .motion-toggle svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.7; }
-  .motion-toggle:disabled { cursor: default; opacity: .8; }
-  .hero-footnote { position: absolute; display: flex; align-items: center; gap: 30px; bottom: 0; left: 52px; right: 52px; min-height: 58px; border-top: 1px solid var(--hero-line); font-size: .65rem; color: var(--hero-muted); }
-  .hero-footnote > span { font-weight: 700; color: var(--hero-ink); }
-  .hero-footnote > p { margin-left: auto; }
-  .hero-footnote > a { display: grid; place-items: center; width: 28px; height: 28px; color: var(--hero-ink); }
-  .hero-footnote svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-  @media (hover: hover) and (pointer: fine) { .product-actions .button-primary:hover svg { transform: translateX(4px); } }
+  .hero-accent { color: var(--action); }
+  :global(:lang(zh-CN)) h1 { font-size: clamp(3.2rem, 5.3vw, 4.75rem); line-height: 1.2; letter-spacing: -.055em; }
+  .hero-description { color: var(--muted); font-size: 1rem; line-height: 1.9; max-width: 470px; margin-top: 26px; }
+  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 31px; }
+  .product-actions .button { min-height: 54px; padding-inline: 23px; gap: 35px; font-size: .9375rem; border-radius: 0; }
+  .product-actions svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .quiet-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--ink); text-decoration: none; font-size: .875rem; font-weight: 600; }
+  .quiet-link:hover { text-decoration: underline; }
+  .product-note { color: var(--muted); font-size: .75rem; line-height: 1.6; margin-top: 17px; }
   @media (max-width: 1100px) {
-    .hero-canvas { padding-inline: 35px; grid-template-columns: 1.05fr 1fr; min-height: 630px; }
-    h1 { font-size: 3.25rem; }
-    :global(:lang(zh-CN)) h1 { font-size: 2.8rem; }
-    .hero-art { margin-right: 0; }
-    .hero-description { font-size: .9rem; }
-    .product-actions { gap: 16px; }
-    .product-actions .button-primary { padding-inline: 16px; font-size: .8rem; gap: 13px; }
-    .hero-footnote { left: 35px; right: 35px; gap: 20px; }
+    .hero-canvas { gap: 35px; padding-block: 45px 35px; }
+    h1, :global(:lang(zh-CN)) h1 { font-size: 3.5rem; }
+    .hero-description { font-size: .9375rem; }
+    .product-definition { font-size: .8125rem; }
+    .product-actions { gap: 20px; }
+    .product-actions .button { gap: 22px; font-size: .875rem; padding-inline: 18px; }
   }
   @media (max-width: 800px) {
-    .product-hero { padding-top: 18px; padding-bottom: 50px; }
-    .hero-canvas { grid-template-columns: 1fr; padding: 40px 32px 90px; min-height: 0; gap: 5px; border-radius: 22px; }
-    .hero-copy { max-width: 590px; grid-column: 1; grid-row: 1; }
-    h1 { font-size: clamp(3rem, 6.5vw, 4rem); }
-    :global(:lang(zh-CN)) h1 { font-size: clamp(2.6rem, 6vw, 3.5rem); }
-    .hero-description { max-width: 52ch; }
-    .hero-art { margin: 28px 0 0; max-width: 550px; justify-self: center; width: 100%; grid-column: 1; grid-row: 2; }
-    .hero-footnote { left: 32px; right: 32px; gap: 16px; font-size: .6rem; }
-    .hero-footnote > p { max-width: 34ch; text-align: right; }
-    .hero-footnote > a { display: none; }
+    .hero-canvas { grid-template-columns: 1fr; gap: 35px; padding-block: 35px 30px; }
+    h1, :global(:lang(zh-CN)) h1 { font-size: clamp(2.75rem, 7.5vw, 3.875rem); margin-top: 20px; }
+    .hero-description { max-width: 560px; }
+    .product-hero { padding-bottom: 45px; }
   }
   @media (max-width: 480px) {
-    .hero-canvas { padding: 30px 23px 82px; border-radius: 18px; }
-    .product-definition { font-size: .63rem; gap: 8px; margin-top: 18px; }
-    h1 { font-size: 2.65rem; }
-    :global(:lang(zh-CN)) h1 { font-size: clamp(2rem, 7.8vw, 2.6rem); }
-    .hero-description { font-size: .83rem; margin-top: 20px; line-height: 1.85; }
-    .product-actions { gap: 16px; margin-top: 22px; }
-    .product-actions .button-primary { font-size: .75rem; padding: 13px 14px; gap: 12px; }
-    .quiet-link { font-size: .73rem; }
-    .product-note { font-size: .63rem; margin-top: 14px; }
-    .hero-art { margin-top: 12px; }
-    .hero-art figcaption { font-size: .58rem; gap: 9px; margin-top: 8px; }
-    .motion-toggle { padding: 6px 8px; font-size: .58rem; }
-    .hero-footnote { left: 23px; right: 23px; gap: 15px; font-size: .54rem; min-height: 55px; }
-    .hero-footnote > p { max-width: 24ch; }
+    .hero-canvas { padding-block: 24px 23px; gap: 20px; }
+    .product-definition { font-size: .75rem; gap: 7px; }
+    .product-definition > span { width: 7px; height: 7px; }
+    h1 { font-size: 2.375rem; line-height: 1.2; margin-top: 14px; }
+    :global(:lang(zh-CN)) h1 { font-size: 2.6875rem; line-height: 1.22; }
+    .hero-description { font-size: .875rem; line-height: 1.8; margin-top: 14px; }
+    .product-actions { gap: 22px; margin-top: 18px; }
+    .product-actions .button { min-height: 48px; padding-inline: 16px; font-size: .8125rem; gap: 21px; }
+    .quiet-link { font-size: .75rem; gap: 8px; }
+    .product-note { font-size: .6875rem; margin-top: 11px; }
   }
-  @media (prefers-reduced-motion: reduce) { .art-transform { transition: none; } }
+  @media (max-width: 350px) {
+    h1, :global(:lang(zh-CN)) h1 { font-size: 2.3125rem; }
+    .product-actions { gap: 15px; }
+    .product-actions .button { gap: 13px; padding-inline: 13px; }
+  }
 </style>

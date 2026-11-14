@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#2457f5"/>
-  <rect x="70" y="60" width="48" height="48" rx="13" fill="#fffefa"/>
-  <path d="m87 75-7 9 7 9m15-18 7 9-7 9m-5-17-5 16" fill="none" stroke="#2457f5" stroke-width="2.5" stroke-linecap="round"/>
-  <g font-family="DejaVu Sans, sans-serif" fill="#fffefa">
+  <rect width="1200" height="630" fill="#f4f0e7"/>
+  <rect x="70" y="60" width="48" height="48" rx="13" fill="#262623"/>
+  <path d="m87 75-7 9 7 9m15-18 7 9-7 9m-5-17-5 16" fill="none" stroke="#fffdf8" stroke-width="2.5" stroke-linecap="round"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#262623">
     <text x="135" y="93" font-size="25" font-weight="bold">Solo Vibe Coding</text>
-    <text x="70" y="235" font-size="78" font-weight="bold" letter-spacing="-2">Get it built.</text>
-    <text x="70" y="330" font-size="72" font-weight="bold" letter-spacing="-2">Make it worth sharing.</text>
-    <text x="75" y="410" font-size="25" fill="#e2e9ff">Fix the loop. Design it well. Get it live. Reach real users.</text>
-    <text x="75" y="557" font-size="21" fill="#e2e9ff">jmaxzh.github.io/solo-vibe-coding</text>
+    <text x="70" y="235" font-size="78" font-weight="bold" letter-spacing="-2">Build it sooner.</text>
+    <text fill="#b53d2b" x="70" y="330" font-size="72" font-weight="bold" letter-spacing="-2">Make it worth sharing.</text>
+    <text x="75" y="410" font-size="25" fill="#67645d">Fix the loop. Design it well. Get it live. Reach real users.</text>
+    <text x="75" y="557" font-size="21" fill="#67645d">jmaxzh.github.io/solo-vibe-coding</text>
   </g>
-  <rect x="940" y="65" width="190" height="43" rx="21.5" fill="#d5f36b"/>
+  <rect x="940" y="65" width="190" height="43" rx="2" fill="#edcb59"/>
   <text x="1035" y="93" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#17212e">Open source / MIT</text>
-  <circle cx="1050" cy="524" r="44" fill="#ff885f"/>
-  <path d="m1034 540 31-31m-26 0h26v26" stroke="#202320" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1050" cy="524" r="44" fill="#b53d2b"/>
+  <path d="m1034 540 31-31m-26 0h26v26" stroke="#fffdf8" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

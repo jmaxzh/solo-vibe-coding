@@ -15,31 +15,31 @@ const command = PROJECT.install + ' --agent codex --yes';
 </div>
 
 <style>
-  .install-terminal { background: #101b2b; color: #edf2ff; border: 1px solid #3c4e69; border-radius: 15px; box-shadow: 0 17px 42px #15233b1a; overflow: hidden; text-align: left; margin: 0; }
-  .install-terminal .code-toolbar { padding: 14px 17px; background: #172438; color: #c7d3e7; border-bottom: 1px solid #35455d; justify-content: start; gap: 14px; font-size: 10px; }
+  .install-terminal { background: var(--panel); color: var(--surface); border: 1px solid #55564e; border-radius: var(--radius-card); overflow: hidden; text-align: left; margin: 0; }
+  .install-terminal .code-toolbar { padding: 14px 17px; background: #30322c; color: #d5cfc2; border-bottom: 1px solid #55564e; justify-content: start; gap: 14px; font-size: 11px; }
   .terminal-dots { display: flex; gap: 5px; flex: none; }
   .terminal-dots i { height: 7px; width: 7px; border-radius: 50%; background: #99b774; }
   .terminal-dots i:first-child { background: #ff987a; }
   .terminal-dots i:nth-child(2) { background: #dfc87b; }
-  .install-terminal .copy-button { margin-left: auto; color: #e7eefc; font-size: 10px; }
-  .install-terminal .copy-button:hover { color: #fff; background: #2d405b; }
+  .install-terminal .copy-button { margin-left: auto; color: #fffdf8; font-size: 11px; }
+  .install-terminal .copy-button:hover { color: #fff; background: #484b43; }
   .terminal-body { padding: 25px 24px 27px; }
-  .terminal-comment { color: #aabbd4; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
+  .terminal-comment { color: #c8c2b5; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
   .terminal-command { display: grid; grid-template-columns: 13px minmax(0,1fr); gap: 8px; position: relative; margin-top: 20px; }
-  .terminal-prompt { color: #d5f36b; font-family: var(--mono); font-size: 12px; line-height: 1.95; }
-  .install-terminal pre { margin: 0; padding: 0; font-size: 12px; line-height: 1.95; background: none; overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; color: #e6edff; }
+  .terminal-prompt { color: var(--yellow); font-family: var(--mono); font-size: 12px; line-height: 1.95; }
+  .install-terminal pre { margin: 0; padding: 0; font-size: 12px; line-height: 1.95; background: none; overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; color: #fffdf8; }
   .install-terminal code { font: inherit; color: inherit; }
-  .terminal-typing { display: none; grid-column: 2; grid-row: 1; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono); font-size: 12px; line-height: 1.95; color: #e6edff; }
+  .terminal-typing { display: none; grid-column: 2; grid-row: 1; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono); font-size: 12px; line-height: 1.95; color: #fffdf8; }
   [data-typing] .terminal-typing { display: block; }
   [data-typing] pre { grid-column: 2; grid-row: 1; color: transparent; }
-  .terminal-next { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: #c6d6ee; line-height: 1.9; margin-top: 24px; }
-  .terminal-next > span { color: #d5f36b; flex: none; }
-  .terminal-caption { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #35455d; padding: 12px 17px; color: #b5c6df; font-size: 9px; }
+  .terminal-next { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: #d5cfc2; line-height: 1.9; margin-top: 24px; }
+  .terminal-next > span { color: var(--yellow); flex: none; }
+  .terminal-caption { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #55564e; padding: 12px 17px; color: #d5cfc2; font-size: 11px; }
   .terminal-caption > span:first-child { display: flex; align-items: center; gap: 7px; }
   .terminal-status { height: 5px; width: 5px; border-radius: 50%; background: #aace70; }
   .compact .terminal-body { padding: 20px; }
   .compact .terminal-next { margin-top: 20px; }
-  @media (max-width: 480px) { .terminal-body { padding: 23px 18px; } .install-terminal pre, .terminal-typing, .terminal-prompt { font-size: 10px; } .terminal-next, .terminal-comment { font-size: 10px; } .terminal-caption { font-size: 8px; padding-inline: 13px; } }
+  @media (max-width: 480px) { .terminal-body { padding: 23px 18px; } .install-terminal pre, .terminal-typing, .terminal-prompt { font-size: 11px; } .terminal-next, .terminal-comment { font-size: 11px; } .terminal-caption { font-size: 11px; padding-inline: 13px; } }
 </style>
 
 <script>

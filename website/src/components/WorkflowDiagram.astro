@@ -1,0 +1,101 @@
+---
+import { WORKFLOW_PREVIEWS } from '../data/outcomes';
+import { type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh-CN';
+const copy = zh ? {
+  sequence: '你的目标 → 专业做法 → 可用成果', label: '工作方式示意', goal: '你想做到',
+  assistant: '你正在用的编程助手', project: '结合现有项目，继续做', guidance: '按任务补充专业方法与参考',
+  output: '希望交付', caption: '在你自己的编程助手中完成任务。',
+} : {
+  sequence: 'Your goal → Relevant methods → A usable result', label: 'How it works', goal: 'Your goal',
+  assistant: 'The coding assistant you use', project: 'Continue in your existing project', guidance: 'Task-specific methods and references',
+  output: 'What to ask it to deliver', caption: 'The work happens in your own coding assistant.',
+};
+---
+<figure class="hero-art" data-hero-object aria-label={copy.label}>
+  <div class="workflow-heading"><span>{copy.sequence}</span><span>{copy.label}</span></div>
+  <div class="workflow-scenes" data-art-transform>
+    {Object.entries(WORKFLOW_PREVIEWS[locale]).map(([task, preview]) => <div class="workflow-scene" data-workflow={task}>
+      <div class="workflow-request"><span>{copy.goal}</span><p>{preview.request}</p><span class="request-arrow" aria-hidden="true">↘</span></div>
+      <div class="workflow-assistant">
+        <div class="assistant-heading"><span class="assistant-symbol" aria-hidden="true">&lt;/&gt;</span><span>{copy.assistant}<small>{copy.project}</small></span></div>
+        <div class="workflow-skill"><span class="skill-plus" aria-hidden="true">＋</span><span>Solo Vibe Coding<small>{copy.guidance}</small></span><span class="skill-arrow" aria-hidden="true">↙</span></div>
+        <ol class="workflow-methods">{preview.methods.map((method, index) => <li><span aria-hidden="true">0{index + 1}</span><strong>{method}</strong></li>)}</ol>
+      </div>
+      <div class="workflow-output"><span aria-hidden="true">↳</span><p><small>{copy.output}</small><strong>{preview.output}</strong></p></div>
+    </div>)}
+  </div>
+  <figcaption><span>{copy.caption}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
+</figure>
+
+<style>
+  .hero-art { position: relative; min-width: 0; width: 100%; margin: 0; padding-left: 12px; }
+  .workflow-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .75rem; color: var(--muted); margin-bottom: 23px; }
+  .workflow-heading > span:last-child { font-size: .6875rem; white-space: nowrap; }
+  .workflow-scene { display: none; }
+  .workflow-scene[data-workflow="development"] { display: block; }
+  :global(.product-hero:has(input.task-choice:not([value="development"]):checked)) .workflow-scene[data-workflow="development"] { display: none; }
+  :global(.product-hero:has(input[value="design"]:checked)) [data-workflow="design"],
+  :global(.product-hero:has(input[value="deployment"]:checked)) [data-workflow="deployment"],
+  :global(.product-hero:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: block; }
+  .workflow-request { position: relative; background: var(--yellow); border: 1px solid #cfb04b; padding: 18px 54px 18px 23px; margin-right: 32px; }
+  .workflow-request > span:first-child { font-size: .75rem; color: #57471d; }
+  .workflow-request p { font-size: 1.0625rem; font-weight: 600; line-height: 1.6; margin-top: 6px; }
+  .request-arrow { position: absolute; right: 20px; top: 28px; font-size: 28px; }
+  .workflow-assistant { margin: 16px 0 0 32px; padding: 21px 25px 0; background: var(--surface); border: 1px solid var(--ink); box-shadow: 7px 7px 0 #e0dacd; }
+  .assistant-heading { display: flex; align-items: center; gap: 12px; font-size: 1rem; font-weight: 600; }
+  .assistant-symbol { border: 1px solid var(--line); width: 38px; height: 38px; flex: none; display: grid; place-items: center; font: 600 15px var(--mono); }
+  .assistant-heading small { display: block; font-size: .75rem; color: var(--muted); font-weight: 400; margin-top: 5px; }
+  .workflow-skill { display: flex; align-items: center; gap: 15px; background: var(--action); color: var(--surface); padding: 16px 22px; margin: 24px -42px 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -.025em; }
+  .skill-plus { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #ffffff80; border-radius: 50%; font-size: 25px; font-weight: 400; }
+  .workflow-skill small { display: block; font-size: .75rem; font-weight: 400; letter-spacing: .02em; margin-top: 6px; }
+  .skill-arrow { margin-left: auto; font-size: 32px; font-weight: 400; }
+  .workflow-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 20px 0; }
+  .workflow-methods li { display: flex; flex-direction: column; gap: 9px; padding-left: 15px; border-left: 1px solid var(--line); }
+  .workflow-methods li:first-child { padding-left: 0; border-left: 0; }
+  .workflow-methods li > span { color: var(--blue); font: .75rem/1.5 var(--mono); }
+  .workflow-methods strong { font-size: .75rem; line-height: 1.6; font-weight: 550; }
+  .workflow-output { display: flex; align-items: center; gap: 14px; margin: 26px 0 0 32px; }
+  .workflow-output > span { color: var(--blue); font-size: 33px; }
+  .workflow-output small { display: block; color: var(--muted); font-size: .6875rem; margin-bottom: 5px; }
+  .workflow-output strong { font-size: .875rem; line-height: 1.7; font-weight: 550; }
+  figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 17px 0 0 32px; color: var(--muted); font-size: .6875rem; line-height: 1.6; }
+  .motion-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 9px; background: transparent; border: 1px solid var(--line); color: var(--ink); font-size: .6875rem; white-space: nowrap; }
+  .motion-toggle:disabled { color: var(--muted); cursor: default; }
+  @media (max-width: 1100px) {
+    .hero-art { padding-left: 0; }
+    .workflow-heading { font-size: .6875rem; }
+    .workflow-request { padding-left: 18px; margin-right: 18px; }
+    .workflow-request p { font-size: .9375rem; }
+    .workflow-assistant { margin-left: 18px; padding-inline: 20px; }
+    .workflow-skill { margin-inline: -30px; padding-inline: 17px; font-size: 1.0625rem; }
+    .workflow-methods li { padding-left: 8px; }
+    .workflow-methods strong { font-size: .6875rem; }
+  }
+  @media (max-width: 800px) { .hero-art { width: min(100%, 500px); margin-inline: auto; } }
+  @media (max-width: 480px) {
+    .workflow-heading { margin-bottom: 12px; }
+    .workflow-request { padding: 10px 37px 10px 14px; margin-right: 17px; }
+    .workflow-request > span:first-child { font-size: .6875rem; }
+    .workflow-request p { font-size: .8125rem; margin-top: 4px; }
+    .request-arrow { right: 11px; top: 18px; font-size: 24px; }
+    .workflow-assistant { margin-top: 10px; margin-left: 17px; padding: 13px 13px 0; box-shadow: 4px 4px 0 #e0dacd; }
+    .assistant-heading { font-size: .8125rem; gap: 9px; }
+    .assistant-symbol { width: 29px; height: 29px; font-size: 12px; }
+    .assistant-heading small { display: none; }
+    .workflow-skill { margin: 12px -22px 0; padding: 11px 13px; font-size: 1.0625rem; gap: 11px; }
+    .skill-plus { width: 28px; height: 28px; font-size: 23px; }
+    .workflow-skill small { font-size: .6875rem; margin-top: 4px; }
+    .skill-arrow { font-size: 26px; }
+    .workflow-methods { padding-block: 12px; }
+    .workflow-methods li { padding-left: 8px; gap: 4px; }
+    .workflow-methods li > span { font-size: .6875rem; }
+    .workflow-output { gap: 10px; margin: 15px 0 0 16px; }
+    .workflow-output > span { font-size: 28px; }
+    .workflow-output small { font-size: .6875rem; margin-bottom: 3px; }
+    .workflow-output strong { font-size: .75rem; }
+    figcaption { margin: 8px 0 0 17px; }
+  }
+</style>
