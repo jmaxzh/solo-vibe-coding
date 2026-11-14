@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "e4e85a3323bbf2df015084b085426a65e944c3df",
+  "pages": 16,
+  "resourcesAndPages": 38,
+  "browserChecks": [
+    {
+      "width": 1440,
+      "task": "design",
+      "startAndLanguageContinuity": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "task": "design",
+      "startAndLanguageContinuity": true,
+      "errors": []
+    }
+  ]
+}

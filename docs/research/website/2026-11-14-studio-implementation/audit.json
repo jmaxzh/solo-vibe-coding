@@ -1,0 +1,907 @@
+{
+  "browser": "157.0.8103.51",
+  "capturedAt": "2026-11-14T05:50:13.504Z",
+  "layouts": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "header": 88,
+      "cta": {
+        "x": 64,
+        "y": 603.59375,
+        "width": 188.34375,
+        "height": 54,
+        "top": 603.59375,
+        "right": 252.34375,
+        "bottom": 657.59375,
+        "left": 64
+      },
+      "hero": {
+        "x": 64,
+        "y": 89,
+        "width": 1312,
+        "height": 663.015625,
+        "top": 89,
+        "right": 1376,
+        "bottom": 752.015625,
+        "left": 64
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "header": 88,
+      "cta": {
+        "x": 64,
+        "y": 553.234375,
+        "width": 208,
+        "height": 54,
+        "top": 553.234375,
+        "right": 272,
+        "bottom": 607.234375,
+        "left": 64
+      },
+      "hero": {
+        "x": 64,
+        "y": 89,
+        "width": 1312,
+        "height": 663.015625,
+        "top": 89,
+        "right": 1376,
+        "bottom": 752.015625,
+        "left": 64
+      }
+    },
+    {
+      "locale": "en",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "header": 88,
+      "cta": {
+        "x": 40,
+        "y": 585.1875,
+        "width": 159.65625,
+        "height": 54,
+        "top": 585.1875,
+        "right": 199.65625,
+        "bottom": 639.1875,
+        "left": 40
+      },
+      "hero": {
+        "x": 40,
+        "y": 89,
+        "width": 944,
+        "height": 689.015625,
+        "top": 89,
+        "right": 984,
+        "bottom": 778.015625,
+        "left": 40
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "header": 88,
+      "cta": {
+        "x": 40,
+        "y": 519.046875,
+        "width": 178,
+        "height": 54,
+        "top": 519.046875,
+        "right": 218,
+        "bottom": 573.046875,
+        "left": 40
+      },
+      "hero": {
+        "x": 40,
+        "y": 89,
+        "width": 944,
+        "height": 647.421875,
+        "top": 89,
+        "right": 984,
+        "bottom": 736.421875,
+        "left": 40
+      }
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "header": 64,
+      "cta": {
+        "x": 24,
+        "y": 408.53125,
+        "width": 148.96875,
+        "height": 48,
+        "top": 408.53125,
+        "right": 172.96875,
+        "bottom": 456.53125,
+        "left": 24
+      },
+      "hero": {
+        "x": 24,
+        "y": 65,
+        "width": 342,
+        "height": 950.921875,
+        "top": 65,
+        "right": 366,
+        "bottom": 1015.921875,
+        "left": 24
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "width": 390,
+      "scrollWidth": 390,
+      "header": 64,
+      "cta": {
+        "x": 24,
+        "y": 339.46875,
+        "width": 166,
+        "height": 48,
+        "top": 339.46875,
+        "right": 190,
+        "bottom": 387.46875,
+        "left": 24
+      },
+      "hero": {
+        "x": 24,
+        "y": 65,
+        "width": 342,
+        "height": 816.28125,
+        "top": 65,
+        "right": 366,
+        "bottom": 881.28125,
+        "left": 24
+      }
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "scrollWidth": 320,
+      "header": 64,
+      "cta": {
+        "x": 19,
+        "y": 404.921875,
+        "width": 134.96875,
+        "height": 48,
+        "top": 404.921875,
+        "right": 153.96875,
+        "bottom": 452.921875,
+        "left": 19
+      },
+      "hero": {
+        "x": 19,
+        "y": 65,
+        "width": 282,
+        "height": 1019.875,
+        "top": 65,
+        "right": 301,
+        "bottom": 1084.875,
+        "left": 19
+      }
+    },
+    {
+      "locale": "zh-CN",
+      "width": 320,
+      "scrollWidth": 320,
+      "header": 64,
+      "cta": {
+        "x": 19,
+        "y": 324.8125,
+        "width": 152,
+        "height": 48,
+        "top": 324.8125,
+        "right": 171,
+        "bottom": 372.8125,
+        "left": 19
+      },
+      "hero": {
+        "x": 19,
+        "y": 65,
+        "width": 282,
+        "height": 801.625,
+        "top": 65,
+        "right": 301,
+        "bottom": 866.625,
+        "left": 19
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "width": 1440,
+      "locale": "en",
+      "task": "development",
+      "request": "Fix the guest’s black screen. Keep background blur.",
+      "methods": [
+        "Reproduce the problem",
+        "Build on existing code",
+        "Check working features"
+      ],
+      "output": "A repeatable repair, with existing features still working.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "task": "design",
+      "request": "Give the working app a consistent design across screens.",
+      "methods": [
+        "Set a visual direction",
+        "Apply it to real screens",
+        "Check mobile use"
+      ],
+      "output": "A coherent direction and usable core screens.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "task": "deployment",
+      "request": "Connect sign-in and data so other people can use it.",
+      "methods": [
+        "Choose a fitting solution",
+        "Connect the user journey",
+        "Verify the live release"
+      ],
+      "output": "A checked live journey with sign-in and saved data.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "task": "growth",
+      "request": "Help people with the need understand it and start a trial.",
+      "methods": [
+        "Find the obstacle",
+        "Explain the concrete use",
+        "Prepare the first launch"
+      ],
+      "output": "A clear demo, trial entry and first outreach plan.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "task": "development",
+      "request": "修复访客黑屏，保留背景虚化。",
+      "methods": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "task": "design",
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "methods": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "task": "deployment",
+      "request": "接通登录、数据，让别人能实际使用。",
+      "methods": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "locale": "zh-CN",
+      "task": "growth",
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "methods": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "task": "development",
+      "request": "Fix the guest’s black screen. Keep background blur.",
+      "methods": [
+        "Reproduce the problem",
+        "Build on existing code",
+        "Check working features"
+      ],
+      "output": "A repeatable repair, with existing features still working.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "task": "design",
+      "request": "Give the working app a consistent design across screens.",
+      "methods": [
+        "Set a visual direction",
+        "Apply it to real screens",
+        "Check mobile use"
+      ],
+      "output": "A coherent direction and usable core screens.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "task": "deployment",
+      "request": "Connect sign-in and data so other people can use it.",
+      "methods": [
+        "Choose a fitting solution",
+        "Connect the user journey",
+        "Verify the live release"
+      ],
+      "output": "A checked live journey with sign-in and saved data.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "task": "growth",
+      "request": "Help people with the need understand it and start a trial.",
+      "methods": [
+        "Find the obstacle",
+        "Explain the concrete use",
+        "Prepare the first launch"
+      ],
+      "output": "A clear demo, trial entry and first outreach plan.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "task": "development",
+      "request": "修复访客黑屏，保留背景虚化。",
+      "methods": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "task": "design",
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "methods": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "task": "deployment",
+      "request": "接通登录、数据，让别人能实际使用。",
+      "methods": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "locale": "zh-CN",
+      "task": "growth",
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "methods": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "task": "development",
+      "request": "Fix the guest’s black screen. Keep background blur.",
+      "methods": [
+        "Reproduce the problem",
+        "Build on existing code",
+        "Check working features"
+      ],
+      "output": "A repeatable repair, with existing features still working.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "task": "design",
+      "request": "Give the working app a consistent design across screens.",
+      "methods": [
+        "Set a visual direction",
+        "Apply it to real screens",
+        "Check mobile use"
+      ],
+      "output": "A coherent direction and usable core screens.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "task": "deployment",
+      "request": "Connect sign-in and data so other people can use it.",
+      "methods": [
+        "Choose a fitting solution",
+        "Connect the user journey",
+        "Verify the live release"
+      ],
+      "output": "A checked live journey with sign-in and saved data.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "task": "growth",
+      "request": "Help people with the need understand it and start a trial.",
+      "methods": [
+        "Find the obstacle",
+        "Explain the concrete use",
+        "Prepare the first launch"
+      ],
+      "output": "A clear demo, trial entry and first outreach plan.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "task": "development",
+      "request": "修复访客黑屏，保留背景虚化。",
+      "methods": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "task": "design",
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "methods": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "task": "deployment",
+      "request": "接通登录、数据，让别人能实际使用。",
+      "methods": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "locale": "zh-CN",
+      "task": "growth",
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "methods": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "task": "development",
+      "request": "Fix the guest’s black screen. Keep background blur.",
+      "methods": [
+        "Reproduce the problem",
+        "Build on existing code",
+        "Check working features"
+      ],
+      "output": "A repeatable repair, with existing features still working.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "task": "design",
+      "request": "Give the working app a consistent design across screens.",
+      "methods": [
+        "Set a visual direction",
+        "Apply it to real screens",
+        "Check mobile use"
+      ],
+      "output": "A coherent direction and usable core screens.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "task": "deployment",
+      "request": "Connect sign-in and data so other people can use it.",
+      "methods": [
+        "Choose a fitting solution",
+        "Connect the user journey",
+        "Verify the live release"
+      ],
+      "output": "A checked live journey with sign-in and saved data.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "task": "growth",
+      "request": "Help people with the need understand it and start a trial.",
+      "methods": [
+        "Find the obstacle",
+        "Explain the concrete use",
+        "Prepare the first launch"
+      ],
+      "output": "A clear demo, trial entry and first outreach plan.",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "zh-CN",
+      "task": "development",
+      "request": "修复访客黑屏，保留背景虚化。",
+      "methods": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "zh-CN",
+      "task": "design",
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "methods": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "zh-CN",
+      "task": "deployment",
+      "request": "接通登录、数据，让别人能实际使用。",
+      "methods": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+      ],
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "locale": "zh-CN",
+      "task": "growth",
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "methods": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "starts": [
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth",
+        "http://127.0.0.1:4322/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+      ],
+      "overflow": false
+    }
+  ],
+  "contrasts": [
+    {
+      "selector": ".product-definition",
+      "color": "rgb(38, 38, 35)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "15px",
+      "contrast": 13.342129353475489
+    },
+    {
+      "selector": ".hero-description",
+      "color": "rgb(103, 100, 93)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "16px",
+      "contrast": 5.190108356947086
+    },
+    {
+      "selector": ".product-note",
+      "color": "rgb(103, 100, 93)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "12px",
+      "contrast": 5.190108356947086
+    },
+    {
+      "selector": ".product-actions .button",
+      "color": "rgb(255, 253, 248)",
+      "background": "rgb(181, 61, 43)",
+      "fontSize": "15px",
+      "contrast": 5.633168291999034
+    },
+    {
+      "selector": ".workflow-request p",
+      "color": "rgb(38, 38, 35)",
+      "background": "rgb(237, 203, 89)",
+      "fontSize": "17px",
+      "contrast": 9.6013116973219
+    },
+    {
+      "selector": ".workflow-skill",
+      "color": "rgb(255, 253, 248)",
+      "background": "rgb(181, 61, 43)",
+      "fontSize": "20px",
+      "contrast": 5.633168291999034
+    },
+    {
+      "selector": ".workflow-methods strong",
+      "color": "rgb(38, 38, 35)",
+      "background": "rgb(255, 253, 248)",
+      "fontSize": "12px",
+      "contrast": 14.92675921375991
+    },
+    {
+      "selector": ".workflow-output strong",
+      "color": "rgb(38, 38, 35)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "14px",
+      "contrast": 13.342129353475489
+    },
+    {
+      "selector": ".hero-art figcaption",
+      "color": "rgb(103, 100, 93)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "11px",
+      "contrast": 5.190108356947086
+    },
+    {
+      "selector": ".task-number",
+      "color": "rgb(103, 100, 93)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "11px",
+      "contrast": 5.190108356947086
+    },
+    {
+      "selector": ".task-pain-summary",
+      "color": "rgb(103, 100, 93)",
+      "background": "rgb(244, 240, 231)",
+      "fontSize": "12px",
+      "contrast": 5.190108356947086
+    }
+  ],
+  "screenshots": [
+    "home.en.1440.png",
+    "start.en.1440.jpg",
+    "guides.en.1440.jpg",
+    "quote.en.1440.jpg",
+    "case.en.1440.jpg",
+    "updates.en.1440.jpg",
+    "article.en.1440.jpg",
+    "missing.en.1440.jpg",
+    "home.zh-CN.1440.png",
+    "start.zh-CN.1440.jpg",
+    "guides.zh-CN.1440.jpg",
+    "quote.zh-CN.1440.jpg",
+    "case.zh-CN.1440.jpg",
+    "updates.zh-CN.1440.jpg",
+    "article.zh-CN.1440.jpg",
+    "missing.zh-CN.1440.jpg",
+    "home.en.390.png",
+    "start.en.390.jpg",
+    "guides.en.390.jpg",
+    "quote.en.390.jpg",
+    "case.en.390.jpg",
+    "updates.en.390.jpg",
+    "article.en.390.jpg",
+    "missing.en.390.jpg",
+    "home.zh-CN.390.png",
+    "start.zh-CN.390.jpg",
+    "guides.zh-CN.390.jpg",
+    "quote.zh-CN.390.jpg",
+    "case.zh-CN.390.jpg",
+    "updates.zh-CN.390.jpg",
+    "article.zh-CN.390.jpg",
+    "missing.zh-CN.390.jpg"
+  ],
+  "errors": [],
+  "scope": "Engineering layout, content continuity, default text contrast and visual inspection evidence only. Preference, beginner comprehension and completed installations need real-user validation."
+}

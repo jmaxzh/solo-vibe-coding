@@ -1,0 +1,374 @@
+[
+  {
+    "kind": "home",
+    "locale": "en",
+    "width": 1440,
+    "file": "home.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "start",
+    "locale": "en",
+    "width": 1440,
+    "file": "start.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "guides",
+    "locale": "en",
+    "width": 1440,
+    "file": "guides.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/app-mobile.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/login.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/design-after.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "quote",
+    "locale": "en",
+    "width": 1440,
+    "file": "quote.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "case",
+    "locale": "en",
+    "width": 1440,
+    "file": "case.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-1.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "article",
+    "locale": "en",
+    "width": 1440,
+    "file": "article.en.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "home",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "home.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "start",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "start.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "guides",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "guides.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/app-mobile.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/login.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/design-after.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "quote",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "quote.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "case",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "case.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-1.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "article",
+    "locale": "zh-CN",
+    "width": 1440,
+    "file": "article.zh-CN.1440.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "home",
+    "locale": "en",
+    "width": 390,
+    "file": "home.en.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "start",
+    "locale": "en",
+    "width": 390,
+    "file": "start.en.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "guides",
+    "locale": "en",
+    "width": 390,
+    "file": "guides.en.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/app-mobile.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/login.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/design-after.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "quote",
+    "locale": "en",
+    "width": 390,
+    "file": "quote.en.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "case",
+    "locale": "en",
+    "width": 390,
+    "file": "case.en.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-1.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "article",
+    "locale": "en",
+    "width": 390,
+    "file": "article.en.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "home",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "home.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "start",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "start.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "guides",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "guides.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/video-call.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/app-mobile.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/login.webp",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/media/design-after.webp",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "quote",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "quote.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  },
+  {
+    "kind": "case",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "case.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-1.png",
+        "loaded": true
+      },
+      {
+        "src": "/solo-vibe-coding/case-study/bookmarks-round-2.png",
+        "loaded": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "kind": "article",
+    "locale": "zh-CN",
+    "width": 390,
+    "file": "article.zh-CN.390.full.jpg",
+    "fullPage": true,
+    "images": [],
+    "overflow": false
+  }
+]

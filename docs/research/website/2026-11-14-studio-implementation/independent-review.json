@@ -1,0 +1,24 @@
+{
+  "reviewer": "/root/review_studio_implementation",
+  "context": "fresh",
+  "mode": "read-only",
+  "reviewOrder": "先独立形成判断，再核对主代理自评",
+  "beforeAndAfter": "0714b1dc4e0d1d500358a9488e39e2e046ac5ee9 → e4e85a3323bbf2df015084b085426a65e944c3df",
+  "localResult": "未发现确认的功能回归或发布阻断项；选定A、事实/证据/功能保留、双语/手机/无脚本路径、内页与下半页、成本及用户文件哈希均已复核。",
+  "productionResult": "发布提交、CI与生产记录一致；检查与部署成功；16内容页及共38页面/资源HTTP200；桌面/手机任务选择→安装→语言切换正常；生产截图与已审查方案一致。",
+  "evidence": [
+    "implementation.diff",
+    "validate.log",
+    "e2e.log",
+    "audit.json",
+    "full-page-audit.json",
+    "github-run.json",
+    "production.json",
+    "screenshots/",
+    "user-files-before.sha256"
+  ],
+  "limits": [
+    "真实用户偏好、理解和安装成功未验证",
+    "根robots.txt为404，未宣称搜索收录"
+  ]
+}

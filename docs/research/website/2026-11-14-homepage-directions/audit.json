@@ -1,0 +1,518 @@
+{
+  "capturedAt": "2026-11-14T05:19:08.214Z",
+  "browser": "157.0.8103.51",
+  "scope": "Product mockup content only. Host carousel controls are supplied by the visualization runtime; its count label has a known 3.28:1 contrast in the local light preview and is not part of the proposed website.",
+  "shots": [
+    {
+      "name": "studio-desktop",
+      "width": 1440,
+      "height": 1000,
+      "productBox": {
+        "x": 16,
+        "y": 16,
+        "width": 1440,
+        "height": 984.90625
+      },
+      "cta": {
+        "x": 80,
+        "y": 546.203125,
+        "width": 209,
+        "height": 54
+      },
+      "figure": {
+        "x": 783.21875,
+        "y": 150,
+        "width": 608.78125,
+        "height": 534.9375
+      }
+    },
+    {
+      "name": "studio-mobile",
+      "width": 390,
+      "height": 844,
+      "productBox": {
+        "x": 16,
+        "y": 16,
+        "width": 390,
+        "height": 1159.984375
+      },
+      "cta": {
+        "x": 40,
+        "y": 348.46875,
+        "width": 165,
+        "height": 48
+      },
+      "figure": {
+        "x": 40,
+        "y": 445.0625,
+        "width": 342,
+        "height": 382.359375
+      }
+    },
+    {
+      "name": "workbench-desktop",
+      "width": 1440,
+      "height": 1000,
+      "productBox": {
+        "x": 16,
+        "y": 16,
+        "width": 1440,
+        "height": 997.171875
+      },
+      "cta": {
+        "x": 571.96875,
+        "y": 416.8125,
+        "width": 209,
+        "height": 50
+      },
+      "figure": {
+        "x": 112,
+        "y": 530.40625,
+        "width": 1248,
+        "height": 411.96875
+      }
+    },
+    {
+      "name": "workbench-mobile",
+      "width": 390,
+      "height": 844,
+      "productBox": {
+        "x": 16,
+        "y": 16,
+        "width": 390,
+        "height": 937.46875
+      },
+      "cta": {
+        "x": 79.1875,
+        "y": 349.046875,
+        "width": 165,
+        "height": 48
+      },
+      "figure": {
+        "x": 32,
+        "y": 448.640625,
+        "width": 358,
+        "height": 394.234375
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "index": 0,
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 1143.71875,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 0,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1159.984375,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 0,
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 1546.359375,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 0,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "height": 1010.3125,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 0,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 984.90625,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 2,
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 946.28125,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 2,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 937.46875,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 2,
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 1025.609375,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 2,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "height": 983.640625,
+      "overflow": false,
+      "smallestText": 11
+    },
+    {
+      "index": 2,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 997.171875,
+      "overflow": false,
+      "smallestText": 11
+    }
+  ],
+  "interactions": [
+    {
+      "index": 0,
+      "task": "development",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "修复访客黑屏，保留背景虚化。",
+      "steps": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+    },
+    {
+      "index": 0,
+      "task": "design",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "steps": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+    },
+    {
+      "index": 0,
+      "task": "deployment",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "接通登录、数据，让别人能实际使用。",
+      "steps": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+    },
+    {
+      "index": 0,
+      "task": "growth",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "steps": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+    },
+    {
+      "index": 1,
+      "task": "development",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "修复访客黑屏，保留背景虚化。",
+      "steps": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+    },
+    {
+      "index": 1,
+      "task": "design",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "steps": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+    },
+    {
+      "index": 1,
+      "task": "deployment",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "接通登录、数据，让别人能实际使用。",
+      "steps": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+    },
+    {
+      "index": 1,
+      "task": "growth",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "steps": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+    },
+    {
+      "index": 2,
+      "task": "development",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "修复访客黑屏，保留背景虚化。",
+      "steps": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+    },
+    {
+      "index": 2,
+      "task": "design",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "steps": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+    },
+    {
+      "index": 2,
+      "task": "deployment",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "接通登录、数据，让别人能实际使用。",
+      "steps": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+    },
+    {
+      "index": 2,
+      "task": "growth",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "steps": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+    },
+    {
+      "index": 3,
+      "task": "development",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "修复访客黑屏，保留背景虚化。",
+      "steps": [
+        "先重现问题",
+        "沿用现有实现",
+        "检查原有功能"
+      ],
+      "output": "能重复验证的修复，原有功能继续正常。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=development#task-development"
+    },
+    {
+      "index": 3,
+      "task": "design",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让已经能用的 App，各个页面设计一致。",
+      "steps": [
+        "明确视觉方向",
+        "落实核心页面",
+        "检查手机操作"
+      ],
+      "output": "统一的视觉方向，以及可以操作的核心页面。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=design#task-design"
+    },
+    {
+      "index": 3,
+      "task": "deployment",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "接通登录、数据，让别人能实际使用。",
+      "steps": [
+        "选择合适方案",
+        "接通使用流程",
+        "核验线上版本"
+      ],
+      "output": "能登录、保存，并经过核验的线上使用流程。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=deployment#task-deployment"
+    },
+    {
+      "index": 3,
+      "task": "growth",
+      "input": "keyboard Enter",
+      "selected": 1,
+      "request": "让有需求的人看懂产品，并开始试用。",
+      "steps": [
+        "弄清卡在哪里",
+        "讲清具体用途",
+        "准备首轮推广"
+      ],
+      "output": "清楚的产品演示、试用入口与首轮推广计划。",
+      "cta": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/?task=growth#task-growth"
+    }
+  ],
+  "accessibility": [
+    {
+      "index": 0,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "html": "<span aria-hidden=\"true\">↓</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↳</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "html": "<span aria-hidden=\"true\">↓</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↳</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "html": "<span aria-hidden=\"true\">→</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↓</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↳</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">▦</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">◎</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span class=\"bench-request-arrow\" aria-hidden=\"true\">→</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">→</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "html": "<span aria-hidden=\"true\">→</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↓</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">↳</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">▦</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "html": "<span aria-hidden=\"true\">◎</span>",
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

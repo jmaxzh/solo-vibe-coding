@@ -1,0 +1,1040 @@
+diff --git a/docs/architecture.md b/docs/architecture.md
+index 0e3f9a5..f7fa3df 100644
+--- a/docs/architecture.md
++++ b/docs/architecture.md
+@@ -14,7 +14,7 @@
+ | 构建日志 | `website/src/content/build-log/`、`website/src/data/posts.ts` | 双语 Markdown、显式文章索引、真实日期与对应 slug |
+ | 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、页面结构、导航、语言切换、SEO、渐进增强 |
+ | 展示组件与样式 | `website/src/components/`、`website/src/styles/` | 用户首页、上手与场景、报价示例、复制和响应式排版 |
+-| 视觉素材与交互 | `website/public/media/`、`ImageCompare.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 自托管的第三方界面参考、现成设备样机、原生对比与可复制安装命令；许可随发布资源提供 |
++| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创任务关系图、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
+ | 可用成果示例 | `website/src/components/QuoteCalculator.astro`、`website/src/lib/quote.ts` | 浏览器端报价计算、校验与 CSV 下载；Big.js 处理十进制金额，无后端 |
+ | 静态资源 | `website/public/` | 图标、分享图片、案例真实截图、独立起始项目ZIP、分发许可与 `.nojekyll` |
+ | 自动检查 | `website/scripts/`、`website/tests/` | 产物完整性、交互、布局与可自动检测的无障碍问题 |
+@@ -37,7 +37,7 @@ GitHub Pages：/solo-vibe-coding/
+ 
+ 默认英文页面位于项目根路径，中文位于 `zh-CN/`。内容由构建期生成，切换语言保持主题。`[...path].astro` 生成首页、上手、用户场景、报价示例、真实任务、更新索引和已登记文章；`404.astro` 生成项目 404 页。公开页面共17个 HTML。
+ 
+-首页的专业指导与案例为静态内容，案例起始项目ZIP可直接下载。JavaScript 增强对比操作、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
++首页的专业指导与案例为静态内容，案例起始项目ZIP可直接下载。原生单选控件和CSS使首屏关系图与任务详情在无脚本时同步切换。JavaScript增强首页任务在安装入口与语言切换中的延续、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
+ 
+ 用户官网不引用维护知识库、ADR、CI 和研究档案作为阅读入口；这些材料在仓库维护区域查阅。源码和许可入口保留在页脚。
+ 
+diff --git a/docs/specs/website.md b/docs/specs/website.md
+index 477897f..06ae7f8 100644
+--- a/docs/specs/website.md
++++ b/docs/specs/website.md
+@@ -40,9 +40,9 @@ Skill 帮用户保留其项目背景和重要选择的能力，以“后续修
+ 
+ 默认英文，中文使用 `/zh-CN/`，均在 `/solo-vibe-coding/` 下。保留已有页面地址与六个场景锚点；语言切换保持当前主题。两种语言保持功能、边界与内容对应，示例货币采用明确的本地化显示。
+ 
+-全站沿用暖白阅读面、钴蓝与橙色等品牌色，以及公共字体、间距、圆角、按钮、代码块和反馈组件。首页首屏采用现代包豪斯启发的暖纸底、深色文字和朱红主行动，以黄色画框及少量蓝色标识组织界面参考；针对不熟悉Skill的年轻读者保持入口清楚、阅读轻松。首页其余区块和内页延续既有配色与结构。首页突出成果与场景；上手和工具页便于操作；指南、更新与文章便于理解和阅读。共享页头以与页面用途相关的示意承接正文；长文保留适合阅读的行宽。沿用Manrope、中文系统字体和代码用IBM Plex Mono，桌面与手机分别检查构图和文字。
++全站采用现代包豪斯启发的「构成工作室」视觉：暖纸底、深色正文、朱红主行动、黄色目标区和少量钴蓝方法标识，以非对称网格、清晰字阶、留白与细分隔线组织内容。首页将产品定义置于主标题前，用关系图解释专业方法如何加入现有编程助手；四个任务入口采用紧凑的文字分栏。内页共享配色、字体、按钮与反馈组件，使用开放式标题区；上手页以单栏步骤和可复制命令为主，案例页使用真实项目截图，指南保留任务参考图，长文保留适合阅读的行宽。沿用自托管Manrope、中文系统字体和代码用IBM Plex Mono，桌面与手机分别重排并检查构图和文字。
+ 
+-首屏用现成对比组件展示完整设计参考，并明确参考作者与证据性质。四个代表场景使用现成界面图和设备样机辅助说明任务：修好视频黑屏并保留原功能、多页面设计一致、接通登录/数据/公开访问、让目标用户理解用途并开始试用。第三方界面和模板数据不作为本 Skill 的实际客户、修复或获客成果；真实执行记录独立呈现。指南沿用对应参考，四类任务优先呈现，六个原锚点保持有效。
++首屏用原创工作方式示意呈现「用户目标 → 现有编程助手＋Solo Vibe Coding → 专业方法与交付目标」，与原生单选控件选择的任务同步，并将结果标为希望交付。关闭JavaScript时，任务切换、关系图和场景正文仍可操作；任务详情的开始链接保留所选任务。启用脚本时，导航、首屏与安装区的开始入口、刷新及语言切换共同延续所选任务。四个代表场景的详情使用现成界面图和设备样机辅助说明任务：修好视频黑屏并保留原功能、多页面设计一致、接通登录/数据/公开访问、让目标用户理解用途并开始试用。第三方界面和模板数据不作为本 Skill 的实际客户、修复或获客成果；真实执行记录独立呈现。指南沿用对应参考，四类任务优先呈现，六个原锚点保持有效。
+ 
+ 现成素材以自托管图片和轻量组件呈现，保留作者、原许可和必要的修改说明；公开源码分发范围与网站使用范围分别核对。设备样机使用原作者提供的成品样式；交互组件按既有 Astro 技术适配，不因选材引入额外框架。安装终端显示真实、完整、可复制的命令，动画仅为演示，不显示未经执行的安装成功记录。
+ 
+@@ -50,7 +50,7 @@ Skill 帮用户保留其项目背景和重要选择的能力，以“后续修
+ 
+ 首页采用自然、具体的用户语言，保留成果目标、任务困难、具体帮助、交付目标和开始使用的叙事。原生单选控件切换四类任务，鼠标、键盘及关闭 JavaScript 时均可操作；界面参考与目标明确标为示意，不冒充原作者已使用本 Skill 的结果、本 Skill 的交付截图、客户证言或对照数据。报价成果和收藏导出记录独立保留，不承担首页代表案例。
+ 
+-动效用于首屏入场、对比操作、任务切换和安装命令演示，内容默认可见。对比支持触控、键盘与读屏，关闭脚本时展示完整参考图。持续动画提供暂停方式并保留偏好；遵循系统减少动态效果设置，触屏不依赖悬停。图片预留宽高，首屏素材优先加载，其他按需加载，不引入第三方 3D 运行时。
++动效用于首屏入场、任务切换和安装命令演示，内容默认可见。四类任务通过原生单选控件支持触控、键盘与读屏，关系图和详情均预渲染为HTML。持续动画提供暂停方式并保留偏好；遵循系统减少动态效果设置，触屏不依赖悬停。图片预留宽高，首屏关系图使用HTML与CSS，任务详情图片按需加载，不引入第三方 3D 运行时。
+ 
+ 上手页用任务参数和锚点延续首页场景，需求和验收内容预渲染为 HTML。启用脚本时聚焦所选任务，安装往返、刷新、历史导航与语言切换继续保留；关闭 JavaScript 时完整呈现各任务需求，用普通锚点定位，避免把所选任务替换成默认任务。
+ 
+diff --git a/docs/testing.md b/docs/testing.md
+index 73dd40c..baddc8a 100644
+--- a/docs/testing.md
++++ b/docs/testing.md
+@@ -24,7 +24,7 @@ npm run test:e2e
+ | sitemap 不完整 | 对照所有内容页面，确认网址存在且不含 404 |
+ | 脚本增加阻断阅读 | 在关闭 JavaScript 的浏览器上下文阅读示例并导航 |
+ | 目标入口与复制失效 | 首页定位到真实任务和安装、案例同主题语言切换、起始项目真实下载、两轮需求、旧场景锚点、实际剪贴板与拒绝权限后的手动复制 |
+-| 对比与安装展示不可操作 | 触控/鼠标及键盘调节对比，确认画面裁切实际变化；终端复制完整命令，减少动态效果时稳定呈现；滚动到按需加载的设备图后核对图片完成加载 |
++| 任务关系与安装展示不可操作 | 触控/鼠标及键盘选择四类任务，核对首屏目标、专业方法和交付目标、安装入口与语言切换的任务连续性；无脚本时关系图与详情仍同步切换；终端复制完整命令，减少动态效果时稳定呈现；按需加载的设备图实际完成加载 |
+ | 可用示例计算或下载错误 | 独立预期金额核对、分级舍入、负数/空值/超范围、零值/大数、CSV 内容与 BOM |
+ | 维护内容混入用户网站 | 产物中检查本仓库维护 docs 和工作流链接，保留普通 GitHub / 许可入口 |
+ | 手机横向溢出 | 以手机视口检查每类页面的文档宽度 |
+diff --git a/website/README.md b/website/README.md
+index 6d21d6f..6f361e4 100644
+--- a/website/README.md
++++ b/website/README.md
+@@ -36,15 +36,16 @@ npm run test:e2e
+ - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
+ - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
+ - `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
+-- `src/components/ImageCompare.astro`：首屏对比交互；支持触控和键盘，关闭脚本时并排显示两张参考图。对比素材与真实执行证据分别注明来源。
++- `src/components/WorkflowDiagram.astro`：首屏工作方式示意；与四类任务同步，说明现有助手、Skill专业方法与交付目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
++- `src/components/ImageCompare.astro`：可复用的设计参考对比组件；素材与真实执行证据分别注明来源。
+ - `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
+ - `src/components/Terminal.astro`：安装终端展示；完整命令预渲染并可复制，输入动效不冒充真实安装结果，遵循减少动态效果与暂停偏好。
+-- `src/components/PageIntro.astro`：内页共用的品牌页头，按内容使用安装命令、界面参考或实际截图；颜色、字号、间距和圆角以公共样式为准。
++- `src/components/PageIntro.astro`：内页共用的品牌页头，以开放式文字标题承接正文，指南和案例按用途使用界面参考或实际截图；颜色、字号、间距和圆角以公共样式为准。
+ - `src/components/TaskVisual.astro`：首页与指南共用的四类任务界面参考，保留可访问名称、来源及演示数据说明。
+ - `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
+ - `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
+ - `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
+-- `src/components/WebsiteMotion.astro`：首页入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
++- `src/components/WebsiteMotion.astro`：首页标题、关系图入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
+ - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
+ - `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。
+ 
+diff --git a/website/public/social-card.png b/website/public/social-card.png
+index cfac1c3..47f3346 100644
+Binary files a/website/public/social-card.png and b/website/public/social-card.png differ
+diff --git a/website/public/social-card.svg b/website/public/social-card.svg
+index e5bad59..6dfbace 100644
+--- a/website/public/social-card.svg
++++ b/website/public/social-card.svg
+@@ -1,16 +1,16 @@
+ <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+-  <rect width="1200" height="630" fill="#2457f5"/>
+-  <rect x="70" y="60" width="48" height="48" rx="13" fill="#fffefa"/>
+-  <path d="m87 75-7 9 7 9m15-18 7 9-7 9m-5-17-5 16" fill="none" stroke="#2457f5" stroke-width="2.5" stroke-linecap="round"/>
+-  <g font-family="DejaVu Sans, sans-serif" fill="#fffefa">
++  <rect width="1200" height="630" fill="#f4f0e7"/>
++  <rect x="70" y="60" width="48" height="48" rx="13" fill="#262623"/>
++  <path d="m87 75-7 9 7 9m15-18 7 9-7 9m-5-17-5 16" fill="none" stroke="#fffdf8" stroke-width="2.5" stroke-linecap="round"/>
++  <g font-family="DejaVu Sans, sans-serif" fill="#262623">
+     <text x="135" y="93" font-size="25" font-weight="bold">Solo Vibe Coding</text>
+-    <text x="70" y="235" font-size="78" font-weight="bold" letter-spacing="-2">Get it built.</text>
+-    <text x="70" y="330" font-size="72" font-weight="bold" letter-spacing="-2">Make it worth sharing.</text>
+-    <text x="75" y="410" font-size="25" fill="#e2e9ff">Fix the loop. Design it well. Get it live. Reach real users.</text>
+-    <text x="75" y="557" font-size="21" fill="#e2e9ff">jmaxzh.github.io/solo-vibe-coding</text>
++    <text x="70" y="235" font-size="78" font-weight="bold" letter-spacing="-2">Build it sooner.</text>
++    <text fill="#b53d2b" x="70" y="330" font-size="72" font-weight="bold" letter-spacing="-2">Make it worth sharing.</text>
++    <text x="75" y="410" font-size="25" fill="#67645d">Fix the loop. Design it well. Get it live. Reach real users.</text>
++    <text x="75" y="557" font-size="21" fill="#67645d">jmaxzh.github.io/solo-vibe-coding</text>
+   </g>
+-  <rect x="940" y="65" width="190" height="43" rx="21.5" fill="#d5f36b"/>
++  <rect x="940" y="65" width="190" height="43" rx="2" fill="#edcb59"/>
+   <text x="1035" y="93" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#17212e">Open source / MIT</text>
+-  <circle cx="1050" cy="524" r="44" fill="#ff885f"/>
+-  <path d="m1034 540 31-31m-26 0h26v26" stroke="#202320" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
++  <circle cx="1050" cy="524" r="44" fill="#b53d2b"/>
++  <path d="m1034 540 31-31m-26 0h26v26" stroke="#fffdf8" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>
+diff --git a/website/src/components/Guides.astro b/website/src/components/Guides.astro
+index 95e6372..29542be 100644
+--- a/website/src/components/Guides.astro
++++ b/website/src/components/Guides.astro
+@@ -21,7 +21,7 @@ const scenarios = [...SCENARIOS[locale]].sort((a, b) => order.indexOf(a.id) - or
+   </div></div>
+ </div>
+ <style>
+-  .guide-scene { max-width: 510px; margin: 24px auto; background: #e8edff; border-radius: 16px; padding: 16px 24px; }
++  .guide-scene { max-width: 510px; margin: 24px auto; background: var(--subtle); border-radius: var(--radius-card); padding: 16px 24px; }
+   .guide-scene > p { font-size: .72rem; color: #4a5b77; margin-top: 10px; text-align: center; }
+   @media (max-width: 480px) { .guide-scene { padding: 10px 12px 16px; } }
+ </style>
+diff --git a/website/src/components/Hero.astro b/website/src/components/Hero.astro
+index 779eef8..b5a0f3d 100644
+--- a/website/src/components/Hero.astro
++++ b/website/src/components/Hero.astro
+@@ -1,108 +1,74 @@
+ ---
+ import TaskStage from './TaskStage.astro';
+-import ImageCompare from './ImageCompare.astro';
++import WorkflowDiagram from './WorkflowDiagram.astro';
+ import { UI, href, type Locale } from '../data/site';
+ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+ const ui = UI[locale].hero;
+-const zh = locale === 'zh-CN';
+ ---
+ <section class="product-hero" aria-labelledby="hero-title">
+   <div class="hero-canvas">
+     <div class="hero-copy">
+-      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span data-title-line>{ui.accent}</span></h1>
+       <p class="product-definition"><span aria-hidden="true"></span>{ui.context}</p>
++      <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
+       <p class="hero-description">{ui.description}</p>
+       <div class="product-actions">
+-        <a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
++        <a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.primary}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a>
+         <a class="quiet-link" href="#why-skill">{ui.secondary}<span aria-hidden="true">↓</span></a>
+       </div>
+       <p class="product-note">{ui.note}</p>
+     </div>
+-    <figure class="hero-art" data-hero-object>
+-      <div class="art-transform" data-art-transform><ImageCompare locale={locale} /></div>
+-      <figcaption><span>{zh ? '设计参考来自 ' : 'Design reference by '}<a href="https://github.com/pbakaus/impeccable">Impeccable</a>{zh ? '，不是本 Skill 的实测对照。' : ', not a measured result of this skill.'}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" /></svg><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
+-    </figure>
+-    <div class="hero-footnote"><span>Solo Vibe Coding</span><p>{zh ? '在你常用的编程助手里，继续做自己的项目。' : 'Your assistant. Your project. Specialist guidance when it helps.'}</p><a href="#why-skill" aria-label={zh ? '浏览四个使用场景' : 'Explore the four scenarios'}><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v15m-6-6 6 6 6-6" /></svg></a></div>
++    <WorkflowDiagram locale={locale} />
+   </div>
+   <TaskStage locale={locale} />
+ </section>
+ 
+ <style>
+-  .product-hero { padding-block: 24px 72px; }
+-  .hero-canvas { --hero-paper: #f0eadc; --hero-ink: #272925; --hero-muted: #625d50; --hero-line: #cfc5b1; --hero-action: #b64032; --hero-action-hover: #983529; --hero-yellow: #f1ca50; --hero-blue: #344f88; position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px; min-height: 650px; background: var(--hero-paper); color: var(--hero-ink); border: 1px solid var(--hero-line); border-radius: var(--radius-panel); overflow: hidden; padding: 58px 48px 102px; }
+-  .hero-copy { position: relative; z-index: 2; grid-column: 2; grid-row: 1; }
+-  .hero-canvas :is(a, button):focus-visible { outline-color: var(--hero-ink); }
+-  .product-definition { display: flex; align-items: center; gap: 10px; font-size: .75rem; color: var(--hero-muted); margin-top: 23px; }
+-  .product-definition > span { width: 7px; height: 7px; flex: none; background: var(--hero-blue); border-radius: 50%; }
+-  h1 { font-size: clamp(3.2rem, 4.7vw, 4.6rem); line-height: 1.1; font-weight: 750; letter-spacing: -.04em; }
++  .product-hero { padding-bottom: 65px; }
++  .hero-canvas { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 64px; padding-block: 46px 38px; }
++  .hero-copy { min-width: 0; }
++  .product-definition { display: flex; align-items: center; gap: 9px; font-size: .9375rem; font-weight: 600; line-height: 1.5; letter-spacing: .02em; }
++  .product-definition > span { width: 9px; height: 9px; flex: none; background: var(--action); }
++  h1 { font-size: clamp(3.2rem, 5vw, 4.75rem); line-height: 1.17; font-weight: 750; letter-spacing: -.055em; margin-top: 25px; text-wrap: initial; }
+   h1 > span { display: block; }
+-  :global(:lang(zh-CN)) h1 { font-size: clamp(2.7rem, 4.15vw, 4rem); line-height: 1.3; letter-spacing: -.03em; }
+-  .hero-description { color: var(--hero-muted); font-size: .96rem; line-height: 1.9; max-width: 43ch; margin-top: 17px; }
+-  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 29px; }
+-  .product-actions .button-primary { background: var(--hero-action); border-radius: 9px; padding: 15px 20px; gap: 22px; color: #fffefa; }
+-  .product-actions .button-primary:hover { background: var(--hero-action-hover); }
+-  .product-actions svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
+-  .quiet-link { display: inline-flex; align-items: center; gap: 10px; color: var(--hero-ink); text-decoration: none; font-size: .82rem; font-weight: 600; padding-block: 8px; }
+-  .quiet-link:hover { text-decoration: underline; text-underline-offset: 6px; }
+-  .product-note { color: var(--hero-muted); font-size: .7rem; margin-top: 18px; }
+-  .hero-art { position: relative; min-width: 0; margin: 0; align-self: center; display: flex; flex-direction: column; justify-content: center; grid-column: 1; grid-row: 1; }
+-  .art-transform { position: relative; width: 100%; padding: 10px; background: var(--hero-yellow); border-radius: 16px; transform-style: preserve-3d; transition: transform 260ms var(--ease-out); }
+-  .art-transform :global(.image-compare) { background: #fffaf0; color: var(--hero-ink); border: 1px solid var(--hero-ink); border-radius: 8px; box-shadow: none; }
+-  .art-transform :global(.compare-toolbar), .hero-art .art-transform :global(.image-compare[data-enhanced] .compare-hint) { color: var(--hero-muted); }
+-  .art-transform :global(.compare-study) { color: var(--hero-blue); }
+-  .art-transform :global(.compare-dots i:first-child) { background: var(--hero-action); }
+-  .art-transform :global(.compare-dots i) { background: var(--hero-blue); }
+-  .hero-art .art-transform :global(.image-compare[data-enhanced] .compare-seam) { background: #fffaf0; box-shadow: 1px 0 var(--hero-ink), -1px 0 var(--hero-ink); }
+-  .art-transform :global(.compare-seam > span) { border-color: var(--hero-ink); color: var(--hero-ink); }
+-  .hero-art .art-transform :global(.image-compare:has(.compare-input:focus-visible)) { outline-color: var(--hero-ink); outline-offset: 3px; }
+-  .hero-art figcaption { display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .65rem; line-height: 1.7; color: var(--hero-muted); z-index: 2; margin-top: 12px; }
+-  .motion-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; border: 1px solid #817865; color: var(--hero-ink); background: transparent; border-radius: 20px; padding: 7px 10px; font-size: .64rem; white-space: nowrap; }
+-  .motion-toggle svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+-  .motion-toggle:disabled { cursor: default; opacity: .8; }
+-  .hero-footnote { position: absolute; display: flex; align-items: center; gap: 30px; bottom: 0; left: 52px; right: 52px; min-height: 58px; border-top: 1px solid var(--hero-line); font-size: .65rem; color: var(--hero-muted); }
+-  .hero-footnote > span { font-weight: 700; color: var(--hero-ink); }
+-  .hero-footnote > p { margin-left: auto; }
+-  .hero-footnote > a { display: grid; place-items: center; width: 28px; height: 28px; color: var(--hero-ink); }
+-  .hero-footnote svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+-  @media (hover: hover) and (pointer: fine) { .product-actions .button-primary:hover svg { transform: translateX(4px); } }
++  .hero-accent { color: var(--action); }
++  :global(:lang(zh-CN)) h1 { font-size: clamp(3.2rem, 5.3vw, 4.75rem); line-height: 1.2; letter-spacing: -.055em; }
++  .hero-description { color: var(--muted); font-size: 1rem; line-height: 1.9; max-width: 470px; margin-top: 26px; }
++  .product-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 31px; }
++  .product-actions .button { min-height: 54px; padding-inline: 23px; gap: 35px; font-size: .9375rem; border-radius: 0; }
++  .product-actions svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
++  .quiet-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--ink); text-decoration: none; font-size: .875rem; font-weight: 600; }
++  .quiet-link:hover { text-decoration: underline; }
++  .product-note { color: var(--muted); font-size: .75rem; line-height: 1.6; margin-top: 17px; }
+   @media (max-width: 1100px) {
+-    .hero-canvas { padding-inline: 35px; grid-template-columns: 1.05fr 1fr; min-height: 630px; }
+-    h1 { font-size: 3.25rem; }
+-    :global(:lang(zh-CN)) h1 { font-size: 2.8rem; }
+-    .hero-art { margin-right: 0; }
+-    .hero-description { font-size: .9rem; }
+-    .product-actions { gap: 16px; }
+-    .product-actions .button-primary { padding-inline: 16px; font-size: .8rem; gap: 13px; }
+-    .hero-footnote { left: 35px; right: 35px; gap: 20px; }
++    .hero-canvas { gap: 35px; padding-block: 45px 35px; }
++    h1, :global(:lang(zh-CN)) h1 { font-size: 3.5rem; }
++    .hero-description { font-size: .9375rem; }
++    .product-definition { font-size: .8125rem; }
++    .product-actions { gap: 20px; }
++    .product-actions .button { gap: 22px; font-size: .875rem; padding-inline: 18px; }
+   }
+   @media (max-width: 800px) {
+-    .product-hero { padding-top: 18px; padding-bottom: 50px; }
+-    .hero-canvas { grid-template-columns: 1fr; padding: 40px 32px 90px; min-height: 0; gap: 5px; border-radius: 22px; }
+-    .hero-copy { max-width: 590px; grid-column: 1; grid-row: 1; }
+-    h1 { font-size: clamp(3rem, 6.5vw, 4rem); }
+-    :global(:lang(zh-CN)) h1 { font-size: clamp(2.6rem, 6vw, 3.5rem); }
+-    .hero-description { max-width: 52ch; }
+-    .hero-art { margin: 28px 0 0; max-width: 550px; justify-self: center; width: 100%; grid-column: 1; grid-row: 2; }
+-    .hero-footnote { left: 32px; right: 32px; gap: 16px; font-size: .6rem; }
+-    .hero-footnote > p { max-width: 34ch; text-align: right; }
+-    .hero-footnote > a { display: none; }
++    .hero-canvas { grid-template-columns: 1fr; gap: 35px; padding-block: 35px 30px; }
++    h1, :global(:lang(zh-CN)) h1 { font-size: clamp(2.75rem, 7.5vw, 3.875rem); margin-top: 20px; }
++    .hero-description { max-width: 560px; }
++    .product-hero { padding-bottom: 45px; }
+   }
+   @media (max-width: 480px) {
+-    .hero-canvas { padding: 30px 23px 82px; border-radius: 18px; }
+-    .product-definition { font-size: .63rem; gap: 8px; margin-top: 18px; }
+-    h1 { font-size: 2.65rem; }
+-    :global(:lang(zh-CN)) h1 { font-size: clamp(2rem, 7.8vw, 2.6rem); }
+-    .hero-description { font-size: .83rem; margin-top: 20px; line-height: 1.85; }
+-    .product-actions { gap: 16px; margin-top: 22px; }
+-    .product-actions .button-primary { font-size: .75rem; padding: 13px 14px; gap: 12px; }
+-    .quiet-link { font-size: .73rem; }
+-    .product-note { font-size: .63rem; margin-top: 14px; }
+-    .hero-art { margin-top: 12px; }
+-    .hero-art figcaption { font-size: .58rem; gap: 9px; margin-top: 8px; }
+-    .motion-toggle { padding: 6px 8px; font-size: .58rem; }
+-    .hero-footnote { left: 23px; right: 23px; gap: 15px; font-size: .54rem; min-height: 55px; }
+-    .hero-footnote > p { max-width: 24ch; }
++    .hero-canvas { padding-block: 24px 23px; gap: 20px; }
++    .product-definition { font-size: .75rem; gap: 7px; }
++    .product-definition > span { width: 7px; height: 7px; }
++    h1 { font-size: 2.375rem; line-height: 1.2; margin-top: 14px; }
++    :global(:lang(zh-CN)) h1 { font-size: 2.6875rem; line-height: 1.22; }
++    .hero-description { font-size: .875rem; line-height: 1.8; margin-top: 14px; }
++    .product-actions { gap: 22px; margin-top: 18px; }
++    .product-actions .button { min-height: 48px; padding-inline: 16px; font-size: .8125rem; gap: 21px; }
++    .quiet-link { font-size: .75rem; gap: 8px; }
++    .product-note { font-size: .6875rem; margin-top: 11px; }
++  }
++  @media (max-width: 350px) {
++    h1, :global(:lang(zh-CN)) h1 { font-size: 2.3125rem; }
++    .product-actions { gap: 15px; }
++    .product-actions .button { gap: 13px; padding-inline: 13px; }
+   }
+-  @media (prefers-reduced-motion: reduce) { .art-transform { transition: none; } }
+ </style>
+diff --git a/website/src/components/Home.astro b/website/src/components/Home.astro
+index 4d9f790..955a54a 100644
+--- a/website/src/components/Home.astro
++++ b/website/src/components/Home.astro
+@@ -23,7 +23,7 @@ const copy = OUTCOME_UI[locale];
+   </section>
+ 
+   <section class="own-task" id="install" aria-labelledby="start-title">
+-    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
++    <div><h2 id="start-title">{ui.home.installTitle}</h2><p>{ui.home.installText}</p><a class="button button-primary" data-start data-home-start href={href(locale, 'getting-started')}>{ui.home.installLink}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></a></div>
+     <Terminal locale={locale} />
+   </section>
+ 
+@@ -40,14 +40,10 @@ const copy = OUTCOME_UI[locale];
+   .mechanism-introduction p { color: var(--muted); font-size: .94rem; line-height: 1.95; max-width: 48ch; }
+   .mechanism-introduction a { margin-top: 22px; font-size: .78rem; }
+   .mechanism-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 43px; }
+-  .mechanism-list > div { padding: 30px; border-radius: 16px; background: #e7edff; }
+-  .mechanism-list > div:nth-child(2) { background: #ffebe3; }
+-  .mechanism-list > div:nth-child(3) { background: #eaf0d5; }
+-  .mechanism-list svg { width: 34px; height: 34px; stroke: #304c93; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
+-  .mechanism-list > div:nth-child(2) svg { stroke: #a0472d; }
+-  .mechanism-list > div:nth-child(3) svg { stroke: #57732b; }
++  .mechanism-list > div { padding: 26px 0; border-top: 1px solid var(--line); }
++  .mechanism-list svg { width: 34px; height: 34px; stroke: var(--blue); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 25px; }
+   .mechanism-list h3 { font-size: 1.14rem; letter-spacing: -.02em; }
+-  .mechanism-list p { color: #4e5a63; font-size: .85rem; line-height: 1.95; margin-top: 12px; }
++  .mechanism-list p { color: var(--muted); font-size: .85rem; line-height: 1.95; margin-top: 12px; }
+   .real-work { padding-block: 57px 66px; border-top: 1px solid var(--line); }
+   .evidence-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 80px; }
+   .evidence-heading h2 { font-size: 2rem; letter-spacing: -.03em; max-width: 24ch; }
+@@ -56,14 +52,14 @@ const copy = OUTCOME_UI[locale];
+   .discussion-sources a { display: grid; grid-template-columns: 1fr auto; gap: 5px 20px; text-decoration: none; padding-block: 21px; border-top: 1px solid var(--line); }
+   .discussion-sources a > span { font-size: .9rem; font-weight: 650; }
+   .discussion-sources a > small { color: var(--muted); font-size: .7rem; grid-column: 1; line-height: 1.8; }
+-  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: #2457f5; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
+-  .discussion-sources a:hover > span { color: #1745d0; }
+-  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: #d5f36b; color: #17212e; padding: 42px 48px; border-radius: 22px; margin-block: 5px 65px; overflow: hidden; }
++  .discussion-sources a > svg { width: 17px; height: 17px; grid-column: 2; grid-row: 1 / 3; align-self: center; stroke: var(--blue); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 160ms var(--ease-out); }
++  .discussion-sources a:hover > span { color: var(--action); }
++  .own-task { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 42px; background: var(--subtle); color: var(--ink); padding: 42px 48px; border-radius: var(--radius-panel); margin-block: 5px 65px; overflow: hidden; }
+   .own-task > div { position: relative; z-index: 1; }
+   .own-task h2 { font-size: clamp(1.9rem, 2.9vw, 2.6rem); letter-spacing: -.025em; max-width: 22ch; }
+-  .own-task p { color: #455432; font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
+-  .own-task .button { margin-top: 25px; background: #17212e; color: #fffefa; }
+-  .own-task .button:hover { background: #2a425d; }
++  .own-task p { color: var(--muted); font-size: .9rem; line-height: 1.9; margin-top: 19px; max-width: 58ch; }
++  .own-task .button { margin-top: 25px; background: var(--action); color: var(--surface); }
++  .own-task .button:hover { background: var(--action-hover); }
+   .own-task svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+   .faq-section { padding-bottom: 65px; }
+   .more-tasks { padding-block: 38px 65px; border-top: 1px solid var(--line); }
+@@ -101,7 +97,7 @@ const copy = OUTCOME_UI[locale];
+     .mechanism-list p { font-size: .8rem; }
+     .evidence-heading h2 { font-size: 1.7rem; }
+     .discussion-sources { grid-template-columns: 1fr; }
+-    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: 18px; }
++    .own-task { padding: 31px 25px; grid-template-columns: 1fr; border-radius: var(--radius-panel); }
+     .own-task p { font-size: .83rem; }
+   }
+ </style>
+diff --git a/website/src/components/PageIntro.astro b/website/src/components/PageIntro.astro
+index 7554962..0f25eab 100644
+--- a/website/src/components/PageIntro.astro
++++ b/website/src/components/PageIntro.astro
+@@ -1,41 +1,38 @@
+ ---
+ import DeviceMockup from './DeviceMockup.astro';
+-import Terminal from './Terminal.astro';
+ import { PROJECT, type Locale } from '../data/site';
+ interface Props { locale: Locale; title: string; titleLines?: string[]; description: string; kind?: 'start' | 'guides' | 'quote' | 'case' | 'updates' | 'article' | 'missing'; }
+ const { locale, title, titleLines, description, kind = 'guides' } = Astro.props;
+ const zh = locale === 'zh-CN';
+-const illustrated = ['start', 'guides', 'case'].includes(kind);
++const illustrated = ['guides', 'case'].includes(kind);
+ const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按任务开始' : 'FIND YOUR TASK', quote: zh ? '可操作示例' : 'LIVE EXAMPLE', case: zh ? '历史执行记录' : 'EXECUTION RECORD', updates: zh ? '最新更新' : 'UPDATES', article: zh ? '使用与更新' : 'NOTES', missing: zh ? '返回首页' : 'BACK TO THE START' };
+ ---
+ <header class:list={['page-intro', 'brand-intro', { illustrated }]} data-page-intro={kind}>
+   <div class="intro-copy"><p class="intro-kicker"><span>SOLO VIBE CODING</span><span>{labels[kind]}</span></p><h1>{titleLines ? titleLines.map((line) => <span>{line}</span>) : title}</h1><p>{description}</p><slot /></div>
+   {illustrated && <div class="intro-reference">
+-    {kind === 'start' && <Terminal locale={locale} compact />}
+     {kind === 'guides' && <figure><img class="call-image" src={PROJECT.base + 'media/video-call.webp'} width="1000" height="687" alt={zh ? 'Jitsi Meet 的成品界面参考，展示电脑与手机上的视频通话。不是本 Skill 的实测成果。' : 'Jitsi Meet interface reference showing video calls across desktop and phone, not a measured result of this skill.'} decoding="async" /><figcaption>{zh ? '界面参考：' : 'Interface reference: '}<a href="https://github.com/jitsi/jitsi-meet">Jitsi Meet</a></figcaption></figure>}
+     {kind === 'case' && <figure><DeviceMockup src={PROJECT.base + 'case-study/bookmarks-round-2.png'} alt={zh ? '历史执行记录中收藏工具的实际截图，具体条件与限制见正文。' : 'An actual bookmark-tool screenshot from the execution record; conditions and limits are explained below.'} /><figcaption>{zh ? '实际项目截图 · 验证条件见正文' : 'Actual project screenshot · conditions below'}</figcaption></figure>}
+   </div>}
+ </header>
+ 
+ <style>
+-  .brand-intro { display: block; max-width: none; background: var(--blue); color: #fffefa; border-radius: var(--radius-panel); padding: 43px 40px; margin-bottom: 38px; overflow: hidden; }
+-  .brand-intro.illustrated { display: grid; grid-template-columns: 1.15fr 1fr; gap: 43px; align-items: center; }
++  .brand-intro { display: block; max-width: none; color: var(--ink); padding: 38px 0 42px; margin-bottom: 38px; border-bottom: 1px solid var(--ink); }
++  .brand-intro.illustrated { display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center; }
+   .intro-copy { min-width: 0; }
+-  .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: #e4ecff; font-size: 9px; letter-spacing: .08em; margin-bottom: 21px; }
+-  .intro-kicker > span:last-child { color: #daf29b; border-left: 1px solid #7c9cfa; padding-left: 15px; }
+-  .intro-copy h1 { font-size: clamp(2.2rem, 3.2vw, 3.05rem); line-height: 1.25; letter-spacing: -.035em; max-width: 24ch; font-weight: 750; }
++  .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: var(--muted); font-size: .6875rem; letter-spacing: .08em; margin-bottom: 23px; }
++  .intro-kicker > span:last-child { color: var(--action); border-left: 1px solid var(--line); padding-left: 15px; }
++  .intro-copy h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.2; letter-spacing: -.04em; max-width: 24ch; font-weight: 750; }
+   .intro-copy h1 > span { display: block; }
+-  .intro-copy > p:not(.intro-kicker) { max-width: 60ch; color: #eef2ff; font-size: .95rem; line-height: 1.9; margin-top: 20px; }
+-  .intro-copy :global(p) { color: #eef2ff; }
+-  .intro-copy :global(a) { color: #fffefa; }
+-  .intro-copy :global(a:focus-visible), .intro-reference :global(a:focus-visible) { outline-color: #fffefa; }
+-  .intro-copy :global(.text-link) { margin-top: 20px; border-color: #d4e1ff; font-size: .78rem; }
+-  .intro-copy :global(.article-meta) { color: #e9efff; margin-top: 22px; }
++  .intro-copy > p:not(.intro-kicker) { max-width: 65ch; color: var(--muted); font-size: 1rem; line-height: 1.9; margin-top: 23px; }
++  .intro-copy :global(p) { color: var(--muted); }
++  .intro-copy :global(a) { color: var(--action); }
++  .intro-copy :global(.text-link) { margin-top: 20px; border-color: var(--line); font-size: .875rem; }
++  .intro-copy :global(.article-meta) { color: var(--muted); margin-top: 22px; }
+   .intro-reference { min-width: 0; }
+   .intro-reference figure { margin: 0; }
+   .call-image { display: block; width: 100%; height: auto; }
+-  .intro-reference figcaption { margin-top: 16px; font-size: 10px; color: #e4ecff; text-align: center; }
+-  @media (max-width: 1100px) { .brand-intro { padding: 34px; } .brand-intro.illustrated { gap: 30px; } }
+-  @media (max-width: 800px) { .brand-intro, .brand-intro.illustrated { grid-template-columns: 1fr; padding: 32px; gap: 30px; } .intro-copy h1 { max-width: 28ch; } .intro-reference { width: 100%; max-width: 480px; } }
+-  @media (max-width: 480px) { .brand-intro, .brand-intro.illustrated { padding: 27px 23px; border-radius: 18px; margin-bottom: 27px; gap: 24px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .86rem; margin-top: 17px; } .intro-kicker { font-size: 8px; margin-bottom: 18px; } .intro-reference figcaption { font-size: 9px; } }
++  .intro-reference figcaption { margin-top: 16px; font-size: .6875rem; color: var(--muted); text-align: center; }
++  @media (max-width: 1100px) { .brand-intro.illustrated { gap: 35px; } }
++  @media (max-width: 800px) { .brand-intro, .brand-intro.illustrated { grid-template-columns: 1fr; padding-block: 25px 32px; gap: 30px; } .intro-copy h1 { max-width: 28ch; } .intro-reference { width: 100%; max-width: 480px; } }
++  @media (max-width: 480px) { .brand-intro, .brand-intro.illustrated { padding-block: 20px 27px; margin-bottom: 27px; gap: 24px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .9375rem; margin-top: 17px; } .intro-kicker { margin-bottom: 18px; } }
+ </style>
+diff --git a/website/src/components/TaskStage.astro b/website/src/components/TaskStage.astro
+index 3d27b1f..c6a3142 100644
+--- a/website/src/components/TaskStage.astro
++++ b/website/src/components/TaskStage.astro
+@@ -6,7 +6,7 @@ interface Props { locale: Locale; }
+ const { locale } = Astro.props;
+ const ui = OUTCOME_UI[locale];
+ const outcomes = OUTCOMES[locale];
+-const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf', growth: '#e8e9fb' };
++const themes = { development: 'var(--subtle)', design: '#f1e6cf', deployment: 'var(--subtle)', growth: 'var(--subtle)' };
+ ---
+ <section class="task-stage" id="why-skill" aria-labelledby="stage-title" data-task-stage>
+   <div class="stage-heading"><h2 id="stage-title">{ui.stageTitle}</h2><p>{ui.stageDescription}</p></div>
+@@ -14,7 +14,7 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+     <legend class="sr-only">{ui.selector}</legend>
+     {outcomes.map((outcome, index) => <input class="sr-only task-choice" type="radio" name={'task-' + locale} id={'choose-' + outcome.id + '-' + locale} value={outcome.id} checked={index === 0} />)}
+     <div class="task-options">
+-      {outcomes.map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><small class="task-number" aria-hidden="true">0{index + 1}</small><span>{outcome.label}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
++      {outcomes.map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><small class="task-number" aria-hidden="true">0{index + 1}</small><span class="task-label">{outcome.label}</span><span class="task-pain-summary">{outcome.pain}</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" /></svg></label>)}
+     </div>
+     {outcomes.map((outcome) => <article class="task-panel" data-outcome={outcome.id} aria-labelledby={'pain-' + outcome.id} style={'--case-surface:' + themes[outcome.id]}>
+       <div class="task-panel-top">
+@@ -36,19 +36,20 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+ </section>
+ 
+ <style>
+-  .task-stage { margin-top: 73px; }
+-  .stage-heading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 32px; }
+-  .stage-heading h2 { font-size: clamp(2rem, 3.1vw, 2.8rem); letter-spacing: -.03em; max-width: 19ch; }
++  .task-stage { margin-top: 0; padding-top: 26px; border-top: 1px solid var(--ink); }
++  .stage-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 35px; margin-bottom: 24px; }
++  .stage-heading h2 { font-size: 1.4375rem; letter-spacing: -.035em; max-width: 26ch; }
+   .stage-heading > p { color: var(--muted); font-size: .86rem; max-width: 35ch; line-height: 1.85; }
+   fieldset { min-width: 0; border: 0; padding: 0; margin: 0; }
+-  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; margin-bottom: 20px; }
+-  .task-options label { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 20px 24px; gap: 14px; cursor: pointer; background: #ebece5; border-radius: 16px; color: #28343e; min-width: 0; }
+-  .task-number { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; opacity: .8; }
+-  .task-options label > span { font-size: .87rem; font-weight: 650; text-align: center; line-height: 1.6; }
++  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-bottom: 30px; }
++  .task-options label { position: relative; display: flex; flex-direction: column; align-items: start; padding: 16px 22px 13px 0; gap: 10px; cursor: pointer; background: transparent; border-top: 3px solid var(--line); color: var(--ink); min-width: 0; }
++  .task-number { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .05em; }
++  .task-options label > .task-label { font-size: 1rem; font-weight: 600; line-height: 1.5; }
++  .task-pain-summary { color: var(--muted); font-size: .75rem; line-height: 1.8; }
+   .task-options label > svg { position: absolute; top: 17px; right: 17px; width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; opacity: .7; }
+-  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { background: #17212e; color: #fffefa; }
++  .task-stage:has(input[value="development"]:checked) label[data-choice="development"], .task-stage:has(input[value="design"]:checked) label[data-choice="design"], .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"] { border-color: var(--action); color: var(--action); }
+   .task-stage:has(input[value="development"]:focus-visible) label[data-choice="development"], .task-stage:has(input[value="design"]:focus-visible) label[data-choice="design"], .task-stage:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], .task-stage:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #2457f5; outline-offset: 4px; }
+-  .task-panel { display: none; background: #fffef9; border-radius: 22px; overflow: hidden; border: 1px solid #dfe1d9; }
++  .task-panel { display: none; background: var(--surface); border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--line); }
+   .task-stage:has(input[value="development"]:checked) [data-outcome="development"], .task-stage:has(input[value="design"]:checked) [data-outcome="design"], .task-stage:has(input[value="deployment"]:checked) [data-outcome="deployment"], .task-stage:has(input[value="growth"]:checked) [data-outcome="growth"] { display: block; }
+   .task-panel-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+   .task-context { padding: 42px 40px; align-self: center; }
+@@ -57,8 +58,8 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+   .task-context h3 { font-size: clamp(1.7rem, 2.4vw, 2.2rem); line-height: 1.35; letter-spacing: -.025em; max-width: 23ch; margin-top: 22px; font-weight: 700; }
+   .task-situation { color: #56616b; font-size: .86rem; line-height: 1.95; margin-top: 20px; max-width: 50ch; }
+   .case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 22px; margin-top: 27px; }
+-  .task-start { display: inline-flex; align-items: center; gap: 22px; background: #17212e; color: #fffefa; text-decoration: none; border-radius: 8px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+-  .task-start:hover { background: #2d435a; }
++  .task-start { display: inline-flex; align-items: center; gap: 22px; background: var(--action); color: var(--surface); text-decoration: none; border-radius: 2px; min-height: 48px; padding: 13px 17px; font-weight: 600; font-size: .8rem; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
++  .task-start:hover { background: var(--action-hover); }
+   .task-start:active { transform: scale(.97); }
+   .task-start svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+   .discussion-link { display: inline-flex; align-items: center; gap: 7px; color: #53616f; font-size: .72rem; text-decoration: none; border-bottom: 1px solid #acb4b9; padding-block: 4px; }
+@@ -79,13 +80,13 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+   .task-delivery li { display: flex; align-items: center; gap: 8px; }
+   .task-delivery svg { width: 15px; height: 15px; flex: none; stroke: #537b34; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+   @media (hover: hover) and (pointer: fine) {
+-    .task-options label:hover { background: #e0e5ed; }
+-    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { background: #23354b; }
++    .task-options label:hover { border-color: var(--muted); }
++    .task-stage:has(input[value="development"]:checked) label[data-choice="development"]:hover, .task-stage:has(input[value="design"]:checked) label[data-choice="design"]:hover, .task-stage:has(input[value="deployment"]:checked) label[data-choice="deployment"]:hover, .task-stage:has(input[value="growth"]:checked) label[data-choice="growth"]:hover { border-color: var(--action); }
+   }
+   @media (max-width: 1100px) {
+     .task-options { gap: 11px; }
+     .task-options label { padding-inline: 15px; }
+-    .task-options label > span { font-size: .76rem; }
++    .task-options label > .task-label { font-size: .76rem; }
+     .task-context { padding: 33px 29px; }
+     .result-preview { padding-inline: 27px; }
+     .task-help, .task-delivery { padding-inline: 29px; }
+@@ -93,14 +94,14 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+     .task-delivery { gap: 20px; }
+   }
+   @media (max-width: 800px) {
+-    .task-stage { margin-top: 50px; }
++    .task-stage { margin-top: 0; }
+     .stage-heading { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 25px; }
+     .stage-heading h2 { font-size: 2rem; max-width: 25ch; }
+     .stage-heading > p { max-width: 55ch; }
+     .task-options { grid-template-columns: 1fr 1fr; gap: 11px; }
+-    .task-options label { flex-direction: row; justify-content: start; padding: 17px 14px; gap: 7px; min-height: 78px; border-radius: 12px; }
+-    .task-number { min-width: 24px; font-size: 10px; text-align: center; }
+-    .task-options label > span { text-align: left; font-size: .8rem; }
++    .task-options label { justify-content: start; padding: 14px 0; gap: 7px; min-height: 78px; }
++    .task-number { min-width: 24px; font-size: 11px; }
++    .task-options label > .task-label { text-align: left; font-size: .8rem; }
+     .task-options label > svg { display: none; }
+     .task-panel-top { grid-template-columns: 1fr; }
+     .task-context { padding: 31px 28px; }
+@@ -113,12 +114,13 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+     .task-delivery ul { gap: 12px 20px; font-size: .75rem; }
+   }
+   @media (max-width: 480px) {
+-    .task-stage { margin-top: 40px; }
+-    .stage-heading h2 { font-size: 1.7rem; }
++    .task-stage { margin-top: 0; padding-top: 17px; }
++    .stage-heading h2 { font-size: 1.125rem; }
+     .stage-heading > p { font-size: .8rem; }
+     .task-options { gap: 9px; margin-bottom: 15px; }
+-    .task-options label { padding: 15px 12px; gap: 4px; min-height: 72px; }
+-    .task-options label > span { font-size: .69rem; line-height: 1.65; }
++    .task-options label { padding: 10px 0; gap: 5px; min-height: 66px; }
++    .task-options label > .task-label { font-size: .75rem; line-height: 1.65; }
++    .task-pain-summary { display: none; }
+     .task-panel { border-radius: 16px; }
+     .task-context { padding: 27px 22px; }
+     .task-context h3 { font-size: 1.55rem; margin-top: 19px; }
+@@ -133,3 +135,35 @@ const themes = { development: '#e7edff', design: '#ffebe3', deployment: '#edf4cf
+     .task-help, .task-delivery { padding-inline: 22px; }
+   }
+ </style>
++
++<script>
++  const stage = document.querySelector<HTMLElement>('[data-task-stage]');
++  const choices = stage?.querySelectorAll<HTMLInputElement>('.task-choice');
++  const startLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-home-start]')];
++  const synchronizeTask = (task: string, persist = true) => {
++    const choice = [...(choices ?? [])].find((input) => input.value === task);
++    if (!choice) return;
++    choice.checked = true;
++    for (const link of startLinks) {
++      const target = new URL(link.href);
++      target.searchParams.set('task', task);
++      target.hash = 'task-' + task;
++      link.href = target.href;
++    }
++    if (!persist) return;
++    const current = new URL(window.location.href);
++    current.searchParams.set('task', task);
++    window.history.replaceState(window.history.state, '', current);
++    const language = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
++    if (language) {
++      const alternate = new URL(language.href);
++      alternate.searchParams.set('task', task);
++      language.href = alternate.href;
++    }
++  };
++  for (const choice of choices ?? []) choice.addEventListener('change', () => {
++    if (choice.checked) synchronizeTask(choice.value);
++  });
++  const requested = new URLSearchParams(window.location.search).get('task');
++  synchronizeTask(requested ?? 'development', Boolean(requested));
++</script>
+diff --git a/website/src/components/TaskVisual.astro b/website/src/components/TaskVisual.astro
+index 9cab81f..4588bae 100644
+--- a/website/src/components/TaskVisual.astro
++++ b/website/src/components/TaskVisual.astro
+@@ -22,18 +22,18 @@ const reference = references[kind];
+ 
+ <style>
+   .task-visual { width: 100%; min-width: 0; }
+-  .stock-stage { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1.25; padding: 39px 12px 18px; border-radius: 15px; background: #111b2d; overflow: hidden; box-shadow: 0 18px 36px #17212e15; }
+-  .stock-overline { position: absolute; top: 18px; left: 20px; font-size: 9px; letter-spacing: .1em; color: #bdcce8; }
++  .stock-stage { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1.25; padding: 39px 12px 18px; border-radius: var(--radius-card); background: var(--panel); overflow: hidden;  }
++  .stock-overline { position: absolute; top: 18px; left: 20px; font-size: 11px; letter-spacing: .1em; color: #bdcce8; }
+   .call-reference { display: block; width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+-  .device-display { width: 100%; transform: rotate(-4deg); }
+-  .phone-display { max-width: 40%; transform: rotate(7deg); filter: drop-shadow(18px 16px 15px #07112655); }
+-  .stock-scene-design .stock-stage { background: #244ad4; aspect-ratio: 1.08; }
+-  .stock-scene-design .stock-overline { color: #f0f4ff; }
+-  .stock-scene-deployment .stock-stage { background: #e2e8d0; }
++  .device-display { width: 100%;  }
++  .phone-display { max-width: 40%;  }
++  .stock-scene-design .stock-stage { background: var(--subtle); aspect-ratio: 1.08; }
++  .stock-scene-design .stock-overline { color: var(--muted); }
++  .stock-scene-deployment .stock-stage { background: var(--subtle); }
+   .stock-scene-deployment .stock-overline { color: #4b5a43; }
+-  .stock-scene-growth .stock-stage { background: #0c2236; }
+-  .stock-source { display: flex; align-items: start; justify-content: space-between; gap: 10px; color: #4d5b6b; font-size: 10px; line-height: 1.8; margin-top: 13px; }
++  .stock-scene-growth .stock-stage { background: var(--panel); }
++  .stock-source { display: flex; align-items: start; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 11px; line-height: 1.8; margin-top: 13px; }
+   .stock-source > span { max-width: 72%; }
+   .stock-source > a { white-space: nowrap; }
+-  @media (max-width: 480px) { .stock-stage { border-radius: 12px; padding: 31px 8px 15px; } .stock-scene-design .stock-stage { aspect-ratio: .95; } .stock-overline { font-size: 8px; top: 13px; left: 15px; } .stock-source { font-size: 10px; gap: 7px; } }
++  @media (max-width: 480px) { .stock-stage { border-radius: var(--radius-card); padding: 31px 8px 15px; } .stock-scene-design .stock-stage { aspect-ratio: .95; } .stock-overline { font-size: 11px; top: 13px; left: 15px; } .stock-source { font-size: 11px; gap: 7px; } }
+ </style>
+diff --git a/website/src/components/Terminal.astro b/website/src/components/Terminal.astro
+index 68ba3b6..20f7896 100644
+--- a/website/src/components/Terminal.astro
++++ b/website/src/components/Terminal.astro
+@@ -15,31 +15,31 @@ const command = PROJECT.install + ' --agent codex --yes';
+ </div>
+ 
+ <style>
+-  .install-terminal { background: #101b2b; color: #edf2ff; border: 1px solid #3c4e69; border-radius: 15px; box-shadow: 0 17px 42px #15233b1a; overflow: hidden; text-align: left; margin: 0; }
+-  .install-terminal .code-toolbar { padding: 14px 17px; background: #172438; color: #c7d3e7; border-bottom: 1px solid #35455d; justify-content: start; gap: 14px; font-size: 10px; }
++  .install-terminal { background: var(--panel); color: var(--surface); border: 1px solid #55564e; border-radius: var(--radius-card); overflow: hidden; text-align: left; margin: 0; }
++  .install-terminal .code-toolbar { padding: 14px 17px; background: #30322c; color: #d5cfc2; border-bottom: 1px solid #55564e; justify-content: start; gap: 14px; font-size: 11px; }
+   .terminal-dots { display: flex; gap: 5px; flex: none; }
+   .terminal-dots i { height: 7px; width: 7px; border-radius: 50%; background: #99b774; }
+   .terminal-dots i:first-child { background: #ff987a; }
+   .terminal-dots i:nth-child(2) { background: #dfc87b; }
+-  .install-terminal .copy-button { margin-left: auto; color: #e7eefc; font-size: 10px; }
+-  .install-terminal .copy-button:hover { color: #fff; background: #2d405b; }
++  .install-terminal .copy-button { margin-left: auto; color: #fffdf8; font-size: 11px; }
++  .install-terminal .copy-button:hover { color: #fff; background: #484b43; }
+   .terminal-body { padding: 25px 24px 27px; }
+-  .terminal-comment { color: #aabbd4; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
++  .terminal-comment { color: #c8c2b5; font-family: var(--mono); font-size: 11px; line-height: 1.8; }
+   .terminal-command { display: grid; grid-template-columns: 13px minmax(0,1fr); gap: 8px; position: relative; margin-top: 20px; }
+-  .terminal-prompt { color: #d5f36b; font-family: var(--mono); font-size: 12px; line-height: 1.95; }
+-  .install-terminal pre { margin: 0; padding: 0; font-size: 12px; line-height: 1.95; background: none; overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; color: #e6edff; }
++  .terminal-prompt { color: var(--yellow); font-family: var(--mono); font-size: 12px; line-height: 1.95; }
++  .install-terminal pre { margin: 0; padding: 0; font-size: 12px; line-height: 1.95; background: none; overflow: visible; white-space: pre-wrap; overflow-wrap: anywhere; color: #fffdf8; }
+   .install-terminal code { font: inherit; color: inherit; }
+-  .terminal-typing { display: none; grid-column: 2; grid-row: 1; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono); font-size: 12px; line-height: 1.95; color: #e6edff; }
++  .terminal-typing { display: none; grid-column: 2; grid-row: 1; white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--mono); font-size: 12px; line-height: 1.95; color: #fffdf8; }
+   [data-typing] .terminal-typing { display: block; }
+   [data-typing] pre { grid-column: 2; grid-row: 1; color: transparent; }
+-  .terminal-next { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: #c6d6ee; line-height: 1.9; margin-top: 24px; }
+-  .terminal-next > span { color: #d5f36b; flex: none; }
+-  .terminal-caption { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #35455d; padding: 12px 17px; color: #b5c6df; font-size: 9px; }
++  .terminal-next { display: flex; align-items: baseline; gap: 9px; font-size: 11px; color: #d5cfc2; line-height: 1.9; margin-top: 24px; }
++  .terminal-next > span { color: var(--yellow); flex: none; }
++  .terminal-caption { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid #55564e; padding: 12px 17px; color: #d5cfc2; font-size: 11px; }
+   .terminal-caption > span:first-child { display: flex; align-items: center; gap: 7px; }
+   .terminal-status { height: 5px; width: 5px; border-radius: 50%; background: #aace70; }
+   .compact .terminal-body { padding: 20px; }
+   .compact .terminal-next { margin-top: 20px; }
+-  @media (max-width: 480px) { .terminal-body { padding: 23px 18px; } .install-terminal pre, .terminal-typing, .terminal-prompt { font-size: 10px; } .terminal-next, .terminal-comment { font-size: 10px; } .terminal-caption { font-size: 8px; padding-inline: 13px; } }
++  @media (max-width: 480px) { .terminal-body { padding: 23px 18px; } .install-terminal pre, .terminal-typing, .terminal-prompt { font-size: 11px; } .terminal-next, .terminal-comment { font-size: 11px; } .terminal-caption { font-size: 11px; padding-inline: 13px; } }
+ </style>
+ 
+ <script>
+diff --git a/website/src/data/outcomes.ts b/website/src/data/outcomes.ts
+index 27d9f39..4c3e63a 100644
+--- a/website/src/data/outcomes.ts
++++ b/website/src/data/outcomes.ts
+@@ -158,6 +158,22 @@ export const OUTCOMES: Record<Locale, Outcome[]> = {
+   ],
+ };
+ 
++type WorkflowPreview = { request: string; methods: [string, string, string]; output: string; };
++export const WORKFLOW_PREVIEWS: Record<Locale, Record<Outcome['id'], WorkflowPreview>> = {
++  en: {
++    development: { request: 'Fix the guest’s black screen. Keep background blur.', methods: ['Reproduce the problem', 'Build on existing code', 'Check working features'], output: 'A repeatable repair, with existing features still working.' },
++    design: { request: 'Give the working app a consistent design across screens.', methods: ['Set a visual direction', 'Apply it to real screens', 'Check mobile use'], output: 'A coherent direction and usable core screens.' },
++    deployment: { request: 'Connect sign-in and data so other people can use it.', methods: ['Choose a fitting solution', 'Connect the user journey', 'Verify the live release'], output: 'A checked live journey with sign-in and saved data.' },
++    growth: { request: 'Help people with the need understand it and start a trial.', methods: ['Find the obstacle', 'Explain the concrete use', 'Prepare the first launch'], output: 'A clear demo, trial entry and first outreach plan.' },
++  },
++  'zh-CN': {
++    development: { request: '修复访客黑屏，保留背景虚化。', methods: ['先重现问题', '沿用现有实现', '检查原有功能'], output: '能重复验证的修复，原有功能继续正常。' },
++    design: { request: '让已经能用的 App，各个页面设计一致。', methods: ['明确视觉方向', '落实核心页面', '检查手机操作'], output: '统一的视觉方向，以及可以操作的核心页面。' },
++    deployment: { request: '接通登录、数据，让别人能实际使用。', methods: ['选择合适方案', '接通使用流程', '核验线上版本'], output: '能登录、保存，并经过核验的线上使用流程。' },
++    growth: { request: '让有需求的人看懂产品，并开始试用。', methods: ['弄清卡在哪里', '讲清具体用途', '准备首轮推广'], output: '清楚的产品演示、试用入口与首轮推广计划。' },
++  },
++};
++
+ const en = {
+   stageTitle: 'Where is your project getting stuck?',
+   stageDescription: 'Four familiar problems. Pick the one that sounds like yours.',
+diff --git a/website/src/data/site.ts b/website/src/data/site.ts
+index 887b6e8..84f4b89 100644
+--- a/website/src/data/site.ts
++++ b/website/src/data/site.ts
+@@ -35,11 +35,11 @@ const en = {
+   footerLicense: 'The skill is open source under MIT. Your coding assistant and other services have their own terms.',
+   footerSource: 'GitHub', footerTop: 'Back to top',
+   hero: {
+-    context: 'An open-source skill for your coding assistant',
++    context: 'Professional guidance for your assistant · Open-source skill',
+     title: 'Build it sooner.', accent: 'Make it worth sharing.',
+     description: 'Bring design, debugging, release and launch guidance into the coding assistant you already use. Work on your own project, starting with the part that is holding it back.',
+     primary: 'Get the skill', secondary: 'See where it helps',
+-    note: 'Free and open source. Work in your own project.',
++    note: 'Free and open source · MIT licensed · Use it in your own assistant',
+   },
+   home: {
+     installTitle: 'Put it to work on your project.',
+@@ -134,10 +134,10 @@ const zh: typeof en = {
+   footer: '让专业的设计、开发与推广做法，用到你的项目里。',
+   footerLicense: 'Skill 采用 MIT 开源许可。编程助手与其他服务按各自条款提供。', footerSource: 'GitHub', footerTop: '回到顶部',
+   hero: {
+-    context: '给编程助手用的开源 Skill',
++    context: '给编程助手的专业指导包 · 开源 Skill',
+     title: '快点做出来，', accent: '也做得像样。',
+     description: '修 Bug、改界面、上线、推广，把各个领域的专业做法用到你的项目里。你说清想做到什么，编程助手结合现有项目继续做。',
+-    primary: '安装并开始使用', secondary: '看看怎么用', note: '免费开源，装进你常用的编程助手。',
++    primary: '安装并开始使用', secondary: '看看怎么用', note: '免费开源 · MIT 许可 · 装进你常用的编程助手',
+   },
+   home: {
+     installTitle: '从你正遇到的问题开始。',
+diff --git a/website/src/layouts/Layout.astro b/website/src/layouts/Layout.astro
+index 9ebb1cf..f3f5921 100644
+--- a/website/src/layouts/Layout.astro
++++ b/website/src/layouts/Layout.astro
+@@ -30,7 +30,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <meta name="description" content={description} />
+-    <meta name="theme-color" content="#f7f5ef" />
++    <meta name="theme-color" content="#f4f0e7" />
+     <meta name="color-scheme" content="light" />
+     {noindex && <meta name="robots" content="noindex" />}
+     <title>{title}</title>
+@@ -70,7 +70,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
+           <a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a>
+           <a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a>
+-          <a href={href(locale, 'getting-started')} data-page="getting-started" aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
++          <a href={href(locale, 'getting-started')} data-page="getting-started" data-home-start={page === 'home' || undefined} aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
+         </nav>
+         <a class="language-switch" data-language-switch href={href(alternate, route)} lang={alternate} aria-label={ui.switchLanguage}>{ui.language}</a>
+       </div>
+@@ -79,7 +79,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
+     <footer class="site-footer">
+       <div class="container footer-inner">
+         <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense} <a href={PROJECT.base + 'licenses/visual-assets.txt'}>{locale === 'en' ? 'Visual credits' : '视觉素材来源'}</a></p></div>
+-        <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
++        <div class="footer-links"><a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a><a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
+       </div>
+     </footer>
+     <script>
+diff --git a/website/src/styles/global.css b/website/src/styles/global.css
+index bfb31db..0227153 100644
+--- a/website/src/styles/global.css
++++ b/website/src/styles/global.css
+@@ -12,7 +12,7 @@
+ @layer base {
+   @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
+   @font-face { font-family: 'Manrope Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+-  :root { --paper: #f7f5ef; --surface: #fffefa; --ink: #17212e; --muted: #53616a; --accent: #ff885f; --accent-ink: #a33c23; --line: #dce0e4; --panel: #1b2838; --panel-muted: #c2cedd; --green: #e5edcf; --blue: #2457f5; --lime: #d5f36b; --blue-soft: #e8edff; --orange-soft: #ffe9df; --lime-soft: #edf2d8; --radius-panel: 24px; --radius-card: 16px; --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
++  :root { --paper: #f4f0e7; --surface: #fffdf8; --ink: #262623; --muted: #67645d; --action: #b53d2b; --action-hover: #923022; --accent: var(--action); --accent-ink: var(--action); --line: #d5cfc2; --panel: #272925; --panel-muted: #d5cfc2; --green: #ece6da; --blue: #3458ae; --yellow: #edcb59; --lime: #edcb59; --subtle: #ece6da; --orange-soft: #f3e5da; --lime-soft: #ece6da; --radius-panel: 4px; --radius-card: 4px; --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
+   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+   body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+   ::selection { background: #f5bb9f; color: var(--ink); }
+@@ -30,7 +30,7 @@
+ }
+ 
+ @layer layout {
+-  .container { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
++  .container { width: min(1312px, calc(100% - 128px)); margin-inline: auto; }
+   .site-header { border-bottom: 1px solid var(--line); }
+   .header-inner { display: flex; align-items: center; gap: 36px; min-height: 88px; }
+   .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 750; letter-spacing: -.045em; font-size: 1.15rem; white-space: nowrap; }
+@@ -116,7 +116,7 @@
+   .case-study-shell { padding-block: 24px 90px; }
+   .case-study-shell > .page-intro { max-width: none; margin-bottom: 35px; }
+   .case-result-summary { padding: 26px 30px; border-radius: var(--radius-card); background: var(--lime-soft); color: #3f503b; font-size: .95rem; line-height: 1.9; }
+-  .case-record-date { margin-top: 22px; color: #eef2ff; font-size: .78rem; }
++  .case-record-date { margin-top: 22px; color: var(--muted); font-size: .78rem; }
+   .case-round { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.3fr); align-items: start; gap: 60px; margin-top: 65px; padding-top: 45px; border-top: 1px solid var(--line); }
+   .case-round h2 { font-size: 1.7rem; line-height: 1.5; }
+   .case-round-copy > p { color: var(--muted); font-size: .92rem; line-height: 1.95; margin-top: 20px; }
+@@ -137,7 +137,7 @@
+   .case-table-container { margin-top: 30px; overflow-x: auto; }
+   .case-comparison table { width: 100%; border-collapse: collapse; text-align: left; font-size: .85rem; }
+   .case-comparison th, .case-comparison td { padding: 18px 20px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.9; }
+-  .case-comparison thead { background: var(--blue-soft); }
++  .case-comparison thead { background: var(--subtle); }
+   .case-comparison tbody th { width: 28%; font-weight: 600; }
+   .case-comparison td { width: 36%; color: #4d5848; }
+   .case-cost, .case-pilot { color: var(--muted); font-size: .8rem; line-height: 1.95; max-width: 100ch; margin-top: 22px; }
+@@ -200,9 +200,9 @@
+   .example-request > p { color: var(--muted); margin-block: 20px 25px; }
+   .skip-link { position: fixed; top: -100px; left: 24px; padding: 12px 20px; background: var(--ink); color: var(--paper); z-index: 10; border-radius: 6px; }
+   .skip-link:focus { top: 12px; }
+-  .button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 51px; padding: 12px 21px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: .875rem; }
+-  .button-primary { background: var(--accent); color: #172019; }
+-  .button-primary:hover { background: #ff9a7b; }
++  .button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 51px; padding: 12px 21px; border-radius: 2px; font-weight: 650; text-decoration: none; font-size: .875rem; }
++  .button-primary { background: var(--action); color: var(--surface); }
++  .button-primary:hover { background: var(--action-hover); }
+   .button { transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+   .button:active { transform: scale(.97); }
+   .button svg { width: 19px; height: 19px; }
+@@ -243,9 +243,9 @@
+   .page-intro > p:not(.page-context) { color: var(--muted); margin-top: 26px; max-width: 64ch; font-size: 1.025rem; line-height: 1.9; }
+   .page-intro > .text-link { margin-top: 20px; }
+   .document-layout { display: grid; grid-template-columns: 205px minmax(0, 1fr); gap: 32px; align-items: start; }
+-  .on-this-page { display: grid; gap: 12px; position: sticky; top: 30px; background: var(--blue-soft); border-radius: var(--radius-card); padding: 24px 21px; }
+-  .on-this-page a { font-size: .81rem; color: #354c7a; text-decoration: none; line-height: 1.7; }
+-  .on-this-page a:hover { color: #183ca8; text-decoration: underline; }
++  .on-this-page { display: grid; gap: 12px; position: sticky; top: 30px; background: var(--subtle); border-radius: var(--radius-card); padding: 24px 21px; }
++  .on-this-page a { font-size: .81rem; color: var(--muted); text-decoration: none; line-height: 1.7; }
++  .on-this-page a:hover { color: var(--action); text-decoration: underline; }
+   .document-content { min-width: 0; background: var(--surface); padding: 36px; border-radius: var(--radius-card); }
+   .document-content > section + section { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--line); }
+   .document-content h2 { font-size: 1.7rem; letter-spacing: -.025em; margin-bottom: 18px; }
+@@ -258,7 +258,7 @@
+   .check-list { list-style: none; padding: 0 !important; margin-block: 18px; }
+   .check-list li { position: relative; padding-left: 25px; margin-top: 10px; }
+   .check-list li::before { content: '✓'; position: absolute; left: 0; color: #3a643a; }
+-  .document-callout { padding: 26px 30px; background: var(--blue-soft); border-radius: var(--radius-card); }
++  .document-callout { padding: 26px 30px; background: var(--subtle); border-radius: var(--radius-card); }
+   .document-callout h2 { font-size: 1.25rem; }
+   .document-callout p:last-child { margin-bottom: 0; }
+   .guide-label { display: inline-block; font-size: .78rem; font-weight: 650; color: var(--accent-ink); margin-bottom: 14px; }
+@@ -300,7 +300,7 @@
+ 
+ @layer responsive {
+   @media (max-width: 1100px) {
+-    .container { width: calc(100% - 64px); }
++    .container { width: calc(100% - 80px); }
+     .header-inner { gap: 22px; }
+     .main-navigation { gap: 20px; }
+     .hero { gap: 36px; padding-top: 64px; }
+@@ -311,6 +311,7 @@
+     .document-layout { grid-template-columns: 175px minmax(0, 1fr); gap: 40px; }
+   }
+   @media (max-width: 800px) {
++    .container { width: calc(100% - 64px); }
+     .case-study-shell { padding-block: 20px 65px; }
+     .case-round, .case-try { grid-template-columns: 1fr; gap: 28px; margin-top: 45px; padding-top: 30px; }
+     .case-findings, .case-comparison { margin-top: 45px; padding-top: 30px; }
+@@ -394,9 +395,16 @@
+     .scenario-links { grid-template-columns: 1fr; }
+     .home-scenarios { padding-block: 45px 50px; }
+     .start-section { padding: 27px 24px; }
+-    .container { width: calc(100% - 40px); }
++    .container { width: calc(100% - 48px); }
+     .brand { font-size: 1.02rem; gap: 10px; }
+     .brand-mark { width: 32px; height: 32px; }
++    .header-inner { flex-wrap: nowrap; min-height: 64px; padding-block: 0; gap: 12px; }
++    .brand { font-size: .9375rem; gap: 8px; letter-spacing: -.04em; }
++    .brand-mark { width: 29px; height: 29px; }
++    .main-navigation { order: 0; width: auto; margin-left: auto; }
++    .main-navigation a { min-height: 44px; display: flex; align-items: center; font-size: .75rem; }
++    .main-navigation a:not([data-page="getting-started"]) { display: none; }
++    .language-switch { border: 0; padding: 0; min-height: 44px; min-width: 44px; display: grid; place-items: center; font-size: .75rem; }
+     .hero h1 { font-size: 3.65rem; max-width: 10ch; }
+     :lang(zh-CN) .hero h1 { font-size: 3.15rem; }
+     .hero-context { font-size: .74rem; }
+@@ -411,6 +419,11 @@
+     .guide-facts { grid-template-columns: 1fr; gap: 16px; }
+     .document-callout { padding: 22px; }
+   }
++  @media (max-width: 350px) {
++    .header-inner { gap: 5px; }
++    .brand { font-size: .875rem; gap: 6px; }
++    .container { width: calc(100% - 38px); }
++  }
+   @media (prefers-reduced-motion: reduce) {
+     html { scroll-behavior: auto; }
+     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+diff --git a/website/tests/website.spec.ts b/website/tests/website.spec.ts
+index 3ca6f7b..244ec75 100644
+--- a/website/tests/website.spec.ts
++++ b/website/tests/website.spec.ts
+@@ -85,14 +85,13 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     }
+   });
+ 
+-  test(`${locale}: sourced visuals and motion respect pause and system preferences`, async ({ page }) => {
++  test(`${locale}: workflow explanation and motion respect pause and system preferences`, async ({ page }) => {
+     await page.goto(path);
+     const image = page.locator('[data-hero-object]');
+     await expect(image).toBeVisible();
+-    await expect(image.locator('[data-image-compare]')).toHaveAttribute('role', 'group');
+-    await expect(image.locator('[data-image-compare]')).toHaveAttribute('aria-label', locale === 'en' ? /Design reference/ : /设计参考/);
+-    expect(await image.locator('img').evaluateAll((elements) => elements.every((element) => (element as HTMLImageElement).naturalWidth > 0))).toBe(true);
+-    await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'not a measured result' : '不是本 Skill 的实测对照');
++    await expect(image).toHaveAttribute('aria-label', locale === 'en' ? 'How it works' : '工作方式示意');
++    await expect(image.locator('[data-workflow="development"]')).toContainText(locale === 'en' ? 'black screen' : '访客黑屏');
++    await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'your own coding assistant' : '你自己的编程助手');
+     await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
+     await page.locator('[data-motion-toggle]').click();
+     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+@@ -115,24 +114,23 @@ for (const locale of ['en', 'zh-CN'] as const) {
+     await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'requirements');
+   });
+ 
+-  test(`${locale}: comparison responds to pointer and keyboard and the terminal copies the real command`, async ({ page, context, isMobile }) => {
++  test(`${locale}: task choices update the workflow and start links, and the terminal copies the real command`, async ({ page, context }) => {
+     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+     await page.goto(path);
+-    const slider = page.getByRole('slider');
+-    await expect(slider).toBeEnabled();
+-    await slider.scrollIntoViewIfNeeded();
+-    const box = (await slider.boundingBox())!;
+-    if (isMobile) await page.touchscreen.tap(box.x + box.width * .75, box.y + box.height * .5);
+-    else await page.mouse.click(box.x + box.width * .75, box.y + box.height * .5);
+-    expect(Number(await slider.inputValue())).toBeGreaterThan(60);
+-    const before = await page.locator('.compare-before').evaluate((element) => getComputedStyle(element).clipPath);
+-    await slider.focus();
+-    await page.keyboard.press('Home');
+-    await expect(slider).toHaveValue('0');
+-    await page.keyboard.press('End');
+-    await expect(slider).toHaveValue('100');
+-    await expect(slider).toHaveAttribute('aria-valuetext', /100%/);
+-    expect(await page.locator('.compare-before').evaluate((element) => getComputedStyle(element).clipPath)).not.toBe(before);
++    await page.locator('[data-choice="design"]').click();
++    const workflow = page.locator('[data-workflow="design"]');
++    await expect(workflow).toBeVisible();
++    await expect(workflow).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
++    await expect(page.locator('[data-workflow="development"]')).toBeHidden();
++    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
++    await page.locator('[data-language-switch]').click();
++    await expect(page.locator('input[value="design"]')).toBeChecked();
++    await expect(page.locator('[data-workflow="design"]')).toBeVisible();
++    await page.locator('[data-language-switch]').click();
++    await page.locator('input[value="design"]').focus();
++    await page.keyboard.press('ArrowLeft');
++    await expect(page.locator('[data-workflow="development"]')).toBeVisible();
++    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=development#task-development$/);
+     await page.locator('#install').scrollIntoViewIfNeeded();
+     const terminal = page.locator('[data-terminal]');
+     await terminal.locator('[data-copy]').click();
+@@ -282,11 +280,11 @@ test.describe('without JavaScript', () => {
+       await page.goto(base + prefix);
+       await expect(page.locator('h1')).toBeVisible();
+       await expect(page.locator('[data-hero-object]')).toBeVisible();
+-      await expect(page.locator('[data-compare-input]')).toBeHidden();
+-      await expect(page.locator('[data-image-compare] img')).toHaveCount(2);
++      await expect(page.locator('[data-workflow="development"]')).toBeVisible();
+       await expect(page.locator('[data-motion-toggle]')).toBeHidden();
+       await page.locator('[data-choice="deployment"]').click();
+       await expect(page.locator('[data-outcome="deployment"]')).toBeVisible();
++      await expect(page.locator('[data-workflow="deployment"]')).toBeVisible();
+       await expect(page.locator('[data-outcome="growth"]')).toBeHidden();
+       await page.locator('[data-task-start="deployment"]').click();
+       await expect(page.locator('#task-deployment')).toBeVisible();
+diff --git a/website/src/components/WorkflowDiagram.astro b/website/src/components/WorkflowDiagram.astro
+new file mode 100644
+index 0000000..8a7b8fb
+--- /dev/null
++++ b/website/src/components/WorkflowDiagram.astro
+@@ -0,0 +1,101 @@
++---
++import { WORKFLOW_PREVIEWS } from '../data/outcomes';
++import { type Locale } from '../data/site';
++interface Props { locale: Locale; }
++const { locale } = Astro.props;
++const zh = locale === 'zh-CN';
++const copy = zh ? {
++  sequence: '你的目标 → 专业做法 → 可用成果', label: '工作方式示意', goal: '你想做到',
++  assistant: '你正在用的编程助手', project: '结合现有项目，继续做', guidance: '按任务补充专业方法与参考',
++  output: '希望交付', caption: '在你自己的编程助手中完成任务。',
++} : {
++  sequence: 'Your goal → Relevant methods → A usable result', label: 'How it works', goal: 'Your goal',
++  assistant: 'The coding assistant you use', project: 'Continue in your existing project', guidance: 'Task-specific methods and references',
++  output: 'What to ask it to deliver', caption: 'The work happens in your own coding assistant.',
++};
++---
++<figure class="hero-art" data-hero-object aria-label={copy.label}>
++  <div class="workflow-heading"><span>{copy.sequence}</span><span>{copy.label}</span></div>
++  <div class="workflow-scenes" data-art-transform>
++    {Object.entries(WORKFLOW_PREVIEWS[locale]).map(([task, preview]) => <div class="workflow-scene" data-workflow={task}>
++      <div class="workflow-request"><span>{copy.goal}</span><p>{preview.request}</p><span class="request-arrow" aria-hidden="true">↘</span></div>
++      <div class="workflow-assistant">
++        <div class="assistant-heading"><span class="assistant-symbol" aria-hidden="true">&lt;/&gt;</span><span>{copy.assistant}<small>{copy.project}</small></span></div>
++        <div class="workflow-skill"><span class="skill-plus" aria-hidden="true">＋</span><span>Solo Vibe Coding<small>{copy.guidance}</small></span><span class="skill-arrow" aria-hidden="true">↙</span></div>
++        <ol class="workflow-methods">{preview.methods.map((method, index) => <li><span aria-hidden="true">0{index + 1}</span><strong>{method}</strong></li>)}</ol>
++      </div>
++      <div class="workflow-output"><span aria-hidden="true">↳</span><p><small>{copy.output}</small><strong>{preview.output}</strong></p></div>
++    </div>)}
++  </div>
++  <figcaption><span>{copy.caption}</span><button class="motion-toggle" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></figcaption>
++</figure>
++
++<style>
++  .hero-art { position: relative; min-width: 0; width: 100%; margin: 0; padding-left: 12px; }
++  .workflow-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .75rem; color: var(--muted); margin-bottom: 23px; }
++  .workflow-heading > span:last-child { font-size: .6875rem; white-space: nowrap; }
++  .workflow-scene { display: none; }
++  .workflow-scene[data-workflow="development"] { display: block; }
++  :global(.product-hero:has(input.task-choice:not([value="development"]):checked)) .workflow-scene[data-workflow="development"] { display: none; }
++  :global(.product-hero:has(input[value="design"]:checked)) [data-workflow="design"],
++  :global(.product-hero:has(input[value="deployment"]:checked)) [data-workflow="deployment"],
++  :global(.product-hero:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: block; }
++  .workflow-request { position: relative; background: var(--yellow); border: 1px solid #cfb04b; padding: 18px 54px 18px 23px; margin-right: 32px; }
++  .workflow-request > span:first-child { font-size: .75rem; color: #57471d; }
++  .workflow-request p { font-size: 1.0625rem; font-weight: 600; line-height: 1.6; margin-top: 6px; }
++  .request-arrow { position: absolute; right: 20px; top: 28px; font-size: 28px; }
++  .workflow-assistant { margin: 16px 0 0 32px; padding: 21px 25px 0; background: var(--surface); border: 1px solid var(--ink); box-shadow: 7px 7px 0 #e0dacd; }
++  .assistant-heading { display: flex; align-items: center; gap: 12px; font-size: 1rem; font-weight: 600; }
++  .assistant-symbol { border: 1px solid var(--line); width: 38px; height: 38px; flex: none; display: grid; place-items: center; font: 600 15px var(--mono); }
++  .assistant-heading small { display: block; font-size: .75rem; color: var(--muted); font-weight: 400; margin-top: 5px; }
++  .workflow-skill { display: flex; align-items: center; gap: 15px; background: var(--action); color: var(--surface); padding: 16px 22px; margin: 24px -42px 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -.025em; }
++  .skill-plus { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #ffffff80; border-radius: 50%; font-size: 25px; font-weight: 400; }
++  .workflow-skill small { display: block; font-size: .75rem; font-weight: 400; letter-spacing: .02em; margin-top: 6px; }
++  .skill-arrow { margin-left: auto; font-size: 32px; font-weight: 400; }
++  .workflow-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 20px 0; }
++  .workflow-methods li { display: flex; flex-direction: column; gap: 9px; padding-left: 15px; border-left: 1px solid var(--line); }
++  .workflow-methods li:first-child { padding-left: 0; border-left: 0; }
++  .workflow-methods li > span { color: var(--blue); font: .75rem/1.5 var(--mono); }
++  .workflow-methods strong { font-size: .75rem; line-height: 1.6; font-weight: 550; }
++  .workflow-output { display: flex; align-items: center; gap: 14px; margin: 26px 0 0 32px; }
++  .workflow-output > span { color: var(--blue); font-size: 33px; }
++  .workflow-output small { display: block; color: var(--muted); font-size: .6875rem; margin-bottom: 5px; }
++  .workflow-output strong { font-size: .875rem; line-height: 1.7; font-weight: 550; }
++  figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 17px 0 0 32px; color: var(--muted); font-size: .6875rem; line-height: 1.6; }
++  .motion-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 9px; background: transparent; border: 1px solid var(--line); color: var(--ink); font-size: .6875rem; white-space: nowrap; }
++  .motion-toggle:disabled { color: var(--muted); cursor: default; }
++  @media (max-width: 1100px) {
++    .hero-art { padding-left: 0; }
++    .workflow-heading { font-size: .6875rem; }
++    .workflow-request { padding-left: 18px; margin-right: 18px; }
++    .workflow-request p { font-size: .9375rem; }
++    .workflow-assistant { margin-left: 18px; padding-inline: 20px; }
++    .workflow-skill { margin-inline: -30px; padding-inline: 17px; font-size: 1.0625rem; }
++    .workflow-methods li { padding-left: 8px; }
++    .workflow-methods strong { font-size: .6875rem; }
++  }
++  @media (max-width: 800px) { .hero-art { width: min(100%, 500px); margin-inline: auto; } }
++  @media (max-width: 480px) {
++    .workflow-heading { margin-bottom: 12px; }
++    .workflow-request { padding: 10px 37px 10px 14px; margin-right: 17px; }
++    .workflow-request > span:first-child { font-size: .6875rem; }
++    .workflow-request p { font-size: .8125rem; margin-top: 4px; }
++    .request-arrow { right: 11px; top: 18px; font-size: 24px; }
++    .workflow-assistant { margin-top: 10px; margin-left: 17px; padding: 13px 13px 0; box-shadow: 4px 4px 0 #e0dacd; }
++    .assistant-heading { font-size: .8125rem; gap: 9px; }
++    .assistant-symbol { width: 29px; height: 29px; font-size: 12px; }
++    .assistant-heading small { display: none; }
++    .workflow-skill { margin: 12px -22px 0; padding: 11px 13px; font-size: 1.0625rem; gap: 11px; }
++    .skill-plus { width: 28px; height: 28px; font-size: 23px; }
++    .workflow-skill small { font-size: .6875rem; margin-top: 4px; }
++    .skill-arrow { font-size: 26px; }
++    .workflow-methods { padding-block: 12px; }
++    .workflow-methods li { padding-left: 8px; gap: 4px; }
++    .workflow-methods li > span { font-size: .6875rem; }
++    .workflow-output { gap: 10px; margin: 15px 0 0 16px; }
++    .workflow-output > span { font-size: 28px; }
++    .workflow-output small { font-size: .6875rem; margin-bottom: 3px; }
++    .workflow-output strong { font-size: .75rem; }
++    figcaption { margin: 8px 0 0 17px; }
++  }
++</style>
