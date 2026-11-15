@@ -27,3 +27,5 @@
 - 2026-11-15：[玻璃折射首页正式发布与公开核验](website/2026-11-14-prism-nocturne/deployment.md)、[发布前独立审查](website/2026-11-14-prism-nocturne/release-review.md)。
 
 - 2026-11-15：[电影感材质官网规范提炼与差异评估](website/2026-11-15-design-standard/change-evaluation.md)、[独立审查](website/2026-11-15-design-standard/independent-review.md)。
+
+- 2026-11-15：[黑钛熔光首页预览与截图对照](website/2026-11-15-ember-titanium/README.md)、[差异与成本](website/2026-11-15-ember-titanium/change-evaluation.md)、[验证](website/2026-11-15-ember-titanium/verification.md)、[独立审查](website/2026-11-15-ember-titanium/independent-review.md)。

@@ -3,10 +3,10 @@ THIRD-PARTY VISUALS AND COMPONENTS
 The skill’s MIT license does not replace the licenses below.
 References do not imply endorsement by their authors.
 
-Original homepage visual: media/prism/optical-knot.webp
+Original homepage visual: media/ember/titanium-blades.webp
 Created with built-in image generation for Solo Vibe Coding and packaged as WebP.
-The optical-glass sculpture is decorative concept art, not a Skill execution result or a real-time 3D model.
-The particle/refraction canvas, pointer effects and page compositions are original browser code.
+The black titanium and copper sculpture is decorative concept art, not a Skill execution result or a real-time 3D model.
+The particle/light canvas, pointer effects and page compositions are original browser code.
 This redesign adds no third-party template code, imagery or fonts.
 
 Devices.css

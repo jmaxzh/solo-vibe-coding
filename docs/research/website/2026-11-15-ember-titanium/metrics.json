@@ -1,0 +1,17 @@
+{
+  "baseline": {
+    "totalBytes": 973254,
+    "jsBytes": 17256,
+    "maxHTMLBytes": 48663
+  },
+  "candidate": {
+    "totalBytes": 955842,
+    "jsBytes": 17274,
+    "maxHTMLBytes": 48666
+  },
+  "visualBytes": {
+    "before": 127248,
+    "after": 109224
+  },
+  "limits": "Build byte counts do not measure real-network loading, device smoothness, power use or user outcomes."
+}

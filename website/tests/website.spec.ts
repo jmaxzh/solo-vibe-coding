@@ -150,19 +150,26 @@ for (const locale of ['en', 'zh-CN'] as const) {
           const hit = document.elementFromPoint(x, y);
           return hit === link || (hit !== null && link.contains(hit));
         });
-        const probes = [...document.querySelectorAll<HTMLElement>('.product-hero h1 > span, .hero-description, .product-note, .hero-bottom-label')].flatMap(element => {
-          const range = document.createRange(); range.selectNodeContents(element);
-          const color = getComputedStyle(element).color.match(/[0-9.]+/g)!.slice(0, 3).map(Number);
-          return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
+        const probes = [...document.querySelectorAll<HTMLElement>('.product-hero h1 > span, .hero-description, .product-note, .hero-bottom-label, .hero-overline, .product-actions .button-secondary, .hero-scroll, .hero-motion [data-motion-label]')].flatMap(element => {
+          const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+          const nodes: Node[] = [];
+          let node: Node | null;
+          while ((node = walker.nextNode())) if (node.textContent?.trim() && !node.parentElement?.closest('[aria-hidden="true"]')) nodes.push(node);
+          return nodes.flatMap(text => {
+            const range = document.createRange(); range.selectNodeContents(text);
+            const color = getComputedStyle(text.parentElement ?? element).color.match(/[0-9.]+/g)!.slice(0, 3).map(Number);
+            return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, selector: element.className, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
+          });
         });
         return { controlsHit, separated: innerWidth > 1000 || art.top >= copy.bottom, probes };
       });
       expect(measurements.controlsHit, state + ' control covered at ' + width).toBe(true);
       expect(measurements.separated, state + ' mobile artwork overlaps copy at ' + width).toBe(true);
-      const hiding = await page.addStyleTag({ content: '.product-hero h1, .product-hero h1 *, .hero-description, .product-note, .hero-bottom-label { color: transparent !important; text-shadow: none !important; }' });
+      const hiding = await page.addStyleTag({ content: '.product-hero h1, .product-hero h1 *, .hero-description, .product-note, .hero-bottom-label, .hero-overline, .hero-overline *, .product-actions .button-secondary, .product-actions .button-secondary *, .hero-scroll, .hero-scroll *, .hero-motion [data-motion-label] { color: transparent !important; text-shadow: none !important; }' });
       let background: Buffer;
       try {
         await expect(page.locator('h1 > span').first()).toHaveCSS('color', 'rgba(0, 0, 0, 0)');
+        await expect.poll(() => page.locator('.hero-description, .product-note, .hero-bottom-label, .hero-overline, .product-actions .button-secondary, .hero-scroll, .hero-motion [data-motion-label]').evaluateAll(elements => elements.every(element => getComputedStyle(element).color === 'rgba(0, 0, 0, 0)'))).toBe(true);
         background = await page.screenshot({ scale: 'css' });
       } finally {
         await hiding.evaluate(element => { element.parentNode?.removeChild(element); });
@@ -183,14 +190,15 @@ for (const locale of ['en', 'zh-CN'] as const) {
         }
         expect(samples, 'No visible text samples at ' + width).toBeGreaterThan(0);
         const contrast = (luminance(probe.color) + .05) / (brightest + .05);
-        expect(contrast, state + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
+        expect(contrast, state + ' ' + probe.selector + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
       }
     };
-    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 900, 1000, 1001, 1024, 1100, 1440]) {
+    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 900, 1000, 1001, 1024, 1100, 1200, 1201, 1280, 1440, 1920]) {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
+      await page.locator('[data-hero-scene] img').evaluate(async element => { await (element as HTMLImageElement).decode(); });
       await checkReading(width, 'Static');
       await page.emulateMedia({ reducedMotion: 'no-preference' });
       if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
