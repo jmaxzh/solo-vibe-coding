@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const port = Number(process.env.PLAYWRIGHT_PORT ?? 4321);
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -8,7 +10,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: 'list',
   use: {
-    baseURL: 'http://127.0.0.1:4321',
+    baseURL: `http://127.0.0.1:${port}`,
     channel: process.env.PLAYWRIGHT_CHANNEL,
     trace: 'retain-on-failure',
   },
@@ -17,8 +19,8 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['iPhone 13'], defaultBrowserType: 'chromium' } },
   ],
   webServer: {
-    command: 'npm run preview -- --port 4321 --ignore-lock',
-    url: 'http://127.0.0.1:4321/solo-vibe-coding/',
+    command: `npm run preview -- --port ${port} --ignore-lock`,
+    url: `http://127.0.0.1:${port}/solo-vibe-coding/`,
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
   },

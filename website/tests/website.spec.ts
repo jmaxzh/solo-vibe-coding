@@ -92,49 +92,37 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
-  test(`${locale}: optical scene responds to motion controls and stops rendering away from view`, async ({ page }) => {
+  test(`${locale}: the original workbench illustration is static and clearly labelled`, async ({ page }) => {
     await page.goto(path);
-    const canvas = page.locator('[data-hero-canvas]');
-    const signature = () => canvas.evaluate((element) => {
-      const value = (element as HTMLCanvasElement).toDataURL();
-      let hash = 2166136261;
-      for (let i = 0; i < value.length; i += 17) hash = Math.imul(hash ^ value.charCodeAt(i), 16777619);
-      return hash >>> 0;
-    });
-    const settleFrames = () => page.evaluate(async () => {
-      for (let i = 0; i < 6; i++) await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-    });
-    const initial = await signature();
-    await expect.poll(signature).not.toBe(initial);
-    if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
-      const before = (await page.locator('.hero-art').boundingBox())!.x;
-      await page.mouse.move(1200, 350);
-      await expect.poll(async () => (await page.locator('.hero-art').boundingBox())!.x).not.toBe(before);
+    const art = page.locator('[data-workbench-art]');
+    await expect(art).toBeVisible();
+    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'Workflow illustration' : '工作方式示意');
+    await expect(art.locator('canvas, img')).toHaveCount(0);
+    for (const width of [320, 360, 390, 480, 600, 768, 801, 850, 900, 1024, 1100, 1200, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.evaluate(() => document.fonts.ready);
+      await art.scrollIntoViewIfNeeded();
+      const visibleLayers = await art.evaluate(element => {
+        const rect = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
+        const result = rect('.result-sheet');
+        const guide = rect('.guide-sheet');
+        const readable = [...element.querySelectorAll('.guide-row strong, .guide-foot')].every(text => {
+          const r = text.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+          return hit === text || Boolean(hit && text.contains(hit));
+        });
+        return readable && rect('.art-register').top > result.bottom
+          && rect('figcaption').top > Math.max(guide.bottom, result.bottom);
+      });
+      expect(visibleLayers, `Illustration text is covered at ${width}px`).toBe(true);
     }
-    await page.locator('[data-motion-toggle]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
-    const paused = await signature();
-    await settleFrames();
-    expect(await signature()).toBe(paused);
-    await page.locator('[data-motion-toggle]').click();
-    await expect.poll(signature).not.toBe(paused);
-    await page.locator('#why-skill').scrollIntoViewIfNeeded();
-    await expect(page.locator('[data-hero-scene]')).toHaveAttribute('data-scene-state', 'static');
-    const away = await signature();
-    await settleFrames();
-    expect(await signature()).toBe(away);
-    await page.locator('.product-hero').scrollIntoViewIfNeeded();
-    await expect.poll(signature).not.toBe(away);
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(art).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
     await expect(page.locator('[data-motion-toggle]')).toBeDisabled();
-    const reduced = await signature();
-    await settleFrames();
-    expect(await signature()).toBe(reduced);
-    await expect(page.locator('[data-hero-scene] img')).toBeVisible();
-    expect(await page.locator('[data-hero-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   });
 
-  test(locale + ': hero copy stays readable across breakpoints and pointer positions', async ({ page }) => {
+  test(locale + ': hero copy stays readable and actionable across breakpoints', async ({ page }) => {
     test.setTimeout(90_000);
     const luminance = (rgb: number[]) => rgb.map(value => {
       const channel = value / 255;
@@ -161,7 +149,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
             return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, selector: element.className, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
           });
         });
-        return { controlsHit, separated: innerWidth > 1000 || art.top >= copy.bottom, probes };
+        return { controlsHit, separated: innerWidth > 800 || art.top >= copy.bottom, probes };
       });
       expect(measurements.controlsHit, state + ' control covered at ' + width).toBe(true);
       expect(measurements.separated, state + ' mobile artwork overlaps copy at ' + width).toBe(true);
@@ -189,7 +177,8 @@ for (const locale of ['en', 'zh-CN'] as const) {
           }
         }
         expect(samples, 'No visible text samples at ' + width).toBeGreaterThan(0);
-        const contrast = (luminance(probe.color) + .05) / (brightest + .05);
+        const foreground = luminance(probe.color);
+        const contrast = (Math.max(foreground, brightest) + .05) / (Math.min(foreground, brightest) + .05);
         expect(contrast, state + ' ' + probe.selector + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
       }
     };
@@ -198,18 +187,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
-      await page.locator('[data-hero-scene] img').evaluate(async element => { await (element as HTMLImageElement).decode(); });
       await checkReading(width, 'Static');
-      await page.emulateMedia({ reducedMotion: 'no-preference' });
-      if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
-        for (const x of [1, width - 1]) {
-          await page.mouse.move(x, 180);
-          await page.locator('.hero-art').evaluate(async element => {
-            await Promise.all(element.getAnimations().map(animation => animation.finished.catch(() => {})));
-          });
-          await checkReading(width, 'Pointer');
-        }
-      }
     }
   });
 
@@ -218,6 +196,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(path);
       const control = page.locator('[data-motion-toggle]');
+      await control.scrollIntoViewIfNeeded();
       expect(await control.evaluate(element => {
         const rect = element.getBoundingClientRect();
         const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
@@ -457,7 +436,7 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
-      await expect(page.locator('[data-hero-scene] img')).toBeVisible();
+      await expect(page.locator('[data-workbench-art]')).toBeVisible();
       await expect(page.locator('[data-workflow="design"]')).toBeVisible();
       await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();

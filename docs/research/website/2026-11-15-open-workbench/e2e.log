@@ -1,0 +1,79 @@
+
+> solo-vibe-coding-website@0.1.0 test:e2e
+> playwright test --workers=4
+
+
+Running 54 tests using 4 workers
+
+(node:42613) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop] › tests/website.spec.ts:95:3 › en: the original workbench illustration is static and clearly labelled (1.4s)
+  ✓   4 [desktop] › tests/website.spec.ts:13:3 › en: explore a concrete task and follow the evidence and start path (4.3s)
+  ✓   1 [desktop] › tests/website.spec.ts:63:3 › en: homepage preview, primary action and evidence keep their meaning (4.3s)
+  ✓   5 [desktop] › tests/website.spec.ts:177:3 › en: tablet navigation leaves the motion control clickable (3.7s)
+  ✓   7 [desktop] › tests/website.spec.ts:225:3 › en: workflow explanation and motion respect pause and system preferences (2.7s)
+  ✓   8 [desktop] › tests/website.spec.ts:255:3 › en: task choices update the workflow and start links, and the terminal copies the real command (3.0s)
+  ✓   9 [desktop] › tests/website.spec.ts:286:3 › en: case explains evidence, keeps its language and supplies a starting project (1.2s)
+  ✓  10 [desktop] › tests/website.spec.ts:309:3 › en: calculator handles errors, cents, export and large values (1.4s)
+  ✓  11 [desktop] › tests/website.spec.ts:377:3 › en: complete request, clipboard, language pairs and user updates (1.7s)
+  ✓   3 [desktop] › tests/website.spec.ts:107:3 › en: hero copy stays readable and actionable across breakpoints (11.1s)
+  ✓  12 [desktop] › tests/website.spec.ts:403:3 › en: pages remain accessible and fit the viewport (4.5s)
+  ✓  13 [desktop] › tests/website.spec.ts:13:3 › zh-CN: explore a concrete task and follow the evidence and start path (4.1s)
+  ✓  14 [desktop] › tests/website.spec.ts:63:3 › zh-CN: homepage preview, primary action and evidence keep their meaning (3.5s)
+  ✓  15 [desktop] › tests/website.spec.ts:95:3 › zh-CN: the original workbench illustration is static and clearly labelled (664ms)
+  ✓  17 [desktop] › tests/website.spec.ts:177:3 › zh-CN: tablet navigation leaves the motion control clickable (3.4s)
+  ✓  19 [desktop] › tests/website.spec.ts:225:3 › zh-CN: workflow explanation and motion respect pause and system preferences (2.4s)
+  ✓   6 [desktop] › tests/website.spec.ts:196:3 › en: the selected task continues through setup and language switching (16.4s)
+  ✓  21 [desktop] › tests/website.spec.ts:286:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (765ms)
+  ✓  22 [desktop] › tests/website.spec.ts:309:3 › zh-CN: calculator handles errors, cents, export and large values (1.0s)
+  ✓  20 [desktop] › tests/website.spec.ts:255:3 › zh-CN: task choices update the workflow and start links, and the terminal copies the real command (3.0s)
+  ✓  16 [desktop] › tests/website.spec.ts:107:3 › zh-CN: hero copy stays readable and actionable across breakpoints (9.8s)
+  ✓  23 [desktop] › tests/website.spec.ts:377:3 › zh-CN: complete request, clipboard, language pairs and user updates (1.5s)
+  ✓  26 [desktop] › tests/website.spec.ts:455:1 › clipboard denial keeps manual copying available (500ms)
+  ✓  27 [desktop] › tests/website.spec.ts:467:1 › reduced motion and 404 remain usable (1.1s)
+(node:42778) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  24 [desktop] › tests/website.spec.ts:403:3 › zh-CN: pages remain accessible and fit the viewport (5.3s)
+(node:42798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [desktop] › tests/website.spec.ts:196:3 › zh-CN: the selected task continues through setup and language switching (16.7s)
+(node:42812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [desktop] › tests/website.spec.ts:417:3 › without JavaScript › content, goal links and setup work in both languages (8.1s)
+  ✓  28 [mobile] › tests/website.spec.ts:13:3 › en: explore a concrete task and follow the evidence and start path (4.3s)
+(node:42821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  29 [mobile] › tests/website.spec.ts:63:3 › en: homepage preview, primary action and evidence keep their meaning (3.4s)
+  ✓  30 [mobile] › tests/website.spec.ts:95:3 › en: the original workbench illustration is static and clearly labelled (835ms)
+  ✓  31 [mobile] › tests/website.spec.ts:177:3 › en: tablet navigation leaves the motion control clickable (3.6s)
+  ✓  34 [mobile] › tests/website.spec.ts:225:3 › en: workflow explanation and motion respect pause and system preferences (3.0s)
+  ✓  36 [mobile] › tests/website.spec.ts:286:3 › en: case explains evidence, keeps its language and supplies a starting project (793ms)
+  ✓  37 [mobile] › tests/website.spec.ts:309:3 › en: calculator handles errors, cents, export and large values (1.6s)
+  ✓  35 [mobile] › tests/website.spec.ts:255:3 › en: task choices update the workflow and start links, and the terminal copies the real command (3.6s)
+  ✓  38 [mobile] › tests/website.spec.ts:377:3 › en: complete request, clipboard, language pairs and user updates (1.3s)
+  ✓  39 [mobile] › tests/website.spec.ts:403:3 › en: pages remain accessible and fit the viewport (4.4s)
+  ✓  40 [mobile] › tests/website.spec.ts:13:3 › zh-CN: explore a concrete task and follow the evidence and start path (4.3s)
+  ✓  32 [mobile] › tests/website.spec.ts:107:3 › en: hero copy stays readable and actionable across breakpoints (10.9s)
+  ✓  42 [mobile] › tests/website.spec.ts:95:3 › zh-CN: the original workbench illustration is static and clearly labelled (526ms)
+  ✓  41 [mobile] › tests/website.spec.ts:63:3 › zh-CN: homepage preview, primary action and evidence keep their meaning (3.1s)
+  ✓  44 [mobile] › tests/website.spec.ts:177:3 › zh-CN: tablet navigation leaves the motion control clickable (3.0s)
+  ✓  33 [mobile] › tests/website.spec.ts:196:3 › en: the selected task continues through setup and language switching (17.6s)
+  ✓  46 [mobile] › tests/website.spec.ts:225:3 › zh-CN: workflow explanation and motion respect pause and system preferences (3.3s)
+  ✓  48 [mobile] › tests/website.spec.ts:286:3 › zh-CN: case explains evidence, keeps its language and supplies a starting project (1.1s)
+  ✓  49 [mobile] › tests/website.spec.ts:309:3 › zh-CN: calculator handles errors, cents, export and large values (1.3s)
+  ✓  47 [mobile] › tests/website.spec.ts:255:3 › zh-CN: task choices update the workflow and start links, and the terminal copies the real command (3.9s)
+  ✓  50 [mobile] › tests/website.spec.ts:377:3 › zh-CN: complete request, clipboard, language pairs and user updates (1.5s)
+  ✓  43 [mobile] › tests/website.spec.ts:107:3 › zh-CN: hero copy stays readable and actionable across breakpoints (11.1s)
+  ✓  53 [mobile] › tests/website.spec.ts:455:1 › clipboard denial keeps manual copying available (768ms)
+  ✓  54 [mobile] › tests/website.spec.ts:467:1 › reduced motion and 404 remain usable (1.2s)
+  ✓  51 [mobile] › tests/website.spec.ts:403:3 › zh-CN: pages remain accessible and fit the viewport (4.6s)
+  ✓  45 [mobile] › tests/website.spec.ts:196:3 › zh-CN: the selected task continues through setup and language switching (15.5s)
+  ✓  52 [mobile] › tests/website.spec.ts:417:3 › without JavaScript › content, goal links and setup work in both languages (9.3s)
+
+  54 passed (1.1m)

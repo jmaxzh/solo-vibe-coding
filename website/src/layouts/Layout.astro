@@ -30,8 +30,8 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content={page === 'home' ? '#0b0908' : '#f4f0e7'} />
-    <meta name="color-scheme" content={page === 'home' ? 'dark' : 'light'} />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="color-scheme" content="light" />
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     {!noindex && <>
@@ -52,7 +52,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta property="og:image" content={PROJECT.origin + PROJECT.base + 'social-card.png'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={locale === 'en' ? 'Solo Vibe Coding — Build it sooner. Make it worth sharing.' : 'Solo Vibe Coding：把专业做法，用到你的项目里。'} />
+    <meta property="og:image:alt" content={locale === 'en' ? 'Solo Vibe Coding — Your idea. A way forward.' : 'Solo Vibe Coding：把专业做法，用到你的项目里。'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -64,7 +64,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href={href(locale)} aria-label="Solo Vibe Coding">
-          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke={page === 'home' ? '#09120d' : '#f7f5ef'} stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="m14 12-6 8 6 8m12-16 6 8-6 8m-4-15-4 14" stroke="#f8f7f2" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Solo Vibe Coding</span>
         </a>
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
@@ -136,27 +136,17 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
 </html>
 
 <style>
-  :global(body.homepage) { --home-header-height: 88px; --paper: #0b0908; --surface: #1d1815; --ink: #f8f5f2; --muted: #cec6bf; --action: #ffb16b; --action-hover: #dac3b1; --accent-ink: #e9ddd4; --line: #5d534b; --blue: #e2d0c2; --radius-panel: 8px; --radius-card: 6px; background: #0b0908; color-scheme: dark; }
-  :global(.homepage .container) { width: min(1320px, calc(100% - 112px)); }
-  :global(.homepage .site-header) { position: absolute; inset: 0 0 auto; z-index: 20; border: 0; background: linear-gradient(180deg, #090807fa 0%, #090807c9 70%, #09080700 100%); }
-  :global(.homepage .header-inner) { min-height: var(--home-header-height); gap: 32px; flex-wrap: nowrap; padding-block: 0; }
-  :global(.homepage .brand) { gap: 10px; font-size: 16px; min-height: 44px; margin-right: 0; letter-spacing: -.04em; }
-  :global(.homepage .brand-mark) { width: 31px; height: 31px; color: #f6f0ec; }
-  :global(.homepage .main-navigation) { gap: 29px; order: 0; width: auto; margin-left: auto; justify-content: initial; }
-  :global(.homepage .main-navigation a) { min-height: 44px; display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; color: #dad2cc; }
-  :global(.homepage .main-navigation a:hover) { color: #dfcbbb; }
-  :global(.homepage .main-navigation a:last-child) { padding: 9px 20px; border: 1px solid #c9c1ba; border-radius: 99px; color: #faf7f4; background: #493c3340; }
-  :global(.homepage .language-switch) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; margin-left: 0; font-size: 10px; padding: 5px 10px; border: 1px solid #9a8e85; background: #1f171280; color: #f4ece6; border-radius: 99px; }
-  :global(.homepage .site-footer) { background: #130f0c; border-color: #574d44; padding-block: 40px; position: relative; z-index: 2; }
-  :global(.homepage .footer-inner) { gap: 60px; }
-  :global(.homepage .footer-brand) { font-size: 15px; }
-  :global(.homepage .site-footer p) { font-size: 11px; max-width: 400px; color: #cec4bc; }
-  :global(.homepage .site-footer .footer-license) { font-size: 10px; max-width: 420px; line-height: 1.95; }
-  :global(.homepage .footer-links) { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 28px; text-align: left; font-size: 11px; color: #e6ded7; }
-  :global(.homepage .footer-links a) { display: inline-flex; align-items: center; min-height: 34px; }
-  :global(.homepage ::selection) { background: #d2bba9; color: #130f0c; }
-  :global(html[data-motion="off"] .homepage [data-magnetic]) { transition: none; }
-  @media (max-width: 1000px) { :global(.homepage .container) { width: calc(100% - 80px); } }
-  @media (max-width: 800px) { :global(.homepage .container) { width: calc(100% - 48px); } :global(.homepage .header-inner) { gap: 20px; } :global(.homepage .main-navigation) { gap: 17px; } :global(.homepage .footer-inner) { flex-direction: column; gap: 25px; } }
-  @media (max-width: 600px) { :global(body.homepage) { --home-header-height: 73px; } :global(.homepage .container) { width: calc(100% - 36px); } :global(.homepage .header-inner) { min-height: 73px; gap: 10px; } :global(.homepage .brand) { font-size: 14px; gap: 8px; } :global(.homepage .brand-mark) { width: 27px; height: 27px; } :global(.homepage .main-navigation) { display: none; } :global(.homepage .language-switch) { margin-left: auto; } :global(.homepage .footer-links) { grid-template-columns: repeat(3, 1fr); gap: 0 18px; width: 100%; } :global(.homepage .footer-links a) { min-height: 44px; } }
+  :global(.site-header) { background: #f8f7f2; }
+  :global(.header-inner) { min-height: 88px; }
+  :global(.brand-mark) { color: #2853e9; }
+  :global(.main-navigation a) { min-height: 44px; display: inline-flex; align-items: center; }
+  :global(.main-navigation a:last-child) { border: 1px solid #b8c0d0; padding-inline: 17px; border-radius: 4px; color: #18233b; }
+  :global(.language-switch) { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-color: #b8c0d0; border-radius: 4px; }
+  :global(.site-footer) { background: #eef0f5; padding-block: 45px; }
+  :global(.footer-brand) { font-size: 17px; }
+  :global(.site-footer p) { max-width: 420px; }
+  :global(.footer-links) { grid-template-columns: repeat(3, auto); gap: 0 28px; text-align: left; }
+  :global(.footer-links a) { display: inline-flex; align-items: center; min-height: 44px; }
+  @media (max-width: 800px) { :global(.footer-inner) { flex-direction: column; gap: 25px; } :global(.header-inner) { gap: 18px; } :global(.main-navigation) { gap: 15px; } }
+  @media (max-width: 600px) { :global(.header-inner) { min-height: 74px; gap: 12px; flex-wrap: wrap; padding-block: 12px; } :global(.brand) { font-size: 15px; } :global(.brand-mark) { width: 29px; height: 29px; } :global(.main-navigation) { order: 3; width: 100%; justify-content: space-between; gap: 8px; } :global(.main-navigation a) { font-size: 11px; } :global(.main-navigation a:last-child) { padding-inline: 12px; } :global(.language-switch) { margin-left: auto; } :global(.footer-links) { grid-template-columns: repeat(3, 1fr); gap: 0 18px; width: 100%; font-size: 11px; } }
 </style>

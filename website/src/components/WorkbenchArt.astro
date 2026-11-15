@@ -1,0 +1,55 @@
+---
+import { type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh-CN';
+---
+<figure class="hero-art" data-workbench-art aria-label={zh ? '从需求、专业指导到可检查成果的原创工作方式示意' : 'An original illustration of a task, specialist guidance and a checkable result'}>
+  <div class="art-canvas" aria-hidden="true">
+    <div class="blue-disc"><span>SOLO<br/>VIBE<br/>CODING<span class="disc-asterisk">✳</span></span></div>
+    <div class="art-orbit"></div>
+    <div class="sheet brief-sheet"><div class="sheet-top"><span>01 / BRIEF</span><span>↗</span></div><p>{zh ? '我想做成的事。' : 'The thing you want to make.'}</p><div class="brief-rule"></div><span class="brief-tag">{zh ? '你的目标 · 你的项目' : 'YOUR GOAL. YOUR PROJECT.'}</span><div class="paper-fold"></div></div>
+    <div class="sheet guide-sheet"><div class="guide-top"><span class="guide-symbol">✳</span><span>SOLO VIBE CODING<br/><small>02 / THE PLAYBOOK</small></span></div><div class="guide-rule"></div><div class="guide-row"><span>01</span><strong>{zh ? '明确这一次的需求' : 'Understand the task'}</strong><span>↗</span></div><div class="guide-row"><span>02</span><strong>{zh ? '按任务选择专业方法' : 'Find the right methods'}</strong><span>↗</span></div><div class="guide-row"><span>03</span><strong>{zh ? '实现，检查，再继续' : 'Build. Check. Continue.'}</strong><span>↗</span></div><p class="guide-foot">{zh ? '在你熟悉的编程助手里。' : 'IN THE ASSISTANT YOU ALREADY USE.'}</p></div>
+    <div class="result-sheet"><div class="result-check">↗</div><div><span>03 / NEXT MOVE</span><strong>{zh ? '打开成果，试一试。' : 'Something you can try.'}</strong><small>{zh ? '交付与检查目标' : 'YOUR DELIVERY & CHECK GOALS'}</small></div></div>
+    <span class="art-cross cross-one">+</span><span class="art-cross cross-two">+</span><span class="art-register">SVC — FIELD NOTES / 001</span>
+  </div>
+  <figcaption>{zh ? '工作方式示意 · 制作发生在你自己的编程助手中' : 'Workflow illustration · The work happens in your coding assistant'}</figcaption>
+</figure>
+<style>
+  .hero-art { width: 100%; min-width: 0; margin: 0; position: relative; }
+  .art-canvas { width: 100%; padding-top: 30%; position: relative; isolation: isolate; font-family: var(--font); }
+  .blue-disc { position: absolute; width: 86%; aspect-ratio: 1; top: 3%; left: 11%; background: #2853e9; border-radius: 50%; overflow: hidden; }
+  .blue-disc > span { position: absolute; left: 12%; top: 7%; color: #ffffff1c; font-size: clamp(65px, 7vw, 107px); font-weight: 750; line-height: .92; letter-spacing: -.08em; transform: rotate(-17deg); }
+  .disc-asterisk { position: absolute; font-size: 240px; left: 65%; top: 70%; color: #ffffff20; }
+  .art-orbit { position: absolute; width: 94%; height: 49%; left: 0; top: 29%; border: 1px solid #173ab93d; border-radius: 50%; transform: rotate(-35deg); z-index: -1; }
+  .sheet { position: absolute; border: 1px solid #d3d7e1; box-shadow: 0 3px 0 #b9c0ce, 0 6px 0 #e1e4ed, 12px 22px 32px #10286124; border-radius: 3px; }
+  .brief-sheet { left: 4%; top: 10%; width: 58%; height: 52%; background: #fffefa; transform: rotate(-12deg); padding: 22px; }
+  .sheet-top { display: flex; align-items: center; justify-content: space-between; font: 9px var(--mono); color: #43506b; }
+  .sheet-top > span:last-child { font-size: 22px; }
+  .brief-sheet p { margin-top: 13px; font-size: 26px; line-height: 1.3; letter-spacing: -.05em; font-weight: 650; max-width: 8em; color: #17233c; }
+  .brief-rule { margin-top: 15px; width: 70%; border-top: 1px solid #b5bdd0; }
+  .brief-tag { font: 8px var(--mono); display: block; margin-top: 12px; color: #566178; }
+  .paper-fold { position: absolute; right: -1px; top: -1px; width: 25px; height: 25px; background: linear-gradient(45deg, #dce3f4 49%, #f8f7f2 50%); border-bottom-left-radius: 3px; }
+  .guide-sheet { position: relative; left: 25%; width: 70%; background: #14223e; color: #fff; border-color: #52678e; transform: rotate(7deg); padding: 23px 25px 20px; box-shadow: 0 3px 0 #46618f, 0 6px 0 #afbed6, 12px 22px 32px #1028613d; }
+  .guide-top { display: flex; align-items: center; gap: 13px; font-size: 12px; line-height: 1.6; font-weight: 600; letter-spacing: .015em; }
+  .guide-symbol { font-size: 40px; line-height: 1; color: #c4d4ff; }
+  .guide-top small { font: 8px var(--mono); color: #bac9e5; }
+  .guide-rule { border-top: 1px solid #546482; margin-top: 16px; }
+  .guide-row { display: flex; align-items: center; gap: 12px; padding-block: 12px; border-bottom: 1px solid #3d4e6c; }
+  .guide-row > span { color: #bccbe5; font: 9px var(--mono); }
+  .guide-row > span:last-child { margin-left: auto; font-size: 16px; }
+  .guide-row strong { font-size: 12px; font-weight: 500; }
+  .guide-foot { font: 8px/1.7 var(--mono); color: #c1cde3; margin-top: 15px; }
+  .result-sheet { position: relative; margin-top: 36px; display: flex; align-items: center; gap: 14px; left: 6%; width: 73%; padding: 17px 19px; background: #d9eea9; border: 1px solid #a5c574; transform: rotate(-5deg); box-shadow: 0 3px 0 #9db56d, 10px 15px 24px #14223e1a; border-radius: 3px; color: #263719; }
+  .result-check { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-size: 27px; border: 1px solid #7f995b; flex: none; }
+  .result-sheet span, .result-sheet small { display: block; font: 8px/1.5 var(--mono); color: #3f512d; }
+  .result-sheet strong { display: block; font-size: 17px; font-weight: 600; line-height: 1.6; margin: 2px 0; letter-spacing: -.04em; }
+  .result-sheet small { font-size: 7px; }
+  .art-cross { position: absolute; font: 22px var(--mono); color: #7b89a2; }
+  .cross-one { left: 2%; top: 2%; }.cross-two { right: 0; bottom: 3%; }
+  .art-register { display: block; position: relative; margin-top: 29px; text-align: center; font: 8px var(--mono); color: #62708b; letter-spacing: .08em; }
+  figcaption { text-align: center; font-size: 9px; line-height: 1.8; color: #59647a; margin-top: 14px; }
+  @media (min-width: 801px) and (max-width: 1100px) { .brief-sheet { padding: 16px; } .brief-sheet p { font-size: 22px; } .guide-sheet { padding: 16px; } .guide-row { padding-block: 9px; gap: 7px; } .guide-row strong { font-size: 10px; } .guide-foot { font-size: 7px; } .result-sheet { padding: 12px; gap: 9px; } .result-sheet strong { font-size: 14px; } .guide-top { font-size: 10px; } }
+  @media (max-width: 800px) { .hero-art { width: min(540px, 100%); margin: 25px auto 0; } }
+  @media (max-width: 480px) { .hero-art { margin-top: 26px; } .brief-sheet { padding: 16px; } .brief-sheet p { font-size: 21px; } .brief-tag { font-size: 7px; } .guide-sheet { padding: 16px; } .guide-top { font-size: 10px; gap: 8px; } .guide-symbol { font-size: 31px; } .guide-row { padding-block: 9px; gap: 7px; } .guide-row strong { font-size: 10px; } .guide-foot { font-size: 7px; margin-top: 10px; } .guide-rule { margin-top: 10px; } .result-sheet { padding: 12px; gap: 9px; } .result-check { width: 32px; height: 32px; font-size: 22px; } .result-sheet strong { font-size: 13px; } .result-sheet span { font-size: 7px; } .result-sheet small { display: none; } .art-register { font-size: 7px; } figcaption { margin-top: 14px; font-size: 9px; } }
+</style>

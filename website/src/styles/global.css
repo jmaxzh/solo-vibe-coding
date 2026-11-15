@@ -12,10 +12,10 @@
 @layer base {
   @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2'); }
   @font-face { font-family: 'Manrope Variable'; font-style: normal; font-display: swap; font-weight: 200 800; src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
-  :root { --paper: #f4f0e7; --surface: #fffdf8; --ink: #262623; --muted: #67645d; --action: #b53d2b; --action-hover: #923022; --accent: var(--action); --accent-ink: var(--action); --line: #d5cfc2; --panel: #272925; --panel-muted: #d5cfc2; --green: #ece6da; --blue: #3458ae; --yellow: #edcb59; --lime: #edcb59; --subtle: #ece6da; --orange-soft: #f3e5da; --lime-soft: #ece6da; --radius-panel: 4px; --radius-card: 4px; --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
+  :root { --paper: #f8f7f2; --surface: #ffffff; --ink: #18233b; --muted: #566178; --action: #2853e9; --action-hover: #173ab9; --accent: var(--action); --accent-ink: var(--action); --line: #cdd2dd; --panel: #14223e; --panel-muted: #c8d3e8; --green: #edf1fa; --blue: #2853e9; --yellow: #edcb59; --lime: #edcb59; --subtle: #edf1fa; --orange-soft: #edf1fa; --lime-soft: #edf1fa; --radius-panel: 4px; --radius-card: 4px; --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); --font: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; --mono: 'IBM Plex Mono', 'PingFang SC', monospace; }
   html { scroll-behavior: smooth; scroll-padding-top: 110px; }
   body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-  ::selection { background: #f5bb9f; color: var(--ink); }
+  ::selection { background: #c6d4ff; color: var(--ink); }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
   a:hover { text-decoration-thickness: 2px; }
   button { cursor: pointer; }

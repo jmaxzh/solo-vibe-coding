@@ -34,36 +34,36 @@ const labels = zh ? { development: '排查与修复', design: '改进产品界�
   .task-stage { min-width: 0; width: 100%; scroll-margin-top: 100px; }
   fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
   .assistant-demo { margin: 0; min-width: 0; }
-  .demo-window { border: 1px solid #564c43; border-radius: 8px; background: linear-gradient(125deg, #221a15, #17110d 55%, #211c18); overflow: hidden; box-shadow: 0 25px 90px -40px #b19f9019, inset 0 1px 0 #dcd3cb22; }
-  .demo-toolbar { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 11px 22px; border-bottom: 1px solid #473c35; font-size: 11px; color: #d7d1cc; background: #211a1680; }
+  .demo-window { border: 1px solid #50617f; border-radius: 8px; background: linear-gradient(125deg, #14223e, #14223e 55%, #14223e); overflow: hidden; box-shadow: 0 25px 90px -40px #10286119, inset 0 1px 0 #c5d4f022; }
+  .demo-toolbar { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 11px 22px; border-bottom: 1px solid #40516f; font-size: 11px; color: #c9d4e9; background: #1c2d4d; }
   .window-dots { display: flex; gap: 4px; margin-right: 4px; }
-  .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #aa9e95; }
-  .window-dots i:first-child { background: #d1beae; }
-  .toolbar-project { color: #cec3ba; }
-  .demo-badge { margin-left: auto; font-size: 10px; color: #d6c5b8; border: 1px solid #9c8d81; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+  .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #9caecc; }
+  .window-dots i:first-child { background: #c4d4ff; }
+  .toolbar-project { color: #b7c7e4; }
+  .demo-badge { margin-left: auto; font-size: 10px; color: #c5d3ec; border: 1px solid #667da7; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
   .demo-layout { display: block; min-width: 0; }
-  .demo-sidebar { display: block; padding: 20px 26px; border-bottom: 1px solid #564539; background: #21180f66; }
-  .project-label { display: none; align-items: center; gap: 10px; font-size: 12px; color: #eee8e4; padding-inline: 8px; }
-  .project-label > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #857a71; border-radius: 6px; color: #e6d9ce; font-size: 18px; }
+  .demo-sidebar { display: block; padding: 20px 26px; border-bottom: 1px solid #4a5e83; background: #1c2d4d; }
+  .project-label { display: none; align-items: center; gap: 10px; font-size: 12px; color: #eef3ff; padding-inline: 8px; }
+  .project-label > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #6f83a7; border-radius: 6px; color: #d8e3f8; font-size: 18px; }
   .project-label strong { font-weight: 550; }
-  .sidebar-caption { display: none; color: #ccc3bc; font-size: 10px; margin: 28px 8px 12px; }
+  .sidebar-caption { display: none; color: #bdcbe5; font-size: 10px; margin: 28px 8px 12px; }
   .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-  .task-options label { display: flex; align-items: center; gap: 8px; padding: 12px 10px; min-height: 46px; border: 1px solid #5e554d; border-radius: 7px; font-size: 11px; color: #e3dad3; background: #33282154; cursor: pointer; line-height: 1.7; }
-  .task-number { font: 9px var(--mono); color: #cec4bc; }
-  .task-option-arrow { margin-left: auto; visibility: hidden; color: #d5c0af; }
-  .task-options label:hover { background: #5e524957; }
-  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #f0e7e0; background: #5a524b45; border-color: #95877b; font-weight: 550; }
+  .task-options label { display: flex; align-items: center; gap: 8px; padding: 12px 10px; min-height: 46px; border: 1px solid #52698e; border-radius: 7px; font-size: 11px; color: #d8e3f8; background: #1c2d4d; cursor: pointer; line-height: 1.7; }
+  .task-number { font: 9px var(--mono); color: inherit; }
+  .task-option-arrow { margin-left: auto; visibility: hidden; color: inherit; }
+  .task-options label:hover { background: #304976; }
+  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #ffffff; background: #2853e9; border-color: #7998ff; font-weight: 550; }
   fieldset:has(input[value="development"]:checked) label[data-choice="development"] .task-option-arrow, fieldset:has(input[value="design"]:checked) label[data-choice="design"] .task-option-arrow, fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"] .task-option-arrow, fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] .task-option-arrow { visibility: visible; }
-  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #e4d2c4; outline-offset: 3px; }
-  .sidebar-skill { display: none; align-items: center; gap: 10px; margin-top: auto; padding: 38px 8px 0; color: #f6f2ee; }
-  .skill-symbol { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #897c72; border-radius: 50%; color: #ebdfd5; font-size: 20px; }
+  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #d9eea9; outline-offset: 3px; }
+  .sidebar-skill { display: none; align-items: center; gap: 10px; margin-top: auto; padding: 38px 8px 0; color: #ffffff; }
+  .skill-symbol { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #6f83a7; border-radius: 50%; color: #d8e3f8; font-size: 20px; }
   .sidebar-skill strong { display: block; font-size: 11px; font-weight: 550; }
-  .sidebar-skill small { display: block; font-size: 9px; color: #d3c9c0; margin-top: 3px; }
-  figcaption { display: block; margin-top: 14px; color: #c9bfb7; font-size: 11px; line-height: 1.85; }
+  .sidebar-skill small { display: block; font-size: 9px; color: #bdcbe5; margin-top: 3px; }
+  figcaption { display: block; margin-top: 14px; color: #566178; font-size: 11px; line-height: 1.85; }
   @media (max-width: 1100px) { .demo-layout { grid-template-columns: 205px minmax(0, 1fr); } .demo-sidebar { padding-inline: 12px; } }
   @media (max-width: 900px) {
     .demo-layout { display: block; }
-    .demo-sidebar { padding: 18px; border-right: 0; border-bottom: 1px solid #5c534b; }
+    .demo-sidebar { padding: 18px; border-right: 0; border-bottom: 1px solid #52698e; }
     .project-label, .sidebar-caption, .sidebar-skill { display: none; }
     .task-options { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .task-options label { font-size: 11px; }
