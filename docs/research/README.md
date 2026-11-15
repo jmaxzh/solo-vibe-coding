@@ -25,3 +25,5 @@
 - 2026-11-14起：[玻璃折射候选复盘与目标](website/2026-11-14-prism-nocturne/design-brief.md)、[候选图览](website/2026-11-14-prism-nocturne/index.html)、[验收](website/2026-11-14-prism-nocturne/verification.md)、[差异评估](website/2026-11-14-prism-nocturne/change-evaluation.md)、[独立审查](website/2026-11-14-prism-nocturne/independent-review.md)。
 
 - 2026-11-15：[玻璃折射首页正式发布与公开核验](website/2026-11-14-prism-nocturne/deployment.md)、[发布前独立审查](website/2026-11-14-prism-nocturne/release-review.md)。
+
+- 2026-11-15：[电影感材质官网规范提炼与差异评估](website/2026-11-15-design-standard/change-evaluation.md)、[独立审查](website/2026-11-15-design-standard/independent-review.md)。

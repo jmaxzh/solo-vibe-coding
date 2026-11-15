@@ -8,6 +8,7 @@
 | 官网本地开发、发布与回退 | [官网 README](../website/README.md) |
 | 当前模块、数据流与系统边界 | [架构](architecture.md) |
 | 官网目标、内容、交互与视觉规范 | [官网需求](specs/website.md) |
+| 电影感材质风格的复用范围、制作与验收 | [设计规范](design/cinematic-material-web.md) |
 | 已采用的选择及其依据 | [决策索引](decisions.md)与其链接的 ADR |
 | 质量标准和检查命令 | [质量标准](../CONSTRAINTS.md)、[测试说明](testing.md) |
 | 完整调研、验收与评审记录 | [研究档案](research/README.md) |
