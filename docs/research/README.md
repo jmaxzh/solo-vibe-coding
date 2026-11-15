@@ -30,4 +30,4 @@
 
 - 2026-11-15：[黑钛熔光首页预览与截图对照](website/2026-11-15-ember-titanium/README.md)、[差异与成本](website/2026-11-15-ember-titanium/change-evaluation.md)、[验证](website/2026-11-15-ember-titanium/verification.md)、[独立审查](website/2026-11-15-ember-titanium/independent-review.md)。
 
-- 2026-11-15：[产品工作台新版预览、双语截图与验收](website/2026-11-15-open-workbench/README.md)，包含设计说明、实际差异、运行方法、浏览器记录与独立审查结果。
+- 2026-11-15：[产品工作台新版预览、双语截图与验收](website/2026-11-15-open-workbench/README.md)，包含设计说明、实际差异、运行方法、浏览器记录与独立审查结果；[GitHub Pages 发布与线上核验](website/2026-11-15-open-workbench/publication.md)。

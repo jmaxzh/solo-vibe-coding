@@ -1,6 +1,6 @@
 # 官网新版：打开的产品工作台
 
-本文件记录发布前的本地预览验收。新版双语完整页面与现有功能路径已实现，实际画面、工程检查与独立只读审查已完成，未留必须修复问题。GitHub Pages 发布及线上核验另行记录。
+本文件记录发布前的本地预览验收。新版双语完整页面与现有功能路径已实现，实际画面、工程检查与独立只读审查已完成，未留必须修复问题。GitHub Pages 发布已完成，见 [发布与线上核验](publication.md)。
 
 ## 设计理由
 
@@ -66,7 +66,7 @@ PLAYWRIGHT_PORT=4391 PLAYWRIGHT_CHANNEL=chrome npm run test:e2e -- --workers=4
 node ../docs/research/website/2026-11-15-open-workbench/capture.mjs
 ```
 
-`capture.mjs` 的 `PREVIEW_ORIGIN` 可指定其他预览源地址；没有本地 Chrome 时按官网 README 安装 Playwright Chromium，并相应调整浏览器选择。本地预览仅供本机访问；生产站点的发布与线上核验另行记录。
+`capture.mjs` 的 `PREVIEW_ORIGIN` 可指定其他预览源地址；没有本地 Chrome 时按官网 README 安装 Playwright Chromium，并相应调整浏览器选择。本地预览仅供本机访问；生产站点的发布与线上核验见 [发布记录](publication.md)。
 
 ## 独立只读审查
 
