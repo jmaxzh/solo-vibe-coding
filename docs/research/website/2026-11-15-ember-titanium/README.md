@@ -2,6 +2,8 @@
 
 使用电影感材质官网设计规范制作的新版本，以玻璃版 `471e3cd` 为工程与画面基准。新版本的审美效果由用户查看后判断；技术检查与独立审查不代替用户认可或真实用户研究。
 
+[打开中文版](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/?v=83c5dba) · [Open English](https://jmaxzh.github.io/solo-vibe-coding/?v=83c5dba)
+
 ## 截图
 
 全部使用生产构建、相同语言和视口、减少动态效果状态；桌面 1440×1000，手机 390×844。
@@ -25,3 +27,4 @@
 - [独立只读审查](independent-review.md)
 - [原创素材、最终文件与生成提示](visual-assets.md)
 - [公开发布核验](deployment.md)
+- [发布归档独立审查](release-review.md)

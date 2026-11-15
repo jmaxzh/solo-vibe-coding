@@ -1,0 +1,41 @@
+{
+  "id": 7800947573,
+  "sha": "83c5dbaa044c5ee6dfb9dbc8a564181c8e8c5256",
+  "status": {
+    "url": "https://api.github.com/repos/jmaxzh/solo-vibe-coding/deployments/7800947573/statuses/22237046695",
+    "id": 22237046695,
+    "node_id": "DES_kwDOUUmge88AAAAFLW5npw",
+    "state": "success",
+    "creator": {
+      "login": "jmaxzh",
+      "id": 92286929,
+      "node_id": "U_kgDOBYAv0Q",
+      "avatar_url": "https://avatars.githubusercontent.com/u/92286929?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jmaxzh",
+      "html_url": "https://github.com/jmaxzh",
+      "followers_url": "https://api.github.com/users/jmaxzh/followers",
+      "following_url": "https://api.github.com/users/jmaxzh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jmaxzh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jmaxzh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jmaxzh/subscriptions",
+      "organizations_url": "https://api.github.com/users/jmaxzh/orgs",
+      "repos_url": "https://api.github.com/users/jmaxzh/repos",
+      "events_url": "https://api.github.com/users/jmaxzh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jmaxzh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "description": "",
+    "environment": "github-pages",
+    "target_url": "https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43695431149/job/132755447988",
+    "created_at": "2026-11-15T08:41:16Z",
+    "updated_at": "2026-11-15T08:41:16Z",
+    "deployment_url": "https://api.github.com/repos/jmaxzh/solo-vibe-coding/deployments/7800947573",
+    "repository_url": "https://api.github.com/repos/jmaxzh/solo-vibe-coding",
+    "environment_url": "https://jmaxzh.github.io/solo-vibe-coding/",
+    "log_url": "https://github.com/jmaxzh/solo-vibe-coding/actions/runs/43695431149/job/132755447988",
+    "performed_via_github_app": null
+  }
+}

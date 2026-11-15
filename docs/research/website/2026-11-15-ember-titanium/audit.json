@@ -1,7 +1,7 @@
 {
   "baselineCommit": "471e3cd",
   "visualBenchmark": "471e3cd",
-  "capturedAt": "2026-11-15T08:18:52.445Z",
+  "capturedAt": "2026-11-15T08:36:20.916Z",
   "browser": "157.0.8103.51",
   "shots": [
     {
@@ -1645,22 +1645,22 @@
         {
           "label": "01Fix a regression↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "02Improve the interface↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "03Get the demo live↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "04Reach your first users↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "Install and get started↗",
@@ -1761,22 +1761,22 @@
         {
           "label": "01Fix a regression↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "02Improve the interface↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "03Get the demo live↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "04Reach your first users↗",
           "width": 121.25,
-          "height": 63.375
+          "height": 82.0625
         },
         {
           "label": "Install and get started↗",

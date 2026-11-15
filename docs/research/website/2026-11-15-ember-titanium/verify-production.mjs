@@ -18,12 +18,15 @@ try {
   const response = await page.goto(root+prefix+'?v='+releaseCommit,{waitUntil:'networkidle'});
   assert.equal(response.status(),200);
   await page.evaluate(()=>document.fonts.ready);
+  const material = page.locator('[data-hero-scene] img');
+  assert.match(await material.getAttribute('src'), /\/media\/ember\/titanium-blades\.webp$/);
+  await material.evaluate(image => image.decode());
   const title=await page.locator('h1').innerText();
   assert(title.includes(locale==='en'?'Give your assistant':'给你的编程助手'));
   assert.equal(await page.locator('input[value="design"]').isChecked(),true);
   assert.equal(await page.locator('.pain-card').count(),4);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
-  assert.equal(await page.locator('body').evaluate(e=>getComputedStyle(e).getPropertyValue('--paper').trim()),'#070b0d');
+  assert.equal(await page.locator('body').evaluate(e=>getComputedStyle(e).getPropertyValue('--paper').trim()),'#0b0908');
   await page.locator('.hero-art img').evaluate(e=>e.decode());
   assert.equal(await page.locator('.hero-art img').evaluate(e=>e.naturalWidth),1536);
   assert.equal(await page.locator('[data-hero-scene]').getAttribute('data-scene-state'),'static');
