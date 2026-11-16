@@ -1,5 +1,7 @@
 # 研究与验证档案
 
+- 2026-11-16：[恢复首次认可的金属深空光环官网](website/2026-11-16-restore-first-approved/verification.md)、[差异与成本](website/2026-11-16-restore-first-approved/change-evaluation.md)、[独立审查](website/2026-11-16-restore-first-approved/independent-review.md)、[发布核验](website/2026-11-16-restore-first-approved/deployment.md)。
+
 本目录保留完整调研、历史评估、执行证据与独立评审，供回溯使用。当前操作规范从 [项目知识库](../README.md) 查阅。
 
 - [早期技能研究](indie-project-guide/)：早期技能研究与候选选择。

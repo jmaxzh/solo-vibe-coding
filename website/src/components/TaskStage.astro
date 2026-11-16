@@ -20,6 +20,7 @@ const labels = zh ? { development: '排查与修复', design: '改进产品界�
             <div class="project-label"><span aria-hidden="true">⌘</span><strong>{zh ? '我的产品项目' : 'My product project'}</strong></div>
             <p class="sidebar-caption">{zh ? '今天想推进哪件事？' : 'What are you working on?'}</p>
             <div class="task-options">{OUTCOMES[locale].map((outcome, index) => <label for={'choose-' + outcome.id + '-' + locale} data-choice={outcome.id}><span class="task-number" aria-hidden="true">0{index + 1}</span><span>{labels[outcome.id]}</span><span class="task-option-arrow" aria-hidden="true">↗</span></label>)}</div>
+            <div class="sidebar-skill"><span class="skill-symbol" aria-hidden="true">✳</span><div><strong>Solo Vibe Coding</strong><small>{zh ? '为助手补充专业方法' : 'Guidance for your assistant'}</small></div></div>
           </aside>
           <WorkflowDiagram locale={locale} />
         </div>
@@ -33,37 +34,42 @@ const labels = zh ? { development: '排查与修复', design: '改进产品界�
   .task-stage { min-width: 0; width: 100%; scroll-margin-top: 100px; }
   fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
   .assistant-demo { margin: 0; min-width: 0; }
-  .demo-window { border: 1px solid #6d7764; border-radius: 8px; background: linear-gradient(125deg, #252c27, #252c27 55%, #252c27); overflow: hidden; box-shadow: 0 25px 90px -40px #10286119, inset 0 1px 0 #c5d4f022; }
-  .demo-toolbar { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 11px 22px; border-bottom: 1px solid #5e6956; font-size: 11px; color: #d5d8c9; background: #313a30; }
+  .demo-window { border: 1px solid #506987; border-radius: 18px; background: linear-gradient(135deg, #1a293c, #101925 53%, #111c2b); overflow: hidden; box-shadow: 0 25px 90px -40px #3569ac39, inset 0 1px 0 #b1ceef33; }
+  .demo-toolbar { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 11px 22px; border-bottom: 1px solid #3d5370; font-size: 11px; color: #cbdbf0; background: #273b562e; }
   .window-dots { display: flex; gap: 4px; margin-right: 4px; }
-  .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #acb59f; }
-  .window-dots i:first-child { background: #edb99b; }
-  .toolbar-project { color: #bec9ae; }
-  .demo-badge { margin-left: auto; font-size: 10px; color: #d0d4c2; border: 1px solid #758466; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
-  .demo-layout { display: block; min-width: 0; }
-  .demo-sidebar { display: block; padding: 20px 26px; border-bottom: 1px solid #64735a; background: #313a30; }
-  .project-label { display: none; align-items: center; gap: 10px; font-size: 12px; color: #f6f5ed; padding-inline: 8px; }
-  .project-label > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #82916e; border-radius: 6px; color: #e0e4d4; font-size: 18px; }
+  .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #849abb; }
+  .window-dots i:first-child { background: #f0b08f; }
+  .toolbar-project { color: #a9bfdf; }
+  .demo-badge { margin-left: auto; font-size: 10px; color: #f1b99d; border: 1px solid #b38b6a; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+  .demo-layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); min-width: 0; }
+  .demo-sidebar { display: flex; flex-direction: column; padding: 26px 18px 22px; border-right: 1px solid #3c506b; background: #0a15223d; }
+  .project-label { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #dbe7f7; padding-inline: 8px; }
+  .project-label > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #5f7797; border-radius: 6px; color: #b9d6fb; font-size: 18px; }
   .project-label strong { font-weight: 550; }
-  .sidebar-caption { display: none; color: #c6ceba; font-size: 10px; margin: 28px 8px 12px; }
-  .task-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-  .task-options label { display: flex; align-items: center; gap: 8px; padding: 12px 10px; min-height: 46px; border: 1px solid #69785d; border-radius: 7px; font-size: 14px; color: #e0e4d4; background: #313a30; cursor: pointer; line-height: 1.7; }
-  .task-number { font: 9px var(--mono); color: inherit; }
-  .task-option-arrow { margin-left: auto; visibility: hidden; color: inherit; }
-  .task-options label:hover { background: #46543b; }
-  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #fffef9; background: #bd3b1c; border-color: #f3ab83; font-weight: 550; }
+  .sidebar-caption { color: #aebfda; font-size: 10px; margin: 28px 8px 12px; }
+  .task-options { display: grid; gap: 8px; }
+  .task-options label { display: flex; align-items: center; gap: 8px; padding: 12px 10px; min-height: 46px; border: 1px solid #3d536e; border-radius: 7px; font-size: 11px; color: #c7d8ef; background: #18283c54; cursor: pointer; line-height: 1.7; }
+  .task-number { font: 9px var(--mono); color: #abc1df; }
+  .task-option-arrow { margin-left: auto; visibility: hidden; color: #f6b38e; }
+  .task-options label:hover { background: #35507257; }
+  fieldset:has(input[value="development"]:checked) label[data-choice="development"], fieldset:has(input[value="design"]:checked) label[data-choice="design"], fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"], fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] { color: #ffe2d1; background: #68513e45; border-color: #ad8263; font-weight: 550; }
   fieldset:has(input[value="development"]:checked) label[data-choice="development"] .task-option-arrow, fieldset:has(input[value="design"]:checked) label[data-choice="design"] .task-option-arrow, fieldset:has(input[value="deployment"]:checked) label[data-choice="deployment"] .task-option-arrow, fieldset:has(input[value="growth"]:checked) label[data-choice="growth"] .task-option-arrow { visibility: visible; }
-  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #e1e9c3; outline-offset: 3px; }
-  figcaption { display: block; margin-top: 14px; color: #626159; font-size: 12px; line-height: 1.85; }
+  fieldset:has(input[value="development"]:focus-visible) label[data-choice="development"], fieldset:has(input[value="design"]:focus-visible) label[data-choice="design"], fieldset:has(input[value="deployment"]:focus-visible) label[data-choice="deployment"], fieldset:has(input[value="growth"]:focus-visible) label[data-choice="growth"] { outline: 3px solid #a9d6ff; outline-offset: 3px; }
+  .sidebar-skill { display: flex; align-items: center; gap: 10px; margin-top: auto; padding: 38px 8px 0; color: #e8f0fc; }
+  .skill-symbol { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #5e7b9d; border-radius: 50%; color: #c1ddff; font-size: 20px; }
+  .sidebar-skill strong { display: block; font-size: 11px; font-weight: 550; }
+  .sidebar-skill small { display: block; font-size: 9px; color: #b0c5e3; margin-top: 3px; }
+  figcaption { display: block; margin-top: 14px; color: #a8bdd8; font-size: 11px; line-height: 1.85; }
   @media (max-width: 1100px) { .demo-layout { grid-template-columns: 205px minmax(0, 1fr); } .demo-sidebar { padding-inline: 12px; } }
   @media (max-width: 900px) {
     .demo-layout { display: block; }
-    .demo-sidebar { padding: 18px; border-right: 0; border-bottom: 1px solid #69785d; }
-    .project-label, .sidebar-caption { display: none; }
-    .task-options { grid-template-columns: 1fr 1fr; }
+    .demo-sidebar { padding: 18px; border-right: 0; border-bottom: 1px solid #3c506b; }
+    .project-label, .sidebar-caption, .sidebar-skill { display: none; }
+    .task-options { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .task-options label { font-size: 11px; }
   }
   @media (max-width: 600px) {
-    .demo-window { border-radius: 8px; }
+    .demo-window { border-radius: 12px; }
     .demo-toolbar { padding: 12px; font-size: 10px; gap: 8px; }
     .toolbar-project { display: none; }
     .demo-badge { font-size: 9px; padding-inline: 6px; }
@@ -71,10 +77,9 @@ const labels = zh ? { development: '排查与修复', design: '改进产品界�
     .task-options { grid-template-columns: 1fr 1fr; gap: 6px; }
     .task-options label { padding: 10px 8px; min-height: 46px; gap: 7px; }
     .task-option-arrow { display: none; }
-    figcaption { font-size: 12px; }
+    figcaption { font-size: 11px; }
   }
 </style>
-
 
 <script>
   const stage = document.querySelector<HTMLElement>('[data-task-stage]');

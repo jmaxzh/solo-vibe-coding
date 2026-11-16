@@ -1,0 +1,46 @@
+[
+  {
+    "locale": "zh-CN",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "title": "给你的编程助手，\n一套做产品的专业方法。",
+    "image": "/solo-vibe-coding/media/orbit/chrome-orbit.webp",
+    "meanChannelError": 0,
+    "changedChannels": 0,
+    "totalChannels": 4320000
+  },
+  {
+    "locale": "zh-CN",
+    "device": "mobile",
+    "width": 390,
+    "height": 844,
+    "title": "给你的编程助手，\n一套做产品的专业方法。",
+    "image": "/solo-vibe-coding/media/orbit/chrome-orbit.webp",
+    "meanChannelError": 0,
+    "changedChannels": 0,
+    "totalChannels": 987480
+  },
+  {
+    "locale": "en",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "title": "Give your assistant\na product playbook.",
+    "image": "/solo-vibe-coding/media/orbit/chrome-orbit.webp",
+    "meanChannelError": 0,
+    "changedChannels": 0,
+    "totalChannels": 4320000
+  },
+  {
+    "locale": "en",
+    "device": "mobile",
+    "width": 390,
+    "height": 844,
+    "title": "Give your assistant\na product playbook.",
+    "image": "/solo-vibe-coding/media/orbit/chrome-orbit.webp",
+    "meanChannelError": 0,
+    "changedChannels": 0,
+    "totalChannels": 987480
+  }
+]

@@ -62,7 +62,7 @@
 
 优先复用现有字体、组件与依赖。先把样式限定在本次页面；修改共享导航、布局或变量时检查内页及全部交互状态。沿用项目框架、路由和发布体系，新增依赖应说明可见收益和维护成本。第三方代码、字体及素材核对适用许可，并保留必要归属。
 
-参考实现：[首屏布局](../../website/src/components/Hero.astro)、[装饰场景](../../website/src/components/PrismScene.astro)、[首页章节](../../website/src/components/Home.astro)、[首页与内页样式边界](../../website/src/layouts/Layout.astro)。具体实现参数以代码为准；本项目的内容、交互与语言要求见[官网需求](../specs/website.md)。
+参考实现：[首屏布局](../../website/src/components/Hero.astro)、[装饰场景](../../website/src/components/OrbitScene.astro)、[首页章节](../../website/src/components/Home.astro)、[首页与内页样式边界](../../website/src/layouts/Layout.astro)。具体实现参数以代码为准；本项目的内容、交互与语言要求见[官网需求](../specs/website.md)。
 
 ## 动效与运行成本
 

@@ -6,7 +6,6 @@ export default defineConfig({
   base: '/solo-vibe-coding',
   output: 'static',
   trailingSlash: 'always',
-  devToolbar: { enabled: false },
   integrations: [sitemap({ filter: (url) => !url.endsWith('/404/') })],
   vite: { build: { assetsInlineLimit: 0 } },
 });

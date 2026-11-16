@@ -1,7 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFile } from 'node:fs/promises';
-import sharp from 'sharp';
 
 const base = '/solo-vibe-coding/';
 const example = 'examples/quote-calculator/';
@@ -92,104 +91,45 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
-  test(`${locale}: the concept sculpture loads, stays static and is labelled honestly`, async ({ page }) => {
+  test(`${locale}: orbit responds to motion controls and stops rendering away from view`, async ({ page }) => {
     await page.goto(path);
-    const art = page.locator('[data-brand-art]');
-    await expect(art).toBeVisible();
-    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'Concept artwork' : '品牌概念视觉');
-    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'AI-generated' : 'AI 生成');
-    await expect(art.locator('canvas')).toHaveCount(0);
-    for (const width of [320, 360, 390, 480, 600, 768, 801, 820, 850, 900, 1024, 1100, 1200, 1440]) {
-      await page.setViewportSize({ width, height: 1000 });
-      await page.evaluate(() => document.fonts.ready);
-      await art.scrollIntoViewIfNeeded();
-      await expect.poll(() => art.locator('img').evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-      const presentation = await art.evaluate(element => {
-        const image = element.querySelector('img')!;
-        const caption = element.querySelector('figcaption')!.getBoundingClientRect();
-        return {
-          captionBelow: caption.top >= image.getBoundingClientRect().bottom - 12,
-          noOverflow: document.documentElement.scrollWidth <= innerWidth,
-          animation: getComputedStyle(image).animationName,
-        };
-      });
-      expect(presentation.captionBelow, `Artwork caption overlaps at ${width}px`).toBe(true);
-      expect(presentation.noOverflow, `Page overflows at ${width}px`).toBe(true);
-      expect(presentation.animation).toBe('none');
+    const canvas = page.locator('[data-orbit-canvas]');
+    const signature = () => canvas.evaluate((element) => {
+      const value = (element as HTMLCanvasElement).toDataURL();
+      let hash = 2166136261;
+      for (let i = 0; i < value.length; i += 17) hash = Math.imul(hash ^ value.charCodeAt(i), 16777619);
+      return hash >>> 0;
+    });
+    const settleFrames = () => page.evaluate(async () => {
+      for (let i = 0; i < 6; i++) await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    });
+    const initial = await signature();
+    await expect.poll(signature).not.toBe(initial);
+    if (await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)) {
+      await page.mouse.move(1200, 350);
+      await expect.poll(() => page.locator('[data-orbit-scene]').evaluate(e => e.style.getPropertyValue('--orbit-x'))).not.toBe('');
     }
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await expect(art).toBeVisible();
+    await page.locator('[data-motion-toggle]').click();
     await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
+    const paused = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(paused);
+    await page.locator('[data-motion-toggle]').click();
+    await expect.poll(signature).not.toBe(paused);
+    await page.locator('#why-skill').scrollIntoViewIfNeeded();
+    await expect(page.locator('[data-orbit-scene]')).toHaveAttribute('data-scene-state', 'static');
+    const away = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(away);
+    await page.locator('.product-hero').scrollIntoViewIfNeeded();
+    await expect.poll(signature).not.toBe(away);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await expect(page.locator('[data-motion-toggle]')).toBeDisabled();
-  });
-
-  test(locale + ': hero copy stays readable and actionable across breakpoints', async ({ page }) => {
-    test.setTimeout(90_000);
-    const luminance = (rgb: number[]) => rgb.map(value => {
-      const channel = value / 255;
-      return channel <= .04045 ? channel / 12.92 : Math.pow((channel + .055) / 1.055, 2.4);
-    }).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
-    const checkReading = async (width: number, state: string) => {
-      const measurements = await page.evaluate(() => {
-        const copy = document.querySelector('.hero-copy')!.getBoundingClientRect();
-        const art = document.querySelector('.hero-art')!.getBoundingClientRect();
-        const controlsHit = [...document.querySelectorAll('.product-actions a')].every(link => {
-          const r = link.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2;
-          if (y > innerHeight) return true;
-          const hit = document.elementFromPoint(x, y);
-          return hit === link || (hit !== null && link.contains(hit));
-        });
-        const probes = [...document.querySelectorAll<HTMLElement>('.product-hero h1 > span, .hero-description, .product-note, .hero-bottom-label, .hero-overline, .product-actions .button-secondary, .hero-scroll, .hero-motion [data-motion-label]')].flatMap(element => {
-          const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-          const nodes: Node[] = [];
-          let node: Node | null;
-          while ((node = walker.nextNode())) if (node.textContent?.trim() && !node.parentElement?.closest('[aria-hidden="true"]')) nodes.push(node);
-          return nodes.flatMap(text => {
-            const range = document.createRange(); range.selectNodeContents(text);
-            const color = getComputedStyle(text.parentElement ?? element).color.match(/[0-9.]+/g)!.slice(0, 3).map(Number);
-            return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, selector: element.className, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
-          });
-        });
-        return { controlsHit, separated: innerWidth > 800 ? art.left >= copy.right + 32 : art.top >= copy.bottom + 20, probes };
-      });
-      expect(measurements.controlsHit, state + ' control covered at ' + width).toBe(true);
-      expect(measurements.separated, state + ' artwork lacks space from copy at ' + width).toBe(true);
-      const hiding = await page.addStyleTag({ content: '.product-hero h1, .product-hero h1 *, .hero-description, .product-note, .hero-bottom-label, .hero-overline, .hero-overline *, .product-actions .button-secondary, .product-actions .button-secondary *, .hero-scroll, .hero-scroll *, .hero-motion [data-motion-label] { color: transparent !important; text-shadow: none !important; }' });
-      let background: Buffer;
-      try {
-        await expect(page.locator('h1 > span').first()).toHaveCSS('color', 'rgba(0, 0, 0, 0)');
-        await expect.poll(() => page.locator('.hero-description, .product-note, .hero-bottom-label, .hero-overline, .product-actions .button-secondary, .hero-scroll, .hero-motion [data-motion-label]').evaluateAll(elements => elements.every(element => getComputedStyle(element).color === 'rgba(0, 0, 0, 0)'))).toBe(true);
-        background = await page.screenshot({ scale: 'css' });
-      } finally {
-        await hiding.evaluate(element => { element.parentNode?.removeChild(element); });
-        await expect(page.locator('h1 > span').first()).not.toHaveCSS('color', 'rgba(0, 0, 0, 0)');
-      }
-      const { data, info } = await sharp(background!).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-      for (const probe of measurements.probes) {
-        let brightest = 0, samples = 0;
-        const top = Math.max(0, probe.y), bottom = Math.min(info.height, probe.y + probe.height);
-        const left = Math.max(0, probe.x), right = Math.min(info.width, probe.x + probe.width);
-        const firstY = Math.floor(bottom - top < 4 ? (top + bottom) / 2 : top + 2);
-        const firstX = Math.floor(right - left < 4 ? (left + right) / 2 : left + 2);
-        for (let y = firstY; y < bottom; y += 6) {
-          for (let x = firstX; x < right; x += 6) {
-            const offset = (y * info.width + x) * info.channels;
-            brightest = Math.max(brightest, luminance([...data.subarray(offset, offset + 3)])); samples++;
-          }
-        }
-        expect(samples, 'No visible text samples at ' + width).toBeGreaterThan(0);
-        const foreground = luminance(probe.color);
-        const contrast = (Math.max(foreground, brightest) + .05) / (Math.min(foreground, brightest) + .05);
-        expect(contrast, state + ' ' + probe.selector + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
-      }
-    };
-    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 820, 900, 1000, 1001, 1024, 1100, 1200, 1201, 1280, 1440, 1920]) {
-      await page.emulateMedia({ reducedMotion: 'reduce' });
-      await page.setViewportSize({ width, height: 1000 });
-      await page.goto(path);
-      await page.evaluate(() => document.fonts.ready);
-      await checkReading(width, 'Static');
-    }
+    const reduced = await signature();
+    await settleFrames();
+    expect(await signature()).toBe(reduced);
+    await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
+    expect(await page.locator('[data-orbit-scene] img').evaluate(e => (e as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   });
 
   test(`${locale}: tablet navigation leaves the motion control clickable`, async ({ page }) => {
@@ -197,7 +137,6 @@ for (const locale of ['en', 'zh-CN'] as const) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(path);
       const control = page.locator('[data-motion-toggle]');
-      await control.scrollIntoViewIfNeeded();
       expect(await control.evaluate(element => {
         const rect = element.getBoundingClientRect();
         const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
@@ -437,7 +376,7 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
-      await expect(page.locator('[data-brand-art]')).toBeVisible();
+      await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
       await expect(page.locator('[data-workflow="design"]')).toBeVisible();
       await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();

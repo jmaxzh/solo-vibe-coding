@@ -1,0 +1,38 @@
+<script>
+  const page = document.querySelector<HTMLElement>('.immersive-home');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  if (page) {
+    const targets = [...page.querySelectorAll<HTMLElement>('.pain-card, [data-magnetic]')];
+    const scheduled = new WeakMap<HTMLElement, number>();
+    const positions = new WeakMap<HTMLElement, { x: number; y: number }>();
+    const enabled = () => fine.matches && !reduced.matches && document.documentElement.dataset.motion === 'on';
+    const reset = (target: HTMLElement) => {
+      const frame = scheduled.get(target);
+      if (frame) cancelAnimationFrame(frame);
+      scheduled.delete(target); positions.delete(target);
+      target.style.removeProperty('--spot-x'); target.style.removeProperty('--spot-y');
+      if (target.hasAttribute('data-magnetic')) target.style.removeProperty('transform');
+    };
+    for (const target of targets) {
+      target.addEventListener('pointermove', event => {
+        if (!enabled()) return;
+        positions.set(target, { x: event.clientX, y: event.clientY });
+        if (scheduled.has(target)) return;
+        scheduled.set(target, requestAnimationFrame(() => {
+          scheduled.delete(target);
+          const point = positions.get(target);
+          if (!enabled() || !point) return;
+          const rect = target.getBoundingClientRect();
+          const x = point.x - rect.left, y = point.y - rect.top;
+          target.style.setProperty('--spot-x', `${x}px`); target.style.setProperty('--spot-y', `${y}px`);
+          if (target.hasAttribute('data-magnetic')) target.style.transform = `translate(${(x / rect.width - .5) * 8}px, ${(y / rect.height - .5) * 6}px)`;
+        }));
+      }, { passive: true });
+      target.addEventListener('pointerleave', () => reset(target));
+      target.addEventListener('focus', () => reset(target));
+    }
+    document.addEventListener('website-motion-change', () => { if (!enabled()) targets.forEach(reset); });
+    reduced.addEventListener('change', () => targets.forEach(reset));
+  }
+</script>

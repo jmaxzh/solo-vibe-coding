@@ -2,13 +2,8 @@ import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
-const sculpture = await readFile(new URL('../public/media/method-assembly-small.webp', import.meta.url));
-const socialSVG = (await readFile(new URL('../public/social-card.svg', import.meta.url), 'utf8'))
-  .replace(/<image\b[^>]*\/>/, '');
-const sculptureOverlay = await sharp(sculpture).resize(550, 550).png().toBuffer();
-await sharp(Buffer.from(socialSVG))
-  .composite([{ input: sculptureOverlay, left: 640, top: 64 }])
-  .png({ palette: true, colours: 256, effort: 10, dither: .75 })
+await sharp(fileURLToPath(new URL('../public/social-card.svg', import.meta.url)))
+  .png()
   .toFile(fileURLToPath(new URL('../public/social-card.png', import.meta.url)));
 console.log('Generated public/social-card.png from public/social-card.svg.');
 

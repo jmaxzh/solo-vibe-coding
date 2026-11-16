@@ -1,0 +1,3 @@
+# 首次认可官网恢复发布
+
+用户已授权将f2b27f3的官网恢复到main、提交推送并部署GitHub Pages。以新提交实施恢复，website树必须保持35273ab2b9046a8a6bb76cb8beded0b98964db41。正式发布后在此归档源码SHA、Actions/Pages状态及公开浏览器检查，不用本地结果代替线上结果。

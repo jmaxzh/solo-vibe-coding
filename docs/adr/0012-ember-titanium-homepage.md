@@ -1,6 +1,6 @@
 # ADR 0012 黑钛熔光首页
 
-- 状态：采用为本次实现；用户已授权发布，审美效果待用户检查
+- 状态：本版曾采用，后由 [ADR 0013](0013-precision-assembly-homepage.md) 替代；当前官网由 [ADR 0014](0014-restore-first-approved-homepage.md) 恢复至首次认可版
 - 日期：2026-11-15
 - 对应决策：D46，替代 D45 的视觉表达
 
