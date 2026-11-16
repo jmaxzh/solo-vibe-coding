@@ -1,0 +1,203 @@
+{
+  "checkedAt": "2026-11-16T01:12:17.585Z",
+  "sourceCommit": "34cd2b24ecab2762a86727ecc100f80eb5a61f38",
+  "base": "https://jmaxzh.github.io/solo-vibe-coding/",
+  "pages": [
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/first-public-build/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/build-log/working-methods/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-export/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/getting-started/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/guides/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/first-public-build/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/build-log/working-methods/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/case-study/bookmark-export/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/guides/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/zh-CN/",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/sitemap-index.xml",
+      "status": 200
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/sitemap-0.xml",
+      "status": 200
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/method-assembly.webp",
+      "status": 200,
+      "bytes": 156758,
+      "sha256": "54fcf2d3723ad77b1f14ceb7cce2692b2980e97bd1051fcde30793a9c218979f",
+      "matchesSource": true
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/method-assembly-small.webp",
+      "status": 200,
+      "bytes": 67182,
+      "sha256": "5d2224095faeac3cc965e7f29afb5c2704069359602277766651714af554ec9d",
+      "matchesSource": true
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/social-card.png",
+      "status": 200,
+      "bytes": 96435,
+      "sha256": "2226c3d7ff60bbf33cc7ae96a8a47fdd97171d94b871f4bc7050b29d24001037",
+      "matchesSource": true
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/favicon.svg",
+      "status": 200,
+      "bytes": 254
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-starter.zip",
+      "status": 200,
+      "bytes": 4595
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/PageIntro.DXuRBKbq.css",
+      "status": 200,
+      "bytes": 38697
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/_..D52ODtnn.css",
+      "status": 200,
+      "bytes": 44688
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/Layout.astro_astro_type_script_index_0_lang.HqtRVCa7.js",
+      "status": 200,
+      "bytes": 1197
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmarks-round-2.png",
+      "status": 200,
+      "bytes": 59632
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmarks-round-1.png",
+      "status": 200,
+      "bytes": 71227
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/video-call.webp",
+      "status": 200,
+      "bytes": 36432
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/app-mobile.webp",
+      "status": 200,
+      "bytes": 17608
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/login.webp",
+      "status": 200,
+      "bytes": 6824
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/media/design-after.webp",
+      "status": 200,
+      "bytes": 55526
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/Terminal.astro_astro_type_script_index_0_lang.Bgk1nTod.js",
+      "status": 200,
+      "bytes": 898
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/GettingStarted.astro_astro_type_script_index_0_lang.COdBBO_3.js",
+      "status": 200,
+      "bytes": 724
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/QuoteCalculator.astro_astro_type_script_index_0_lang.ByZlMPEo.js",
+      "status": 200,
+      "bytes": 9601
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/TaskStage.astro_astro_type_script_index_0_lang.BVARjAiL.js",
+      "status": 200,
+      "bytes": 872
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/WebsiteMotion.astro_astro_type_script_index_0_lang.BbiUA3-x.js",
+      "status": 200,
+      "bytes": 671
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/ibm-plex-mono-latin-400-normal.DMJ8VG8y.woff2",
+      "status": 200,
+      "bytes": 14708
+    },
+    {
+      "url": "https://jmaxzh.github.io/solo-vibe-coding/_astro/manrope-latin-wght-normal.DHIcAJRg.woff2",
+      "status": 200,
+      "bytes": 24836
+    }
+  ],
+  "browser": {
+    "taskAndLanguage": "passed",
+    "quoteErrorsAndCSV": "passed",
+    "mobileLayout": "passed",
+    "errors": [],
+    "failedRequests": []
+  },
+  "robots": {
+    "url": "https://jmaxzh.github.io/robots.txt",
+    "status": 404
+  }
+}

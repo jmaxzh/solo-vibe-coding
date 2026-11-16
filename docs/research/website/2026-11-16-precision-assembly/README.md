@@ -2,11 +2,13 @@
 
 新版以象牙白、炭黑与朱橙金属雕塑建立品牌印象。大字与向上展开的框架呼应，流程说明、真实记录与可操作报价功能分别呈现；中英文与内页共享视觉语言。
 
+已发布：[中文官网](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/) · [English](https://jmaxzh.github.io/solo-vibe-coding/)；[发布与线上核验](publication.md)记录提交、Actions、独立发布审查和实际操作结果。
+
 ## 直接操作
 
 [中文预览](http://127.0.0.1:4392/solo-vibe-coding/zh-CN/) · [English preview](http://127.0.0.1:4392/solo-vibe-coding/)
 
-预览使用本机静态构建，没有发布到公共官网。重新启动时，在 `website/` 执行：
+上述预览入口使用本机静态构建，公共版本见上方官网链接。重新启动本地预览时，在 `website/` 执行：
 
 ```sh
 npm run build

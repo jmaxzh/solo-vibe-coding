@@ -2,6 +2,8 @@
 
 日期：2026-11-16（Asia/Shanghai）。交付范围为本地预览，没有公共发布与Git提交。
 
+以上为制作完成时的本地验收范围；后续用户授权的公开发布与核验见[publication.md](publication.md)。
+
 ## 工程与浏览器
 
 - `npm run validate` / 最终等价的 `npm run check && npm run build && npm run verify`：33个Astro相关文件，0错误0警告；17页静态构建；17个sitemap网址；内链、锚点、双语、元数据、结构化数据与预算通过。

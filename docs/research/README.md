@@ -32,4 +32,4 @@
 
 - 2026-11-15：[产品工作台新版预览、双语截图与验收](website/2026-11-15-open-workbench/README.md)，包含设计说明、实际差异、运行方法、浏览器记录与独立审查结果；[GitHub Pages 发布与线上核验](website/2026-11-15-open-workbench/publication.md)。
 
-- 2026-11-16：[精密装配官网本地预览、双语桌面与手机截图](website/2026-11-16-precision-assembly/README.md)、[实际差异与成本](website/2026-11-16-precision-assembly/change-evaluation.md)、[独立只读审查](website/2026-11-16-precision-assembly/independent-review.md)。
+- 2026-11-16：[精密装配官网本地预览、双语桌面与手机截图](website/2026-11-16-precision-assembly/README.md)、[实际差异与成本](website/2026-11-16-precision-assembly/change-evaluation.md)、[独立只读审查](website/2026-11-16-precision-assembly/independent-review.md)、[GitHub Pages发布与线上核验](website/2026-11-16-precision-assembly/publication.md)。
