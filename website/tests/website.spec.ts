@@ -99,7 +99,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'Concept artwork' : '品牌概念视觉');
     await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'AI-generated' : 'AI 生成');
     await expect(art.locator('canvas')).toHaveCount(0);
-    for (const width of [320, 360, 390, 480, 600, 768, 801, 850, 900, 1024, 1100, 1200, 1440]) {
+    for (const width of [320, 360, 390, 480, 600, 768, 801, 820, 850, 900, 1024, 1100, 1200, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.evaluate(() => document.fonts.ready);
       await art.scrollIntoViewIfNeeded();
@@ -150,10 +150,10 @@ for (const locale of ['en', 'zh-CN'] as const) {
             return [...range.getClientRects()].filter(r => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth).map(r => ({ x: r.x, y: r.y, width: r.width, height: r.height, color, selector: element.className, minimum: element.parentElement?.tagName === 'H1' ? 3 : 4.5 }));
           });
         });
-        return { controlsHit, separated: innerWidth > 800 || art.top >= copy.bottom, probes };
+        return { controlsHit, separated: innerWidth > 800 ? art.left >= copy.right + 32 : art.top >= copy.bottom + 20, probes };
       });
       expect(measurements.controlsHit, state + ' control covered at ' + width).toBe(true);
-      expect(measurements.separated, state + ' mobile artwork overlaps copy at ' + width).toBe(true);
+      expect(measurements.separated, state + ' artwork lacks space from copy at ' + width).toBe(true);
       const hiding = await page.addStyleTag({ content: '.product-hero h1, .product-hero h1 *, .hero-description, .product-note, .hero-bottom-label, .hero-overline, .hero-overline *, .product-actions .button-secondary, .product-actions .button-secondary *, .hero-scroll, .hero-scroll *, .hero-motion [data-motion-label] { color: transparent !important; text-shadow: none !important; }' });
       let background: Buffer;
       try {
@@ -183,7 +183,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
         expect(contrast, state + ' ' + probe.selector + ' text/background contrast at ' + width).toBeGreaterThanOrEqual(probe.minimum);
       }
     };
-    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 900, 1000, 1001, 1024, 1100, 1200, 1201, 1280, 1440, 1920]) {
+    for (const width of [320, 390, 600, 601, 700, 768, 800, 801, 820, 900, 1000, 1001, 1024, 1100, 1200, 1201, 1280, 1440, 1920]) {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(path);

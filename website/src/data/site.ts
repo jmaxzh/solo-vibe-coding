@@ -36,9 +36,9 @@ const en = {
   footerSource: 'GitHub', footerTop: 'Back to top',
   hero: {
     context: 'An open-source skill for your coding assistant',
-    title: 'Your idea.', accent: 'A way forward.',
-    description: 'Turn a clear product goal into something you can use. One open-source skill brings design, development and launch guidance to the coding assistant you already use.',
-    primary: 'Install and get started', secondary: 'See how it works',
+    title: 'Your assistant.', accent: 'Expert methods.',
+    description: 'Redesign an interface, fix a bug, launch a demo or find your first users. Add task-specific guidance, then build and check the result in your existing project.',
+    primary: 'Install the skill', secondary: 'See how it works',
     note: 'Works in your existing assistant · Free, open-source skill',
   },
   home: {
@@ -135,8 +135,8 @@ const zh: typeof en = {
   footerLicense: 'Skill 采用 MIT 开源许可。编程助手与其他服务按各自条款提供。', footerSource: 'GitHub', footerTop: '回到顶部',
   hero: {
     context: '给编程助手的专业指导包 · 开源 Skill',
-    title: '从想做，', accent: '到做成。',
-    description: '把明确的产品目标，推进到能打开试用的成果。一个开源 Skill，为你熟悉的编程助手补上设计、开发、排错与上线的专业方法。',
+    title: '给编程助手，', accent: '补上专业方法。',
+    description: '改界面、修 Bug、把 Demo 上线，或找到第一批用户。按任务选用专业指导，在已有项目里实现并检查结果。',
     primary: '安装并开始使用', secondary: '看看怎么用', note: '在现有助手中使用 · Skill 免费开源',
   },
   home: {

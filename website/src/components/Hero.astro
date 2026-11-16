@@ -1,6 +1,6 @@
 ---
 import AssemblyArt from './AssemblyArt.astro';
-import { UI, href, type Locale } from '../data/site';
+import { UI, PAGE_PATHS, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].hero;
@@ -18,42 +18,45 @@ const zh = locale === 'zh-CN';
           <a class="button button-secondary" href="#usage-demo">{ui.secondary}<span aria-hidden="true">↓</span></a>
         </div>
         <p class="product-note">{ui.note}</p>
+        <a class="hero-example" data-case-link href={href(locale, PAGE_PATHS['case-study'])}><span>{zh ? '看一次实际任务' : 'Inspect a real task'}</span>{zh ? '收藏工具：从 CSV 导出，到只导出筛选结果。' : 'A bookmark tool: add CSV export, then export only filtered results.'}<span aria-hidden="true">↗</span></a>
       </div>
       <AssemblyArt locale={locale} />
     </div>
-    <div class="hero-bottom"><span class="hero-bottom-label">{zh ? '独立做产品，也有专业方法可循。' : 'INDEPENDENT BUILDER. CONSIDERED PROCESS.'}</span><a class="hero-scroll" href="#usage-demo">{zh ? '探索你的下一步' : 'Explore your next move'}<span aria-hidden="true">↘</span></a><button class="motion-toggle hero-motion" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></div>
+    <div class="hero-bottom"><span class="hero-bottom-label">{zh ? '从想做，到做成。' : 'YOUR IDEA. A WAY FORWARD.'}</span><a class="hero-scroll" href="#usage-demo">{zh ? '选择你的下一项任务' : 'Choose your next task'}<span aria-hidden="true">↘</span></a><button class="motion-toggle hero-motion" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></div>
   </div>
 </section>
 <style>
   .product-hero { background: var(--paper); overflow: clip; }
-  .hero-shell { width: min(1376px, calc(100% - 112px)); margin-inline: auto; padding-top: 34px; }
-  .hero-composition { display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 670px; gap: 16px; }
-  .hero-copy { min-width: 0; position: relative; z-index: 2; padding-bottom: 30px; }
-  .hero-overline { display: flex; align-items: center; gap: 10px; color: #626159; font-size: 11px; font-weight: 600; margin-bottom: 34px; letter-spacing: .02em; }
+  .hero-shell { width: min(1376px, calc(100% - 112px)); margin-inline: auto; padding-top: 32px; }
+  .hero-composition { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; min-height: 590px; gap: 48px; }
+  .hero-copy { min-width: 0; position: relative; z-index: 2; padding-block: 20px; }
+  .hero-overline { display: flex; align-items: center; gap: 10px; color: #626159; font-size: 16px; font-weight: 600; margin-bottom: 24px; line-height: 1.7; }
   .signal { width: 7px; height: 7px; background: #bd3b1c; flex: none; }
-  h1 { font-size: clamp(66px, 7vw, 106px); font-weight: 750; line-height: 1.01; letter-spacing: -.075em; text-wrap: initial; }
+  h1 { font-size: clamp(44px, 4.5vw, 68px); font-weight: 750; line-height: 1.1; letter-spacing: -.06em; text-wrap: initial; }
   h1 > span { display: block; }
-  .hero-accent { color: #bd3b1c; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; letter-spacing: -.07em; white-space: nowrap; }
-  :global(:lang(zh-CN)) h1 { font-size: clamp(66px, 7.1vw, 102px); line-height: 1.2; letter-spacing: -.07em; }
-  :global(:lang(zh-CN)) .hero-accent { font-family: var(--font); font-style: normal; font-weight: 650; letter-spacing: -.07em; }
-  .hero-description { max-width: 450px; margin-top: 30px; font-size: 15px; line-height: 1.95; color: #626159; }
-  .product-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-  .product-actions .button { min-height: 54px; padding: 13px 21px; font-size: 12px; gap: 24px; border-radius: 2px; }
+  .hero-accent { color: #bd3b1c; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; letter-spacing: -.05em; }
+  :global(:lang(zh-CN)) h1 { font-size: clamp(40px, 4.5vw, 66px); line-height: 1.3; letter-spacing: -.055em; }
+  :global(:lang(zh-CN)) .hero-accent { font-family: var(--font); font-style: normal; font-weight: 650; letter-spacing: -.055em; }
+  .hero-description { max-width: 500px; margin-top: 24px; font-size: 18px; line-height: 1.85; color: #626159; }
+  .product-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .product-actions .button { min-height: 54px; padding: 13px 20px; font-size: 15px; gap: 20px; border-radius: 2px; }
   .product-actions .button-primary { background: #252923; color: #fffef9; border: 1px solid #252923; }
   .product-actions .button-primary:hover { background: #bd3b1c; border-color: #bd3b1c; }
   .product-actions .button-secondary { background: transparent; color: #252923; border: 1px solid #a6a79d; }
   .product-actions .button-secondary:hover { background: #e9e5db; }
   .action-arrow { font-size: 21px; font-weight: 400; }
-  .product-note { color: #626159; margin-top: 16px; font-size: 10px; }
-  .hero-bottom { display: flex; align-items: center; gap: 28px; border-top: 1px solid #c9c7bc; padding: 16px 0; margin-top: 18px; }
-  .hero-bottom-label { color: #626159; font: 9px/1.8 var(--mono); letter-spacing: .07em; }
-  .hero-scroll { margin-left: auto; display: inline-flex; align-items: center; gap: 27px; min-height: 44px; font-size: 11px; text-decoration: none; }
-  .hero-scroll > span { font-size: 23px; color: #bd3b1c; }
-  .hero-motion { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: transparent; border: 1px solid #a6a79d; border-radius: 2px; min-height: 44px; color: #626159; font-size: 10px; }
+  .product-note { color: #626159; margin-top: 12px; font-size: 13px; }
+  .hero-example { display: block; max-width: 480px; margin-top: 24px; padding-left: 14px; border-left: 2px solid #a6a79d; font-size: 14px; line-height: 1.8; text-decoration: none; }
+  .hero-example > span:first-child { display: block; font-size: 12px; color: #626159; margin-bottom: 3px; }
+  .hero-example > span:last-child { color: #a33319; margin-left: 8px; }
+  .hero-example:hover { text-decoration: underline; }
+  .hero-bottom { display: flex; align-items: center; gap: 28px; border-top: 1px solid #c9c7bc; padding: 12px 0; margin-top: 18px; }
+  .hero-bottom-label { color: #626159; font: 12px/1.8 var(--mono); letter-spacing: .04em; }
+  .hero-scroll { margin-left: auto; display: inline-flex; align-items: center; gap: 20px; min-height: 44px; font-size: 14px; text-decoration: none; }
+  .hero-scroll > span { font-size: 23px; color: #626159; }
+  .hero-motion { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: transparent; border: 1px solid #a6a79d; border-radius: 2px; min-height: 44px; color: #626159; font-size: 12px; }
   .hero-motion:disabled { cursor: default; }
-  @media (min-width: 1600px) { .hero-composition { min-height: 730px; } }
-  @media (max-width: 1200px) and (min-width: 801px) { .hero-composition { min-height: 590px; } h1 { font-size: 7vw; } .hero-overline { font-size: 10px; } .product-actions { gap: 9px; } .product-actions .button { gap: 14px; padding-inline: 16px; font-size: 11px; } }
-  @media (max-width: 1100px) { .hero-shell { width: calc(100% - 80px); } .hero-composition { gap: 12px; } .hero-description { font-size: 14px; } }
-  @media (max-width: 800px) { .hero-shell { width: calc(100% - 48px); padding-top: 47px; } .hero-composition { grid-template-columns: 1fr; gap: 10px; } .hero-copy { max-width: 650px; padding: 0; } h1 { font-size: 90px; } :global(:lang(zh-CN)) h1 { font-size: 80px; } .hero-description { max-width: 570px; } .hero-bottom { margin-top: 26px; } }
-  @media (max-width: 600px) { .hero-shell { width: calc(100% - 40px); padding-top: 35px; } .hero-overline { font-size: 10px; margin-bottom: 25px; } h1 { font-size: clamp(46px, 12.4vw, 72px); } :global(:lang(zh-CN)) h1 { font-size: clamp(58px, 16vw, 90px); line-height: 1.17; } .hero-description { margin-top: 23px; font-size: 14px; line-height: 1.9; } .product-actions { margin-top: 24px; gap: 9px; } .product-actions .button { padding-inline: 14px; gap: 14px; font-size: 11px; min-height: 51px; } .product-note { font-size: 10px; } .hero-bottom { gap: 9px; flex-wrap: wrap; padding-block: 12px; } .hero-bottom-label { width: 100%; font-size: 8px; } .hero-scroll { margin: 0 auto 0 0; font-size: 11px; gap: 20px; } }
+  @media (max-width: 1100px) { .hero-shell { width: calc(100% - 80px); } .hero-composition { gap: 36px; } .hero-description { font-size: 17px; } .product-actions .button { padding-inline: 12px; gap: 10px; font-size: 14px; } }
+  @media (max-width: 800px) { .hero-shell { width: calc(100% - 48px); padding-top: 32px; } .hero-composition { grid-template-columns: 1fr; min-height: 0; gap: 24px; } .hero-copy { max-width: 650px; padding: 0; } h1 { font-size: 64px; } :global(:lang(zh-CN)) h1 { font-size: 60px; } .hero-description { max-width: 600px; } .hero-bottom { margin-top: 24px; } }
+  @media (max-width: 600px) { .hero-shell { width: calc(100% - 40px); padding-top: 26px; } .hero-overline { font-size: 14px; margin-bottom: 18px; } h1 { font-size: clamp(34px, 10.2vw, 54px); } :global(:lang(zh-CN)) h1 { font-size: clamp(34px, 10.2vw, 54px); line-height: 1.35; } .hero-description { margin-top: 18px; font-size: 16px; line-height: 1.85; } .product-actions { margin-top: 22px; gap: 9px; } .product-actions .button { padding-inline: 12px; gap: 10px; font-size: 14px; min-height: 50px; } .product-note { font-size: 12px; } .hero-example { margin-top: 18px; } .hero-bottom { gap: 9px; flex-wrap: wrap; padding-block: 10px; margin-top: 18px; } .hero-bottom-label { font-size: 11px; } .hero-scroll { display: none; } .hero-motion { margin-left: auto; } }
 </style>

@@ -1,0 +1,392 @@
+[
+  {
+    "locale": "zh-CN",
+    "width": 390,
+    "status": 200,
+    "title": "给编程助手，\n补上专业方法。",
+    "overflow": false,
+    "pageHeight": 8943,
+    "hero": {
+      "top": 125,
+      "left": 0,
+      "right": 390,
+      "bottom": 934.640625,
+      "height": 809.640625
+    },
+    "copy": {
+      "top": 151,
+      "left": 20,
+      "right": 370,
+      "bottom": 592.84375,
+      "height": 441.84375
+    },
+    "art": {
+      "top": 616.84375,
+      "left": 20,
+      "right": 370,
+      "bottom": 851.640625,
+      "height": 234.796875
+    },
+    "canvas": {
+      "top": 616.84375,
+      "left": 90,
+      "right": 300,
+      "bottom": 826.84375,
+      "height": 210
+    },
+    "usage": {
+      "top": 1178.984375,
+      "left": 20,
+      "right": 370,
+      "bottom": 2207.578125,
+      "height": 1028.59375
+    },
+    "evidence": {
+      "top": 2255.578125,
+      "left": 20,
+      "right": 370,
+      "bottom": 3172.140625,
+      "height": 916.5625
+    },
+    "caseImage": {
+      "top": 2418.921875,
+      "left": 21,
+      "right": 369,
+      "bottom": 2704.359375,
+      "height": 285.4375
+    },
+    "fonts": {
+      "definition": "14px",
+      "description": "16px",
+      "action": "14px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 820,
+    "status": 200,
+    "title": "给编程助手，\n补上专业方法。",
+    "overflow": false,
+    "pageHeight": 7094,
+    "hero": {
+      "top": 89,
+      "left": 0,
+      "right": 820,
+      "bottom": 798,
+      "height": 709
+    },
+    "copy": {
+      "top": 160.46875,
+      "left": 40,
+      "right": 408.75,
+      "bottom": 671.53125,
+      "height": 511.0625
+    },
+    "art": {
+      "top": 237.25,
+      "left": 444.75,
+      "right": 780,
+      "bottom": 594.75,
+      "height": 357.5
+    },
+    "canvas": {
+      "top": 237.25,
+      "left": 444.75,
+      "right": 780,
+      "bottom": 572.5,
+      "height": 335.25
+    },
+    "usage": {
+      "top": 1104.875,
+      "left": 40,
+      "right": 780,
+      "bottom": 1829,
+      "height": 724.125
+    },
+    "evidence": {
+      "top": 1893,
+      "left": 40,
+      "right": 780,
+      "bottom": 2591.5625,
+      "height": 698.5625
+    },
+    "caseImage": {
+      "top": 2087.78125,
+      "left": 41,
+      "right": 410,
+      "bottom": 2542.5625,
+      "height": 454.78125
+    },
+    "fonts": {
+      "definition": "16px",
+      "description": "17px",
+      "action": "14px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  },
+  {
+    "locale": "zh-CN",
+    "width": 1440,
+    "status": 200,
+    "title": "给编程助手，\n补上专业方法。",
+    "overflow": false,
+    "pageHeight": 7048,
+    "hero": {
+      "top": 89,
+      "left": 0,
+      "right": 1440,
+      "bottom": 837.03125,
+      "height": 748.03125
+    },
+    "copy": {
+      "top": 161.609375,
+      "left": 56,
+      "right": 726.46875,
+      "bottom": 709.421875,
+      "height": 547.8125
+    },
+    "art": {
+      "top": 121,
+      "left": 774.46875,
+      "right": 1384,
+      "bottom": 750.03125,
+      "height": 629.03125
+    },
+    "canvas": {
+      "top": 121,
+      "left": 774.46875,
+      "right": 1384,
+      "bottom": 730.53125,
+      "height": 609.53125
+    },
+    "usage": {
+      "top": 1192.40625,
+      "left": 80,
+      "right": 1360,
+      "bottom": 1875.734375,
+      "height": 683.328125
+    },
+    "evidence": {
+      "top": 1939.734375,
+      "left": 80,
+      "right": 1360,
+      "bottom": 2692.515625,
+      "height": 752.78125
+    },
+    "caseImage": {
+      "top": 2173.546875,
+      "left": 81,
+      "right": 750.421875,
+      "bottom": 2643.515625,
+      "height": 469.96875
+    },
+    "fonts": {
+      "definition": "16px",
+      "description": "18px",
+      "action": "15px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "status": 200,
+    "title": "Your assistant.\nExpert methods.",
+    "overflow": false,
+    "pageHeight": 9962,
+    "hero": {
+      "top": 125,
+      "left": 0,
+      "right": 390,
+      "bottom": 989.3125,
+      "height": 864.3125
+    },
+    "copy": {
+      "top": 151,
+      "left": 20,
+      "right": 370,
+      "bottom": 627.71875,
+      "height": 476.71875
+    },
+    "art": {
+      "top": 651.71875,
+      "left": 20,
+      "right": 370,
+      "bottom": 906.3125,
+      "height": 254.59375
+    },
+    "canvas": {
+      "top": 651.71875,
+      "left": 90,
+      "right": 300,
+      "bottom": 861.71875,
+      "height": 210
+    },
+    "usage": {
+      "top": 1233.65625,
+      "left": 20,
+      "right": 370,
+      "bottom": 2329.828125,
+      "height": 1096.171875
+    },
+    "evidence": {
+      "top": 2377.828125,
+      "left": 20,
+      "right": 370,
+      "bottom": 3445.125,
+      "height": 1067.296875
+    },
+    "caseImage": {
+      "top": 2541.171875,
+      "left": 21,
+      "right": 369,
+      "bottom": 2869.796875,
+      "height": 328.625
+    },
+    "fonts": {
+      "definition": "14px",
+      "description": "16px",
+      "action": "14px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 820,
+    "status": 200,
+    "title": "Your assistant.\nExpert methods.",
+    "overflow": false,
+    "pageHeight": 7573,
+    "hero": {
+      "top": 89,
+      "left": 0,
+      "right": 820,
+      "bottom": 798,
+      "height": 709
+    },
+    "copy": {
+      "top": 135.765625,
+      "left": 40,
+      "right": 408.75,
+      "bottom": 696.234375,
+      "height": 560.46875
+    },
+    "art": {
+      "top": 226.453125,
+      "left": 444.75,
+      "right": 780,
+      "bottom": 605.546875,
+      "height": 379.09375
+    },
+    "canvas": {
+      "top": 226.453125,
+      "left": 444.75,
+      "right": 780,
+      "bottom": 561.703125,
+      "height": 335.25
+    },
+    "usage": {
+      "top": 1115.6875,
+      "left": 40,
+      "right": 780,
+      "bottom": 1870.203125,
+      "height": 754.515625
+    },
+    "evidence": {
+      "top": 1934.203125,
+      "left": 40,
+      "right": 780,
+      "bottom": 2740.3125,
+      "height": 806.109375
+    },
+    "caseImage": {
+      "top": 2128.984375,
+      "left": 41,
+      "right": 410,
+      "bottom": 2691.3125,
+      "height": 562.328125
+    },
+    "fonts": {
+      "definition": "16px",
+      "description": "17px",
+      "action": "14px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "status": 200,
+    "title": "Your assistant.\nExpert methods.",
+    "overflow": false,
+    "pageHeight": 7335,
+    "hero": {
+      "top": 89,
+      "left": 0,
+      "right": 1440,
+      "bottom": 858.625,
+      "height": 769.625
+    },
+    "copy": {
+      "top": 168.71875,
+      "left": 56,
+      "right": 726.46875,
+      "bottom": 723.890625,
+      "height": 555.171875
+    },
+    "art": {
+      "top": 121,
+      "left": 774.46875,
+      "right": 1384,
+      "bottom": 771.625,
+      "height": 650.625
+    },
+    "canvas": {
+      "top": 121,
+      "left": 774.46875,
+      "right": 1384,
+      "bottom": 730.53125,
+      "height": 609.53125
+    },
+    "usage": {
+      "top": 1214,
+      "left": 80,
+      "right": 1360,
+      "bottom": 1897.328125,
+      "height": 683.328125
+    },
+    "evidence": {
+      "top": 1961.328125,
+      "left": 80,
+      "right": 1360,
+      "bottom": 2735.703125,
+      "height": 774.375
+    },
+    "caseImage": {
+      "top": 2195.140625,
+      "left": 81,
+      "right": 750.421875,
+      "bottom": 2686.703125,
+      "height": 491.5625
+    },
+    "fonts": {
+      "definition": "16px",
+      "description": "18px",
+      "action": "15px",
+      "method": "16px"
+    },
+    "imageLoaded": true,
+    "errors": []
+  }
+]

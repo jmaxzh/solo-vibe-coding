@@ -11,60 +11,71 @@ const { locale } = Astro.props;
 const ui = UI[locale];
 const zh = locale === 'zh-CN';
 const copy = zh ? {
-  painEyebrow: '02 / 从卡住的地方，继续往前', painTitle: '做产品，总有几步不只靠写代码。',
-  painText: '把这些任务里的专业方法，补到你已经在用的助手里。',
+  painEyebrow: '04 / 按任务深入了解', painTitle: '从修复、设计，到上线和推广。',
   community: '公开社区求助场景', source: '原始讨论', start: '从这个任务开始', method: '给助手补上的方法',
   sourceNote: '这些困难来自公开社区讨论，原帖作者并非本 Skill 的客户；这里不代表他们已用 Skill 解决问题。',
-  howEyebrow: '03 / HOW IT WORKS', howTitle: '熟悉的助手，多一套做产品的方法。', howText: '不必换一个地方工作。装好 Skill，回到自己的项目，说明你现在想做的事。',
+  howEyebrow: '03 / 三步开始', howTitle: '装好 Skill，带着自己的需求开始。',
   steps: [
     {title: '装进你的编程助手', text: '在当前项目安装 Skill。上手指南提供 Codex 与 Claude Code 的安装方式。', link: '查看完整安装指南', target: 'getting-started'},
     {title: '说清这一次的需求', text: '选一份接近你目标的任务需求，补上项目现状、参考和要保留的功能。', link: '浏览任务与需求示例', target: 'guides'},
     {title: '一起推进，检查结果', text: '助手按任务补充专业指导。打开成果试一遍，核对交付目标，再继续修改。', link: '看看实际执行记录', target: PAGE_PATHS['case-study']},
   ],
-  evidenceEyebrow: '04 / 看得见，也能试一试', evidenceTitle: '从真实记录里了解，从小成果开始。', evidenceText: '实际执行记录与功能示例分开呈现，帮助你判断是否适合自己的项目。',
-  caseLabel: '实际执行记录 · 2026.11.13', caseTitle: '给收藏工具加导出，再新开会话继续改。',
-  caseText: '同一编程助手，分别直接执行与启用 Skill：比较 CSV 导出、原有功能和后续修改。记录包含结果、成本与限制。', caseLink: '阅读完整记录',
-  caseCaption: '实际产物截图 · 启用 Skill 组 · 修订批次第 1 配对 · 示例数据', caseLimit: '维护者的小规模任务比较，尚未进行真实用户研究；不代表普遍效果优势。',
-  exampleLabel: '功能示例 · 可以实际操作', exampleTitle: '一个能计算，也能下载的小工具。', exampleText: '输入工时、单价、额外费用与预留比例，试试手机操作和 CSV 明细下载。', exampleLink: '打开报价计算器',
+  evidenceEyebrow: '02 / 实际执行记录', evidenceTitle: '收藏导出：两轮修改的实际记录。',
+  caseLabel: '实际执行记录 · 2026.11.13',
+  caseText: '同一助手分别启用与不启用 Skill，两组均首次通过两轮任务（3 个配对）。图示 Skill 样本读取了专业指导，并把约定留在项目里。', caseLink: '阅读完整记录',
+  caseCaption: '看筛选条件、导出按钮与“开始导出”反馈。实际产物截图（局部） · Skill 组 · 修订第 1 配对 · 示例数据', caseLimit: '本次 Skill 组用时和报告用量更高；未证明速度或质量优势，也未进行真实用户研究。', caseRounds: ['第一轮：加入 CSV 导出，保留已有收藏与操作。', '新会话：改为仅导出搜索与分类筛选后的收藏。'],
+  exampleLabel: '功能示例 · 可以实际操作', exampleTitle: '一个能计算，也能下载的小工具。', exampleText: '输入工时、单价、额外费用与预留比例，试试手机操作和 CSV 明细下载。这是独立功能演示，不作为 Skill 效果的比较证据。', exampleLink: '打开报价计算器',
   quoteTitle: '项目报价', quoteSub: '浏览器内计算 · 示例金额', quoteHours: '12 小时 × ¥300', quoteExtras: '额外费用', quoteReserve: '预留 10%', quoteTotal: '报价总额', quoteAmount: '¥3,960.00',
-  installEyebrow: '从你的下一项任务开始', installTitle: '让专业方法，进入你的日常开发。', installText: '在项目文件夹中执行安装命令，或让助手按完整指南帮你安装。装好后，继续使用你熟悉的助手。', installLink: '安装并开始使用', installNote: 'Skill 免费 · MIT 许可。编程助手、API 与托管等第三方服务可能另外收费。',
-  faqEyebrow: 'FAQ', faqTitle: '开始前，你可能还想知道。', faqText: '先了解适用方式，再带着自己的项目开始。',
+  installEyebrow: '从你的下一项任务开始', installTitle: '让专业方法，进入你的日常开发。', installText: '在项目文件夹中执行下面的命令，或按完整指南让助手帮你安装。', installLink: '安装并开始使用', installNote: 'Skill 免费 · MIT 许可。编程助手、API 与托管等第三方服务可能另外收费。',
+  faqEyebrow: 'FAQ', faqTitle: '开始前，你可能还想知道。',
   allTasks: '继续探索', guideLink: '全部任务指南', reference: '查看界面参考（非执行结果）',
 } : {
-  painEyebrow: '02 / MOVE PAST THE STICKING POINT', painTitle: 'Building a product takes more than code.',
-  painText: 'Bring the methods behind these tasks into the assistant you already use.',
+  painEyebrow: '04 / EXPLORE THE TASKS', painTitle: 'From repairs and design to launch and outreach.',
   community: 'Public community question', source: 'Original discussion', start: 'Start with this task', method: 'Methods your assistant can draw on',
   sourceNote: 'These problems come from public community discussions. The authors are not customers of this skill, and these are not claims that it solved their problems.',
-  howEyebrow: '03 / HOW IT WORKS', howTitle: 'Your familiar assistant. A considered approach.', howText: 'Stay where you work. Install the skill, open your project and describe the task in front of you.',
+  howEyebrow: '03 / THREE STEPS TO START', howTitle: 'Install the skill. Bring your own task.',
   steps: [
     {title: 'Install in your coding assistant', text: 'Add the skill to your current project. The guide covers setup for Codex and Claude Code.', link: 'Read the setup guide', target: 'getting-started'},
     {title: 'Describe this particular task', text: 'Choose a relevant request. Add your project, references and the working features you want to keep.', link: 'Explore tasks and requests', target: 'guides'},
     {title: 'Make progress. Check the result.', text: 'Your assistant draws on guidance for the task. Open the result, check the delivery goals, then keep refining.', link: 'See an actual execution record', target: PAGE_PATHS['case-study']},
   ],
-  evidenceEyebrow: '04 / LOOK CLOSER. TRY SOMETHING.', evidenceTitle: 'Real work to inspect. A small tool to try.', evidenceText: 'Execution evidence and functional examples are shown separately, so you can judge what fits your project.',
-  caseLabel: 'Actual execution record · 13 Nov 2026', caseTitle: 'Add bookmark export. Pick up in a fresh session.',
-  caseText: 'The same coding assistant, with and without the skill: CSV export, existing features and a follow-up change. Includes results, costs and limits.', caseLink: 'Read the full record',
-  caseCaption: 'Actual output · Skill group · Corrected cohort, pair 01 · Example data', caseLimit: 'A small task comparison by the maintainer, not research with real users or evidence of a general advantage.',
-  exampleLabel: 'Functional example · Try it yourself', exampleTitle: 'A small tool with a useful, downloadable result.', exampleText: 'Enter hours, rate, extra costs and reserve. Try the mobile experience and download a CSV breakdown.', exampleLink: 'Open the quote calculator',
+  evidenceEyebrow: '02 / ACTUAL EXECUTION RECORD', evidenceTitle: 'Bookmark export: two changes to inspect.',
+  caseLabel: 'Actual execution record · 13 Nov 2026',
+  caseText: 'With and without the skill, the same assistant passed both changes first try across three pairs. The pictured skill-enabled sample read original guidance and kept project agreements.', caseLink: 'Read the full record',
+  caseCaption: 'Inspect the filters, export button and export-started message for 1 bookmark. Actual output, detail · Skill group, corrected pair 01 · Example data · Original Chinese interface.', caseLimit: 'The skill group took more time and tokens here. This maintainer comparison shows no speed or quality advantage and includes no real-user study.', caseRounds: ['First: add CSV export; keep saved bookmarks and existing actions.', 'Next session: export only bookmarks matching the search and category filters.'],
+  exampleLabel: 'Functional example · Try it yourself', exampleTitle: 'A small tool with a useful, downloadable result.', exampleText: 'Enter hours, rate, extra costs and reserve. Try the mobile experience and download a CSV breakdown. This is a separate functional demo, not comparative evidence for the skill.', exampleLink: 'Open the quote calculator',
   quoteTitle: 'Project quote', quoteSub: 'Browser-local calculation · Sample amounts', quoteHours: '12 hours × $50', quoteExtras: 'Extra costs', quoteReserve: 'Reserve 10%', quoteTotal: 'Total quote', quoteAmount: '$660.00',
-  installEyebrow: 'START WITH YOUR NEXT TASK', installTitle: 'Put professional methods to work.', installText: 'Run the command in your project folder, or follow the full guide with your assistant. Then keep working in the assistant you know.', installLink: 'Install and get started', installNote: 'The skill is free under MIT. Your coding assistant, APIs, hosting and other services may charge separately.',
-  faqEyebrow: 'FAQ', faqTitle: 'A few things before you begin.', faqText: 'Understand how it fits, then start with a project of your own.',
+  installEyebrow: 'START WITH YOUR NEXT TASK', installTitle: 'Put professional methods to work.', installText: 'Run the command in your project folder, or follow the full setup guide with your assistant.', installLink: 'Install and get started', installNote: 'The skill is free under MIT. Your coding assistant, APIs, hosting and other services may charge separately.',
+  faqEyebrow: 'FAQ', faqTitle: 'A few things before you begin.',
   allTasks: 'KEEP EXPLORING', guideLink: 'All task guides', reference: 'View an interface reference (not an execution result)',
 };
-const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 0 0 8 0V8M12 12v8', 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h.01M10 7h.01', 'M5 16a4 4 0 0 1 0-8 6 6 0 0 1 12-1 4.5 4.5 0 0 1 2 9M12 20V10m-4 4 4-4 4 4', 'M4 20V10m8 10V4m8 16v-7M2 20h20'];
 ---
 <div class="studio-home">
   <Hero locale={locale} />
   <div class="method-ribbon" aria-hidden="true"><div class="ribbon-track"><span>{zh ? '设计' : 'DESIGN'} <i>✳</i> {zh ? '开发' : 'BUILD'} <i>✳</i> {zh ? '排错' : 'DEBUG'} <i>✳</i> {zh ? '上线' : 'SHIP'} <i>✳</i> {zh ? '推广' : 'GROW'}</span><small>ONE SKILL. A CONSIDERED PRACTICE.</small></div></div>
   <section class="experience-section" aria-labelledby="experience-title">
-    <div class="experience-heading"><p class="eyebrow">{zh ? '01 / 在你的助手中使用' : '01 / IN YOUR ELEMENT'}</p><h2 id="experience-title">{zh ? '专业方法，进入你的工作流。' : 'Professional methods. Your familiar workflow.'}</h2><p>{zh ? '说清需求，按任务用上专业指导，明确这次交付与检查目标。继续在自己的编程助手中做项目。' : 'Describe the task, draw on relevant guidance and set clear delivery and check goals. Keep working in your own coding assistant.'}</p></div>
+    <div class="experience-heading"><p class="eyebrow">{zh ? '01 / 选一项任务' : '01 / CHOOSE A TASK'}</p><h2 id="experience-title">{zh ? '选一项任务，看看助手怎样推进。' : 'Pick a task. See how your assistant can approach it.'}</h2><p>{zh ? '切换下面四类任务，查看具体需求、专业方法和交付检查目标。' : 'Switch between four tasks to inspect a request, relevant methods and delivery checks.'}</p></div>
     <TaskStage locale={locale} />
   </section>
 
+  <section class="evidence-section home-section" id="real-task" aria-labelledby="evidence-title">
+    <div class="section-intro"><p class="eyebrow">{copy.evidenceEyebrow}</p><h2 id="evidence-title">{copy.evidenceTitle}</h2></div>
+      <article class="evidence-card case-card" aria-labelledby="evidence-title">
+        <figure class="case-image"><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}><img src={PROJECT.base + 'case-study/bookmarks-round-2.png'} alt={zh ? '收藏导出第二轮实际产物局部：搜索“界面”、分类“设计”，开始导出当前 1 条收藏的反馈' : 'Detail of the second-round output: search and category filters, the export button and feedback that export started for 1 bookmark'} width="1280" height="900" loading="lazy" /></a><figcaption>{copy.caseCaption}</figcaption></figure>
+        <div class="evidence-copy"><p class="content-label">{copy.caseLabel}</p><ol class="case-rounds">{copy.caseRounds.map((round) => <li>{round}</li>)}</ol><p>{copy.caseText}</p><a class="text-link" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{copy.caseLink}<span aria-hidden="true">↗</span></a><p class="evidence-limit">{copy.caseLimit}</p></div>
+      </article>
+  </section>
+
+  <section class="home-how home-section" id="how-it-helps" aria-labelledby="how-title">
+    <div class="section-intro"><p class="eyebrow">{copy.howEyebrow}</p><h2 id="how-title">{copy.howTitle}</h2></div>
+    <ol class="how-steps">{copy.steps.map((step, index) => <li><span class="step-index">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" data-home-start={index === 0 || undefined} href={href(locale, step.target)}>{step.link}<span aria-hidden="true">↗</span></a></li>)}</ol>
+    <a class="skill-source" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{OUTCOME_UI[locale].skillSource}<span aria-hidden="true"> ↗</span></a>
+  </section>
+
   <section class="pain-section home-section" id="why-skill" aria-labelledby="pain-title">
-    <div class="section-intro"><p class="eyebrow">{copy.painEyebrow}</p><h2 id="pain-title">{copy.painTitle}</h2><p>{copy.painText}</p></div>
+    <div class="section-intro"><p class="eyebrow">{copy.painEyebrow}</p><h2 id="pain-title">{copy.painTitle}</h2></div>
     <div class="pain-grid">{OUTCOMES[locale].map((outcome, index) => <article class="pain-card" id={'outcome-' + outcome.id}>
-      <div class="pain-card-top"><span class="pain-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={icons[index]} /></svg></span><span class="pain-index"><b>0{index + 1}</b><small>{copy.community}</small></span></div>
+      <div class="pain-card-top"><span class="pain-index"><b>0{index + 1}</b><small>{copy.community}</small></span></div>
       <h3>{outcome.pain}</h3><p class="pain-situation">{outcome.situation}</p>
       <div class="pain-methods"><p>{copy.method}</p><ul>{outcome.help.map((method) => <li>{method.title}</li>)}</ul></div>
       <div class="pain-actions"><a class="text-link" href={href(locale, 'getting-started') + '?task=' + outcome.id + '#task-' + outcome.id}>{copy.start}<span aria-hidden="true">↗</span></a><a class="source-link" href={outcome.source.url}>{copy.source}<span aria-hidden="true">↗</span></a></div>
@@ -73,24 +84,11 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
     <p class="source-note">{copy.sourceNote}</p>
   </section>
 
-  <section class="home-how home-section" id="how-it-helps" aria-labelledby="how-title">
-    <div class="section-intro"><p class="eyebrow">{copy.howEyebrow}</p><h2 id="how-title">{copy.howTitle}</h2><p>{copy.howText}</p></div>
-    <ol class="how-steps">{copy.steps.map((step, index) => <li><span class="step-index">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" data-home-start={index === 0 || undefined} href={href(locale, step.target)}>{step.link}<span aria-hidden="true">↗</span></a></li>)}</ol>
-    <a class="skill-source" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{OUTCOME_UI[locale].skillSource}<span aria-hidden="true"> ↗</span></a>
-  </section>
-
-  <section class="evidence-section home-section" aria-labelledby="evidence-title">
-    <div class="section-intro"><p class="eyebrow">{copy.evidenceEyebrow}</p><h2 id="evidence-title">{copy.evidenceTitle}</h2><p>{copy.evidenceText}</p></div>
-    <div class="evidence-grid">
-      <article class="evidence-card">
-        <figure class="case-image"><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}><img src={PROJECT.base + 'case-study/bookmarks-round-1.png'} alt={zh ? '收藏工具实际执行产物，显示列表、搜索、筛选和导出按钮' : 'Actual bookmark tool output showing the list, search, filters and export button'} width="1440" height="1000" loading="lazy" /></a><figcaption>{copy.caseCaption}</figcaption></figure>
-        <div class="evidence-copy"><p class="content-label">{copy.caseLabel}</p><h3>{copy.caseTitle}</h3><p>{copy.caseText}</p><a class="text-link" data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{copy.caseLink}<span aria-hidden="true">↗</span></a><p class="evidence-limit">{copy.caseLimit}</p></div>
-      </article>
-      <article class="evidence-card">
+  <section class="example-section home-section" aria-labelledby="example-title">
+      <article class="evidence-card example-card">
         <div class="quote-visual" aria-label={copy.quoteSub}><div class="quote-sheet"><div class="quote-sheet-top"><span class="quote-symbol" aria-hidden="true">↗</span><span>{copy.quoteTitle}<small>{copy.quoteSub}</small></span><span class="quote-file" aria-hidden="true">.csv</span></div><div class="quote-line"><span>{copy.quoteHours}</span><strong>{zh ? '¥3,600.00' : '$600.00'}</strong></div><div class="quote-line"><span>{copy.quoteExtras}</span><strong>{zh ? '¥0.00' : '$0.00'}</strong></div><div class="quote-line"><span>{copy.quoteReserve}</span><strong>{zh ? '¥360.00' : '$60.00'}</strong></div><div class="sample-quote-total"><span>{copy.quoteTotal}</span><strong>{copy.quoteAmount}</strong></div></div></div>
-        <div class="evidence-copy"><p class="content-label">{copy.exampleLabel}</p><h3>{copy.exampleTitle}</h3><p>{copy.exampleText}</p><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{copy.exampleLink}<span aria-hidden="true">↗</span></a></div>
+        <div class="evidence-copy"><p class="content-label">{copy.exampleLabel}</p><h2 id="example-title">{copy.exampleTitle}</h2><p>{copy.exampleText}</p><a class="text-link" href={href(locale, PAGE_PATHS.examples)}>{copy.exampleLink}<span aria-hidden="true">↗</span></a></div>
       </article>
-    </div>
   </section>
 
   <section class="install-section" id="install" aria-labelledby="start-title">
@@ -98,7 +96,7 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
     <Terminal locale={locale} animate={false} />
   </section>
 
-  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
 
   <section class="more-tasks" aria-labelledby="scenarios-title"><div><p class="eyebrow" id="scenarios-title">{copy.allTasks}</p><a href={href(locale, 'guides')}>{copy.guideLink} ↗</a></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}>{scenario.label}<span aria-hidden="true">↗</span></a>)}</div></section>
   <div class="brand-signature" aria-hidden="true">SOLO VIBE<span>✳</span></div>
@@ -107,68 +105,68 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
 
 
 <style>
-  .studio-home { --home-space: 108px; overflow: clip; }
+  .studio-home { --home-space: 48px; overflow: clip; }
   .home-section, .experience-section, .install-section, .more-tasks { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
   .home-section { padding-block: var(--home-space); }
   h2 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.22; letter-spacing: -.055em; font-weight: 650; color: #252923; }
-  .eyebrow { font: 10px/1.8 var(--mono); letter-spacing: .1em; color: #bd3b1c; margin-bottom: 19px; }
+  .eyebrow { font: 12px/1.8 var(--mono); letter-spacing: .1em; color: #626159; margin-bottom: 19px; }
   .section-intro, .experience-heading { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 0 100px; }
   .section-intro .eyebrow, .experience-heading .eyebrow { grid-column: 1 / -1; }
   .section-intro h2, .experience-heading h2 { max-width: 22ch; }
-  .section-intro > p:last-child, .experience-heading > p:last-child { color: #626159; max-width: 43ch; font-size: 14px; line-height: 1.9; justify-self: end; }
+  .section-intro > p:last-child, .experience-heading > p:last-child { color: #626159; max-width: 43ch; font-size: 16px; line-height: 1.75; justify-self: end; }
   .method-ribbon { background: #252923; border-block: 1px solid #252923; padding-block: 26px; }
   .ribbon-track { width: min(1280px, calc(100% - 112px)); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .ribbon-track > span { display: flex; align-items: center; gap: 34px; font-size: 22px; font-weight: 550; letter-spacing: .03em; color: #f4f1e9; }
   .ribbon-track i { font-style: normal; color: #fc8f58; font-size: 23px; }
   .ribbon-track small { font: 9px/1.8 var(--mono); color: #d0d1c5; max-width: 19ch; text-align: right; }
-  .experience-section { padding-block: 92px 96px; }
+  .experience-section { padding-block: 64px; }
   .experience-heading { margin-bottom: 36px; }
   .pain-section { border-top: 1px solid #cbc8bd; }
   .pain-grid { border-top: 1px solid #b7baa9; margin-top: 45px; }
   .pain-card { display: grid; grid-template-columns: 84px minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px 38px; padding: 35px 0; border-bottom: 1px solid #cbc8bd; }
   .pain-card-top { grid-column: 1; grid-row: 1 / 4; }
-  .pain-icon { display: none; }
-  .pain-index b { font: 48px/1 var(--mono); letter-spacing: -.08em; color: #bd3b1c; }
+  .pain-index b { font: 48px/1 var(--mono); letter-spacing: -.08em; color: #626159; }
   .pain-index small { display: block; font-size: 9px; line-height: 1.8; color: #626159; margin-top: 13px; }
   .pain-card h3 { grid-column: 2; font-size: 27px; line-height: 1.4; font-weight: 650; max-width: 23ch; }
-  .pain-situation { grid-column: 2; color: #626159; font-size: 13px; line-height: 1.9; }
+  .pain-situation { grid-column: 2; color: #626159; font-size: 16px; line-height: 1.75; }
   .pain-methods { grid-column: 3; grid-row: 1 / 3; border-left: 1px solid #cbc8bd; padding-left: 30px; align-self: center; }
-  .pain-methods > p { font-size: 11px; font-weight: 650; color: #626159; }
+  .pain-methods > p { font-size: 13px; font-weight: 650; color: #626159; }
   .pain-methods ul { display: grid; gap: 11px; list-style: none; padding: 0; margin-top: 15px; }
-  .pain-methods li { font-size: 13px; line-height: 1.7; }
-  .pain-methods li::before { content: '↗'; color: #bd3b1c; margin-right: 10px; }
+  .pain-methods li { font-size: 16px; line-height: 1.7; }
+  .pain-methods li::before { content: '↗'; color: #626159; margin-right: 10px; }
   .pain-actions { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 10px 25px; align-items: center; }
-  .text-link { display: inline-flex; gap: 20px; align-items: center; min-height: 44px; color: #a33319; font-size: 12px; font-weight: 650; text-decoration: none; border: 0; }
+  .text-link { display: inline-flex; gap: 20px; align-items: center; min-height: 44px; color: #a33319; font-size: 15px; font-weight: 650; text-decoration: none; border: 0; }
   .text-link:hover { text-decoration: underline; }
   .text-link > span { font-size: 18px; }
-  .source-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #626159; font-size: 10px; }
-  .source-note { font-size: 11px; line-height: 1.9; color: #626159; margin-top: 22px; max-width: 100ch; }
+  .source-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #626159; font-size: 13px; }
+  .source-note { font-size: 13px; line-height: 1.75; color: #626159; margin-top: 22px; max-width: 100ch; }
   .interface-reference { grid-column: 2 / -1; border-top: 1px solid #cbc8bd; }
-  .interface-reference summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; font-size: 10px; cursor: pointer; color: #626159; }
+  .interface-reference summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; font-size: 13px; cursor: pointer; color: #626159; }
   .interface-reference summary::after { content: '+'; font-size: 20px; }
   .interface-reference[open] summary::after { content: '−'; }
   .home-how { position: relative; isolation: isolate; }
   .home-how::before { content: ''; position: absolute; inset: 0 calc((min(1280px, 100vw - 112px) - 100vw) / 2); z-index: -1; background: #e7e8dd; border-block: 1px solid #c9cbbd; }
   .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; list-style: none; padding: 0; margin-top: 50px; }
   .how-steps li { border-top: 1px solid #7d8870; padding-top: 23px; }
-  .step-index { display: block; color: #bd3b1c; font: 58px/1 var(--mono); letter-spacing: -.08em; margin-bottom: 24px; }
+  .step-index { display: block; color: #626159; font: 58px/1 var(--mono); letter-spacing: -.08em; margin-bottom: 24px; }
   .how-steps h3 { font-size: 21px; font-weight: 650; }
-  .how-steps p { margin-top: 14px; color: #626159; font-size: 14px; line-height: 1.9; }
+  .how-steps p { margin-top: 14px; color: #626159; font-size: 16px; line-height: 1.75; }
   .how-steps a { margin-top: 14px; }
-  .skill-source { display: inline-flex; align-items: center; min-height: 44px; margin-top: 25px; font-size: 11px; color: #626159; }
-  .evidence-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: start; margin-top: 42px; }
+  .skill-source { display: inline-flex; align-items: center; min-height: 44px; margin-top: 25px; font-size: 13px; color: #626159; }
+  .case-card, .example-card { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; }
+  .case-card { margin-top: 32px; }
+  .case-rounds { padding-left: 20px; margin-top: 18px; display: grid; gap: 10px; font-size: 16px; line-height: 1.8; }
   .evidence-card { background: #fff; border: 1px solid #cbc8bd; border-radius: 2px; overflow: hidden; }
-  .evidence-card:nth-child(2) { margin-top: 84px; }
-  .case-image { margin: 0; padding: 25px 25px 15px; background: #dfdfd3; }
-  .case-image a { display: block; height: 270px; border: 1px solid #b8baa9; border-radius: 4px; overflow: hidden; box-shadow: 0 13px 20px -12px #25292344; }
-  .case-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .case-image figcaption { margin-top: 12px; color: #626159; font-size: 10px; line-height: 1.8; }
+  .case-image { margin: 0; padding: 24px; background: #dfdfd3; align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+  .case-image a { display: block; aspect-ratio: 1.6; position: relative; border: 1px solid #b8baa9; border-radius: 4px; overflow: hidden; box-shadow: 0 13px 20px -12px #25292344; }
+  .case-image img { position: absolute; width: 195%; max-width: none; height: auto; top: -48%; left: -17%; }
+  .case-image figcaption { margin-top: 12px; color: #626159; font-size: 12px; line-height: 1.8; }
   .evidence-copy { padding: 28px; }
-  .content-label { color: #bd3b1c; font-size: 10px; font-weight: 600; }
-  .evidence-copy h3 { font-size: 28px; line-height: 1.4; margin-top: 13px; }
-  .evidence-copy > p:not(.content-label) { color: #626159; font-size: 14px; line-height: 1.9; margin-top: 15px; }
+  .content-label { color: #bd3b1c; font-size: 13px; font-weight: 600; }
+  .evidence-copy h3, .evidence-copy h2 { font-size: 28px; line-height: 1.4; margin-top: 13px; }
+  .evidence-copy > p:not(.content-label) { color: #626159; font-size: 16px; line-height: 1.75; margin-top: 15px; }
   .evidence-copy > .text-link { margin-top: 14px; }
-  .evidence-copy > p.evidence-limit { border-top: 1px solid #cbc8bd; padding-top: 15px; font-size: 11px; }
+  .evidence-copy > p.evidence-limit { border-top: 1px solid #cbc8bd; padding-top: 15px; font-size: 13px; }
   .quote-visual { display: grid; place-items: center; min-height: 306px; padding: 30px; background: #e4e5d5; }
   .quote-sheet { width: 100%; background: #fffffc; border: 1px solid #b5b7a0; border-radius: 3px; padding: 23px; transform: rotate(-4deg); box-shadow: 6px 15px 0 #52742d17; }
   .quote-sheet-top { display: flex; gap: 10px; align-items: center; font-size: 13px; margin-bottom: 22px; }
@@ -185,10 +183,10 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
   .install-copy { position: relative; }
   .install-copy .eyebrow { color: #f5ae8b; }
   .install-copy h2 { font-size: 46px; color: #fff; max-width: 18ch; }
-  .install-copy > p:not(.eyebrow) { color: #d4d6c9; font-size: 14px; line-height: 1.9; margin-top: 20px; }
-  .install-copy .button { margin-top: 26px; background: #f5ae8b; color: #252923; border-radius: 4px; gap: 30px; font-size: 13px; }
+  .install-copy > p:not(.eyebrow) { color: #d4d6c9; font-size: 16px; line-height: 1.75; margin-top: 20px; }
+  .install-copy .button { margin-top: 26px; background: #f5ae8b; color: #252923; border-radius: 4px; gap: 30px; font-size: 15px; }
   .install-copy .button:hover { background: #ffd3b7; }
-  .install-copy > p.install-note { font-size: 11px; margin-top: 17px; }
+  .install-copy > p.install-note { font-size: 13px; margin-top: 17px; }
   .install-section :global(.install-terminal) { position: relative; --panel: #1c231e; --surface: #fff; border-color: #66705d; border-radius: 2px; }
   .install-section :global(.install-terminal .code-toolbar) { background: #313a30; border-color: #66705d; color: #d4d6c9; }
   .install-section :global(.install-terminal .terminal-caption) { border-color: #66705d; color: #d4d6c9; }
@@ -196,19 +194,18 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
   .install-section :global(.install-terminal .copy-button) { min-height: 44px; min-width: 44px; }
   .home-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
   .home-faq h2 { font-size: 40px; max-width: 15ch; }
-  .faq-intro { margin-top: 21px; font-size: 14px; line-height: 1.9; color: #626159; max-width: 33ch; }
-  .home-faq :global(summary) { min-height: 64px; font-size: 14px; font-weight: 550; }
-  .home-faq :global(details > p) { font-size: 14px; }
+  .home-faq :global(summary) { min-height: 64px; font-size: 16px; font-weight: 550; }
+  .home-faq :global(details > p) { font-size: 16px; }
   .more-tasks { padding-block: 25px 40px; border-top: 1px solid #cbc8bd; }
   .more-tasks > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   .more-tasks .eyebrow { margin: 0; }
   .more-tasks > div:first-child > a { font-size: 11px; min-height: 44px; display: inline-flex; align-items: center; }
   .scenario-links { display: flex; flex-wrap: wrap; gap: 0 28px; margin-top: 13px; }
-  .scenario-links a { display: flex; gap: 20px; min-height: 44px; padding-block: 12px; font-size: 12px; text-decoration: none; border-bottom: 1px solid #cbc8bd; }
+  .scenario-links a { display: flex; gap: 20px; min-height: 44px; padding-block: 12px; font-size: 14px; text-decoration: none; border-bottom: 1px solid #cbc8bd; }
   .scenario-links a:hover { color: #bd3b1c; }
   .brand-signature { border-top: 1px solid #cbc8bd; padding-top: 28px; width: min(1320px, calc(100% - 80px)); margin: 15px auto 0; display: flex; align-items: start; justify-content: center; white-space: nowrap; color: #252923; font-size: clamp(70px, 16vw, 230px); font-weight: 650; letter-spacing: -.08em; line-height: 1.05; }
   .brand-signature > span { color: #bd3b1c; font-size: .4em; margin-top: .08em; margin-left: 15px; }
-  @media (max-width: 1100px) { .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 80px); } .section-intro, .experience-heading { gap: 0 45px; } .ribbon-track small { display: none; } .ribbon-track > span { justify-content: space-between; width: 100%; } .pain-card { grid-template-columns: 65px minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px 24px; } .pain-card h3 { font-size: 25px; } .install-section { padding: 42px 32px; gap: 30px; } .home-faq { gap: 45px; } .evidence-copy h3 { font-size: 25px; } .case-image a { height: 230px; } }
-  @media (max-width: 800px) { .studio-home { --home-space: 70px; } .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 48px); } .experience-section { padding-block: 65px; } .section-intro, .experience-heading { grid-template-columns: 1fr; gap: 0; } .section-intro > p:last-child, .experience-heading > p:last-child { justify-self: start; max-width: 65ch; margin-top: 18px; } .section-intro h2, .experience-heading h2 { max-width: 27ch; } .pain-card { grid-template-columns: 55px minmax(0, 1fr); } .pain-card h3, .pain-situation, .pain-methods, .pain-actions, .interface-reference { grid-column: 2; } .pain-methods { grid-row: auto; border: 0; padding: 0; } .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 17px; margin-top: 10px; } .home-how::before { inset-inline: -24px; } .how-steps { gap: 24px; } .how-steps h3 { font-size: 19px; } .evidence-grid { gap: 18px; } .evidence-copy { padding: 22px; } .case-image { padding: 17px; } .quote-visual { padding: 24px; } .quote-sheet { padding: 17px; } .install-section { grid-template-columns: 1fr; gap: 32px; } .install-copy h2 { max-width: 23ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; } }
-  @media (max-width: 600px) { .studio-home { --home-space: 58px; } .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 40px); } h2 { font-size: 29px; } .eyebrow { font-size: 9px; margin-bottom: 14px; } .method-ribbon { padding-block: 18px; } .ribbon-track > span { font-size: 10px; gap: 10px; } .ribbon-track i { font-size: 15px; } .experience-section { padding-block: 54px; } .experience-heading { margin-bottom: 26px; } .section-intro > p:last-child, .experience-heading > p:last-child { font-size: 14px; } .pain-grid { margin-top: 30px; } .pain-card { display: block; padding-block: 27px; } .pain-card-top { margin-bottom: 16px; } .pain-index { display: flex; align-items: center; gap: 16px; } .pain-index b { font-size: 25px; } .pain-index small { margin: 0; font-size: 9px; } .pain-card h3 { font-size: 24px; } .pain-situation { font-size: 14px; margin-top: 13px; } .pain-methods { border-top: 1px solid #cbc8bd; padding-top: 15px; margin-top: 17px; } .pain-methods li { font-size: 12px; } .pain-actions { margin-top: 12px; } .home-how::before { inset-inline: -20px; } .how-steps { grid-template-columns: 1fr; margin-top: 30px; gap: 26px; } .how-steps li { padding: 20px 0 0 60px; position: relative; } .step-index { position: absolute; left: 0; top: 24px; font-size: 35px; } .how-steps p { margin-top: 10px; } .how-steps a { margin-top: 8px; } .evidence-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 24px; } .evidence-card:nth-child(2) { margin-top: 0; } .case-image a { height: 200px; } .evidence-copy { padding: 24px; } .quote-visual { min-height: 280px; padding: 27px; } .quote-sheet { padding: 21px; } .install-section { padding: 30px 22px; } .install-copy h2 { font-size: 30px; } .home-faq h2 { font-size: 29px; } .home-faq :global(summary) { padding-block: 18px; } .scenario-links { gap: 0 18px; } .scenario-links a { font-size: 11px; } .brand-signature { border-top: 1px solid #cbc8bd; padding-top: 28px; width: calc(100% - 35px); margin-top: 10px; } }
+  @media (max-width: 1100px) { .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 80px); } .section-intro, .experience-heading { gap: 0 45px; } .ribbon-track small { display: none; } .ribbon-track > span { justify-content: space-between; width: 100%; } .pain-card { grid-template-columns: 65px minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px 24px; } .pain-card h3 { font-size: 25px; } .install-section { padding: 42px 32px; gap: 30px; } .home-faq { gap: 45px; } .evidence-copy h3, .evidence-copy h2 { font-size: 25px; } .case-card, .example-card { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 800px) { .studio-home { --home-space: 70px; } .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 48px); } .experience-section { padding-block: 65px; } .section-intro, .experience-heading { grid-template-columns: 1fr; gap: 0; } .section-intro > p:last-child, .experience-heading > p:last-child { justify-self: start; max-width: 65ch; margin-top: 18px; } .section-intro h2, .experience-heading h2 { max-width: 27ch; } .pain-card { grid-template-columns: 55px minmax(0, 1fr); } .pain-card h3, .pain-situation, .pain-methods, .pain-actions, .interface-reference { grid-column: 2; } .pain-methods { grid-row: auto; border: 0; padding: 0; } .pain-methods ul { display: flex; flex-wrap: wrap; gap: 8px 17px; margin-top: 10px; } .home-how::before { inset-inline: -24px; } .how-steps { gap: 24px; } .how-steps h3 { font-size: 19px; } .case-card, .example-card { grid-template-columns: 1fr; } .evidence-copy { padding: 22px; } .case-image { padding: 17px; } .quote-visual { padding: 24px; } .quote-sheet { padding: 17px; } .install-section { grid-template-columns: 1fr; gap: 32px; } .install-copy h2 { max-width: 23ch; } .home-faq { grid-template-columns: 1fr; gap: 28px; } .home-faq h2 { max-width: none; } }
+  @media (max-width: 600px) { .studio-home { --home-space: 28px; } .home-section, .experience-section, .install-section, .more-tasks, .ribbon-track { width: calc(100% - 40px); } h2 { font-size: 29px; } .eyebrow { font-size: 12px; margin-bottom: 14px; } .method-ribbon { display: none; } .ribbon-track > span { font-size: 10px; gap: 10px; } .ribbon-track i { font-size: 15px; } .experience-section { padding-block: 38px 48px; } .experience-heading { margin-bottom: 26px; } .section-intro > p:last-child, .experience-heading > p:last-child { font-size: 16px; } .pain-grid { margin-top: 30px; } .pain-card { display: block; padding-block: 22px; } .pain-card-top { margin-bottom: 16px; } .pain-index { display: flex; align-items: center; gap: 16px; } .pain-index b { font-size: 25px; } .pain-index small { margin: 0; font-size: 9px; } .pain-card h3 { font-size: 24px; } .pain-situation { font-size: 16px; margin-top: 13px; } .pain-methods { border-top: 1px solid #cbc8bd; padding-top: 15px; margin-top: 17px; } .pain-methods li { font-size: 16px; } .pain-actions { margin-top: 12px; } .home-how::before { inset-inline: -20px; } .how-steps { grid-template-columns: 1fr; margin-top: 26px; gap: 22px; } .how-steps li { padding: 20px 0 0 60px; position: relative; } .step-index { position: absolute; left: 0; top: 24px; font-size: 35px; } .how-steps p { margin-top: 10px; } .how-steps a { margin-top: 8px; } .case-card { margin-top: 28px; } .evidence-copy { padding: 20px; } .quote-visual { min-height: 280px; padding: 27px; } .quote-sheet { padding: 21px; } .install-section { padding: 30px 22px; } .install-copy h2 { font-size: 30px; } .home-faq h2 { font-size: 29px; } .home-faq :global(summary) { padding-block: 18px; } .scenario-links { gap: 0 18px; } .scenario-links a { font-size: 14px; } .brand-signature { border-top: 1px solid #cbc8bd; padding-top: 28px; width: calc(100% - 35px); margin-top: 10px; } }
 </style>
