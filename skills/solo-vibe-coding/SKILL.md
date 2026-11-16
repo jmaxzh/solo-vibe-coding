@@ -41,6 +41,13 @@ Read only guidance and resources relevant to the task. Use the resource column d
 - For any requirement, reuse existing work first. For new implementation, prefer suitable, mature open-source foundations, frameworks, components, or templates, writing custom code only for gaps they cannot reasonably cover. When research is needed, use [search-first](https://github.com/affaan-m/ecc/blob/main/skills/search-first/SKILL.md) to assess fit, maintenance, licensing, compatibility, and total cost; scale research to the task and reuse conclusions that remain valid.
 - Adapt upstream default steps, templates, and quantity requirements to user requirements and project conditions. The model chooses professional judgments, methods, and combinations according to the actual task. Style preferences follow the user's and project's existing choices.
 
+### Communicate requirements and plans
+
+- Requirements and plans involving user workflows must clearly explain the user journey: the user and situation, starting point, key actions and system responses, and outcome. Cover branches, failure cases, and handoffs that affect completing the goal.
+- Organize other questions and details according to the selected skills and project conventions. Write clearly and coherently, with detail proportional to task complexity; use headings, paragraphs, lists, or tables where they help readers see the key points and relationships.
+- For implementation plans, including bug fixes and new features, give each independent work item's effort and risk separately, with reasons. Effort considers changes, reuse, integration, and verification costs; risk considers likelihood and consequences, with mitigation where needed.
+- State estimation assumptions and unknowns; small/medium/large effort and low/medium/high risk are sufficient. Keep simple tasks brief; group or tabulate complex ones as needed.
+
 ### Engineering project priorities
 
 When starting or taking over any engineering project, prioritize defining quality criteria and establishing automated checks before implementing features or making structural refactors. Read existing standards, tool configuration, tests, and pipelines first; reuse them when they meet requirements. Where they are missing, use [quality criteria and automated checks](references/quality-and-ci.md) to establish an executable baseline appropriate to the project's size. When hosting or repository conditions do not support CI, use repeatable local automated checks. Subsequent tasks follow the existing standards and fill only the gaps exposed by the current change, without rebuilding the infrastructure.

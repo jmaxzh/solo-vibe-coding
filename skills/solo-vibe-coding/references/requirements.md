@@ -1,12 +1,11 @@
 # Requirements and communication
 
-Use for discussing problems, understanding user feedback, exploring solutions, clarifying business concepts, slicing an MVP, and defining feature scope and acceptance criteria within an existing product direction. Fill information gaps affecting the current task from existing context, distinguishing confirmed content, open decisions, and assumptions.
+Use for discussing problems, exploring solutions, clarifying business concepts, slicing an MVP, and defining feature scope and acceptance criteria within an existing product direction. Fill information gaps affecting the current task from existing context, distinguishing confirmed content, open decisions, and assumptions.
 
 For existing PRD and user-story-map templates, see [requirements references](resources/requirements.md).
 
 | Current problem | Optional skills |
 | --- | --- |
-| Analyze interviews, feedback, or public demand signals | customer-research |
 | Explore problems, compare solutions, test assumptions | product-brainstorming |
 | Slice an MVP around a complete user journey, separating first-release essentials from deferred capabilities | user-story-mapping |
 | Organize a feature into goals, scope, behavior, and acceptance criteria | write-spec |
@@ -18,9 +17,6 @@ Requirements confirmation establishes shared understanding and remaining uncerta
 For high-impact behavior that ordinary tests struggle to cover, state relevant preconditions, allowed state transitions, and invariants in the feature spec using business terms. These give [formal verification](formal-verification.md) a concrete target, such as one payment event producing at most one ledger entry.
 
 ## Available skills
-
-<!-- skill: coreyhaines31/marketingskills@customer-research -->
-- **customer-research**: [Source](https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md), [Skill page](https://skills.sh/coreyhaines31/marketingskills/customer-research). Supports interview and feedback analysis, public reviews and community material, and interview questionnaires. Existing customer material and public demand material call for different research approaches.
 
 <!-- skill: anthropics/knowledge-work-plugins@write-spec -->
 - **write-spec**: [Source](https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/write-spec/SKILL.md). Organize a feature idea into the problem, goals, scope, user behavior, priorities, acceptance criteria, and success metrics. The original provides a PRD structure and categorization requirements aimed at product requirements. For interfaces, data contracts, errors, and compatibility, supplement necessary technical content using implementation and architecture references.

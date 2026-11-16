@@ -1,12 +1,11 @@
 # 需求与沟通
 
-用于既有产品方向内的问题讨论、用户反馈理解、方案探索、业务概念澄清、MVP 切分、功能范围和验收条件。根据已有上下文补足影响当前任务的信息，区分已确认内容、待决问题与假设。
+用于既有产品方向内的问题讨论、方案探索、业务概念澄清、MVP 切分、功能范围和验收条件。根据已有上下文补足影响当前任务的信息，区分已确认内容、待决问题与假设。
 
 现成 PRD 与用户故事地图模板见[需求参考](resources/requirements.md)。
 
 | 当前问题 | 可选技能 |
 | --- | --- |
-| 分析访谈、反馈或公开需求信号 | customer-research |
 | 探索问题、比较解法、检验假设 | product-brainstorming |
 | 围绕完整用户路径切分 MVP，区分首版必需与后置能力 | user-story-mapping |
 | 将功能整理为目标、范围、行为与验收条件 | write-spec |
@@ -18,9 +17,6 @@
 对于影响较大、常规测试难覆盖的行为，在功能 spec 中用业务术语明确相关前置条件、允许的状态转换和必须保持的不变量，为[形式化验证](formal-verification.md)提供具体目标，例如同一支付事件最多产生一条记账记录。
 
 ## 可用技能
-
-<!-- skill: coreyhaines31/marketingskills@customer-research -->
-- **customer-research**：[原文](https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md)，[技能页](https://skills.sh/coreyhaines31/marketingskills/customer-research)。支持访谈与反馈分析、公开评论和社区资料、访谈问卷。已有客户资料和公开需求资料适用不同的研究方式。
 
 <!-- skill: anthropics/knowledge-work-plugins@write-spec -->
 - **write-spec**：[原文](https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/write-spec/SKILL.md)。将功能想法整理为问题、目标、范围、用户行为、优先级、验收条件与成功指标。原版提供 PRD 结构和分类要求；面向产品需求，涉及接口、数据契约、错误与兼容性时，结合实现与架构参考补足必要技术内容。
