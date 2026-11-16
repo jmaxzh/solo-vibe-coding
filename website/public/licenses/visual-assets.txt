@@ -3,10 +3,11 @@ THIRD-PARTY VISUALS AND COMPONENTS
 The skill’s MIT license does not replace the licenses below.
 References do not imply endorsement by their authors.
 
-Original homepage artwork: src/components/WorkbenchArt.astro
-The layered brief, playbook and result illustration is original HTML/CSS for Solo Vibe Coding.
-It illustrates the workflow and delivery goals, not an executed result.
-The page compositions and social-card.svg are original code; existing third-party components and interface references retain the notices below.
+Original homepage concept artwork: media/method-assembly.webp and media/method-assembly-small.webp
+Created for Solo Vibe Coding with OpenAI image generation, without third-party reference images.
+The sculpture is a brand metaphor, not a product interface or an executed task result.
+AssemblyArt.astro provides the accessible caption and responsive presentation.
+The page compositions, brand mark and social-card.svg are original code; existing third-party components and interface references retain the notices below.
 
 Devices.css
 https://github.com/picturepan2/devices.css/tree/11846244977a4905a4fb9ac12bb2121e068d6147

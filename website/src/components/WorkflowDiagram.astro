@@ -23,27 +23,27 @@ const zh = locale === 'zh-CN';
   .workflow-scenes { min-width: 0; }
   .workflow-scene { display: none; padding: 34px 30px 22px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 26px; }
   :global([data-task-stage]:has(input[value="development"]:checked)) [data-workflow="development"], :global([data-task-stage]:has(input[value="design"]:checked)) [data-workflow="design"], :global([data-task-stage]:has(input[value="deployment"]:checked)) [data-workflow="deployment"], :global([data-task-stage]:has(input[value="growth"]:checked)) [data-workflow="growth"] { display: grid; }
-  .request-heading { grid-column: 1; display: flex; align-items: center; justify-content: space-between; color: #bdcbe5; font-size: 11px; }
-  .user-avatar { color: #ffffff; font-size: 10px; padding: 3px 7px; border: 1px solid #7f93b7; border-radius: 50%; }
-  .workflow-request { grid-column: 1; margin: 10px 0 23px; padding: 14px 16px; background: #263c62; border: 1px solid #6079a4; border-radius: 6px; }
-  .skill-mention { font: 10px var(--mono); color: #c5d3ff; }
-  .workflow-request p { font-size: 14px; font-weight: 500; line-height: 1.9; margin-top: 6px; color: #ffffff; }
+  .request-heading { grid-column: 1; display: flex; align-items: center; justify-content: space-between; color: #c6ceba; font-size: 11px; }
+  .user-avatar { color: #fffef9; font-size: 10px; padding: 3px 7px; border: 1px solid #8a9b76; border-radius: 50%; }
+  .workflow-request { grid-column: 1; margin: 10px 0 23px; padding: 14px 16px; background: #3e4b38; border: 1px solid #82916e; border-radius: 6px; }
+  .skill-mention { font: 10px var(--mono); color: #e5c3ad; }
+  .workflow-request p { font-size: 14px; font-weight: 500; line-height: 1.9; margin-top: 6px; color: #fffef9; }
   .assistant-heading { grid-column: 1; display: flex; align-items: center; gap: 10px; }
-  .assistant-symbol { display: grid; place-items: center; background: #263c62; color: #d8e3f8; width: 31px; height: 31px; border: 1px solid #7f93b7; border-radius: 50%; font-size: 22px; flex: none; }
-  .assistant-heading strong { display: block; font-size: 13px; color: #ffffff; font-weight: 550; }
-  .assistant-heading small { display: block; font-size: 10px; color: #c9d4e9; margin-top: 3px; }
+  .assistant-symbol { display: grid; place-items: center; background: #3e4b38; color: #e0e4d4; width: 31px; height: 31px; border: 1px solid #8a9b76; border-radius: 50%; font-size: 22px; flex: none; }
+  .assistant-heading strong { display: block; font-size: 13px; color: #fffef9; font-weight: 550; }
+  .assistant-heading small { display: block; font-size: 10px; color: #d5d8c9; margin-top: 3px; }
   .task-help { grid-column: 1; margin-top: 17px; }
-  .task-help > p { color: #c9d4e9; font-size: 11px; line-height: 1.8; }
+  .task-help > p { color: #d5d8c9; font-size: 11px; line-height: 1.8; }
   .task-help ol { padding: 0; list-style: none; margin-top: 13px; display: grid; gap: 12px; }
   .task-help li { display: flex; align-items: center; gap: 10px; }
-  .task-help li > span { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border: 1px solid #7f93b7; border-radius: 50%; color: #d8e3f8; font: 10px var(--mono); }
-  .task-help strong { display: block; color: #eef3ff; font-size: 13px; font-weight: 500; line-height: 1.75; }
-  .task-delivery { grid-column: 2; grid-row: 1 / 5; display: flex; flex-direction: column; justify-content: center; align-self: stretch; padding: 24px 22px; background: linear-gradient(140deg, #263f6b, #1c2d4d); border: 1px solid #6079a4; border-radius: 6px; }
-  .delivery-label { font: 10px/1.8 var(--mono); color: #c5d3ff; letter-spacing: .03em; }
-  .delivery-output { margin-top: 16px; font-size: 20px; line-height: 1.6; color: #ffffff; font-weight: 550; letter-spacing: -.03em; }
-  .task-delivery ul { padding-left: 17px; margin-top: 21px; font-size: 12px; line-height: 1.95; color: #c9d4e9; display: grid; gap: 12px; }
-  .workflow-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 11px; border-top: 1px solid #52698e; font-size: 10px; color: #c9d4e9; }
-  .workflow-bottom a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #d9eea9; font-size: 12px; font-weight: 550; }
+  .task-help li > span { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border: 1px solid #8a9b76; border-radius: 50%; color: #e0e4d4; font: 10px var(--mono); }
+  .task-help strong { display: block; color: #f6f5ed; font-size: 13px; font-weight: 500; line-height: 1.75; }
+  .task-delivery { grid-column: 2; grid-row: 1 / 5; display: flex; flex-direction: column; justify-content: center; align-self: stretch; padding: 24px 22px; background: linear-gradient(140deg, #3e4b38, #313a30); border: 1px solid #82916e; border-radius: 6px; }
+  .delivery-label { font: 10px/1.8 var(--mono); color: #e5c3ad; letter-spacing: .03em; }
+  .delivery-output { margin-top: 16px; font-size: 20px; line-height: 1.6; color: #fffef9; font-weight: 550; letter-spacing: -.03em; }
+  .task-delivery ul { padding-left: 17px; margin-top: 21px; font-size: 12px; line-height: 1.95; color: #d5d8c9; display: grid; gap: 12px; }
+  .workflow-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 11px; border-top: 1px solid #69785d; font-size: 10px; color: #d5d8c9; }
+  .workflow-bottom a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: #e1e9c3; font-size: 12px; font-weight: 550; }
   .workflow-bottom a:hover { text-decoration: underline; }
   @media (max-width: 1100px) { .workflow-scene { padding: 24px 22px 17px; gap: 0 19px; } .task-delivery { padding: 20px 17px; } .delivery-output { font-size: 18px; } }
   @media (max-width: 600px) {

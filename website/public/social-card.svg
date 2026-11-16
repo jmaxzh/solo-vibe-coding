@@ -1,17 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f8f7f2"/>
-  <rect x="65" y="52" width="42" height="42" rx="11" fill="#2853e9"/>
-  <path d="m80 64-6 9 6 9m13-18 6 9-6 9m-4-17-5 16" stroke="#fff" stroke-width="2.3" fill="none" stroke-linecap="round"/>
-  <g font-family="DejaVu Sans, sans-serif" fill="#18233b">
-    <text x="122" y="81" font-size="23" font-weight="bold">Solo Vibe Coding</text>
-    <text x="65" y="256" font-size="82" font-weight="bold" letter-spacing="-4">Your idea.</text>
-    <text x="65" y="352" fill="#2853e9" font-size="72" font-weight="bold" letter-spacing="-4">A way forward.</text>
-    <text x="67" y="420" font-size="20" fill="#566178">Specialist guidance. Your familiar coding assistant.</text>
-    <text x="67" y="568" font-size="16" fill="#566178">OPEN SOURCE / MIT</text>
+  <rect width="1200" height="630" fill="#f4f1e9"/>
+  <g transform="translate(54 40)" fill="none" stroke="#bd3b1c" stroke-width="3"><path d="M5 20v15h20V20H5ZM10 13v15h20V13H10ZM15 6v15h20V6H15Z"/></g>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#252923">
+    <text x="108" y="68" font-size="22" font-weight="bold" letter-spacing="-1">Solo Vibe Coding</text>
+    <text x="60" y="255" font-size="88" font-weight="bold" letter-spacing="-5">Your idea.</text>
+    <text x="60" y="350" fill="#bd3b1c" font-family="Georgia, serif" font-style="italic" font-size="82" letter-spacing="-4">A way forward.</text>
+    <text x="63" y="410" font-size="18" fill="#626159">Professional methods.</text>
+    <text x="63" y="440" font-size="18" fill="#626159">Your familiar coding assistant.</text>
+    <text x="63" y="578" font-size="13" fill="#626159" letter-spacing="1">ONE OPEN-SOURCE SKILL / MIT</text>
   </g>
-  <circle cx="937" cy="300" r="202" fill="#2853e9"/>
-  <g transform="rotate(-12 900 260)"><rect x="770" y="143" width="268" height="260" rx="3" fill="#fffefa" stroke="#cdd2dd"/><text x="793" y="185" font-family="monospace" font-size="13" fill="#566178">01 / YOUR TASK</text><path d="M793 215h180m-180 23h120" stroke="#cdd2dd"/></g>
-  <g transform="rotate(7 960 350)"><rect x="823" y="265" width="300" height="210" rx="3" fill="#14223e" stroke="#677d9f"/><text x="845" y="302" font-family="monospace" font-size="13" fill="#c5d3ff">02 / THE PLAYBOOK</text><text x="845" y="346" font-family="sans-serif" font-size="17" fill="#fff">Design. Build. Check.</text><path d="M845 368h250m-250 30h250m-250 30h170" stroke="#52698e"/></g>
-  <g transform="rotate(-5 920 495)"><rect x="750" y="470" width="331" height="72" rx="3" fill="#d9eea9" stroke="#a5c574"/><text x="773" y="511" font-family="sans-serif" font-size="18" fill="#263719">03 / SOMETHING YOU CAN TRY</text></g>
-  <path d="M65 528h575" stroke="#cdd2dd"/>
+  <image href="media/method-assembly-small.webp" x="640" y="64" width="550" height="550"/>
+  <path d="M60 108h1080M60 542h520" stroke="#cbc8bd"/>
 </svg>

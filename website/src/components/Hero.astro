@@ -1,5 +1,5 @@
 ---
-import WorkbenchArt from './WorkbenchArt.astro';
+import AssemblyArt from './AssemblyArt.astro';
 import { UI, href, type Locale } from '../data/site';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -19,38 +19,41 @@ const zh = locale === 'zh-CN';
         </div>
         <p class="product-note">{ui.note}</p>
       </div>
-      <WorkbenchArt locale={locale} />
+      <AssemblyArt locale={locale} />
     </div>
-    <div class="hero-bottom"><span class="hero-bottom-label">{zh ? '一个人的项目，也有章可循。' : 'INDEPENDENT BUILDER. CONSIDERED PROCESS.'}</span><a class="hero-scroll" href="#usage-demo">{zh ? '打开你的下一步' : 'Find your next move'}<span aria-hidden="true">↘</span></a><button class="motion-toggle hero-motion" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></div>
+    <div class="hero-bottom"><span class="hero-bottom-label">{zh ? '独立做产品，也有专业方法可循。' : 'INDEPENDENT BUILDER. CONSIDERED PROCESS.'}</span><a class="hero-scroll" href="#usage-demo">{zh ? '探索你的下一步' : 'Explore your next move'}<span aria-hidden="true">↘</span></a><button class="motion-toggle hero-motion" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button></div>
   </div>
 </section>
 <style>
   .product-hero { background: var(--paper); overflow: clip; }
-  .hero-shell { width: min(1280px, calc(100% - 112px)); margin-inline: auto; padding-top: 66px; }
-  .hero-composition { display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 578px; gap: 24px; }
-  .hero-copy { min-width: 0; z-index: 2; padding-bottom: 32px; }
-  .hero-overline { display: flex; align-items: center; gap: 9px; color: #4e5871; font-size: 12px; font-weight: 600; margin-bottom: 25px; }
-  .signal { width: 7px; height: 7px; background: #2853e9; border-radius: 50%; flex: none; }
-  h1 { font-size: clamp(60px, 6.5vw, 94px); font-weight: 650; line-height: 1.06; letter-spacing: -.075em; text-wrap: initial; }
+  .hero-shell { width: min(1376px, calc(100% - 112px)); margin-inline: auto; padding-top: 34px; }
+  .hero-composition { display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 670px; gap: 16px; }
+  .hero-copy { min-width: 0; position: relative; z-index: 2; padding-bottom: 30px; }
+  .hero-overline { display: flex; align-items: center; gap: 10px; color: #626159; font-size: 11px; font-weight: 600; margin-bottom: 34px; letter-spacing: .02em; }
+  .signal { width: 7px; height: 7px; background: #bd3b1c; flex: none; }
+  h1 { font-size: clamp(66px, 7vw, 106px); font-weight: 750; line-height: 1.01; letter-spacing: -.075em; text-wrap: initial; }
   h1 > span { display: block; }
-  .hero-accent { color: #2853e9; }
-  :global(:lang(zh-CN)) h1 { font-size: clamp(56px, 5.7vw, 82px); line-height: 1.3; letter-spacing: -.065em; }
-  .hero-description { max-width: 475px; margin-top: 27px; font-size: 16px; line-height: 1.85; color: #535e73; }
-  .product-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .product-actions .button { min-height: 54px; padding: 13px 20px; font-size: 13px; gap: 24px; border-radius: 5px; }
-  .product-actions .button-primary { background: #2853e9; color: white; border: 1px solid #2853e9; }
-  .product-actions .button-primary:hover { background: #173ab9; }
-  .product-actions .button-secondary { background: transparent; color: #18233b; border: 1px solid #b6bdcb; }
-  .product-actions .button-secondary:hover { background: #e9ecf4; }
+  .hero-accent { color: #bd3b1c; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; letter-spacing: -.07em; white-space: nowrap; }
+  :global(:lang(zh-CN)) h1 { font-size: clamp(66px, 7.1vw, 102px); line-height: 1.2; letter-spacing: -.07em; }
+  :global(:lang(zh-CN)) .hero-accent { font-family: var(--font); font-style: normal; font-weight: 650; letter-spacing: -.07em; }
+  .hero-description { max-width: 450px; margin-top: 30px; font-size: 15px; line-height: 1.95; color: #626159; }
+  .product-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .product-actions .button { min-height: 54px; padding: 13px 21px; font-size: 12px; gap: 24px; border-radius: 2px; }
+  .product-actions .button-primary { background: #252923; color: #fffef9; border: 1px solid #252923; }
+  .product-actions .button-primary:hover { background: #bd3b1c; border-color: #bd3b1c; }
+  .product-actions .button-secondary { background: transparent; color: #252923; border: 1px solid #a6a79d; }
+  .product-actions .button-secondary:hover { background: #e9e5db; }
   .action-arrow { font-size: 21px; font-weight: 400; }
-  .product-note { color: #59647a; margin-top: 17px; font-size: 11px; }
-  .hero-bottom { display: flex; align-items: center; gap: 28px; border-top: 1px solid #cdd2dd; padding: 16px 0; margin-top: 28px; }
-  .hero-bottom-label { color: #566178; font: 10px/1.8 var(--mono); letter-spacing: .05em; }
-  .hero-scroll { margin-left: auto; display: inline-flex; align-items: center; gap: 27px; min-height: 44px; font-size: 12px; text-decoration: none; }
-  .hero-scroll > span { font-size: 23px; color: #2853e9; }
-  .hero-motion { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: transparent; border: 1px solid #b6bdcb; border-radius: 30px; min-height: 44px; color: #4e5871; font-size: 10px; }
+  .product-note { color: #626159; margin-top: 16px; font-size: 10px; }
+  .hero-bottom { display: flex; align-items: center; gap: 28px; border-top: 1px solid #c9c7bc; padding: 16px 0; margin-top: 18px; }
+  .hero-bottom-label { color: #626159; font: 9px/1.8 var(--mono); letter-spacing: .07em; }
+  .hero-scroll { margin-left: auto; display: inline-flex; align-items: center; gap: 27px; min-height: 44px; font-size: 11px; text-decoration: none; }
+  .hero-scroll > span { font-size: 23px; color: #bd3b1c; }
+  .hero-motion { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: transparent; border: 1px solid #a6a79d; border-radius: 2px; min-height: 44px; color: #626159; font-size: 10px; }
   .hero-motion:disabled { cursor: default; }
-  @media (max-width: 1100px) { .hero-shell { width: calc(100% - 80px); } .hero-composition { grid-template-columns: 1.1fr 1fr; gap: 6px; min-height: 520px; } h1 { font-size: 66px; } :global(:lang(zh-CN)) h1 { font-size: 60px; } .hero-description { font-size: 15px; } }
-  @media (max-width: 800px) { .hero-shell { width: calc(100% - 48px); padding-top: 44px; } .hero-composition { grid-template-columns: 1fr; gap: 4px; } .hero-copy { max-width: 650px; padding: 0; } h1 { font-size: 78px; } :global(:lang(zh-CN)) h1 { font-size: 66px; } .hero-description { max-width: 570px; } .hero-bottom { margin-top: 10px; } }
-  @media (max-width: 600px) { .hero-shell { width: calc(100% - 40px); padding-top: 34px; } .hero-overline { font-size: 10px; margin-bottom: 20px; } h1 { font-size: clamp(46px, 12vw, 68px); } :global(:lang(zh-CN)) h1 { font-size: clamp(43px, 11.4vw, 60px); line-height: 1.3; } .hero-description { margin-top: 19px; font-size: 14px; } .product-actions { margin-top: 23px; gap: 9px; } .product-actions .button { padding-inline: 14px; gap: 14px; font-size: 12px; min-height: 50px; } .product-note { font-size: 10px; } .hero-bottom { gap: 9px; flex-wrap: wrap; padding-block: 12px; } .hero-bottom-label { width: 100%; font-size: 9px; } .hero-scroll { margin: 0 auto 0 0; font-size: 11px; gap: 20px; } }
+  @media (min-width: 1600px) { .hero-composition { min-height: 730px; } }
+  @media (max-width: 1200px) and (min-width: 801px) { .hero-composition { min-height: 590px; } h1 { font-size: 7vw; } .hero-overline { font-size: 10px; } .product-actions { gap: 9px; } .product-actions .button { gap: 14px; padding-inline: 16px; font-size: 11px; } }
+  @media (max-width: 1100px) { .hero-shell { width: calc(100% - 80px); } .hero-composition { gap: 12px; } .hero-description { font-size: 14px; } }
+  @media (max-width: 800px) { .hero-shell { width: calc(100% - 48px); padding-top: 47px; } .hero-composition { grid-template-columns: 1fr; gap: 10px; } .hero-copy { max-width: 650px; padding: 0; } h1 { font-size: 90px; } :global(:lang(zh-CN)) h1 { font-size: 80px; } .hero-description { max-width: 570px; } .hero-bottom { margin-top: 26px; } }
+  @media (max-width: 600px) { .hero-shell { width: calc(100% - 40px); padding-top: 35px; } .hero-overline { font-size: 10px; margin-bottom: 25px; } h1 { font-size: clamp(46px, 12.4vw, 72px); } :global(:lang(zh-CN)) h1 { font-size: clamp(58px, 16vw, 90px); line-height: 1.17; } .hero-description { margin-top: 23px; font-size: 14px; line-height: 1.9; } .product-actions { margin-top: 24px; gap: 9px; } .product-actions .button { padding-inline: 14px; gap: 14px; font-size: 11px; min-height: 51px; } .product-note { font-size: 10px; } .hero-bottom { gap: 9px; flex-wrap: wrap; padding-block: 12px; } .hero-bottom-label { width: 100%; font-size: 8px; } .hero-scroll { margin: 0 auto 0 0; font-size: 11px; gap: 20px; } }
 </style>

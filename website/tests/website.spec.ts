@@ -92,29 +92,30 @@ for (const locale of ['en', 'zh-CN'] as const) {
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
   });
 
-  test(`${locale}: the original workbench illustration is static and clearly labelled`, async ({ page }) => {
+  test(`${locale}: the concept sculpture loads, stays static and is labelled honestly`, async ({ page }) => {
     await page.goto(path);
-    const art = page.locator('[data-workbench-art]');
+    const art = page.locator('[data-brand-art]');
     await expect(art).toBeVisible();
-    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'Workflow illustration' : '工作方式示意');
-    await expect(art.locator('canvas, img')).toHaveCount(0);
+    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'Concept artwork' : '品牌概念视觉');
+    await expect(art.locator('figcaption')).toContainText(locale === 'en' ? 'AI-generated' : 'AI 生成');
+    await expect(art.locator('canvas')).toHaveCount(0);
     for (const width of [320, 360, 390, 480, 600, 768, 801, 850, 900, 1024, 1100, 1200, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       await page.evaluate(() => document.fonts.ready);
       await art.scrollIntoViewIfNeeded();
-      const visibleLayers = await art.evaluate(element => {
-        const rect = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
-        const result = rect('.result-sheet');
-        const guide = rect('.guide-sheet');
-        const readable = [...element.querySelectorAll('.guide-row strong, .guide-foot')].every(text => {
-          const r = text.getBoundingClientRect();
-          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
-          return hit === text || Boolean(hit && text.contains(hit));
-        });
-        return readable && rect('.art-register').top > result.bottom
-          && rect('figcaption').top > Math.max(guide.bottom, result.bottom);
+      await expect.poll(() => art.locator('img').evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      const presentation = await art.evaluate(element => {
+        const image = element.querySelector('img')!;
+        const caption = element.querySelector('figcaption')!.getBoundingClientRect();
+        return {
+          captionBelow: caption.top >= image.getBoundingClientRect().bottom - 12,
+          noOverflow: document.documentElement.scrollWidth <= innerWidth,
+          animation: getComputedStyle(image).animationName,
+        };
       });
-      expect(visibleLayers, `Illustration text is covered at ${width}px`).toBe(true);
+      expect(presentation.captionBelow, `Artwork caption overlaps at ${width}px`).toBe(true);
+      expect(presentation.noOverflow, `Page overflows at ${width}px`).toBe(true);
+      expect(presentation.animation).toBe('none');
     }
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await expect(art).toBeVisible();
@@ -436,7 +437,7 @@ test.describe('without JavaScript', () => {
       await page.goto(base + prefix);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('[data-hero-object]')).toBeVisible();
-      await expect(page.locator('[data-workbench-art]')).toBeVisible();
+      await expect(page.locator('[data-brand-art]')).toBeVisible();
       await expect(page.locator('[data-workflow="design"]')).toBeVisible();
       await page.locator('[data-choice="development"]').click();
       await expect(page.locator('[data-workflow="development"]')).toBeVisible();
