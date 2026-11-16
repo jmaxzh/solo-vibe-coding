@@ -36,6 +36,8 @@ try {
   await page.reload({waitUntil:'networkidle'});
   assert.equal(await page.locator('input[value="growth"]').isChecked(),true);
   await page.locator('[data-language-switch]').click();
+  await page.waitForLoadState('networkidle');
+  await page.waitForFunction(() => document.querySelector('input[value="growth"]')?.checked === true);
   assert.equal(await page.locator('html').getAttribute('lang'),locale==='en'?'zh-CN':'en');
   assert.equal(await page.locator('input[value="growth"]').isChecked(),true);
   await page.locator('.product-actions [data-home-start]').click();
