@@ -1,6 +1,6 @@
 # Technical planning workflow and output structure
 
-Use when generating technical plans from clear requirements. Retain confirmed requirements, acceptance criteria, and project constraints; when technology choices are unspecified, follow the [default stack](architecture.md#default-technology-stack).
+Use when generating technical plans from confirmed requirements. Carry forward their acceptance criteria and project constraints; when technology choices are unspecified, follow the [default stack](architecture.md#default-technology-stack).
 
 ## Required workflow
 
@@ -28,4 +28,4 @@ Present the plan in this order:
 
 1. **Overall recommendation and basis:** summarize references, reuse, and technical choices.
 2. **Each affected domain:** give its responsibility, then Data structures, Logic algorithms, and Control algorithms in that order. A simple task can have one domain; briefly identify retained designs in unchanged layers.
-3. **Cross-domain collaboration and implementation/validation:** connect domains through interfaces and end-to-end flows; give each independent work item's changes, verification, effort, risk, reasons, assumptions, and unknowns.
+3. **Cross-domain collaboration and implementation/validation:** connect domains through interfaces and end-to-end flows; give each independent work item's changes, verification, effort, risk, reasons, assumptions, and unknowns. Define scenarios for [real-user acceptance](development.md#real-user-acceptance), including the required environment and representative data, user actions, expected system responses and outcomes, important failure branches, and necessary evidence. Scale detail to the requirement and reuse existing scenarios that remain applicable.

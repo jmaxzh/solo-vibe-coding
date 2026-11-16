@@ -9,6 +9,7 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Establish quality standards, check tools, CI, or local automated checks | [Quality criteria and automated checks](quality-and-ci.md) |
 | Set up a local environment, start dependency services, initialize data, and prepare debugging | [Local environment and debugging preparation](#local-environment-and-debugging-preparation); docker-patterns for containerized services |
 | Implement a defined feature or change, behavior-preserving refactoring | UB Mode leads engineering discipline; Ponytail supports simplification and reuse |
+| Accept the running implementation by simulating users completing their tasks | [Real-user acceptance](#real-user-acceptance) |
 | Review excessive implementation, overengineering, or opportunities to reduce code | ponytail-review |
 | Review compliance with project rules and code style | Project instructions, existing conventions, and formatting/lint configuration |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
@@ -23,6 +24,28 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Production deployment, release verification, and rollback | [Production deployment and release](deployment.md) |
 
 When requirements or technical proposals still contain material uncertainty, reference [requirements and communication](requirements.md) or [architecture and technical design](architecture.md) as needed. Follow the [project knowledge conventions](project-knowledge.md) when reading and writing documents.
+
+## Real-user acceptance
+
+After implementing the technical plan, perform initial real-user acceptance against the confirmed requirement and planned scenarios. In the running application, simulate the target user completing a task from its entry point to its outcome. Choose browser, desktop, mobile, or CLI tools suited to the product and verify actual system responses and results.
+
+1. **Prepare the acceptance environment.** Reuse the project's startup process, prepare necessary services and representative data, and confirm the application is operable.
+2. **Exercise complete user journeys.** Cover the critical paths and important branches and failure cases within the requirement's scope. Check user-visible feedback and outcomes, including state changes, persistence, and cross-module handoffs where relevant. Retain necessary steps, actual results, and evidence against the expected outcomes.
+3. **Determine acceptance status.** Acceptance passes when the applicable scenarios and required project checks pass. Fix failures and repeat affected scenarios, expanding the scope as their impact requires. Report missing environments, unavailable tools, and unexecuted scenarios as verification gaps; material gaps leave acceptance incomplete.
+
+Implementation-time unit tests, integration tests, and quality checks remain in use. Once initial acceptance passes, enter the following review/refactoring loop.
+
+### Post-acceptance review and refactoring loop
+
+Repeat **non-bug code review → behavior-preserving refactoring → targeted re-acceptance → another review**, scoped to the current change and necessary connected code.
+
+Each completed review counts as one round. Apply the loop as follows:
+
+- **Review:** Use [ponytail-review and project-rule/code-style checks](#code-review-and-debugging) to examine implementation necessity, duplication, excessive abstraction, readability, and compliance with project conventions. Base findings on actual code; a review with no verified issues passes. After each review, stop if it passes or the cumulative review count exceeds 3; do not start another refactor once either condition is met.
+- **Refactor:** Address verified findings with clear benefits, preserving accepted user behavior, interface contracts, error handling, and data side effects. Apply the implementation/refactoring discipline below.
+- **Re-accept:** After every refactor, rerun affected user scenarios and automated checks. Reuse valid initial results for unaffected areas; a full repeat of initial acceptance is unnecessary unless the impact warrants it. If re-acceptance fails, correct or revert the relevant refactor and verify again before another review.
+
+Bugs discovered during review are handled as defect fixes with re-acceptance of affected scenarios. Report the review count, stopping reason, remaining findings, and final acceptance status. Reaching the round limit does not establish review or acceptance success.
 
 ## Local environment and debugging preparation
 
@@ -47,7 +70,7 @@ First check whether UB Mode's `crapper`, `dryer`, and `mutator` tools are actual
 
 ## Code review and debugging
 
-Before delivering implementation changes, review the final diff and connected code against the requirements, agreed proposal, acceptance criteria, and applicable project rules and code style. Use ponytail-review for simplification, covering unrequested changes, lines added/removed, and implementation necessity. Review earlier if growth appears. Scale depth to the task. Reuse conclusions only for unchanged requirements, code, and context; review new or affected changes.
+For implementation delivery, perform non-bug code review after [initial real-user acceptance](#real-user-acceptance) passes, following its review/refactoring loop. Review the current diff and connected code against the requirements, agreed proposal, acceptance criteria, and applicable project rules and code style. Use ponytail-review for simplification, covering unrequested changes, lines added/removed, and implementation necessity. Scale depth to the task. Reuse conclusions only for unchanged requirements, code, and context; review new or affected changes. Standalone review and debugging requests use the relevant guidance directly.
 
 <!-- skill: DietrichGebert/ponytail@ponytail-review -->
 - **ponytail-review**: [Source](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md). Read the diff and connected code; apply its Lean checks and verify findings. For verified simplification opportunities, cite locations, give concrete smaller complete alternatives, and justify estimated removable lines; otherwise, briefly report no findings. Preserve required behavior, correctness, safety, and necessary verification. Read-only review; fixes follow task authorization. Feature acceptance stays separate.

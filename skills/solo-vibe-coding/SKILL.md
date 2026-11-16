@@ -42,10 +42,16 @@ Read only guidance and resources relevant to the task. Use the resource column d
 - Adapt upstream default steps, templates, and quantity requirements to user requirements and project conditions. The model chooses professional judgments, methods, and combinations according to the actual task. Style preferences follow the user's and project's existing choices.
 - For websites or multilingual copy, write for the target language, locale, and audience, adapting wording, tone, and calls to action instead of translating sentence by sentence. Preserve product facts, capability boundaries, commitments, and what each action does; first read each version on its own for naturalness, then compare for information consistency.
 
+### Technical implementation: design and real-user acceptance
+
+Start from a confirmed requirement, retaining its acceptance criteria and project constraints. Requirements discussion and clarification are separate tasks; carry their confirmed results into this workflow.
+
+1. **Design the technical plan from the confirmed requirement.** Follow the required [technical planning workflow and output structure](references/technical-planning.md), including scenarios and expected outcomes for acceptance. Implement the plan within task authorization, retaining the project's automated checks during implementation.
+2. **Perform real-user acceptance on the running implementation.** Follow [real-user acceptance](references/development.md#real-user-acceptance) to simulate users completing their tasks and verify actual outcomes. Once acceptance passes, follow its review/refactoring loop: non-bug code review, behavior-preserving refactoring, targeted re-acceptance after each refactor, and another review, until its stopping condition is met.
+
 ### Communicate requirements and plans
 
-- Requirements confirmation must execute [grill-with-docs in requirements and communication](references/requirements.md#required-guidance); obtain the user's confirmation of shared understanding before implementation.
-- When generating technical plans, follow the required [technical planning workflow and output structure](references/technical-planning.md).
+- When confirming requirements as a separate task, execute [grill-with-docs in requirements and communication](references/requirements.md#required-guidance); reuse existing context and confirmed conclusions, and obtain user confirmation of unresolved decisions before implementation.
 - Requirements and plans involving user workflows must clearly explain the user journey: the user and situation, starting point, key actions and system responses, and outcome. Cover branches, failure cases, and handoffs that affect completing the goal.
 - Organize other questions and details according to the selected skills and project conventions. Write clearly and coherently, with detail proportional to task complexity; use headings, paragraphs, lists, or tables where they help readers see the key points and relationships.
 - For implementation plans, including bug fixes and new features, give each independent work item's effort and risk separately, with reasons. Effort considers changes, reuse, integration, and verification costs; risk considers likelihood and consequences, with mitigation where needed.
