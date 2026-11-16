@@ -10,6 +10,8 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Set up a local environment, start dependency services, initialize data, and prepare debugging | [Local environment and debugging preparation](#local-environment-and-debugging-preparation); docker-patterns for containerized services |
 | Implement a defined feature or change, behavior-preserving refactoring | UB Mode leads engineering discipline; Ponytail supports simplification and reuse |
 | Accept the running implementation by simulating users completing their tasks | [Real-user acceptance](#real-user-acceptance) |
+| Explore Web user journeys and reproduce issues | dogfood (Vercel) |
+| Explore native iOS/Android user journeys and reproduce issues | dogfood (Callstack) |
 | Review excessive implementation, overengineering, or opportunities to reduce code | ponytail-review |
 | Review compliance with project rules and code style | Project instructions, existing conventions, and formatting/lint configuration |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
@@ -29,9 +31,21 @@ When requirements or technical proposals still contain material uncertainty, ref
 
 After implementing the technical plan, perform initial real-user acceptance against the confirmed requirement and planned scenarios. In the running application, simulate the target user completing a task from its entry point to its outcome. Choose browser, desktop, mobile, or CLI tools suited to the product and verify actual system responses and results.
 
+Retain the project's acceptance standards; when defining them, use constraint-driven-development under [quality criteria and automated checks](quality-and-ci.md#upstream-guidance).
+
 1. **Prepare the acceptance environment.** Reuse the project's startup process, prepare necessary services and representative data, and confirm the application is operable.
 2. **Exercise complete user journeys.** Cover the critical paths and important branches and failure cases within the requirement's scope. Check user-visible feedback and outcomes, including state changes, persistence, and cross-module handoffs where relevant. Retain necessary steps, actual results, and evidence against the expected outcomes.
 3. **Determine acceptance status.** Acceptance passes when the applicable scenarios and required project checks pass. Fix failures and repeat affected scenarios, expanding the scope as their impact requires. Report missing environments, unavailable tools, and unexecuted scenarios as verification gaps; material gaps leave acceptance incomplete.
+
+Use the following guidance for user-perspective exploration and issue reproduction, within the requirement's scope:
+
+<!-- skill: vercel-labs/agent-browser@dogfood -->
+- **dogfood (Vercel, Web)**: [Source](https://github.com/vercel-labs/agent-browser/blob/main/skill-data/dogfood/SKILL.md). Explore Web workflows, edge cases, and error states; verify reproducibility and retain appropriate screenshots, videos, and steps. Read its issue taxonomy and report template from the same version. Running the upstream CLI workflow requires agent-browser and a browser; when adapting to suitable existing host browser tools, report the actual execution method.
+
+<!-- skill: callstack/agent-device@dogfood -->
+- **dogfood (Callstack, iOS/Android)**: [Source](https://github.com/callstack/agent-device/blob/main/skills/dogfood/SKILL.md). Explore native mobile workflows and collect runtime evidence. Requires agent-device 0.14.0+ and the target device or simulator/emulator; follow the original instructions to read `agent-device help dogfood` for the matching workflow. Report missing dependencies as verification gaps.
+
+Browser operations continue using playwright-cli or suitable host tools; persistent Playwright regression tests use playwright-best-practices under [testing and verification](#testing-and-verification).
 
 Implementation-time unit tests, integration tests, and quality checks remain in use. Once initial acceptance passes, enter the following review/refactoring loop.
 

@@ -10,6 +10,8 @@
 | 搭建本地环境、启动依赖服务、初始化数据与准备调试 | [本地环境与调试准备](#本地环境与调试准备)；容器化服务使用 docker-patterns |
 | 实现明确的功能或修改、行为保持的重构 | UB Mode 主导工程纪律，Ponytail 辅助简化与复用 |
 | 模拟用户完成任务，验收实际运行的实现 | [真实验收](#真实验收) |
+| 探索 Web 用户旅程与复现问题 | dogfood（Vercel） |
+| 探索 iOS/Android 原生应用用户旅程与复现问题 | dogfood（Callstack） |
 | 检查实现是否过重、存在过度设计或可减少的代码 | ponytail-review |
 | 检查项目规则与代码风格的遵守情况 | 项目指令、既有约定与格式化/lint 配置 |
 | 错误、异常行为、性能或偶发故障 | debugging-strategies |
@@ -29,9 +31,21 @@
 
 按技术方案完成实现后，依据已确认需求及方案中的场景进行首次真实验收。在实际运行的应用中，模拟目标用户从入口完成任务并获得结果。按产品形态选择适用的浏览器、桌面端、移动端或 CLI 工具，验证实际系统响应与结果。
 
+沿用项目验收标准；需要确定标准时，使用[质量指标与自动检查](quality-and-ci.md#上游指导)中的 constraint-driven-development。
+
 1. **准备验收环境**：沿用项目启动流程，准备必要服务与代表性数据，确认应用可操作。
 2. **执行完整用户旅程**：覆盖本次需求范围内的关键路径、重要分支与异常情形。检查用户可见反馈和最终结果，按需核对状态变化、持久化与跨模块衔接；对照预期保留必要操作步骤、实际结果和证据。
 3. **判定验收状态**：适用场景与项目必需检查通过后，验收通过。失败时修复并重跑受影响场景，按影响范围扩展验证。缺少环境、工具不可用或场景未执行时，报告验证缺口；关键缺口未补足时，验收未完成。
+
+在本次需求范围内，使用下列指导开展用户视角探索与问题复现：
+
+<!-- skill: vercel-labs/agent-browser@dogfood -->
+- **dogfood（Vercel，Web）**：[原文](https://github.com/vercel-labs/agent-browser/blob/main/skill-data/dogfood/SKILL.md)。探索 Web 操作流程、边界与错误状态，核实可复现性，保留适用的截图、视频和操作步骤。读取同版本的问题分类参考与报告模板。执行上游 CLI 流程需要 agent-browser 与浏览器；适配宿主已有适用浏览器工具时，说明实际执行方式。
+
+<!-- skill: callstack/agent-device@dogfood -->
+- **dogfood（Callstack，iOS/Android）**：[原文](https://github.com/callstack/agent-device/blob/main/skills/dogfood/SKILL.md)。探索原生移动应用操作流程并收集运行证据。需要 agent-device 0.14.0+ 及目标设备或模拟器；按原文读取 `agent-device help dogfood`，取得匹配的操作流程。依赖缺失时报告验证缺口。
+
+浏览器操作继续使用 playwright-cli 或宿主适用工具；持久 Playwright 回归测试使用[测试与验证](#测试与验证)中的 playwright-best-practices。
 
 实现期间继续使用单元测试、集成测试与质量检查。首次验收通过后，进入下述审查重构循环。
 
