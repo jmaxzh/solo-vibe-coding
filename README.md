@@ -40,7 +40,8 @@ users want to export their saved items as CSV. Follow this project's conventions
 ```
 
 ```text
-Use $solo-vibe-coding to review this change for concrete bugs and report findings.
+Use $solo-vibe-coding to review this change for simplification opportunities, overengineering,
+and compliance with project rules and code style. Report findings.
 ```
 
 ```text

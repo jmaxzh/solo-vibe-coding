@@ -9,8 +9,8 @@
 | 建立质量标准、检查工具、CI 或本地自动检查 | [质量指标与自动检查](quality-and-ci.md) |
 | 搭建本地环境、启动依赖服务、初始化数据与准备调试 | [本地环境与调试准备](#本地环境与调试准备)；容器化服务使用 docker-patterns |
 | 实现明确的功能或修改、行为保持的重构 | UB Mode 主导工程纪律，Ponytail 辅助简化与复用 |
-| 评审变更中的明确 bug 与项目规则违规 | claude-plugins-official 的 code-review；原版面向 GitHub PR |
 | 检查实现是否过重、存在过度设计或可减少的代码 | ponytail-review |
+| 检查项目规则与代码风格的遵守情况 | 项目指令、既有约定与格式化/lint 配置 |
 | 错误、异常行为、性能或偶发故障 | debugging-strategies |
 | 默认技术栈的实现、性能、安全、数据访问与运行 | [技术栈专项](technology-stack.md) |
 | 常规测试难覆盖的高影响性质，或维护已有形式化检查 | [形式化验证](formal-verification.md) |
@@ -47,15 +47,12 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 
 ## 代码评审与调试
 
-实现变更交付前，使用 ponytail-review 对照需求、已确认方案和验收条件审查最终 diff，覆盖需求外改动、增删行数与实现必要性。出现膨胀迹象时提前审查，深度与任务规模匹配。只复用需求、代码和上下文未变部分的结论，补查新增或受影响部分。
+实现变更交付前，对照需求、已确认方案、验收条件及适用的项目规则与代码风格，审查最终 diff 和关联代码。使用 ponytail-review 审查精简空间，覆盖需求外改动、增删行数与实现必要性。出现膨胀迹象时提前审查，深度与任务规模匹配。只复用需求、代码和上下文未变部分的结论，补查新增或受影响部分。
 
 <!-- skill: DietrichGebert/ponytail@ponytail-review -->
 - **ponytail-review**：[原文](https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail-review/SKILL.md)。先读 diff 与关联代码，再按原文核实 Lean 精简发现。有经核实的精简机会时，定位问题、报告更小完整方案及有依据的预计可减少行数；无发现时简短报告。保留所需行为、正确性、安全与必要验证。审查只读，修复按任务授权执行；功能验收仍单独完成。
 
-<!-- plugin: anthropics/claude-plugins-official@code-review -->
-- **code-review 插件**：[原文](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-review/commands/code-review.md)。通过独立代理与问题复核检查明确 bug 和适用的项目规则违规，按原文过滤一般风格、维护性与覆盖率建议；这些过滤仅适用于本项，日常质量标准仍由工程纪律与自动检查承担。默认终端报告，GitHub 评论需用户授权。
-
-已安装插件且具备其 GitHub PR 上下文、Claude Code 代理与模型选择、GitHub 工具时使用；否则依据实际宿主与项目规则，读取文件和 diff，按相同高置信标准审查，说明范围与未执行的检查。远程读取不等于安装插件或运行完整插件流程。
+- **项目规则与代码风格**：读取适用的 `AGENTS.md`、项目文档、格式化/lint 配置与周边代码，检查明确要求和既有约定的遵守情况，复用适用的项目检查。对查实的偏离定位代码并给出规则或约定依据，区分项目要求与个人偏好；说明审查范围和未执行的检查。默认终端报告，GitHub 评论需用户授权。
 
 <!-- skill: wshobson/agents@debugging-strategies -->
 - **debugging-strategies**：[原文](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md)。提供复现、收集证据、假设验证、差异比较、Git bisect、追踪、性能与内存排查方法。原版有四阶段框架，按故障证据选择相关方法；工具选择与高级技巧可读其 `references/tools-and-techniques.md`。依赖实际错误、日志、环境与变更信息，区分已经验证的根因和待验证推测。

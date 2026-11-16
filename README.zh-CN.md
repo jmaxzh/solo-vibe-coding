@@ -40,7 +40,8 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 ```
 
 ```text
-使用 $solo-vibe-coding，评审这次变更中的明确 bug 并报告发现。
+使用 $solo-vibe-coding，评审这次变更的精简空间、过度设计，
+以及项目规则与代码风格的遵守情况，并报告发现。
 ```
 
 ```text
