@@ -10,7 +10,7 @@ For existing schemas, application implementations, and architectural cases, see 
 | Existing code is hard to change, module coupling, identifying refactoring priorities | improve-codebase-architecture |
 | Discipline and verification during implementation and refactoring | [UB Mode in development and quality](development.md#implementation-and-refactoring) |
 
-When business concepts or requirements scope are unclear, reference [requirements and communication](requirements.md) as needed. Architecture documentation, feature-level technical constraints, and ADRs follow the [project knowledge conventions](project-knowledge.md).
+Requirements and design confirmation follow [the required guidance in requirements and communication](requirements.md#required-guidance). Architecture documentation, feature-level technical constraints, and ADRs follow the [project knowledge conventions](project-knowledge.md).
 
 When comparing designs for concurrency, retries, or failure recovery, consider [formal verification](formal-verification.md) for high-impact properties that are hard to test. Make atomic steps, failure assumptions, and consistency guarantees explicit; distinguish design-model results from evidence that the implementation follows the model.
 
@@ -43,7 +43,7 @@ Read Matt's associated architecture diagnosis guidance by stage, all from the sa
 
 - Before diagnosis, read [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) to align the analysis of deep modules, interfaces, and replaceable seams. This analytical vocabulary explains design without replacing existing business terminology.
 - Read `HTML-REPORT.md` in the diagnosis directory when a report is needed. The original writes reports to the system temporary directory; report-display CDN and browser capabilities depend on the actual environment.
-- After the user selects a candidate, read [grilling](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md). Reference [the existing domain-modeling entry](requirements.md#available-skills) only when domain concepts actually need to change. Read relevant codebase-design references when comparing interface options.
+- After the user selects a candidate, refine the design using [grill-with-docs in requirements and communication](requirements.md#required-guidance), continuing from the existing requirements consensus. Read relevant codebase-design references when comparing interface options.
 
 The original includes subagent exploration and parallel design; execute according to host capabilities and existing authorization. When delegation is unavailable, perform the same analysis in the current context and state the execution scope, without describing guidance retrieval as running subagents.
 

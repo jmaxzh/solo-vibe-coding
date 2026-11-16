@@ -43,6 +43,7 @@ Read only guidance and resources relevant to the task. Use the resource column d
 
 ### Communicate requirements and plans
 
+- Requirements confirmation must execute [grill-with-docs in requirements and communication](references/requirements.md#required-guidance); obtain the user's confirmation of shared understanding before implementation.
 - Requirements and plans involving user workflows must clearly explain the user journey: the user and situation, starting point, key actions and system responses, and outcome. Cover branches, failure cases, and handoffs that affect completing the goal.
 - Organize other questions and details according to the selected skills and project conventions. Write clearly and coherently, with detail proportional to task complexity; use headings, paragraphs, lists, or tables where they help readers see the key points and relationships.
 - For implementation plans, including bug fixes and new features, give each independent work item's effort and risk separately, with reasons. Effort considers changes, reuse, integration, and verification costs; risk considers likelihood and consequences, with mitigation where needed.

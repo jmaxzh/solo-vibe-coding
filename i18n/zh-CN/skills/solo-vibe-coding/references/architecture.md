@@ -10,7 +10,7 @@
 | 现有代码难改、模块耦合、确定重构优先级 | improve-codebase-architecture |
 | 实际实现和重构时的纪律与验证 | [开发与质量中的 UB Mode](development.md#实现与重构) |
 
-业务概念和需求范围不明确时按需引用[需求与沟通](requirements.md)。架构说明、功能技术约束和 ADR 遵循[项目知识库规范](project-knowledge.md)。
+需求与方案确认遵循[需求与沟通的必选指导](requirements.md#必选指导)。架构说明、功能技术约束和 ADR 遵循[项目知识库规范](project-knowledge.md)。
 
 比较并发、重试或故障恢复方案时，对影响较大、难以测试的性质考虑[形式化验证](formal-verification.md)。明确原子步骤、故障假设与一致性保证，区分设计模型的验证结果与实现遵循模型的证据。
 
@@ -43,7 +43,7 @@ Matt 架构诊断的关联指导按阶段读取，均取同仓库同版本：
 
 - 诊断前读取 [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md)，统一深模块、接口与可替换接缝的分析含义。该分析词汇用于解释设计，不替换项目已有业务术语。
 - 报告需要时读取诊断目录中的 `HTML-REPORT.md`；原版将报告写入系统临时目录，报告展示依赖的 CDN 与浏览器能力以实际环境为准。
-- 用户选定候选后读取 [grilling](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md)；只有领域概念确需变化时再引用[现有 domain-modeling](requirements.md#可用技能)。需要比较接口方案时读取 `codebase-design` 的相关引用。
+- 用户选定候选后，承接已有需求共识，使用[需求与沟通中的 grill-with-docs](requirements.md#必选指导)细化方案。需要比较接口方案时读取 `codebase-design` 的相关引用。
 
 原版包含子代理探索与并行设计；按宿主能力和已有授权执行。无法委派时在当前上下文完成相同分析并说明执行范围，不将读取指导表述为已运行子代理。
 
