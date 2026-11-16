@@ -1,22 +1,26 @@
 # Architecture and technical design
 
-Use for new feature design, technology selection, proposal comparisons, and diagnosis of existing code structure. Select guidance around functional requirements and nonfunctional constraints, first establishing the applicable baseline from [quality criteria and automated checks](quality-and-ci.md).
+Use for technical plans, selection, review, and code-structure diagnosis. Use known requirements and nonfunctional constraints; first establish the [quality baseline](quality-and-ci.md). Find schemas, implementations, and cases in [architecture references](resources/architecture.md).
 
-For existing schemas, application implementations, and architectural cases, see [architecture references](resources/architecture.md).
+Generate plans with the required [workflow and structure](technical-planning.md); use the entries below independently for research, selection, or review.
 
-| Current problem | Entry point |
-| --- | --- |
-| New feature design, technology selection, proposal comparison, creating or evaluating ADRs | architecture |
-| Existing code is hard to change, module coupling, identifying refactoring priorities | improve-codebase-architecture |
-| Discipline and verification during implementation and refactoring | [UB Mode in development and quality](development.md#implementation-and-refactoring) |
+## Select guidance
 
-Requirements and design confirmation follow [the required guidance in requirements and communication](requirements.md#required-guidance). Architecture documentation, feature-level technical constraints, and ADRs follow the [project knowledge conventions](project-knowledge.md).
+- **search-first**: [Source](https://github.com/affaan-m/ecc/blob/main/skills/search-first/SKILL.md). Survey project implementations and mature external solutions. Apply [shared reuse criteria](../SKILL.md#apply-guidance-to-project-conditions); explain coverage and remaining work, recommending adoption, extension, composition, or custom implementation. Plans deliver evidence and recommendations; installation and implementation follow task authorization.
 
-When comparing designs for concurrency, retries, or failure recovery, consider [formal verification](formal-verification.md) for high-impact properties that are hard to test. Make atomic steps, failure assumptions, and consistency guarantees explicit; distinguish design-model results from evidence that the implementation follows the model.
+- **architecture**: [Source](https://github.com/anthropics/knowledge-work-plugins/blob/main/engineering/skills/architecture/SKILL.md). Select technologies and review proposals. Compare complexity, cost, scalability, experience, delivery time, and maintenance; explain alternatives, recommendations, reasons, and consequences. Follow project conventions for ADRs and use available connectors.
+
+- **system-design**: [Source](https://github.com/anthropics/knowledge-work-plugins/blob/main/engineering/skills/system-design/SKILL.md). Develop the selected direction into a technical plan. Explain changes to existing implementation; cover components, flows, APIs/data models, caching, queues, errors/retries, capacity, reliability, and monitoring as needed. Use helpful diagrams; state assumptions, tradeoffs, and growth conditions to revisit. Scale detail to the project.
+
+For hard-to-change code, coupling, or refactoring priorities, use improve-codebase-architecture below. During implementation/refactoring, use [UB Mode](development.md#implementation-and-refactoring) for discipline and verification.
+
+Retain confirmed requirements and acceptance criteria; address material requirement or scope gaps through [requirements and communication](requirements.md#required-guidance). Documents follow [project knowledge conventions](project-knowledge.md).
+
+For high-impact concurrency, retry, or recovery properties that are hard to test, consider [formal verification](formal-verification.md). State atomic steps, failure assumptions, and consistency guarantees; distinguish model results from evidence of implementation conformance.
 
 ## Default technology stack
 
-Retain technology choices already established by the user or project. When no convention exists, match business needs to the table below. Adopt the default stack directly when it meets requirements; compare alternatives only when business constraints clearly make it unsuitable, explaining the basis and costs.
+Retain user/project choices. Otherwise match business needs to the table: adopt suitable defaults directly; compare alternatives only when business constraints clearly require them, explaining the basis and costs.
 
 | Scenario | Default choice |
 | --- | --- |
@@ -27,26 +31,20 @@ Retain technology choices already established by the user or project. When no co
 | Functional web application | React |
 | Mobile | React Native; use native development when the interface is confirmed to have very few, simple screens |
 
-Technology selection output includes the applicable scenario, chosen technology, and necessary reasons. Add authentication, deployment, background tasks, and other components according to actual business needs.
+Explain the scenario, choice, and reasons; add authentication, deployment, background tasks, or other components as needed. For implementation, framework usage, data access, performance, and operations, use [technology-specific guidance](technology-stack.md). Specialists retain these choices; system boundaries and selection tradeoffs remain here.
 
-For implementation, framework usage, data access, performance, and operations after technology selection, see [technology-specific guidance](technology-stack.md). Those specialists retain the choices made here; system boundaries and selection tradeoffs remain this topic's responsibility.
+## Code-structure diagnosis
 
-## Available skills
+- **improve-codebase-architecture**: [Source](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md). Inspect specified scope or recent hotspots for shallow modules, coupling, and testing difficulties. Propose smaller interfaces hiding more complexity; show problems, benefits, and before/after structure before choosing a direction. Diagnosis does not authorize implementation.
 
-<!-- skill: anthropics/knowledge-work-plugins@architecture -->
-- **architecture**: [Source](https://github.com/anthropics/knowledge-work-plugins/blob/main/engineering/skills/architecture/SKILL.md). Compare options around complexity, cost, scalability, team experience, and constraints, design new components, evaluate proposals, and form ADRs. The entry point mainly provides a decision framework; when deeper system design is needed, follow the original instructions to read `engineering/skills/system-design/SKILL.md` in the same repository. Follow project document conventions for output and use connectors according to actual availability.
+Read related guidance by stage, from the same repository/version:
 
-<!-- skill: mattpocock/skills@improve-codebase-architecture -->
-- **improve-codebase-architecture**: [Source](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md). Explore the user-specified scope or recent change hotspots for shallow modules, coupling, and testing difficulties, proposing refactoring candidates that hide more implementation complexity behind smaller interfaces. Show problems, benefits, and before/after structure before selecting a direction for deeper design. Diagnosis itself does not authorize implementing a refactor.
+- Before diagnosis, read [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) for deep modules, interfaces, and replaceable seams; retain project business terms.
+- For reports, read the diagnosis directory's `HTML-REPORT.md` as needed. Originals use the system temporary directory; CDN/browser support depends on the environment.
+- After the user selects a candidate, refine from confirmed requirements with [grill-with-docs](requirements.md#required-guidance). For interface comparisons, read relevant codebase-design references.
 
-Read Matt's associated architecture diagnosis guidance by stage, all from the same repository and version:
-
-- Before diagnosis, read [codebase-design](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) to align the analysis of deep modules, interfaces, and replaceable seams. This analytical vocabulary explains design without replacing existing business terminology.
-- Read `HTML-REPORT.md` in the diagnosis directory when a report is needed. The original writes reports to the system temporary directory; report-display CDN and browser capabilities depend on the actual environment.
-- After the user selects a candidate, refine the design using [grill-with-docs in requirements and communication](requirements.md#required-guidance), continuing from the existing requirements consensus. Read relevant codebase-design references when comparing interface options.
-
-The original includes subagent exploration and parallel design; execute according to host capabilities and existing authorization. When delegation is unavailable, perform the same analysis in the current context and state the execution scope, without describing guidance retrieval as running subagents.
+Run upstream subagent exploration/parallel design according to host capabilities and authorization. If delegation is unavailable, analyze locally and report scope; reading guidance is not running subagents.
 
 ## Document collaboration
 
-Architecture documentation describes current structure and constraints; label proposed work with its status. Preserve the context, alternatives, tradeoffs, and consequences of important choices in ADRs. Continue project conventions when updating, referring to [documentation-and-adrs](development.md#documentation-maintenance) as needed and jointly maintaining existing documents.
+Describe current structure and constraints; label proposed work. Preserve important decisions' context, alternatives, tradeoffs, and consequences in ADRs. Follow project conventions, using [documentation-and-adrs](development.md#documentation-maintenance) as needed to maintain shared existing documents.

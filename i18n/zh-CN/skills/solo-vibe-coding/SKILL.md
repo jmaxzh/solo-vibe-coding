@@ -20,7 +20,7 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 | 价值表达、营销文案、内容传播、Build in public、官网、落地页、转化分析 | [获客与转化](references/acquisition.md) | [案例](references/resources/acquisition.md) |
 | 界面审美、设计系统、交互与动效、功能页与静态页、自媒体图片与视频、视觉案例与素材 | [视觉与交互](references/visual-interaction.md) | [素材](references/resources/visual.md) |
 | 问题与解法、反馈、业务术语、MVP 切分、功能范围、验收条件、需求文档 | [需求与沟通](references/requirements.md) | [模板](references/resources/requirements.md) |
-| 系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束、决策记录 | [架构与技术设计](references/architecture.md) | [案例](references/resources/architecture.md) |
+| 技术实现方案、系统结构、技术选型、模块与数据边界、容量扩展、架构模式、技术约束、决策记录 | [架构与技术设计](references/architecture.md) | [案例](references/resources/architecture.md) |
 | 本地环境与调试准备、实现、代码评审、排障、测试、验证、使用说明 | [开发与质量](references/development.md) | [源码与环境](references/resources/development.md) |
 | 生产配置、打包、Cloudflare 前端与单台 VPS 后端部署、发布验证、回滚 | [生产部署与发布](references/deployment.md) | [部署与运行素材](references/resources/deployment.md) |
 
@@ -40,10 +40,12 @@ description: "为已有明确产品方向的独立开发者，按获客与转化
 - 根据当前要求提供建议、评审或实现，沿用已知产品事实、品牌、审美、技术栈和代码，只补充影响本次任务的缺失信息。
 - 处理任何需求，先复用已有成果；新增实现优先采用适用的成熟开源基座、框架、组件或模板，仅自行实现无法合理覆盖的部分。需要调研时使用 [search-first](https://github.com/affaan-m/ecc/blob/main/skills/search-first/SKILL.md)，按适配性、维护情况、许可证、兼容性和总体成本判断；调研深度与任务规模相称，复用仍有效的结论。
 - 上游的默认步骤、模板与数量要求结合用户要求和项目条件使用；专业判断、方法和组合由模型依据实际任务决定。风格偏好服从用户和项目已有选择。
+- 官网或多语言文案按目标语言、地区与受众习惯撰写，调整措辞、语气和行动提示，避免逐句直译。保持产品事实、能力边界、承诺与操作含义一致；先独立通读自然度，再对照核验信息。
 
 ### 需求与方案表达
 
 - 需求确认必须执行[需求与沟通中的 grill-with-docs](references/requirements.md#必选指导)，经用户确认达成共识后再推进实现。
+- 生成技术方案时，必须遵循[技术方案流程与输出结构](references/technical-planning.md)。
 - 涉及用户使用流程的需求与方案，必须说清用户旅程：谁在什么场景下，从何开始，经过哪些关键操作与系统响应，最终获得什么结果；交代影响完成目标的分支、异常与衔接。
 - 其他问题与细节结合所用 Skill 和项目约定组织，表达清楚、连贯，详略与任务复杂度相称；在有助于理解时使用标题、段落、列表或表格，呈现重点及内容之间的关系。
 - 实现方案（含缺陷修复、新增功能）对每个独立工作项分别说明工作量和风险及依据：工作量考虑改动、复用、联调与验证成本；风险考虑发生可能性和后果，必要时补充应对。
