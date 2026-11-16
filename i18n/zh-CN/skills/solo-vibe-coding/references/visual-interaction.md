@@ -4,9 +4,23 @@
 
 官网目的、文案和传播见 [获客与转化](acquisition.md)；实现中的排障与通用测试见 [开发与质量](development.md)。专业指导在本文维护，现成素材在[视觉参考与素材](resources/visual.md)维护；其他范畴按需引用对应条目。
 
+## 先取得具体参考
+
+视觉制作或外观调整前，先取得实际可查看的参考：具体页面、截图、设计稿、图片，或可播放的动效与视频案例。已有认可的页面、组件或作品足以覆盖任务时直接复用；否则从[视觉参考与素材](resources/visual.md)查找适用参考。只找参考的任务交付参考即结束；制作在参考就绪后开始。
+
+按下表选择参考分析、实现、比较、精修与交付的上游指导，读取其任务相关引用，在用户要求和项目约束内遵循原文的方法与停止条件。制作期间持续保留选定参考；参考未能确定的部分说明适配依据或未知。
+
+| 任务 | 上游指导 |
+| --- | --- |
+| 将参考转为可复用设计约束与实现交接 | [reference-design-contract](#参考分析与设计交接) |
+| 对照已确认设计实现或精修页面与 UI | [impeccable](#界面与审美)：按任务选择参考稿实现、critique、polish 与完成检查分支 |
+| 根据参考生成或编辑位图 | [imagegen](#图片与静态素材)：参考输入、验图、定向修改、复查与文件交付 |
+| 借鉴参考的视觉与动作语言制作新视频 | [hyperframes](#视频与媒体制作)：参考风格与评审指导 |
+| 逐帧重建参考视频 | [reverse-any-video](#视频与媒体制作)：重建、渲染比较、修正与可编辑工程交付；需要 HyperFrames Pro |
+
 ## 按交付目标选择能力
 
-先确定功能页、静态页或自媒体素材的目标产物，再选择主指导与补充能力；已有方案按独立缺口补充，只找素材时直接进入[视觉参考与素材](resources/visual.md)。
+参考就绪后，确定功能页、静态页或自媒体素材的目标产物，再选择主指导与补充能力；已有方案按独立缺口补充，只找素材时直接进入[视觉参考与素材](resources/visual.md)。
 
 ### 按交付场景组合能力
 
@@ -14,8 +28,8 @@
 
 | 场景 | 能力组合与应用 |
 | --- | --- |
-| 功能页：工具、表单、设置、仪表盘与编辑器 | frontend-design 或已有设计系统指导布局与视觉层级；Emil 或 GSAP 补充状态反馈、过渡与操作引导；图片生成、canvas-design、algorithmic-art 可用于插画、空状态、可视化或创作画布。视觉效果服务操作与信息理解，保留真实数据、加载、空态、错误和键盘操作等所需行为。实现与验证结合[开发与质量](development.md)。 |
-| 静态页：官网、落地页、作品集、文章与活动页 | frontend-design 确定整体视觉；imagegen 或 baoyu-image-gen 制作主视觉，canvas-design 处理静态构图；algorithmic-art 制作粒子或流场，gsap-scrolltrigger 编排滚动、视差与场景切换。按页面用途选取，视频内容可组合 Remotion 或 HyperFrames；结构与文案需要时见[获客与转化](acquisition.md)。 |
+| 功能页：工具、表单、设置、仪表盘与编辑器 | 依据页面／组件参考与已有设计系统，用 impeccable 或 frontend-design 实现布局与视觉层级；Emil 或 GSAP 补充状态反馈、过渡与操作引导；图片生成、canvas-design、algorithmic-art 可用于插画、空状态、可视化或创作画布。视觉效果服务操作与信息理解，保留真实数据、加载、空态、错误和键盘操作等所需行为。实现与验证结合[开发与质量](development.md)。 |
+| 静态页：官网、落地页、作品集、文章与活动页 | 用 impeccable 或 frontend-design 实现已确定的页面参考；imagegen 或 baoyu-image-gen 制作主视觉，canvas-design 处理静态构图；algorithmic-art 制作粒子或流场，gsap-scrolltrigger 编排滚动、视差与场景切换。按页面用途选取，视频内容可组合 Remotion 或 HyperFrames；结构与文案需要时见[获客与转化](acquisition.md)。 |
 | 自媒体素材：封面、配图、海报、图卡、演示与短视频 | 封面、配图与海报结合图片生成、canvas-design 及相应 baoyu 技能；系列图卡按内容结构拆分。Remotion 或 HyperFrames 将真实产品画面、图片、文字与音频组合为演示、讲解或短视频；algorithmic-art 和 GSAP 可补充生成式画面与动态编排。选题与平台表达需要时见[渠道选择](acquisition.md#渠道选择)。 |
 
 需要现成效果时，从[视觉参考与素材](resources/visual.md)选取具体组件、模板或媒体文件；需要定制效果时选择对应制作指导。图片生成优先使用宿主可用工具，多供应商或批量任务可选 baoyu-image-gen。视频沿用已有工程；新工程按 React 组件复用、HTML/GSAP 制作方式与可用渲染环境选择 Remotion 或 HyperFrames。
@@ -32,25 +46,31 @@
 
 | 当前问题 | 本文位置与主要候选 |
 | --- | --- |
-| 新界面与视觉方向 | [界面与审美](#界面与审美)：frontend-design、design-taste-frontend、ui-ux-pro-max |
+| 参考分析、可复用设计约束与交接 | [参考分析与设计交接](#参考分析与设计交接)：reference-design-contract |
+| 新界面与视觉方向 | [界面与审美](#界面与审美)：impeccable、frontend-design、design-taste-frontend、ui-ux-pro-max |
 | 评审与精修、操作手感、界面规范 | [界面与审美](#界面与审美)：impeccable、emil-design-eng、web-design-guidelines |
 | Stitch 方案、提示、设计规范与组件实现 | [Stitch 界面制作](#stitch-界面制作) |
 | 主视觉、海报、封面、图解与连续图卡 | [图片与静态素材](#图片与静态素材)：imagegen、canvas-design、baoyu 系列 |
 | 组件动画、滚动、粒子、3D 与性能 | [动效与交互](#动效与交互)：Emil、GSAP、motion-design、algorithmic-art、threejs |
-| 产品演示、讲解、可导出视频、字幕、配音与媒体后端 | [视频与媒体制作](#视频与媒体制作)：video、Remotion、HyperFrames、fal |
+| 产品演示、讲解、参考视频重建、可导出视频、字幕、配音与媒体后端 | [视频与媒体制作](#视频与媒体制作)：video、Remotion、HyperFrames、reverse-any-video、fal |
+
+### 参考分析与设计交接
+
+<!-- skill: nexu-io/open-design@reference-design-contract -->
+- **reference-design-contract**：[原文](https://github.com/nexu-io/open-design/blob/main/skills/reference-design-contract/SKILL.md)，[技能页](https://skills.sh/nexu-io/open-design/reference-design-contract)。将提供的截图、URL 或品牌材料转为 `DESIGN.md`、`design-contract.md` 和 `implementation-handoff.md`，区分参考中需保留与适配的属性，明确实现约束。需要文件写入能力；适用于可复用规范或交接值得产出三份文档的任务。用于视觉制作时提供上文要求的可查看参考，实现与验证交给对应制作指导。
 
 ### 界面与审美
 
 结合产品用途、受众、具体页面参考和已有风格选择主导指南，辅助能力解决独立缺口。精修侧重局部质量，重设计涉及整体方向，规范审核依据明确规则。
 
 <!-- skill: anthropics/skills@frontend-design -->
-- **frontend-design**：[原文](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)，[技能页](https://skills.sh/anthropics/skills/frontend-design)。从产品主题、受众、材料和使用场景推导视觉方向，处理字体、配色、构图、层级和动效。适合有辨识度的新界面与官网。
+- **frontend-design**：[原文](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md)，[技能页](https://skills.sh/anthropics/skills/frontend-design)。结合选定参考、产品主题、受众、材料和使用场景，处理字体、配色、构图、层级和动效。适合有辨识度的新界面与官网。
 
 <!-- skill: nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max -->
 - **ui-ux-pro-max**：[原文](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md)，[技能页](https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max)。提供设计风格、行业配色、字体组合、交互规范、图表与技术栈资料，适合建立设计依据。需要具体数据时，按原文路径读取相关引用与 CSV；使用检索脚本则需要取得脚本及运行环境。
 
 <!-- skill: pbakaus/impeccable@impeccable -->
-- **impeccable**：[原文](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/SKILL.md)，[技能页](https://skills.sh/pbakaus/impeccable/impeccable)。覆盖新设计、评审、精修、简化、排版、配色、交互、动画和设计系统；区分 Persuade / Operate / Read / Experience 等场景。按任务读取 `shape`、`critique`、`audit`、`polish`、`bolder`、`quieter`、`distill`、`animate`、`colorize`、`typeset`、`harden`、`onboard` 等对应参考。模型评审和专用引擎检查需要分别说明实际执行情况。
+- **impeccable**：[原文](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/SKILL.md)，[技能页](https://skills.sh/pbakaus/impeccable/impeccable)。覆盖新设计、评审、精修、简化、排版、配色、交互、动画和设计系统；区分 Persuade / Operate / Read / Experience 等场景。已有确认设计稿时，读取[参考稿实现](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/new-work-comp.md)中的测量、实现门槛与截图比较，以及[新制作与完成检查](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/new-work.md)。局部精修按任务选择 `critique` 或 `polish` 引用；其他任务按需使用 `shape`、`audit`、`bolder`、`quieter`、`distill`、`animate`、`colorize`、`typeset`、`harden`、`onboard`。按原文核对所选分支的启动器、引擎、浏览器、图像工具与评审能力要求；模型评审和专用引擎检查分别说明实际执行情况。
 
 <!-- skill: leonxlnx/taste-skill@design-taste-frontend -->
 - **design-taste-frontend / Taste Skill**：[原文](https://github.com/leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md)，[技能页](https://skills.sh/leonxlnx/taste-skill/design-taste-frontend)。重视视觉构思、真实参考、图片与产品 UI、版式和浏览器实看，适合官网、落地页和作品展示。源码目录为 `taste-skill`；风格指导服从项目 brief，脚本与浏览器检查按当前原文核对运行依赖。
@@ -105,7 +125,7 @@
 位图生成、排版成图、SVG/代码图形和可编辑 UI 按实际产物选择。图片中的界面不等于已实现的产品，逐页演示图也不等于可编辑 PPT。baoyu 系列来自 [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)，实际生成需要相应后端、凭据与脚本运行环境。
 
 <!-- skill: openai/skills@imagegen -->
-- **imagegen**：[原文](https://github.com/openai/skills/blob/main/skills/.system/imagegen/SKILL.md)，[技能页](https://skills.sh/openai/skills/imagegen)。生成与编辑位图、参考图变体、透明背景素材、主视觉和产品概念图。优先宿主已有的图像工具；使用 CLI 路径需要对应 API 凭据。可编辑矢量和代码图形按实际交付形式选择工具。
+- **imagegen**：[原文](https://github.com/openai/skills/blob/main/skills/.system/imagegen/SKILL.md)，[技能页](https://skills.sh/openai/skills/imagegen)。生成与编辑位图、参考图变体、透明背景素材、主视觉和产品概念图。按原文区分输入图片角色、保留约束，执行验图、定向修改、复查及最终文件与提示词交付。优先宿主内置图像工具；其 CLI 后备路径需要用户明确要求及 API 凭据。目视验图不等于完成自动像素差异验收。可编辑矢量和代码图形按实际交付形式选择工具。
 
 <!-- skill: anthropics/skills@canvas-design -->
 - **canvas-design**：[原文](https://github.com/anthropics/skills/blob/main/skills/canvas-design/SKILL.md)，[技能页](https://skills.sh/anthropics/skills/canvas-design)。先确定视觉表达，再制作 PNG/PDF 静态作品；适合海报与少量文字的视觉设计，不用于实现网页。
@@ -238,7 +258,10 @@ GSAP 官方技能来自 [greensock/gsap-skills](https://github.com/greensock/gsa
 - **[remotion-license](https://github.com/remotion-dev/skills/blob/main/skills/remotion-license/SKILL.md)**：查明视频框架在实际用途下的授权与费用条件。
 
 <!-- skill: heygen-com/hyperframes@hyperframes -->
-- **hyperframes**：[原文](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/SKILL.md)，[技能页](https://skills.sh/heygen-com/hyperframes/hyperframes)。使用 HTML 组合、GSAP 时间线、场景、字幕、音频和可参数化渲染制作视频。发布片、解释片、图表和竖屏内容等按需读取入口中的参考。
+- **hyperframes**：[原文](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/SKILL.md)，[技能页](https://skills.sh/heygen-com/hyperframes/hyperframes)。使用 HTML 组合、GSAP 时间线、场景、字幕、音频和可参数化渲染制作视频。参考驱动的视频读取[look](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/references/look.md)中的视觉与动作语言，以及[review](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/references/review.md)中的画面检查、修正与交付说明；其他形式按需读取入口中的引用。执行需要对应 CLI、媒体工具与渲染环境，按所选功能核对账号和费用条件。适用时沿用已有 Remotion 等视频工程。
+
+<!-- skill: heygen-com/hyperframes@reverse-any-video -->
+- **reverse-any-video**：[原文](https://github.com/heygen-com/hyperframes/blob/main/skills/reverse-any-video/SKILL.md)，[技能页](https://skills.sh/heygen-com/hyperframes/reverse-any-video)。通过逐帧分析、渲染比较、修正与对照预览交付，将提供的视频重建为可编辑 HyperFrames 工程。需要 HyperFrames Pro、账号权限、CLI 及媒体与渲染工具；按源内容核对额外媒体生成条件。遵循其[开始与交付指导](https://github.com/heygen-com/hyperframes/blob/main/skills/reverse-any-video/references/start.md)及原文的有限修正与复查要求，说明近似处理与剩余差异。
 
 <!-- skill: heygen-com/hyperframes@media-use -->
 - **media-use**：[原文](https://github.com/heygen-com/hyperframes/blob/main/skills/media-use/SKILL.md)，[技能页](https://skills.sh/heygen-com/hyperframes/media-use)。查找或生成图片、图标、品牌标志、音乐、音效、配音、数字人、转录、抠像与调色素材。部分为本地能力，部分依赖 HeyGen 登录、额度或付费；逐项以当前环境和用户范围为准。图像模型生成与视频时间线渲染是不同能力。

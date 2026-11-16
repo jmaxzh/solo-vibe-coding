@@ -4,9 +4,23 @@ Use for interface aesthetics, design systems, motion, images, video, and visual 
 
 For website purpose, copy, and distribution, see [acquisition and conversion](acquisition.md); for implementation troubleshooting and general testing, see [development and quality](development.md). Maintain specialist guidance here and existing assets in [visual references and assets](resources/visual.md); other topics reference the relevant entry as needed.
 
+## Start from a concrete reference
+
+Before producing visuals or changing appearance, obtain a reference that can actually be viewed: a specific page, screenshot, design comp, image, or playable motion/video example. Reuse approved existing pages, components, or work when they cover the task; otherwise find a suitable reference through [visual references and assets](resources/visual.md). Reference-only requests end with reference delivery; production starts once the reference is available.
+
+Choose the upstream workflow below for reference analysis, implementation, comparison, refinement, and delivery. Read its task-specific references and follow its methods and stopping conditions within the user's requirements and project constraints. Keep the selected reference available throughout the work; describe any parts it does not establish as adaptations or unknowns.
+
+| Task | Upstream guidance |
+| --- | --- |
+| Turn references into reusable design constraints and an implementation handoff | [reference-design-contract](#reference-analysis-and-design-handoff) |
+| Implement or refine pages and UI against an approved design | [impeccable](#interface-design-and-aesthetics): reference-comp implementation, critique, polish, and finishing branches according to the task |
+| Generate or edit raster images from references | [imagegen](#images-and-static-assets): reference inputs, output inspection, targeted edits, rechecks, and file delivery |
+| Make a new video using a reference's visual and motion language | [hyperframes](#video-and-media-production): reference look and review guidance |
+| Rebuild a reference video frame by frame | [reverse-any-video](#video-and-media-production): reconstruction, rendered comparison, repairs, and editable-project delivery; requires HyperFrames Pro |
+
 ## Select capabilities by deliverable
 
-Identify the target artifact for functional pages, static pages, or social media assets, then select the lead guide and supporting capabilities. Supplement existing solutions for independent gaps; for asset discovery alone, go directly to [visual references and assets](resources/visual.md).
+With the reference available, identify the target artifact for functional pages, static pages, or social media assets, then select the lead guide and supporting capabilities. Supplement existing solutions for independent gaps; for asset discovery alone, go directly to [visual references and assets](resources/visual.md).
 
 ### Combine capabilities by deliverable
 
@@ -14,8 +28,8 @@ Visual design, images, motion, and video capabilities apply to functional pages,
 
 | Scenario | Capability combinations and use |
 | --- | --- |
-| Functional pages: tools, forms, settings, dashboards, and editors | Use frontend-design or the existing design system for layout and hierarchy; Emil or GSAP for state feedback, transitions, and interaction guidance; image generation, canvas-design, and algorithmic-art for illustrations, empty states, visualizations, or creative canvases. Effects support operation and understanding while retaining required behavior for real data, loading, empty and error states, and keyboard use. Combine implementation and verification with [development and quality](development.md). |
-| Static pages: websites, landing pages, portfolios, articles, and event pages | Use frontend-design for the overall visual direction; imagegen or baoyu-image-gen for hero imagery, canvas-design for static composition; algorithmic-art for particles or flow fields, and gsap-scrolltrigger for scrolling, parallax, and scene changes. Select according to page purpose, adding Remotion or HyperFrames for video content; see [acquisition and conversion](acquisition.md) when structure and copy guidance is needed. |
+| Functional pages: tools, forms, settings, dashboards, and editors | Implement the page/component reference and existing design system with impeccable or frontend-design for layout and hierarchy; Emil or GSAP for state feedback, transitions, and interaction guidance; image generation, canvas-design, and algorithmic-art for illustrations, empty states, visualizations, or creative canvases. Effects support operation and understanding while retaining required behavior for real data, loading, empty and error states, and keyboard use. Combine implementation and verification with [development and quality](development.md). |
+| Static pages: websites, landing pages, portfolios, articles, and event pages | Implement the agreed page reference with impeccable or frontend-design; imagegen or baoyu-image-gen for hero imagery, canvas-design for static composition; algorithmic-art for particles or flow fields, and gsap-scrolltrigger for scrolling, parallax, and scene changes. Select according to page purpose, adding Remotion or HyperFrames for video content; see [acquisition and conversion](acquisition.md) when structure and copy guidance is needed. |
 | Social media assets: covers, illustrations, posters, carousels, demos, and short videos | Combine image generation, canvas-design, and the relevant baoyu skills for covers, illustrations, and posters; split carousels according to content structure. Remotion or HyperFrames combines real product screens, images, text, and audio into demos, explainers, or short videos; algorithmic-art and GSAP can supply generative visuals and motion choreography. See [channel selection](acquisition.md#channel-selection) when topic and platform messaging guidance is needed. |
 
 For ready-made effects, select concrete components, templates, or media files from [visual references and assets](resources/visual.md); choose the relevant production guidance for custom effects. Prefer available host tools for image generation; baoyu-image-gen suits multiple providers or batch tasks. Retain existing video projects; for new projects, choose Remotion or HyperFrames according to React component reuse, HTML/GSAP authoring, and the available rendering environment.
@@ -32,25 +46,31 @@ Select specialist guidance by the content to create or improve; Stitch-specific 
 
 | Current problem | Location and primary candidates |
 | --- | --- |
-| New interfaces and visual direction | [Interface design and aesthetics](#interface-design-and-aesthetics): frontend-design, design-taste-frontend, ui-ux-pro-max |
+| Reference analysis, reusable design constraints, and handoff | [Reference analysis and design handoff](#reference-analysis-and-design-handoff): reference-design-contract |
+| New interfaces and visual direction | [Interface design and aesthetics](#interface-design-and-aesthetics): impeccable, frontend-design, design-taste-frontend, ui-ux-pro-max |
 | Review and polish, interaction feel, interface guidelines | [Interface design and aesthetics](#interface-design-and-aesthetics): impeccable, emil-design-eng, web-design-guidelines |
 | Stitch concepts, prompts, design standards, component implementation | [Stitch interface production](#stitch-interface-production) |
 | Hero visuals, posters, covers, diagrams, sequential image cards | [Images and static assets](#images-and-static-assets): imagegen, canvas-design, baoyu family |
 | Component animation, scroll, particles, 3D, performance | [Motion and interaction](#motion-and-interaction): Emil, GSAP, motion-design, algorithmic-art, threejs |
-| Product demos, explainers, exportable video, captions, voice, media backends | [Video and media production](#video-and-media-production): video, Remotion, HyperFrames, fal |
+| Product demos, explainers, reference-video reconstruction, exportable video, captions, voice, media backends | [Video and media production](#video-and-media-production): video, Remotion, HyperFrames, reverse-any-video, fal |
+
+### Reference analysis and design handoff
+
+<!-- skill: nexu-io/open-design@reference-design-contract -->
+- **reference-design-contract**: [Source](https://github.com/nexu-io/open-design/blob/main/skills/reference-design-contract/SKILL.md), [Skill page](https://skills.sh/nexu-io/open-design/reference-design-contract). Turn provided screenshots, URLs, or brand material into `DESIGN.md`, `design-contract.md`, and `implementation-handoff.md`, distinguishing reference qualities to preserve from adaptations and stating implementation constraints. Requires file-writing capability; use when a reusable specification or handoff justifies its three-document output. For visual production, supply the viewable reference required above; implementation and verification use the relevant production guide.
 
 ### Interface design and aesthetics
 
 Select a lead guide according to product purpose, audience, specific page references, and existing style, using supporting capabilities for independent gaps. Polish focuses on local quality, redesign concerns overall direction, and guideline reviews use explicit rules.
 
 <!-- skill: anthropics/skills@frontend-design -->
-- **frontend-design**: [Source](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md), [Skill page](https://skills.sh/anthropics/skills/frontend-design). Derive visual direction from product subject, audience, material, and use context, covering typography, palette, composition, hierarchy, and motion. Suitable for distinctive new interfaces and public websites.
+- **frontend-design**: [Source](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md), [Skill page](https://skills.sh/anthropics/skills/frontend-design). Interpret the chosen reference alongside product subject, audience, material, and use context, covering typography, palette, composition, hierarchy, and motion. Suitable for distinctive new interfaces and public websites.
 
 <!-- skill: nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max -->
 - **ui-ux-pro-max**: [Source](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md), [Skill page](https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max). Provides design styles, industry palettes, font pairings, interaction guidelines, charts, and stack material for establishing a design basis. When concrete data is needed, follow original paths to relevant references and CSV files; search scripts require obtaining the scripts and runtime environment.
 
 <!-- skill: pbakaus/impeccable@impeccable -->
-- **impeccable**: [Source](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/SKILL.md), [Skill page](https://skills.sh/pbakaus/impeccable/impeccable). Covers new design, review, polish, simplification, typography, color, interaction, animation, and design systems; distinguishes Persuade / Operate / Read / Experience contexts. Read corresponding references such as `shape`, `critique`, `audit`, `polish`, `bolder`, `quieter`, `distill`, `animate`, `colorize`, `typeset`, `harden`, and `onboard` according to the task. State separately which model reviews and specialist-engine checks were actually performed.
+- **impeccable**: [Source](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/SKILL.md), [Skill page](https://skills.sh/pbakaus/impeccable/impeccable). Covers new design, review, polish, simplification, typography, color, interaction, animation, and design systems; distinguishes Persuade / Operate / Read / Experience contexts. For an approved design comp, read [reference-comp implementation](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/new-work-comp.md) for measurement, implementation gates, and screenshot comparison, together with [new work and finishing](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/reference/new-work.md). For local refinement, select the corresponding `critique` or `polish` reference; other tasks may use `shape`, `audit`, `bolder`, `quieter`, `distill`, `animate`, `colorize`, `typeset`, `harden`, or `onboard`. Follow the source's launcher, engine, browser, image-tool, and reviewer requirements for the selected branch; state separately which model reviews and specialist-engine checks actually ran.
 
 <!-- skill: leonxlnx/taste-skill@design-taste-frontend -->
 - **design-taste-frontend / Taste Skill**: [Source](https://github.com/leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md), [Skill page](https://skills.sh/leonxlnx/taste-skill/design-taste-frontend). Emphasizes visual concepts, real references, imagery and product UI, layout, and in-browser inspection for websites, landing pages, and showcases. The source directory is `taste-skill`; style guidance follows the project brief. Check script and browser-check runtime dependencies against current original instructions.
@@ -105,7 +125,7 @@ Source: [Google Labs Stitch Skills](https://github.com/google-labs-code/stitch-s
 Choose raster generation, composition into images, SVG/code graphics, or editable UI according to the actual artifact. A pictured interface is not an implemented product, and slide-by-slide demo images are not an editable presentation. The baoyu family comes from [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills); actual generation requires the corresponding backend, credentials, and script runtime.
 
 <!-- skill: openai/skills@imagegen -->
-- **imagegen**: [Source](https://github.com/openai/skills/blob/main/skills/.system/imagegen/SKILL.md), [Skill page](https://skills.sh/openai/skills/imagegen). Generate and edit raster images, reference variants, transparent-background assets, hero visuals, and product concept images. Prioritize existing host image tools; CLI use requires the corresponding API credentials. Select tools for editable vectors and code graphics according to the actual delivery format.
+- **imagegen**: [Source](https://github.com/openai/skills/blob/main/skills/.system/imagegen/SKILL.md), [Skill page](https://skills.sh/openai/skills/imagegen). Generate and edit raster images, reference variants, transparent-background assets, hero visuals, and product concept images. Follow its input-image roles, preserved constraints, output inspection, targeted edits, rechecks, and final-file/prompt delivery guidance. Prefer the host's built-in image tool; its CLI fallback requires an explicit user request and API credentials. Visual inspection does not establish automated pixel-difference acceptance. Select tools for editable vectors and code graphics according to the actual delivery format.
 
 <!-- skill: anthropics/skills@canvas-design -->
 - **canvas-design**: [Source](https://github.com/anthropics/skills/blob/main/skills/canvas-design/SKILL.md), [Skill page](https://skills.sh/anthropics/skills/canvas-design). Establish visual expression before creating static PNG/PDF works; suitable for posters and designs with little text, not website implementation.
@@ -238,7 +258,10 @@ Choose programmatic video for precise UI and text; use actually available media 
 - **[remotion-license](https://github.com/remotion-dev/skills/blob/main/skills/remotion-license/SKILL.md)**: Determine license and cost conditions for the intended video-framework use.
 
 <!-- skill: heygen-com/hyperframes@hyperframes -->
-- **hyperframes**: [Source](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/SKILL.md), [Skill page](https://skills.sh/heygen-com/hyperframes/hyperframes). Produce video with HTML compositions, GSAP timelines, scenes, captions, audio, and parameterized rendering. Read entry-point references as needed for launch videos, explainers, charts, vertical content, and other formats.
+- **hyperframes**: [Source](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/SKILL.md), [Skill page](https://skills.sh/heygen-com/hyperframes/hyperframes). Produce video with HTML compositions, GSAP timelines, scenes, captions, audio, and parameterized rendering. For reference-informed video, read [look](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/references/look.md) for visual and motion language, and [review](https://github.com/heygen-com/hyperframes/blob/main/skills/hyperframes/references/review.md) for frame inspection, repairs, and delivery notes. Other formats follow the entry point's relevant references. Execution requires its CLI, media tools, and rendering environment; check account and cost conditions for the selected features. Retain existing Remotion or other video projects when appropriate.
+
+<!-- skill: heygen-com/hyperframes@reverse-any-video -->
+- **reverse-any-video**: [Source](https://github.com/heygen-com/hyperframes/blob/main/skills/reverse-any-video/SKILL.md), [Skill page](https://skills.sh/heygen-com/hyperframes/reverse-any-video). Rebuild a supplied video as an editable HyperFrames project using frame analysis, rendered comparison, repairs, and comparison-preview delivery. Requires HyperFrames Pro, account access, the CLI, and media/rendering tools; check additional media-generation conditions for the source content. Follow its [start and handoff guidance](https://github.com/heygen-com/hyperframes/blob/main/skills/reverse-any-video/references/start.md) and its bounded repair/recheck instructions, reporting approximations and remaining differences.
 
 <!-- skill: heygen-com/hyperframes@media-use -->
 - **media-use**: [Source](https://github.com/heygen-com/hyperframes/blob/main/skills/media-use/SKILL.md), [Skill page](https://skills.sh/heygen-com/hyperframes/media-use). Find or generate images, icons, brand marks, music, sound effects, voiceovers, avatars, transcripts, cutouts, and color-grading assets. Some capabilities are local; others require HeyGen login, credits, or payment. Check each against the current environment and user scope. Image-model generation and video-timeline rendering are distinct capabilities.
