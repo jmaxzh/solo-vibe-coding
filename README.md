@@ -6,7 +6,7 @@
 
 A single Agent Skill for people building products independently with AI and a clear goal. Add reusable working methods to your existing coding assistant: select relevant specialist guidance, build on suitable existing work, establish appropriate engineering checks, and keep project agreements for later changes. You can confirm important choices without first mastering every technical discipline.
 
-Guidance covers acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release.
+Choose among six task entry points: requirements clarification; visual design and interaction; project initialization; technical planning, implementation, and acceptance; production deployment and release; and acquisition and conversion. Architecture, technology choices, troubleshooting, reviews, and testing remain available through the technical delivery entry point.
 
 Engineering projects prioritize quality criteria and automated checks and share project knowledge conventions. Each topic can be entered independently; this skill does not explore startup ideas.
 
@@ -65,7 +65,7 @@ a Xiaohongshu carousel, and a vertical short video. Keep a consistent visual sty
 adapt composition and pacing to each platform, and deliver assets and editable source.
 ```
 
-The [skill entry point](skills/solo-vibe-coding/SKILL.md) routes to six task guides, six catalogs of existing references and assets, and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
+The [skill entry point](skills/solo-vibe-coding/SKILL.md) offers six task entry points, backed by specialist guidance, six catalogs of existing references and assets, and two technology and quality references, with shared references for remote reading and project knowledge conventions. The agent reads selected upstream skills and necessary references on demand; those external skills do not need installation or registration. Actual execution depends on available tools and user authorization. When a source or tool is unavailable, the guide calls for reporting that gap and the work actually completed.
 
 ## Website
 

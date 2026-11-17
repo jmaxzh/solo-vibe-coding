@@ -1,32 +1,26 @@
 ---
 name: solo-vibe-coding
-description: "Select specialist guidance for independent developers with an established product direction across acquisition and conversion, visual design and interaction, requirements and communication, architecture and technical design, development and quality, and production deployment and release. Prioritize quality criteria and automated checks in engineering projects and unify project knowledge conventions. Find existing examples, templates, source code, and assets by task. Tasks can be entered independently; does not explore startup ideas."
+description: "Select specialist guidance for independent developers with an established product direction across requirements clarification, visual design and interaction, project initialization, technical planning through implementation and acceptance, production deployment and release, and acquisition and conversion. Prioritize quality criteria and automated checks in engineering projects and unify project knowledge conventions. Find existing examples, templates, source code, and assets by task. Tasks can be entered independently; does not explore startup ideas."
 ---
 
 # Solo Vibe Coding
 
-For independent developers with an established product direction, select and combine specialist guidance for the current task, deliver within project constraints, and maintain reusable project knowledge. Does not explore startup ideas.
+For independent developers with an established product direction, independently select or combine specialist guidance by the requested result. Reuse project facts and implementation, deliver within project constraints, and maintain reusable knowledge. Does not explore startup ideas.
 
-Each task can be entered independently; read guidance and constraints relevant to the current task.
+## Select a task entry point
 
-## Select task guidance
-
-Choose by the requested result; combine topics as needed, reusing project facts, constraints, and implementation.
-
-### Choose the main entry point by task
-
-| Current problem | Specialist guidance | Existing references |
+| Task and scope | Guidance | Existing references |
 | --- | --- | --- |
-| Value proposition, marketing copy, content distribution, building in public, websites, landing pages, conversion analysis | [Acquisition and conversion](references/acquisition.md) | [Examples](references/resources/acquisition.md) |
-| Interface aesthetics, design systems, interaction and motion, functional/static pages, social images/video, visual examples and assets | [Visual design and interaction](references/visual-interaction.md) | [Assets](references/resources/visual.md) |
-| Problems and solutions, feedback, business terms, MVP slicing, feature scope, acceptance criteria, requirements documents | [Requirements and communication](references/requirements.md) | [Templates](references/resources/requirements.md) |
-| Technical implementation plans, system structure, technology choices, module/data boundaries, scaling, architecture patterns, technical constraints, decision records | [Architecture and technical design](references/architecture.md) | [Cases](references/resources/architecture.md) |
-| Local setup and debugging preparation, implementation, code review, troubleshooting, tests, verification, usage documentation | [Development and quality](references/development.md) | [Code and setups](references/resources/development.md) |
-| Production configuration, packaging, Cloudflare frontend and single-VPS backend deployment, release verification, rollback | [Production deployment and release](references/deployment.md) | [Deployment assets](references/resources/deployment.md) |
+| **Requirements clarification**: problems and solutions, feedback, business terms, MVP slicing, feature scope, acceptance criteria, requirements documents | [Requirements and communication](references/requirements.md) | [Templates](references/resources/requirements.md) |
+| **Visual design and interaction**: interface aesthetics, design systems, interaction and motion, functional/static pages, social images/video, visual examples and assets | [Visual design and interaction](references/visual-interaction.md) | [Assets](references/resources/visual.md) |
+| **Project initialization**: start or take over a project, local environment and dependency services, quality criteria and automated checks | [Project initialization](references/project-initialization.md) | [Code and setups](references/resources/development.md) |
+| **Technical planning, implementation, and acceptance**: technology choices, system structure and boundaries, scaling, implementation and refactoring, troubleshooting, reviews, tests, acceptance, usage documentation | [Technical planning workflow](references/technical-planning.md), [Architecture](references/architecture.md), [Development and quality](references/development.md) | [Architecture cases](references/resources/architecture.md), [Code](references/resources/development.md) |
+| **Production deployment and release**: production configuration, packaging, Cloudflare frontend and single-VPS backend deployment, release verification, rollback | [Production deployment and release](references/deployment.md) | [Deployment assets](references/resources/deployment.md) |
+| **Acquisition and conversion**: value proposition, marketing copy, content distribution, building in public, websites, landing pages, conversion analysis | [Acquisition and conversion](references/acquisition.md) | [Examples](references/resources/acquisition.md) |
 
-### Add guidance for technology and quality needs
+For standalone research, technology selection, system design, or architecture diagnosis, use the architecture guide; for troubleshooting, reviews, tests, or acceptance, use the development guide. Follow the requested scope and reuse valid work.
 
-Add technology guidance for implementation methods and quality guidance for the engineering baseline; enter either directly for framework or quality-infrastructure issues.
+Add technology guidance for implementation methods and quality guidance for the engineering baseline; use either directly for framework or quality-infrastructure issues.
 
 | Current problem | Reference |
 | --- | --- |
@@ -43,26 +37,17 @@ Read only guidance and resources relevant to the task. Use the resource column d
 - Adapt upstream default steps, templates, and quantity requirements to user requirements and project conditions. The model chooses professional judgments, methods, and combinations according to the actual task. Style preferences follow the user's and project's existing choices.
 - For websites or multilingual copy, write for the target language, locale, and audience, adapting wording, tone, and calls to action instead of translating sentence by sentence. Preserve product facts, capability boundaries, commitments, and what each action does; first read each version on its own for naturalness, then compare for information consistency.
 
-### Technical implementation: design and real-user acceptance
+Technical implementation starts from a confirmed requirement, retaining its acceptance criteria and project constraints. Requirements discussion and clarification are separate tasks; carry their confirmed results into this workflow.
 
-Start from a confirmed requirement, retaining its acceptance criteria and project constraints. Requirements discussion and clarification are separate tasks; carry their confirmed results into this workflow.
-
-1. **Design the technical plan from the confirmed requirement.** Follow the required [technical planning workflow and output structure](references/technical-planning.md), including scenarios and expected outcomes for acceptance. Implement the plan within task authorization, retaining the project's automated checks during implementation.
+1. **Design and implement the technical plan.** Follow the required [technical planning workflow and output structure](references/technical-planning.md), including scenarios and expected outcomes for acceptance. Implement within task authorization under the engineering discipline in [development and quality](references/development.md), retaining the project's automated checks during implementation.
 2. **Perform real-user acceptance on the running implementation.** Follow [real-user acceptance](references/development.md#real-user-acceptance) to simulate users completing their tasks and verify actual outcomes. Once acceptance passes, follow its review/refactoring loop: non-bug code review, behavior-preserving refactoring, targeted re-acceptance after each refactor, and another review, until its stopping condition is met.
-
-### Communicate requirements and plans
 
 - When confirming requirements as a separate task, execute [grill-with-docs in requirements and communication](references/requirements.md#required-guidance); reuse existing context and confirmed conclusions, and obtain user confirmation of unresolved decisions before implementation.
 - Requirements and plans involving user workflows must clearly explain the user journey: the user and situation, starting point, key actions and system responses, and outcome. Cover branches, failure cases, and handoffs that affect completing the goal.
 - Organize other questions and details according to the selected skills and project conventions. Write clearly and coherently, with detail proportional to task complexity; use headings, paragraphs, lists, or tables where they help readers see the key points and relationships.
-- For implementation plans, including bug fixes and new features, give each independent work item's effort and risk separately, with reasons. Effort considers changes, reuse, integration, and verification costs; risk considers likelihood and consequences, with mitigation where needed.
-- State estimation assumptions and unknowns; small/medium/large effort and low/medium/high risk are sufficient. Keep simple tasks brief; group or tabulate complex ones as needed.
-
-### Engineering project priorities
+- For each independent item in an implementation plan, including fixes and new features, state effort and risk with reasons, assumptions, and unknowns. Effort covers changes, reuse, integration, and verification costs; risk covers likelihood, consequences, and mitigation where needed. Small/medium/large effort and low/medium/high risk suffice. Keep simple tasks brief; group or tabulate complex ones as needed.
 
 When starting or taking over any engineering project, prioritize defining quality criteria and establishing automated checks before implementing features or making structural refactors. Read existing standards, tool configuration, tests, and pipelines first; reuse them when they meet requirements. Where they are missing, use [quality criteria and automated checks](references/quality-and-ci.md) to establish an executable baseline appropriate to the project's size. When hosting or repository conditions do not support CI, use repeatable local automated checks. Subsequent tasks follow the existing standards and fill only the gaps exposed by the current change, without rebuilding the infrastructure.
-
-### Read original instructions and fill guidance gaps
 
 Before the first remote read, read and follow [remote reading and discovery](references/guidance-access.md) to obtain selected guidance using its source, path, version, and dependency rules. Installation or registration is unnecessary; reuse content of the same version already read.
 
@@ -70,10 +55,6 @@ When this guide does not cover the current need, a candidate is unavailable, or 
 
 ## Deliver against actual results and maintain knowledge
 
-### Verify delivery status
-
 Base content on real products and evidence. For website discovery, provide existing sites and their relevant uses; for specific examples, identify original pages, screenshots, component source, or asset files, with playable examples for dynamic effects. Report delivery status according to files actually obtained, execution, and verification results.
-
-### Project knowledge conventions
 
 Locate project knowledge as needed for engineering tasks, using code and tests to understand facts and constraints. When reading or writing project knowledge, read and follow [project knowledge conventions](references/project-knowledge.md), retaining existing conventions and sharing primary documents across skills. Maintain stable knowledge within task scope; keep full process records worth retaining in research archives.
