@@ -18,6 +18,7 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Default-stack implementation, performance, security, data access, operations | [Technology-specific guidance](technology-stack.md) |
 | High-impact properties that tests struggle to cover, or maintaining existing formal checks | [Formal verification](formal-verification.md) |
 | Properties over generated inputs for serialization, normalization, algorithms, or data structures | property-based-testing |
+| Compare behavior against a trusted reference when refactoring, optimizing, replacing, or migrating an implementation | property-based-testing for differential tests |
 | JS/TS async, mock, component, and API tests | javascript-testing-patterns |
 | Playwright test authoring, critical user journeys, flaky tests | playwright-best-practices |
 | End-to-end tests in an existing Cypress project | The Cypress portion of e2e-testing-patterns |
@@ -97,7 +98,13 @@ For implementation delivery, perform non-bug code review after [initial real-use
 ## Testing and verification
 
 <!-- skill: trailofbits/skills@property-based-testing -->
-- **property-based-testing**: [Source](https://github.com/trailofbits/skills/blob/main/plugins/property-based-testing/skills/property-based-testing/SKILL.md), [Skill page](https://skills.sh/trailofbits/skills/property-based-testing). Write, review, and triage tests of properties over generated inputs, including roundtrips, idempotence, and domain invariants. Read the relevant generation, review, failure-analysis, or library reference from the same version. Reuse the project's library; choose new dependencies within project requirements and existing authorization. Assert behavior independently of the implementation and check that generated cases exercise it. These tests provide sampled evidence; [formal verification](formal-verification.md) has its own methods and scope guarantees.
+- **property-based-testing**: [Source](https://github.com/trailofbits/skills/blob/main/plugins/property-based-testing/skills/property-based-testing/SKILL.md), [Skill page](https://skills.sh/trailofbits/skills/property-based-testing). Write, review, and triage property-based and differential tests. Read the relevant generation, review, failure-analysis, or library reference from the same version. Choose property tests for useful behavioral invariants and differential tests when a trusted comparison implementation exists; combine them with generated inputs where useful.
+
+  - **Properties:** Derive roundtrips, idempotence, and domain invariants from requirements, interface contracts, and domain rules, independently of implementation logic. Generate inputs within the contract, cover important boundaries, and check that cases exercise the intended behavior and assertions can detect violations.
+  - **Differential comparisons:** Use a trusted old implementation, independent library, or simple model as the reference. Give both implementations the same inputs under comparable conditions; compare applicable return values, errors, and state changes. Define allowed differences from the contract and investigate disagreements rather than assuming the old implementation is correct.
+  - **Failures:** Preserve replay information, including the seed where applicable, and the minimized counterexample. Distinguish implementation defects, incorrect properties, input-domain problems, and reference defects; turn confirmed defects into deterministic regression tests.
+
+  Reuse the project's testing framework and libraries, working within its execution budget; choose new dependencies within project requirements and existing authorization. These methods complement example tests and provide sampled evidence; [formal verification](formal-verification.md) has its own methods and scope guarantees.
 
 <!-- skill: wshobson/agents@javascript-testing-patterns -->
 - **javascript-testing-patterns**: [Source](https://github.com/wshobson/agents/blob/main/plugins/javascript-typescript/skills/javascript-testing-patterns/SKILL.md). JS/TS patterns for Jest, Vitest, Testing Library, async work, mocks, fixtures, component tests, and API tests. Use only for the relevant stack, adapting framework configuration and data cleanup in examples to the project's actual infrastructure.

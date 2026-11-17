@@ -18,6 +18,7 @@
 | 默认技术栈的实现、性能、安全、数据访问与运行 | [技术栈专项](technology-stack.md) |
 | 常规测试难覆盖的高影响性质，或维护已有形式化检查 | [形式化验证](formal-verification.md) |
 | 编解码、规范化、算法或数据结构在生成输入上的性质 | property-based-testing |
+| 重构、优化、替换实现或迁移时，与可信参考实现比较行为 | property-based-testing 的差分测试指导 |
 | JS/TS 的异步、Mock、组件与接口测试 | javascript-testing-patterns |
 | Playwright 测试编写、关键用户路径与不稳定测试 | playwright-best-practices |
 | 已有 Cypress 项目的端到端测试 | e2e-testing-patterns 的 Cypress 部分 |
@@ -97,7 +98,13 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 ## 测试与验证
 
 <!-- skill: trailofbits/skills@property-based-testing -->
-- **property-based-testing**：[原文](https://github.com/trailofbits/skills/blob/main/plugins/property-based-testing/skills/property-based-testing/SKILL.md)，[技能页](https://skills.sh/trailofbits/skills/property-based-testing)。编写、评审和分析针对生成输入的性质测试，包括往返转换、幂等与领域不变量。按任务读取同版本的生成、评审、失败分析或库选择参考。沿用项目已有库，新增依赖按项目要求与已有授权决定。独立于实现表达行为断言，并检查生成样例实际检验了相关行为。此类测试提供抽样证据；[形式化验证](formal-verification.md)另有其方法与保证范围。
+- **property-based-testing**：[原文](https://github.com/trailofbits/skills/blob/main/plugins/property-based-testing/skills/property-based-testing/SKILL.md)，[技能页](https://skills.sh/trailofbits/skills/property-based-testing)。编写、评审和分析属性测试与差分测试。按任务读取同版本的生成、评审、失败分析或库选择参考。行为具有适合检验的不变量时选择属性测试，有可信对照实现时选择差分测试；适用时结合生成输入使用。
+
+  - **属性**：从需求、接口契约和领域规则提取往返转换、幂等与领域不变量，独立于实现逻辑表达。按契约生成输入，覆盖重要边界，并检查样例实际检验了目标行为、断言能够发现违反性质的情况。
+  - **差分比较**：以可信旧实现、独立库或简单模型作为参考。在可比较条件下向两个实现提供相同输入，核对适用的返回值、错误和状态变化。依据契约明确允许的差异，调查不一致原因，不直接假定旧实现正确。
+  - **失败处理**：保留重放信息，包括适用时的随机种子，以及最小反例。区分实现缺陷、错误性质、输入域问题与参考实现缺陷；将确认的缺陷固化为确定性回归测试。
+
+  沿用项目已有测试框架和库，在项目运行预算内执行；新增依赖按项目要求与已有授权决定。这些方法与示例测试互补，提供抽样证据；[形式化验证](formal-verification.md)另有其方法与保证范围。
 
 <!-- skill: wshobson/agents@javascript-testing-patterns -->
 - **javascript-testing-patterns**：[原文](https://github.com/wshobson/agents/blob/main/plugins/javascript-typescript/skills/javascript-testing-patterns/SKILL.md)。JS/TS 的 Jest、Vitest、Testing Library、异步、Mock、Fixture、组件与接口测试模式。仅在相关技术栈下使用，示例中的框架配置和数据清理方式需要适配项目实际设施。
