@@ -2,6 +2,10 @@
 
 Use when generating technical plans from confirmed requirements. Carry forward their acceptance criteria and project constraints; when technology choices are unspecified, follow the [default stack](architecture.md#default-technology-stack).
 
+## First-principles requirements
+
+Before developing any technical plan, apply first-principles thinking as advocated by Elon Musk to identify the problem's root cause and derive the plan from fundamental facts.
+
 ## Required workflow
 
 Execute all three stages in order. Scale depth to the task and reuse still-valid findings, checking their current applicability.

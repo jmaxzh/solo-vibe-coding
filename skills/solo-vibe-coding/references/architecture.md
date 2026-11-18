@@ -2,7 +2,7 @@
 
 Use for technical plans, selection, review, and code-structure diagnosis. Use known requirements and nonfunctional constraints; first establish the [quality baseline](quality-and-ci.md). Find schemas, implementations, and cases in [architecture references](resources/architecture.md).
 
-Generate plans with the required [workflow and structure](technical-planning.md); use the entries below independently for research, selection, or review.
+Generate plans with the required [workflow and structure](technical-planning.md); use the entries below independently for research, selection, or review. Apply the [first-principles requirements](technical-planning.md#first-principles-requirements) when evaluating technical choices and designs.
 
 ## Select guidance
 

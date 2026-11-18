@@ -6,6 +6,7 @@
 
 - [早期技能研究](indie-project-guide/)：早期技能研究与候选选择。
 - [技能维护档案](solo-vibe-coding/)：技能维护调研与变更评估。
+- 2026-11-18：[技术方案的第一性原理轻量提示](solo-vibe-coding/2026-11-18-first-principles/lightweight-update.md)，记录一句提示的双语更新与检查；此前的[来源接入](solo-vibe-coding/2026-11-18-first-principles/musk-method-update.md)、[对应审查](solo-vibe-coding/2026-11-18-first-principles/musk-method-review.md)、[首次调研](solo-vibe-coding/2026-11-18-first-principles/change-evaluation.md)及[首次审查](solo-vibe-coding/2026-11-18-first-principles/independent-review.md)保留为历史记录。
 - 形式化验证：[候选与接入建议](solo-vibe-coding/2026-11-13/formal-verification-selection.md)、[接入评估](solo-vibe-coding/2026-11-13/formal-verification-update.md)、[只读情景走查](solo-vibe-coding/2026-11-13/formal-verification-walkthrough.md)，记录来源核查、双语接入、实现检查与观察边界。
 - 官网初始构建（2026-11-13）：[验证与发布证据](website/2026-11-13/verification.md)、[差异评估](website/2026-11-13/change-evaluation.md)、[独立评审](website/2026-11-13/review.md)。
 - 官网用户导向改版（2026-11-13）：[评审简报](website/2026-11-13-redesign/review-brief.md)、[差异评估](website/2026-11-13-redesign/change-evaluation.md)、[验证与发布证据](website/2026-11-13-redesign/verification.md)、[独立评审](website/2026-11-13-redesign/review.md)。

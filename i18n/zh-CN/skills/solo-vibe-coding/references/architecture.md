@@ -2,7 +2,7 @@
 
 用于方案、选型、评估与结构诊断。基于已知需求及非功能约束，先落实[质量基线](quality-and-ci.md)；现成结构、实现与案例见[架构参考](resources/architecture.md)。
 
-生成技术方案必须遵循[流程与输出结构](technical-planning.md)；独立调研、选型与评估按下列入口选用。
+生成技术方案必须遵循[流程与输出结构](technical-planning.md)；独立调研、选型与评估按下列入口选用。评估技术选择与设计时，应用[第一性原理要求](technical-planning.md#第一性原理要求)。
 
 ## 选择指导
 
