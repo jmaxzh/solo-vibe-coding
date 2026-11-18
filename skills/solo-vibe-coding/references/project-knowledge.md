@@ -47,4 +47,13 @@ Distinguish confirmed requirements, current implementation, and ideas awaiting v
 - Extract confirmed, stable conclusions into usage instructions, specs, architecture, or terminology, preserving necessary rationale and related decisions. Current operating instructions and constraints should be self-contained, usable without chat history or research archives.
 - When no persistent knowledge changes, no document is needed merely because a skill was used. Maintain content within the current request rather than expanding into project-wide reorganization.
 
+### Reflect on corrections
+
+<!-- skill: backnotprop/pstack@reflect -->
+- **Reflect**: [Original instructions](https://github.com/backnotprop/pstack/blob/main/skills/reflect/SKILL.md), [Skill page](https://skills.sh/backnotprop/pstack/reflect).
+
+Read and execute Reflect's original instructions for correction-triggered reflection or an explicit reflection request. Reflect handles durable improvements to reusable skill behavior. Project-specific design principles and conventions continue to follow this document's ownership and maintenance rules; keep them in their primary project documents rather than generalizing them into cross-project skill rules.
+
+Retain Reflect's filtering and approval-before-editing requirements. Automatically starting reflection does not authorize a skill edit; reuse explicit authorization only within its agreed scope, presenting the proposed changes and destination before seeking any additional approval. Edit the maintained skill source when available, rather than an installation cache or an overriding copy; use the upstream installation-copy workflow only for skills without a maintained source.
+
 These knowledge conventions govern document storage and collaboration. User requirements, project conditions, and actual evidence determine which analytical methods, references, and verification to use for the current task.

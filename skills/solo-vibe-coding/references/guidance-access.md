@@ -2,6 +2,8 @@
 
 Read the selected skill's original instructions and necessary references from its upstream repository; skills do not need to be installed or registered. The source links in topic references are the entry points. Use the user-specified version or an existing copy; otherwise read the current upstream source.
 
+Remote reading does not register the upstream skill with the host. Host-specific invocation metadata such as `disable-model-invocation` does not control these reads or configure this guide's models. This guide and the current host determine when guidance is read and which models are available; the body's workflow and permission requirements still apply within user authorization and project conventions.
+
 - When a GitHub `blob` page is incomplete, obtain the corresponding raw source. When only a repository is known, locate the exact `SKILL.md` first. README and search summaries help locate it but do not replace the original skill instructions.
 - Resolve relative links against the remote file's directory, including `references/...`, `../...`, `scripts/...`, and `assets/...`. Keep entry points and references in the same repository and version; pin them to the same commit when it can be resolved. Reuse content of that version already read in the session.
 - Names and directories can differ; relevant topics note former names. Confirm identity through the original repository's frontmatter and actual source paths. Same-named forks or summaries are insufficient to establish equivalent capabilities.
