@@ -15,6 +15,7 @@ For existing open-source products, Gin examples, and local Compose setups, see [
 | Review excessive implementation, overengineering, or opportunities to reduce code | ponytail-review |
 | Review compliance with project rules and code style | Project instructions, existing conventions, and formatting/lint configuration |
 | Errors, unexpected behavior, performance issues, intermittent faults | debugging-strategies |
+| Corroborate a suspected cause or compare multiple plausible causes | parallel-debugging |
 | Default-stack implementation, performance, security, data access, operations | [Technology-specific guidance](technology-stack.md) |
 | High-impact properties that tests struggle to cover, or maintaining existing formal checks | [Formal verification](formal-verification.md) |
 | Properties over generated inputs for serialization, normalization, algorithms, or data structures | property-based-testing |
@@ -81,7 +82,7 @@ Maintain repeatable setup, startup, shutdown, and verification commands in the p
 
 UB Mode leads verification and engineering discipline; Ponytail focuses on reuse and simplification, without lowering project quality standards for a short diff or small self-test. For an explicit architectural refactor, adjust structure according to the selected proposal, with scope and behavior defined by requirements and acceptance criteria. Upstream modes apply within the current task and user choices.
 
-First check whether UB Mode's `crapper`, `dryer`, and `mutator` tools are actually available. If absent, use [quality criteria and automated checks](quality-and-ci.md) to select project-appropriate tools for complexity and coverage, duplication, and mutation testing, without claiming equivalent implementation of upstream metrics. Define the scope and exceptions for upstream numeric criteria under project standards. Operation logs belong in task feedback or research archives; only stable constraints enter project knowledge. Commits, pushes, and worktree cleanup follow user authorization and workspace rules; default skill steps do not provide additional authorization.
+First check whether UB Mode's `crapper`, `dryer`, and `mutator` tools are actually available. If absent, use [quality criteria and automated checks](quality-and-ci.md) to select project-appropriate tools for complexity and coverage, duplication, and mutation testing, without claiming equivalent implementation of upstream metrics. Define the scope and exceptions for upstream numeric criteria under project standards. Commits, pushes, and worktree cleanup follow user authorization and workspace rules; default skill steps do not provide additional authorization.
 
 ## Code review and debugging
 
@@ -94,6 +95,9 @@ For implementation delivery, perform non-bug code review after [initial real-use
 
 <!-- skill: wshobson/agents@debugging-strategies -->
 - **debugging-strategies**: [Source](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md). Methods for reproduction, evidence collection, hypothesis testing, difference comparison, Git bisect, tracing, performance, and memory investigation. The original has a four-stage framework; choose relevant methods from fault evidence. Read `references/tools-and-techniques.md` for tool selection and advanced techniques. Use actual errors, logs, environment, and change information, distinguishing verified root causes from unverified hypotheses.
+
+<!-- skill: wshobson/agents@parallel-debugging -->
+- **parallel-debugging**: [Source](https://github.com/wshobson/agents/blob/main/plugins/agent-teams/skills/parallel-debugging/SKILL.md). Use to corroborate a suspected cause or compare multiple plausible root causes, especially for faults spanning modules or unresolved by initial investigation. Read the original instructions and use its Analysis of Competing Hypotheses to organize investigation, cross-check evidence, and determine root causes; combine with debugging-strategies for investigation techniques.
 
 ## Testing and verification
 
@@ -123,4 +127,4 @@ For implementation delivery, perform non-bug code review after [initial real-use
 <!-- skill: addyosmani/agent-skills@documentation-and-adrs -->
 - **documentation-and-adrs**: [Source](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md). Maintain README, API documentation, known limitations, cautions, and decision rationale, emphasizing reasons, tradeoffs, and applicability. Supports existing ADR conventions; organize all persistent documents according to [project knowledge conventions](project-knowledge.md), updating existing documents together with other engineering skills.
 
-Report results according to checks actually run. Implement test patterns as test code in the project; update related documents when behavior, interfaces, or operating methods change. Write reusable limitations and cautions into the corresponding topic; report or archive temporary review, investigation, and failed attempts according to task needs.
+Report results according to checks actually run. Implement test patterns as test code in the project; update related documents when behavior, interfaces, or operating methods change. Write reusable limitations and cautions into the corresponding topic.

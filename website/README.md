@@ -33,12 +33,12 @@ npm run test:e2e
 
 - `src/data/site.ts`：项目事实、导航、双语文案、用户场景、完整首次需求与页面元数据。修改能力、安装、许可或边界时核对 Skill 和仓库 README。
 - `src/data/outcomes.ts`：四类代表任务的目标、困难、具体帮助、交付目标和需求；首页、使用场景和上手页共用，保持中英内容与操作边界对应。
-- `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对完整任务记录、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
+- `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对事实依据、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
 - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
 - `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
 - `src/components/Hero.astro`、`Home.astro`、`TaskStage.astro`：沉浸式首屏、独立四类任务示意章节、四个痛点、使用步骤、真实内容、安装与 FAQ；任务数据与内页共用。首页组件样式及 `Layout.astro` 中的 `body.homepage` 变量和导航页脚样式仅作用于首页。
 - OrbitScene.astro、HomeInteractions.astro：首页原创装饰图、有限粒子轨道、视差与指针增强；与既有动画偏好同步，Canvas离屏/隐藏/减少动画时停止，核心内容和操作不依赖动效。
-- public/media/orbit/chrome-orbit.webp：首页装饰概念图，静态资源直接分发；完整原图与生成提示保存在维护档案，构建与运行不读取档案。
+- public/media/orbit/chrome-orbit.webp：首页装饰概念图，静态资源直接分发。
 - `src/components/WorkflowDiagram.astro`：助手使用示意章节正文；与四类任务同步，说明具体需求、Skill专业方法与交付检查目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
 - `src/components/ImageCompare.astro`：可复用的设计参考对比组件；素材与真实执行证据分别注明来源。
 - `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
@@ -52,11 +52,11 @@ npm run test:e2e
 - `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
 - `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。
 
-重要选择记录到 [决策索引](../docs/decisions.md)；更新行为时维护需求、架构、操作与测试文档。完整执行过程保留在研究档案。
+重要选择记录到 [决策索引](../docs/decisions.md)；更新行为时维护需求、架构、操作与测试文档。
 
 ## 用户与维护内容
 
-官网的首页、真实任务、上手、场景、示例与更新面向产品使用者。维护知识库、ADR、研究与 CI 档案在仓库维护区域保留；网站不将它们作为文章或导航的阅读目标。`verify` 会检查这些已知维护链接是否误入发布页面。
+官网的首页、真实任务、上手、场景、示例与更新面向产品使用者。维护知识库、ADR 与工作流用于仓库维护；网站不将它们作为文章或导航的阅读目标。`verify` 会检查这些已知维护链接是否误入发布页面。
 
 更新使用示例时，给出用户想做的事、可操作或可核验的成果、重要条件与开始方式。用户自己的项目上下文可以作为“后续修改接着做”的收益说明，不与本仓库维护知识混用。
 

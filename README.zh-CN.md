@@ -71,7 +71,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 ## 维护这个仓库
 
-官网源码位于 `website/`，与可安装的技能包独立维护。本地开发、检查、GitHub Pages 发布与回退方法见其 [README](website/README.md)。[维护知识库入口](docs/README.md) 汇集架构、需求、决策与测试说明；完整验证和评审记录独立保留在研究档案中。
+官网源码位于 `website/`，与可安装的技能包独立维护。本地开发、检查、GitHub Pages 发布与回退方法见其 [README](website/README.md)。[维护知识库入口](docs/README.md) 汇集架构、需求、决策与测试说明。
 
 ## 语言与目录
 

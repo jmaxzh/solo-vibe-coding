@@ -15,6 +15,7 @@
 | 检查实现是否过重、存在过度设计或可减少的代码 | ponytail-review |
 | 检查项目规则与代码风格的遵守情况 | 项目指令、既有约定与格式化/lint 配置 |
 | 错误、异常行为、性能或偶发故障 | debugging-strategies |
+| 交叉验证怀疑的原因，或比较多个可能原因 | parallel-debugging |
 | 默认技术栈的实现、性能、安全、数据访问与运行 | [技术栈专项](technology-stack.md) |
 | 常规测试难覆盖的高影响性质，或维护已有形式化检查 | [形式化验证](formal-verification.md) |
 | 编解码、规范化、算法或数据结构在生成输入上的性质 | property-based-testing |
@@ -81,7 +82,7 @@
 
 UB Mode 主导验证与工程纪律，Ponytail 专注复用和简化，不以短 diff 或小自测降低项目质量标准。明确的架构重构按已选方案调整结构，范围和行为由需求及验收条件界定。上游模式的作用范围服从当前任务与用户选择。
 
-UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；缺少时按[质量指标与自动检查](quality-and-ci.md)选择项目适用工具，分别检查复杂度与覆盖、重复和变异测试，不能宣称等价实现了上游指标。上游数字按项目质量标准明确采用范围与例外。操作记录用于任务反馈或研究档案，稳定约束才进入项目知识库；提交、推送、worktree 清理按用户授权与工作区规则执行，技能默认步骤不构成额外授权。
+UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；缺少时按[质量指标与自动检查](quality-and-ci.md)选择项目适用工具，分别检查复杂度与覆盖、重复和变异测试，不能宣称等价实现了上游指标。上游数字按项目质量标准明确采用范围与例外。提交、推送、worktree 清理按用户授权与工作区规则执行，技能默认步骤不构成额外授权。
 
 ## 代码评审与调试
 
@@ -94,6 +95,9 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 
 <!-- skill: wshobson/agents@debugging-strategies -->
 - **debugging-strategies**：[原文](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/debugging-strategies/SKILL.md)。提供复现、收集证据、假设验证、差异比较、Git bisect、追踪、性能与内存排查方法。原版有四阶段框架，按故障证据选择相关方法；工具选择与高级技巧可读其 `references/tools-and-techniques.md`。依赖实际错误、日志、环境与变更信息，区分已经验证的根因和待验证推测。
+
+<!-- skill: wshobson/agents@parallel-debugging -->
+- **parallel-debugging**：[原文](https://github.com/wshobson/agents/blob/main/plugins/agent-teams/skills/parallel-debugging/SKILL.md)。用于交叉验证可疑原因或比较多个可能根因，尤其适合跨模块、初步排查未能定位的故障。读取原文，按其竞争假设分析组织调查、核查证据并综合判断根因；具体排查技巧配合 debugging-strategies 使用。
 
 ## 测试与验证
 
@@ -123,4 +127,4 @@ UB Mode 的 `crapper`、`dryer`、`mutator` 工具先核对是否真实可用；
 <!-- skill: addyosmani/agent-skills@documentation-and-adrs -->
 - **documentation-and-adrs**：[原文](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)。维护 README、API 说明、已知限制、注意事项和决策依据，强调保留原因、取舍与适用边界。支持沿用现有 ADR 约定；所有持久文档按 [项目知识库规范](project-knowledge.md) 归位，与其他工程技能共同更新已有文档。
 
-根据实际运行的检查报告结果。测试模式落实为项目中的测试代码；行为、接口或操作方法变化时同步相关文档。有复用价值的限制与注意事项写入对应主题，临时评审、排查和失败尝试按任务需要反馈或留档。
+根据实际运行的检查报告结果。测试模式落实为项目中的测试代码；行为、接口或操作方法变化时同步相关文档。有复用价值的限制与注意事项写入对应主题。

@@ -11,4 +11,4 @@
 
 ## 验证
 
-核对官网目录与来源提交逐文件一致，运行validate和对应浏览器测试，检查中英文实际画面及任务、复制、下载路径。独立只读审查后提交发布，再核对CI/Pages源码SHA与公开地址。过程与结果见[回退记录](../research/website/2026-11-16-restore-first-approved/verification.md)。
+核对官网目录与来源提交逐文件一致，运行validate和对应浏览器测试，检查中英文实际画面及任务、复制、下载路径。独立只读审查后提交发布，再核对CI/Pages源码SHA与公开地址。过程与结果见[回退记录](https://github.com/jmaxzh/solo-vibe-coding/blob/2267e32ca261929a644547406a8bcf49ef939252/docs/research/website/2026-11-16-restore-first-approved/verification.md)。

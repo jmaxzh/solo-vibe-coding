@@ -9,3 +9,8 @@ website/.astro/
 website/dist/
 website/playwright-report/
 website/test-results/
+/docs/research/
+/.worktrees/
+/worktrees/
+/website/.cache/
+/website/coverage/

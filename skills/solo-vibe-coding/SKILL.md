@@ -57,6 +57,6 @@ When this guide does not cover the current need, a candidate is unavailable, or 
 
 Base content on real products and evidence. For website discovery, provide existing sites and their relevant uses; for specific examples, identify original pages, screenshots, component source, or asset files, with playable examples for dynamic effects. Report delivery status according to files actually obtained, execution, and verification results.
 
-Locate project knowledge as needed for engineering tasks, using code and tests to understand facts and constraints. When reading or writing project knowledge, read and follow [project knowledge conventions](references/project-knowledge.md), retaining existing conventions and sharing primary documents across skills. Maintain stable knowledge within task scope; keep full process records worth retaining in research archives.
+Locate project knowledge as needed for engineering tasks, using code and tests to understand facts and constraints. When reading or writing project knowledge, read and follow [project knowledge conventions](references/project-knowledge.md), retaining existing conventions and sharing primary documents across skills. Maintain stable knowledge within task scope.
 
 During a task, when a user corrects a design judgment or convention, or an issue exposes missing or incorrect lasting guidance, proactively read and use [Reflect](references/project-knowledge.md#reflect-on-corrections). Ordinary implementation slips do not require reflection.

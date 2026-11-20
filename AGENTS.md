@@ -6,12 +6,9 @@
 
 Organize task-based professional guidance for independent developers with an established product direction. Support varied user goals and project constraints; evaluate improvements by practical value and usage burden.
 
-## Deliverables and production process
+## Documentation
 
-- When writing or updating a reusable artifact, retain only the capabilities, boundaries, operating methods, and necessary rationale that serve its purpose. Conversation records, temporary state, candidate tradeoffs, and correction history belong to the production process and should not become operating rules in the artifact.
-- Turn requirements confirmed in discussion into concise, stable behavior. Avoid turning a single failure, temporary condition, or abandoned approach into a general prohibition.
-- When complete research, historical scoring, or verification records need retention, save them separately in research or maintenance material. Executable artifacts and their runtime references must not depend on those archives.
-- Before delivery, check whether a first-time user can understand and use the artifact without chat history. Move out text that only explains how the work reached its current state. For artifacts whose purpose is to record a process, such as research reports, decision explanations, audits, and change records, retain process content according to their purpose and the user's requirements.
+Documentation should contain only what is necessary to understand, use, and maintain the deliverable.
 
 ## Project maintenance
 

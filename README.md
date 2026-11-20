@@ -73,7 +73,7 @@ See an [actual two-round bookmark task](https://jmaxzh.github.io/solo-vibe-codin
 
 ## Maintaining this repository
 
-The website source lives in `website/`, independently of the installable skill package. See its [README](website/README.md) for development, checks, GitHub Pages publishing, and rollback. The [maintainer knowledge index](docs/README.md) links to architecture, specifications, decisions, and testing. Full verification and review records are kept separately in research archives.
+The website source lives in `website/`, independently of the installable skill package. See its [README](website/README.md) for development, checks, GitHub Pages publishing, and rollback. The [maintainer knowledge index](docs/README.md) links to architecture, specifications, decisions, and testing.
 
 ## Languages and layout
 
