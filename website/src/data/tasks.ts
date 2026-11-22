@@ -1,5 +1,4 @@
-import { OUTCOMES } from './outcomes';
-import { SCENARIOS, type Locale } from './site';
+import type { Locale } from './site';
 
 export interface TaskExample {
   id: string;
@@ -170,19 +169,98 @@ Deliver the playable exported file and editable project, with their locations. R
   ],
 };
 
-function tasksFor(locale: Locale): TaskExample[] {
-  const existing = SCENARIOS[locale].map((scenario) => {
-    const outcome = OUTCOMES[locale].find((item) => item.id === scenario.id);
-    return {
-      id: scenario.id, label: scenario.label,
-      title: outcome?.goal ?? scenario.title,
-      summary: outcome?.pain ?? scenario.summary,
-      prompt: outcome?.prompt ?? scenario.prompt,
-      output: outcome ? outcome.deliverables.join(locale === 'en' ? '; ' : '；') : scenario.output,
-      checks: outcome?.checks ?? [scenario.confirm],
-    };
-  });
-  return [...existing, ...additional[locale]];
-}
+const implementation: Record<Locale, TaskExample[]> = {
+  en: [
+    {
+      id: 'requirements', label: 'Build a first version', title: 'Build the first usable version of your product.',
+      summary: 'Start from an established product direction and one complete user journey.',
+      prompt: 'Use $solo-vibe-coding to build the first usable version of this product.\nProduct direction, users and core task: [add the details].\nRead the project context, assess suitable existing work and agree on scope and acceptance criteria. Explain choices that affect cost or access and ask me to confirm them.\nDeliver a version I can open and try, verify the main journey and report any remaining gaps.',
+      output: 'A usable first version, operating instructions and the actual verification results.',
+      checks: ['Can the intended user complete the core task?', 'Are the operating instructions and unverified areas clear?'],
+    },
+    {
+      id: 'architecture', label: 'Implement a feature', title: 'Fit a confirmed feature into your existing project.',
+      summary: 'Use the existing structure and preserve the behaviour outside this change.',
+      prompt: 'Use $solo-vibe-coding to implement this confirmed feature.\nRequirement, acceptance criteria and project constraints: [add the details].\nInspect the connected code and existing checks, compare suitable approaches and implement the smallest complete change.\nVerify the new user journey and affected existing behaviour. Explain how to use it and report unverified work.',
+      output: 'An integrated feature with usage instructions and relevant checks.',
+      checks: ['Does the feature meet the confirmed requirement?', 'Do the affected existing functions still work?'],
+    },
+    {
+      id: 'design', label: 'Improve an interface', title: 'Improve the hierarchy and interaction of an existing page.',
+      summary: 'Use a viewable reference and retain the project’s brand, functions and technology.',
+      prompt: 'Use $solo-vibe-coding to improve this page.\nPage, intended users, main action and viewable reference: [add the details].\nIf a suitable reference is missing, help find one first. Improve hierarchy, readability and interaction while retaining the existing brand, functions and technology.\nDeliver a working page and compare it with the reference. Check desktop, mobile and important interaction states, and report any gaps.',
+      output: 'An implemented page with a preview and responsive and interaction checks.',
+      checks: ['Can users find and complete the main action?', 'Are real content and important states usable on desktop and mobile?'],
+    },
+    {
+      id: 'development', label: 'Investigate and fix a problem', title: 'Reproduce a problem and verify the repair.',
+      summary: 'Describe the failing action and expected outcome, then check the cause and affected behaviour.',
+      prompt: 'Use $solo-vibe-coding to fix this problem.\nSteps, expected result, actual result and error messages: [add the details].\nReproduce the failure, locate the cause and make a focused repair using the project’s existing implementation and checks.\nDeliver a version I can open and try. Verify the failing action and affected existing functions, and report what remains unverified.',
+      output: 'A focused repair with repeatable verification and a clear delivery status.',
+      checks: ['Does the original failing action now work?', 'Do related functions still work, and can the checks be repeated?'],
+    },
+    {
+      id: 'deployment', label: 'Release a project', title: 'Publish a working project for its intended audience.',
+      summary: 'Prepare the production configuration, verify the live result and document recovery.',
+      prompt: 'Use $solo-vibe-coding to release this project.\nProject, target environment, intended audience and publication authorisation: [add the details].\nReuse the existing deployment setup. Check production configuration and required access, explain costs and confirm important release choices.\nPublish within my authorisation, verify the actual address and main user journey, and provide release and recovery instructions. Report missing access or unexecuted checks.',
+      output: 'A verified release and recovery instructions when the required access is available.',
+      checks: ['Can the intended audience use the actual published version?', 'Are release checks, access boundaries and recovery steps clear?'],
+    },
+    {
+      id: 'growth', label: 'Improve product communication', title: 'Explain real product value and make the next action clear.',
+      summary: 'Review the message and first-use journey for a defined audience.',
+      prompt: 'Use $solo-vibe-coding to improve this product’s communication and conversion path.\nProduct, audience, current material and observable feedback: [add the details].\nUse real capabilities and evidence to identify unclear messages or difficult first-use steps. Recommend focused changes and prepare suitable copy or channel content.\nExplain what feedback to observe and show me the material before publication. Do not publish or contact anyone in this task.',
+      output: 'Evidence-based recommendations, usable content and a feedback observation plan.',
+      checks: ['Can the intended audience understand the use and next action?', 'Are claims supported and the proposed feedback observable?'],
+    },
+  ],
+  'zh-CN': [
+    {
+      id: 'requirements', label: '制作产品首版', title: '做出产品的第一个可用版本。',
+      summary: '承接已有产品方向，先完成一条完整用户流程。',
+      prompt: '使用 $solo-vibe-coding，做出这个产品的第一个可用版本。\n产品方向、用户与核心任务：[补充说明]。\n先读项目背景，评估适用的已有工作，确认范围与验收条件。说明影响费用或访问范围的选择，并让我确认。\n交付能打开试用的版本，验证主要流程，说明使用方法和剩余缺口。',
+      output: '可用首版、操作说明和实际验证结果。',
+      checks: ['目标用户能否完成核心任务？', '操作方法和未验证范围是否清楚？'],
+    },
+    {
+      id: 'architecture', label: '实现一项功能', title: '把已确认的功能接入现有项目。',
+      summary: '沿用项目结构，保留本次修改范围之外的行为。',
+      prompt: '使用 $solo-vibe-coding，实现这项已确认的功能。\n需求、验收条件和项目约束：[补充说明]。\n查看关联代码与已有检查，比较适用方案，完成最小且完整的修改。\n验证新增用户流程及受影响的原有行为，说明怎样使用，以及哪些部分还没有验证。',
+      output: '接入现有项目的功能、使用方法和相关检查。',
+      checks: ['功能是否满足已确认需求？', '受影响的原有功能是否仍然正常？'],
+    },
+    {
+      id: 'design', label: '改善界面', title: '改善已有页面的层级与交互。',
+      summary: '从可查看的参考出发，沿用品牌、功能和技术。',
+      prompt: '使用 $solo-vibe-coding，改善这个页面。\n页面、目标用户、主要操作和可查看的参考：[补充说明]。\n缺少合适参考时，先协助寻找。改善层级、可读性与交互，沿用已有品牌、功能和技术。\n交付可操作页面，对照参考检查电脑、手机和重要交互状态，说明剩余缺口。',
+      output: '已实现的页面、预览，以及响应式与交互检查。',
+      checks: ['用户能否找到并完成主要操作？', '电脑和手机上的真实内容与重要状态是否可用？'],
+    },
+    {
+      id: 'development', label: '排查并修复问题', title: '重现问题，核验修复结果。',
+      summary: '说明失败操作与预期结果，检查原因和受影响的行为。',
+      prompt: '使用 $solo-vibe-coding，修复这个问题。\n操作步骤、预期结果、实际结果和报错：[补充说明]。\n先重现失败，定位原因，沿用已有实现与检查，完成必要的修复。\n交付能打开试用的版本，验证原失败操作和受影响的原有功能，说明未验证项。',
+      output: '范围明确的修复、可重复验证的方法和清楚的交付状态。',
+      checks: ['原来失败的操作是否已经正常？', '相关功能是否正常，检查能否重复执行？'],
+    },
+    {
+      id: 'deployment', label: '发布项目', title: '把可用项目发布给目标用户。',
+      summary: '准备生产配置，核验线上结果，并留下恢复方法。',
+      prompt: '使用 $solo-vibe-coding，发布这个项目。\n项目、目标环境、使用人群与发布授权：[补充说明]。\n复用已有部署配置，检查生产配置与必要权限，说明费用，并确认重要发布选择。\n在授权内发布，核验实际网址和主要用户流程，交付发布与恢复说明；缺少的权限或没有执行的检查要明确报告。',
+      output: '权限具备时交付核验过的发布版本，以及恢复说明。',
+      checks: ['目标用户能否使用实际发布的版本？', '发布检查、访问边界和恢复步骤是否清楚？'],
+    },
+    {
+      id: 'growth', label: '改善产品表达', title: '讲清真实价值，让下一步操作明确。',
+      summary: '围绕明确用户，检查产品表达和首次使用路径。',
+      prompt: '使用 $solo-vibe-coding，改善这个产品的表达与转化路径。\n产品、目标用户、现有材料和可观察反馈：[补充说明]。\n根据真实能力和证据，找出表达不清或首次使用困难的环节，提出聚焦的改进，准备合适的文案或渠道内容。\n说明应观察的反馈，先把材料给我审阅。这次不发布，也不联系他人。',
+      output: '有依据的建议、可用内容和反馈观察方法。',
+      checks: ['目标用户能否看懂用途和下一步操作？', '表述是否有依据，建议观察的反馈是否可以取得？'],
+    },
+  ],
+};
 
-export const TASKS: Record<Locale, TaskExample[]> = { en: tasksFor('en'), 'zh-CN': tasksFor('zh-CN') };
+export const TASKS: Record<Locale, TaskExample[]> = {
+  en: [...implementation.en, ...additional.en],
+  'zh-CN': [...implementation['zh-CN'], ...additional['zh-CN']],
+};

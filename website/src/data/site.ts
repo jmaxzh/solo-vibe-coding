@@ -1,5 +1,5 @@
 export type Locale = 'en' | 'zh-CN';
-export type PageName = 'home' | 'getting-started' | 'guides' | 'examples' | 'case-study' | 'build-log';
+export type PageName = 'home' | 'getting-started' | 'guides';
 
 export const PROJECT = {
   name: 'Solo Vibe Coding',
@@ -14,20 +14,14 @@ export const PROJECT = {
 
 export const PAGE_PATHS: Record<PageName, string> = {
   home: '', 'getting-started': 'getting-started', guides: 'guides',
-  examples: 'examples/quote-calculator', 'case-study': 'case-study/bookmark-export', 'build-log': 'build-log',
 };
 
 export function href(locale: Locale, page = '', hash = '') {
   return `${PROJECT.base}${locale === 'en' ? '' : 'zh-CN/'}${page ? page.replace(/^\/+|\/+$/g, '') + '/' : ''}${hash ? '#' + hash : ''}`;
 }
 
-export const FIRST_PROMPT: Record<Locale, string> = {
-  en: 'Use $solo-vibe-coding to make a project quote calculator.\nI want to enter hours, an hourly rate, extra costs, and a reserve percentage, then see the total update. It should work on my phone and let me download a breakdown.\nRecommend a suitable approach. Ask me about choices that affect what it does, costs, or who can access it.\nBuild a first version I can open and try. Check the calculations and invalid inputs, tell me how to open it, and help me make changes.',
-  'zh-CN': '使用 $solo-vibe-coding，帮我做一个项目报价小工具。\n我想输入工时、单价、额外费用和预留比例，就能看到总额更新。手机上也能用，还能下载报价明细。\n请推荐合适的做法。会影响用途、费用或公开范围的选择，用我能理解的方式让我确认。\n先做出一版能打开试用的成果，实际检查计算和错误输入，告诉我怎么打开，再陪我继续修改。',
-};
-
 const en = {
-  nav: { 'getting-started': 'Get started', guides: 'Task guides', examples: 'Live example', 'case-study': 'Execution record', 'build-log': 'Updates', github: 'GitHub' },
+  nav: { 'getting-started': 'Get started', guides: 'Task guides' },
   skip: 'Skip to content', switchLanguage: '切换到中文', language: '中文',
   copy: 'Copy', copied: 'Copied', copyFailed: 'Select and copy the text',
   terminal: 'Terminal', installationCommand: 'Installation command',
@@ -38,21 +32,18 @@ const en = {
     context: 'An open-source skill for your coding assistant',
     title: 'Give your assistant', accent: 'a product playbook.',
     description: 'Clarify requirements, design interfaces and visuals, set up a project, deliver a technical change, ship or reach users. Add relevant methods, references and checks to the coding assistant you know.',
-    primary: 'Install and get started', secondary: 'See how it works',
+    primary: 'Install and get started', secondary: 'Explore the delivery method',
     note: 'Works in your existing assistant · Free, open-source skill',
   },
   home: {
-    installTitle: 'Put it to work on your project.',
-    installText: 'Install the skill, choose a request that fits your task, and add your project details. Continue in the coding assistant you already use.',
-    installLink: 'Install and get started',
     faqTitle: 'Before you start.',
     faq: [
       { question: 'Do I need to know how to code?', answer: 'You can start by explaining what you want. The skill helps your coding assistant handle requirements, design, technical choices, implementation, and checks. You still need to set up a supported assistant and confirm the choices that matter to you.' },
       { question: 'What can I make with it?', answer: 'Start with a website, a small tool, or a feature in an existing project. It can also help improve a design, fix a problem, publish a result, or explain your product to other people.' },
       { question: 'I already have an agent. What does this add?', answer: 'You may know the goal without knowing which marketing, design or engineering methods to ask for. The skill gives your assistant task-specific guidance, relevant resources and shared rules for reuse, checks and project context. It works with the model you already use.' },
       { question: 'How is this different from a long prompt or several skills?', answer: 'A detailed prompt can express similar requirements. Solo Vibe Coding organizes task entry points, original guidance and resources in one install, with shared rules for quality and project context. You can use one task independently; you do not have to run every topic each time.' },
-      { question: 'Will it always be faster or produce better code?', answer: 'We do not promise that. A capable agent may already do these things, and reading guidance takes time and tokens. Judge the task, the result and the extra work together. The case study reports this small comparison and its limits.' },
-      { question: 'Where do I use the skill?', answer: 'In an AI coding assistant that supports Agent Skills and can work with your project files and the web. The getting-started guide includes Codex and Claude Code instructions. The example on this website runs directly in your browser.' },
+      { question: 'Will it always be faster or produce better code?', answer: 'We do not promise that. A capable agent may already do these things, and reading guidance takes time and tokens. Judge the result and the extra work for the task you actually need.' },
+      { question: 'Where do I use the skill?', answer: 'In an AI coding assistant that supports Agent Skills and can work with your project files and the web. The getting-started guide includes Codex and Claude Code instructions.' },
       { question: 'Is it free?', answer: 'The skill itself is free and open source under MIT. Your coding assistant, hosting, APIs, or other services may have their own charges. Ask the assistant to explain any costs before choosing a service.' },
       { question: 'Will it build anything without my involvement?', answer: 'You describe the goal, try the result, and confirm important choices. Some tasks also need accounts, tools, or access that you provide. Start with a small version you can actually use and expand from there.' },
       { question: 'I already installed it. How do I update and check the version?', answer: 'Update the existing installation in its original project or global scope. The setup guide includes commands for this skill and a request that asks your assistant to check the actual files and source revision. A name in the skill list alone does not confirm which copy was read.', help: { section: 'updating', label: 'Update and verify your installation' } },
@@ -98,6 +89,7 @@ Compare the full installed package, including references, with its recorded sour
 Keep this check read-only. Do not change skill files or start implementation.`,
     verifyRefresh: 'Codex detects file changes automatically; if the update is not listed, restart Codex. Claude Code watches local skill folders; if needed, use /reload-skills. A fresh conversation helps separate the newly selected files from instructions already loaded in an earlier conversation. If the source cannot be reached, report version verification as incomplete.',
     firstTitle: 'Choose the task you want to finish',
+    gettingNav: 'Choose your task', gettingNote: 'Install the skill above, then choose a request and replace the brackets with your project details.', installFirst: 'Go to installation', checksTitle: 'Check the result yourself',
     firstText: 'Send this request in Codex, or select the installed skill in your assistant and use the same project description. In Claude Code, start with /solo-vibe-coding instead of the $ mention.',
     reviewTitle: 'Check the result for your task',
     reviewText: 'For requirements or a plan, review the scope, evidence and conclusions. For an implementation, ask how to open it and try it:',
@@ -118,41 +110,14 @@ Keep this check read-only. Do not change skill files or start implementation.`,
     prompt: 'Send this to your assistant', output: 'What to ask it to deliver', confirm: 'What to check',
     next: 'Get set up and try your first task',
   },
-  example: {
-    title: 'Try the quote calculator.',
-    description: 'Try a working quote calculator with editable hours, rates, costs, reserve, and spreadsheet export. This illustrates a possible result; the separate case study examines the skill in use.',
-    intro: 'Change the hours, rates and costs to update a project quote, then download the breakdown. This browser tool is an example output, separate from the execution comparison.',
-    promptTitle: 'Want your own version?',
-    promptText: 'Add Solo Vibe Coding to your coding assistant, then send this request. Replace the details with what you need.',
-    howTitle: 'What you can check yourself',
-    checks: ['Changing an input changes the estimate.', 'Invalid or missing values show a clear message.', 'The layout works on a phone.', 'The downloaded breakdown opens in a spreadsheet.'],
-    next: 'Make your own with the walkthrough',
-    explanation: 'The example calculates in your browser. Its values are not sent to a server. To make your own tool, use the skill in your coding assistant.',
-  },
-  calculator: {
-    title: 'Project quote', hours: 'Hours', rate: 'Rate per hour', extras: 'Extra costs', reserve: 'Reserve (%)',
-    total: 'Estimated total', base: 'Work + extra costs', reserveAmount: 'Reserve',
-    formula: 'Hours × rate + extra costs, then add the reserve.',
-    download: 'Download breakdown', filename: 'project-quote.csv', invalid: 'Enter valid values of zero or more. Reserve must be between 0 and 100%.',
-    noJS: 'Enable JavaScript to change the values. The starting example and calculation are shown here.',
-    success: 'Breakdown downloaded.', currency: 'USD', defaultRate: 50,
-    messages: { missing: 'Enter a value for {field}.', range: '{field} must be between {min} and {max}.', precision: '{field} supports up to two decimal places.' },
-    csv: ['Item', 'Value', 'Currency', 'Hours', 'Rate per hour', 'Extra costs', 'Reserve (%)', 'Subtotal', 'Reserve amount', 'Total'],
-  },
-  log: {
-    title: 'What is new, and how to use it.',
-    description: 'See new Solo Vibe Coding examples and improvements, what you can use, and how to get started with your own project.',
-    intro: 'Examples, product changes and practical walkthroughs for your own work.',
-    read: 'Read the update', all: 'All updates', author: 'By', related: 'Use it on your project', status: 'Available to try',
-  },
   notFound: {
-    title: '404 — Page not found.', description: 'Return to Solo Vibe Coding to find the task guides and examples.',
+    title: '404 — Page not found.', description: 'Return to Solo Vibe Coding to find task guides and installation help.',
     text: 'The page may have moved, or the address may be incomplete.', home: 'Back to the homepage',
   },
 };
 
 const zh: typeof en = {
-  nav: { 'getting-started': '开始使用', guides: '使用指南', examples: '在线示例', 'case-study': '制作记录', 'build-log': '更新记录', github: 'GitHub' },
+  nav: { 'getting-started': '开始使用', guides: '任务指南' },
   skip: '跳到正文', switchLanguage: 'Switch to English', language: 'EN',
   copy: '复制', copied: '已复制', copyFailed: '请选中文字后复制', terminal: '终端', installationCommand: '安装命令',
   footer: '让专业的设计、开发与推广做法，用到你的项目里。',
@@ -161,19 +126,17 @@ const zh: typeof en = {
     context: '给编程助手的专业指导包 · 开源 Skill',
     title: '给你的编程助手，', accent: '一套做产品的专业方法。',
     description: '从需求澄清、视觉与交互、项目初始化，到技术交付、生产发布与获客转化，按当前任务补上方法、参考和检查。继续使用你熟悉的编程助手。',
-    primary: '安装并开始使用', secondary: '看看怎么用', note: '在现有助手中使用 · Skill 免费开源',
+    primary: '安装并开始使用', secondary: '了解交付方法', note: '在现有助手中使用 · Skill 免费开源',
   },
   home: {
-    installTitle: '从你正遇到的问题开始。',
-    installText: '装好 Skill，选一份适合当前任务的需求示例，补上项目信息，发给编程助手。接下来，继续做你自己的项目。',
-    installLink: '查看安装步骤', faqTitle: '你可能还想问',
+    faqTitle: '你可能还想问',
     faq: [
       { question: '需要会写代码吗？', answer: '你可以先说明自己想做什么。这个 Skill 帮助编程助手处理需求、设计、技术选择、实现与检查。你仍需要准备支持的编程助手，并确认真正影响自己的选择。' },
       { question: '可以用它做什么？', answer: '可以从网站、小工具或现有项目的新功能开始，也可以改善界面、修复问题、把成果发布给别人使用，或把产品介绍清楚。' },
-      { question: '已经有编程助手，为什么还要装这个 Skill？', answer: '比如改 App 界面，Skill 会引导助手先确定视觉方向，再把同一套设计落实到各个页面，并检查实际操作。它把这类专业指导和可用资源整理在一起，按你当前的任务选用。' },
+      { question: '已经有编程助手，为什么还要装这个 Skill？', answer: '你可能知道目标，却不清楚该采用哪些设计、工程或推广方法。Skill 按任务整理专业指导、可用资源和复用、检查、项目约定，让现有助手按需选用。' },
       { question: '和自己写提示词、装多个 Skill 有什么区别？', answer: '你也可以自己整理这些要求。Solo Vibe Coding 把任务分类、专业指导和参考资源放在一起，让助手按需查找；同时要求复用已有工作、检查结果，并留下后续修改需要的信息。' },
-      { question: '装了就一定更快、代码一定更好吗？', answer: '不作这样的保证。能力强的 Agent 也可能已经做到这些，读取指导也需要时间与用量。应把实际任务结果和增加的工作一起考虑。案例会说明这次小规模比较的结果与范围。' },
-      { question: '这个 Skill 在哪里使用？', answer: '在支持 Agent Skills、能操作项目文件和访问网络的 AI 编程助手中使用。上手指南提供 Codex 和 Claude Code 的安装方式。网站上的报价示例可以直接在浏览器试用。' },
+      { question: '装了就一定更快、代码一定更好吗？', answer: '不作这样的保证。能力强的 Agent 也可能已经做到这些，读取指导也需要时间与用量。应结合自己的任务，同时评估实际结果和增加的工作。' },
+      { question: '这个 Skill 在哪里使用？', answer: '在支持 Agent Skills、能操作项目文件和访问网络的 AI 编程助手中使用。上手指南提供 Codex 和 Claude Code 的安装方式。' },
       { question: '免费吗？', answer: 'Skill 本身免费、开源，采用 MIT 许可。你使用的编程助手、托管平台、API 或其他服务可能单独收费。可以先让助手说明费用，再选择要使用的服务。' },
       { question: '装上以后，就完全不用我参与了吗？', answer: '你负责描述目标、试用成果，并确认重要选择。有些任务还需要你提供账号、工具或访问条件。适合从一版能实际使用的小成果开始，再逐步扩展。' },
       { question: '已经装过，怎样更新并确认用了新版？', answer: '沿用原来的项目级或全局安装范围更新。上手指南提供只更新本 Skill 的命令，以及让助手核对实际文件和来源版本的请求。技能列表里出现同名条目，还不能确认助手实际读了哪一份。', help: { section: 'updating', label: '更新并核对现有安装' } },
@@ -219,6 +182,7 @@ CLI 安装按原来源重新执行 npx skills@latest add，指定 --skill solo-v
 这次只读检查，不修改技能文件，也不开始实现。`,
     verifyRefresh: 'Codex 会自动检测文件变化；更新未显示时，可重启 Codex。Claude Code 会监测本地技能目录，必要时使用 /reload-skills。新开会话有助于将重新选择的文件与旧对话里已经加载的指导分开。无法访问来源时，应说明版本核对尚未完成。',
     firstTitle: '选择任务，发送需求',
+    gettingNav: '选择当前任务', gettingNote: '先完成上方安装，再选择任务需求，把方括号换成自己的项目信息。', installFirst: '查看安装步骤', checksTitle: '拿到结果后，检查这些',
     firstText: '将这段需求发给 Codex；也可以先在正在使用的助手中选择已安装的 Skill，再发送相同的需求描述。Claude Code 用户把开头的 $ 调用改为 /solo-vibe-coding。',
     reviewTitle: '按任务检查交付结果',
     reviewText: '需求或方案任务，核对范围、依据与结论；涉及实现时，让助手说明怎样打开成果，再亲自试用：',
@@ -236,55 +200,10 @@ CLI 安装按原来源重新执行 npx skills@latest add，指定 --skill solo-v
     intro: '从已有明确产品方向出发，选择当前需要的任务。各入口可以独立使用，也可以只确认需求、准备环境、制定技术方案或只读评审。复制需求并补上项目情况，按对应目标检查结果。',
     prompt: '发给编程助手的需求', output: '这次要做成什么', confirm: '拿到结果后检查', next: '查看安装和使用步骤',
   },
-  example: {
-    title: '试用报价计算器',
-    description: '试用报价计算器，修改工时、单价、费用与预留比例并下载明细。它用于体验一种成果；另一个真实任务案例展示 Skill 的实际使用。',
-    intro: '输入工时、单价和费用，查看总报价，再下载明细。这是一个可以直接操作的工具示例；Skill 的实际使用另有制作对照记录。',
-    promptTitle: '也想做一个自己的版本？',
-    promptText: '在编程助手中加入 Solo Vibe Coding，再发送这段需求。可以把内容换成你自己的用途。',
-    howTitle: '试试这些操作',
-    checks: ['改动数字后，报价会跟着更新。', '漏填或填入不合理数字时，会有清楚的提示。', '手机上也能完整操作。', '下载的明细能用表格软件打开。'],
-    next: '查看怎样制作自己的工具',
-    explanation: '示例在你的浏览器中计算，不会把填写的数据发到服务器。制作自己的工具，需要在编程助手中使用 Skill。',
-  },
-  calculator: {
-    title: '项目报价', hours: '预计工时', rate: '每小时单价', extras: '额外费用', reserve: '预留比例（%）',
-    total: '估算总额', base: '工时费用＋额外费用', reserveAmount: '预留金额', formula: '工时 × 单价，加上额外费用，再计算预留金额。',
-    download: '下载报价明细', filename: '项目报价.csv', invalid: '请填写范围内不小于 0 的有效数字，预留比例为 0–100%。',
-    noJS: '启用 JavaScript 后可以修改数字。这里保留了初始示例和计算方式。', success: '明细已下载。', currency: 'CNY', defaultRate: 300,
-    messages: { missing: '请填写{field}。', range: '{field}需要在 {min}–{max} 之间。', precision: '{field}最多保留两位小数。' },
-    csv: ['项目', '数值', '币种', '预计工时', '每小时单价', '额外费用', '预留比例（%）', '小计', '预留金额', '总额'],
-  },
-  log: {
-    title: '最近更新了什么',
-    description: '看看 Solo Vibe Coding 新增了哪些可试用示例、有哪些改进，以及怎样用到自己的项目中。',
-    intro: '这里记录具体改进、使用示例，以及怎样用到你自己的项目里。',
-    read: '查看这次更新', all: '全部更新', author: '作者', related: '在自己的项目中使用', status: '可以试用',
-  },
-  notFound: { title: '404 — 没有找到这个页面', description: '返回 Solo Vibe Coding 首页，查看使用指南和示例。', text: '地址可能有误，或者页面已经变更。', home: '返回首页' },
+  notFound: { title: '404 — 没有找到这个页面', description: '返回 Solo Vibe Coding 首页，查看任务指南和安装方法。', text: '地址可能有误，或者页面已经变更。', home: '返回首页' },
 };
 
 export const UI: Record<Locale, typeof en> = { en, 'zh-CN': zh };
-
-export type Scenario = { id: string; label: string; title: string; summary: string; prompt: string; output: string; confirm: string; };
-export const SCENARIOS: Record<Locale, Scenario[]> = {
-  en: [
-    { id: 'requirements', label: 'Make something new', title: 'A website or a small tool you wish existed.', summary: 'Start with what it should do and who will use it. Ask the assistant to recommend a small first version.', prompt: 'Use $solo-vibe-coding to build the first usable version of this product.\nProduct direction, users and core task: [add the details].\nAssess suitable existing work and mature foundations, define one complete user journey and appropriate checks, then deliver a version I can open and try. Explain choices that affect cost or access and ask me to confirm them.', output: 'A first version you can open and try, with instructions to run it.', confirm: 'Does it do the thing you wanted? Is it clear how to use it?' },
-    { id: 'architecture', label: 'Add a feature', title: 'Make your existing tool do one more useful thing.', summary: 'Describe the behaviour you want. The assistant can inspect the project and recommend how to fit it in.', prompt: 'Use $solo-vibe-coding to add a download button to my quote tool.\nI want a spreadsheet-friendly breakdown of the current numbers. Keep the existing look.\nRecommend an approach, build it, and check the downloaded values.', output: 'A working feature in your existing project.', confirm: 'Can you complete the new action, and do the old functions still work?' },
-    { id: 'design', label: 'Improve the look', title: 'Make your page easier to understand and use.', summary: 'Show the page and explain the impression or experience you want.', prompt: 'Use $solo-vibe-coding to improve this page for the people who use it.\nMake the main action easier to find and the mobile layout easier to read.\nKeep the brand. Give me a version I can preview and compare.', output: 'An updated page you can preview on desktop and mobile.', confirm: 'Can you find the main action and read the important information?' },
-    { id: 'development', label: 'Fix a problem', title: 'Get something that broke working again.', summary: 'Describe what you expected, what happened, and any error message. Let the assistant help investigate.', prompt: 'Use $solo-vibe-coding to fix this problem:\n[What I expected, what actually happened, and any message.]\nFind the cause, make the fix, and check that the original action works again.', output: 'A fix with a way to repeat and check the action.', confirm: 'Can you now do what failed before?' },
-    { id: 'deployment', label: 'Share it with people', title: 'Give someone a link they can actually open.', summary: 'Explain who should be able to use the result and whether it should be public.', prompt: 'Use $solo-vibe-coding to help me share this website with other people.\nRecommend a suitable way to publish it and explain any costs.\nConfirm who can access it before publishing, then check the live address.', output: 'A published result and a checked link, when accounts and access are ready.', confirm: 'Can the intended people open the link and use the result?' },
-    { id: 'growth', label: 'Explain your product', title: 'Help the right people see what they can do with it.', summary: 'Describe who it is for and show what actually works.', prompt: 'Use $solo-vibe-coding to improve this product page for its intended users.\nExplain what they can achieve, show actual examples, and give them a clear way to start.\nUse only capabilities and results we can show.', output: 'A user-focused page or message with concrete examples.', confirm: 'Would someone new understand what they can do and how to begin?' },
-  ],
-  'zh-CN': [
-    { id: 'requirements', label: '做一个新东西', title: '一个你一直想要的网站或小工具。', summary: '说明它要做什么、给谁用，让助手推荐一个适合先做出来的小版本。', prompt: '使用 $solo-vibe-coding，做出这个产品的第一个可用版本。\n产品方向、用户与核心任务：[补充说明]。\n评估合适的已有工作与成熟基础，明确一条完整使用流程和适当检查，再交付能打开试用的版本。涉及费用或访问范围的选择，说明后让我确认。', output: '可以打开试用的第一版，以及具体使用方法。', confirm: '它是否做到了你想要的事？你是否知道怎样使用？' },
-    { id: 'architecture', label: '加一个功能', title: '让已有的工具，多做一件有用的事。', summary: '描述想增加的行为，助手查看项目情况，推荐合适的接入方式。', prompt: '使用 $solo-vibe-coding，给我的报价工具加一个下载按钮。\n我希望把当前数字下载成表格软件能打开的明细，保留现有外观。\n请推荐做法、完成实现，并核对下载的数值。', output: '已经接入现有项目、可以实际操作的新功能。', confirm: '新操作是否能完成？原来的功能是否仍然能用？' },
-    { id: 'design', label: '改善外观和体验', title: '让页面更容易看懂，也更好用。', summary: '提供现有页面，说明你希望用户感受到什么、完成什么。', prompt: '使用 $solo-vibe-coding，为实际使用它的人改善这个页面。\n让主要操作更容易找到，手机上也能清楚阅读。\n保留品牌，给我一版能预览和对比的结果。', output: '可以在电脑和手机预览的更新页面。', confirm: '主要操作是否好找？重要内容是否容易阅读？' },
-    { id: 'development', label: '修好一个问题', title: '让原本出错的地方，重新正常工作。', summary: '说明原本希望发生什么、实际发生什么，附上报错信息，让助手协助排查。', prompt: '使用 $solo-vibe-coding，帮我修好这个问题：\n[我原本想做什么、实际发生什么，以及提示信息。]\n请查明原因、完成修复，并实际确认原来的操作能正常进行。', output: '完成修复，并能重复原操作进行确认。', confirm: '之前失败的那件事，现在能不能完成？' },
-    { id: 'deployment', label: '发给别人使用', title: '拿到一个别人真正能打开的链接。', summary: '说明希望谁能使用，以及是否需要公开。', prompt: '使用 $solo-vibe-coding，帮我把这个网站发给别人使用。\n请推荐适合的发布方式，并说明可能的费用。\n发布前让我确认谁可以访问，发布后实际检查网址是否可用。', output: '在账号和权限准备好后，得到发布成果与核验过的链接。', confirm: '希望使用它的人，能不能打开链接并完成操作？' },
-    { id: 'growth', label: '把产品介绍清楚', title: '让合适的人知道，自己可以用它做什么。', summary: '说明目标用户，提供已经能工作的成果。', prompt: '使用 $solo-vibe-coding，为实际用户改善这个产品介绍页。\n说清他们能做成什么，展示真实示例，提供明确的开始方式。\n只使用能展示的能力与成果。', output: '围绕用户用途、有具体示例的页面或介绍内容。', confirm: '第一次来的人，能不能看懂用途并知道怎样开始？' },
-  ],
-};
 
 export function pageMetadata(locale: Locale, page: PageName) {
   const ui = UI[locale];
@@ -292,14 +211,10 @@ export function pageMetadata(locale: Locale, page: PageName) {
     home: `${PROJECT.name} — ${locale === 'en' ? 'Build your product with specialist guidance' : '做出你想要的产品，把卡住的地方往前推一步'}`,
     'getting-started': `${ui.nav['getting-started']} — ${PROJECT.name}`,
     guides: `${ui.nav.guides} — ${PROJECT.name}`,
-    examples: `${locale === 'en' ? 'Try the quote calculator' : '试用报价计算器'} — ${PROJECT.name}`,
-    'case-study': `${locale === 'en' ? 'A bookmark tool, two changes' : '给收藏工具加导出，再接着改一次'} — ${PROJECT.name}`,
-    'build-log': `${ui.nav['build-log']} — ${PROJECT.name}`,
   };
   const descriptions: Record<PageName, string> = {
     home: locale === 'en' ? 'One open-source skill for independent developers with a product direction: requirements, visuals, project setup, technical delivery, production release and acquisition, in your existing coding assistant.' : '为已有明确产品方向的独立开发者提供六个任务入口：需求澄清、视觉与交互、项目初始化、技术交付、生产发布、获客与转化。在现有编程助手中按需使用专业方法与参考。',
-    'getting-started': ui.getting.description, guides: ui.guides.description, examples: ui.example.description, 'build-log': ui.log.description,
-    'case-study': locale === 'en' ? 'Follow a real bookmark export task and a fresh-session change. See how Solo Vibe Coding was used, what was checked, and the limits of the comparison.' : '查看一次收藏导出和新会话追加修改的真实任务：Solo Vibe Coding 实际用了哪些指导、验证了什么，以及这次对照能说明和不能说明什么。',
+    'getting-started': ui.getting.description, guides: ui.guides.description,
   };
   return { title: titles[page], description: descriptions[page] };
 }

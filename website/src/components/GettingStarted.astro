@@ -2,15 +2,12 @@
 import CodeBlock from './CodeBlock.astro';
 import PageIntro from './PageIntro.astro';
 import Terminal from './Terminal.astro';
-import { PROJECT, UI, FIRST_PROMPT, href, type Locale } from '../data/site';
-import { OUTCOME_UI } from '../data/outcomes';
+import { PROJECT, UI, href, type Locale } from '../data/site';
 import { TASK_GROUPS, TASKS } from '../data/tasks';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].getting;
-const quoteTask = { id: 'quote', label: locale === 'en' ? 'Build a quote tool' : '做报价工具', title: locale === 'en' ? 'Build your own quote calculator' : '做一个自己的报价计算器', summary: locale === 'en' ? 'Use your own hours, rates, costs and reserve, with a downloadable breakdown.' : '按自己的工时、单价、费用和预留比例计算报价，并下载明细。', prompt: FIRST_PROMPT[locale], checks: UI[locale].example.checks };
-const tasks = [...TASKS[locale], quoteTask];
-const copy = OUTCOME_UI[locale];
+const tasks = TASKS[locale];
 ---
 <div class="container document-shell">
   <PageIntro locale={locale} title={ui.title} titleLines={ui.titleLines} description={ui.intro} kind="start" />
@@ -24,9 +21,9 @@ const copy = OUTCOME_UI[locale];
         <details class="setup-option" data-update-help><summary>{ui.updateTitle}</summary><div id="updating"><p>{ui.updateText}</p><CodeBlock locale={locale} code={ui.updatePrompt} label={UI[locale].guides.prompt} /><details class="setup-option"><summary>{ui.updateCommandsTitle}</summary><p>{ui.updateCommandsNote}</p><p>{ui.projectUpdateLabel}</p><CodeBlock locale={locale} code="npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes" install /><p>{ui.globalUpdateLabel}</p><CodeBlock locale={locale} code="npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes -g" install /><p>{ui.updateCheck}</p><p>{ui.updateFallback}</p></details><a href="#verify-skill">{ui.verifyTitle}</a></div></details>
         <details class="setup-option" data-version-help><summary>{ui.verifyTitle}</summary><div id="verify-skill"><p>{ui.verifyText}</p><CodeBlock locale={locale} code={ui.verifyPrompt} label={UI[locale].guides.prompt} /><p>{ui.verifyRefresh}</p></div></details>
       </section>
-      <section id="first-task" data-task-picker><h2>{ui.firstTitle}</h2><p>{copy.gettingNote} <a href="#installation">{copy.installFirst}</a></p><p>{ui.firstText}</p>
-        <details class="task-menu" data-task-menu><summary>{locale === 'en' ? 'Choose or switch tasks · six entry points' : '选择或切换任务 · 六类入口'}</summary><nav class="task-request-nav" aria-label={copy.gettingNav}>{TASK_GROUPS[locale].map((group) => <div class="task-request-group"><p>{group.label}</p><div>{group.tasks.map((id) => { const task = tasks.find((item) => item.id === id)!; return <a href={'#task-' + id}>{task.label}</a>; })}</div></div>)}<a href="#task-quote">{quoteTask.label}</a></nav></details>
-        <div class="task-requests">{tasks.map((task) => <section class="task-request" id={'task-' + task.id} data-task-request={task.id}><h3>{task.title}</h3><p>{task.summary}</p><CodeBlock locale={locale} code={task.prompt} label={UI[locale].guides.prompt} /><h4>{copy.checksTitle}</h4><ul class="check-list">{task.checks.map((check) => <li>{check}</li>)}</ul></section>)}</div>
+      <section id="first-task" data-task-picker><h2>{ui.firstTitle}</h2><p>{ui.gettingNote} <a href="#installation">{ui.installFirst}</a></p><p>{ui.firstText}</p>
+        <details class="task-menu" data-task-menu><summary>{locale === 'en' ? 'Choose or switch tasks · six entry points' : '选择或切换任务 · 六类入口'}</summary><nav class="task-request-nav" aria-label={ui.gettingNav}>{TASK_GROUPS[locale].map((group) => <div class="task-request-group"><p>{group.label}</p><div>{group.tasks.map((id) => { const task = tasks.find((item) => item.id === id)!; return <a href={'#task-' + id}>{task.label}</a>; })}</div></div>)}</nav></details>
+        <div class="task-requests">{tasks.map((task) => <section class="task-request" id={'task-' + task.id} data-task-request={task.id}><h3>{task.title}</h3><p>{task.summary}</p><CodeBlock locale={locale} code={task.prompt} label={UI[locale].guides.prompt} /><h4>{ui.checksTitle}</h4><ul class="check-list">{task.checks.map((check) => <li>{check}</li>)}</ul></section>)}</div>
       </section>
       <section id="try-your-result"><h2>{ui.reviewTitle}</h2><p>{ui.reviewText}</p><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a href={href(locale, 'guides')}>{ui.next}<span aria-hidden="true"> ↗</span></a></section>
       <section><h2>{ui.continueTitle}</h2><p>{ui.continueText}</p></section>
@@ -61,7 +58,7 @@ const copy = OUTCOME_UI[locale];
       const url = new URL(window.location.href);
       const fragmentTask = url.hash.startsWith('#task-') ? url.hash.slice(6) : null;
       const queryTask = url.searchParams.get('task');
-      const task = validTask(fragmentTask) ? fragmentTask! : validTask(queryTask) ? queryTask! : picker.dataset.selectedTask ?? 'development';
+      const task = validTask(fragmentTask) ? fragmentTask! : validTask(queryTask) ? queryTask! : picker.dataset.selectedTask ?? 'clarify';
       if (!task) return;
       picker.dataset.selectedTask = task;
       for (const request of requests) request.hidden = request.dataset.taskRequest !== task;

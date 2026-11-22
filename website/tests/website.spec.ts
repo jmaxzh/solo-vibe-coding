@@ -1,94 +1,35 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { readFile } from 'node:fs/promises';
 
 const base = '/solo-vibe-coding/';
-const example = 'examples/quote-calculator/';
-const caseStudy = 'case-study/bookmark-export/';
 
 for (const locale of ['en', 'zh-CN'] as const) {
   const path = locale === 'en' ? base : base + 'zh-CN/';
 
-  test(`${locale}: explore a concrete task and follow the evidence and start path`, async ({ page }) => {
+  test(`${locale}: homepage leads to delivery guidance and installation`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(path);
-    await expect(page.locator('h1')).toBeVisible();
-    const stage = page.locator('[data-task-stage]');
-    await expect(stage.getByRole('radio')).toHaveCount(4);
-    await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
-    await stage.locator('[data-choice="development"]').click();
-    await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
-    await stage.locator('[data-choice="design"]').click();
-    await expect(stage.locator('[data-outcome="design"]')).toBeVisible();
-    await expect(stage.locator('[data-outcome="development"]')).toBeHidden();
-    await expect(stage.locator('[data-outcome="design"]')).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
-    await expect(page.locator('#outcome-design')).toContainText(locale === 'en' ? 'template' : '模板味');
-    await stage.locator('input[value="design"]').focus();
-    await page.keyboard.press('ArrowLeft');
-    await expect(stage.locator('input[value="development"]')).toBeChecked();
-    await expect(stage.locator('[data-outcome="development"]')).toBeVisible();
-    await page.locator('[data-case-link]').first().click();
-    await expect(page).toHaveURL(new RegExp(caseStudy + '$'));
-    await expect(page.locator('[data-case-summary]')).not.toBeEmpty();
-    await expect(page.locator('#round-one-title')).toBeVisible();
-    await page.locator('[data-start]').first().click();
-    await expect(page).toHaveURL(new RegExp('/getting-started/$'));
-    await expect(page.locator('#task-development')).toBeVisible();
-    await expect(page.locator('#task-development')).toContainText(locale === 'en' ? 'video' : '视频');
-    await page.goto(path + example);
-    const calculator = page.locator('[data-calculator]');
-    await expect(calculator.locator('input[name="hours"]')).toBeEnabled();
-    await expect(calculator.locator('[data-total]')).toContainText(locale === 'en' ? '660.00' : '3,960.00');
-    await calculator.locator('input[name="hours"]').fill('20');
-    await calculator.locator('input[name="rate"]').fill('80');
-    await calculator.locator('input[name="extras"]').fill('100');
-    await calculator.locator('input[name="reserve"]').fill('15');
-    await expect(calculator.locator('[data-total]')).toContainText('1,955.00');
-    await calculator.locator('input[name="hours"]').focus();
-    await page.keyboard.press('Tab');
-    await expect(calculator.locator('input[name="rate"]')).toBeFocused();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    await page.locator('[data-make-quote]').click();
-    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'quote');
-    await expect(page.locator('#task-quote code')).toContainText(locale === 'en' ? 'quote calculator' : '项目报价');
-    await page.locator('[data-language-switch]').click();
-    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'quote');
-    await page.goto(path + '#task-growth');
-    await expect(page.locator('#task-growth')).toBeVisible();
-    expect(errors).toEqual([]);
-  });
-
-  test(`${locale}: homepage preview, primary action and evidence keep their meaning`, async ({ page }) => {
-    await page.goto(path);
-    for (const name of (locale === 'en' ? ['Fix a regression', 'Improve the interface', 'Get the demo live', 'Reach your first users'] : ['排查与修复', '改进产品界面', '接通并上线', '找到第一批用户'])) await expect(page.getByRole('radio', { name, exact: true })).toHaveCount(1);
-    await expect(page.locator('input[value="design"]')).toBeChecked();
-    await page.locator('.product-actions a[href="#usage-demo"]').click();
-    await expect(page).toHaveURL(/#usage-demo$/);
-    await expect(page.locator('[data-hero-object]')).toBeVisible();
-    await page.locator('[data-choice="growth"]').click();
-    await page.reload();
-    await expect(page.locator('input[value="growth"]')).toBeChecked();
-    await expect(page.locator('[data-workflow="growth"] .task-delivery')).toBeVisible();
-    await page.locator('[data-language-switch]').click();
-    await expect(page.locator('input[value="growth"]')).toBeChecked();
-    await page.locator('.product-actions [data-home-start]').click();
-    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'growth');
-    await page.goto(path + '?task=unknown');
-    await expect(page.locator('input[value="design"]')).toBeChecked();
-    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
-    await expect(page.locator('.pain-card')).toHaveCount(4);
-    const sources = page.locator('.pain-card .source-link');
-    await expect(sources).toHaveCount(4);
-    for (const link of await sources.all()) await expect(link).toHaveAttribute('href', /^https:\/\/(forum.cursor.com|www.reddit.com)\//);
-    const screenshot = page.locator('.case-image img');
-    await screenshot.scrollIntoViewIfNeeded();
-    await expect.poll(() => screenshot.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-    await expect(page.locator('.case-image figcaption')).toContainText(locale === 'en' ? 'Actual output' : '实际产物截图');
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.locator('[data-task-entry]')).toHaveCount(6);
+    await page.locator('.product-actions a[href="#how-it-helps"]').click();
+    await expect(page).toHaveURL(/#how-it-helps$/);
+    await expect(page.locator('[data-delivery-method] li')).toHaveCount(6);
+    await page.locator('.how-steps a[href="#delivery-method"]').click();
+    await expect(page.locator('#delivery-method')).toBeVisible();
     const question = page.locator('.home-faq summary').first();
     await question.focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('.home-faq details').first()).toHaveAttribute('open', '');
+    await page.locator('[data-task-entry="project-initialization"]').click();
+    await expect(page.locator('#project-initialization h2')).toBeVisible();
+    await expect(page.locator('[data-guide-task]')).toHaveCount(6);
+    await page.goto(path);
+    await page.locator('.product-actions [data-start]').click();
+    await expect(page).toHaveURL(path + 'getting-started/');
+    await expect(page.locator('#installation')).toContainText('--agent codex --yes');
+    await expect(page.locator('#task-clarify')).toBeVisible();
+    expect(errors).toEqual([]);
   });
 
   test(`${locale}: orbit responds to motion controls and stops rendering away from view`, async ({ page }) => {
@@ -116,7 +57,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
     expect(await signature()).toBe(paused);
     await page.locator('[data-motion-toggle]').click();
     await expect.poll(signature).not.toBe(paused);
-    await page.locator('#why-skill').scrollIntoViewIfNeeded();
+    await page.locator('#how-it-helps').scrollIntoViewIfNeeded();
     await expect(page.locator('[data-orbit-scene]')).toHaveAttribute('data-scene-state', 'static');
     const away = await signature();
     await settleFrames();
@@ -150,196 +91,13 @@ for (const locale of ['en', 'zh-CN'] as const) {
     }
   });
 
-  test(`${locale}: the selected task continues through setup and language switching`, async ({ page }) => {
-    for (const task of ['development', 'design', 'deployment', 'growth']) {
-      await page.goto(path);
-      await page.locator(`[data-choice="${task}"]`).click();
-      await expect(page.locator(`[data-outcome="${task}"] .task-help`)).toBeVisible();
-      await expect(page.locator(`[data-outcome="${task}"] .task-delivery`)).toBeVisible();
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-      await page.locator(`[data-task-start="${task}"]`).click();
-      await expect(page).toHaveURL((url) => url.pathname.endsWith('/getting-started/') && url.searchParams.get('task') === task && url.hash === `#task-${task}`);
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-      await expect(page.locator(`[data-task-request="${task}"] code`)).toContainText('$solo-vibe-coding');
-      await expect(page.locator('#installation')).toContainText('--agent codex --yes');
-      await page.locator('#first-task a[href="#installation"]').click();
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-      await page.locator('[data-language-switch]').click();
-      await expect(page).toHaveURL((url) => url.pathname === `${base}${locale === 'en' ? 'zh-CN/' : ''}getting-started/` && url.searchParams.get('task') === task && url.hash === '#installation');
-      await expect(page.locator('html')).toHaveAttribute('lang', locale === 'en' ? 'zh-CN' : 'en');
-      await page.locator('.on-this-page a[href="#first-task"]').click();
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-      await page.reload();
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-      const nextTask = task === 'design' ? 'growth' : 'design';
-      await page.locator('[data-task-menu] > summary').click();
-      await page.locator(`.task-request-nav a[href="#task-${nextTask}"]`).click();
-      await expect(page.locator(`[data-task-request="${nextTask}"]`)).toBeVisible();
-      await page.goBack();
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-    }
-  });
-
-  test(`${locale}: workflow explanation and motion respect pause and system preferences`, async ({ page }) => {
-    await page.goto(path);
-    const image = page.locator('[data-hero-object]');
-    await expect(image).toBeVisible();
-    await expect(image).toHaveAttribute('aria-label', locale === 'en' ? 'How it works' : '工作方式示意');
-    await page.locator('[data-choice="development"]').click();
-    await expect(image.locator('[data-workflow="development"]')).toContainText(locale === 'en' ? 'black screen' : '访客黑屏');
-    await expect(image.locator('figcaption')).toContainText(locale === 'en' ? 'your own coding assistant' : '你自己的编程助手');
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
-    await page.locator('[data-motion-toggle]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
-    await page.locator('[data-language-switch]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
-    await page.locator('[data-motion-toggle]').click();
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'on');
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'off');
-    await expect(page.locator('[data-motion-toggle]')).toBeDisabled();
-    await expect(page.locator('[data-hero-object]')).toBeVisible();
-    await page.locator('#install').scrollIntoViewIfNeeded();
-    await expect(page.locator('[data-terminal]')).not.toHaveAttribute('data-typing');
-    await expect(page.locator('[data-terminal-command]')).toContainText('--agent codex --yes');
-    await page.locator('[data-choice="design"]').click();
-    await expect(page.locator('[data-outcome="design"]')).toBeVisible();
-    await page.goto(path + 'getting-started/?task=requirements#task-requirements');
-    await expect(page.locator('#task-requirements')).toBeVisible();
-    await expect(page.locator('#task-requirements code')).toContainText(locale === 'en' ? 'first usable version' : '第一个可用版本');
-    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', 'requirements');
-  });
-
-  test(`${locale}: task choices update the workflow and start links, and the terminal copies the real command`, async ({ page, context }) => {
-    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-    await page.goto(path);
-    await page.locator('[data-choice="design"]').click();
-    const workflow = page.locator('[data-workflow="design"]');
-    await expect(workflow).toBeVisible();
-    await expect(workflow).toContainText(locale === 'en' ? 'visual direction' : '视觉方向');
-    await expect(page.locator('[data-workflow="development"]')).toBeHidden();
-    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=design#task-design$/);
-    await page.locator('[data-language-switch]').click();
-    await expect(page.locator('input[value="design"]')).toBeChecked();
-    await expect(page.locator('[data-workflow="design"]')).toBeVisible();
-    await page.locator('[data-language-switch]').click();
-    await page.locator('input[value="design"]').focus();
-    await page.keyboard.press('ArrowLeft');
-    await expect(page.locator('[data-workflow="development"]')).toBeVisible();
-    for (const link of await page.locator('[data-home-start]').all()) await expect(link).toHaveAttribute('href', /task=development#task-development$/);
-    await page.locator('#install').scrollIntoViewIfNeeded();
-    const terminal = page.locator('[data-terminal]');
-    await terminal.locator('[data-copy]').click();
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
-    await expect(terminal.locator('[data-copy-status]')).toContainText(locale === 'en' ? 'Copied' : '已复制');
-    await page.locator('[data-choice="design"]').click();
-    await page.locator('.interface-reference summary').click();
-    const phone = page.locator('.interface-reference [data-stock-device="phone"]');
-    await phone.scrollIntoViewIfNeeded();
-    await expect(phone).toBeVisible();
-    await expect(phone).toHaveAttribute('aria-label', locale === 'en' ? /template sample data/ : /模板演示数据/);
-    await expect.poll(() => phone.locator('img').evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  });
-
-  test(`${locale}: case explains evidence, keeps its language and supplies a starting project`, async ({ page }) => {
-    await page.goto(path + caseStudy);
-    await expect(page.locator('[data-case-study]')).toBeVisible();
-    await expect(page.locator('.case-finding')).not.toHaveCount(0);
-    await expect(page.locator('[data-case-results] tbody tr')).not.toHaveCount(0);
-    await expect(page.locator('[data-case-cost]')).not.toBeEmpty();
-    await expect(page.locator('[data-case-pilot]')).not.toBeEmpty();
-    await page.locator('.case-method summary').click();
-    await expect(page.locator('.case-method')).toContainText('gpt-6.1-sol');
-    await expect(page.locator('.case-limit')).toContainText(locale === 'en' ? 'not a study with real users' : '尚未进行真实用户研究');
-    const downloaded = page.waitForEvent('download');
-    await page.locator('[data-starter-download]').click();
-    const file = await downloaded;
-    expect(file.suggestedFilename()).toMatch(/\.zip$/);
-    const zip = await readFile((await file.path())!);
-    expect([...zip.subarray(0, 4)]).toEqual([80, 75, 3, 4]);
-    expect(zip.length).toBeGreaterThan(1000);
-    await expect(page.locator('.case-try-prompts code')).toHaveCount(2);
-    await page.locator('[data-language-switch]').click();
-    await expect(page).toHaveURL(new RegExp(`${locale === 'en' ? '/zh-CN' : ''}/${caseStudy}`));
-    await expect(page.locator('html')).toHaveAttribute('lang', locale === 'en' ? 'zh-CN' : 'en');
-  });
-
-  test(`${locale}: calculator handles errors, cents, export and large values`, async ({ page }) => {
-    await page.goto(path + example);
-    const tool = page.locator('[data-calculator]');
-    const total = tool.locator('[data-total]');
-    const downloadButton = tool.locator('[data-download]');
-    await tool.locator('input[name="hours"]').fill('-1');
-    await expect(tool.locator('[data-calculator-error]')).toBeVisible();
-    await expect(total).toHaveText('—');
-    await expect(downloadButton).toBeDisabled();
-    await tool.locator('input[name="hours"]').fill('1.5');
-    await tool.locator('input[name="rate"]').fill('');
-    await expect(total).toHaveText('—');
-    await tool.locator('input[name="rate"]').fill('19.99');
-    await tool.locator('input[name="extras"]').fill('0.01');
-    await tool.locator('input[name="reserve"]').fill('101');
-    await expect(downloadButton).toBeDisabled();
-    await tool.locator('input[name="reserve"]').fill('10');
-    await expect(total).toContainText('33.00');
-    await expect(tool.locator('[data-calculator-error]')).toBeHidden();
-    const downloaded = page.waitForEvent('download');
-    await downloadButton.click();
-    const file = await downloaded;
-    expect(file.suggestedFilename()).toMatch(/\.csv$/);
-    const csv = await readFile((await file.path())!, 'utf8');
-    expect(csv.charCodeAt(0)).toBe(0xfeff);
-    expect(csv).toContain(locale === 'en' ? '"Total","33.00","USD"' : '"总额","33.00","CNY"');
-    await tool.locator('input[name="hours"]').fill('0.29');
-    await tool.locator('input[name="rate"]').fill('0.50');
-    await tool.locator('input[name="extras"]').fill('0');
-    await tool.locator('input[name="reserve"]').fill('0');
-    await expect(total).toContainText('0.15');
-    await tool.locator('input[name="hours"]').fill('1');
-    await tool.locator('input[name="rate"]').fill('3.75');
-    await tool.locator('input[name="reserve"]').fill('9.2');
-    await expect(tool.locator('[data-reserve]')).toContainText('0.35');
-    await expect(total).toContainText('4.10');
-    const roundedDownload = page.waitForEvent('download');
-    await downloadButton.click();
-    const roundedFile = await roundedDownload;
-    const roundedCSV = await readFile((await roundedFile.path())!, 'utf8');
-    expect(roundedCSV).toContain(locale === 'en' ? '"Total","4.10","USD"' : '"总额","4.10","CNY"');
-    await tool.locator('input[name="hours"]').fill('0.5');
-    await tool.locator('input[name="rate"]').fill('0.2899999999999');
-    await tool.locator('input[name="reserve"]').fill('0');
-    await expect(total).toContainText('0.15');
-    const normalizedDownload = page.waitForEvent('download');
-    await downloadButton.click();
-    const normalizedCSV = await readFile((await (await normalizedDownload).path())!, 'utf8');
-    expect(normalizedCSV).toContain(locale === 'en' ? '"Rate per hour","0.29","USD"' : '"每小时单价","0.29","CNY"');
-    expect(normalizedCSV).toContain(locale === 'en' ? '"Total","0.15","USD"' : '"总额","0.15","CNY"');
-    await tool.locator('input[name="hours"]').fill('0.25');
-    await tool.locator('input[name="rate"]').fill('80');
-    await tool.locator('input[name="extras"]').fill('0');
-    await tool.locator('input[name="reserve"]').fill('0.5');
-    await expect(total).toContainText('20.10');
-    await tool.locator('input[name="rate"]').fill('80.001');
-    await expect(tool.locator('[data-calculator-error]')).toContainText(locale === 'en' ? 'two decimal places' : '两位小数');
-    await expect(downloadButton).toBeDisabled();
-    await tool.locator('input[name="hours"]').fill('10000');
-    await tool.locator('input[name="rate"]').fill('1000000');
-    await tool.locator('input[name="extras"]').fill('1000000000');
-    await tool.locator('input[name="reserve"]').fill('100');
-    await expect(total).toContainText('22,000,000,000.00');
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
-    for (const name of ['hours', 'rate', 'extras', 'reserve']) await tool.locator(`input[name="${name}"]`).fill('0');
-    await expect(total).toContainText('0.00');
-  });
-
-  test(`${locale}: complete request, clipboard, language pairs and user updates`, async ({ page, context }) => {
+  test(`${locale}: installation, updates and version verification remain copyable`, async ({ page, context }) => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto(path);
     const updateFAQ = page.locator('.home-faq details').filter({ has: page.locator('.faq-help') });
     await updateFAQ.locator('summary').click();
     await updateFAQ.locator('.faq-help').click();
     await expect(page.locator('[data-update-help]')).toHaveAttribute('open', '');
-    await expect(page.locator('#updating code').first()).toContainText('--agent');
     await page.locator('#updating details > summary').click();
     await page.locator('#updating .install-code [data-copy]').first().click();
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
@@ -349,34 +107,24 @@ for (const locale of ['en', 'zh-CN'] as const) {
     const verification = await page.evaluate(() => navigator.clipboard.readText());
     expect(verification).toContain('SKILL.md');
     expect(verification).toContain(locale === 'en' ? 'read-only' : '只读');
-    await page.goto(path + 'getting-started/');
-    await expect(page.locator('#requirements a')).toHaveAttribute('href', 'https://learn.chatgpt.com/docs/codex/cli#getting-started');
-    await expect(page.locator('#installation')).toContainText('--agent codex --yes');
-    const copy = page.locator('#task-development [data-copy]');
-    await copy.click();
-    await expect(copy).toHaveAttribute('data-copied', 'true');
-    const text = await page.evaluate(() => navigator.clipboard.readText());
-    expect(text).toContain('$solo-vibe-coding');
-    expect(text).toContain(locale === 'en' ? 'open and try' : '打开试用');
-    await page.locator('a[data-language-switch]').click();
-    await expect(page).toHaveURL(new RegExp(`${locale === 'en' ? '/zh-CN' : ''}/getting-started/`));
-    await expect(page.locator('html')).toHaveAttribute('lang', locale === 'en' ? 'zh-CN' : 'en');
-    await page.goto(path + example);
-    await page.locator('a[data-language-switch]').click();
-    await expect(page).toHaveURL(new RegExp(`${locale === 'en' ? '/zh-CN' : ''}/${example}`));
-    await page.goto(path + 'guides/');
-    await expect(page.locator('[data-guide-task]')).toHaveCount(6);
-    await page.goto(path + 'build-log/');
-    await page.locator('[data-log-entry]').first().click();
-    await expect(page.locator('article')).toBeVisible();
-    await expect(page.locator(`article a[href="${path + caseStudy}"]`)).toBeVisible();
-    await expect(page.locator('time')).toHaveAttribute('datetime', /2026-11-13/);
+    await page.goto(path);
+    await page.locator('#install [data-copy]').click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
+  });
+
+  test(`${locale}: each page keeps its topic when switching language`, async ({ page }) => {
+    for (const route of ['', 'getting-started/', 'guides/']) {
+      await page.goto(path + route);
+      await page.locator('[data-language-switch]').click();
+      await expect(page).toHaveURL(base + (locale === 'en' ? 'zh-CN/' : '') + route);
+      await expect(page.locator('html')).toHaveAttribute('lang', locale === 'en' ? 'zh-CN' : 'en');
+    }
   });
 
   test(`${locale}: pages remain accessible and fit the viewport`, async ({ page }) => {
-    for (const route of ['', 'getting-started/', 'guides/', example, caseStudy, 'build-log/', 'build-log/first-public-build/', 'build-log/working-methods/']) {
+    for (const route of ['', 'getting-started/', 'guides/']) {
       await page.goto(path + route);
-      await expect(page.locator('h1')).toHaveCount(1);
+      await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
       if (route) await expect(page.locator('[data-page-intro]')).toBeVisible();
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       expect(results.violations.filter((item) => ['serious', 'critical'].includes(item.impact ?? ''))).toEqual([]);
@@ -384,92 +132,82 @@ for (const locale of ['en', 'zh-CN'] as const) {
     }
   });
 
-  test(`${locale}: independent tasks keep their request through guides, setup and language changes`, async ({ page, context }) => {
-    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-    await page.goto(path);
-    await expect(page.locator('[data-task-entry]')).toHaveCount(6);
-    await expect(page.locator('[data-delivery-method] li')).toHaveCount(6);
-    await page.locator('[data-task-entry="project-initialization"]').click();
-    await expect(page.locator('#project-initialization h2')).toBeVisible();
-    await expect(page.locator('[data-guide-task]')).toHaveCount(6);
-
-    for (const [task, boundary] of [
+  for (const [task, boundary] of [
       ['clarify', locale === 'en' ? 'do not implement' : '不进行实现'],
       ['initialize', locale === 'en' ? 'preserve existing data' : '保留已有数据'],
       ['plan', locale === 'en' ? 'do not implement or install' : '不进行实现或安装'],
       ['review', locale === 'en' ? 'without editing files' : '不修改文件'],
       ['visual-assets', locale === 'en' ? 'editable source or generation parameters' : '可编辑源文件或生成参数'],
+      ['requirements', locale === 'en' ? 'first usable version' : '第一个可用版本'],
+      ['architecture', locale === 'en' ? 'confirmed feature' : '已确认的功能'],
+      ['design', locale === 'en' ? 'viewable reference' : '可查看的参考'],
+      ['development', locale === 'en' ? 'Reproduce the failure' : '先重现失败'],
+      ['deployment', locale === 'en' ? 'publication authorisation' : '发布授权'],
+      ['growth', locale === 'en' ? 'Do not publish' : '这次不发布'],
       ['product-video', locale === 'en' ? 'playable exported file and editable project' : '可播放的导出文件与可编辑工程'],
     ]) {
-      await page.goto(path + 'guides/#' + task);
-      const request = await page.locator(`[data-guide-example="${task}"] code`).textContent();
-      expect(request).toContain(boundary);
-      await page.locator(`[data-guide-start="${task}"]`).click();
-      await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
-      const selected = page.locator(`[data-task-request="${task}"]`);
-      await expect(selected).toBeVisible();
-      await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
-      await selected.locator('[data-copy]').click();
-      expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(request);
-      await page.locator('#first-task a[href="#installation"]').click();
-      await page.locator('[data-language-switch]').click();
-      await page.reload();
-      await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
-      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
-      await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
-    }
-  });
+    test(`${locale}: ${task} keeps its request through guides, setup and language changes`, async ({ page, context }) => {
+      await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto(path + 'guides/#' + task);
+    const request = await page.locator(`[data-guide-example="${task}"] code`).textContent();
+    expect(request).toContain(boundary);
+    await page.locator(`[data-guide-start="${task}"]`).click();
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
+    const selected = page.locator(`[data-task-request="${task}"]`);
+    await expect(selected).toBeVisible();
+    await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
+    await selected.locator('[data-copy]').click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(request);
+    await page.locator('#first-task a[href="#installation"]').click();
+    await page.locator('[data-language-switch]').click();
+    await page.reload();
+    await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
+    await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
+    await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
+    });
+  }
+
 }
 
 test.describe('without JavaScript', () => {
   test.use({ javaScriptEnabled: false });
-  test('content, goal links and setup work in both languages', async ({ page }) => {
+  test('guides, setup, updates and FAQ work in both languages', async ({ page }) => {
     for (const prefix of ['', 'zh-CN/']) {
       await page.goto(base + prefix);
-      await expect(page.locator('h1')).toBeVisible();
-      await expect(page.locator('[data-hero-object]')).toBeVisible();
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       await expect(page.locator('[data-orbit-scene] img')).toBeVisible();
-      await expect(page.locator('[data-workflow="design"]')).toBeVisible();
-      await page.locator('[data-choice="development"]').click();
-      await expect(page.locator('[data-workflow="development"]')).toBeVisible();
       await expect(page.locator('[data-motion-toggle]')).toBeHidden();
-      await page.locator('[data-choice="deployment"]').click();
-      await expect(page.locator('[data-outcome="deployment"]')).toBeVisible();
-      await expect(page.locator('[data-workflow="deployment"]')).toBeVisible();
-      await expect(page.locator('[data-outcome="growth"]')).toBeHidden();
-      await page.locator('[data-task-start="deployment"]').click();
-      await expect(page.locator('#task-deployment')).toBeVisible();
-      await expect(page.locator('#task-deployment code')).toContainText('$solo-vibe-coding');
-      await page.locator('#first-task a[href="#installation"]').click();
-      await page.locator('.on-this-page a[href="#first-task"]').click();
-      await expect(page.locator('#task-deployment')).toBeVisible();
-      await page.locator('[data-task-menu] > summary').click();
-      await page.locator('.task-request-nav a[href="#task-design"]').click();
-      await expect(page.locator('#task-design')).toBeVisible();
-      await page.goto(base + prefix);
+      await page.locator('.product-actions a[href="#how-it-helps"]').click();
+      await expect(page.locator('#how-it-helps')).toBeVisible();
+      const faq = page.locator('.home-faq details').first();
+      await faq.locator('summary').click();
+      await expect(faq.locator('p')).toBeVisible();
       await page.locator('[data-task-entry="project-initialization"]').click();
       await expect(page.locator('#initialize code')).toContainText(prefix ? '保留已有数据' : 'preserve existing data');
       await page.locator('[data-guide-start="initialize"]').click();
       await expect(page.locator('#task-initialize')).toBeVisible();
+      await expect(page.locator('[data-task-request]')).toHaveCount(12);
       await expect(page.locator('#task-review')).toBeVisible();
+      await page.locator('[data-task-menu] > summary').click();
+      await page.locator('.task-request-nav a[href="#task-design"]').click();
+      await expect(page.locator('#task-design code')).toBeVisible();
       await page.goto(base + prefix + 'getting-started/#updating');
       await expect(page.locator('#updating code').first()).toBeVisible();
       await page.locator('#updating > a[href="#verify-skill"]').click();
       await expect(page.locator('#verify-skill code')).toBeVisible();
-      await page.goto(base + prefix);
-      await page.locator('[data-case-link]').first().click();
-      await expect(page.locator('[data-case-summary]')).toBeVisible();
-      await expect(page.locator('[data-starter-download]')).toBeVisible();
-      await page.locator('[data-start]').first().click();
-      await expect(page).toHaveURL(/getting-started\/$/);
-      await expect(page.locator('#first-task')).toContainText('$solo-vibe-coding');
-      await page.locator(`footer a[href="${base + prefix + example}"]`).click();
-      await expect(page.locator('[data-calculator]')).toBeVisible();
-      await expect(page.locator('[data-calculator] input[name="hours"]')).toBeDisabled();
-      await expect(page.locator('[data-calculator] [data-total]')).toBeVisible();
-      await expect(page.locator('[data-calculator] noscript')).toBeVisible();
     }
   });
+});
+
+test('removed pages and their downloadable resources return 404', async ({ request }) => {
+  for (const prefix of ['', 'zh-CN/']) {
+    for (const route of ['case-study/bookmark-export/', 'examples/quote-calculator/', 'build-log/', 'build-log/working-methods/', 'build-log/first-public-build/']) {
+      expect((await request.get(base + prefix + route)).status()).toBe(404);
+    }
+  }
+  for (const resource of ['case-study/bookmark-starter.zip', 'case-study/bookmarks-round-1.png', 'case-study/bookmarks-round-2.png', 'media/app-mobile.webp', 'media/design-before.webp', 'media/design-after.webp', 'media/login.webp', 'media/video-call.webp', 'licenses/big-js-MIT.txt']) {
+    expect((await request.get(base + resource)).status()).toBe(404);
+  }
 });
 
 test('clipboard denial keeps manual copying available', async ({ page }) => {
@@ -477,7 +215,7 @@ test('clipboard denial keeps manual copying available', async ({ page }) => {
     Object.defineProperty(navigator, 'clipboard', { value: { writeText: async () => { throw new Error('Clipboard permission denied'); } } });
   });
   await page.goto(base + 'getting-started/');
-  const copy = page.locator('#task-development [data-copy]');
+  const copy = page.locator('#task-clarify [data-copy]');
   await copy.click();
   await expect(copy).toContainText('Select and copy the text');
   await expect(copy).not.toHaveAttribute('data-copied', 'true');

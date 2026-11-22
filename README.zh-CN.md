@@ -36,7 +36,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 ```text
 使用 $solo-vibe-coding，把这条反馈整理成范围明确的功能规格：
-用户希望将收藏条目导出为 CSV。沿用项目已有规范。
+用户希望在设置页调整通知频率。沿用项目已有规范。
 ```
 
 ```text
@@ -67,7 +67,7 @@ npx skills add /path/to/solo-vibe-coding --skill solo-vibe-coding
 
 ## 官网
 
-查看[收藏工具两轮修改的真实案例](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/case-study/bookmark-export/)，了解同一 Agent 有无 Skill 的实际任务、采用的指导、检查与未验证范围；再跟着[开始使用指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/)用于自己的项目。双语官网另保留[可操作的报价计算器](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/examples/quote-calculator/)，用于体验一种可能的成果。
+[双语官网](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/)介绍六类任务入口与工程交付方法。按照[开始使用指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/getting-started/)安装 Skill，或从[任务指南](https://jmaxzh.github.io/solo-vibe-coding/zh-CN/guides/)选择需求，用于自己的项目。
 
 ## 维护这个仓库
 

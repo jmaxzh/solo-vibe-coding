@@ -14,12 +14,12 @@ const zh = locale === 'zh-CN';
       <h1 id="hero-title"><span data-title-line>{ui.title}</span><span class="hero-accent" data-title-line>{ui.accent}</span></h1>
       <p class="hero-description">{ui.description}</p>
       <div class="product-actions">
-        <a class="button button-primary" data-magnetic data-start data-home-start href={href(locale, 'getting-started') + '?task=design#task-design'}><span>{ui.primary}</span><span class="action-orbit" aria-hidden="true">↗</span></a>
-        <a class="button button-secondary" href="#usage-demo"><span class="play-symbol" aria-hidden="true">▶</span>{ui.secondary}</a>
+        <a class="button button-primary" data-magnetic data-start href={href(locale, 'getting-started')}><span>{ui.primary}</span><span class="action-orbit" aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" href="#how-it-helps">{ui.secondary}</a>
       </div>
       <p class="product-note">{ui.note}</p>
     </div>
-    <div class="hero-bottom"><a class="hero-scroll" href="#usage-demo"><span class="scroll-circle" aria-hidden="true">↓</span><span>{zh ? '向下探索，看看实际用法' : 'Explore how it works'}</span></a><span class="hero-bottom-label">ONE SKILL. YOUR OWN ASSISTANT.</span></div>
+    <div class="hero-bottom"><a class="hero-scroll" href="#how-it-helps"><span class="scroll-circle" aria-hidden="true">↓</span><span>{zh ? '向下了解交付方法' : 'Explore the delivery method'}</span></a><span class="hero-bottom-label">ONE SKILL. YOUR OWN ASSISTANT.</span></div>
     <button class="motion-toggle hero-motion" type="button" data-motion-toggle data-pause={zh ? '暂停动画' : 'Pause motion'} data-play={zh ? '开启动画' : 'Play motion'} data-reduced={zh ? '动画已关闭' : 'Motion reduced'} hidden><span class="motion-icon" aria-hidden="true">Ⅱ</span><span data-motion-label>{zh ? '暂停动画' : 'Pause motion'}</span></button>
   </div>
 </section>
@@ -46,7 +46,6 @@ const zh = locale === 'zh-CN';
   .action-orbit { display: grid; place-items: center; border: 1px solid #74402d66; border-radius: 50%; width: 34px; height: 34px; font-size: 22px; line-height: 1; font-weight: 400; }
   .product-actions .button-secondary { background: #111b2a73; border: 1px solid #76879e80; color: #edf4fd; padding-inline: 21px; gap: 10px; backdrop-filter: blur(12px); }
   .button-secondary:hover { background: #1d2d43ad; }
-  .play-symbol { font-size: 9px; }
   .product-note { color: #afbdd0; margin-top: 18px; font-size: 11px; }
   .hero-bottom { position: absolute; inset: auto 0 26px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   .hero-scroll { display: inline-flex; align-items: center; gap: 13px; min-height: 48px; text-decoration: none; color: #c6d1e2; font-size: 10px; letter-spacing: .03em; }

@@ -35,7 +35,8 @@ function targetFile(url) {
   return existsSync(index) ? index : null;
 }
 
-check(pages.length >= 17, `Expected bilingual content, a real task, examples, updates and a 404 page, found ${pages.length} HTML files.`);
+const expectedPages = ['index.html', 'getting-started/index.html', 'guides/index.html', 'zh-CN/index.html', 'zh-CN/getting-started/index.html', 'zh-CN/guides/index.html', '404.html'];
+check(pages.length === expectedPages.length && expectedPages.every((page) => documents.has(join(root, page))), `Expected bilingual home, setup and guide pages plus a 404 page, found: ${pages.map((page) => relative(root, page)).join(', ')}.`);
 for (const file of pages) {
   const document = documents.get(file);
   const label = relative(root, file);

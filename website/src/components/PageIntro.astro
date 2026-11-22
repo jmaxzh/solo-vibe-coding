@@ -1,23 +1,16 @@
 ---
-import DeviceMockup from './DeviceMockup.astro';
-import { PROJECT, type Locale } from '../data/site';
-interface Props { locale: Locale; title: string; titleLines?: string[]; description: string; kind?: 'start' | 'guides' | 'quote' | 'case' | 'updates' | 'article' | 'missing'; }
+import type { Locale } from '../data/site';
+interface Props { locale: Locale; title: string; titleLines?: string[]; description: string; kind?: 'start' | 'guides' | 'missing'; }
 const { locale, title, titleLines, description, kind = 'guides' } = Astro.props;
 const zh = locale === 'zh-CN';
-const illustrated = ['guides', 'case'].includes(kind);
-const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按任务开始' : 'FIND YOUR TASK', quote: zh ? '可操作示例' : 'LIVE EXAMPLE', case: zh ? '历史执行记录' : 'EXECUTION RECORD', updates: zh ? '最新更新' : 'UPDATES', article: zh ? '使用与更新' : 'NOTES', missing: zh ? '返回首页' : 'BACK TO THE START' };
+const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按任务开始' : 'FIND YOUR TASK', missing: zh ? '返回首页' : 'BACK TO THE START' };
 ---
-<header class:list={['page-intro', 'brand-intro', { illustrated }]} data-page-intro={kind}>
+<header class="page-intro brand-intro" data-page-intro={kind}>
   <div class="intro-copy"><p class="intro-kicker"><span>SOLO VIBE CODING</span><span>{labels[kind]}</span></p><h1>{titleLines ? titleLines.map((line) => <span>{line}</span>) : title}</h1><p>{description}</p><slot /></div>
-  {illustrated && <div class="intro-reference">
-    {kind === 'guides' && <figure><img class="call-image" src={PROJECT.base + 'media/video-call.webp'} width="1000" height="687" alt={zh ? 'Jitsi Meet 的成品界面参考，展示电脑与手机上的视频通话。不是本 Skill 的实测成果。' : 'Jitsi Meet interface reference showing video calls across desktop and phone, not a measured result of this skill.'} decoding="async" /><figcaption>{zh ? '界面参考：' : 'Interface reference: '}<a href="https://github.com/jitsi/jitsi-meet">Jitsi Meet</a></figcaption></figure>}
-    {kind === 'case' && <figure><DeviceMockup src={PROJECT.base + 'case-study/bookmarks-round-2.png'} alt={zh ? '历史执行记录中收藏工具的实际截图，具体条件与限制见正文。' : 'An actual bookmark-tool screenshot from the execution record; conditions and limits are explained below.'} /><figcaption>{zh ? '实际项目截图 · 验证条件见正文' : 'Actual project screenshot · conditions below'}</figcaption></figure>}
-  </div>}
 </header>
 
 <style>
   .brand-intro { display: block; max-width: none; color: var(--ink); padding: 38px 0 42px; margin-bottom: 38px; border-bottom: 1px solid var(--ink); }
-  .brand-intro.illustrated { display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center; }
   .intro-copy { min-width: 0; }
   .intro-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 15px; color: var(--muted); font-size: .6875rem; letter-spacing: .08em; margin-bottom: 23px; }
   .intro-kicker > span:last-child { color: var(--action); border-left: 1px solid var(--line); padding-left: 15px; }
@@ -25,14 +18,6 @@ const labels = { start: zh ? '开始使用' : 'GET STARTED', guides: zh ? '按�
   .intro-copy h1 > span { display: block; }
   .intro-copy > p:not(.intro-kicker) { max-width: 65ch; color: var(--muted); font-size: 1rem; line-height: 1.9; margin-top: 23px; }
   .intro-copy :global(p) { color: var(--muted); }
-  .intro-copy :global(a) { color: var(--action); }
-  .intro-copy :global(.text-link) { margin-top: 20px; border-color: var(--line); font-size: .875rem; }
-  .intro-copy :global(.article-meta) { color: var(--muted); margin-top: 22px; }
-  .intro-reference { min-width: 0; }
-  .intro-reference figure { margin: 0; }
-  .call-image { display: block; width: 100%; height: auto; }
-  .intro-reference figcaption { margin-top: 16px; font-size: .6875rem; color: var(--muted); text-align: center; }
-  @media (max-width: 1100px) { .brand-intro.illustrated { gap: 35px; } }
-  @media (max-width: 800px) { .brand-intro, .brand-intro.illustrated { grid-template-columns: 1fr; padding-block: 25px 32px; gap: 30px; } .intro-copy h1 { max-width: 28ch; } .intro-reference { width: 100%; max-width: 480px; } }
-  @media (max-width: 480px) { .brand-intro, .brand-intro.illustrated { padding-block: 20px 27px; margin-bottom: 27px; gap: 24px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .9375rem; margin-top: 17px; } .intro-kicker { margin-bottom: 18px; } }
+  @media (max-width: 800px) { .brand-intro { padding-block: 25px 32px; } .intro-copy h1 { max-width: 28ch; } }
+  @media (max-width: 480px) { .brand-intro { padding-block: 20px 27px; margin-bottom: 27px; } .intro-copy h1 { font-size: 2rem; letter-spacing: -.03em; } .intro-copy > p:not(.intro-kicker) { font-size: .9375rem; margin-top: 17px; } .intro-kicker { margin-bottom: 18px; } }
 </style>

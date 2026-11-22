@@ -36,7 +36,7 @@ Select the skill through your agent's supported interface. For hosts with explic
 
 ```text
 Use $solo-vibe-coding to turn this feedback into a scoped feature spec:
-users want to export their saved items as CSV. Follow this project's conventions.
+users want to adjust notification frequency in settings. Follow this project's conventions.
 ```
 
 ```text
@@ -69,7 +69,7 @@ The [skill entry point](skills/solo-vibe-coding/SKILL.md) offers six task entry 
 
 ## Website
 
-See an [actual two-round bookmark task](https://jmaxzh.github.io/solo-vibe-coding/case-study/bookmark-export/) with and without the skill, including what was used, checked and left unverified. Follow the [getting-started walkthrough](https://jmaxzh.github.io/solo-vibe-coding/getting-started/) to use it in your own project. The bilingual website also includes a [working quote calculator](https://jmaxzh.github.io/solo-vibe-coding/examples/quote-calculator/) as an example of a possible result.
+The [bilingual website](https://jmaxzh.github.io/solo-vibe-coding/) introduces the six task entry points and engineering delivery method. Follow the [getting-started guide](https://jmaxzh.github.io/solo-vibe-coding/getting-started/) to install the skill, or choose a request from the [task guides](https://jmaxzh.github.io/solo-vibe-coding/guides/) for your own project.
 
 ## Maintaining this repository
 

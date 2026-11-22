@@ -31,38 +31,29 @@ npm run test:e2e
 
 ## 修改内容与资源
 
-- `src/data/site.ts`：项目事实、导航、双语文案、用户场景、完整首次需求与页面元数据。修改能力、安装、许可或边界时核对 Skill 和仓库 README。
-- `src/data/outcomes.ts`：四类代表任务的目标、困难、具体帮助、交付目标和需求；首页、使用场景和上手页共用，保持中英内容与操作边界对应。
-- `src/data/tasks.ts`：六类任务目录、独立需求示例与检查点；复用既有场景和代表任务，供首页、指南与上手页共同读取。旧场景 ID 保持原用途，每项指南的开始链接延续到同一任务。
-- `src/components/TaskEntries.astro`、`DeliveryMethod.astro`：六类能力入口与工程交付流程说明；分别说明独立任务范围与完整工程实施路径，视觉和文件交付条件与当前 Skill 保持一致。
-- `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对事实依据、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
-- `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
-- `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。
-- `src/components/Hero.astro`、`Home.astro`、`TaskStage.astro`：沉浸式首屏、独立四类任务示意章节、四个痛点、使用步骤、真实内容、安装与 FAQ；任务数据与内页共用。首页组件样式及 `Layout.astro` 中的 `body.homepage` 变量和导航页脚样式仅作用于首页。
-- OrbitScene.astro、HomeInteractions.astro：首页原创装饰图、有限粒子轨道、视差与指针增强；与既有动画偏好同步，Canvas离屏/隐藏/减少动画时停止，核心内容和操作不依赖动效。
-- public/media/orbit/chrome-orbit.webp：首页装饰概念图，静态资源直接分发。
-- `src/components/WorkflowDiagram.astro`：助手使用示意章节正文；与四类任务同步，说明具体需求、Skill专业方法与交付检查目标的关系。内容预渲染并支持无脚本切换，不依赖研究档案或第三方图片。
-- `src/components/ImageCompare.astro`：可复用的设计参考对比组件；素材与真实执行证据分别注明来源。
-- `src/components/DeviceMockup.astro`、`src/styles/vendor/devices.css`：现成设备样机与原作者样式；保留许可与归属，屏幕内容使用已取得的素材。
-- `src/components/Terminal.astro`：安装终端展示；完整命令预渲染并可复制，输入动效不冒充真实安装结果，遵循减少动态效果与暂停偏好。
-- `src/components/PageIntro.astro`：内页共用的品牌页头，以开放式文字标题承接正文，指南和案例按用途使用界面参考或实际截图；颜色、字号、间距和圆角以公共样式为准。
-- `src/components/TaskVisual.astro`：首页与指南共用的四类任务界面参考，保留可访问名称、来源及演示数据说明。
-- `src/components/QuoteCalculator.astro` 与 `src/lib/quote.ts`：可操作的报价示例、输入校验、金额计算和 CSV 下载；数据在浏览器处理，金额与下载共享计算逻辑。
-- `src/content/build-log/`：英文和中文 Markdown 文章；保持对应 slug、真实日期与作者事实。新增文章后登记 `src/data/posts.ts`。
-- `src/components/`、`src/layouts/`、`src/styles/global.css`：页面结构、交互与视觉；同时核对手机和关闭 JavaScript 的行为。
-- `src/components/WebsiteMotion.astro`：首页标题、助手示意入场与任务切换的动画增强、暂停偏好和系统减少动态效果；文字全程可读，停用脚本不影响核心路径。阅读与操作页以稳定内容和即时反馈为主。
-- `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 重生成 PNG 并复制分发依赖的许可，随后提交这些资源。
-- `public/licenses/`：自托管字体、Big.js 和视觉素材的许可；依赖与素材升级时核对相应归属和分发要求。
+- `src/data/site.ts`：项目事实、页面路径、双语文案、安装、更新与版本核对请求、FAQ 和元数据。能力与边界对照 Skill 和仓库 README。
+- `src/data/tasks.ts`：六类任务目录、十二份通用需求与检查点，供指南和上手页共用。中英文保持相同范围，每份需求的开始链接延续同一任务。
+- `src/components/TaskEntries.astro`、`DeliveryMethod.astro`：六类能力入口与工程交付方法。各任务可以独立使用，完整工程路径不作为所有任务的必经流程。
+- `src/components/Hero.astro`、`Home.astro`：首屏、能力入口、使用步骤与交付方法、安装和 FAQ。首页样式及 `Layout.astro` 中的首页主题限定于首页。
+- `src/components/OrbitScene.astro`、`HomeInteractions.astro`、`WebsiteMotion.astro`：原创装饰图、粒子轨道、主按钮指针反馈、标题动效和动画偏好；离屏、隐藏或减少动画时停止 Canvas 绘制，核心路径不依赖动效。
+- `public/media/orbit/chrome-orbit.webp`：首页装饰概念图，随静态资源分发。
+- `src/components/Terminal.astro`、`CodeBlock.astro`：完整可复制的命令与需求；终端的输入动画仅为命令演示。
+- `src/components/GettingStarted.astro`、`Guides.astro`、`PageIntro.astro`：安装、更新、版本核对、任务需求与内页页头；同时核对语言、手机、键盘和关闭 JavaScript 的行为。
+- `src/layouts/Layout.astro`、`src/styles/global.css`：公共导航、页脚、元数据、复制和响应式排版。
+- `public/social-card.svg`：分享图片可编辑源。执行 `npm run assets` 生成 PNG 并复制字体许可，提交生成资源。
+- `public/licenses/`：自托管字体及保留组件的许可与来源；更换素材或依赖时核对归属和分发要求。
 
-重要选择记录到 [决策索引](../docs/decisions.md)；更新行为时维护需求、架构、操作与测试文档。
+公开内容为中英文首页、开始使用、任务指南，以及共用 404，共七个 HTML 页面。新增或删除页面时同步维护路由、导航、元数据、sitemap 和验证脚本的页面清单；构建产物不得包含未登记页面和无用途的资源。
+
+重要选择记录到[决策索引](../docs/decisions.md)；行为变动时同步维护需求、架构、操作与测试文档。
 
 ## 用户与维护内容
 
-官网的首页、真实任务、上手、场景、示例与更新面向产品使用者。维护知识库、ADR 与工作流用于仓库维护；网站不将它们作为文章或导航的阅读目标。`verify` 会检查这些已知维护链接是否误入发布页面。
+官网介绍 Skill 能力、工程交付方法、安装使用和通用任务需求。制作发生在用户自己的编程助手中，实际结果取决于模型、工具、项目条件与授权。
 
-更新使用示例时，给出用户想做的事、可操作或可核验的成果、重要条件与开始方式。用户自己的项目上下文可以作为“后续修改接着做”的收益说明，不与本仓库维护知识混用。
+维护知识库、ADR、研究和 CI 记录在仓库中查阅，不成为官网文章或导航的阅读目标。`verify` 检查维护链接是否误入发布页面。
 
-中英文保留相同产品事实和操作边界，分别按目标读者习惯写作；完整通读页面路径，并分别检查排版、术语、错误信息与图示说明。各页面类型在桌面和手机并排核对，保持品牌一致且适合操作或阅读。
+两种语言保留相同产品事实和操作边界，分别按读者习惯写作；检查完整导航路径、术语、需求、排版与交互状态。
 
 ## GitHub Pages 发布
 

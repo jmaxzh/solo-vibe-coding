@@ -1,62 +1,43 @@
 # 当前架构
 
-仓库由独立分发的 Agent Skill 和静态生成的双语官网组成。官网是产品介绍与文档入口，运行时不执行 Agent，也不依赖后端服务。
+仓库由独立分发的 Agent Skill 和静态生成的双语官网组成。官网介绍能力与使用方法，运行时不执行 Agent，不需要后端服务。
 
 ## 模块与边界
 
 | 模块 | 位置 | 责任 |
 | --- | --- | --- |
-| 默认英文技能 | `skills/solo-vibe-coding/` | 技能行为、任务指导、引用与许可证；能力事实的主要来源 |
-| 对应中文技能 | `i18n/zh-CN/skills/solo-vibe-coding/` | 保持能力与结构一致的中文内容 |
-| 官网构建工程 | `website/` | 独立 npm 清单、锁文件与 Astro 配置 |
-| 项目事实与界面文案 | `website/src/data/site.ts` | 品牌、网址、安装命令、双语文案、用户目标场景、完整首次需求与页面元数据 |
-| 定位与案例 | `website/src/data/outcomes.ts`、`case-study.ts`、`case-evidence.ts`、对应组件 | 可复用指导说明、用户任务、已审查的公开证据；不运行或导入研究材料 |
-| 任务目录与示例 | `website/src/data/tasks.ts`、`TaskEntries.astro`、`DeliveryMethod.astro` | 双语六类能力入口、共用需求与检查点，以及工程交付方法；复用既有场景与代表任务，供首页、指南和上手页读取 |
-| 构建日志 | `website/src/content/build-log/`、`website/src/data/posts.ts` | 双语 Markdown、显式文章索引、真实日期与对应 slug |
-| 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、页面结构、导航、语言切换、SEO、渐进增强 |
-| 展示组件与样式 | `website/src/components/`、`website/src/styles/` | 用户首页、上手与场景、报价示例、复制和响应式排版 |
-| 视觉素材与交互 | `website/public/media/`、`WorkflowDiagram.astro`、`OrbitScene.astro`、`HomeInteractions.astro`、`DeviceMockup.astro`、`Terminal.astro`、`styles/vendor/devices.css` | 原创助手使用示意、装饰主视觉与可暂停的原生Canvas、自托管的第三方界面参考、现成设备样机与可复制安装命令；许可随发布资源提供 |
-| 可用成果示例 | `website/src/components/QuoteCalculator.astro`、`website/src/lib/quote.ts` | 浏览器端报价计算、校验与 CSV 下载；Big.js 处理十进制金额，无后端 |
-| 静态资源 | `website/public/` | 图标、分享图片、案例真实截图、独立起始项目ZIP、分发许可与 `.nojekyll` |
-| 自动检查 | `website/scripts/`、`website/tests/` | 产物完整性、交互、布局与可自动检测的无障碍问题 |
-| 发布流水线 | `.github/workflows/website.yml` | PR 检查、主分支检查与 Pages 发布 |
-| 知识库 | `docs/`、`CONSTRAINTS.md` | 需求、架构、决策、设计与测试规范 |
+| 英文与中文技能 | `skills/solo-vibe-coding/`、`i18n/zh-CN/skills/solo-vibe-coding/` | 相同能力与结构的技能包，是能力事实主要来源 |
+| 官网工程 | `website/` | 独立 npm 清单、锁文件与 Astro 配置 |
+| 项目事实与文案 | `website/src/data/site.ts` | 品牌、路径、安装、双语文案、FAQ、更新核对请求和页面元数据 |
+| 任务目录与请求 | `website/src/data/tasks.ts` | 六类能力与十二个通用任务，指南与上手页共用需求和检查点 |
+| 页面与布局 | `website/src/pages/`、`website/src/layouts/` | 静态路由、导航、语言切换、SEO 和复制 |
+| 页面组件 | `website/src/components/` | 首页、能力入口、工程交付、安装、任务指南与页头 |
+| 视觉与交互 | `OrbitScene.astro`、`HomeInteractions.astro`、`WebsiteMotion.astro`、`Terminal.astro`、`src/styles/` | 装饰光环、可暂停粒子、主按钮反馈、安装命令和响应式排版 |
+| 静态资源 | `website/public/` | 图标、分享图片、装饰图、字体与组件许可、`.nojekyll` |
+| 自动检查 | `website/scripts/`、`website/tests/` | 产物、路由、交互、布局和可检测无障碍问题 |
+| 发布流水线 | `.github/workflows/website.yml` | PR 检查、主分支检查与 GitHub Pages 发布 |
+| 知识库 | `docs/`、`CONSTRAINTS.md` | 当前需求、架构、设计、测试和独立决策记录 |
 
 ## 构建与运行
 
-```text
-维护者编辑双语文案 / Markdown / 组件
-          ↓
-Astro + 锁定的 npm 依赖
-          ↓
-website/dist/：HTML、CSS、少量 JS、字体、图片、sitemap
-          ↓
-产物验证 + Chromium 验证
-          ↓
-GitHub Pages：/solo-vibe-coding/
-```
+维护者编辑双语数据和组件，经 Astro 构建为 `website/dist/`，通过静态产物与 Chromium 验证后部署到 GitHub Pages。
 
-默认英文页面位于项目根路径，中文位于 `zh-CN/`。内容由构建期生成，切换语言保持主题。`[...path].astro` 生成首页、上手、用户场景、报价示例、真实任务、更新索引和已登记文章；`404.astro` 生成项目 404 页。公开页面共17个 HTML。
+`[...path].astro` 生成中英文首页、开始使用、任务指南；`404.astro` 生成共用错误页，共七个 HTML。页面标题、摘要、语言链接和 sitemap 从同一页面定义生成。
 
-首页的专业指导、四个痛点与真实内容入口为静态内容，案例起始项目ZIP可直接下载。原生单选控件和CSS使首屏助手示意中的需求、专业方法与交付检查目标在无脚本时同步切换。首页样式与导航、页脚颜色限定于首页；阅读与操作内页保留原样式。JavaScript增强首页任务在安装入口与语言切换中的延续、命令输入演示、复制与报价计算、校验和下载；第三方参考图片与实际任务证据分别标注，设备样机和组件不需要额外前端框架。关闭脚本后保留普通目标链接、完整需求、安装与求助步骤、更新和 FAQ；报价工具显示初始结果与计算方式，并禁用无法更新的输入。
+首页内容静态可读，光环与字带按动画偏好增强。JavaScript 提供复制、动画暂停和上手页任务聚焦。指南与上手页从同一任务数据读取请求；有效任务参数和锚点保持安装、刷新、历史导航与语言切换的连续性。无脚本时全部需求和普通链接仍可用。
 
-六类任务目录链接到指南中的对应分组，分组包含可独立使用的示例。旧场景锚点及其目标继续有效。指南和上手页读取同一份任务需求；上手页从预渲染内容识别有效任务参数或锚点，通过原生 `hidden` 属性聚焦所选任务，不在样式中枚举任务 ID。无脚本时保留全部需求和普通锚点导航。
-
-用户官网不引用维护知识库、ADR 和 CI 作为阅读入口；维护材料在仓库中查阅。源码和许可入口保留在页脚。
+首页主题、导航及页脚颜色限定于首页，阅读内页保留暖纸色。安装终端只有命令演示，不展示未经执行的成功记录。
 
 ## 依赖与外部系统
 
-- 构建使用 Astro、官方 sitemap 集成与 TypeScript；当前版本以 `website/package-lock.json` 为准。
-- 本地和 CI 使用同一组 npm 检查命令。浏览器测试依赖 Playwright Chromium 和 axe。
-- Big.js 用于报价的十进制计算：先将单价和额外费用舍入到分，再分别将工时费用、预留费用四舍五入到分；下载与页面共用结果。MIT 许可随发布资源提供，依赖升级需重跑金额边界检查。
-- Manrope 与 IBM Plex Mono 随站点自托管；中文使用系统字体。字体许可随发布资源提供。
-- 用户从网站复制命令后，在自己的编程助手中安装和运行 Skill。该执行环境与官网托管完全独立。
-- GitHub 保存源码、Issue、Actions 记录和 Pages 发布。首版没有账号系统、表单后端、浏览器端分析服务或数据库。
+- Astro、官方 sitemap 集成和 TypeScript；版本由 `website/package-lock.json` 固定。
+- Playwright Chromium 和 axe 用于浏览器交互、布局与无障碍检查；本地和 CI 使用同一命令。
+- Manrope 与 IBM Plex Mono 自托管，中文使用系统字体，许可证随站分发。
+- GitHub 保存源码与 Actions 记录，GitHub Pages 仅发布 `website/dist/`。
+- 用户在自己的编程助手中安装和执行 Skill，该环境与官网独立；官网没有账号、分析 SDK、数据库或表单后端。
 
-## 重要约束
+站点源为 `https://jmaxzh.github.io`，项目路径为 `/solo-vibe-coding/`。资源、内链、canonical 和 sitemap 同时遵守这两个值。
 
-站点源为 `https://jmaxzh.github.io`，项目路径为 `/solo-vibe-coding/`；二者同时用于资源、内链、canonical 和 sitemap。源码与配置应一起维护。
+Skill、研究与历史 ADR 不因位于仓库中而进入官网产物，网站也不链接它们作为维护阅读入口。源码与许可链接保留在页脚。
 
-研究档案和 Skill 文件不会因位于同一个仓库而自动作为官网静态资源发布。发布输入仅为 `website/dist/`，安装包仍从 Skill 目录分发。
-
-采用依据见 [决策索引](decisions.md)，操作方法见 [官网 README](../website/README.md)。
+页面范围见 [ADR 0015](adr/0015-focused-website-content.md)，历史选择见[决策索引](decisions.md)，操作方法见[官网 README](../website/README.md)。

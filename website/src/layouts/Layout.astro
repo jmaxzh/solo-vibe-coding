@@ -8,11 +8,10 @@ interface Props {
   title: string;
   description: string;
   route?: string;
-  article?: { title: string; date: string; };
   noindex?: boolean;
 }
 
-const { locale, page, title, description, route = PAGE_PATHS[page], article, noindex = false } = Astro.props;
+const { locale, page, title, description, route = PAGE_PATHS[page], noindex = false } = Astro.props;
 const ui = UI[locale];
 const canonical = new URL(href(locale, route), PROJECT.origin).href;
 const alternate = locale === 'en' ? 'zh-CN' : 'en';
@@ -20,7 +19,7 @@ const englishURL = new URL(href('en', route), PROJECT.origin).href;
 const chineseURL = new URL(href('zh-CN', route), PROJECT.origin).href;
 const graph: Record<string, unknown>[] = [
   { '@type': 'WebSite', '@id': PROJECT.origin + PROJECT.base + '#website', name: PROJECT.name, url: PROJECT.origin + PROJECT.base, inLanguage: ['en', 'zh-CN'], sameAs: PROJECT.repository },
-  { '@type': article ? 'BlogPosting' : 'WebPage', '@id': canonical + '#page', url: canonical, name: title, headline: article?.title ?? title, description, inLanguage: locale, isPartOf: { '@id': PROJECT.origin + PROJECT.base + '#website' }, author: { '@type': 'Person', name: PROJECT.author, url: PROJECT.authorURL }, ...(article ? { datePublished: article.date, image: PROJECT.origin + PROJECT.base + 'social-card.png', mainEntityOfPage: canonical } : {}) },
+  { '@type': 'WebPage', '@id': canonical + '#page', url: canonical, name: title, headline: title, description, inLanguage: locale, isPartOf: { '@id': PROJECT.origin + PROJECT.base + '#website' }, author: { '@type': 'Person', name: PROJECT.author, url: PROJECT.authorURL } },
 ];
 if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin + PROJECT.base + '#skill', name: PROJECT.name, description: UI.en.hero.description, url: PROJECT.repository, license: PROJECT.license, creator: { '@type': 'Person', name: PROJECT.author, url: PROJECT.authorURL }, isAccessibleForFree: true });
 ---
@@ -42,7 +41,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     </>}
     <link rel="icon" type="image/svg+xml" href={PROJECT.base + 'favicon.svg'} />
     <link rel="sitemap" href={PROJECT.base + 'sitemap-index.xml'} />
-    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:type" content="website" />
     <meta property="og:site_name" content={PROJECT.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -52,7 +51,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <meta property="og:image" content={PROJECT.origin + PROJECT.base + 'social-card.png'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={locale === 'en' ? 'Solo Vibe Coding — Build it sooner. Make it worth sharing.' : 'Solo Vibe Coding：把专业做法，用到你的项目里。'} />
+    <meta property="og:image:alt" content={locale === 'en' ? 'Solo Vibe Coding — Give your assistant a product playbook.' : 'Solo Vibe Coding：给你的编程助手，一套做产品的专业方法。'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -68,9 +67,9 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
           <span>Solo Vibe Coding</span>
         </a>
         <nav class="main-navigation" aria-label={locale === 'en' ? 'Main navigation' : '主导航'}>
-          <a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a>
+          <a href={href(locale, 'guides')} aria-current={page === 'guides' ? 'page' : undefined}>{ui.nav.guides}</a>
           <a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a>
-          <a href={href(locale, 'getting-started')} data-page="getting-started" data-home-start={page === 'home' || undefined} aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
+          <a href={href(locale, 'getting-started')} data-page="getting-started" aria-current={page === 'getting-started' ? 'page' : undefined}>{ui.nav['getting-started']}</a>
         </nav>
         <a class="language-switch" data-language-switch href={href(alternate, route)} lang={alternate} aria-label={ui.switchLanguage}>{ui.language}</a>
       </div>
@@ -79,7 +78,7 @@ if (page === 'home') graph.push({ '@type': 'CreativeWork', '@id': PROJECT.origin
     <footer class="site-footer">
       <div class="container footer-inner">
         <div><a class="footer-brand" href={href(locale)}>Solo Vibe Coding<span aria-hidden="true">✳</span></a><p>{ui.footer}</p><p class="footer-license">{ui.footerLicense} <a href={PROJECT.base + 'licenses/visual-assets.txt'}>{locale === 'en' ? 'Visual credits' : '视觉素材来源'}</a></p></div>
-        <div class="footer-links"><a href={href(locale, '', 'why-skill')}>{locale === 'en' ? 'Find your task' : '使用场景'}</a><a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, PAGE_PATHS.examples)}>{ui.nav.examples}</a><a data-case-link href={href(locale, PAGE_PATHS['case-study'])}>{locale === 'en' ? 'Execution record' : '历史执行记录'}</a><a href={href(locale, 'build-log')}>{ui.nav['build-log']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
+        <div class="footer-links"><a href={href(locale, 'guides')}>{ui.nav.guides}</a><a href={href(locale, '', 'how-it-helps')}>{locale === 'en' ? 'How it helps' : '怎么帮你'}</a><a href={href(locale, 'getting-started')}>{ui.nav['getting-started']}</a><a href={PROJECT.repository}>{ui.footerSource}</a><a href={PROJECT.license}>MIT License</a><a href="#top">{ui.footerTop}</a></div>
       </div>
     </footer>
     <script>
