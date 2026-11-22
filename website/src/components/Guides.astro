@@ -2,25 +2,41 @@
 import CodeBlock from './CodeBlock.astro';
 import PageIntro from './PageIntro.astro';
 import TaskVisual from './TaskVisual.astro';
-import { UI, SCENARIOS, href, type Locale } from '../data/site';
+import DeliveryMethod from './DeliveryMethod.astro';
+import { UI, href, type Locale } from '../data/site';
 import { OUTCOMES } from '../data/outcomes';
+import { TASK_GROUPS, TASKS } from '../data/tasks';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const ui = UI[locale].guides;
-const order = ['development', 'design', 'deployment', 'growth', 'requirements', 'architecture'];
-const scenarios = [...SCENARIOS[locale]].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id)).map((scenario) => {
-  const outcome = OUTCOMES[locale].find((item) => item.id === scenario.id);
-  return { ...scenario, ...(outcome ? { title: outcome.goal, summary: outcome.pain, prompt: outcome.prompt, output: outcome.deliverables.join(locale === 'en' ? '; ' : '；'), confirm: outcome.checks.join(' ') } : {}), help: outcome?.help ?? [], situation: outcome?.situation ?? '' };
-});
+const zh = locale === 'zh-CN';
 ---
 <div class="container document-shell">
   <PageIntro locale={locale} title={ui.title} description={ui.intro} kind="guides" />
-  <div class="document-layout"><nav class="on-this-page" aria-label={locale === 'en' ? 'Find your goal' : '找到你的目标'}>{scenarios.map((scenario) => <a href={`#${scenario.id}`}>{scenario.label}</a>)}</nav><div class="document-content task-guide-list">
-    {scenarios.map((scenario) => <section class="task-guide" id={scenario.id} data-guide-task><h2>{scenario.title}</h2><p>{scenario.summary}</p>{scenario.situation && <p>{scenario.situation}</p>}{scenario.help.length > 0 && <><div class="guide-scene"><TaskVisual locale={locale} kind={scenario.id as 'development' | 'design' | 'deployment' | 'growth'} /><p>{locale === 'en' ? 'Ready-made interface references, not results from the original community authors.' : '现成界面参考，不是社区原帖作者使用本 Skill 后的成果。'}</p></div><ul>{scenario.help.map((item) => <li><strong>{item.title}{locale === 'en' ? ': ' : '：'}</strong>{item.text}</li>)}</ul></>}<CodeBlock locale={locale} code={scenario.prompt} label={ui.prompt} /><div class="guide-facts"><div><h3>{ui.output}</h3><p>{scenario.output}</p></div><div><h3>{ui.confirm}</h3><p>{scenario.confirm}</p></div></div></section>)}
+  <div class="document-layout"><nav class="on-this-page" aria-label={zh ? '选择任务入口' : 'Choose a task entry point'}>{TASK_GROUPS[locale].map((group) => <a href={`#${group.id}`}>{group.label}</a>)}</nav><div class="document-content task-guide-list">
+    {TASK_GROUPS[locale].map((group) => <section class="task-guide" id={group.id} data-guide-task>
+      <h2>{group.label}</h2><p>{group.summary}</p>
+      {group.id === 'visual-interaction' && <div class="document-callout"><h3>{zh ? '先取得参考，再制作与对照检查' : 'Get a reference, then produce and compare'}</h3><p>{zh ? '可以用已认可的页面、截图、设计稿或图片；动效与视频使用可播放案例。没有参考时，先协助寻找。页面交付可操作实现并检查响应式和状态；图片交付最终文件及适用的可编辑源文件或生成参数；视频交付可播放导出文件与可编辑工程。工具、账号、费用或导出条件缺失时说明具体缺口。' : 'Use an approved page, screenshot, design or image; use playable examples for motion and video. If a reference is missing, find one first. Pages need a working implementation with responsive and state checks. Images need final files and applicable editable source or generation parameters. Videos need a playable export and editable project. Missing tools, accounts, budget or export capabilities must be reported.'}</p></div>}
+      {group.id === 'technical-delivery' && <DeliveryMethod locale={locale} />}
+      {group.tasks.map((id) => {
+        const task = TASKS[locale].find((item) => item.id === id)!;
+        const outcome = OUTCOMES[locale].find((item) => item.id === id);
+        return <article class="task-example" id={task.id} data-guide-example={task.id}>
+          <h3>{task.title}</h3><p>{task.summary}</p>
+          {outcome && <><p>{outcome.situation}</p><div class="guide-scene"><TaskVisual locale={locale} kind={outcome.id} /><p>{zh ? '现成界面参考，不是社区原帖作者使用本 Skill 后的成果。' : 'Ready-made interface references, not results from the original community authors.'}</p></div><ul>{outcome.help.map((item) => <li><strong>{item.title}{zh ? '：' : ': '}</strong>{item.text}</li>)}</ul></>}
+          <CodeBlock locale={locale} code={task.prompt} label={ui.prompt} />
+          <div class="guide-facts"><div><h4>{ui.output}</h4><p>{task.output}</p></div><div><h4>{ui.confirm}</h4><ul>{task.checks.map((check) => <li>{check}</li>)}</ul></div></div>
+          <a class="text-link" data-guide-start={task.id} href={href(locale, 'getting-started') + '?task=' + task.id + '#task-' + task.id}>{ui.next}</a>
+        </article>;
+      })}
+    </section>)}
     <a class="button button-primary" href={href(locale, 'getting-started')}>{ui.next}<span aria-hidden="true">↗</span></a>
   </div></div>
 </div>
 <style>
+  .task-example { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .task-example > h3 { font-size: 1.25rem; line-height: 1.6; }
+  .guide-facts h4 { font-size: .875rem; }
   .guide-scene { max-width: 510px; margin: 24px auto; background: var(--subtle); border-radius: var(--radius-card); padding: 16px 24px; }
   .guide-scene > p { font-size: .72rem; color: #4a5b77; margin-top: 10px; text-align: center; }
   @media (max-width: 480px) { .guide-scene { padding: 10px 12px 16px; } }

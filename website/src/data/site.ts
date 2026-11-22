@@ -37,7 +37,7 @@ const en = {
   hero: {
     context: 'An open-source skill for your coding assistant',
     title: 'Give your assistant', accent: 'a product playbook.',
-    description: 'From interface design and development to debugging, shipping and launch: add methods, references and checks for the task at hand. Keep using the coding assistant you know.',
+    description: 'Clarify requirements, design interfaces and visuals, set up a project, deliver a technical change, ship or reach users. Add relevant methods, references and checks to the coding assistant you know.',
     primary: 'Install and get started', secondary: 'See how it works',
     note: 'Works in your existing assistant · Free, open-source skill',
   },
@@ -60,7 +60,7 @@ const en = {
   getting: {
     title: 'Install it. Bring your own project.',
     titleLines: ['Install it.', 'Bring your own project.'],
-    description: 'Add Solo Vibe Coding to your coding assistant and start a repair, mobile redesign, release or first-user task in your own project.',
+    description: 'Install Solo Vibe Coding and choose from six task areas, from requirements and project setup to engineering delivery, release and acquisition. Continue with a request for your own project.',
     intro: 'Add the skill to your assistant, then send a request for the task you want to finish. Your existing project is the starting point.',
     beforeTitle: 'Open your coding assistant',
     beforeText: 'Open a project folder in the assistant you use to make things. It needs to be able to edit files and access the web. The main path below uses Codex CLI or the IDE extension.',
@@ -75,9 +75,9 @@ const en = {
     manualText: 'In your project folder, use Node.js 22.20+ and npm to run this command. Installation is for this project by default; add -g for use across projects.',
     firstTitle: 'Choose the task you want to finish',
     firstText: 'Send this request in Codex, or select the installed skill in your assistant and use the same project description. In Claude Code, start with /solo-vibe-coding instead of the $ mention.',
-    reviewTitle: 'Open the result and try it',
-    reviewText: 'Ask how to open the result, then check the basics for the task you chose:',
-    checks: ['Does it address the problem you started with?', 'Open it and complete the main user journey.', 'For a page, try it on a phone too.', 'Find out what was actually checked and what still needs confirmation.'],
+    reviewTitle: 'Check the result for your task',
+    reviewText: 'For requirements or a plan, review the scope, evidence and conclusions. For an implementation, ask how to open it and try it:',
+    checks: ['Does it address the problem you started with?', 'For implementation work, open it and complete the main user journey.', 'For a page, try it on a phone too.', 'Find out what was actually checked and what still needs confirmation.'],
     continueTitle: 'Make it yours',
     continueText: 'Point to the gap between the result and your goal. Share a concrete screen or a failing action. Ask the assistant to continue in the same project and check the affected parts.',
     troubleTitle: 'Something got in the way?',
@@ -89,8 +89,8 @@ const en = {
   },
   guides: {
     title: 'What are you working on?',
-    description: 'Find a starting request for a new website or tool, a feature, a design improvement, a fix, publishing, or sharing your product.',
-    intro: 'Choose a task, copy the request, and replace the brackets with your project details. Each guide explains the help to expect and what to check afterwards.',
+    description: 'Explore six independent task areas: requirements, visuals and interaction, project setup, technical delivery, production release, and acquisition. Copy requests with concrete outputs and checks.',
+    intro: 'Start from an established product direction and choose the task you need. Each area can be used independently, including requirements-only work, project setup, technical planning and read-only review. Copy a request and add your project context.',
     prompt: 'Send this to your assistant', output: 'What to ask it to deliver', confirm: 'What to check',
     next: 'Get set up and try your first task',
   },
@@ -136,7 +136,7 @@ const zh: typeof en = {
   hero: {
     context: '给编程助手的专业指导包 · 开源 Skill',
     title: '给你的编程助手，', accent: '一套做产品的专业方法。',
-    description: '从界面设计、功能开发到排查问题、上线推广，按当前任务补上方法、参考与检查步骤。继续使用你熟悉的编程助手。',
+    description: '从需求澄清、视觉与交互、项目初始化，到技术交付、生产发布与获客转化，按当前任务补上方法、参考和检查。继续使用你熟悉的编程助手。',
     primary: '安装并开始使用', secondary: '看看怎么用', note: '在现有助手中使用 · Skill 免费开源',
   },
   home: {
@@ -157,7 +157,7 @@ const zh: typeof en = {
   getting: {
     title: '装好 Skill，继续做你的项目。',
     titleLines: ['装好 Skill，', '继续做你的项目。'],
-    description: '在编程助手中安装 Solo Vibe Coding，从修复、移动界面、上线和首轮推广中选择任务，继续做自己的项目。',
+    description: '在编程助手中安装 Solo Vibe Coding，从需求、视觉、项目初始化、技术交付、发布与获客六类任务中选择入口，带着需求示例继续做自己的项目。',
     intro: '先在编程助手里安装，再选择适合当前任务的需求示例。已有项目可以直接接着做。',
     beforeTitle: '打开你的编程助手',
     beforeText: '在你用来做项目的助手中打开一个项目文件夹。助手需要能修改文件并访问网络。下面的主路径以 Codex CLI 或 IDE 扩展为例。',
@@ -172,9 +172,9 @@ const zh: typeof en = {
     manualText: '准备好 Node.js 22.20+ 和 npm，在项目文件夹运行下方命令。默认安装到当前项目，添加 -g 可以跨项目使用。',
     firstTitle: '选择任务，发送需求',
     firstText: '将这段需求发给 Codex；也可以先在正在使用的助手中选择已安装的 Skill，再发送相同的需求描述。Claude Code 用户把开头的 $ 调用改为 /solo-vibe-coding。',
-    reviewTitle: '打开成果，自己试一试',
-    reviewText: '让助手告诉你怎样打开成果。根据刚才选的任务，确认这些基本问题：',
-    checks: ['是否解决了你一开始提出的问题？', '实际打开，走完主要使用路径。', '涉及页面时，也在手机上试一试。', '问清实际验证了什么，哪些还需要确认。'],
+    reviewTitle: '按任务检查交付结果',
+    reviewText: '需求或方案任务，核对范围、依据与结论；涉及实现时，让助手说明怎样打开成果，再亲自试用：',
+    checks: ['是否解决了你一开始提出的问题？', '实现任务要实际打开成果，走完主要使用路径。', '涉及页面时，也在手机上试一试。', '问清实际验证了什么，哪些还需要确认。'],
     continueTitle: '根据实际效果继续修改',
     continueText: '指出实际结果与目标之间还差什么，提供具体画面或失败操作。让助手结合项目继续修改，并检查受影响的部分。',
     troubleTitle: '卡在某一步了？',
@@ -184,8 +184,8 @@ const zh: typeof en = {
   },
   guides: {
     title: '你想做什么？',
-    description: '从做一个新网站或工具、增加功能、改善设计、修复问题、发布分享或介绍产品中，找到适合自己的需求示例。',
-    intro: '选一个适合当前项目的任务，复制需求并补上具体情况。下面会说明 Skill 怎么帮你，以及拿到结果后该检查什么。',
+    description: '按需求澄清、视觉与交互、项目初始化、技术方案实施与验收、生产部署与发布、获客与转化六个入口，查找可复制需求、交付目标和检查要点。',
+    intro: '从已有明确产品方向出发，选择当前需要的任务。各入口可以独立使用，也可以只确认需求、准备环境、制定技术方案或只读评审。复制需求并补上项目情况，按对应目标检查结果。',
     prompt: '发给编程助手的需求', output: '这次要做成什么', confirm: '拿到结果后检查', next: '查看安装和使用步骤',
   },
   example: {
@@ -249,7 +249,7 @@ export function pageMetadata(locale: Locale, page: PageName) {
     'build-log': `${ui.nav['build-log']} — ${PROJECT.name}`,
   };
   const descriptions: Record<PageName, string> = {
-    home: locale === 'en' ? 'Break out of a bug loop, redesign a generic mobile app, get a demo live or reach your first users. One open-source skill brings relevant professional guidance to the assistant you already use.' : '修 Bug 总在兜圈、App 一股模板味、Demo 迟迟上不了线、做好的产品找不到用户？给编程助手加上 Solo Vibe Coding，按任务用上专业做法和现成参考。',
+    home: locale === 'en' ? 'One open-source skill for independent developers with a product direction: requirements, visuals, project setup, technical delivery, production release and acquisition, in your existing coding assistant.' : '为已有明确产品方向的独立开发者提供六个任务入口：需求澄清、视觉与交互、项目初始化、技术交付、生产发布、获客与转化。在现有编程助手中按需使用专业方法与参考。',
     'getting-started': ui.getting.description, guides: ui.guides.description, examples: ui.example.description, 'build-log': ui.log.description,
     'case-study': locale === 'en' ? 'Follow a real bookmark export task and a fresh-session change. See how Solo Vibe Coding was used, what was checked, and the limits of the comparison.' : '查看一次收藏导出和新会话追加修改的真实任务：Solo Vibe Coding 实际用了哪些指导、验证了什么，以及这次对照能说明和不能说明什么。',
   };

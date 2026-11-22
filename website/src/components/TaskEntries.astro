@@ -1,0 +1,30 @@
+---
+import { TASK_GROUPS } from '../data/tasks';
+import { href, type Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh-CN';
+---
+<section class="task-entries" id="task-entry-points" aria-labelledby="task-entries-title">
+  <div class="entries-intro">
+    <h2 id="task-entries-title">{zh ? '六个入口，从当前任务开始。' : 'Six entry points. Start with the task in front of you.'}</h2>
+    <p>{zh ? '适合已有明确产品方向的独立开发者。可以只澄清需求、准备环境或评审代码，也可以推进一项完整交付；不必从头走完所有任务。' : 'For independent developers with an established product direction. Clarify a requirement, prepare a project, review code or take a change through delivery. Each task can start independently.'}</p>
+  </div>
+  <div class="entry-grid">{TASK_GROUPS[locale].map((group) => <a class="task-entry" data-task-entry={group.id} href={href(locale, 'guides', group.id)}><h3>{group.label}</h3><p>{group.summary}</p><span>{zh ? '查看任务与需求示例' : 'See tasks and example requests'}</span></a>)}</div>
+  <p class="entry-boundary">{zh ? '围绕已经确定的产品方向提供帮助；创业方向探索不在范围内。制作发生在你自己的编程助手中。' : 'Guidance works within an established product direction; startup idea exploration is outside its scope. Work happens in your own coding assistant.'}</p>
+</section>
+<style>
+  .task-entries { width: min(1260px, calc(100% - 112px)); margin-inline: auto; padding-block: 4.5rem; }
+  .entries-intro { max-width: 54rem; }
+  h2 { color: #edf2f9; font-size: clamp(1.8rem, 3.2vw, 2.8rem); line-height: 1.3; letter-spacing: -.04em; }
+  .entries-intro p { color: #aebed4; font-size: 1rem; line-height: 1.9; margin-top: 1.25rem; }
+  .entry-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2rem; margin-top: 2rem; }
+  .task-entry { display: block; padding-block: 1.5rem; border-top: 1px solid #384961; text-decoration: none; }
+  h3 { color: #edf2f9; font-size: 1.125rem; line-height: 1.6; }
+  .task-entry p { color: #aebed4; font-size: 1rem; line-height: 1.85; margin-top: .75rem; }
+  .task-entry span { display: block; color: #ffae88; font-size: .875rem; line-height: 1.7; margin-top: 1rem; }
+  .task-entry:hover h3, .task-entry:focus-visible h3 { text-decoration: underline; text-underline-offset: .25em; }
+  .entry-boundary { color: #aebed4; font-size: .875rem; line-height: 1.85; margin-top: 1.5rem; }
+  @media (max-width: 900px) { .entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .task-entries { width: calc(100% - 48px); padding-block: 3rem; } .entry-grid { grid-template-columns: 1fr; } }
+</style>

@@ -33,6 +33,8 @@ npm run test:e2e
 
 - `src/data/site.ts`：项目事实、导航、双语文案、用户场景、完整首次需求与页面元数据。修改能力、安装、许可或边界时核对 Skill 和仓库 README。
 - `src/data/outcomes.ts`：四类代表任务的目标、困难、具体帮助、交付目标和需求；首页、使用场景和上手页共用，保持中英内容与操作边界对应。
+- `src/data/tasks.ts`：六类任务目录、独立需求示例与检查点；复用既有场景和代表任务，供首页、指南与上手页共同读取。旧场景 ID 保持原用途，每项指南的开始链接延续到同一任务。
+- `src/components/TaskEntries.astro`、`DeliveryMethod.astro`：六类能力入口与工程交付流程说明；分别说明独立任务范围与完整工程实施路径，视觉和文件交付条件与当前 Skill 保持一致。
 - `src/data/case-study.ts`、`src/data/case-evidence.ts`：案例正文与审查后的公开事实。更新案例数据时核对事实依据、成本和限制；不得在构建或运行时导入研究档案。`case-evidence.available` 为真前禁止发布。
 - `public/case-study/`：真实任务截图与独立起始项目 ZIP；截图注明组别和样本来源，ZIP包含独立使用说明和许可。
 - `public/media/`：现成界面参考；来源、原许可和必要的转换说明随 `public/licenses/visual-assets.txt` 分发。更换素材时核对获取权限、公开分发范围、预览效果和实际加载，不把第三方参考当作 Skill 的实测成果。

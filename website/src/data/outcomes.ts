@@ -40,9 +40,9 @@ export const OUTCOMES: Record<Locale, Outcome[]> = {
       pain: 'The app works. The interface still looks like a template.',
       situation: 'A developer finished a mobile app with Claude Code, but disliked the generic UI. Repeated redesign requests and reference screenshots mostly produced colour changes instead of a considered design.',
       help: [
-        { title: 'Give “better” a direction', text: 'Use concrete references to decide the visual hierarchy, type, spacing and interaction that suit the app and its users.' },
+        { title: 'Give “better” a direction', text: 'Start with a viewable page, screenshot or design. Reuse an approved reference or help find one, then decide the hierarchy, type, spacing and interaction.' },
         { title: 'Carry it across the actual screens', text: 'Keep the existing functions and technology. Apply one coherent visual system to the real app rather than stopping at a concept.' },
-        { title: 'Try it with real content', text: 'Check the main action, small screens, long content and relevant empty, loading and error states.' },
+        { title: 'Try it with real content', text: 'Compare the implementation with the selected reference. Check the main action, small screens, long content and relevant empty, loading and error states.' },
       ],
       deliverables: ['A coherent visual direction', 'Implemented core screens', 'Mobile interaction checks'],
       previewTitle: 'An app that feels designed.',
@@ -110,9 +110,9 @@ export const OUTCOMES: Record<Locale, Outcome[]> = {
       pain: '功能都做好了，界面还是一股模板味。',
       situation: '一位开发者用 Claude Code 做完移动 App，却不满意普通的界面。反复要求重设计、提供参考截图，得到的仍主要是换颜色。',
       help: [
-        { title: '把“好看”变成明确方向', text: '用具体参考确定适合产品与用户的视觉层级、字体、间距和交互选择。' },
+        { title: '把“好看”变成明确方向', text: '先取得能查看的页面、截图或设计稿，复用已认可的参考或协助寻找，再确定视觉层级、字体、间距和交互。' },
         { title: '改到实际的核心页面', text: '保留现有功能和技术，让同一套视觉规范贯穿真实页面，落实成可操作的实现。' },
-        { title: '用真实内容试一遍', text: '检查主要操作、小屏幕、长内容，以及相关的空白、加载和错误状态。' },
+        { title: '用真实内容试一遍', text: '对照选定参考检查实现，再检查主要操作、小屏幕、长内容，以及相关的空白、加载和错误状态。' },
       ],
       deliverables: ['明确、统一的视觉方向', '已经实现的核心页面', '真实手机交互的检查结果'],
       previewTitle: '从首页到详情，都有一致的设计。',

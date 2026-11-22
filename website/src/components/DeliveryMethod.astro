@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../data/site';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const zh = locale === 'zh-CN';
+const steps = zh ? [
+  ['承接确认的需求', '沿用范围、用户旅程和验收条件，只补充影响本次工作的缺口。'],
+  ['调研已有方案', '从根本问题与事实出发，先查项目内实现，再找适用的成熟基础。'],
+  ['评估取舍，展开设计', '说明复用与改动、成本与维护负担，形成可实施方案和验收场景。'],
+  ['实现并持续检查', '按项目质量标准完成实现，保留适用的自动检查。'],
+  ['在运行中验收', '模拟用户完成关键任务，核对实际响应、结果和重要异常分支。'],
+  ['评审、精简与复验', '首次验收通过后，检查必要性、重复与项目约定；有依据时重构，再复验受影响行为。'],
+] : [
+  ['Carry forward confirmed requirements', 'Reuse the scope, user journey and acceptance criteria. Fill only gaps that affect this task.'],
+  ['Research existing solutions', 'Start from the underlying problem and facts. Look in the project first, then assess suitable mature foundations.'],
+  ['Evaluate trade-offs and design', 'Explain reuse, changes, cost and maintenance. Define a workable plan and acceptance scenarios.'],
+  ['Implement with ongoing checks', 'Follow the project’s quality standards and retain applicable automated checks during implementation.'],
+  ['Check the running result', 'Simulate users completing key tasks. Verify actual responses, outcomes and important failure paths.'],
+  ['Review, simplify and recheck', 'After initial acceptance, review necessity, duplication and conventions. Refactor justified findings and recheck affected behaviour.'],
+];
+---
+<div class="delivery-method" data-delivery-method>
+  <h3>{zh ? '一个工程任务，怎样推进到可用成果？' : 'How does an engineering task reach a usable result?'}</h3>
+  <p>{zh ? '这是工程实施的推进方式。只做需求、找参考或评审时，在所选任务的范围内交付。' : 'This is the engineering delivery path. Requirements, reference searches and reviews can each stop at their own requested result.'}</p>
+  <ol>{steps.map(([title, text]) => <li><h4>{title}</h4><p>{text}</p></li>)}</ol>
+  <p class="method-boundary">{zh ? '验收由助手在实际运行的应用中模拟用户操作；缺少环境、工具或未执行的场景会明确报告。代码评审在通过或达到轮次上限时结束，达到上限仍会交代遗留发现。' : 'Acceptance means the assistant simulates user actions in the running application. Missing environments, tools and untested scenarios are reported. Review stops when it passes or reaches its round limit; remaining findings are still disclosed.'}</p>
+</div>
+<style>
+  .delivery-method { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.3rem; line-height: 1.5; }
+  p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-top: .8rem; }
+  ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; padding-left: 1.3rem; margin-top: 1.5rem; }
+  li { padding-left: .25rem; }
+  li::marker { color: var(--accent-ink); font-weight: 600; }
+  h4 { font-size: 1rem; line-height: 1.6; }
+  li p, .method-boundary { font-size: .875rem; }
+  :global(body.homepage) .delivery-method { border-color: #34445e; }
+  :global(body.homepage) h3, :global(body.homepage) h4 { color: #edf2f9; }
+  :global(body.homepage) p { color: #aebed4; }
+  :global(body.homepage) li::marker { color: #ffae88; }
+  @media (max-width: 600px) { ol { grid-template-columns: 1fr; } }
+</style>

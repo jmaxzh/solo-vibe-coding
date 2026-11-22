@@ -1,5 +1,7 @@
 ---
 import Hero from './Hero.astro';
+import TaskEntries from './TaskEntries.astro';
+import DeliveryMethod from './DeliveryMethod.astro';
 import TaskStage from './TaskStage.astro';
 import HomeInteractions from './HomeInteractions.astro';
 import WebsiteMotion from './WebsiteMotion.astro';
@@ -57,6 +59,7 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
 <div class="immersive-home">
   <Hero locale={locale} />
   <div class="orbit-ribbon" aria-hidden="true"><div class="ribbon-track">{[0, 1].map(() => <span>DESIGN <i>✳</i> BUILD <i>✳</i> DEBUG <i>✳</i> SHIP <i>✳</i> LAUNCH <i>✳</i></span>)}</div></div>
+  <TaskEntries locale={locale} />
   <section class="experience-section" aria-labelledby="experience-title">
     <div class="experience-heading"><p class="eyebrow">01 / THE METHOD</p><h2 id="experience-title">{zh ? '专业方法，进入你的工作流。' : 'Professional methods. Your familiar workflow.'}</h2><p>{zh ? '说清需求，按任务用上专业指导，明确这次交付与检查目标。继续在自己的编程助手中做项目。' : 'Describe the task, draw on relevant guidance and set clear delivery and check goals. Keep working in your own coding assistant.'}</p></div>
     <TaskStage locale={locale} />
@@ -77,6 +80,7 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
   <section class="home-how home-section" id="how-it-helps" aria-labelledby="how-title">
     <div class="section-intro"><p class="eyebrow">{copy.howEyebrow}</p><h2 id="how-title">{copy.howTitle}</h2><p>{copy.howText}</p></div>
     <ol class="how-steps">{copy.steps.map((step, index) => <li><span class="step-index">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" data-home-start={index === 0 || undefined} href={href(locale, step.target)}>{step.link}<span aria-hidden="true">↗</span></a></li>)}</ol>
+    <DeliveryMethod locale={locale} />
     <a class="skill-source" href={PROJECT.repository + '/blob/main/skills/solo-vibe-coding/SKILL.md'}>{OUTCOME_UI[locale].skillSource}<span aria-hidden="true"> ↗</span></a>
   </section>
 

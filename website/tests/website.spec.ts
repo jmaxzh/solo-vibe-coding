@@ -172,6 +172,7 @@ for (const locale of ['en', 'zh-CN'] as const) {
       await page.reload();
       await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
       const nextTask = task === 'design' ? 'growth' : 'design';
+      await page.locator('[data-task-menu] > summary').click();
       await page.locator(`.task-request-nav a[href="#task-${nextTask}"]`).click();
       await expect(page.locator(`[data-task-request="${nextTask}"]`)).toBeVisible();
       await page.goBack();
@@ -367,6 +368,42 @@ for (const locale of ['en', 'zh-CN'] as const) {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     }
   });
+
+  test(`${locale}: independent tasks keep their request through guides, setup and language changes`, async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto(path);
+    await expect(page.locator('[data-task-entry]')).toHaveCount(6);
+    await expect(page.locator('[data-delivery-method] li')).toHaveCount(6);
+    await page.locator('[data-task-entry="project-initialization"]').click();
+    await expect(page.locator('#project-initialization h2')).toBeVisible();
+    await expect(page.locator('[data-guide-task]')).toHaveCount(6);
+
+    for (const [task, boundary] of [
+      ['clarify', locale === 'en' ? 'do not implement' : '不进行实现'],
+      ['initialize', locale === 'en' ? 'preserve existing data' : '保留已有数据'],
+      ['plan', locale === 'en' ? 'do not implement or install' : '不进行实现或安装'],
+      ['review', locale === 'en' ? 'without editing files' : '不修改文件'],
+      ['visual-assets', locale === 'en' ? 'editable source or generation parameters' : '可编辑源文件或生成参数'],
+      ['product-video', locale === 'en' ? 'playable exported file and editable project' : '可播放的导出文件与可编辑工程'],
+    ]) {
+      await page.goto(path + 'guides/#' + task);
+      const request = await page.locator(`[data-guide-example="${task}"] code`).textContent();
+      expect(request).toContain(boundary);
+      await page.locator(`[data-guide-start="${task}"]`).click();
+      await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
+      const selected = page.locator(`[data-task-request="${task}"]`);
+      await expect(selected).toBeVisible();
+      await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
+      await selected.locator('[data-copy]').click();
+      expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(request);
+      await page.locator('#first-task a[href="#installation"]').click();
+      await page.locator('[data-language-switch]').click();
+      await page.reload();
+      await expect(page.locator('[data-task-picker]')).toHaveAttribute('data-selected-task', task);
+      await expect(page.locator(`[data-task-request="${task}"]`)).toBeVisible();
+      await expect(page.locator('[data-task-request]:visible')).toHaveCount(1);
+    }
+  });
 }
 
 test.describe('without JavaScript', () => {
@@ -391,8 +428,15 @@ test.describe('without JavaScript', () => {
       await page.locator('#first-task a[href="#installation"]').click();
       await page.locator('.on-this-page a[href="#first-task"]').click();
       await expect(page.locator('#task-deployment')).toBeVisible();
+      await page.locator('[data-task-menu] > summary').click();
       await page.locator('.task-request-nav a[href="#task-design"]').click();
       await expect(page.locator('#task-design')).toBeVisible();
+      await page.goto(base + prefix);
+      await page.locator('[data-task-entry="project-initialization"]').click();
+      await expect(page.locator('#initialize code')).toContainText(prefix ? '保留已有数据' : 'preserve existing data');
+      await page.locator('[data-guide-start="initialize"]').click();
+      await expect(page.locator('#task-initialize')).toBeVisible();
+      await expect(page.locator('#task-review')).toBeVisible();
       await page.goto(base + prefix);
       await page.locator('[data-case-link]').first().click();
       await expect(page.locator('[data-case-summary]')).toBeVisible();
