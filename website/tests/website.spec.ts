@@ -334,6 +334,21 @@ for (const locale of ['en', 'zh-CN'] as const) {
 
   test(`${locale}: complete request, clipboard, language pairs and user updates`, async ({ page, context }) => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto(path);
+    const updateFAQ = page.locator('.home-faq details').filter({ has: page.locator('.faq-help') });
+    await updateFAQ.locator('summary').click();
+    await updateFAQ.locator('.faq-help').click();
+    await expect(page.locator('[data-update-help]')).toHaveAttribute('open', '');
+    await expect(page.locator('#updating code').first()).toContainText('--agent');
+    await page.locator('#updating details > summary').click();
+    await page.locator('#updating .install-code [data-copy]').first().click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes');
+    await page.locator('#updating > a[href="#verify-skill"]').click();
+    await expect(page.locator('[data-version-help]')).toHaveAttribute('open', '');
+    await page.locator('#verify-skill [data-copy]').click();
+    const verification = await page.evaluate(() => navigator.clipboard.readText());
+    expect(verification).toContain('SKILL.md');
+    expect(verification).toContain(locale === 'en' ? 'read-only' : '只读');
     await page.goto(path + 'getting-started/');
     await expect(page.locator('#requirements a')).toHaveAttribute('href', 'https://learn.chatgpt.com/docs/codex/cli#getting-started');
     await expect(page.locator('#installation')).toContainText('--agent codex --yes');
@@ -437,6 +452,10 @@ test.describe('without JavaScript', () => {
       await page.locator('[data-guide-start="initialize"]').click();
       await expect(page.locator('#task-initialize')).toBeVisible();
       await expect(page.locator('#task-review')).toBeVisible();
+      await page.goto(base + prefix + 'getting-started/#updating');
+      await expect(page.locator('#updating code').first()).toBeVisible();
+      await page.locator('#updating > a[href="#verify-skill"]').click();
+      await expect(page.locator('#verify-skill code')).toBeVisible();
       await page.goto(base + prefix);
       await page.locator('[data-case-link]').first().click();
       await expect(page.locator('[data-case-summary]')).toBeVisible();

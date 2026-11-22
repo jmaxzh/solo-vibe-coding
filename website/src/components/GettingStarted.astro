@@ -15,12 +15,14 @@ const copy = OUTCOME_UI[locale];
 <div class="container document-shell">
   <PageIntro locale={locale} title={ui.title} titleLines={ui.titleLines} description={ui.intro} kind="start" />
   <div class="document-layout">
-    <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
+    <nav class="on-this-page" aria-label={locale === 'en' ? 'Your first project' : '第一次使用'}><a href="#requirements">{ui.beforeTitle}</a><a href="#installation">{ui.installTitle}</a><a href="#updating">{ui.updateTitle}</a><a href="#verify-skill">{ui.verifyTitle}</a><a href="#first-task">{ui.firstTitle}</a><a href="#try-your-result">{ui.reviewTitle}</a></nav>
     <div class="document-content">
       <section id="requirements"><h2>{ui.beforeTitle}</h2><p>{ui.beforeText}</p><a href="https://learn.chatgpt.com/docs/codex/cli#getting-started">{ui.noAssistant}</a></section>
       <section id="installation"><h2>{ui.installTitle}</h2><p>{ui.installText}</p><CodeBlock locale={locale} code={ui.setupPrompt} label={UI[locale].guides.prompt} /><p class="activation-help">{ui.activation}</p>
         <details class="setup-option"><summary>{ui.otherAssistant}</summary><p>{ui.claudeText}</p><CodeBlock locale={locale} code={PROJECT.install + ' --agent claude-code --yes'} install /><CodeBlock locale={locale} code={PROJECT.install} install /></details>
         <details class="setup-option"><summary>{ui.manualTitle}</summary><p>{ui.manualText}</p><Terminal locale={locale} /></details>
+        <details class="setup-option" data-update-help><summary>{ui.updateTitle}</summary><div id="updating"><p>{ui.updateText}</p><CodeBlock locale={locale} code={ui.updatePrompt} label={UI[locale].guides.prompt} /><details class="setup-option"><summary>{ui.updateCommandsTitle}</summary><p>{ui.updateCommandsNote}</p><p>{ui.projectUpdateLabel}</p><CodeBlock locale={locale} code="npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes" install /><p>{ui.globalUpdateLabel}</p><CodeBlock locale={locale} code="npx skills@latest add jmaxzh/solo-vibe-coding --skill solo-vibe-coding --agent codex --yes -g" install /><p>{ui.updateCheck}</p><p>{ui.updateFallback}</p></details><a href="#verify-skill">{ui.verifyTitle}</a></div></details>
+        <details class="setup-option" data-version-help><summary>{ui.verifyTitle}</summary><div id="verify-skill"><p>{ui.verifyText}</p><CodeBlock locale={locale} code={ui.verifyPrompt} label={UI[locale].guides.prompt} /><p>{ui.verifyRefresh}</p></div></details>
       </section>
       <section id="first-task" data-task-picker><h2>{ui.firstTitle}</h2><p>{copy.gettingNote} <a href="#installation">{copy.installFirst}</a></p><p>{ui.firstText}</p>
         <details class="task-menu" data-task-menu><summary>{locale === 'en' ? 'Choose or switch tasks · six entry points' : '选择或切换任务 · 六类入口'}</summary><nav class="task-request-nav" aria-label={copy.gettingNav}>{TASK_GROUPS[locale].map((group) => <div class="task-request-group"><p>{group.label}</p><div>{group.tasks.map((id) => { const task = tasks.find((item) => item.id === id)!; return <a href={'#task-' + id}>{task.label}</a>; })}</div></div>)}<a href="#task-quote">{quoteTask.label}</a></nav></details>
@@ -29,7 +31,7 @@ const copy = OUTCOME_UI[locale];
       <section id="try-your-result"><h2>{ui.reviewTitle}</h2><p>{ui.reviewText}</p><ul class="check-list">{ui.checks.map((item) => <li>{item}</li>)}</ul><a href={href(locale, 'guides')}>{ui.next}<span aria-hidden="true"> ↗</span></a></section>
       <section><h2>{ui.continueTitle}</h2><p>{ui.continueText}</p></section>
       <section class="document-callout" id="boundaries"><h2>{ui.troubleTitle}</h2><p>{ui.troubleText}</p><CodeBlock locale={locale} code={ui.troublePrompt} label={UI[locale].guides.prompt} /></section>
-      <details class="setup-option"><summary>{ui.sources}</summary><div class="resource-links"><a href="https://learn.chatgpt.com/docs/build-skills">{ui.codexDocs}</a><a href="https://code.claude.com/docs/en/skills">{ui.claudeDocs}</a></div></details>
+      <details class="setup-option"><summary>{ui.sources}</summary><div class="resource-links"><a href="https://learn.chatgpt.com/docs/build-skills">{ui.codexDocs}</a><a href="https://code.claude.com/docs/en/skills">{ui.claudeDocs}</a><a href="https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-add">{ui.cliDocs}</a></div></details>
     </div>
   </div>
 </div>

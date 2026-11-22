@@ -103,7 +103,7 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
     <Terminal locale={locale} animate={false} />
   </section>
 
-  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+  <section class="home-faq home-section" aria-labelledby="faq-title"><div><p class="eyebrow">{copy.faqEyebrow}</p><h2 id="faq-title">{copy.faqTitle}</h2><p class="faq-intro">{copy.faqText}</p></div><div class="faq-list">{ui.home.faq.map((item) => <details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}{item.help && <a class="faq-help" href={href(locale, 'getting-started', item.help.section)}>{item.help.label}</a>}</p></details>)}</div></section>
 
   <section class="more-tasks" aria-labelledby="scenarios-title"><div><p class="eyebrow" id="scenarios-title">{copy.allTasks}</p><a href={href(locale, 'guides')}>{copy.guideLink} ↗</a></div><div class="scenario-links">{SCENARIOS[locale].map((scenario) => <a id={'task-' + scenario.id} href={href(locale, 'guides', scenario.id)}>{scenario.label}<span aria-hidden="true">↗</span></a>)}</div></section>
   <div class="brand-signature" aria-hidden="true">SOLO VIBE<span>✳</span></div>
@@ -112,6 +112,7 @@ const icons = ['M6 8h12M8 4l2 4m6-4-2 4M6 12h12M8 16h8M4 8v4m16-4v4M8 8v8a4 4 0 
 <HomeInteractions />
 
 <style>
+  .faq-help { display: block; width: fit-content; color: #ffae88; font-size: .875rem; line-height: 1.8; padding-top: .75rem; min-height: 44px; text-underline-offset: .2em; }
   .immersive-home { --home-space: 96px; overflow: clip; }
   .home-section, .experience-section, .install-section, .more-tasks { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
   .home-section { padding-block: var(--home-space); }
